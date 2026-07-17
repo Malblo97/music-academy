@@ -1,0 +1,4 @@
+{ "name": "@ma/content", "version": "0.1.0", "type": "module",
+  "scripts": { "lint": "echo ok", "typecheck": "echo ok",
+               "test": "echo no-tests", "count": "tsx scripts/count.ts" },
+  "devDependencies": { "tsx": "^4.19.0" } }

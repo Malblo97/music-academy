@@ -1,0 +1,4 @@
+{ "name": "@ma/shared", "version": "0.1.0", "type": "module",
+  "main": "./src/index.ts",
+  "scripts": { "lint": "echo ok", "typecheck": "tsc --noEmit", "test": "echo no-tests" },
+  "dependencies": { "zod": "^3.23.0" } }
