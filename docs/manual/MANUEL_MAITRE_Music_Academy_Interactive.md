@@ -634,3 +634,17 @@ La preuve de la boucle contenu→solution→moteur. Tous traités ; à connaîtr
 ---
 
 *Fin du Manuel Maître v1.0 — toute production future s'y réfère et l'amende selon §7.4.*
+
+/*
+Le Manuel Maître v1.0 est produit. Il consolide l'intégralité du projet en un document de référence autonome (~45 pages équivalent), structuré ainsi :
+§0 Préambule — statut de référence unique, mode d'emploi, terminologie des IDs.
+§1 Vision — les 5 principes directeurs (dont « le vocabulaire du cours EST le vocabulaire du moteur » et la charte anti-contrefaçon), philosophie du cursus, portfolio de sortie.
+§2 Architecture — monorepo Turborepo, les 3 flux (live / soumission / MIDI aller-retour), backend, frontend, structure du contenu, roadmap figée.
+§3 Moteur isomorphe — tous les analyseurs (avec les décisions F-x intégrées directement dans leur spécification), les ~46 règles et profils de style, le pipeline de correction, le kind ANALYSIS, la gouvernance CI (4 verrous).
+§4 Conventions — gabarits leçon/spec/quiz/solution, la charte des quiz verbatim (retrouvée dans le transcript), les gabarits spécialisés (fiche instrument, leçon de genre, fiche d'ambiance, DAW_MISSION 3 niveaux).
+§5 Les 12 modules — objectifs, trajet leçon par leçon, dépendances, formules-doctrines de chacun.
+§6 Registre des décisions — 10 techniques, 14 pédagogiques, les doctrines musicales par domaine, la traçabilité des extensions moteur par module.
+§7 Règles de travail — contrat de cohérence, immutabilité/versionnage, le protocole de production en 7 étapes (moteur avant solutions), procédure d'amendement, backlog chiffré.
+Annexes A–H — notation textuelle, registre des règles, registre des clés de contraintes, les 15 MOOD_TEMPLATES avec valeurs, les 14 findings, les données instruments complètes, les assets, glossaire.
+Deux recommandations d'usage : versionnez-le dans le repo (docs/MANUEL_MAITRE.md) comme le prévoit §7.4, et lors de la prochaine session de production (les solutions M3, par exemple), fournissez uniquement ce document — c'est le test de son autosuffisance. Si un manque apparaît, on l'amende en v1.1 plutôt que de repuiser dans l'historique.
+*/

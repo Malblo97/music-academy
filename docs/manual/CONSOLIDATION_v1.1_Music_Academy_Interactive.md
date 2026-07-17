@@ -166,3 +166,9 @@ Complète le Manuel Maître v1.0 (architecture, moteur, conventions, modules —
 ---
 
 *Fin de la consolidation v1.1 — versable au repo avec le Manuel Maître v1.0. Toute production future amende ce document selon §7.4 du Manuel.*
+
+/*
+La consolidation v1.1 est produite — le document de passation qui complète le Manuel Maître v1.0 et prime sur lui en cas de conflit. Il contient : l'état global chiffré (191 solutions/étalons, 148 quiz, 51 findings, portfolio 4/4, 5 verrous CI), l'index des sections 63–86, le registre complet des findings F-15→F-51 classés en quatre familles (analyseurs/règles, formats/schémas, amendements de specs, assets/CI), les 9 décisions nouvelles à verser au registre §6, l'inventaire des livrables, et surtout l'ordre de PR global en 7 étapes pour l'équipe d'implémentation, avec la liste exhaustive de ce qui reste (implémentation, ~22 h d'assets, calibrage beta — rien d'autre).
+Le projet est éditorialement clos de bout en bout. Depuis la reprise : M3→M11 solutionnés (104 solutions et étalons produits, 37 findings traités), le générateur spécifié, les 140 quiz manquants rédigés, les assets intégralement spécifiés, et les deux documents de référence (Manuel v1.0 + Consolidation v1.1) prêts à verser dans docs/ du repo.
+Pour la suite, tout passe côté exécution : l'implémentation logicielle suit la roadmap et l'ordre de PR du §6, la production sonore suit le plan de la section 86 fiche par fiche. Si un jour tu veux rouvrir la conception (un genre M9 supplémentaire via la méthode m11-l06, un module 13), les deux documents suffisent comme point de reprise — c'était leur raison d'être.
+*/
