@@ -1,0 +1,10 @@
+{ "id": "m01-e27-function-story", "lessonId": "m01-l15-fonctions",
+  "title": "Le récit en trois lettres", "kind": "HARMONY_PROGRESSION",
+  "difficulty": 4, "xpReward": 80, "skills": { "HARMONY": 1.0 },
+  "spec": { "prompt": "Réalise ce récit de fonctions en ré majeur, un accord par lettre : T T S D | T S D T. Choisis librement les costumes (T → I ou vi ; S → IV ou ii ; D → V7 ou vii°) et les renversements pour la basse. L'analyseur vérifie la fonction de CHAQUE accord contre le plan.",
+    "given": { "key": { "tonic": 2, "mode": "major" } },
+    "constraints": { "lengthBars": [8,8], "minVoices": 4,
+      "functionPlan": ["T","T","S","D","T","S","D","T"],
+      "requiredCadence": "perfect" },
+    "styleProfile": { "id": "classical-common" },
+    "rubric": { "correctness": 35, "constraints": 40, "craft": 25 } } }

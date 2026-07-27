@@ -1,0 +1,101 @@
+---
+id: m06-l04-pads
+module: module-06-sound-design
+title: "Pads : les cinq familles"
+estMinutes: 30
+skills: { sound_design: 0.8, orchestration: 0.2 }
+---
+
+### Pourquoi le pad est l'instrument-roi de l'hybride
+
+Le pad est au score hybride ce que les cordes tenues sont à l'orchestre : **le tapis** — la couche `body` par excellence (l03), celle qui porte l'harmonie pendant que tout le reste vit dessus. C'est aussi le son le plus demandé, le plus cherché dans les banques (m10-l06 : les quarante pads), et le plus mal compris : « pad » n'est pas UN son, c'est **cinq familles** aux métiers distincts. Cette leçon donne les cinq fiches — recette de synthèse, caractère, territoire, mariage orchestral — au format des fiches M5 : après elle, tu ne chercheras plus un pad, tu le *choisiras* (ou le fabriqueras).
+
+### 1. La famille ANALOG : la chaleur
+
+| Rubrique | Contenu |
+|---|---|
+| Recette | 2–3 oscillateurs **saw désaccordés** (± 5–12 cents — l'équation de l01 §1), low-pass ouvert aux 2/3, résonance discrète, ADSR nappe (A 400–900 ms, R 1–2 s) |
+| Vie (l02) | LFO lent → cutoff (la respiration) ; le detune EST déjà une vie |
+| Caractère | chaud, épais, enveloppant — le « vintage » au sens noble |
+| Bande utile | body classique : 100–4k (high-pass à ~100 : la loi de l03) |
+| Territoire | la nostalgie, le rétro-futur, la chaleur humaine dans la machine |
+| Mariage orchestral | + cordes con sordino à l'unisson = le tapis hybride de base (l14 formalisera) — les deux chaleurs fusionnent sans couture |
+
+### 2. La famille AMBIENT : l'air
+
+| Rubrique | Contenu |
+|---|---|
+| Recette | matière douce (saw très filtrée, ou samples soufflés), attaque TRÈS lente (1–3 s), release longue, **beaucoup de reverb assumée** (la seule famille où `sd.wash-out` tolère — car l'ambient N'EST PAS le body principal : il se superpose) |
+| Vie | LFO random lent → pan/cutoff (le scintillement, l02 §2) |
+| Caractère | vaporeux, sans contour, plus un lieu qu'un son |
+| Bande utile | médium-aigu : 300 Hz–10k — il vole AU-DESSUS du body, jamais à sa place |
+| Territoire | l'espace, le rêve, la mémoire ; la SF contemplative (m02-l13 : l'apesanteur a trouvé son instrument) |
+| Mariage | + harmoniques de violons, + flûte grave exposée (l06 M5 : le velours enfin accompagné sans être masqué) |
+
+### 3. La famille DIGITAL : le verre
+
+| Rubrique | Contenu |
+|---|---|
+| Recette | wavetables mouvantes ou FM douce, attaque moyenne, **la position de wavetable modulée** (le timbre qui se transforme EST le son) |
+| Vie | l'enveloppe ou l'automation → position de table : le pad qui *devient* autre chose |
+| Caractère | froid, cristallin, précis — la beauté inorganique |
+| Bande utile | large avec présence marquée : 200 Hz–12k |
+| Territoire | la technologie, le clinique, le merveilleux froid ; le thriller techno (m09-l04 : l'aiguille a trouvé sa version tenue) |
+| Mariage | + celesta/harpe dans l'aigu ; **contraste** avec les cordes plutôt que fusion — le digital se marie par opposition (le froid contre le chaud : un axe dramatique à lui seul) |
+
+### 4. La famille CHOIR : l'humain massifié
+
+| Rubrique | Contenu |
+|---|---|
+| Recette | samples de chœur (« aah/ooh ») ou formants synthétiques ; attaque douce, PAS de vibrato individuel audible |
+| Vie | crossfade de voyelles (automation lente ooh→aah = le crescendo d'ouverture vocale) |
+| Caractère | sacré, ancien, humain-mais-pas-quelqu'un |
+| Bande utile | le médium de la voix : 200 Hz–4k — ATTENTION : c'est la zone critique de l03, le choir se paie en place |
+| Territoire | l'épique (m09-l02 : la couche « chœur¹ » du tableau, version synthétique), le sacré, la révélation |
+| Mariage | + cuivres en blocs (l'épique complet) ; + cordes graves (le requiem). Piège dédié : le choir-pad sous une VRAIE voix soliste = le kitsch immédiat |
+
+### 5. La famille HYBRID : la matière déguisée
+
+| Rubrique | Contenu |
+|---|---|
+| Recette | la plus moderne : **un son acoustique rendu puis maltraité** (m10-l10 : Render in Place ouvrait cette porte) — cordes étirées, cor reversé, piano granularisé (l11 donnera les outils) — fondu avec une couche synthétique qui le stabilise |
+| Vie | héritée de la matière source : le grain acoustique EST le mouvement |
+| Caractère | organique-mais-étrange — on reconnaît sans reconnaître (la variation subliminale de m02-l04, appliquée au timbre !) |
+| Bande utile | selon la source ; souvent riche en médium avec des aigus irréguliers |
+| Territoire | LE son du cinéma contemporain : le drame moderne, la tension organique, tout ce qui doit sonner « ni orchestre ni synthé » |
+| Mariage | avec l'orchestre dont il provient — la boucle parfaite : les celli jouent, leur fantôme granulaire les hante (l14 §3 en fera un procédé nommé) |
+
+### 6. Choisir : la table de décision
+
+```
+Le brief dit…              → famille
+chaleur, passé, humain       ANALOG
+espace, rêve, apesanteur     AMBIENT
+froid, précis, technologie   DIGITAL
+sacré, vaste, ancien         CHOIR
+étrange, organique, moderne  HYBRID
+```
+
+Et la règle des mélanges : **deux familles maximum par stack** (un body d'une famille + un ambient d'une autre est le duo standard) — trois familles de pads simultanées = `sd.band-pileup` garanti et l'identité perdue.
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Le pad-bouche-tout (20 Hz–20 kHz) | il ne laisse de place à rien | high-pass à 100, low-pass raisonnable : le pad est un `body`, pas le monde |
+| Trois familles empilées | la bouillie luxueuse | deux max ; la 3e voix est une texture (l05), pas un pad |
+| Le choir sous la voix | le kitsch | le choir remplace l'humain, il ne l'accompagne pas |
+| Le pad statique 30 secondes | l'orgue (l02) | une motion, toujours — la respiration est le minimum vital |
+| Chercher LE pad parfait une heure | m10-l06, la rechute | la table de décision, puis fabriquer/ajuster : 10 minutes |
+
+### La mission (m06-e04, LAYERING)
+
+Trois briefs courts (« la mémoire d'un été », « la salle des serveurs », « le monastère en ruine ») : pour chacun, choisis la famille (table §6), fabrique ou ajuste le pad, déclare sa couche (`role: "body"`, famille en `source`, bande, motion). Le moteur vérifie la cohérence famille↔brief (mapping déclaré dans la spec), les bandes disciplinées, et une motion par pad. *Un quatrième brief piège : « le héros se souvient » — deux familles défendables (analog/hybrid) : le rapport crédite les deux et affiche le pourquoi de chacune.*
+
+- [ ] Cinq familles, cinq métiers : analog/ambient/digital/choir/hybrid
+- [ ] Le pad est un body discipliné : high-pass à 100, deux familles max par stack
+- [ ] La famille se choisit au brief — la table de décision avant la banque
+- [ ] Le hybrid est le son du cinéma contemporain : l'acoustique déguisé
+
+<QuizBlock id="m06-l04-quiz" questions={5} />
+<LessonFooter exercises={["m06-e04-five-families"]} />

@@ -1,0 +1,13 @@
+{
+  "exerciseId": "m07-e05-elena-cast",
+  "payload": {
+    "lengthBars": 16,
+    "sections": [
+      { "id": "expo-1", "bars": [1, 8], "casting": "hautbois seul", "content": "s30-elena m1–8 (F-30), le thème NU", "argument": "Elena focalise ; digne et blessée = l'anche qui ne se fond pas" },
+      { "id": "expo-2", "bars": [9, 16], "adds": [{ "part": "cellos ténor", "content": "m04-s11-fleuve verbatim", "recipe": "slow-river", "range": "G2–A3", "note": "l'or pur au retour" }] },
+      { "id": "echange", "bars": [13, 16], "handover": "m12–13 : le hautbois pose sa fin de phrase et passe en tenues pâles ; les celli montent d'un étage (A3→E4) et prennent l'activité" }
+    ],
+    "dyn": { "oboe": "mf", "cellos": "mp", "note": "le cran dynamique dessous, arbitré par effectivePower via dyn[] (F-39)" }
+  },
+  "authorNotes": "Les trois écarts mesurés : registre (moyenne **15 demi-tons** ≥ 12), timbre (anche contre cordes), activité (complément **0,21** ≤ 0,35) — plus la manière, qui compte comme un timbre. Le cran dynamique se vérifie par `effectivePower` et non par les nuances écrites : **3,1 contre 4,2** — la hiérarchie tient avant tout mixage, ce qui est exactement la thèse de la leçon (celli mf contre violons section mf, le contrechant est déjà dominé). La passation est localisée à la fenêtre m12–13 et détectée : le rolePlan s'inverse, puis revient. Le rapport dit qui règne, mesure par mesure."
+}

@@ -1,0 +1,10 @@
+{ "id": "m01-e17-syncopation-lab", "lessonId": "m01-l09-rythme-2",
+  "title": "Penche la phrase", "kind": "MELODY_COMPOSE",
+  "difficulty": 4, "xpReward": 70, "skills": { "RHYTHM": 1.0 },
+  "spec": { "prompt": "Voici une phrase carrée, entièrement sur la grille. Réécris-la avec les MÊMES hauteurs dans le MÊME ordre, mais un rythme syncopé (vise la fenêtre 25–50 % : au moins deux vraies syncopes qui tiennent à travers un temps fort). La grille doit rester perceptible — ne penche pas tout.",
+    "given": { "key": { "tonic": 0, "mode": "major" },
+      "notation": "C4:q E4:q G4:q E4:q | A4:q G4:q E4:q D4:q | C4:q E4:q G4:q A4:q | G4:h C4:h" },
+    "constraints": { "lengthBars": [4,4], "samePitchSequenceAsGiven": true,
+      "syncopationTarget": [0.25, 0.5] },
+    "styleProfile": { "id": "jazz", "targetMood": "playful" },
+    "rubric": { "correctness": 25, "constraints": 45, "craft": 30 } } }

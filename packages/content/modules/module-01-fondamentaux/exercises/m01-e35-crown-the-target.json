@@ -1,0 +1,11 @@
+{ "id": "m01-e35-crown-the-target", "lessonId": "m01-l19-dominantes-secondaires",
+  "title": "Couronne l'arrivée", "kind": "HARMONY_PROGRESSION",
+  "difficulty": 5, "xpReward": 90, "skills": { "HARMONY": 1.0 },
+  "spec": { "prompt": "Voici I–vi–IV–V–I en fa majeur. Insère DEUX dominantes secondaires (au choix : V/vi avant vi, V/IV avant IV, V/V avant V), voicings 4 voix. Vérifications actives : chaque sensible LOCALE monte d'un demi-ton vers sa cible, et la cible occupe le temps fort (la dominante secondaire est une anacrouse harmonique).",
+    "given": { "key": { "tonic": 5, "mode": "major" },
+      "chords": [ { "root": 5, "quality": "maj" }, { "root": 2, "quality": "min" }, { "root": 10, "quality": "maj" }, { "root": 0, "quality": "7" }, { "root": 5, "quality": "maj" } ] },
+    "constraints": { "lengthBars": [5,7], "minVoices": 4,
+      "mustInclude": ["secondaryDominant>=2"], "targetOnStrongBeat": true },
+    "styleProfile": { "id": "classical-common",
+      "ruleWeights": { "vl.leading-tone-resolution": 1.3, "melody.out-of-key": 0.3 } },
+    "rubric": { "correctness": 35, "constraints": 35, "craft": 30 } } }

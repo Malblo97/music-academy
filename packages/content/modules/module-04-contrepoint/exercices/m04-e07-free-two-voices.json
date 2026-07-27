@@ -1,0 +1,41 @@
+{
+  "id": "m04-e07-free-two-voices",
+  "lessonId": "m04-l07-contrepoint-libre",
+  "title": "Le libre à deux voix",
+  "kind": "COUNTERPOINT",
+  "difficulty": 5,
+  "xpReward": 100,
+  "skills": { "COUNTERPOINT": 0.8, "MELODY": 0.2 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "classical-common", "ruleWeights": {} },
+  "rubric": { "correctness": 30, "constraints": 35, "craft": 35 },
+  "spec": {
+    "version": 1,
+    "species": "free",
+    "prompt": "L'inventaire de sortie en acte : 12 mesures à deux voix LIBRES ET ÉGALES en sol majeur — plus de CF, plus de rapport rythmique fixe, le profil se relâche exactement où la leçon le relâche. Les trois moteurs au travail : le motif donné (2 mesures) à partager entre les voix (≥ 2 énoncés par voix), le complément rythmique mesuré (quand l'une parle, l'autre respire — attaques fortes simultanées ≤ 40 %), la polarité soprano-basse (deux voix bien choisies impliquent toute l'harmonie). Et la nouveauté qui se gagne : 1 à 2 appoggiatures LIBRES, déclarées — attaquées au temps fort sans liaison, résolues par degré, ET réclamées par le geste (le checker croise la figure et le contour : posée froidement, c'est une faute ; au sommet d'un élan, c'est le sanglot).",
+    "liveFeedback": true,
+    "given": {
+      "key": { "tonic": 7, "mode": "major" },
+      "motif": "D5:q. C5:e B4:q A4:q | B4:q G4:q"
+    },
+    "constraints": {
+      "species": "free",
+      "lengthBars": [12, 12],
+      "voices": 2,
+      "key": { "tonic": 7, "mode": "major" },
+      "motifStatementsPerVoice": 2,
+      "simultaneousStrongAttacksMax": 0.4,
+      "declaredAppoggiaturas": {
+        "min": 1,
+        "max": 2,
+        "requireStrongBeat": true,
+        "requireUntied": true,
+        "requireStepResolution": true,
+        "requireContourJustification": true
+      },
+      "requiredCadence": "clausule",
+      "perVoiceMelodyJudging": true
+    }
+  }
+}

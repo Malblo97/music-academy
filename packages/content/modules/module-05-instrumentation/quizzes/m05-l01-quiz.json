@@ -1,0 +1,17 @@
+{ "id": "m05-l01-quiz", "interaction": "mc", "items": [
+  { "q": "Les logiques d'écriture par famille :",
+    "options": ["tout se pense en sections", "cordes en sections, bois en solistes, cuivres en pupitres groupés", "chaque instrument est un soliste"],
+    "answer": "cordes en sections, bois en solistes, cuivres en pupitres groupés",
+    "why": "Confier une mélodie « aux bois » ne veut rien dire ; la confier « au hautbois » dit tout (§1) — chaque bois est un timbre-personnage." },
+  { "q": "La colonne la plus importante de chaque fiche :",
+    "options": ["la tessiture praticable", "la couleur par registre — un instrument est un empilement de timbres", "l'agilité"],
+    "answer": "la couleur par registre — un instrument est un empilement de timbres",
+    "why": "La règle de lecture n° 1 (§2) : la flûte grave et la flûte aiguë sont presque deux instruments — les descriptions des rapports viennent mot pour mot de cette colonne." },
+  { "q": "L'ordre des trois questions de l'orchestrateur :",
+    "options": ["couleur → rôle → registre (« je veux des cors ! »)", "rôle → registre → couleur", "registre → couleur → rôle"],
+    "answer": "rôle → registre → couleur",
+    "why": "Les débutants commencent par la couleur et découvrent que le registre est pris et le rôle flou (§3) — les fiches répondent à la question 3, mais les deux premières se posent avant d'ouvrir le livre." },
+  { "q": "[intégrative] Pourquoi la puissance des fiches (pp→ff) est-elle chiffrée sur 10, instrument par instrument ?",
+    "options": ["parce que la nuance est relative à l'instrument (l10 M1) : le ff d'une flûte est plus faible que le mf d'un trombone", "pour simplifier la notation", "parce que le MIDI plafonne à 127"],
+    "answer": "parce que la nuance est relative à l'instrument (l10 M1) : le ff d'une flûte est plus faible que le mf d'un trombone",
+    "why": "La vérité d'atelier de l10 M1 §1 devient la colonne `dynamicPower` (§2) : c'est la matière première de `orch.balance` — une mélodie 5/10 contre un tapis cumulé 27/10 est étouffée." } ] }

@@ -1,0 +1,63 @@
+---
+id: m05-l03-alto
+module: module-05-orchestration
+title: "L'alto : le coeur discret"
+estMinutes: 30
+skills: { orchestration: 1.0 }
+---
+
+### Carte d'identité
+
+| Propriété | Valeur |
+|---|---|
+| Tessiture | `C3`–`E6` (aigu praticable mais tendu au-delà de C6) |
+| Sweet spot | `C3`–`D5` |
+| Agilité | 8/10 |
+| Tenue | illimitée (section) |
+| Puissance | pp 2/10 → ff 6/10 — le moins puissant des pupitres de cordes |
+
+### Pourquoi irremplaçable
+
+L'alto occupe le registre où l'harmonie *vit* — entre le chant des violons et la basse des violoncelles — avec un timbre voilé, nasal, doux-amer, qu'aucun autre instrument n'a. Sans altos, le milieu de l'orchestre est un trou (le « trou de ténor » de l12 M1, version orchestrale). C'est l'instrument le plus sous-employé des débutants et le plus aimé des orchestrateurs : **il colle tout**.
+
+### Couleur par registre
+
+```
+C3 ──────── G3 ──────────── D5 ────── E6
+│ GRAVE     │    MÉDIUM      │  AIGU   │
+│ sombre,   │ voilé, doux-   │ tendu,  │
+│ boisé,    │ amer — LA      │ plaintif,│
+│ grain     │ couleur alto   │ intense │
+│ profond   │ (90 % du rôle) │ (voulu !)│
+```
+
+L'aigu d'alto n'est pas un violon raté : c'est une **tension timbrale** propre — la même note jouée par un violon (facile) et un alto (en haut de sa tessiture) n'a pas le même vécu. Confier une mélodie aiguë aux altos est un choix expressif d'intensité.
+
+### Rôles
+
+| Rôle | Écriture |
+|---|---|
+| Harmonie interne (n° 1) | tenues ou croches répétées, médium — le liant de la section |
+| Contrechant | ligne médium sous la mélodie de violons — la réponse voilée |
+| Doublure des violoncelles à l'octave | épaissit le chant grave sans l'alourdir |
+| Mélodie exposée | rare donc marquante : la confession, l'intime, l'amer |
+| Ostinato médium | avec ou sans violoncelles : le moteur sombre |
+
+### Associations
+
+Altos + violoncelles à l'unisson = le chant grave charnu (le « ténor » de l'orchestre) ; + bassons = fondu total du médium ; + cor anglais = la mélancolie au carré ; + clarinette = velours.
+
+### Erreurs fréquentes (détectées)
+
+| Erreur | Règle |
+|---|---|
+| Sous C3 | `orch.range-violation` |
+| L'oublier (harmonie confiée aux violons II seuls) | `orch.role-coverage` — le milieu se creuse |
+| Le doubler systématiquement sans ligne propre | `orch.masking` version inverse : un pupitre entier gâché |
+| ff exposé contre cuivres | `orch.balance` — 6/10 : le plus fragile des cordes |
+
+- [ ] L'alto est le liant du milieu — le trou de ténor est son absence
+- [ ] Sa couleur voilée est unique ; son aigu est une intensité, pas un pis-aller
+- [ ] Altos + celli = le ténor de l'orchestre
+
+<QuizBlock id="m05-l03-quiz" questions={5} />

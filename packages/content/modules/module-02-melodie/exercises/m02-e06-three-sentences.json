@@ -1,0 +1,11 @@
+{ "id": "m02-e06-three-sentences", "lessonId": "m02-l03-developper-1",
+  "title": "Trois sentences (1+1+2)", "kind": "MELODY_COMPOSE",
+  "difficulty": 5, "xpReward": 120, "skills": { "MELODY": 1.0 },
+  "spec": { "prompt": "L'exercice charnière : TROIS sentences de 4 mesures (12 mesures, un silence d'un temps minimum entre elles), chacune bâtie sur une cellule d'archétype DIFFÉRENT (à toi de choisir lesquels). Structure 1+1+2 vérifiée par segment : énoncé, répétition (exacte ou transposée), développement, geste cadentiel.",
+    "given": { "key": { "tonic": 7, "mode": "major" } },
+    "constraints": { "key": { "tonic": 7, "mode": "major" }, "lengthBars": [12,12],
+      "segmentBars": 4, "phraseStructure": "sentence",
+      "requireRestAtBar": [4,8], "minMotifOccurrences": 2,
+      "mustEndOnDegrees": [1,3,5] },
+    "styleProfile": { "id": "classical-common" },
+    "rubric": { "correctness": 20, "constraints": 45, "craft": 35 } } }

@@ -1,0 +1,76 @@
+---
+id: m10-l07-routing
+module: module-10-cubase
+title: "Routing, groupes, bus : l'orchestre câblé"
+estMinutes: 25
+skills: { daw_workflow: 0.8, orchestration: 0.2 }
+---
+
+### Pourquoi câbler avant de mixer
+
+Le routing est la plomberie du son : où va chaque signal, avec qui il se regroupe, quels traitements il partage. Une session bien câblée se mixe en minutes (l08) ; une session plate — quarante pistes directement dans le master — se mixe en heures et s'exporte en cauchemar (l14 : les stems). Le principe directeur vient du Module 5 : **l'orchestre pense en familles, ta session aussi**.
+
+### 1. Les trois tuyaux (le vocabulaire, une fois pour toutes)
+
+| Objet | Ce que c'est | Métaphore |
+|---|---|---|
+| **Sortie directe** (routing) | où le signal VA : piste → groupe → master | le tuyau principal |
+| **Groupe** (Group Channel) | un canal qui reçoit plusieurs pistes : la famille en un fader | le pupitre du chef |
+| **Send** (départ auxiliaire) | une COPIE dosée du signal envoyée ailleurs (FX Channel) sans quitter son tuyau | le micro d'ambiance |
+
+La confusion send/routing est LA source des sessions incompréhensibles : le routing déplace le signal, le send le *duplique en dosant*. La reverb commune de l02 était un send — tu comprends maintenant pourquoi : chaque piste garde son tuyau ET envoie un peu d'elle-même dans la salle partagée.
+
+### 2. L'architecture standard (celle du template Medium)
+
+```
+Pistes                    Groupes            Master
+STR Violins ─┐
+STR Altos   ─┼──► GRP Strings ─┐
+STR Celli   ─┘                 │
+WW  Flûte   ─┐                 ├──► GRP Orchestra ──► Stereo Out
+WW  Clar.   ─┼──► GRP Winds  ──┤
+BR  Cors    ─┬──► GRP Brass  ──┘
+BR  Tromp.  ─┘
+SYN Pad     ─┬──► GRP Synths ─────────────────────► Stereo Out
+SYN Sub     ─┘
+                  FX Channels (alimentés par sends) :
+                  FX Reverb Hall  ◄── sends de TOUTES les pistes
+                  FX Reverb Room  ◄── (l08 : les deux profondeurs)
+                  FX Delay        ◄── sends ponctuels (synthés surtout)
+```
+
+Trois décisions encodées dans ce schéma :
+
+- **un groupe par famille** — le vocabulaire de m05-l01 devient des faders : « les cuivres trop forts » se règle en UN geste ;
+- **un groupe Orchestra au-dessus des familles** — le tutti en un fader (et le sidechain futur du Module 6 remerciera) ; les synthés restent HORS de ce groupe : deux mondes, deux traitements (le brief hybride l'exige) ;
+- **les FX en channels partagés, jamais en inserts par piste** — une salle pour tout le monde (la cohérence spatiale de l02) et une fraction du CPU.
+
+### 3. Construire (la mission le fait faire — voici le pourquoi de chaque geste)
+
+Créer un groupe : sélectionne les pistes de la famille → clic droit → *Add Group Channel to Selected Channels* — Cubase câble tout seul. Nommage : `GRP <Famille>`, couleur de la famille. Les FX Channels : *Add FX Channel* avec le plugin, puis le send se dose piste par piste (le petit slot Sends de l'Inspector). Ordre de construction : **groupes d'abord, FX ensuite, sends en dernier** — la plomberie avant les robinets.
+
+### 4. Le piège des niveaux d'écriture
+
+Dès que les groupes existent, une tentation : « égaliser » en poussant les faders de groupe. Retiens la hiérarchie (l08 la développe) : **la balance se joue d'abord dans l'ÉCRITURE** (la dynamique MIDI — ton CC1 de l04, les `dynamicPower` des fiches), ensuite dans les faders de pistes, en dernier dans les groupes. Un groupe Brass à −12 dB pour compenser des cuivres écrits fff est un mensonge : la maquette sonnera équilibrée, la partition ne l'est pas — et le jour d'un enregistrement réel, `orch.balance` avait raison depuis le début.
+
+### 5. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Tout dans le master, à plat | mix impossible, stems impossibles | les groupes-familles, dès le template |
+| Une reverb en insert par piste | 12 salles différentes + CPU en feu | FX Channels partagés, sends dosés |
+| Send confondu avec routing | des pistes « disparues », des doublages fantômes | le send duplique et dose ; le routing déplace |
+| Synthés routés dans Orchestra | impossible de traiter les deux mondes séparément | deux arbres : Orchestra / Synths |
+| Équilibrer aux faders de groupe | la partition ment | l'écriture d'abord, les faders ensuite |
+
+### La mission (m10-e07, GUIDÉE)
+
+Câble ton template Medium selon le schéma : 4 groupes-familles + GRP Orchestra + GRP Synths, 2 FX reverb + 1 delay en sends, nommage/couleurs. Checklist 10 étapes, `verifyHint` systématiques (« mute GRP Strings : TOUTES les cordes se taisent-elles ? » — le test de câblage en un clic).
+
+- [ ] Routing déplace, send duplique-et-dose — plus jamais confondus
+- [ ] Un groupe par famille, Orchestra au-dessus, Synths à part
+- [ ] FX partagés en channels, jamais en inserts multipliés
+- [ ] La balance vit dans l'écriture d'abord — les groupes ne mentent pas
+
+<QuizBlock id="m10-l07-quiz" questions={5} />
+<LessonFooter exercises={["m10-e07-wire-the-orchestra"]} />

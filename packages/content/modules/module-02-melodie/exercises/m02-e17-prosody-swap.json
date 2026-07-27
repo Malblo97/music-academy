@@ -1,0 +1,11 @@
+{ "id": "m02-e17-prosody-swap", "lessonId": "m02-l09-prosodie",
+  "title": "Deux personnages, mêmes hauteurs", "kind": "MELODY_COMPOSE",
+  "difficulty": 5, "xpReward": 100, "skills": { "RHYTHM": 0.6, "MELODY": 0.4 },
+  "spec": { "prompt": "Voici une suite de hauteurs. Livre-la DEUX fois (4+4 mesures, mêmes hauteurs dans le même ordre) : d'abord en prosodie DÉCLAMATOIRE (longues sur les appuis, brèves en anacrouses — l'autorité), puis VOLUBILE (rafales de brèves, longues rares — la nervosité). Deux personnages doivent apparaître.",
+    "given": { "key": { "tonic": 7, "mode": "major" },
+      "notation": "G4 B4 A4 G4 D5 B4 A4 G4 A4 B4 G4" },
+    "constraints": { "lengthBars": [8,8], "segmentBars": 4,
+      "samePitchSequenceAsGiven": true,
+      "prosodyPlan": ["declamatory","voluble"] },
+    "styleProfile": { "id": "classical-common" },
+    "rubric": { "correctness": 15, "constraints": 50, "craft": 35 } } }

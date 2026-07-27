@@ -1,0 +1,11 @@
+{ "id": "m02-e09-silhouette-match", "lessonId": "m02-l05-contour",
+  "title": "Reconnais la silhouette", "kind": "THEORY_QUIZ",
+  "difficulty": 3, "xpReward": 50, "skills": { "MELODY": 0.7, "EAR_TRAINING": 0.3 },
+  "spec": { "prompt": "Écoute (et regarde le roll) : quelle silhouette, et quel message porte sa fin ?",
+    "quiz": { "interaction": "mc",
+      "generator": { "shapes": ["arch","descent","ascent","wave","plateau"], "rounds": 8 },
+      "items": [
+        { "q": "▶", "play": "E4:q G4:q B4:q D5:h C5:q A4:q F4:q E4:h", "options": ["arche","vague","ascension"], "answer": "arche", "why": "Montée-sommet-descente : effort, accomplissement, repos — le gabarit par défaut." },
+        { "q": "▶", "play": "D5:h C5:q Bb4:q A4:h G4:q F4:q E4:h D4:w", "options": ["chute (lament)","plateau","arche"], "answer": "chute (lament)", "why": "La ligne qui descend sans remonter : la plainte, la fatalité." },
+        { "q": "▶", "play": "E4:q F4:q E4:q F4:e E4:e | E4:q G4:q E4:q F4:q", "options": ["vague","plateau","ascension"], "answer": "plateau", "why": "Statisme + micro-mouvements : la tension retenue (le thriller y vit)." },
+        { "q": "Une ascension COUPÉE NET signifie :", "options": ["une erreur","une suspension — le point d'interrogation","un climax"], "answer": "une suspension — le point d'interrogation", "why": "La fin de la silhouette EST le message (l05 §1)." } ] } } }

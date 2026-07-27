@@ -1,0 +1,79 @@
+---
+id: m03-l17-tension-sans-dominante
+module: module-03-harmonie-avancee
+title: "La tension sans dominante : l'arche dans les trois systèmes"
+estMinutes: 25
+skills: { harmony: 1.0 }
+---
+
+### Pourquoi c'est LA leçon de synthèse
+
+Le problème que ce module a créé : l14 M1 t'a appris que la musique est une gestion de tension/résolution — et son moteur était l'aimant de la dominante. Puis les leçons 8 à 16 t'ont appris à *renoncer* à l'aimant. Question inévitable : **comment construire une arche quand on a débranché le moteur ?** Réponse : la tension harmonique a toujours eu *plusieurs* moteurs — le tonal les confondait dans la dominante ; les systèmes 2 et 3 les exposent séparément. Cette leçon les nomme : c'est la boîte à outils transversale, celle que le capstone (l18) et tous les genres V1 de M9 consommeront.
+
+### 1. Les six moteurs de tension (la table transversale)
+
+| Moteur | Mécanique | Détente correspondante | Il marche dans… |
+|---|---|---|---|
+| **La densité** | plus de notes, plus serrées (le cumulatif de l15) | l'éclaircie : moins de notes, plus d'espace | les 3 systèmes |
+| **Le registre** | l'étau : les extrêmes qui se rapprochent du centre, ou l'aigu qui monte seul | l'ouverture : l'ambitus qui se déploie | les 3 |
+| **La dissonance graduée** | le curseur de brique (l15 : majeure→mineure) et de friction (l07 : compatible→contredite) — SANS promesse de résolution : la dissonance comme altitude, pas comme dette | la consonance retrouvée | les 3 (c'est la version dé-fonctionnalisée de la dette de l14 M1) |
+| **Le rythme harmonique** | les accords qui changent de plus en plus vite (la boucle de 4 → 2 → 1 temps par accord) | le ralentissement : l'accord qui s'installe | les 3 — et c'est le moteur le plus sous-employé des débutants |
+| **La conquête de collection** | les notes de la collection introduites une à une (la gamme qui se remplit), ou la collection qui se corrompt (le diatonique qui s'octatonise : l12 §3) | la collection stabilisée ou purifiée | systèmes 2–3 |
+| **La trajectoire de blocs** | le planing qui monte (l14), la rotation qui accélère (l12), la chaîne de médiantes qui s'assombrit (l06 : la boussole haut/bas) | l'arrivée du bloc : le glissement qui se pose | 2–3 |
+
+La lecture décisive : **le tonal utilisait déjà tout ça** — le V7 était dense (4 sons), dissonant (le triton), souvent au sommet du rythme harmonique : l'aimant était un *agrégat* de moteurs. Les systèmes 2–3 ne perdent donc rien : ils dégroupent — et le compositeur qui sait dégrouper contrôle son arche plus finement que celui qui n'a que l'aimant.
+
+### 2. La méthode : l'arche se planifie en moteurs
+
+```
+1. DESSINE l'arche (l14 M1 : la cible de tensionCurve n'a pas changé —
+   le gabarit archFit de tes exercices est LE MÊME dans les 3 systèmes :
+   c'est toute la beauté de l'architecture du produit)
+2. CHOISIS 2-3 MOTEURS (pas les six : la lisibilité) et ASSIGNE-LES
+   aux segments : "la montée = densité + rythme harmonique ; le climax
+   = registre ; la détente = éclaircie + ralentissement"
+3. COMPOSE chaque segment en pilotant SES moteurs — et garde les
+   autres stables (le moteur qui bouge s'entend parce que les autres
+   tiennent : la leçon de l'étau, m09-l04 §2, généralisée)
+4. VÉRIFIE à l'oreille PUIS au rapport : tensionCurve ne sait pas
+   quel système tu parles — elle mesure le résultat (dissonance,
+   registre, densité sont ses termes depuis §10.2 : le produit
+   dégroupait déjà)
+```
+
+### 3. Trois arches témoins (la même cible, trois systèmes)
+
+<MusicExample id="trois-arches" title="La même arche de 8 mesures, trois grammaires (à jouer côte à côte)">
+  TONALE :      I – vi – IV – V/V – V7(9♭) – I        (l'agrégat : l'aimant fait tout)
+  MODALE :      i – ♭VII – i – iv – ♭VI+♭VII serrés – ♭VII – i
+                (dorien... éolien : densité + rythme harmonique qui
+                s'accélère vers ♭VI–♭VII, détente sur le marteau doux)
+  NON-FONCT. :  pentacluster aigu pp – la grappe qui pousse au médium –
+                le planing de quartes qui MONTE – l'effondrement sur
+                l'unisson – le voile qui se redépose
+                (densité + registre + trajectoire ; la "cadence" est
+                l'effondrement de masse de l15)
+</MusicExample>
+
+Trois fois la même histoire — montée, sommet aux deux tiers, détente — racontée par trois grammaires : c'est la démonstration finale de la carte de l01, et le brief exact du capstone.
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Tous les moteurs à la fois | la montée illisible (tout bouge, rien ne s'entend) | 2–3 moteurs, les autres tiennent |
+| L'arche modale avec un V7 au sommet | l'aimant rebranché en douce : le système trahi à l'instant décisif | le sommet se fait par densité/registre/rythme — pas par la machine |
+| La dissonance comme dette hors du tonal | l'attente d'une résolution qui n'est pas promise : le malaise involontaire | la dissonance est une ALTITUDE dans les systèmes 2–3 — elle se gravit et se redescend, elle ne se rembourse pas |
+| Le rythme harmonique oublié | l'arche plate malgré la belle harmonie | le moteur le plus simple est le plus puissant : accélère les changements |
+
+### La mission (m03-e17, HARMONY_PROGRESSION à variantes)
+
+L'arche commandée : 10 mesures, gabarit `default` (montée, climax ~70 %, détente), dans le système tiré (variantes modal-dorien / pandiatonique / octatonique — `forbidFunctionalCadence` partout), avec **le plan de moteurs déclaré** (champ `tensionPlan`: 2–3 moteurs assignés aux segments — le plan devient un livrable, comme `removed` en M6). Le moteur vérifie : archFit ≥ 0.6, la collection/grammaire du système, ET la cohérence plan↔réalisation (densité mesurée croissante là où le plan dit « densité », etc. — les métriques de §10.2 confrontées au plan segment par segment). *Le rapport le plus « professeur de composition » du produit : il ne juge pas que le résultat, il juge la maîtrise des moyens déclarés.*
+
+- [ ] Six moteurs : densité, registre, dissonance-altitude, rythme harmonique, collection, trajectoire
+- [ ] L'aimant était un agrégat — dégrouper, c'est gagner en contrôle
+- [ ] 2–3 moteurs par arche, les autres tiennent — le plan s'assigne aux segments
+- [ ] La même tensionCurve juge les trois systèmes : l'arche est universelle, la grammaire est un choix
+
+<QuizBlock id="m03-l17-quiz" questions={6} />
+<LessonFooter exercises={["m03-e17-the-arch-without-the-magnet"]} />

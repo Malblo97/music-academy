@@ -1,0 +1,7 @@
+{
+  "exerciseId": "m04-e11-elenas-countermelody",
+  "variantId": "chromatic-line",
+  "notation": "r:h D4:h~ | D4:q C#4:q C4:h~ | C4:q B3:q Bb3:h~ | Bb3:q A3:q A3:h | r:h A3:h~ | A3:q G#3:q G3:h~ | G3:q F#3:q F3:h~ | F3:q E3:q D3:h",
+  "payload": { "recipe": "chromatic-line" },
+  "authorNotes": "La plongée chromatique. Cellule = 5 demi-tons descendants (rythme q-q-h~) — occ. 1 @D4 (D→A, m1–4), occ. 2 @A3 élargie jusqu'à 1̂ (A→D, m5–8, variante rythmique). `chromaticResolutionRequired` : **10/10 chromatismes conduits** (chacun quitté par demi-ton). Le triton E5/B♭3 de m4.1 est LE frottement voulu — la ligne touche le thème à son sommet ; profil film : conduit, donc légal, et nommé au rapport. Écart moyen 12 dt."
+}

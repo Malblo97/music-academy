@@ -1,0 +1,5 @@
+{ 
+    "exerciseId": "m01-e32-enrich-period", 
+    "notation": "[G3+B3+D4+A4]:w | [E3+B3+E4+D5]:w | [C3+E4+G4+B4]:w | [D3+D4+F#4+C5]:w | [G3+B3+D4+A4]:w | [C3+E4+G4+D5]:w | [D3+C4+F#4+A4]:h [D3+D4+F#4+A4]:h | [G2+B3+D4+G4]:w", 
+    "authorNotes": "Gadd9 · Em7 · Cmaj7 · D7 · Gadd9 · Cadd9 · D7sus4→3… — relecture : mes. 7 = D7 avec 7e (C4) puis résolution interne, cadence nette ; enrichis = 6 ≥ 5 ✓ ; **la triade nue = le G final** (l'événement placé sur la conclusion : la pure lumière pour l'arrivée — le choix commenté dans `authorNotes`) ; `requirePlainTriadCount [1,2]` ✓ ; D laissé net (D7, pas de 9/13) ✓ ; 7es résolues (C4→B3 ✓)." 
+}

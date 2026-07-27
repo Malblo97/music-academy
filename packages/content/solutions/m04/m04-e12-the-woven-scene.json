@@ -1,0 +1,9 @@
+{
+  "exerciseId": "m04-e12-the-woven-scene",
+  "partId": "part1-casting",
+  "payload": {
+    "themeA": "D4:e G4:q A4:e B4:q D5:q | E5:q B4:e A4:e G4:h",
+    "themeB": "B3:h. A3:q | G3:h E3:h | D3:w"
+  },
+  "authorNotes": "Les deux personnages. Contrastes vérifiés : prosodie IAMBIQUE (anacrouse, brèves→longues) contre TROCHAÏQUE (longue→brève) — `prosodyPlan` en opposition ; contour ascension-arche contre chute — `contourShape`. **La preuve de compatibilité (F-31)** : les thèmes font 2 et 3 mesures — « superposés tels quels » était indéfini ; le test s'ancre au DÉBUT COMMUN et couvre le chevauchement (min des longueurs), l'excédent du long est libre. A sur B : m3, m6, 8, 11e conduite / 13e, 10e, 9e de passage, 10e — le contrepoint double encaisse : la scène 3 est jouable, et le checker ne laisse pas continuer avant."
+}

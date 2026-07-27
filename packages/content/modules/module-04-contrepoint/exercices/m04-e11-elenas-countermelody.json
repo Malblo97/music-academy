@@ -1,0 +1,40 @@
+{
+  "id": "m04-e11-elenas-countermelody",
+  "lessonId": "m04-l11-contrechant",
+  "title": "Le contrechant d'Elena",
+  "kind": "COUNTERPOINT",
+  "difficulty": 6,
+  "xpReward": 130,
+  "skills": { "COUNTERPOINT": 0.7, "ORCHESTRATION": 0.3 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "romantic-film", "targetMood": "noble-melancholy", "ruleWeights": {} },
+  "rubric": { "correctness": 25, "constraints": 40, "craft": 35 },
+  "spec": {
+    "version": 1,
+    "species": "countermelody",
+    "prompt": "L'exercice-métier : le thème d'Elena (m02-e30 — le retour du personnage) exposé NU 8 mesures, puis repris 8 mesures AVEC ton contrechant — il entre à la reprise : le thème d'abord, l'âme ensuite. Déclare ta recette parmi les cinq (la réponse, le fleuve lent, la ligne chromatique, le contre-rythme, le descant — chacune active ses contraintes propres). Le contrat en trois clauses, mesuré : il ne couvre JAMAIS (attaques fortes simultanées ≤ 35 % — cartographie les respirations du thème, compose dedans), il a SA PROPRE IDENTITÉ (sa propre cellule de 2–4 notes, exigée — les tierces parallèles du début à la fin sont une ombre, pas une voix), il vit à UN ÉTAGE D'ÉCART (≥ une octave de séparation moyenne). Composé au piano à deux mains : si ça tient à deux mains nues, ça tiendra à l'orchestre.",
+    "liveFeedback": true,
+    "given": {
+      "theme": "asset:m02-e30-elena-theme",
+      "key": { "tonic": 9, "mode": "minor" }
+    },
+    "constraints": {
+      "species": "countermelody",
+      "lengthBars": [16, 16],
+      "key": { "tonic": 9, "mode": "minor" },
+      "structure": "theme-alone-then-with-countermelody",
+      "themeImmutable": true,
+      "recipe": {
+        "declared": true,
+        "allowed": ["response", "slow-river", "chromatic-line", "counter-rhythm", "descant"],
+        "verifiedAgainstDetected": true
+      },
+      "simultaneousStrongAttacksMax": 0.35,
+      "registerSeparationMin": 12,
+      "counterMotifRequired": { "cellSize": [2, 4], "engine": "findMotifs" },
+      "maxConsecutiveParallelConsonances": 3,
+      "perVoiceMelodyJudging": true
+    }
+  }
+}

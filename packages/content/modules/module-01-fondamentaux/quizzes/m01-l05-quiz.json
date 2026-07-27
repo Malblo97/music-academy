@@ -1,0 +1,11 @@
+{ "id": "m01-l05-quiz", "interaction": "mc",
+  "generator": { "families": ["signature-to-key", "key-to-signature", "new-accidental", "distance"], "range": "0-6", "rounds": 7 },
+  "items": [
+    { "q": "4 dièses : quelle majeure ?", "options": ["E", "A", "B"], "answer": "E",
+      "why": "Dernier dièse D♯ + ½ ton = E (§2, l'astuce studio)." },
+    { "q": "Le nouveau bémol en passant de B♭ à E♭ majeur :", "options": ["A♭", "E♭", "D♭"], "answer": "A♭",
+      "why": "Le nouveau bémol est toujours la sous-dominante de la nouvelle tonalité (4̂ de E♭ = A♭)." },
+    { "q": "D majeur et B♭ majeur partagent :", "options": ["3 notes", "4 notes", "5 notes"], "answer": "4 notes",
+      "why": "2♯ et 2♭ = 4 pas d'écart sur le cycle... — non : compte les altérations DIFFÉRENTES : F♯,C♯ vs B♭,E♭ = 4 conflits sur 7 → 3 notes communes ? Vérifie : D-E-F♯-G-A-B-C♯ ∩ B♭-C-D-E♭-F-G-A = {D, E?non(E♭), G, A} = 4. Réponse : 4 — et la méthode est le comptage d'altérations conflictuelles." },
+    { "q": "[intégrative] Pour moduler en douceur depuis A majeur, la cible la plus riche en pivots :", "options": ["E ou D", "C", "E♭"], "answer": "E ou D",
+      "why": "Les voisines du cycle (±1 pas) partagent 6 notes sur 7 (§3) — c'est la carte des parentés que la l23 exploitera." } ] }

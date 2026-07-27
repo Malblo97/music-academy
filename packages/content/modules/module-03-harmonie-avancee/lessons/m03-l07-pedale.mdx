@@ -1,0 +1,71 @@
+---
+id: m03-l07-pedale
+module: module-03-harmonie-avancee
+title: "La pédale avancée : l'harmonie qui frotte le sol"
+estMinutes: 20
+skills: { harmony: 1.0 }
+---
+
+### Pourquoi la pédale clôt le fonctionnel étendu
+
+La pédale de l15 M1 était sage : une tonique ou une dominante tenue, des accords *compatibles* au-dessus. La pédale avancée retire le mot « compatibles » : **la basse tient, et l'harmonie fait ce qu'elle veut** — y compris la contredire frontalement. C'est le dernier outil du système 1 parce qu'il en est la limite : la fonction reste (le sol EST une fonction — la gravité incarnée), mais tout le reste s'en émancipe. Un pas de plus et on est dans le modal (l08) ; la pédale est la passerelle. (Et tu la connais déjà par l'autre rive : le drone de m06-l05 était une pédale devenue instrument — cette leçon est sa théorie harmonique.)
+
+### 1. Les trois degrés de friction
+
+| Degré | Recette | Effet | Exemple (pédale de DO) |
+|---|---|---|---|
+| **La compatible** (M1, rappel) | les accords contiennent la pédale ou s'y accordent | la stabilité qui respire | C – F/C – G/C... — non : C – Fadd9/C – C |
+| **La frottée** | des accords étrangers PASSENT sur la pédale — la dissonance est traversante | la tension qui gronde sous la surface : le sol tient pendant que le monde doute | C ... A♭/C ... B♭/C ... C — les emprunts de l21 M1 posés sur le sol qui refuse de bouger |
+| **La contredite** | l'harmonie s'installe AILLEURS pendant que la pédale tient : deux vérités simultanées | le conflit dramatique incarné — le personnage n'a pas bougé, le monde si | pédale de C sous une progression complète en la♭ : chaque accord frotte, et la résolution du conflit (l'harmonie revient à C, ou la pédale cède) EST l'événement de la scène |
+|
+
+La lecture dramatique, qui vaut mode d'emploi : **la pédale est un personnage** — l'obstination, la menace, la loyauté, le destin. Le degré de friction dit l'état du conflit ; la *sortie* de la pédale dit son issue (elle gagne : l'harmonie revient ; elle cède : la basse bouge enfin — et ce premier mouvement de basse après deux minutes d'immobilité est un des plus grands effets du répertoire, l'interrupteur de gravité de m05-l05 en version dramaturgie).
+
+### 2. La pédale ailleurs qu'à la basse
+
+| Position | Nom | Effet |
+|---|---|---|
+| Voix supérieure | pédale inversée | l'aigu qui insiste : l'aiguille (m09-l04), l'idée fixe, l'étoile immobile — le fil des médiantes (l06) tenu en continu |
+| Voix interne | pédale interne | le frottement caché : l'inquiétude qu'on ne localise pas |
+| Deux notes (souvent 1̂+5̂) | double pédale / bourdon | le sol ÉPAIS : le folk, l'archaïque, l'épique terrien (m09-l02) — la quinte à vide comme monde |
+
+Le bourdon 1̂+5̂ mérite une note d'histoire utile : c'est l'harmonie la plus ancienne d'Europe (la vielle, la cornemuse) — d'où sa connotation immédiate d'archaïque et de terrien. Poser un bourdon, c'est dater et situer la scène avant d'avoir joué un accord.
+
+### 3. La conduite (ce qui rend la friction belle plutôt que sale)
+
+```
+1. LA PÉDALE S'INSTALLE EN TERRAIN CLAIR : elle naît sur une harmonie
+   compatible (l'oreille l'enregistre comme SOL) — la friction n'a de
+   sens que si le statut de la note est acquis
+2. LES ACCORDS DU DESSUS SE CONDUISENT ENTRE EUX comme si la pédale
+   n'existait pas (leurs propres liaisons, l12 M1) : deux plans, deux
+   logiques — c'est la superposition qui fait l'effet, pas le chaos
+3. LE REGISTRE PROTÈGE : une octave au moins entre la pédale et le
+   plancher de l'harmonie (le low-interval-limit de l12 M1 devient
+   vital : la friction voulue au grave serré devient de la boue)
+4. LA SORTIE EST L'ÉVÉNEMENT : décide-la au spotting (m10-l12) —
+   la pédale qui cède SUR la bascule est un hit harmonique
+```
+
+Le moteur suit : l'analyseur détecte la pédale (note tenue/répétée ≥ 4 mesures sous harmonie mouvante — tag `pedal-point`), suspend `harmony.retrogression` sur le plan supérieur pendant sa durée (les fonctions au-dessus d'une pédale sont *en suspension* : les juger en régime normal serait un faux positif de plus — la leçon de F-1 généralisée), et vérifie le degré de friction déclaré par la contrainte (`pedalPlan: { degree, exitBar }`).
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| La pédale qui naît en pleine friction | l'oreille entend une fausse note, pas un sol | l'installation en terrain clair d'abord |
+| Le dessus conduit n'importe comment « puisque ça frotte déjà » | le chaos au lieu du conflit | deux plans, deux logiques propres |
+| La pédale au grave serré | la boue | une octave de dégagement minimum |
+| La pédale qui s'arrête sans événement | le personnage sort de scène sans qu'on le voie | la sortie se compose : elle gagne ou elle cède, au spotting |
+
+### La mission (m03-e07, HARMONY_PROGRESSION)
+
+12 mesures, pédale de SOL : installation compatible (4 mes.), friction croissante (les emprunts, puis un accord contredit — déclare ton plan en `pedalPlan`), et la sortie composée : variante (a) la pédale gagne (l'harmonie revient à sol, cadence) ; variante (b) elle cède (la basse bouge pour la première fois mesure 11 — et ce mouvement est ta cadence). Conduite des deux plans vérifiée séparément.
+
+- [ ] Trois degrés : compatible, frottée, contredite — la friction est un curseur dramatique
+- [ ] La pédale est un personnage ; sa sortie est l'événement
+- [ ] Inversée = l'idée fixe ; bourdon = l'archaïque terrien
+- [ ] Deux plans, deux logiques, une octave de dégagement
+
+<QuizBlock id="m03-l07-quiz" questions={5} />
+<LessonFooter exercises={["m03-e07-the-stubborn-ground"]} />

@@ -1,0 +1,14 @@
+{
+  "exerciseId": "m06-e06-the-law-of-the-low",
+  "variantId": "cohabitation",
+  "payload": {
+    "lengthBars": 8,
+    "contrabassesActive": true,
+    "layers": [
+      { "id": "growl", "role": "body", "band": [120, 2400], "material": "saw + FM", "filterSetting": "300 Hz — ouvert à la charge", "notes": "l'ostinato, high-passé à 120 : la chair au-dessus des Cb" }
+    ],
+    "removed": "le sub : TACET — un seul roi sous 90 Hz, les contrebasses régnaient ; le sub abdique",
+    "motion": { "layer": "growl", "type": "automation", "dst": "cutoff", "bars": [7, 8] }
+  },
+  "authorNotes": "La variante-piège, arbitrée en acte : quand les contrebasses sont actives dans le donné, la bonne réponse n'est pas de high-passer le sub, c'est de **le supprimer**. Le growl remonte à 120 Hz et se réduit à son vrai rôle — la chair au-dessus de l'archet. `sd.sub-conflict` muette dans les DEUX mondes : la cohabitation n'est pas un réglage, c'est une décision de distribution, et elle se déclare dans `removed`."
+}

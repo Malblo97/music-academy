@@ -1,0 +1,97 @@
+---
+id: m05-l12-french-horn
+module: module-05-orchestration
+title: "Le cor : l'âme de l'orchestre"
+estMinutes: 30
+skills: { orchestration: 1.0 }
+---
+
+### Carte d'identité
+
+<InstrumentSheet id="french-horn" />
+*(le composant rend la tessiture visuelle depuis la base music-core — les valeurs ci-dessous sont la source)*
+
+| Propriété | Valeur |
+|---|---|
+| Famille | Cuivres (mais l'hybride officiel : il siège aussi avec les bois — quintette à vent) |
+| Tessiture praticable | `B1`–`F5` (sons écrits en Fa : transposition à la quinte supérieure) |
+| Registre expressif (sweet spot) | `C3`–`C5` |
+| Agilité | modérée (4/10) — pas un instrument de traits rapides |
+| Tenue | excellente — le roi des notes longues et des pédales |
+| Puissance | pp très doux (2/10) → ff héroïque (9/10) : l'amplitude dynamique la plus large des cuivres |
+
+### Pourquoi le cor est irremplaçable
+
+Le cor est le **liant** de l'orchestre. Sa sonorité — cuivrée mais ronde, puissante mais fondue — lui permet de coller aux cordes, aux bois ET aux cuivres. Aucun autre instrument ne fait ça. C'est pour cela qu'on écrit presque toujours pour 4 cors quand 2 trompettes suffisent : ils remplissent le milieu du spectre orchestral, là où l'harmonie vit.
+
+Émotionnellement, le cor porte trois archétypes profondément câblés chez l'auditeur :
+1. **La noblesse / l'héroïsme** (registre médium-aigu, f, intervalles de 4te/5te ascendantes)
+2. **L'appel / le lointain** (héritage du cor de chasse : sonneries, espace, nature)
+3. **La chaleur mélancolique** (registre médium, p, lignes conjointes — la nostalgie orchestrale par excellence)
+
+### Couleur par registre
+
+```
+B1 ─────── C3 ─────────────── C5 ────── F5
+│  GRAVE   │      MÉDIUM       │  AIGU   │
+│ sombre,  │ noble, chaud,     │ brillant,│
+│ pédales, │ fondu — 90% de    │ tendu,  │
+│ instable │ ton écriture      │ héroïque│
+│ en pp    │ vit ici           │ FATIGANT│
+```
+
+**Le grave** (`B1`–`B2`) : couleur de menace sourde, superbe en pédale sous des cordes graves. Risqué en pp (justesse difficile), lent à parler.
+**Le médium** (`C3`–`C5`) : tout est possible — mélodie, contrechant, tenues d'harmonie, tapis.
+**L'aigu** (`C5`–`F5`) : éclatant et périlleux. Physiologiquement épuisant : ne jamais y maintenir un corniste plus de quelques mesures, et jamais après un long passage déjà aigu. Un aigu de cor doit être **préparé** (approche mélodique) et **récompensé** (repos après).
+
+### Rôles typiques (par ordre de fréquence réelle en musique de film)
+
+| Rôle | Comment l'écrire | Exemple textuel |
+|---|---|---|
+| **Tapis harmonique** | 2–4 cors, tenues en position serrée, médium, p–mp | `[C3+E3+G3+C4]:w` sous des cordes |
+| **Contrechant** | 1–2 cors à l'unisson, ligne conjointe médium, mf | répond à la mélodie de violons dans les creux |
+| **Mélodie héroïque** | 2–4 cors à l'unisson (jamais 1 seul en ff : trop fragile), f | `C4:q F4:q G4:q C5:h.` — 4te et 5te ascendantes |
+| **Appels / signaux** | quintes et octaves, rythme pointé | `G3:e. G3:s G3:e G3:e C4:h` |
+| **Pédale de tension** | grave, tenue, cresc. possible | `F2:w~F2:w~F2:w` sous harmonie mouvante |
+| **Rip / glissando** | montée rapide vers note cible, ff — effet « décollage » | signalé `rip→C5` |
+
+### Associations : avec qui le marier
+
+| Combinaison | Résultat | Usage |
+|---|---|---|
+| Cors + violoncelles (unisson) | LA doublure la plus chaude de l'orchestre | thèmes lyriques, romance, noblesse |
+| Cors + bassons | fondu total, renforce le médium-grave | tapis discrets |
+| Cors + trombones | mur de cuivres nobles | chorals, puissance solennelle |
+| Cors (tapis) + bois (mélodie) | le classique viennois | équilibre naturel, le cor ne couvre pas |
+| Cors + trompettes à l'unisson **ff** | ⚠️ la trompette avale le cor | préférer octaves ou registres séparés |
+
+### Quand l'utiliser / quand l'éviter
+
+**Utilise le cor quand** : tu as besoin de chaleur dans le médium ; ta mélodie évoque noblesse, nature, nostalgie ; il faut lier cordes et cuivres ; tu veux un crescendo long sur une tenue (personne ne le fait mieux).
+
+**Évite le cor quand** : il te faut de l'agilité (traits rapides → bois ou trompettes) ; une attaque percussive et précise (l'attaque du cor est légèrement « ronde », il parle avec ~30 ms de flou — c'est sa beauté et sa limite) ; un aigu prolongé ; du pianissimo dans l'extrême grave exposé.
+
+### Erreurs fréquentes du compositeur (celles que détecte l'analyseur)
+
+| Erreur | Règle | Pourquoi c'est un problème |
+|---|---|---|
+| Traits en doubles croches rapides | `orch.horn-agility` | injouable proprement ; l'attaque ronde du cor floute tout |
+| Aigu tenu > 4 mesures | `orch.horn-endurance` | fatigue réelle de l'instrumentiste ; en samples tu ne l'entends pas, en session tu le paies |
+| 1 seul cor mélodie en ff contre tutti | `orch.balance` | puissance 9/10 mais un seul contre trente : noyé |
+| Cor grave pp exposé | `orch.register-color` | justesse hasardeuse, timbre instable |
+| Oublier la transposition en Fa (partition papier) | — | à l'export partition (V1), le produit transposera automatiquement |
+
+### Alternatives
+
+Pas de cor sous la main (banque limitée) ? Approximations par rôle : tapis médium → altos + bassons ; héroïsme → trombones (plus droit, moins « âme ») ; appel lointain → trompette bouchée + reverb longue (couleur différente mais fonction voisine). Aucune n'a le fondu du cor — c'est précisément pourquoi il existe.
+
+### Récapitulatif express
+
+- [ ] Médium `C3`–`C5` = 90 % de mon écriture de cor
+- [ ] Mélodie ff = cors **à l'unisson par 2 ou 4**, jamais seul
+- [ ] Aigu = préparé, bref, suivi de repos
+- [ ] Doublure magique : cors + violoncelles
+- [ ] Le cor lie les familles — c'est son super-pouvoir
+
+<QuizBlock id="m05-l12-quiz" questions={6} />
+<LessonFooter exercises={["m05-e08-horn-roles"]} />

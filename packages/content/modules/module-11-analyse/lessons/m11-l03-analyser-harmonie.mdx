@@ -1,0 +1,75 @@
+---
+id: m11-l03-analyser-harmonie
+module: module-11-analyse
+title: "Analyser l'harmonie : reconnaître le système"
+estMinutes: 25
+skills: { harmony: 0.7, ear_training: 0.3 }
+---
+
+### Pourquoi le système avant les accords
+
+L'erreur universelle de l'analyse harmonique débutante : chiffrer accord par accord — et produire une liste juste qui ne comprend rien. La leçon de m03-l01 s'inverse ici : **on identifie le système d'abord** (fonctionnel ? modal ? non-fonctionnel ? — le test des trois questions, appliqué à l'écoute), et le système dicte quelles questions poser ensuite : chiffrer du planing en degrés fonctionnels est un contresens ; chercher la couleur d'un ii-V-I en rate le trajet.
+
+### 1. Le diagnostic de système à l'oreille (les trois questions, armées)
+
+```
+1. LA SENSIBLE TIRE-T-ELLE ? → écoute les fins de phrases : l'aimant
+   V→I s'entend (la résolution qui "ferme") — OUI = fonctionnel :
+   les questions de M1/M8 (fonctions, cadences, circulations,
+   substitutions)
+2. UN CENTRE SANS AIMANT ? → la musique revient toujours au même
+   accord sans y être forcée (la boucle, l'insistance) — OUI = modal :
+   les questions de m03-l08 (quel mode ? quels piliers ? quelle
+   cadence de remplacement ?)
+3. NI CENTRE NI AIMANT ? → les accords valent par leur sonorité et
+   leur geste — non-fonctionnel : les questions de m03-l10-l16
+   (quelle collection ? quelle brique ? quel geste — planing, grappe,
+   superposition ?)
+ET LE CAS RÉEL : les systèmes ALTERNENT dans un même cue (m03-l01 §1 :
+"par scène") — le diagnostic se refait à chaque section, et les
+FRONTIÈRES de système sont des événements dramatiques à noter
+(le moment où le modal devient fonctionnel = le récit qui s'emballe)
+```
+
+### 2. Les détecteurs rapides (le kit de l'oreille harmonique)
+
+L'analyste expérimenté n'entend pas « des accords » : il entend des **signatures** — le kit des détecteurs, tout en acquis :
+
+| Ce qu'on entend | Le détecteur | La signature de |
+|---|---|---|
+| le sourire qui se voile | 6̂→♭6̂ dans une voix | l'emprunt iv (m01-l21) — LE détecteur n° 1 du film |
+| la basse qui glisse d'un demi-ton vers sa cible | le couloir | subV (m01-l20) |
+| le monde qui bascule, une note qui tient | le fil | la médiante (m03-l06) |
+| la solennité étrange à un demi-ton | — | le napolitain (m03-l02) |
+| tout devient majeur ET sombre | — | la boucle éolienne ♭VI-♭VII (m09-l02) |
+| l'apesanteur sans bas | aucune quinte juste | les tons entiers (m03-l11) |
+| le familier qui ment | triades normales, boussole folle | l'octatonique (m03-l12) |
+| le velours immobile sous une ligne | la main qui ne bouge pas | rootless A/B (m08-l02) |
+| l'ouvert sans majeur/mineur | la neutralité vaste | le quartal (m03-l13) |
+
+La méthode d'entraînement : **un détecteur à la fois** — une semaine à traquer le iv dans tout ce qu'on écoute, puis le suivant (l'oreille se muscle par obsessions successives, pas par exhaustivité).
+
+### 3. Le chiffrage utile (quand et comment noter)
+
+Le chiffrage n'est pas le but, c'est l'outil de zoom (la passe 3) — les règles d'économie : **on chiffre les charnières** (les cadences, les bascules, LE moment) et on *décrit* le reste (« quatre mesures de boucle i–♭VII ») ; **on chiffre dans le langage du système** (degrés fonctionnels en système 1, piliers modaux en système 2, collections+gestes en système 3 — le respect d'objet de m03-l18, appliqué à la notation d'analyse) ; et **le doute se note comme doute** (l'accord ambigu porte un « ? » : l'honnêteté du diagnostic vaut mieux que la fausse précision — le moteur fait pareil : `ambiguous: true`).
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Chiffrer avant de diagnostiquer | la liste juste qui ne comprend rien | le système d'abord — il dicte les questions |
+| Un seul système par œuvre | les frontières de système manquées (les vrais événements) | le diagnostic par section |
+| Le chiffrage exhaustif | quarante accords notés, zéro conclusion | les charnières se chiffrent, le reste se décrit |
+| Tout entendre en fonctionnel | le planing chiffré en degrés : le contresens | le respect d'objet vaut à l'analyse |
+
+### La mission (m11-e03, ANALYSIS — le diagnostic)
+
+Trois extraits du corpus interne (générés + solutions : un fonctionnel à emprunts, un modal à piliers, un non-fonctionnel en planing/collection) : pour chacun — le diagnostic de système (les trois questions en QCM argumenté), puis les annotations du système : `name-functions` + `identify-idioms` sur le fonctionnel (le iv et le subV à pointer), les piliers et la cadence modale sur le deuxième (`identify-idioms` contre les tags), la collection et le geste sur le troisième (`requireCollection` en sens inverse : nomme-la). Bonus : l'extrait 4 — un cue qui CHANGE de système à mi-course : la frontière à pointer (±1 mesure). Le rapport te dit où ton oreille a diagnostiqué juste — et dans quel langage tu as chiffré.
+
+- [ ] Le système d'abord : les trois questions, par section
+- [ ] Le kit des détecteurs : les signatures s'entendent avant les accords
+- [ ] Un détecteur à la fois — l'oreille se muscle par obsessions
+- [ ] Chiffrer les charnières, décrire le reste, noter le doute
+
+<QuizBlock id="m11-l03-quiz" questions={5} />
+<LessonFooter exercises={["m11-e03-the-diagnosis"]} />

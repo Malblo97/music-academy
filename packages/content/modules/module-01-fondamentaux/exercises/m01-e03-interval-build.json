@@ -1,0 +1,10 @@
+{ "id": "m01-e03-interval-build", "lessonId": "m01-l02-intervalles",
+  "title": "Construis l'intervalle", "kind": "THEORY_QUIZ",
+  "difficulty": 2, "xpReward": 40, "skills": { "MELODY": 0.7, "HARMONY": 0.3 },
+  "spec": { "prompt": "On te donne une note de départ et un intervalle : clique la note d'arrivée. Départs variés — l'intervalle est une distance, pas une paire de touches.",
+    "quiz": { "interaction": "keyboard-pick",
+      "generator": { "roots": "all12", "intervals": [1,2,3,4,5,6,7,8,9,10,11,12], "direction": ["up","down"], "rounds": 10 },
+      "items": [
+        { "q": "Tierce mineure au-dessus de E4", "answer": ["G4"], "why": "3 demi-tons : E→F(1) F→F♯(2) F♯→G(3). Attention au ½ ton naturel E–F." },
+        { "q": "Quinte juste au-dessous de C5", "answer": ["F4"], "why": "7 demi-tons vers le bas. Astuce : quinte descendante = quarte ascendante renversée (somme 9)." },
+        { "q": "Triton au-dessus de F4", "answer": ["B4"], "why": "6 demi-tons — F–B, le triton « naturel » du clavier (les deux aimants de la gamme de C)." } ] } } }

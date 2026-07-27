@@ -1,0 +1,12 @@
+{
+  "exerciseId": "m06-e11-harvest-and-sculpt",
+  "payload": {
+    "lengthBars": 8,
+    "tempoBpm": 72,
+    "layers": [
+      { "id": "reverse-riser", "role": "fx", "source": "m10-e09-render:string-swell", "treatment": "région coupée, retournée, fin calée sur cible", "target": { "bar": 8, "beat": 1, "deviationTicks": 0 } },
+      { "id": "granular", "role": "body", "source": "m10-e13-render:fredon-tenu", "granularHandles": { "position": "0.42 figée", "size": "90 ms", "density": "26 grains/s", "pitch": 0 } }
+    ]
+  },
+  "authorNotes": "Source-first : deux rendus de missions M10 déclarés par leur id — **la traçabilité du curriculum en donnée**, pas en commentaire. « Le cor vivant donne un nuage riche ; un bip donne de la poussière de bip » : le choix de source EST le travail. Les quatre poignées granulaires sont déclarées et cohérentes avec le rôle : **position figée ⇒ drone** (le rapport cite la table de l11) — un scintillement aurait exigé des grains clairsemés, pitch +12, pan random. Le reverse-riser respecte la grammaire de l10 en ticks : fin sur la cible, ±0. Mini-stack réglementaire, `sd.*` muettes ✓."
+}

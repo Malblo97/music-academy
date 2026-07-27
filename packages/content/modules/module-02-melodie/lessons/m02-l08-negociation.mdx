@@ -1,0 +1,63 @@
+---
+id: m02-l08-negociation
+module: module-02-melodie
+title: "Mélodie et harmonie : la négociation"
+estMinutes: 25
+skills: { melody: 0.5, harmony: 0.5 }
+---
+
+### Pourquoi « négociation »
+
+Tu sais depuis l11 M1 que mélodie et harmonie partagent leurs notes (charpente = triade). Mais qui commande ? Réponse de métier : **ça dépend de qui est arrivé le premier** — et les deux ordres de travail produisent des musiques différentes. Cette leçon donne les deux protocoles, puis la grammaire des notes étrangères qui fait tenir n'importe quel couple mélodie/accords.
+
+### 1. Protocole A : la mélodie d'abord (le thème souverain)
+
+Compose la ligne seule, harmonise ensuite. C'est l'ordre des grands thèmes : la mélodie n'a aucun compromis, l'harmonie s'adapte. Méthode d'harmonisation :
+
+```
+1. Repère les notes STRUCTURELLES (temps forts, longues, sommets)
+2. Pour chacune, liste les accords diatoniques qui la contiennent
+   (chaque note appartient à 3 triades : ex. G en do → I, iii... non : G ∈ C(I),
+    Em(iii), G(V) — trois candidats, trois éclairages)
+3. Choisis selon le RÉCIT de fonctions (l15 M1) et la basse (l12 M1)
+4. Les autres notes deviennent des notes étrangères — vérifie qu'elles
+   se comportent (§3 ci-dessous)
+```
+
+Le pas 2 est la révélation : **chaque note de mélodie a trois harmonisations diatoniques** — le même thème peut être éclairé de dizaines de façons. C'est le fondement de la réharmonisation (et du Module 11 : le thème du héros harmonisé en majeur au début, en emprunts sombres à la chute).
+
+### 2. Protocole B : la grille d'abord (la mélodie négociée)
+
+Compose sur des accords existants (le cas jazz, et la moitié du travail à l'image : la grille d'ambiance existe, le thème doit s'y couler). Méthode : **viser les guide tones** (l13 M1) — la tierce ou la septième de chaque accord sur ses temps forts — et relier par mouvement conjoint. La ligne qui touche 3 et 7 à chaque changement d'accord « épouse » la grille ; celle qui ne touche que fondamentales et quintes flotte au-dessus sans la raconter.
+
+### 3. La grammaire des notes étrangères (le tableau de contrôle)
+
+Toute note hors de l'accord courant est une note étrangère — légale si elle se *comporte*. Le catalogue complet (tu en connais déjà les versions chromatiques, l22 M1 — voici la table générale, diatonique incluse, celle que `detectChord` utilise pour qualifier, §4.1.2) :
+
+| Note étrangère | Arrivée | Départ | Position | Caractère |
+|---|---|---|---|---|
+| Passage | conjoint | conjoint, même direction | temps faible | fluidité |
+| Broderie | conjoint | retour à la note | temps faible | caresse |
+| Appoggiature | saut (ou directe) | conjoint descendant le plus souvent | **temps fort** | expressivité maximale |
+| Retard | tenue (préparée) | conjoint descendant | temps fort | la suspension (4e espèce, M4 t'attend) |
+| Anticipation | conjoint | tenue dans l'accord suivant | avant le temps | élan |
+| Échappée | conjoint | **saut** en direction opposée | temps faible | envol, élégance |
+
+**Le ratio de friction** : la proportion de notes étrangères sur temps forts est un curseur de style — quasi nulle en écriture simple, élevée en romantique (l'appoggiature reine) et en jazz (où les « étrangères » deviennent des tensions d'accord, l18 M1 : la boucle se referme — 9, 11, 13 sont des appoggiatures institutionnalisées).
+
+### Erreurs fréquentes
+
+| Erreur | Correction |
+|---|---|
+| Harmoniser note à note | un accord par note = bouillie ; les structurelles seulement |
+| Mélodie 100 % notes d'accord | l'arpège déguisé : la friction est la vie — ose l'appoggiature |
+| Étrangère qui ne se comporte pas | la table §3 : arrivée + départ + position, les trois conditions |
+| Ignorer les 3 harmonisations possibles | avant de valider un accord, essaie ses deux rivaux |
+
+- [ ] Deux protocoles : mélodie d'abord (souveraine) / grille d'abord (guide tones)
+- [ ] Chaque note a trois harmonisations diatoniques
+- [ ] La table des six étrangères : arrivée, départ, position
+- [ ] Le ratio de friction est un curseur de style
+
+<QuizBlock id="m02-l08-quiz" questions={6} />
+<LessonFooter exercises={["m02-e15-three-lights", "m02-e16-guide-tone-melody"]} />

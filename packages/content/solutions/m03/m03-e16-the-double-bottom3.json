@@ -1,0 +1,20 @@
+{
+  "exerciseId": "m03-e16-the-double-bottom",
+  "variantId": "coexistence",
+  "payload": {
+    "parts": {
+      "mode": "simultaneous",
+      "plans": [
+        {
+          "id": "A",
+          "notation": "[G3+B3+D4]:w | [G3+C4+E4]:w | [G3+B3+D4]:w | [G3+C4+E4]:w | [B3+D4+G4]:w | [C4+E4+G4]:w | [A3+D4+F#4]:w | [G3+B3+D4]:w | [B3+D4+G4]:w | [C4+E4+G4]:w | [B3+D4+G4]:w | [G3+B3+D4]:w"
+        },
+        {
+          "id": "B",
+          "notation": "r:w | Eb2:w | G2:h Bb2:h | Eb2:w | Ab2:h G2:h | Eb2:w | Bb1:w | Eb2:w | Eb2:w | Ab2:h G2:h | Bb1:w | Eb2:w"
+        }
+      ]
+    }
+  },
+  "authorNotes": "Même tronc m1–8. FIN « coexistence » : A répète sa boucle inchangée, B rôde inchangé — personne ne cède. Verticalité finale **sol majeur sur mi♭ = {E♭,G,B,D}**, tenue, non résolue. Verdict F-22 : deux boussoles stables sur m1–8 + tag polychord sur la verticalité finale. Des trois fins, c'est celle qui laisse le spectateur dans la scène : le double-fond n'a pas été ouvert."
+}

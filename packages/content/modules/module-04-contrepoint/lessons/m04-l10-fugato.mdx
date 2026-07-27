@@ -1,0 +1,67 @@
+---
+id: m04-l10-fugato
+module: module-04-contrepoint
+title: "Le fugato : la fugue au cinéma"
+estMinutes: 25
+skills: { counterpoint: 0.9, harmony: 0.1 }
+---
+
+### Pourquoi le fugato et pas la fugue
+
+La fugue complète est un monument d'école — le fugato en est **l'usage** : une section fuguée (l'exposition + un développement libre) insérée dans une musique qui ne l'est pas. Le cinéma l'adore pour une raison dramaturgique précise : l'entrée successive des voix sur le même sujet est *littéralement* une intrigue — quelque chose se propage, se poursuit, s'accumule. La poursuite, l'enquête, la machination, la construction : quatre scènes-types, une seule forme. Cette leçon en donne la mécanique utile — pas le traité.
+
+### 1. L'exposition : la machine à entrées
+
+L'exposition fuguée est un protocole d'imitation (l09) codifié :
+
+```
+LE SUJET      la cellule-thème (1-2 mesures) : ta m02-l02 en version
+              contrapuntique — avec une exigence de plus : il doit
+              SUPPORTER la superposition (teste-le contre lui-même
+              décalé AVANT de l'adopter : le mode canonShadow sert
+              d'auditeur de casting)
+ENTRÉE 1      le sujet seul (voix 1) — nu : l'identité s'installe (l'ancrage)
+ENTRÉE 2      la RÉPONSE : le sujet à la quinte (voix 2) — pendant que
+              la voix 1 continue en CONTRE-SUJET (la ligne qui accompagne
+              le sujet : composée UNE fois, réutilisée à chaque entrée —
+              l'économie fuguée : deux idées suffisent à tout)
+ENTRÉE 3      le sujet au retour (octave du départ, voix 3) — voix 2
+              au contre-sujet, voix 1 libre
+[ENTRÉE 4]    optionnelle à trois voix de film — le tutti l'absorbe souvent
+```
+
+Le contre-sujet a ses règles de casting : **complémentaire** au sujet (rythme croisé — l07 : quand le sujet tient, il bouge), **en contrepoint double** (il doit sonner au-dessus ET au-dessous du sujet, puisque les entrées le déplacent : vérifie les deux positions — c'est la seule contrainte technique neuve de la leçon, et le checker `fugato.invertible` la teste littéralement en renversant les deux lignes).
+
+### 2. Après l'exposition : l'épisode et la strette
+
+Le fugato de film n'a besoin que de deux gestes après l'exposition :
+
+| Geste | Mécanique | Fonction dramatique |
+|---|---|---|
+| **L'épisode** | un fragment du sujet (la tête, la queue — la fragmentation de m02-l04) traité en séquence (l03 M2 : la séquence a trouvé sa forme-mère) et en modulation légère | la circulation : l'enquête qui suit ses pistes, la poursuite qui tourne |
+| **La strette finale** | les entrées compressées (l09 §3) — le sujet qui se marche dessus, souvent sur pédale de dominante (l07 M3 : la gravité qui charge sous la dispute) | l'accumulation terminale : le filet qui se resserre, la machine qui s'emballe — puis le tutti HOMOPHONE qui tranche (le contrepoint qui cède au bloc : LA cadence de fugato de cinéma) |
+
+### 3. Le fugato au pupitre (l'anticipation M7)
+
+L'entrée successive est un crescendo *d'effectif* gratuit : chaque voix nouvelle = un pupitre nouveau (celli, puis altos, puis violons — ou l'inverse descendant pour la menace qui s'enfonce). Le fugato s'orchestre presque tout seul — c'est son second secret de cinéma : la forme EST l'orchestration (m09-l02 : « l'ostinato recrute » ; le fugato recrute *par la forme même*).
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Le sujet non testé en superposition | l'exposition qui frotte dès l'entrée 2 | le casting contre soi-même d'abord (canonShadow) |
+| Le contre-sujet non renversable | la 3e entrée boueuse | le contrepoint double se vérifie DANS LES DEUX SENS avant l'adoption |
+| Le fugato intégral de 4 minutes | le traité d'école au milieu du film | exposition + 1 épisode + strette : 60–90 secondes, c'est un GESTE |
+| La strette qui conclut en strette | la machine qui ne s'arrête jamais | le tutti homophone tranche — le bloc conclut ce que le tissage a construit |
+
+### La mission (m04-e10, COUNTERPOINT — fugato)
+
+Le fugato de poursuite : sujet fourni OU le tien (testé : le checker refuse un sujet qui frotte contre lui-même décalé), exposition à 3 voix complète (sujet-réponse-retour, contre-sujet invertible vérifié), un épisode en séquence sur la tête du sujet, strette finale sur pédale de dominante, conclusion homophone. `texturePlan` déclaré. Le rapport raconte ta forme : « exposition propre, épisode qui module vers le relatif, strette à délai ½ mesure — le filet se resserre réglementairement ».
+
+- [ ] Le fugato = l'exposition + un épisode + la strette : un geste, pas un traité
+- [ ] Deux idées suffisent : le sujet (testé contre lui-même) et le contre-sujet (invertible)
+- [ ] L'entrée successive est une intrigue ET une orchestration
+- [ ] Le bloc homophone conclut ce que le tissage a construit
+
+<QuizBlock id="m04-l10-quiz" questions={5} />
+<LessonFooter exercises={["m04-e10-the-chase-fugato"]} />

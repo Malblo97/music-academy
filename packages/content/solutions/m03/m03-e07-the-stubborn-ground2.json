@@ -1,0 +1,15 @@
+{
+  "exerciseId": "m03-e07-the-stubborn-ground",
+  "variantId": "pedale-cede",
+  "notation": "[G2+D4+G4+B4]:w | [G2+E4+G4+C5]:w | [G2+F4+G4+B4]:w | [G2+E4+G4+C5]:w | [G2+E4+A4+C5]:w | [G2+F4+A4+C5]:w | [G2+F4+A4+D5]:w | [G2+Eb4+Ab4+C5]:w | [G2+F4+B4+D5]:w | [G2+F4+B4+D5]:w | [C3+E4+G4+C5]:w | [C3+E4+G4+C5]:w",
+  "payload": {
+    "pedalPlan": [
+      { "bars": [1, 4], "state": "compatible" },
+      { "bars": [5, 7], "state": "frottee" },
+      { "bars": [8, 8], "state": "contredite" },
+      { "bars": [9, 10], "state": "compatible" },
+      { "bars": [11, 12], "state": "resolution" }
+    ]
+  },
+  "authorNotes": "La pédale de DOMINANTE cède. Gradation : compatible (V, I6/4, V7 — le balancement propre à la pédale de dominante) → frottée (Am/G, F/G, Dm/G : la pédale en 7e, 9e, 11e) → contredite (m8, A♭ contre sol) → **m9–10 : G7 pur, la tension fonctionnelle accumulée sur sa propre pédale, tenue deux mesures — l'état « compatible » final, c'est la pédale DEVENUE l'accord**. La sortie : m11, la basse bouge pour la première fois (G2→C3) et **ce mouvement EST la cadence** — F4→E4 (7e↓), B4→G4 (sensible frustrée en voix interne), D5→C5 (soprano 1̂) ; m12 l'arrivée qui respire (F-5). Le diptyque a/b enseigne une différence de NATURE, pas de technique."
+}

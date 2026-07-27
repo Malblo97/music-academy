@@ -1,0 +1,77 @@
+---
+id: m01-l05-cycle-quintes
+module: module-01-fondamentaux
+title: "Tonalités et armures : le cycle des quintes"
+estMinutes: 25
+skills: { harmony: 0.7, melody: 0.3 }
+---
+
+### Pourquoi un « cycle »
+
+Il existe douze gammes majeures (une par note de départ). Les apprendre en vrac est pénible ; les apprendre **dans l'ordre du cycle des quintes** est presque gratuit, car chaque tonalité ne diffère de sa voisine que d'**une seule altération**. Le cycle est aussi, tu le verras aux leçons 15 et 23, la carte des *parentés* entre tonalités — l'outil n° 1 pour moduler et pour comprendre pourquoi certaines progressions « coulent ».
+
+### 1. Le cycle
+
+```
+                      C (0)
+              F (1♭)         G (1♯)
+          B♭ (2♭)               D (2♯)
+        E♭ (3♭)                   A (3♯)
+          A♭ (4♭)               E (4♯)
+              D♭ (5♭)         B (5♯)
+                    G♭/F♯ (6♭/6♯)
+```
+
+Sens horaire (montée par quintes : C→G→D→A…) : **+1 dièse** à chaque pas. Sens antihoraire (montée par quartes : C→F→B♭→E♭…) : **+1 bémol**. En bas du cadran, G♭ et F♯ sont enharmoniques — les deux orthographes de la même tonalité (leçon 1, encore elle).
+
+### 2. Quelle altération s'ajoute ? Deux règles infaillibles
+
+**Dièses** : le nouveau dièse est toujours la **sensible (7̂)** de la nouvelle tonalité. Sol majeur → F♯ (sensible de sol). Ré majeur → C♯ s'ajoute. L'ordre des dièses : **F♯ C♯ G♯ D♯ A♯ E♯ B♯** — lui-même une suite de quintes.
+
+**Bémols** : le nouveau bémol est toujours la **sous-dominante (4̂)** de la nouvelle tonalité. Fa majeur → B♭. L'ordre des bémols : **B♭ E♭ A♭ D♭ G♭ C♭ F♭** — l'ordre des dièses à l'envers, évidemment.
+
+Lecture express d'une armure (le truc de studio) : **avec des dièses, le dernier dièse + ½ ton = la tonique**. Avec des bémols, **l'avant-dernier bémol EST la tonique** (3 bémols B♭-E♭-A♭ → mi bémol majeur). Deux secondes, zéro calcul.
+
+### 3. Le cycle comme carte des distances
+
+Deux tonalités voisines sur le cycle partagent **six notes sur sept** : passer de C à G, c'est changer une seule note (F→F♯). Elles sont *parentes proches* — moduler entre elles est doux (leçon 23). Deux tonalités opposées sur le cycle (C et F♯) ne partagent qu'une note : moduler entre elles est un événement dramatique. Le cinéma exploite les deux : glissement insensible entre voisines pour les transitions, saut lointain pour les révélations (leçon 24).
+
+<MusicExample id="voisines-lointaines" title="Proche, puis lointain">
+  A) C4:q E4:q G4:h | D4:q F#4:q A4:h    — accord de C, puis de D (2 pas) : dépaysement doux
+  B) C4:q E4:q G4:h | Db4:q F4:q Ab4:h   — accord de C, puis de D♭ (5 pas) : bascule de monde
+  Tu n'as pas encore le vocabulaire des modulations — mais tes oreilles, si.
+</MusicExample>
+
+### 4. Pratique DAW : l'armure dans Cubase
+
+Dans Cubase Pro 13, la tonalité se déclare sur la piste (**Root Key**) et dans l'éditeur de partition ; le Key Editor peut colorer les notes hors gamme — c'est le pendant visuel de `melody.out-of-key`. Prends l'habitude de **déclarer ta tonalité dès la création du projet** : tes exports vers le Real-World Workflow Mode (fiche mission PDF) te le rappelleront systématiquement, et le Module 10 en fera une étape de template.
+
+### 5. Mémorisation : le plan d'entraînement
+
+| Jour | Objectif |
+|---|---|
+| 1–3 | sens horaire jusqu'à 4♯ (C G D A E) : réciter, puis jouer 1̂-3̂-5̂ de chaque |
+| 4–6 | sens antihoraire jusqu'à 4♭ (C F B♭ E♭ A♭) : idem |
+| 7–10 | armure → tonique en 2 s (jeu du dernier dièse / avant-dernier bémol) |
+| 11–14 | tonique → armure (l'inverse), puis les gammes complètes au clavier |
+
+Quatorze jours pour un réflexe à vie — c'est l'investissement au meilleur rendement de tout le module.
+
+### 6. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Apprendre les armures par cœur sans le cycle | confusions permanentes 3♯/4♯ | toujours reconstruire par +1 quinte = +1 dièse |
+| Confondre l'ordre des dièses et des bémols | armures illisibles | l'un est l'autre inversé : F♯C♯G♯D♯… / B♭E♭A♭D♭… |
+| Ignorer les parentés | modulations brutales involontaires | avant de changer de tonalité, compte les pas sur le cycle |
+| Ne jamais déclarer la tonalité dans le DAW | analyse et partition fausses | Root Key dès la piste 1, réflexe de template |
+
+### Récapitulatif
+
+- [ ] Horaire = quintes = +1♯ ; antihoraire = quartes = +1♭
+- [ ] Nouveau dièse = sensible ; nouveau bémol = sous-dominante
+- [ ] Dernier ♯ + ½ ton = tonique ; avant-dernier ♭ = tonique
+- [ ] Distance sur le cycle = parenté des tonalités = douceur de la modulation
+
+<QuizBlock id="m01-l05-quiz" questions={7} />
+<LessonFooter exercises={["m01-e09-key-signatures", "m01-e10-circle-navigation"]} />

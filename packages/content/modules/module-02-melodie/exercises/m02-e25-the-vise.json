@@ -1,0 +1,11 @@
+{ "id": "m02-e25-the-vise", "lessonId": "m02-l13-ambiances-4",
+  "title": "L'étau", "kind": "MELODY_COMPOSE",
+  "difficulty": 7, "xpReward": 130, "skills": { "MELODY": 0.5, "RHYTHM": 0.5 },
+  "spec": { "prompt": "16 mesures de thriller : la cellule-SIGNAL (notes répétées + rythme distinctif, ≤ 3 hauteurs) répétée en ostinato — ET l'étau : UNE hauteur de la cellule monte d'un demi-ton toutes les 4 mesures. Le pattern est parfait et inhumain ; seul le paramètre dérive. La monotonie est ton outil (profil thriller : elle est créditée).",
+    "given": { "key": { "tonic": 4, "mode": "minor" } },
+    "constraints": { "key": { "tonic": 4, "mode": "minor" }, "lengthBars": [16,16],
+      "noteRange": [40,67], "motifType": "rhythmic",
+      "minMotifOccurrences": 8, "maxDistinctPitches": 5,
+      "requireChromaticDrift": { "everyBars": 4, "semitones": 1 } },
+    "styleProfile": { "id": "thriller-tension", "targetMood": "tension" },
+    "rubric": { "correctness": 15, "constraints": 50, "craft": 35 } } }

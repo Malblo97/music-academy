@@ -1,0 +1,87 @@
+---
+id: m06-l14-hybride
+module: module-06-sound-design
+title: "L'hybride : marier le synthétique et l'orchestre"
+estMinutes: 30
+skills: { sound_design: 0.5, orchestration: 0.5 }
+---
+
+### Pourquoi c'est la leçon-somme du duo M5/M6
+
+Tout le cursus convergeait ici : le Module 5 t'a donné l'orchestre, ce module t'a donné la synthèse, et le son du cinéma contemporain est leur mariage — pas leur addition. La différence entre les deux est LA leçon : **l'addition empile deux mondes qui se battent ; le mariage distribue les rôles entre deux mondes qui se complètent**. Trois protocoles couvrent le métier, plus les lois de cohabitation déjà semées (l04, l05, l06) et récoltées ici.
+
+### 1. La loi fondamentale : un rôle, un monde
+
+Reprends la table des rôles de l03 (sub/body/top/texture/movement/fx/melodic) : le mariage hybride se décide **rôle par rôle** — pour chaque rôle, UN des deux mondes est titulaire, l'autre est absent ou renfort discret. Les distributions canoniques :
+
+```
+L'ORCHESTRE HABILLÉ (le drame contemporain)
+  melodic: orchestre (celli, cor)     body: PAD analog sous les cordes
+  sub: SYNTHÉ (le sub que les Cb      texture: SYNTHÉ (le grain)
+       n'ont pas — il commence OÙ     top/mvt/fx: selon la scène
+       elles s'arrêtent : ~40 Hz)
+  → l'orchestre sonne "plus grand que lui-même" sans qu'on entende
+    de synthé : l'hybride invisible — 70 % du métier
+
+LA MACHINE HUMANISÉE (le thriller techno, la SF)
+  melodic: LEAD ou keys               body: pads
+  movement: arps (l09)                sub: synthé
+  … et L'ORCHESTRE en renforts : un vrai pupitre de celli sous le
+  pad (la chair que le synthé n'a pas), des cors réels sur le braam
+  → la machine qui a un cœur : l'inverse exact, mêmes lois
+
+LE DUEL (la dramaturgie par les mondes)
+  les deux mondes ENTIERS, mais JAMAIS en même temps : la scène A
+  est orchestrale, la scène B synthétique — le passage de témoin
+  de l06 §3 étendu à tout le spectre : le changement de monde EST
+  la bascule (le héros entre dans la matrice ; le souvenir devient
+  présent). La médiante chromatique du timbre.
+```
+
+### 2. Les trois protocoles de fusion (quand les mondes se touchent)
+
+Quand un rôle est partagé (le renfort discret), trois techniques font la couture invisible :
+
+| Protocole | Recette | Le pourquoi |
+|---|---|---|
+| **La doublure fantôme** | le pad joue LES MÊMES notes que les cordes, 6–9 dB dessous, high-passé à 150 (l04 §1 : le mariage analog+sordino) | l'oreille fusionne les timbres qui bougent ensemble (la loi de toute doublure, M5) — le pad devient la « résonance » des cordes |
+| **Le fantôme granulaire** | les celli rendus (m10-l10) → granulaire (l11, recette 1) → le drone-fantôme SOUS les celli réels qui jouent | la matière est LA MÊME : la fusion est parfaite par construction — et l'étrangeté affleure (« on reconnaît sans savoir », 4e occurrence : c'est le principe directeur du module) |
+| **Le relais d'enveloppe** | le synthé porte l'attaque (pluck, impact), l'orchestre porte la tenue (les cordes enflent DANS la queue du pluck — l'inverse du pré-écho) | chaque monde donne ce qu'il fait le mieux : le transitoire parfait du synthé, la tenue vivante de l'archet (le piano de l10 M5 rêvait de ce relais) |
+
+### 3. Les lois de cohabitation (la récolte)
+
+Les arbitrages semés au fil du module, réunis en table de référence :
+
+| Territoire | La loi | Source |
+|---|---|---|
+| Le sub (< 90 Hz) | UN roi : sub synthé OU contrebasses — le passage de témoin est un geste de mise en scène | l06 §3, `sd.sub-conflict` |
+| Le bas-médium (120–350) | le monde titulaire du body y règne ; l'autre se high-passe | l03 §1, l04 §6 |
+| Le médium mélodique | le titulaire du rôle `melodic` a sa bande réservée — l'autre monde s'y tait (`orch.masking` et sa version Hz, même loi) | l08 §4 |
+| L'espace | l'orchestre vit dans SA salle (Room/Hall de m10-l08), le synthétique peut être HORS-LIEU (sec, ou dans un espace impossible : le shimmer) — **la différence d'espace est un axe dramatique** : le réel a une salle, l'irréel n'en a pas | l12 §1 |
+| Le temps | l'orchestre respire (rubato, m10-l11), la machine est exacte — leur écart de quantisation est un CHOIX : serré = fusion, lâche = duel | m10-l03 §2 |
+
+### 4. L'erreur-mère et son antidote
+
+L'erreur-mère de l'hybride : **le doublage total** — tout l'orchestre doublé par tout le synthé, « pour la puissance ». Résultat : la bouillie riche, aucun monde lisible, `sd.band-pileup` sur tout le spectre. L'antidote tient en une question, à poser rôle par rôle : *qu'est-ce que ce monde apporte que l'autre n'a pas ?* — le sub que les contrebasses n'ont pas, la chair que le pad n'a pas, l'exactitude que l'archet n'a pas, la respiration que la machine n'a pas. Si la réponse est « rien », le renfort dégage (le test du mute de l03 §3, appliqué aux mondes entiers).
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Le doublage total | la bouillie riche | un rôle, un monde titulaire — la question de l'apport |
+| Le pad qui commence à 50 Hz sous les Cb | la guerre du royaume, version hybride | la distribution : le sub synthé commence OÙ l'orchestre s'arrête |
+| Les deux mondes dans la même reverb par défaut | l'irréel banalisé | la différence d'espace est un axe : décide-la |
+| Le synthé quantisé dur sous un orchestre rubato | la couture qui s'entend à chaque mesure | l'écart de quantisation est un choix — serré ou assumé |
+| L'hybride visible partout | le procédé qui devient le sujet | 70 % du métier est l'hybride INVISIBLE : l'orchestre plus grand que lui-même |
+
+### La mission (m06-e14, LAYERING + notes — la répétition générale)
+
+« L'orchestre habillé » sur le thème de m05-e08 (le thème héroïque orchestré) : reprends ton orchestration, ajoute le stack d'habillage — sub relais (départ à 40 Hz, `given` : les Cb tiennent jusqu'à E1), pad fantôme (mêmes notes que tes cordes, −6 dB min, high-pass 150), texture, et UN protocole de fusion déclaré (fantôme granulaire tracé à un rendu, OU relais d'enveloppe sur le climax). Le moteur vérifie : les notes du pad ⊆ notes des cordes (la doublure fantôme en checker — comparaison de pitch-class sets par fenêtre), les bandes du relais sub/Cb sans chevauchement, le niveau relatif, la traçabilité de la source granulaire, et l'ensemble `sd.*` + `orch.*` muets ensemble — **la première soumission jugée par les deux registres de règles à la fois**.
+
+- [ ] Un rôle, un monde titulaire — et la question de l'apport pour tout renfort
+- [ ] Trois protocoles : doublure fantôme, fantôme granulaire, relais d'enveloppe
+- [ ] Les cinq lois de cohabitation : sub, bas-médium, mélodie, espace, temps
+- [ ] 70 % du métier est invisible : l'orchestre plus grand que lui-même
+
+<QuizBlock id="m06-l14-quiz" questions={6} />
+<LessonFooter exercises={["m06-e14-the-dressed-orchestra"]} />

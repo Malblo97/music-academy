@@ -1,0 +1,56 @@
+{
+  "id": "m07-e03-the-carpet",
+  "lessonId": "m07-l03-tapis",
+  "title": "Le tapis",
+  "kind": "ORCHESTRATE",
+  "difficulty": 5,
+  "xpReward": 110,
+  "skills": { "ORCHESTRATION": 0.8, "HARMONY": 0.2 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "pool": "mvp",
+  "styleProfile": { "id": "romantic-film", "targetMood": "tender", "ruleWeights": {} },
+  "rubric": { "correctness": 30, "constraints": 40, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "L'exercice de l'invisible, version acoustique : construis le tapis SEUL — pas de mélodie — sur la boucle romance de m09-l01. Deux versions du même accord, deux architectures, deux émotions : (a) SERRÉ-INTIME (les notes groupées au cœur, sourdines — le choral, la densité chaleureuse) ; (b) ÉCLATÉ-CATHÉDRALE (cinq octaves, matière mixte déclarée — l'espace, la transparence). Partout : le voicing suit la série harmonique — large en bas, resserré en montant, JAMAIS de tierce au socle. Les notes communes TIENNENT d'un accord à l'autre (le tapis coule, il ne saute pas). Et les trois vies, une au minimum : la respiration (l'arche des tenues), le renouvellement interne, le complément. Deux matières maximum : trois mélangées font le gris riche.",
+    "given": {
+      "key": { "tonic": 0, "mode": "major" },
+      "chords": [
+        { "root": 0, "quality": "maj7" },
+        { "root": 9, "quality": "m7" },
+        { "root": 5, "quality": "add9" },
+        { "root": 7, "quality": "7sus4-7" },
+        { "root": 0, "quality": "maj7" },
+        { "root": 9, "quality": "m7" },
+        { "root": 5, "quality": "m6" },
+        { "root": 0, "quality": "maj" }
+      ]
+    },
+    "parts": [
+      {
+        "id": "tight-intimate",
+        "prompt": "Serré au cœur, sourdines : l'intimité.",
+        "constraints": { "voicingSpread": "close", "registerFocus": [60, 72], "mutedStringsAllowed": true, "dynamicsMax": "mf" }
+      },
+      {
+        "id": "spread-cathedral",
+        "prompt": "Éclaté sur cinq octaves, matière mixte déclarée.",
+        "constraints": { "voicingSpread": "wide", "octaveSpanMin": 4, "materialsDeclared": true }
+      }
+    ],
+    "constraints": {
+      "lengthBars": [8, 8],
+      "format": "Part[]",
+      "pool": "mvp",
+      "forbiddenRoles": ["melody"],
+      "noThirdBelowPitch": 48,
+      "harmonicSpacing": "wide-low-tight-high",
+      "commonToneRetention": { "minRatio": 0.6, "perPart": true },
+      "carpetLife": { "minLives": 1, "allowed": ["breathing", "renewal", "complement"] },
+      "dynamicArchRequired": { "onNotesLongerThanBeats": 2, "checker": "ccCoverage" },
+      "materialsMax": 2,
+      "checkers": ["orch.range-violation", "orch.low-interval-limit", "orch.balance", "orch.blend-risk", "densityMap"]
+    }
+  }
+}

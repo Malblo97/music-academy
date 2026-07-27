@@ -1,0 +1,108 @@
+---
+id: m01-l12-renversements
+module: module-01-fondamentaux
+title: "Renversements et positions : le même accord, autrement posé"
+estMinutes: 20
+skills: { harmony: 0.8, orchestration: 0.2 }
+---
+
+### Pourquoi renverser
+
+Trois notes, mais des dizaines de façons de les poser sur le clavier. Le **renversement** (quelle note est à la basse) et la **disposition** (comment les notes se répartissent en hauteur) ne changent pas l'*identité* de l'accord — C reste C — mais changent tout le reste : la stabilité, la couleur, et surtout la possibilité de **relier les accords en douceur**. Cette leçon est l'antichambre directe du voice leading (Module 3) : c'est ici que tes progressions cessent de sauter comme des blocs.
+
+### 1. Les trois positions d'une triade
+
+Le renversement se définit par **la note à la basse** (la plus grave qui sonne) :
+
+```
+État fondamental        1er renversement        2e renversement
+(fondamentale en bas)   (tierce en bas)         (quinte en bas)
+
+    G                       C                       E
+    E                       G                       C
+    C  ← basse              E  ← basse              G  ← basse
+
+  stable, affirmé         fluide, léger,          suspendu, instable,
+  « je suis là »          « je passe »            « j'attends » (usage
+                                                   encadré, voir §3)
+```
+
+Notation : en chiffrage moderne (celui du produit et des lead sheets), on écrit la basse après une barre : **C/E** (do majeur, mi à la basse), **C/G**. Retiens la hiérarchie de stabilité : *fondamental > 1er renversement > 2e renversement* — la basse porte l'accord, et une basse qui n'est pas la fondamentale rend l'édifice plus léger, jusqu'à l'instable.
+
+<MusicExample id="trois-positions" title="Le même C, trois poids">
+  [C3+C4+E4+G4]:w | [E3+C4+E4+G4]:w | [G3+C4+E4+G4]:w
+  Fondamental : un socle. C/E : le socle se fait passant. C/G : il flotte —
+  ton oreille attend une suite. Même accord, trois métiers.
+</MusicExample>
+
+### 2. Le vrai pouvoir : la basse devient une mélodie
+
+Voici pourquoi les renversements existent. Compare deux façons de jouer I–vi–IV–V en C :
+
+```
+Tout à l'état fondamental :      Avec renversements :
+basse : C  → A  → F  → G          basse : C → E (=C/E... non : Am/E ? Essaie
+(sauts de 3ce, 3ce, 2de)          plutôt :) C → A → F → G devient
+                                  C → C/E → F → G : basse C-E-F-G,
+                                  une GAMME qui monte vers la dominante
+```
+
+<MusicExample id="basse-melodique" title="La basse qui marche">
+  A) [C3+E4+G4+C5]:h [A2+E4+A4+C5]:h | [F2+F4+A4+C5]:h [G2+F4+G4+B4]:h [C3+E4+G4+C5]:w
+  B) [C3+E4+G4+C5]:h [E3+E4+A4+C5]:h | [F3+F4+A4+C5]:h [G3+F4+G4+B4]:h [C3+E4+G4+C5]:w
+  A : la basse saute (correct, carré). B : C–E–F–G, la basse DEVIENT une
+  ligne — vi est remplacé par C/E, et la progression se met à marcher.
+</MusicExample>
+
+C'est le geste fondateur de tout le voice leading : **penser la basse comme une deuxième mélodie**. La règle `harmony.static-bass` (§7.3) et la métrique `vl.smoothness` récompensent exactement cela. Et note ce qui s'est passé dans l'exemple B : les voix supérieures ont à peine bougé — notes communes tenues, le reste au plus court. Tu viens de faire du voice leading sans le savoir.
+
+### 3. Le cas sensible : le 2e renversement
+
+Le 2e renversement (quinte à la basse) est si instable que l'écriture classique l'encadre dans trois emplois précis — utile à connaître, car l'instabilité mal placée s'entend comme une erreur même chez qui ignore la règle :
+
+| Emploi | Recette | Effet |
+|---|---|---|
+| **Cadentiel** (le grand classique) | I/5̂ juste avant V, sur temps fort : I64→V→I | suspension solennelle avant la conclusion — le « moment cérémonie » |
+| **De passage** | basse conjointe qui traverse : I → V/2̂... (basse 1̂-2̂-3̂) | fluidité, la basse marche |
+| **De broderie** | basse tenue, l'accord bascule dessus et revient | balancement doux |
+
+Hors styles stricts, le produit ne te pénalisera pas pour un 64 libre (les profils film s'en moquent) — mais l'*effet de flottement* du 2e renversement, lui, est acoustique et universel : emploie-le quand tu veux flotter, pas par accident.
+
+### 4. Disposition : serrée ou ouverte
+
+Indépendamment du renversement, les notes peuvent être **serrées** (le plus compact possible) ou **ouvertes** (espacées, souvent en sautant une note de l'accord entre deux voix) :
+
+```
+Serrée :  C4-E4-G4          Ouverte :  C3-G3-E4
+          compact, dense               aérée, large, « orchestrale »
+```
+
+Deux lois d'atelier, déjà rencontrées de biais et que le Module 5 systématisera :
+- **le grave veut de l'espace** : en dessous de ~C3, les intervalles serrés (tierces, secondes) se brouillent en « boue » — c'est la règle `orch.low-interval-limit`. Basse écartée (octaves, quintes), couleurs serrées au médium ;
+- **la disposition est une orchestration au piano** : serrée = un bloc qui frappe ; ouverte = un espace qui respire. Le même accord ff serré est un impact, ouvert est un horizon.
+
+<MusicExample id="serree-ouverte" title="Le grave veut de l'espace">
+  A) [C2+E2+G2]:w        — triade serrée dans le grave : boue
+  B) [C2+G2+E3]:w        — même accord, écarté : assise claire
+  L'exemple A n'est pas « faux », il est illisible. Écarte le grave, toujours.
+</MusicExample>
+
+### 5. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Tout jouer à l'état fondamental serré main gauche | basse qui saute, « blocs » sans lien — le réflexe pianiste débutant (§7.3 le connaît) | planifie ta LIGNE de basse d'abord, choisis les renversements pour elle |
+| Confondre renversement et disposition | analyses fausses (« C/G » pour un C fondamental ouvert avec G au soprano) | seul compte QUI EST À LA BASSE |
+| 2e renversement posé au hasard | flottements inexpliqués aux mauvais moments | cadentiel, passage, broderie — ou flottement voulu |
+| Triades serrées sous C3 | grave boueux dans toutes tes maquettes | écarte : octave ou quinte à la basse, le reste au médium |
+
+### Récapitulatif
+
+- [ ] Renversement = qui est à la basse ; notation C/E, C/G
+- [ ] Stabilité : fondamental > 1er > 2e — la basse porte l'accord
+- [ ] La basse est une mélodie : les renversements servent à la faire marcher
+- [ ] 2e renversement : cadentiel, passage, broderie — ou flottement assumé
+- [ ] Le grave veut de l'espace : jamais de tierces sous C3
+
+<QuizBlock id="m01-l12-quiz" questions={6} />
+<LessonFooter exercises={["m01-e23-inversion-lines", "m01-e24-bass-melody"]} />

@@ -1,0 +1,12 @@
+{ "id": "m02-e22-epic-plateau", "lessonId": "m02-l11-ambiances-2",
+  "title": "La psalmodie sur le moteur", "kind": "MELODY_COMPOSE",
+  "difficulty": 6, "xpReward": 110, "skills": { "MELODY": 0.8, "RHYTHM": 0.2 },
+  "spec": { "prompt": "L'ostinato est fourni (il joue sous toi, ▶ actif pendant la saisie). Compose la mélodie ÉPIQUE au-dessus : psalmodique (6 hauteurs distinctes maximum), silhouette de plateau + ascension terminale, valeurs LARGES (la mélodie lente sur le moteur rapide : deux vitesses). Si ta ligne est complexe, elle rivalise avec son monde.",
+    "given": { "key": { "tonic": 9, "mode": "minor" },
+      "notation": "A2:e A2:e E3:e A2:e C3:e A2:e E3:e G3:e | A2:e A2:e E3:e A2:e C3:e A2:e G3:e E3:e" },
+    "constraints": { "key": { "tonic": 9, "mode": "minor" }, "lengthBars": [8,8],
+      "noteRange": [57,76], "maxDistinctPitches": 6,
+      "contourShape": ["plateau"], "minAvgDuration": 720,
+      "mustEndOnDegrees": [1,5] },
+    "styleProfile": { "id": "epic-film", "targetMood": "epic" },
+    "rubric": { "correctness": 20, "constraints": 45, "craft": 35 } } }

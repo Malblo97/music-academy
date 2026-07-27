@@ -1,0 +1,6 @@
+{
+  "exerciseId": "m03-e12-the-lying-compass",
+  "variantId": "creature",
+  "notation": "C3:q. F#3:q. Eb3:q | C3:q. F#3:q. Eb3:q | Eb3:q. A3:q. F#3:q | Eb3:q. A3:q. F#3:q | F#3:q. C4:q. A3:q | F#3:q. C4:q. A3:q | A3:q. Eb4:q. C4:q | A3:q. Eb4:q. C4:q | C3:q. F#3:q. Eb3:q | Eb3:q. A3:q. F#3:q | F#3:q. C4:q. A3:q | [A2+C3+Eb4+E4+F#4]:w",
+  "authorNotes": "La cellule : 3 notes, anguleuse (+6/−3, le triton en tête), rythme **3+3+2** — syncopationTarget tenu. La rotation C→E♭→F♯→A à deux mesures par nœud (m1–8), puis **resserrée à une mesure** (m9–11) : la créature accélère, rotation complète taguée ×2. Tout ∈ OCT(C) {C,D♭,E♭,E,F♯,G,A,B♭}. m12 : la MORSURE verticale [A+C+E♭+E+F♯] — le demi-ton E♭–E exposé dans la masse, tenu."
+}

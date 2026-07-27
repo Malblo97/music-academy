@@ -1,0 +1,6 @@
+{
+  "exerciseId": "m03-e10-white-light",
+  "notation": "[G3+A3+B3+D4]:w | [G3+C4+D4+G4]:w | [A3+B3+E4+F#4]:w | [G3+A3+D4+E4]:w | [G3+B3+C4+D4]:w | [G3+C4+D4+A4]:w | [B3+C4+D4+E4]:w | [G2+D3+A3+E4]:w | [G2+D3+A3+B4]:w | [G2+D3+A3+D4]:w | [G2+D3+G3+D4]:w | [G2+G3]:w",
+  "payload": { "declaredPole": 7 },
+  "authorNotes": "Tout ∈ sol diatonique ; le fa♯ n'apparaît qu'en voix interne non cadentielle (m3) — forbidFunctionalCadence tenue. Le pôle par INSISTANCE : sol, déclaré — basses de m1–2, 4–6, 8–12, première ET dernière verticalité (F-19 confirme l'ancrage sans gravité fonctionnelle). Six empilements non tertiens tagués ≥ 4 : secondes G-A-B (m1), quartes-quintes (m2), m4, la seconde interne B-C (m5), le cluster diatonique conjoint B-C-D-E (m7), les quintes empilées (m8+). **L'événement d'espacement : m7→m8, ambitus 5 dt → 21 dt** — le resserré maximal qui éclate en quintes. Craft : les secondes vivent au médium, le grave ne porte que des quintes (orch.low-interval-limit silencieux). Fin par dissolution : m9–11 les quintes se vident une à une, m12 l'octave nue G2–G3 — le pôle resté seul, le geste-jumeau du fil seul de e06b."
+}

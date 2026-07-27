@@ -1,0 +1,63 @@
+---
+id: m08-l02-voicings
+module: module-08-jazz
+title: "Les voicings I : shells, rootless — la main du pianiste"
+estMinutes: 30
+skills: { harmony: 1.0 }
+---
+
+### Pourquoi le jazz voice autrement
+
+L'harmonie classique voice pour des *voix* (SATB, la conduite de M1/M4) ; le jazz voice pour une **main** — et pour un contexte : la basse joue la fondamentale (l05), donc le piano ne la répète pas ; la mélodie ou le soliste occupe le haut, donc le piano reste au milieu. Le voicing jazz est une économie : *le minimum de notes qui dit le maximum d'accord* — et tu en connais le cœur depuis m01-l26 : les guide tones. Cette leçon en fait un système de main.
+
+### 1. Le shell voicing : le squelette qui suffit
+
+```
+LE SHELL = fondamentale + guide tones (3 et 7) — TROIS notes, tout
+l'accord : la fondamentale nomme, la tierce dit majeur/mineur, la
+septième dit la fonction. La quinte ? ABSENTE — elle ne dit rien
+(sauf altérée : ♭5/♯5 réintègrent le voicing en porteuses de sens).
+Dm7  :  D2 + F3 C4      (1 + 3 7)
+G7   :  G2 + F3 B3      (1 + 7 3)  ← note l'échange : les guide tones
+Cmaj7:  C2 + E3 B3      (1 + 3 7)     PERMUTENT entre accords voisins —
+                                      le toboggan de m01-e36, devenu main
+```
+
+Le shell est le voicing des mains gauches de bebop, des guitaristes, et de TOUTE esquisse jazz rapide : apprends les deux formes (3-7 et 7-3) dans les douze tons — c'est la conjugaison de base de l'idiome (le générateur du produit te drille : m08-e02).
+
+### 2. Le rootless : la main du trio moderne
+
+Quand la basse est là (le trio, le combo), la fondamentale du piano devient redondante — le **rootless voicing** la supprime et la remplace par des tensions :
+
+| Accord | Voicing A (3 en bas) | Voicing B (7 en bas) | Ce qui s'entend |
+|---|---|---|---|
+| Dm7 | F–A–C–E (3-5-7-9) | C–E–F–A (7-9-3-5) | le m7 crémeux à 9 |
+| G7 | F–A–B–E (7-9-3-13) | B–E–F–A (3-13-7-9) | le V7 habillé 9/13 |
+| Cmaj7 | E–G–B–D (3-5-7-9) | B–D–E–G (7-9-3-5) | le maj9 |
+
+La mécanique magique du couple A/B : sur un ii–V–I, **alterner les formes (A→B→A) donne une conduite quasi immobile** — chaque voix bouge d'un demi-ton ou tient (la smoothness de m01-e26, industrialisée : le ii-V-I entier sous une main qui ne se déplace pas). Le registre de la main : **C3–C5** (la « zone du voicing » : plus bas, la boue — le low-interval-limit connaît le jazz aussi ; plus haut, la guerre avec la mélodie).
+
+### 3. Les altérations dans la main (le pont m03-l09)
+
+Le V7 rootless accueille les altérations par simple substitution de notes : le 13 devient ♭13, le 9 devient ♭9/♯9 — la main de G7alt : B–E♭–F–A♭ (3-♭13-7-♭9). Règle de contexte héritée de M1/M3 : **V7 altéré vers un i mineur, V7 naturel (9/13) vers un I majeur** — par défaut ; le goût inverse existe et s'assume (le 7♭9 vers majeur : le frisson gospel).
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| La fondamentale dans le rootless | le pléonasme avec la basse + la main trop grave | la basse nomme, la main colore : c'est le contrat |
+| La quinte gardée par habitude | une note dépensée pour rien | 3 et 7 d'abord, les tensions ensuite — la quinte seulement altérée |
+| Les voicings qui sautent | la main qui se déplace à chaque accord | l'alternance A/B : la conduite immobile est le but |
+| Le voicing sous C3 | la boue jazz | la zone C3–C5 — éternelle loi, idiome ou pas |
+
+### La mission (m08-e02, HARMONY_PROGRESSION)
+
+La grille fournie (ii–V–I majeur ×2, ii–V–i mineur ×1, 12 mesures) réalisée **deux fois** : (1) en shells (basse + 3-7, les permutations vérifiées — le tag `shell-voicing`), (2) en rootless A/B alternés (le tag `rootless-voicing`, la smoothness mesurée ≤ 1.5 dt/voix/transition, le V7 du mineur altéré). Generator en amont : le drill des shells dans les 12 tons (8 rounds). Le rapport montre ta conduite voix à voix : « ta main n'a pas bougé de plus d'un ton sur 12 mesures — la main du pianiste ✓ ».
+
+- [ ] Le shell : 1 + 3-7 — trois notes, tout l'accord (et la quinte ne dit rien)
+- [ ] Le rootless : la basse nomme, la main colore — tensions à la place de la fondamentale
+- [ ] A/B alternés = la conduite immobile : le ii-V-I sous une main
+- [ ] Altéré vers mineur, naturel vers majeur — par défaut, et le goût s'assume
+
+<QuizBlock id="m08-l02-quiz" questions={5} />
+<LessonFooter exercises={["m08-e02-the-pianist-hand"]} />

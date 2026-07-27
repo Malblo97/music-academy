@@ -1,0 +1,9 @@
+{ "id": "m01-e37-find-the-mother", "lessonId": "m01-l20-substitutions",
+  "title": "Retrouve la progression-mère", "kind": "THEORY_QUIZ",
+  "difficulty": 5, "xpReward": 50, "skills": { "HARMONY": 1.0 },
+  "spec": { "prompt": "Chaque variante cache une progression-mère derrière ses substitutions. Identifie-la — et l'invariant préservé.",
+    "quiz": { "interaction": "mc",
+      "items": [
+        { "q": "▶ vi–ii–V7–I (en C : Am–Dm–G7–C) est une variante de :", "play": "[A2+E4+A4+C5]:h [D3+F4+A4+D5]:h [G2+F4+G4+B4]:h [C3+E4+G4+C5]:h", "options": ["I–IV–V–I","I–vi–IV–V","ii–V–I–IV"], "answer": "I–IV–V–I", "why": "vi double I, ii double IV : même récit T-S-D-T, éclairage assombri." },
+        { "q": "Dans Dm7–D♭7–Cmaj7, l'invariant préservé par D♭7 :", "options": ["la fondamentale de G7","le triton B–F","la quinte de G7"], "answer": "le triton B–F", "why": "Les guide tones de G7 et D♭7 sont identiques — la promesse tient, la basse glisse." },
+        { "q": "Bdim remplaçant G7, ce qui est perdu :", "options": ["la tension","le poids (la fondamentale)","la sensible"], "answer": "le poids (la fondamentale)", "why": "vii° = V7 décapité : même triton, conclusion plus légère." } ] } } }

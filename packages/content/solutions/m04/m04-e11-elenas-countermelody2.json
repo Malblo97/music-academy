@@ -1,0 +1,7 @@
+{
+  "exerciseId": "m04-e11-elenas-countermelody",
+  "variantId": "slow-river",
+  "notation": "r:h A2:h~ | A2:w | r:h E3:h~ | E3:h A3:h~ | A3:w | D3:h G3:h~ | G3:h E3:h | D3:w",
+  "payload": { "recipe": "slow-river" },
+  "authorNotes": "Le fleuve lent : le gravitas. Cellule = **la quarte montante en tenues liées** (E3→A3 m3–4 ; D3→G3 m6, variante rythmique). Entrées aux temps 3 (une seule au temps fort) — le fleuve se glisse sous les TENUES d'Elena, jamais sous ses pas. Toutes les verticalités d'appui consonantes (la 11e de m8.3 est un passage conduit du thème, pas du contrechant). « Ton fleuve lent porte Elena sans jamais la couvrir » — la phrase de la spec, méritée. Ces métriques resservent telles quelles à l'acte 3 de s12."
+}

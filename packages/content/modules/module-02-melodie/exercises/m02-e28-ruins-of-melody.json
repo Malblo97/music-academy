@@ -1,0 +1,11 @@
+{ "id": "m02-e28-ruins-of-melody", "lessonId": "m02-l14-ambiances-5",
+  "title": "La ruine de mélodie", "kind": "MELODY_COMPOSE",
+  "difficulty": 7, "xpReward": 120, "skills": { "MELODY": 1.0 },
+  "spec": { "prompt": "8 mesures NÉO-NOIR : compose d'abord tes SILENCES (≥ 40 % de la durée), puis pose des fragments dedans — 5 notes consécutives maximum par fragment, descendants pour la plupart, qui s'interrompent avant de résoudre. Dès que ta ligne fait 4 mesures continues et chantables, tu as écrit une ballade triste : recommence.",
+    "given": { "key": { "tonic": 0, "mode": "minor" } },
+    "constraints": { "key": { "tonic": 0, "mode": "minor" }, "lengthBars": [8,8],
+      "minRestRatio": 0.4, "maxPhraseNotes": 5,
+      "contourShape": ["descent","plateau"], "mustEndOnDegrees": [2,5],
+      "minChromaticFigures": 1 },
+    "styleProfile": { "id": "neo-noir", "targetMood": "ambiguous-dark" },
+    "rubric": { "correctness": 15, "constraints": 45, "craft": 40 } } }

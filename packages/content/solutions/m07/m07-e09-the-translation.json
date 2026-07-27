@@ -1,0 +1,21 @@
+{
+  "exerciseId": "m07-e09-the-translation",
+  "payload": {
+    "lengthBars": 16,
+    "passDeliverables": {
+      "pass1_roles": { "hiddenRoleFound": "le contre-chant fondu dans la main gauche, exhumé", "credit": true },
+      "pass2_sections": { "sectionMap": "A – A' – B – A''" },
+      "pass3_stages": { "note": "le grave éclaté en octaves — « le piano serrait, l'orchestre éclate »" },
+      "pass4_casting": {
+        "MD chantante": "violins-1",
+        "accords": "violins-2 + violas (arches dyn[])",
+        "basse": "cellos + contrabasses",
+        "rôle caché": "cor"
+      },
+      "pass5_life": { "note": "arches sur toutes les tenues > 2 temps — les « deux tenues sans arche » du contre-exemple évitées" },
+      "pass6_trial": { "automatedByEngine": true }
+    },
+    "arpeggioTranslation": { "chosen": "tapis-tenu", "class": ["tapis-tenu", "arpège-réparti (vl2 div.)", "trémolo-mesuré"] }
+  },
+  "authorNotes": "**Témoin F-42 — la table d'équivalences de traduction.** Le rapport promis disait « choix valide — le moteur l'aurait accepté autrement » : cette phrase supposait une donnée qui n'existait pas. Désormais chaque piège déclare sa classe d'équivalence, le checker crédite tout membre de la classe et **le rapport nomme les alternatives non choisies** — la pédagogie du « plusieurs bonnes réponses », chiffrée. Ici : l'arpège de pédale devient un tapis tenu, et l'élève lit que l'arpège réparti et le trémolo mesuré l'étaient aussi. Règle au manuel : *on traduit des rôles, jamais des notes recopiées — la réduction EST la traduction.* La passe 6 est documentée en `authorNotes` : c'est celle qui fuit le plus souvent, et celle que le moteur automatise."
+}

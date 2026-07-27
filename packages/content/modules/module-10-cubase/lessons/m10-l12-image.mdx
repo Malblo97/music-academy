@@ -1,0 +1,100 @@
+---
+id: m10-l12-image
+module: module-10-cubase
+title: "Travailler à l'image : le spotting, les markers, les hit points"
+estMinutes: 30
+skills: { daw_workflow: 0.7, rhythm: 0.3 }
+---
+
+### Pourquoi c'est la leçon-sommet du module
+
+Tout ce produit enseigne la musique *de film* — et voici la leçon où le film entre dans la session. Composer à l'image ajoute une contrainte souveraine : **le temps ne t'appartient plus**. Les coupes tombent où elles tombent, l'émotion bascule à 1'23"7, et ta musique doit y être — pas à peu près : *dessus*. Cette leçon couvre la chaîne complète : recevoir l'image, la dépouiller (le spotting), poser les repères, et faire tomber les mesures sur les secondes — la rencontre Tempo Track × image, le geste le plus spécifique du métier.
+
+### 1. Recevoir l'image : les vérifications de naissance
+
+La Video Track (*Add Track → Video*) accueille le fichier. AVANT toute note, trois vérifications — chacune évite une catastrophe :
+
+```
+1. LE FRAME RATE   celui du fichier = celui du projet (Project Setup) —
+                   sinon TOUS les timecodes mentent (l01 §4 l'annonçait)
+2. LE TIMECODE DE DÉPART   le film commence rarement à 00:00:00:00 —
+                   règle le Project Start Time sur le timecode du fichier
+                   (les repères de la prod et les tiens parleront pareil)
+3. LA VERSION      nomme et archive : "Cut_v3" — les montages CHANGENT
+                   (le recut est la vie du métier ; tes Refs/ de l01
+                   gardent l'historique)
+```
+
+### 2. Le spotting : dépouiller avant de composer
+
+Le **spotting** est la lecture professionnelle de la scène : identifier où la musique commence, où elle finit, et ce qu'elle doit faire entre les deux. La méthode, avant la moindre note :
+
+```
+1. Regarde la scène DEUX fois sans rien faire (l'oreille avant le
+   crayon — le protocole de l25 M1, version image)
+2. Passe 3 : pose un MARKER à chaque événement qui compte :
+   - IN / OUT de la musique (où elle entre, où elle meurt)
+   - les HITS : les instants que la musique doit souligner (la porte
+     qui s'ouvre, le regard, la coupe au visage)
+   - les BASCULES : les changements d'émotion (la scène tourne)
+3. Pour chaque marker, UNE ligne dans sa description : ce qui se passe
+   + ce que la musique doit y faire ("2'14"3 — elle comprend : bascule
+   chaud→froid, iv ?")
+```
+
+Ce dépouillement EST le plan de la composition : les bascules appellent tes outils dramatiques (la rompue de l16 M1, le iv de l21, la médiane... la médiante de l24), les hits appellent des événements orchestraux, l'IN/OUT dessine l'arche. Le spotting traduit le film en brief — le protocole de m02-l15 (brief → curseurs) commence ici.
+
+### 3. Les markers : l'outillage
+
+La **Marker Track** porte deux espèces : les **markers de position** (les points du spotting) et les **markers de cycle** (des régions : le cue entier, les sections). Les gestes qui comptent :
+
+| Geste | Usage |
+|---|---|
+| Insert marker à la volée (à l'écoute) | le spotting passe 3 : un marker par pression, on affine après |
+| La Marker Window (fenêtre dédiée) | la table de spotting : ID, timecode, description — exportable/importable CSV (les notes de spotting de la prod s'importent) |
+| Locate → marker (raccourcis 1–9) | naviguer le cue comme un plan, pas comme une bande |
+| Cycle markers par section | boucler LA bascule pendant qu'on la compose |
+
+### 4. Faire tomber les mesures sur les secondes : la rencontre
+
+Le problème central du métier : ton hit est à **1'23"7** (une seconde, fixe) ; tu veux qu'il tombe sur **le temps 1 d'une mesure** (une position musicale, élastique). Le levier entre les deux : le tempo (l11 §3 — te voilà au pourquoi profond de cette leçon).
+
+La méthode manuelle (celle qui t'apprend le geste ; l'outillage l'accélère ensuite) :
+
+```
+1. Compose l'approche au tempo "naturel" de la scène (le spotting le
+   suggère : le pouls de la marche, de la tension — l08 M1)
+2. Regarde OÙ tombe le hit dans ta grille : mesure 9, temps 2.7 — raté
+3. Ajuste le tempo de la SECTION D'APPROCHE de quelques BPM (une rampe
+   douce ou un jump à la coupe précédente) jusqu'à ce que le temps 1
+   de la mesure 9 coïncide avec 1'23"7
+   → ♩=92 → ♩=94.5 : PERSONNE n'entend la différence de tempo ;
+     TOUT LE MONDE entend le hit qui tombe
+4. Verrouille : marker nommé "HIT — porte", et la section suivante
+   repart de là (chaque hit re-synchronise ; les erreurs ne s'accumulent
+   jamais sur plus d'une section)
+```
+
+L'outil dédié : la fonction **Time Warp / Set Definition from Tempo** permet de « tirer » la grille sur l'image (tu déplaces la barre de mesure SUR le hit, Cubase calcule le tempo) — même logique, geste inverse. Et le grand raffinement du métier : **le hit ne tombe pas toujours sur un temps fort** — l'anticipation d'une croche (la musique arrive juste avant l'image : l'impact respire) ou le retard délibéré (l'image d'abord, la musique *répond*) sont des choix expressifs. Le hit mécanique sur chaque coupe a un nom moqueur — le *mickey-mousing* — légitime en cartoon, pesant partout ailleurs : **on souligne les bascules, pas les gestes**.
+
+### 5. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Frame rate non vérifié | tous les hits décalés « mystérieusement » | la vérification de naissance, avant toute note |
+| Composer avant de spotter | la belle musique qui ne raconte pas LA scène | deux visionnages muets, puis les markers, puis les notes |
+| Tout caler sur des temps forts | le mickey-mousing, la musique-esclave | souligner les bascules ; anticiper ou retarder en conscience |
+| Le tempo tordu pour UN hit lointain | dix mesures fausses pour une coupe juste | re-synchroniser par sections : chaque hit remet à zéro |
+| Ignorer le recut | « mais ça tombait la semaine dernière ! » | versions nommées + markers importables : le recalage est un lundi matin normal, pas un drame |
+
+### La mission (m10-e12, GUIDÉE — l'asset-film du produit)
+
+Le produit fournit son premier asset vidéo : **« La Remise »**, une scène muette de 90 secondes (produite pour le cours : un personnage, une remise, une découverte — trois bascules, deux hits nets, libre de droits). Mission : import et vérifications de naissance, spotting complet (markers IN/OUT + 2 hits + 3 bascules, descriptions rédigées), puis fais tomber la mesure sur le hit n° 1 par la méthode manuelle (§4) — checklist 12 étapes, `verifyHint` central : « lecture à 1'02"0 : le temps 1 sonne-t-il AVEC la porte ? ». La composition de la scène elle-même sera le capstone l15 — cette mission livre son squelette temporel. *(Backlog assets : la vidéo « La Remise » rejoint les 2 pièces musicales — production V1, brief de 90 s spécifié.)*
+
+- [ ] Frame rate, timecode de départ, version : les trois vérifications de naissance
+- [ ] Le spotting traduit le film en brief : IN/OUT, hits, bascules — AVANT les notes
+- [ ] Le tempo est le levier : ±2 BPM inaudibles font tomber le hit ; chaque section re-synchronise
+- [ ] On souligne les bascules, pas les gestes — le mickey-mousing sait pourquoi il est moqué
+
+<QuizBlock id="m10-l12-quiz" questions={5} />
+<LessonFooter exercises={["m10-e12-la-remise-spotting"]} />

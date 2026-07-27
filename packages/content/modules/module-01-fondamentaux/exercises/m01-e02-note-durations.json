@@ -1,0 +1,10 @@
+{ "id": "m01-e02-note-durations", "lessonId": "m01-l01-notes-clavier",
+  "title": "Lire les durées", "kind": "THEORY_QUIZ",
+  "difficulty": 1, "xpReward": 30, "skills": { "RHYTHM": 1.0 },
+  "spec": { "prompt": "Associe chaque notation à sa durée réelle (♩ = 1 temps).",
+    "quiz": { "interaction": "mc",
+      "generator": { "values": ["w","h","h.","q","q.","e","s"], "rounds": 6 },
+      "items": [
+        { "q": "`h.` vaut :", "options": ["2 temps","3 temps","1,5 temps","4 temps"], "answer": "3 temps", "why": "Le point ajoute la moitié : blanche (2) + 1 = 3." },
+        { "q": "Combien de `s` dans une `q` ?", "options": ["2","3","4","8"], "answer": "4", "why": "Chaque valeur divise par 2 : q → 2e → 4s." },
+        { "q": "`r:e` est :", "options": ["une croche","un demi-temps de silence","un temps de silence"], "answer": "un demi-temps de silence", "why": "r = silence, e = valeur de croche. Le silence est une note (l01 §5)." } ] } } }

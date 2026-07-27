@@ -1,0 +1,78 @@
+{
+    "exerciseId": "m10-e09-automate-the-gesture",
+    "payload": {
+      "mode": "guided+proof",
+      "checklist": [
+        {
+          "id": "e09-s1",
+          "expect": "LE « FIX — Kill GhostNotes » : Note AND vel < 15 AND durée < 30 ticks → Delete"
+        },
+        {
+          "id": "e09-s2",
+          "expect": "LE « HUM — Velocity ±8 » : Random(−8..+8), sur le PROGRAMMÉ seulement"
+        },
+        {
+          "id": "e09-s3",
+          "expect": "LE « SEL — Strong Beats » : position = temps 1 → Select"
+        },
+        {
+          "id": "e09-s4",
+          "expect": "PLE « VIEW — Strings only » assigné à un raccourci"
+        },
+        {
+          "id": "e09-s5",
+          "expect": "PLE « COLOR — By prefix »"
+        },
+        {
+          "id": "e09-s6",
+          "expect": "macro « PREP — Export Mission » : Select All on Track → Kill GhostNotes → Delete Overlaps"
+        },
+        {
+          "id": "e09-s7",
+          "expect": "préfixes de famille FIX / HUM / SEL / VIEW / PREP"
+        },
+        {
+          "id": "e09-s8",
+          "expect": "la preuve : brut e03 sali → PREP → export"
+        }
+      ],
+      "witness": {
+        "derivedFrom": "m10-e03-two-quantize-worlds",
+        "seed": 11,
+        "injections": [
+          {
+            "type": "ghostNote",
+            "track": "MEL Cor",
+            "bar": 2,
+            "tickInBar": 55,
+            "pitch": 45,
+            "velocity": 11,
+            "durTicks": 18
+          },
+          {
+            "type": "ghostNote",
+            "track": "MEL Cor",
+            "bar": 5,
+            "tickInBar": 210,
+            "pitch": 62,
+            "velocity": 9,
+            "durTicks": 22
+          },
+          {
+            "type": "ghostNote",
+            "track": "OST Celli",
+            "bar": 7,
+            "tickInBar": 400,
+            "pitch": 57,
+            "velocity": 13,
+            "durTicks": 12
+          }
+        ],
+        "pipeline": [
+          "FIX — Kill GhostNotes",
+          "Delete Overlaps"
+        ]
+      }
+    },
+    "authorNotes": "« L'automatisation prouvée par son résultat. » Chiffres vérifiés : durée minimale après toilette 240 ticks ≥ 30 ✓ ; zéro chevauchement ✓ ; `samePitchSequenceAsSubmission` = 1,00 contre le témoin e03 — la toilette a supprimé les 3 injections et RIEN d'autre. Les trois salissures sont posées au bord du filtre (vélocités 9–13 < 15 ; durées 12–22 ticks < 30) : elles prouvent que le preset attrape, et la séquence intacte prouve qu'il n'attrape que ça. Une quatrième injection à vel. 16 / 34 ticks a été écartée — elle survivrait, ce qui est correct, mais tester le preset à l'envers est le rôle des fixtures du registre, pas du témoin. Finding F-61 : un témoin dérivé ne se stocke pas, il se GÉNÈRE — `derivedFrom` + `injections[]` + `seed`, la CI fabrique le fichier sali puis assert. Stocké comme fichier, il se désynchronise au premier tick que bouge e03 et la CI reste verte en comparant deux choses fausses ensemble."
+  }

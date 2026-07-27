@@ -1,0 +1,20 @@
+{
+  "exerciseId": "m07-e10-the-orchestrated-cue",
+  "partId": "part3-reading",
+  "payload": {
+    "commentary": {
+      "basculePrincipale": "S3→S4 : le tutti coupé au couteau — le geste est l'effectif, pas l'harmonie",
+      "budget": "le double-octave gardé pour m29 ; jamais de ff avant S3",
+      "soliste": "clarinette — la vérité se murmure",
+      "passe6Corrections": "quatre tenues sans arche en S2, reprises",
+      "retire": "déclaratif, consigné"
+    },
+    "concordance": {
+      "basculePrincipale": "concorde — 71 % mesurés",
+      "budget": "concorde",
+      "soliste": "concorde avec le rapport de registre de S4",
+      "passe6Corrections": "croisé aux dyn[]"
+    }
+  },
+  "authorNotes": "Le produit ne juge pas la prose, il vérifie la concordance déclaré↔détecté — et les quatre croisements concordent. Le champ le plus instructif est le budget : « jamais de ff avant S3 » est une décision d'économie qui se mesure sur la courbe de dynamique, et c'est elle qui rend le sommet possible. XP 400, badge de module. **Le portfolio gagne sa troisième pièce maîtresse** : *« Elena » — un personnage, un cue, cinq modules de métier en 48 mesures.* Le fil m02→m04→m06→m07 est refermé."
+}

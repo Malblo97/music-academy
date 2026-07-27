@@ -1,0 +1,5 @@
+{ 
+    "exerciseId": "m02-e04-brief-to-cell", 
+    "notation": "E4:e C5:q. B4:e A4:e~ A4:e r:e | E4:e C5:q. B4:e A4:e~ A4:e r:e | A4:e F5:q. E5:e D5:e~ D5:e r:e | D4:h. r:q", 
+    "authorNotes": "Cellule m6↑ (E→C5 = 8 dt ✓) + récupération conjointe ; occ. : exact, exact, **transposée réelle +5, tout diatonique** ✓ (`requiredVariationTypes` ✓)." 
+}

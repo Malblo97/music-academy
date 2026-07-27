@@ -1,0 +1,11 @@
+{ "id": "m02-e03-archetype-cells", "lessonId": "m02-l01-anatomie",
+  "title": "Le test des trois écoutes, version machine", "kind": "MELODY_COMPOSE",
+  "difficulty": 4, "xpReward": 90, "skills": { "MELODY": 1.0 },
+  "spec": { "prompt": "8 mesures en do majeur, discipline de mémorabilité : un motif clair, ≥ 3 occurrences dont ≥ 1 variée, et 60 % minimum de tes notes appartenant aux occurrences du motif (le curseur inventer/développer). AVANT de soumettre : le test des trois écoutes (l01 §4) — ce que ta mémoire jette, retravaille-le.",
+    "given": { "key": { "tonic": 0, "mode": "major" } },
+    "constraints": { "key": { "tonic": 0, "mode": "major" }, "lengthBars": [8,8],
+      "noteRange": [55,81], "maxLeap": 9, "mustUseMotif": true,
+      "minMotifOccurrences": 3, "requireMotifVariation": true,
+      "minMotifCoverage": 0.6, "mustEndOnDegrees": [1,3] },
+    "styleProfile": { "id": "classical-common" },
+    "rubric": { "correctness": 25, "constraints": 40, "craft": 35 } } }

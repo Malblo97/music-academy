@@ -1,0 +1,11 @@
+{ "id": "m02-e15-three-lights", "lessonId": "m02-l08-negociation",
+  "title": "Trois harmonisations, deux livrées", "kind": "HARMONIZE_MELODY",
+  "difficulty": 6, "xpReward": 120, "skills": { "HARMONY": 0.7, "MELODY": 0.3 },
+  "spec": { "prompt": "Voici une mélodie de 4 mesures (protocole A, l08 §1 : elle est souveraine). Harmonise-la DEUX fois de suite (8 mesures : la mélodie ×2), avec deux éclairages distincts — au moins la moitié des accords doivent différer entre les deux passages, les DEUX doivent porter un récit de fonctions valide et couvrir les notes structurelles. Chaque note de temps fort a trois accords candidats : explore avant de choisir.",
+    "given": { "key": { "tonic": 0, "mode": "major" },
+      "notation": "E4:q G4:q A4:h | G4:q E4:q D4:h | C4:q E4:q G4:q A4:q | G4:h E4:h" },
+    "constraints": { "lengthBars": [8,8], "minVoices": 3, "maxVoices": 4,
+      "harmonizationVariants": 2, "structuralNotesCovered": true,
+      "requiredCadence": "perfect" },
+    "styleProfile": { "id": "classical-common" },
+    "rubric": { "correctness": 30, "constraints": 40, "craft": 30 } } }

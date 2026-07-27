@@ -1,0 +1,12 @@
+{
+  "exerciseId": "m06-e08-your-character-sings",
+  "payload": {
+    "themeSource": "s30-yours verbatim (sol mineur, 12 mesures) — le capstone M2",
+    "layers": [
+      { "id": "lead", "role": "melodic", "morphology": "mono", "band": [300, 5000], "hasNotes": true, "briefArgument": "Bruma est une soliste ironique : une seule voix, qui commente", "glide": "sélectif, déclaré sur les deux enjambements (mes. 3, 6), 30–80 ms", "vibrato": { "delayMs": 260, "depth": "léger" }, "filterMapping": "cutoff suit la vélocité" },
+      { "id": "body", "role": "body", "band": [100, 280] },
+      { "id": "sub", "role": "sub", "band": [30, 90], "mono": true }
+    ]
+  },
+  "authorNotes": "« Un lead ne rachète jamais une mélodie faible ; la tienne a déjà fait ses preuves. » Les notes sont celles du capstone M2 **verbatim** : `findMotifs` re-reconnaît la ligne — la continuité du curriculum vérifiée par un checker, pas par une promesse. Vibrato retardé à **260 ms > 200** ✓ (la loi du mono : le vibrato arrive après la note, sinon c'est un synthé qui chante à la place du personnage). Le lead déclare 300–5000 Hz alors que ses fondamentales G3–F4 sont sous 300 : légal par F-34 (source riche), et la bande déclarée est celle de sa PRÉSENCE. Le body est confiné à 100–280 — hors de la bande réservée du lead ✓ `sd.band-pileup` muette."
+}

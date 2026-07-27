@@ -1,0 +1,111 @@
+---
+id: m06-l12-espace
+module: module-06-sound-design
+title: "L'espace : reverb, delay, largeur — la scène sonore"
+estMinutes: 25
+skills: { sound_design: 0.8, orchestration: 0.2 }
+---
+
+### Pourquoi l'espace est une dimension de composition
+
+Tu as placé tes couches en fréquence (l03 : la carte en Hz) et en temps (l09 : les traînes). Troisième dimension : **l'espace** — la profondeur (près/loin), la largeur (serré/immense), le lieu (sec/cathédrale). Tu en connais déjà la moitié orchestrale (m10-l08 : le seating, Room/Hall) ; cette leçon unifie le tout en une seule idée : *la scène sonore se compose comme le spectre — chaque couche y a une place, et les places se budgètent*.
+
+### 1. La reverb : le lieu (et la doctrine des deux profondeurs, généralisée)
+
+Les paramètres qui comptent (les autres sont du raffinement) :
+
+```
+SIZE/TYPE     Room (petite, courte) / Hall (grande, longue) / Plate
+              (dense, vintage, "studio") / Shimmer (la reverb qui
+              monte à l'octave : le sacré synthétique)
+DECAY         la durée de la traîne — CALIBRÉE AU TEMPO (la loi de
+              l09 §3, encore elle : à ♩=60, 2.4 s = une mesure ; le
+              néo-noir de m09-l03 calibrait ses silences ainsi)
+PRE-DELAY     le retard avant la reverb (20-80 ms) : il DÉCOLLE le son
+              de sa traîne — l'attaque reste nette, l'espace suit.
+              Le paramètre le plus sous-estimé du chapitre.
+DRY/WET       en send (l07 M10) : le dosage par couche
+```
+
+La doctrine, héritée de m10-l08 §2 et étendue au monde synthétique :
+
+| Position | Réglage | Qui |
+|---|---|---|
+| **Devant** | Room courte, wet faible, pre-delay net | lead, keys, plucks — ce qui parle |
+| **Milieu** | le mélange | body, movement |
+| **Fond** | Hall long, wet généreux | ambient, textures, la queue des FX |
+| **Hors-lieu** | SEC total | le sub (`sd.wash-out` : la loi), et l'impact-corps (le choc est sec, sa queue est mouillée — la dissociation de l10) |
+
+Et le geste dramatique : **changer le lieu EST une bascule** — la scène qui passe de Room à Hall (le personnage entre dans la cathédrale, le rêve commence) est un événement au même titre qu'une modulation (l23 M1 : le déménagement, version acoustique).
+
+### 2. Le delay : l'espace rythmique
+
+La reverb dit *où* ; le delay dit *où ET quand* — c'est une traîne accordée au tempo :
+
+| Réglage | Effet | Territoire |
+|---|---|---|
+| **1/4 ou 1/8 sync, feedback 20–35 %** | l'écho discret qui double le groove | le partenaire du pluck (l09 : promis, livré) — le pattern s'auto-accompagne |
+| **Pointé (1/8.) sync** | l'écho qui tombe ENTRE les temps | le rebond hypnotique — LE delay du minimalisme (3-contre-4 gratuit) |
+| **Ping-pong** | l'écho qui alterne G/D | la largeur rythmique — attention au budget (§3) |
+| **Long, feedback haut, filtré sombre** | la répétition qui s'enfonce | l'écho-mémoire : la note qui refuse de mourir (le lo-fi de l07 a son espace) |
+
+Règle de cohabitation : **delay OU reverb dominant par couche** — les deux à fond = le lavis. Le delay filtré (les répétitions plus sombres que l'original) se fond ; le delay brillant s'entend comme figure.
+
+### 3. La largeur : le budget stéréo (la promesse de l08, formalisée)
+
+La scène a 180° et ils se **budgètent** comme le spectre :
+
+```
+LA LOI DES CONTRASTES : la largeur n'existe que par rapport au serré.
+Tout large = rien de large (le ff permanent de l10 M1, version stéréo).
+LE BUDGET TYPE (le seating synthétique) :
+  CENTRE (mono ou quasi)   sub (la loi l03), lead, impact-corps, keys
+  MI-LARGE (±40 %)         body/pads, movement
+  LARGE (±80-100 %)        ambient, textures, supersaw (S'IL est seul
+                           à l'être : sa discipline de l08), shimmer
+LES OUTILS : width du patch (le spread du supersaw), le doubleur
+  (la copie détunée pannée), l'auto-pan lent (l02), le M/S en V1
+LE TEST : le mono de m10-l08 §4 — ce qui disparaît en mono n'existait
+  que par la largeur : soit c'est voulu (l'ambient peut), soit c'est
+  une faiblesse déguisée (le lead ne peut PAS)
+```
+
+Et le geste dramatique jumeau de la reverb : **l'ouverture de largeur est un crescendo** — le stack qui passe de serré à large sur 8 mesures grandit sans gagner un décibel (la bascule 2 de « La Remise » en a l'usage exact : la découverte qui *ouvre* le monde).
+
+### 4. La scène sonore complète (la synthèse des trois dimensions)
+
+Chaque couche du modèle se place désormais en **trois coordonnées** — et le modèle `Layer` les porte toutes :
+
+```
+             FRÉQUENCE (band)  ×  PROFONDEUR (sends)  ×  LARGEUR (width/pan)
+sub          30-90 Hz             sec                    centre mono
+body         100-500              milieu                 mi-large
+lead         500-5k               devant (room courte)   centre
+ambient      300-10k              fond (hall)            très large
+texture      poudré               fond                   large
+fx (impact)  étagé                sec puis queue fond    centre → large
+```
+
+Ce tableau EST la scène sonore d'un stack professionnel — et c'est ce que le rapport de tes exercices LAYERING dessine désormais : la `densityMap` de §4.1.6 avait une dimension (Hz) ; elle en a trois.
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| La reverb non calibrée au tempo | la traîne qui enjambe les silences | decay ≈ le silence structurel de la pièce (m09-l03 avait raison depuis le début) |
+| Zéro pre-delay | l'attaque mangée par son propre lieu | 20–80 ms : le son d'abord, l'espace ensuite |
+| Delay ET reverb à fond partout | le lavis permanent | un dominant par couche ; le delay filtré sombre |
+| Tout large | rien de large — et le mono révèle le vide | le budget : centre/mi-large/large, et le test mono |
+| Le sub effleuré de reverb « pour l'air » | `sd.wash-out` + la boue de phase | le sub est HORS-LIEU : sec, toujours |
+
+### La mission (m06-e12, LAYERING — la mise en scène)
+
+Reprends ton stack canonique de m06-e03 et **mets-le en scène deux fois** : version A « le studio » (tout devant : rooms courtes, largeurs sages), version B « la cathédrale du rêve » (le même stack projeté : hall, largeurs ouvertes, pre-delays longs) — mêmes notes, mêmes couches, seuls `sends`, `width`, `pan` changent. Puis déclare la bascule : sur 2 mesures, A devient B (les automations d'espace en `motion`). Le moteur vérifie : l'invariance du matériau (couches et notes identiques entre A et B), les deux scènes réglementaires (sub sec/mono dans les DEUX, budgets de largeur contrastés), et la bascule déclarée. *L'espace comme paramètre de composition, prouvé par l'expérience contrôlée.*
+
+- [ ] Reverb = le lieu (decay au tempo, pre-delay qui décolle) ; delay = l'espace rythmique
+- [ ] Le budget stéréo : la largeur n'existe que par le serré — et le test mono tranche
+- [ ] Trois coordonnées par couche : fréquence × profondeur × largeur — la scène sonore complète
+- [ ] Changer de lieu ou de largeur EST une bascule : l'espace se compose
+
+<QuizBlock id="m06-l12-quiz" questions={5} />
+<LessonFooter exercises={["m06-e12-two-stagings"]} />

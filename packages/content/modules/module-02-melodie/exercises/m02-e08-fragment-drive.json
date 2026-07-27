@@ -1,0 +1,11 @@
+{ "id": "m02-e08-fragment-drive", "lessonId": "m02-l04-developper-2",
+  "title": "La crise par fragmentation", "kind": "MELODY_COMPOSE",
+  "difficulty": 6, "xpReward": 110, "skills": { "MELODY": 1.0 },
+  "spec": { "prompt": "8 mesures dramatiques : expose ta cellule entière (mes. 1–2, avec sa répétition), puis FRAGMENTE — le morceau distinctif martelé, séquencé, resserré — jusqu'au climax (fenêtre 60–80 %), puis conclusion brève. Fragmente l'ASPÉRITÉ (le saut, le rythme pointé), pas le remplissage.",
+    "given": { "key": { "tonic": 2, "mode": "minor" } },
+    "constraints": { "key": { "tonic": 2, "mode": "minor" }, "lengthBars": [8,8],
+      "mustUseMotif": true, "minMotifOccurrences": 2,
+"requireFragmentation": true, "climaxWindow": [0.6, 0.8],
+      "mustEndOnDegrees": [1] },
+    "styleProfile": { "id": "thriller-tension", "targetMood": "tension" },
+    "rubric": { "correctness": 20, "constraints": 40, "craft": 40 } } }

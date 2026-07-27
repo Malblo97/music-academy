@@ -1,0 +1,11 @@
+{ "id": "m01-e31-color-swap", "lessonId": "m01-l17-enrichissements",
+  "title": "Colore sans transformer", "kind": "HARMONY_PROGRESSION",
+  "difficulty": 4, "xpReward": 70, "skills": { "HARMONY": 1.0 },
+  "spec": { "prompt": "Voici I–vi–IV–V–I en triades nues. Enrichis les T et S (add9, maj7/m7, 6, sus — au choix, UNE couleur par accord), et laisse le V NET (sus4→3 autorisé). La fonction de chaque accord doit rester identique — l'analyseur vérifie que Cadd9 est resté un T et qu'aucun ♭7 clandestin n'a converti un accord en dominante.",
+    "given": { "key": { "tonic": 0, "mode": "major" },
+      "chords": [ { "root": 0, "quality": "maj" }, { "root": 9, "quality": "min" }, { "root": 5, "quality": "maj" }, { "root": 7, "quality": "maj" }, { "root": 0, "quality": "maj" } ] },
+    "constraints": { "lengthBars": [4,5], "minVoices": 4, "maxVoices": 5,
+      "mustKeepChordFunctions": true, "minEnrichedChords": 3,
+      "forbidEnrichmentOnDegrees": [5], "allowedOnV": ["sus4resolving"] },
+    "styleProfile": { "id": "romantic-film" },
+    "rubric": { "correctness": 35, "constraints": 40, "craft": 25 } } }

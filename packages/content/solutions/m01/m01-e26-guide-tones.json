@@ -1,0 +1,5 @@
+{ 
+    "exerciseId": "m01-e26-guide-tones", 
+    "notation": "[D3+F4+C5]:h [G2+F4+B4]:h | [C3+E4+C5]:w | [E3+G4+D5]:h [A2+G4+C#5]:h | [D3+F#4+D5]:w | [G3+Bb4+F5]:h [C3+Bb4+E5]:h | [F3+A4+F5]:w", 
+    "authorNotes": "*(F : Gm7→C7→Fmaj7 ; G : Am7→D7→Gmaj7 ; B♭ : Cm7→F7→B♭maj7 — chaque tonalité en 2 mesures.)*" 
+}

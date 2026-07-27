@@ -1,0 +1,79 @@
+---
+id: m03-l05-enharmonie
+module: module-03-harmonie-avancee
+title: "La modulation enharmonique : les passages secrets"
+estMinutes: 30
+skills: { harmony: 1.0 }
+---
+
+### Pourquoi « secrets »
+
+La modulation par pivot de l23 M1 voyage entre voisines (les tonalités qui partagent des accords). Mais comment rejoindre une tonalité **lointaine** — do → la bémol mineur, six bémols plus loin — sans le fondu enchaîné brutal du gear change ? Réponse : par les accords qui ont **deux orthographes** — le même son, deux noms, deux mondes. L'auditeur entre dans l'accord par une porte et en sort par une autre qu'il n'avait pas vue : le passage secret. Tu possèdes déjà les deux clés (Ger⁶≡V7 en l03, le dim7 en l04) ; cette leçon en fait un système — et ajoute la troisième clé.
+
+### 1. Le principe (et pourquoi ça marche)
+
+```
+1. ARRIVER sur l'accord-passage dans le monde A (il y a un sens clair)
+2. LE TENIR — le temps que l'oreille perde ses repères : l'accord
+   symétrique/ambigu, isolé, ne dit plus d'où il vient
+3. LE RÉSOUDRE selon son AUTRE lecture : le monde B s'ouvre
+4. CONFIRMER (la cadence du nouveau monde — la loi de l23 M1/F-5,
+   toujours elle : pas de confirmation, pas de modulation)
+```
+
+Ça marche parce que l'oreille ne lit pas l'orthographe : elle lit des pitch-classes et des **résolutions** (le moteur du produit fait pareil — F-6 n'était pas une limite, c'était la vérité perceptive). L'accord enharmonique est un mot qui change de sens selon la phrase qui le suit.
+
+### 2. Les trois clés du trousseau
+
+| Clé | Les deux lectures | Destinations | Caractère du passage |
+|---|---|---|---|
+| **Ger⁶ ≡ V7** (l03) | Ger⁶ de A ↔ V7 de B (B = un demi-ton sous A... précisément : le V7 sur la même basse vise la tonalité un TRITON plus loin que le V visé par la Ger⁶) | 1 destination par sens, à distance lointaine fixe | le velours : deux accords riches, la couture est douce — LE passage du romantisme |
+| **dim7** (l04) | 4 sensibles possibles | 8 destinations (4 toniques × M/m), tierces mineures | le frisson : le rond-point dramatique |
+| **L'accord augmenté** (la 3e clé) | 4+4+4 : la DEUXIÈME structure symétrique — trois notes, chacune peut être la fondamentale d'un accord augmenté... et surtout : chaque note peut monter OU descendre d'un demi-ton vers une triade M/m | 6 destinations usuelles, tierces MAJEURES | l'étrange lumineux : le passage de la SF et du rêve (et l'aïeul de la gamme par tons, l11 — les symétries se tiennent toutes) |
+
+<MusicExample id="passage-allemand" title="Le passage Ger⁶↔V7 dans les deux sens">
+  A) DO → RÉ♭ (le V7 devient Ger⁶) :
+  [C3+E4+G4+C5]:h [F3+A3+C4+Eb4]:h~ | [F3+A3+C4+Eb4→D#4]:h [E3+G#3+B3+E4]:h | [A2+A3+C#4+E4]:w
+  … arrivé comme F7 (V7/♭... comme dominante secondaire en préparation),
+  tenu, résolu en Ger⁶ de LA : le E♭ « devient » D♯, la basse s'écarte
+  F→E. Confirme en la, et DO → LA est franchi par le velours.
+  B) L'inverse : compose une Ger⁶ dans ton monde… et résous-la en V7
+  (quinte descendante) : te voilà un triton plus loin que prévu.
+</MusicExample>
+
+*(L'orthographe E♭→D♯ dans l'exemple est pédagogique : à l'oreille et pour le moteur, rien ne change à l'accord — tout change à sa sortie.)*
+
+### 3. La dramaturgie du passage secret
+
+Le passage enharmonique n'est pas un utilitaire : c'est un **effet de mise en scène** — le sol qui se dérobe élégamment. Ses territoires :
+
+- **la révélation** : ce que le personnage croyait (monde A) n'était pas la vérité (monde B) — l'accord-passage EST le moment où il comprend ;
+- **le rêve/la bascule de réalité** : l'augmenté surtout (la SF de m02-l13 gagne son mécanisme harmonique) ;
+- **le voyage express** : atteindre en deux accords une tonalité qu'un pivot diatonique mettrait huit mesures à rejoindre — l'outil des développements denses.
+
+Et sa loi de dosage, cohérente avec tout le module : un passage secret **par pièce** est un coup de théâtre ; trois en font un tour de passe-passe (l'auditeur cesse de croire au sol, donc plus rien ne se dérobe).
+
+### 4. Le moteur et les passages (ce que le produit vérifie)
+
+`modulationCheck` (§19.4) gagne un mode `enharmonic` : détection de l'accord-passage (pitch-classes ∈ {dim7, aug, Ger6/V7}), vérification de la double lecture (la fonction d'ARRIVÉE dans le monde A ≠ la fonction de SORTIE dans le monde B), tenue minimale (≥ 2 temps — le §1.2), et confirmation cadentielle en B (F-5). Le rapport nomme les deux lectures : « ton F7, arrivé en dominante de B♭, ressort en sixte allemande de la — le passage est propre ».
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Sortir sans avoir tenu | le passage escamoté : ça sonne comme une faute | 2 temps minimum d'ambiguïté — l'oreille doit lâcher prise |
+| Le passage sans confirmation | l'auditeur n'est jamais ARRIVÉ | la cadence du monde B, toujours (l23/F-5) |
+| Trois passages par pièce | le tour de passe-passe | un coup de théâtre par pièce |
+| Choisir la clé au hasard | le caractère du passage contredit la scène | velours=Ger⁶ ; frisson=dim7 ; étrange=augmenté |
+
+### La mission (m03-e05, HARMONY_PROGRESSION)
+
+Le voyage lointain : 14 mesures, DO majeur → LA majeur (une tierce mineure sous... une tierce majeure au-dessus — bref : une destination non-voisine) par le passage de ton choix parmi les trois clés (variantes : `ger6-v7` / `dim7` / `augmented` — chacune avec ses contraintes de conduite), établissement A, passage tenu, confirmation B, puis la reprise du thème initial DANS le monde B (la révélation : le même matériau, l'autre vérité — `samePitchSequenceAsGiven` transposé sur la fenêtre finale). `modulationCheck: { mode: "enharmonic" }`.
+
+- [ ] Le passage : arriver-A, tenir, sortir-B, confirmer
+- [ ] Trois clés : Ger⁶↔V7 (velours), dim7 (frisson), augmenté (étrange)
+- [ ] L'oreille lit les résolutions, pas l'orthographe — F-6 était une vérité perceptive
+- [ ] Un coup de théâtre par pièce
+
+<QuizBlock id="m03-l05-quiz" questions={5} />
+<LessonFooter exercises={["m03-e05-secret-passage"]} />

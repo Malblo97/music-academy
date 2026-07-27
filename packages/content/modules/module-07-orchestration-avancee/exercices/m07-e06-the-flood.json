@@ -1,0 +1,46 @@
+{
+  "id": "m07-e06-the-flood",
+  "lessonId": "m07-l06-crescendo",
+  "title": "La crue",
+  "kind": "ORCHESTRATE",
+  "difficulty": 6,
+  "xpReward": 140,
+  "skills": { "ORCHESTRATION": 0.8, "RHYTHM": 0.2 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "pool": "medium",
+  "styleProfile": { "id": "epic-film", "targetMood": "heroic", "ruleWeights": {} },
+  "rubric": { "correctness": 25, "constraints": 40, "craft": 35 },
+  "spec": {
+    "version": 1,
+    "prompt": "Le grand geste : 24 mesures de crescendo sur le matériau d'e05 — Elena a sa garde-robe, voici sa crue. Déclare le plan des CINQ LEVIERS par section (crescendoPlan) et respecte l'ordre de métier : l'effectif et les étages d'abord (le monde grandit), les doublures ensuite (il s'épaissit — c'est POUR ce moment que tu exposais pur), l'activité puis la dynamique en DERNIER (il s'embrase). Le crescendo raté inverse : ff dès le début, puis plus rien à donner. Choisis ton architecture : les PALIERS (entrées par blocs aux frontières de phrases — le crescendo qu'on voit monter) ou la VAGUE (le recrutement tuilé, les entrées invisibles de la clarinette-caméléon — le crescendo qu'on subit). Place une FAUSSE DÉCRUE aux deux tiers : la vague qui se retire pour mieux frapper. Le sommet est un ÉTAT — il se tient ≥ 2 mesures. Et la sortie se compose : la décrue par le haut (le monde se vide par le ciel, la gravité reste) ou la coupure vers le solo. Le moteur trace tes cinq courbes indépendamment — le crescendo décomposé en ses moteurs.",
+    "given": {
+      "key": { "tonic": 9, "mode": "minor" },
+      "sourceSubmission": "m07-e05-elena-cast",
+      "tempoBpm": 84
+    },
+    "constraints": {
+      "lengthBars": [24, 24],
+      "format": "Part[]",
+      "pool": "medium",
+      "crescendoPlan": {
+        "declared": true,
+        "perSection": true,
+        "levers": ["dynamics", "effectif", "stages", "doublings", "activity"],
+        "orderOfSpend": ["effectif", "stages", "doublings", "activity", "dynamics"]
+      },
+      "architecture": { "declared": true, "allowed": ["paliers", "vague"] },
+      "falseRecession": { "required": true, "window": [0.6, 0.75], "lengthBars": [2, 2] },
+      "summitHeld": { "minBars": 2 },
+      "exitGesture": { "required": true, "allowed": ["decrease-from-top", "cut-to-solo"] },
+      "fiveCurvesTracing": {
+        "effectif": "activePartsCount",
+        "stages": "ambitusSpan",
+        "doublings": "doublingTags",
+        "activity": "attackDensity",
+        "dynamics": "velocityMean"
+      },
+      "checkers": ["orch.range-violation", "orch.balance", "orch.endurance", "densityMap", "effectivePower"]
+    }
+  }
+}

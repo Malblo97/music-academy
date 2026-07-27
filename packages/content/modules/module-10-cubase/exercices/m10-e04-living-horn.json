@@ -1,0 +1,17 @@
+{ "id": "m10-e04-living-horn", "lessonId": "m10-l04-key-editor-2",
+  "title": "Le cor vivant", "difficulty": 4, "xpReward": 100,
+  "skills": { "DAW_WORKFLOW": 0.6, "ORCHESTRATION": 0.4 },
+  "spec": { "prompt": "Reprends ta soumission de s21 (le thème du héros) sur la piste cor du template. Pose les notes, puis enregistre le CC1 À LA MOLETTE en deux passes (mode Merge) : passe 1 les arches de note (aucune tenue plate), passe 2 l'arche de phrase vers le climax F5 — en dirigeant ta propre ligne, les yeux fermés. Affine au crayon SEULEMENT ensuite. Exporte AVEC contrôleurs et soumets : la première mission de l'histoire du produit à vérifier les CC.",
+    "mission": { "mode": "proof",
+      "checklist": [
+        { "step": "Vue de travail : notes + lane CC1 + lane CC11 empilées", "verifyHint": "Trois étages, une seule vérité ?" },
+        { "step": "Passe 1 : arches de note à la molette (± 15 valeurs par tenue)", "verifyHint": "Zoome sur une ronde : la courbe gonfle-t-elle puis retombe ?" },
+        { "step": "Passe 2 : l'arche de phrase — la molette monte vers le climax, retombe à la résolution", "verifyHint": "Ta courbe CC1 ressemble-t-elle à ta courbe de tension ? C'est LE critère." },
+        { "step": "Affinage au crayon : les pointes, les creux — corriger, pas créer", "verifyHint": "Aucune rampe d'ascenseur rectiligne ?" } ],
+      "proofSubmission": { "includeControllers": true,
+        "checks": {
+          "pitchSequenceMatch": "m02-s21",
+          "ccCoverage": { "cc": 1, "minRatio": 0.9, "onNotesLongerThanBeats": 1 },
+          "ccPerNoteVariance": { "cc": 1, "min": 8 },
+          "ccTensionCorrelation": { "cc": 1, "min": 0.5 } } } },
+    "rubric": { "correctness": 25, "constraints": 40, "craft": 35 } } }

@@ -1,0 +1,13 @@
+{
+  "exerciseId": "m05-e08-horn-roles",
+  "partId": "heroic-theme",
+  "notation": "r:h. G3:e | C4:q. D4:e E4:q C4:q | D4:q B3:q G3:q. G3:e | C4:q. D4:e E4:q D4:q | F4:q D4:q C4:q. C4:e | G4:h. r:e C4:e | C4:q. D4:e E4:q C4:q | D4:q B3:q C4:h",
+  "payload": {
+    "instrumentation": ["french-horn-1", "french-horn-2"],
+    "role": "melody",
+    "unisonPlayers": 2,
+    "dynamics": "f",
+    "source": "m02-s21 (thème du héros), transposé en ut, octave ténor du cor"
+  },
+  "authorNotes": "**Témoin F-63.** Le thème du héros revient chez lui — mais l'arithmétique de la fiche décide de l'octave, pas le goût : en ut, le sommet du thème vaut sol5 = 79 (deux demi-tons au-dessus du plafond 77) ou sol4 = 67 à l'octave inférieure. Rien entre les deux, l'ambitus du thème étant une douzième avec le sommet au faîte. La solution prend la seule octave jouable : **sol3–sol4 (55–67), intégralement dans le sweet spot** — noble, sonore, tenable sur huit mesures (`orch.horn-endurance` muette). Conséquence à consigner : `highNotePolicy` ne se déclenche jamais (seuil 72, maximum atteint 67) — **la loi de l'aigu, cœur de la fiche, est vide dans cette tonalité** ; en sol majeur elle mordrait (sommet ré5 = 74 : approche conjointe do5→ré5 ✓, une mesure au-dessus du seuil ≤ 4 ✓, deux mesures de repos après ✓). Unisson à 2 : la puissance 9/10 de la fiche ne vaut que multipliée — un cor seul contre trente est noyé. Zéro double croche : l'attaque du cor est ronde, c'est sa beauté et sa limite."
+}

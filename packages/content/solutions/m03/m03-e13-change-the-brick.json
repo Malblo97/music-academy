@@ -1,0 +1,11 @@
+{
+  "exerciseId": "m03-e13-change-the-brick",
+  "notation": "[A2~+D3~+G3~+C4~+E4]:h [A2+D3+G3+C4+F#4]:h | [A2~+E3~+A3~+D4~+G4]:h [A2+E3+A3+D4+E4]:h | [A2~+D3~+G3~+C4~+F#4]:h [A2+D3+G3+C4+A4]:h | [A2~+E3~+A3~+D4~+G4]:h [A2+E3+A3+D4+F#4]:h | [A2~+D3~+G3~+C4~+E4]:h [A2+D3+G3+C4+D4]:h | [A2~+E3~+A3~+D4~+F#4]:h [A2+E3+A3+D4+E4]:h | [A2~+D3~+G3~+C4~+E4]:h [A2+D3+G3+C4+D4]:h | [A2+E3+A3+D4+E4]:w | [A2+D3+G3+C4+F#4]:w | [D2+A2+F#3+A3+D4+F#4]:w | [A2+E3+A3+C4+E4]:w | [A2+E3+A3+C4+E4]:w",
+  "payload": {
+    "pedalPlan": [
+      { "bars": [1, 9], "state": "compatible" },
+      { "bars": [11, 12], "state": "compatible" }
+    ]
+  },
+  "authorNotes": "Le séjour (m1–8) : boucle de DEUX piles quartales {D-G-C sur A} et {E-A-D sur A}, bourdon déclaré ; la pile D-G-C porte le do — **la tierce mineure dorienne vit DANS la maçonnerie**. Les deux grammaires ensemble : le fa♯ (6̂ dorienne) exposé m1/3/4/6/9 ≥ 0.25 pendant que la mélodie plane sur le tapis TENU (F-21) — l'harmonie fait l'espace, la mélodie porte l'émotion, l'analyseur les juge séparément. LA BASCULE (m9–12) : depuis la pile la plus tendue (C–F♯, le triton en réserve), l'ouverture tertienne — ré MAJEUR étalé, chaque note glissant ≤ 2 dt, F♯ tenu (tag quartal-release) — puis Am, et la sortie est **la cadence dorienne IV→i de e08** : le pont entre systèmes 2 et 3, refermé sur lui-même."
+}

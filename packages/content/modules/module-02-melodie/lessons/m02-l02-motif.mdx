@@ -1,0 +1,102 @@
+---
+id: m02-l02-motif
+module: module-02-melodie
+title: "Le motif : concevoir la cellule"
+estMinutes: 25
+skills: { melody: 1.0 }
+---
+
+### Pourquoi une leçon entière pour 2 à 6 notes
+
+Parce que ces notes vont porter tout le reste. Un thème de film vit des années, se décline en dizaines de variations (Module 11 te montrera les principes) — et tout repose sur la cellule initiale. Un motif mal conçu ne se développe pas : il se répète ou il meurt. Cette leçon t'apprend à concevoir des cellules *développables* — et à reconnaître celles qui ne le sont pas avant d'avoir bâti dessus.
+
+### 1. Les trois dimensions d'un motif
+
+Un motif est défini par trois couches — et c'est exactement la représentation de `findMotifs` (§10.1 : `intervalShape` + `rhythmShape`) :
+
+```
+1. LA FORME INTERVALLIQUE   la suite des intervalles (ex : +7, -2, -2)
+2. LA FORME RYTHMIQUE       la suite des durées (ex : q. e q q)
+3. LE POINT D'ANCRAGE       où il tombe dans la mesure et sur quel degré
+```
+
+Découverte capitale : **ces couches sont séparables**. Le motif reste reconnaissable si tu gardes le rythme en changeant les intervalles, ou l'inverse. C'est ce qui rend le développement possible (l03–l04) — et c'est pourquoi le motif le plus robuste a une identité forte dans *chaque* couche : un rythme qui se tape sur une table ET un geste intervallique qui se dessine dans l'air.
+
+### 2. Concevoir : les quatre archétypes de cellules
+
+Il n'existe pas de recette du « bon motif », mais quatre familles couvrent l'essentiel du répertoire — apprends à composer dans chacune :
+
+| Archétype | Construction | Caractère | Exemple à jouer |
+|---|---|---|---|
+| **L'appel** | saut ascendant (4te/5te/8ve) + note tenue ou rebond | héroïsme, ouverture, adresse | `G4:e C5:q.` |
+| **Le pas** | mouvement conjoint, 3–5 notes, rythme marqué | narration, marche, humanité | `E4:q F4:e G4:e E4:q` |
+| **Le soupir** | 2–3 notes descendantes, souvent ½ ton, temps fort→faible | tristesse, tendresse, plainte | `F4:q. E4:e` (l'appoggiature de l22 M1, devenue cellule) |
+| **Le signal** | notes répétées + rythme distinctif | tension, code, obstination, menace | `D4:e D4:e D4:e D4:q.` |
+
+Note ce que ces archétypes ont en commun : **chacun tient en une respiration et contient UN geste**. Un motif qui contient deux gestes (un saut PUIS une gamme PUIS un rebond) n'est pas un motif : c'est déjà une phrase — trop long pour être une cellule, trop court pour vivre seul.
+
+<MusicExample id="quatre-archetypes" title="Les quatre archétypes, puis leur premier développement naïf">
+  A) G4:e C5:q. r:e G4:e C5:q. r:e         — l'appel, répété : déjà de la musique
+  B) E4:q F4:e G4:e E4:q r:q E4:q F4:e G4:e E4:q r:q  — le pas
+  C) F4:q. E4:e r:h A4:q. G4:e r:h          — le soupir, transposé : déjà une plainte qui monte
+  D) D4:e D4:e D4:e D4:q. r:e D4:e D4:e D4:e D4:q. r:e — le signal
+  Chaque archétype répété deux fois SUFFIT à installer un monde. C'est le
+  pouvoir de la cellule : elle n'a pas besoin de toi pour exister — elle a
+  besoin de toi pour se développer.
+</MusicExample>
+
+### 3. Le test de développabilité (avant de bâtir)
+
+Un motif est développable s'il **survit aux transformations** de l03–l04 en restant reconnaissable. Test rapide, à faire au clavier sur toute cellule candidate :
+
+```
+1. TRANSPOSE-le à la seconde supérieure : reste-t-il « lui » ?
+2. Joue-le DEUX FOIS PLUS LENT (augmentation) : tient-il ?
+3. Garde son RYTHME, change ses hauteurs : le reconnais-tu encore ?
+   → oui aux trois : cellule robuste, bâtis
+   → non au 3 : ton identité est toute dans les hauteurs — fragile
+     (le rythme est trop générique : que des noires, ou que des croches)
+   → non au 2 : ton motif est un effet de vitesse, pas une forme
+```
+
+Le point 3 est le plus discriminant : **les motifs immortels ont presque tous un rythme distinctif** (le test de la table encore). Si ton rythme est `q q q q`, ton motif n'a qu'une jambe.
+
+Deux propriétés supplémentaires des cellules très développables :
+- **une asymétrie interne** (un long parmi des courts, un saut parmi des pas) : c'est l'aspérité qui accroche la mémoire ET le levier des variations ;
+- **une fin ouverte** (dernier degré instable, ou rythme suspendu) : la cellule *demande* sa suite — elle appelle son propre développement. Une cellule qui finit sur 1̂-temps-fort-note-longue est une mélodie finie de trois notes : nulle part où aller.
+
+### 4. Le motif et son ADN émotionnel
+
+La table cinéma de l02 M1 §6 devient ici un outil de conception : **choisis ton intervalle-signature d'après le brief émotionnel**, puis construis la cellule autour :
+
+```
+Brief : « thème du mentor, chaleureux, un peu triste »
+→ intervalle-signature candidat : m6 ascendante (élan douloureux) ou m3
+  descendante (nostalgie)
+→ archétype : l'appel (m6 asc.) adouci d'un soupir : E4:e C5:q B4:e A4:q
+→ test de développabilité : ✓ (rythme e-q-e-q distinctif, asymétrie
+  du saut initial, fin sur 2̂ ouverte)
+```
+
+C'est le protocole des leçons d'ambiance (l10–l14) : *brief → intervalle-signature → archétype → cellule → test*. L'exercice m02-e04 te le fait pratiquer six fois sur six briefs différents.
+
+### 5. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Cellule de 10 notes | « mon motif » est une phrase — rien à développer, tout à répéter | coupe : le motif est ce qui reste quand tu ne peux plus rien enlever |
+| Rythme générique | le motif disparaît dès qu'on change une hauteur | une asymétrie rythmique minimum (un point, une syncope, un silence) |
+| Fin fermée | chaque répétition sonne comme une fin — la musique bégaie | dernier degré instable OU rythme suspendu : la cellule appelle sa suite |
+| Deux gestes dans la cellule | les variations n'en gardent qu'un et l'identité se dilue | un geste par cellule ; le deuxième geste sera le contre-motif (l15) |
+| Composer la cellule à l'écran | formes abstraites, injouables, inchantables | conçois AU CLAVIER et à la voix : si tu ne peux pas la chanter, coupe |
+
+### Récapitulatif
+
+- [ ] Trois couches séparables : intervalles, rythme, ancrage — identité forte dans chacune
+- [ ] Quatre archétypes : appel, pas, soupir, signal — un geste par cellule
+- [ ] Test de développabilité : transposition, augmentation, rythme seul
+- [ ] Asymétrie interne + fin ouverte = cellule qui appelle sa suite
+- [ ] Protocole : brief → intervalle-signature → archétype → cellule → test
+
+<QuizBlock id="m02-l02-quiz" questions={6} />
+<LessonFooter exercises={["m02-e03-archetype-cells", "m02-e04-brief-to-cell"]} />

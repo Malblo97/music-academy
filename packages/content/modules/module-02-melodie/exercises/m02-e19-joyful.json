@@ -1,0 +1,11 @@
+{ "id": "m02-e19-joyful", "lessonId": "m02-l10-ambiances-1",
+  "title": "La joie est rythmique", "kind": "MELODY_COMPOSE",
+  "difficulty": 5, "xpReward": 100, "skills": { "MELODY": 0.7, "RHYTHM": 0.3 },
+  "spec": { "prompt": "8 mesures joyeuses en sol majeur, fiche l10 : le REBOND d'abord (brèves détachées, silences internes, contretemps légers — fenêtre de syncope 15–40 %), arpèges de I bienvenus, silhouette de vague ou d'arche vive. Contre-épreuve intégrée : si elle reste joyeuse à ♩=60, c'est que le rythme ne la portait pas.",
+    "given": { "key": { "tonic": 7, "mode": "major" } },
+    "constraints": { "key": { "tonic": 7, "mode": "major" }, "lengthBars": [8,8],
+      "noteRange": [62,86], "syncopationTarget": [0.15, 0.4],
+      "contourShape": ["wave","arch"], "mustEndOnDegrees": [1,3],
+      "mustUseMotif": true },
+    "styleProfile": { "id": "classical-common", "targetMood": "joyful" },
+    "rubric": { "correctness": 20, "constraints": 40, "craft": 40 } } }

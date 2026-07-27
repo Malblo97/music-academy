@@ -1,0 +1,70 @@
+---
+id: m02-l04-developper-2
+module: module-02-melodie
+title: "Développer II : augmentation, inversion, fragmentation"
+estMinutes: 25
+skills: { melody: 1.0 }
+---
+
+### Pourquoi des outils plus radicaux
+
+Les outils de l03 gardent l'identité évidente ; ceux-ci la **travestissent** — l'auditeur reconnaît sans savoir qu'il reconnaît. C'est l'échelon supérieur du métier : la cohérence *subliminale*, celle qui fait dire « ce score tient ensemble » sans qu'on puisse dire pourquoi.
+
+### 1. Augmentation et diminution : jouer sur le temps
+
+**Augmentation** = mêmes intervalles, durées ×2 (ou ×1,5) : la cellule vive devient solennelle — le motif d'action rejoué en hymne aux cuivres est LE geste de fin de film. **Diminution** = durées ÷2 : la cellule devient fébrile, urgente. `findMotifs` les reconnaît comme variation `rhythmic` (§10.1 : le `rhythmShape` est en *ratios* — c'est précisément pour ça).
+
+<MusicExample id="augmentation" title="La même cellule, trois vitesses d'existence">
+  A) G4:e A4:e B4:e G4:q.        — la cellule (le pas, vif)
+  B) G4:q A4:q B4:q G4:h.        — augmentée : le même pas, devenu procession
+  C) G4:s A4:s B4:s G4:e r:s     — diminuée : le même pas, devenu poursuite
+</MusicExample>
+
+### 2. Inversion : le miroir vertical
+
+Chaque intervalle change de direction (+7 devient −7) : la question devient réponse, l'élan devient chute. L'inversion **tonale** (dans la gamme) est douce et passe inaperçue ; l'inversion **exacte** (chromatique) est un geste affiché. Usage type : l'antécédent monte, le conséquent répond par l'inversion — la période gagne une symétrie organique. C'est l'outil du dialogue interne.
+
+### 3. Rétrograde : le miroir horizontal (et sa vérité)
+
+Jouer la cellule à l'envers. Honnêteté de métier : **l'oreille ne reconnaît quasiment jamais un rétrograde** (la mémoire mélodique est directionnelle). Il sert le compositeur — générer du matériau cohérent quand l'inspiration cale — plus que l'auditeur. Emploie-le comme générateur, jamais comme effet.
+
+### 4. Fragmentation : le développement par démembrement
+
+L'outil le plus dramatique : ne garder **qu'un morceau** de la cellule (souvent sa tête ou son aspérité rythmique) et le marteler, le séquencer, le resserrer. C'est le moteur des sections de tension : la cellule entière = le personnage ; son fragment répété = le personnage en crise. La fragmentation nourrit naturellement la case « précipiter » du sentence (l03 §4) — et c'est ce que fait la mesure de développement de tout thème classique bien construit.
+
+```
+Cellule (4 notes) → fragment (2 notes) ×2 → fragment ×2 resserré → conclusion
+     dire              insister               précipiter            résoudre
+```
+
+### 5. L'échelle complète de variation (table de référence du module)
+
+| Outil | Identité perçue | Emploi type | Leçon |
+|---|---|---|---|
+| Répétition exacte | 100 % | ancrage | l03 |
+| Transposition | 95 % | intensifier/apaiser | l03 |
+| Séquence | 90 % | progression dirigée | l03 |
+| Variation rythmique légère | 85 % | respiration, prosodie | l09 |
+| Augmentation/diminution | 70 % | changement de statut dramatique | l04 |
+| Inversion | 50 % | dialogue, réponse | l04 |
+| Fragmentation | 40 % (mais viscérale) | crise, développement | l04 |
+| Rétrograde | ~10 % | générateur privé | l04 |
+
+**Méthode d'assemblage** : plus la pièce avance, plus tu descends dans la table — exposition en haut (identité claire), développement au milieu, climax dans la fragmentation. C'est l'arc de variation, jumeau de l'arche de tension (l14 M1).
+
+### Erreurs fréquentes
+
+| Erreur | Correction |
+|---|---|
+| Inverser/augmenter dès la mesure 2 | l'identité n'est pas installée : ancre d'abord (l03 §1) |
+| Fragmenter un fragment sans aspérité | fragmente la partie DISTINCTIVE (le saut, le rythme pointé), pas les notes de remplissage |
+| Compter sur le rétrograde comme effet | générateur privé uniquement |
+| Empiler les transformations (inversion augmentée fragmentée) | une transformation à la fois : au-delà, c'est du matériau neuf déguisé |
+
+- [ ] Augmentation = changement de statut ; diminution = urgence
+- [ ] Inversion = réponse ; rétrograde = générateur privé
+- [ ] Fragmentation = crise — marteler l'aspérité
+- [ ] L'échelle de variation descend au fil de la pièce
+
+<QuizBlock id="m02-l04-quiz" questions={6} />
+<LessonFooter exercises={["m02-e07-transform-lab", "m02-e08-fragment-drive"]} />

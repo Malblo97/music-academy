@@ -1,0 +1,9 @@
+{ "id": "m01-e11-minor-variants", "lessonId": "m01-l06-gammes-mineures",
+  "title": "Les trois mineures au clavier", "kind": "THEORY_QUIZ",
+  "difficulty": 3, "xpReward": 40, "skills": { "MELODY": 0.5, "HARMONY": 0.5 },
+  "spec": { "prompt": "Construis la variante demandée depuis la tonique donnée.",
+    "quiz": { "interaction": "keyboard-pick",
+      "generator": { "tonics": ["A","E","D","G","C"], "variants": ["natural","harmonic","melodicAsc"], "rounds": 6 },
+      "items": [
+        { "q": "E mineur harmonique depuis E4", "answer": ["E4","F#4","G4","A4","B4","C5","D#5"], "why": "7̂ haussée (D♯) pour la sensible ; C–D♯ = la seconde augmentée, le prix à payer (l06 §2)." },
+        { "q": "D mineur mélodique ascendant depuis D4", "answer": ["D4","E4","F4","G4","A4","B4","C#5"], "why": "6̂ ET 7̂ haussées : « une gamme majeure avec ♭3̂ »." } ] } } }

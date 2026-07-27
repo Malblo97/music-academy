@@ -1,0 +1,88 @@
+---
+id: m10-l09-logical
+module: module-10-cubase
+title: "Logical Editor, PLE, macros : automatiser le geste"
+estMinutes: 30
+skills: { daw_workflow: 1.0 }
+---
+
+### Pourquoi apprendre à programmer sa DAW
+
+Tout geste répété trois fois par session mérite d'être automatisé — c'est la définition du « pro workflow » que le brief exige. Cubase embarque pour ça un vrai petit langage : le **Logical Editor** (transformer les données MIDI par règles), son frère **Project Logical Editor** (transformer le projet : pistes, parts, visibilité), et les **macros** (enchaîner des commandes). Trente minutes ici = des dizaines d'heures rendues sur les années. Et tu vas te sentir en terrain connu : *le Logical Editor fonctionne exactement comme le moteur de règles du produit* — condition → action, un `Rule.evaluate` que tu écris toi-même.
+
+### 1. Le Logical Editor : condition → action sur le MIDI
+
+Ouvre-le (MIDI → Logical Editor). Deux panneaux :
+
+```
+FILTRE (la condition)                 ACTION (la transformation)
+"Type = Note                          "Value 2 (velocity) : multiply by 0.9"
+ AND Position = inside bar range…
+ AND Value 1 (pitch) < C3"
+```
+
+Trois presets à construire maintenant — le kit de survie du module, chacun résout un problème déjà rencontré :
+
+| Preset (nomme-le ainsi) | Filtre → Action | Le problème qu'il tue |
+|---|---|---|
+| `FIX — Kill GhostNotes` | Note AND velocity < 15 AND durée < 30 ticks → **Delete** | les miettes de jeu (frôlements de touches) qui polluent tes exports vers le produit — l'analyseur les voit comme des notes |
+| `HUM — Velocity ±8` | Note → velocity **+ Random(−8..+8)** | la ligne martelée à velocity constante (l04 §4) humanisée en un clic — sur les ostinatos programmés, pas sur le jeu réel |
+| `SEL — Strong Beats` | Note AND Position (bar range) = premier temps → **Select** | sélectionner tous les temps forts pour les accentuer (la hiérarchie de l08 M1, appliquée en masse : +10 velocity sur la sélection) |
+
+La grammaire complète (Position, Length, Value 1/2, Channel ; les opérateurs ; les actions Transform/Delete/Select/Insert) se découvre en construisant — la mission fait construire. Ce qui compte : **penser en règles**. Tu écris depuis des mois des contraintes déclaratives dans tes exercices ; te voilà de l'autre côté du guichet.
+
+### 2. Le PLE : les mêmes règles, à l'échelle du projet
+
+Le Project Logical Editor filtre non plus des notes mais des **objets de projet** : pistes, parts, événements. Ses deux usages en or, couplés à la Track Visibility promise en l02 :
+
+```
+Preset "VIEW — Strings only" :
+  Filtre : Track AND Name contains "STR"
+  Action : Track Operation → Show ; (autre passe : NOT contains → Hide)
+  → assigné à un raccourci : ta session de 60 pistes devient un poste
+    de travail cordes EN UNE TOUCHE. Un preset par famille = le
+    conducteur qui tourne ses pages tout seul.
+
+Preset "COLOR — By prefix" :
+  Filtre : Name contains "BR"  →  Action : Set Color (couleur cuivres)
+  → le template importé en désordre se recolore en quatre frappes
+```
+
+C'est l'outillage réel de la Track Visibility « avancée » : les Agents de visibilité de l02 étaient statiques ; le PLE les rend programmables.
+
+### 3. Les macros : la chaîne de gestes
+
+Une macro = une liste de Key Commands exécutée d'un coup (File → Key Commands → Macros). La recette : **toute séquence que tes mains connaissent par cœur est une macro qui s'ignore**. Les deux à construire aujourd'hui :
+
+| Macro | Enchaîne | Usage |
+|---|---|---|
+| `PREP — Export Mission` | Select All on Track → Logical Editor: Kill GhostNotes → Delete Overlaps → (Dissolve Part si multi-canal) | **la toilette d'export vers le produit** : chaque MIDI de mission prouvée passe par là — tes soumissions arrivent propres, l'analyseur ne juge que ta musique |
+| `SAVE — Version+` | Save New Version → (optionnel : Back up Project hebdo) | le Ctrl+Alt+S de l01, enrichi |
+
+Les macros s'assignent à des raccourcis ou — mieux — aux pads d'un contrôleur MIDI : le studio d'un professionnel se pilote comme un instrument.
+
+### 4. La discipline : une bibliothèque de presets nommée
+
+Les presets Logical/PLE/macros se nomment avec un **préfixe de famille** (`FIX —`, `HUM —`, `SEL —`, `VIEW —`, `PREP —`) : dans les menus de Cubase, ils se regroupent seuls et se lisent comme un vocabulaire. Même règle que les maps (l05) et le template (l02) : *la cohérence de nommage EST la vitesse*. Et même règle d'entrée : un preset se crée quand le geste a servi trois fois — pas de bibliothèque-wishlist.
+
+### 5. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Humaniser le jeu réel au Random | le rubato vivant remplacé par du bruit statistique | HUM sur le programmé ; le joué garde ses mains |
+| Le Logical Editor découvert et oublié | les mêmes gestes manuels, à vie | les 3 presets du kit, construits AUJOURD'HUI, assignés |
+| Des presets sans préfixe | la bibliothèque illisible dans 6 mois | familles nommées : FIX/HUM/SEL/VIEW/PREP |
+| Exporter vers le produit sans toilette | ghost notes analysées, overlaps flagués | la macro PREP, systématique — c'est TA CI locale |
+| Automatiser ce qu'on n'a jamais fait à la main | des règles fausses appliquées en masse | trois fois à la main d'abord — puis la règle |
+
+### La mission (m10-e09, GUIDÉE puis PROUVÉE)
+
+Construis les 3 presets Logical + 2 presets PLE + la macro PREP (checklist guidée, `verifyHint` par preset). Puis la preuve par l'usage : reprends l'export brut de ta mission l03 (garde toujours les bruts !), **salis-le volontairement** (joue trois notes fantômes pp très courtes), passe la macro PREP, exporte, soumets. Le moteur vérifie : zéro note < 30 ticks, zéro chevauchement, et le contenu musical inchangé par rapport à ta soumission l03 (comparaison de séquences — `samePitchSequenceAsGiven` recyclé). *L'automatisation prouvée par son résultat : la boucle de §30.1 au complet.*
+
+- [ ] Logical Editor = condition → action : le moteur de règles, côté studio
+- [ ] Le kit : Kill GhostNotes, Velocity ±8 (programmé seulement), Strong Beats
+- [ ] PLE + Visibility = le conducteur qui tourne ses pages ; macros = les gestes en accords
+- [ ] PREP avant chaque export vers le produit — ma CI locale
+
+<QuizBlock id="m10-l09-quiz" questions={5} />
+<LessonFooter exercises={["m10-e09-automate-the-gesture"]} />

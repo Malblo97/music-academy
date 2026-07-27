@@ -1,0 +1,66 @@
+---
+id: m05-l01-palette
+module: module-05-orchestration
+title: "L'orchestre comme palette : comment lire les fiches"
+estMinutes: 15
+skills: { orchestration: 1.0 }
+---
+
+### Pourquoi ce module change ta façon de composer
+
+Jusqu'ici tu as écrit des *notes* ; à partir de maintenant tu écris des notes **pour quelqu'un** — un instrument avec un corps, des limites, une couleur qui change selon l'altitude. L'orchestration n'est pas une décoration posée sur la composition : c'est le moment où ta musique acquiert un timbre, donc une chair. Ce module est une encyclopédie de fiches ; cette page t'apprend à les lire — et à penser en orchestrateur plutôt qu'en pianiste (la fiche piano, l10, t'expliquera pourquoi cette distinction est vitale).
+
+### 1. Les familles : quatre métaux, quatre logiques
+
+| Famille | Membres (MVP) | Le trait commun | Le super-pouvoir |
+|---|---|---|---|
+| **Cordes** | violons I/II, altos, violoncelles, contrebasses | sections homogènes, tenue infinie (archet alterné), toute dynamique | LE fondu : la pâte continue de l'orchestre |
+| **Bois** | flûte, hautbois, clarinette (+ basson en V1) | des *individus* — chaque bois est un timbre-personnage, le souffle limite les phrases | la caractérisation : la voix qui parle |
+| **Cuivres** | cor, trompette (+ trombone, tuba en V1) | puissance dominante, endurance des lèvres, attaque franche | l'autorité : de l'appel au mur |
+| **Clavier** | piano | percussion ET lyrisme, aucune tenue vraie | l'esquisse — et l'instrument-solitude |
+
+Une conséquence immédiate, que toutes les fiches déclinent : **les cordes se pensent en sections, les bois en solistes, les cuivres en pupitres groupés**. Confier une mélodie « aux bois » ne veut rien dire ; la confier « au hautbois » dit tout.
+
+### 2. Anatomie d'une fiche (le mode d'emploi)
+
+Chaque fiche suit le même squelette — et chaque rubrique correspond à une vérification du produit :
+
+| Rubrique | Ce qu'elle te dit | Ce que le produit en fait |
+|---|---|---|
+| **Tessiture praticable** | les notes qui existent | `orch.range-violation` : hors limites = la note n'existe pas, point |
+| **Sweet spot** | où l'instrument est *chez lui* | hors du spot : jamais pénalisé, toujours *décrit* (`orch.register-color` — la règle-mentor) |
+| **Couleur par registre** | le même instrument = plusieurs timbres selon l'altitude | les descriptions des rapports viennent mot pour mot des fiches |
+| **Puissance (pp→ff)** | le rapport de force | `orch.balance` : une mélodie 5/10 contre un tapis cumulé 27/10 est étouffée |
+| **Agilité** | ce que les traits rapides coûtent | `orch.agility` |
+| **Tenue** (souffle / lèvres / infinie / décroissance) | le budget physiologique | `orch.endurance` : en samples tu ne l'entends pas, en session tu le paies |
+| **Rôles** | les métiers, par fréquence réelle | le vocabulaire des exercices ORCHESTRATE |
+| **Associations / à éviter** | les mariages éprouvés et les pièges | suggestions et `orch.blend-risk` |
+
+**La règle de lecture n° 1** : la colonne *couleur par registre* est la plus importante de chaque fiche. Un instrument n'est pas une étendue de notes, c'est un empilement de timbres — la flûte grave et la flûte aiguë sont presque deux instruments (l06 en fera la démonstration piège comprise).
+
+### 3. Les trois questions de l'orchestrateur
+
+Avant d'assigner quoi que ce soit, trois questions — elles structureront tous tes exercices du module, et le Module 7 (combinaisons) les systématisera :
+
+```
+1. QUEL RÔLE ?     mélodie, contrechant, harmonie, basse, texture, rythme
+                   (les rôles de l'analyseur — un pupitre, un rôle à la fois)
+2. QUEL REGISTRE ? où ce rôle doit-il vivre pour être entendu ?
+                   (la mélodie gagne par le registre dégagé, pas par le volume)
+3. QUELLE COULEUR ? parmi les instruments qui couvrent ce registre,
+                   lequel a le TIMBRE de l'émotion visée ?
+```
+
+L'ordre est volontaire : rôle → registre → couleur. Les débutants commencent par la couleur (« je veux des cors ! ») et découvrent ensuite que le registre est pris et le rôle flou. Les fiches sont rangées pour répondre à la question 3 — mais les questions 1 et 2 se posent avant d'ouvrir le livre.
+
+### 4. Comment travailler ce module
+
+Les fiches ne se lisent pas d'affilée comme un roman : **lis-en une, puis écris pour l'instrument le jour même** (les exercices de fiche existent pour ça). Ordre conseillé : les cordes d'abord (l02–l05 — la pâte de base), puis le cor (l12 — le liant), puis les bois (l06–l08 — les personnages), la trompette (l09), et le piano en miroir final (l10 — ce que ton instrument d'esquisse te cache). Chaque fiche cite ses partenaires : suis les renvois, ils dessinent la carte des mariages.
+
+- [ ] Quatre familles, quatre logiques : sections / solistes / pupitres / l'esquisse
+- [ ] Une fiche = tessiture, spot, couleurs, puissance, agilité, tenue, rôles, mariages
+- [ ] Rôle → registre → couleur : dans cet ordre, toujours
+- [ ] Une fiche lue = un exercice écrit le jour même
+
+<QuizBlock id="m05-l01-quiz" questions={4} />
+<LessonFooter exercises={[]} />

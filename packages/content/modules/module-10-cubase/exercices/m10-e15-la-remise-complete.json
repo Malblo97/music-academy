@@ -1,0 +1,40 @@
+{ "id": "m10-e15-la-remise-complete", "lessonId": "m10-l15-synthese",
+  "title": "La session complète : « La Remise »", "difficulty": 8, "xpReward": 400,
+  "skills": { "DAW_WORKFLOW": 0.5, "MELODY": 0.2, "HARMONY": 0.2, "ORCHESTRATION": 0.1 },
+  "spec": { "prompt": "Le capstone du module — la plus grande mission prouvée du produit, en trois soumissions échelonnées (le format bi-parts de m02-e30, étendu à trois). Compose, produis et livre la musique de « La Remise » en suivant la chronologie du métier : naissance → spotting → temps → notes → vie → équilibre → colis. Le brief découle de TON spotting : curiosité qui s'assombrit, un hit, une révélation qui ne résout pas. La Part 2 recevra le rapport le plus complet que le produit sache produire : mélodie, harmonie, orchestration, expression, temps et image, jugés ensemble pour la première fois.",
+    "mission": { "mode": "guided+proof", "assets": ["assets/video-la-remise-v1.mp4"],
+      "parts": [
+        { "id": "part1-spotting", "mode": "declarative+proof",
+          "checklist": [
+            { "step": "Phase 0 — la naissance : projet depuis le template Sketch, 48/24, frame rate de la vidéo, Ctrl+Alt+S", "verifyHint": "La Root Key attend le spotting : elle en DÉCOULE." },
+            { "step": "Phase 1 — le spotting : deux visionnages muets, puis la table complète (IN/OUT, hits, bascules, descriptions rédigées)", "verifyHint": "Ton spotting de e12 se recycle — affiné par un regard neuf." },
+            { "step": "Export de la Marker Window en CSV", "verifyHint": "La table de spotting est le brief : le produit va la lire." } ],
+          "proofSubmission": { "format": "csv",
+            "checks": { "markerTable": {
+              "requiredMarkers": ["IN","OUT","HIT",">=3 bascules"],
+              "timecodeToleranceSec": 1.0,
+              "descriptionsNonEmpty": true } } } },
+        { "id": "part2-music", "mode": "proof",
+          "checklist": [
+            { "step": "Phase 2 — LE TEMPS D'ABORD : tempo naturel (♩≈72), la mesure sur le HIT par la méthode manuelle, Signature Track si la bascule 2 veut son extension", "verifyHint": "La leçon la plus contre-intuitive du métier, et la plus rentable." },
+            { "step": "Phase 3 — la composition au Key Editor : le motif de la curiosité, la vis douce vers le hit, l'accord de la découverte (TON choix, argumenté dans les notes)", "verifyHint": "Iterative 60 % sur le jeu, dur sur les ostinatos." },
+            { "step": "Phase 4 — l'orchestration et la vie : rôles distribués (les fiches M5 décident), Expression Maps posées, PUIS la passe de CC1 à la molette, ligne par ligne", "verifyHint": "Jamais l'inverse : les maps avant la molette." },
+            { "step": "Export MIDI multi-pistes, macro PREP appliquée, événements de tempo inclus", "verifyHint": "Ta CI locale, une dernière fois." } ],
+          "proofSubmission": { "includeControllers": true, "includeTempoEvents": true, "multiTrack": true,
+            "checks": {
+              "keyProfile": { "anyOf": ["minor", "controlled-ambiguity"] },
+              "motifDeveloped": { "engine": "findMotifs", "minOccurrences": 3, "requireVariation": true },
+              "tensionRiseWindow": { "engine": "tensionCurve", "timecodeWindow": ["0:31","1:02"], "shape": "rising" },
+              "forbiddenCadencesAtEnd": ["perfect","plagal"],
+              "declaredInstrumentRanges": { "rule": "orch.range-violation" },
+              "ccCoverage": { "cc": 1, "minRatio": 0.8, "onNotesLongerThanBeats": 1 },
+              "ccPerNoteVariance": { "cc": 1, "min": 6 },
+              "hitAlignment": { "checker": "tempoEvents", "hitTimecode": "1:02.0", "mustLandOnBeat": 1, "toleranceTicks": 20 } } },
+          "rubric": { "correctness": 30, "constraints": 35, "craft": 35 } },
+        { "id": "part3-delivery", "mode": "declarative",
+          "checklist": [
+            { "step": "Phase 5 — l'équilibre : la méthode des 6 étapes, le test mono, Freeze des pistes stables", "verifyHint": "En mono : chaque rôle reste-t-il lisible ?" },
+            { "step": "Phase 6 — le colis complet : mix (locators, −1 dB), stems par groupes (le test de la somme), MIDI propre, notes.txt", "verifyHint": "Le colis de e14, en conditions réelles." },
+            { "step": "Back up Project : la session est close, retrouvable, transmissible", "verifyHint": "« La Remise » est livrée : le module est dans tes mains, plus dans tes notes." } ] } ] },
+    "badge": "module-10-cubase",
+    "rubric": { "checklist": 25, "correctness": 25, "constraints": 25, "craft": 25 } } }

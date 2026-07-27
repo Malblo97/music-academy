@@ -1,0 +1,10 @@
+{ "id": "m02-e01-dissect", "lessonId": "m02-l01-anatomie",
+  "title": "Dissèque le thème", "kind": "THEORY_QUIZ",
+  "difficulty": 3, "xpReward": 50, "skills": { "MELODY": 1.0 },
+  "spec": { "prompt": "Le thème de 8 mesures de la leçon (▶ et roll affichés). Retrouve à la main ce que findMotifs trouve en machine.",
+    "quiz": { "interaction": "mc",
+      "items": [
+        { "q": "Clique les notes de la PREMIÈRE occurrence du motif", "interaction": "roll-pick", "answer": ["G4@0","D5@360","D5@480","C5@720","B4@840"], "why": "La cellule : rythme q.-e + saut de quinte — l'aspérité qui accroche." },
+        { "q": "La mesure 3 est :", "options": ["du matériau neuf","une répétition exacte","une transposition"], "answer": "une répétition exacte", "why": "L'ancrage (l03 §1) : la deuxième fois, l'auditeur reconnaît." },
+        { "q": "La mesure 5 varie le motif par :", "options": ["augmentation","inversion de l'intervalle, rythme conservé","fragmentation"], "answer": "inversion de l'intervalle, rythme conservé", "why": "Les couches sont séparables (l02 §1) : le rythme porte l'identité pendant que le geste se retourne." },
+        { "q": "La proportion de matériau NEUF dans les 8 mesures :", "options": ["~12 % (1 mesure)","~50 %","~75 %"], "answer": "~12 % (1 mesure)", "why": "Composer = 60 % réorganiser. Ici, mieux : une seule mesure inventée (la 6)." } ] } } }

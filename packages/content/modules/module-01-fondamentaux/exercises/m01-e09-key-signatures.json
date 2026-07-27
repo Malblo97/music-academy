@@ -1,0 +1,10 @@
+{ "id": "m01-e09-key-signatures", "lessonId": "m01-l05-cycle-quintes",
+  "title": "Armure ↔ tonique en 2 secondes", "kind": "THEORY_QUIZ",
+  "difficulty": 2, "xpReward": 40, "skills": { "HARMONY": 1.0 },
+  "spec": { "prompt": "Dans les deux sens : armure → tonique, tonique → armure. Les deux astuces de l05 §2 suffisent.",
+    "quiz": { "interaction": "mc",
+      "generator": { "range": "0-6accidentals", "bothDirections": true, "rounds": 10 },
+      "items": [
+        { "q": "3 dièses (F♯ C♯ G♯) : quelle tonalité majeure ?", "options": ["A","E","D"], "answer": "A", "why": "Dernier dièse G♯ + ½ ton = A." },
+        { "q": "4 bémols (B♭ E♭ A♭ D♭) : tonalité ?", "options": ["Ab","Eb","Db"], "answer": "Ab", "why": "L'avant-dernier bémol EST la tonique." },
+        { "q": "E majeur porte :", "options": ["3♯","4♯","4♭"], "answer": "4♯", "why": "C→G→D→A→E : quatre pas horaires, quatre dièses." } ] } } }

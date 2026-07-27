@@ -1,0 +1,34 @@
+{
+    "exerciseId": "m10-e10-budget-machine",
+    "payload": {
+      "mode": "declarative",
+      "source": "maquette de m10-e08",
+      "checklist": [
+        {
+          "id": "e10-s1",
+          "expect": "jauge CPU/disque relevée AVANT — le chiffre écrit"
+        },
+        {
+          "id": "e10-s2",
+          "expect": "les 2 pistes les plus gourmandes identifiées (grosses articulations, synthés lourds)"
+        },
+        {
+          "id": "e10-s3",
+          "expect": "Freeze Instrument + Channel sur les deux ; jauge APRÈS, gain en % chiffré"
+        },
+        {
+          "id": "e10-s4",
+          "expect": "réversibilité vérifiée : dé-gel puis re-gel d'une piste"
+        },
+        {
+          "id": "e10-s5",
+          "expect": "Render in Place piste cor : mode DRY, source gardée (MIDI muté, pas supprimé)"
+        },
+        {
+          "id": "e10-s6",
+          "expect": "A/B : le rendu remplace l'original à l'identique"
+        }
+      ]
+    },
+    "authorNotes": "« MIDI pour composer et prouver, audio pour livrer et durer. » Deux chiffres avant/après suffisent à faire de cette mission autre chose qu'un tutoriel de boutons : sans mesure, « ça allège » n'est pas une compétence. Chiffres : 6 étapes, une jauge relevée deux fois, un gain exprimé en pourcentage. L'étape 4 est celle qui compte pédagogiquement — beaucoup d'élèves croient le Freeze irréversible et ne l'emploient jamais là où il sauve une session ; l'étalon en fait une vérification explicite (dé-geler, re-geler) plutôt qu'une affirmation."
+  }

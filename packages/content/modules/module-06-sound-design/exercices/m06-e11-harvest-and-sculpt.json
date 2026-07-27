@@ -1,0 +1,35 @@
+{
+  "id": "m06-e11-harvest-and-sculpt",
+  "lessonId": "m06-l11-fx-2",
+  "title": "La récolte et la sculpture",
+  "kind": "LAYERING",
+  "difficulty": 5,
+  "xpReward": 100,
+  "skills": { "SOUND_DESIGN": 1.0 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "hybrid-score", "ruleWeights": {} },
+  "rubric": { "correctness": 30, "constraints": 40, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "Source-first : pars de DEUX rendus de tes missions M10 — déclare lesquels, le champ source porte l'id de mission d'origine (le cor vivant de m10-e04 donne un nuage riche ; un bip donne de la poussière de bip). Produis : (1) un REVERSE-RISER calé sur cible — coupe la région exacte, retourne, cale la FIN sur le temps cible : la grammaire de l10 s'applique en ticks ; (2) un élément GRANULAIRE — drone (position figée, grains 50–100 ms, densité haute) OU scintillement (grains clairsemés, pitch +12, pan random) : les quatre poignées déclarées. Assemble dans un mini-stack de bascule (8 mesures). On reconnaît sans savoir : la transformation garde une trace — et le son sculpté se nomme, se bounce, se tague : perdu, il n'existe plus.",
+    "given": {
+      "allowedSources": ["m10-e04-living-horn", "m10-e10-budget-machine", "m10-e15-la-remise-complete"],
+      "tempoBpm": 72
+    },
+    "constraints": {
+      "lengthBars": [8, 8],
+      "requiredLayers": [
+        { "id": "reverse-riser", "role": "fx", "sourceTraceability": true },
+        { "id": "granular", "roles": ["body", "top"], "sourceTraceability": true, "granularHandles": { "position": true, "size": true, "density": true, "pitch": true } }
+      ],
+      "targetOnTick": { "layer": "reverse-riser", "endOn": "bar:7:beat:1", "toleranceBeats": 1 },
+      "granularCoherence": {
+        "frozenPosition": { "impliesRole": "body" },
+        "sparseHighPitch": { "impliesRole": "top" }
+      },
+      "sourceTraceability": { "requiredCount": 2, "fromModule": "m10" },
+      "checkers": ["sd.band-pileup", "sd.static-stack", "sd.role-coverage"]
+    }
+  }
+}

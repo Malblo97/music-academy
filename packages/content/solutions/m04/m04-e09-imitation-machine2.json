@@ -1,0 +1,11 @@
+{
+  "exerciseId": "m04-e09-imitation-machine",
+  "partId": "canon",
+  "payload": {
+    "voices": [
+      { "id": "V1", "notation": "C5:q B4:q C5:q D5:q | E5:q D5:q C5:q A4:q | G4:q F4:q E4:q C5:q | B4:q A4:q C5:q E5:q | D5:q C5:q E5:q C5:q | F4:q E4:q G4:q A4:q | A4:q G4:q F4:q G4:q | D5:h C5:h" },
+      { "id": "V2", "notation": "r:w | C4:q B3:q C4:q D4:q | E4:q D4:q C4:q A3:q | G3:q F3:q E3:q C4:q | B3:q A3:q C4:q E4:q | D4:q C4:q E4:q C4:q | F3:q E3:q G3:q A3:q | B3:h C4:h" }
+    ]
+  },
+  "authorNotes": "Canon à l'octave, délai 1 : identité V2 = V1 −12 décalée d'une mesure, m2→m7 **exacte** (`cpt.canon-identity`) ; **m8 libre** — 7̂→1̂ contre 2̂→1̂ du dux : la rupture cadentielle taguée, la machine s'arrête, les humains concluent. Composé avec canonShadow : chaque mesure écrite CONTRE soi-même — octaves et quintes atteintes par mouvement contraire seulement (m2.3, m5.3), grappes d'imparfaites ≤ 3. Le plongeon C5→F4 (m5→6) documenté : le prix d'une consonance à m6 — le canon négocie."
+}

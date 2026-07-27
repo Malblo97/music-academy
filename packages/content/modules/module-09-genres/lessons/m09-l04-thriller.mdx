@@ -1,0 +1,101 @@
+---
+id: m09-l04-thriller
+module: module-09-film-genres
+title: "Thriller : composer l'étau"
+estMinutes: 30
+skills: { harmony: 0.3, rhythm: 0.4, orchestration: 0.3 }
+---
+
+### Pourquoi le thriller est un genre de soustraction inversée
+
+Le néo-noir (m09-l03) soustrayait pour créer l'espace ; le thriller soustrait pour créer **le manque** — l'auditeur attend ce qui ne vient pas, et cette attente est la peur. Techniquement, c'est le genre de la dette jamais remboursée (l14 M1 §7 : « tu dois d'abord maîtriser la résolution pour que son évitement soit un choix » — nous y sommes) et du temps mécanisé : l'ostinato comme tic-tac d'une bombe qu'on ne voit pas.
+
+### 1. Le vocabulaire harmonique
+
+| Outil | Construction | Effet | Vu en |
+|---|---|---|---|
+| **Le balancement ♭2̂** | i↔♭II, ou la mélodie 1̂–♭2̂ (phrygien) | la menace qui respire — deux accords, une scène | l07 M1, m02-l13 |
+| L'ostinato harmonique | 2–4 accords en boucle, sans cadence | le temps qui tourne sans issue | harmony.loop-coherence §7.3 |
+| Le cluster qui enfle | seconde ajoutée à une tenue, cresc. | la présence qui approche sans se montrer | — |
+| Le dim7 tenu | l'apesanteur inquiète (quatre sorties possibles : on ne sait pas OÙ ça va tomber) | l13, l23 M1 |
+| L'étau chromatique | UNE voix monte d'un demi-ton toutes les N mesures sur harmonie fixe | la line cliché (l22 M1) devenue instrument de torture | l22 M1, m02-l13 |
+| La pédale + harmonies étrangères | basse fixe, accords sans lien fonctionnel au-dessus | le sol qui tient pendant que le monde se déforme | l15, l24 M1 |
+| La non-cadence terminale | la scène finit sur la dominante, ou sur RIEN (coupure) | le point d'interrogation permanent | l16 M1 |
+
+Le principe unificateur, hérité de la matrice §7.8 : dans ce genre, **la répétition est la tension** (`melody.monotony` à 0, `repetitionIsPositive: true`) et **la résolution est l'ennemi** (`melody.tension-placement` à 0). Chaque outil du tableau installe un pattern puis le refuse d'aboutir : le thriller est la leçon d'attente de m02-l07 avec le curseur DÉVIER/ROMPRE poussé — mais attention : poussé sur la *résolution*, pas sur le *pattern*. Le pattern, lui, est d'une fiabilité absolue (le tic-tac ne rate jamais) : c'est le contraste entre la mécanique parfaite et l'issue refusée qui serre l'étau.
+
+### 2. Le rythme : la mécanique (le cœur du genre)
+
+Le thriller est LE genre rythmique du corpus. Ses outils :
+
+- **l'ostinato-signal** (m02-l02 : l'archétype « signal ») : cellule courte, souvent une seule hauteur, pattern distinctif — le tic-tac. Registre grave ou médium sec (celli spiccato, piano feutré, percussion mate) ;
+- **l'asymétrie** : 3+3+2, ou mesures à 5 et 7 temps (le pas qui boite : l'auditeur ne peut pas s'installer) ;
+- **la dérive de tempo** : l'accelerando imperceptible (+2 BPM toutes les 8 mesures sur la Tempo Track, l10 M1/M10) — l'urgence qui monte sans qu'on sache pourquoi ;
+- **l'interruption** : l'ostinato qui s'ARRÊTE net est plus effrayant que l'ostinato qui continue (le tic-tac qui se tait : la bombe est là). Le silence du thriller n'est pas une respiration (l06 M2), c'est une apnée.
+
+Division du travail, symétrique de l'épique : là-bas l'ostinato *recrutait* vers la proclamation ; ici il **dérive** (l'étau chromatique, l'accelerando, l'épaississement) sans jamais proclamer — le palier final est refusé.
+
+### 3. Instrumentation typique
+
+```
+COUCHE            INSTRUMENTS (M5)                  RÔLE
+──────────────────────────────────────────────────────────────
+Le tic-tac        celli/basses spiccato, piano      la mécanique —
+                  grave sec, percussion mate         sèche, sans reverb
+Le sol qui ment   pédale de contrebasses OU son     la fausse stabilité
+                  absence calculée (l05 : l'inter-
+                  rupteur de gravité — ici une arme)
+La présence       cluster de cordes con sordino     ce qui approche —
+                  ppp cresc. (l02), clarinette       l'entrée invisible
+                  basse qui rôde (l08)               (le subtone !)
+L'aiguille        violons suraigus tenus (l02 :     le nerf à vif
+                  le désincarné), harmoniques
+La lame           ♭2̂ répétée : altos ou cors        la menace qui respire
+                  bouchés¹, trompette straight
+                  (l09 : le pincé)
+L'événement       LE coup : tutti bref, col legno¹, la détente de l'étau —
+                  cluster ff — puis RETOUR au        qui ne libère pas :
+                  tic-tac                             le pattern reprend
+```
+¹ mentions V1 : cor bouché = métallique menaçant ; col legno = le bois de l'archet, squelettique.
+
+Note la parenté néo-noir (couches proches, m09-l03) et la différence d'intention : le noir met de la reverb et de l'espace (la solitude) ; le thriller assèche (la mécanique). Même famille sombre, deux acoustiques.
+
+### 4. Tempo, forme, construction
+
+- Tempo : le rampant (60–75, l'enquête, la filature) ou la poursuite (130+) — et la *dérive* entre les deux ;
+- Forme : **la vis** — boucle de 4–8 mesures répétée avec UN paramètre qui se serre à chaque tour (un demi-ton de plus, une couche de plus, 2 BPM de plus, un silence de moins). Le thriller ne développe pas (l03–l04 M2) : il resserre. C'est la fragmentation (l04 M2) comme régime permanent ;
+- L'événement : rare, bref, jamais résolutoire — le coup détend l'étau UN instant, puis la vis reprend un cran plus serré. La vraie résolution appartient à l'image (la scène suivante), pas à ta musique.
+
+```
+   scène : l'intrusion, 2 min 30
+   étau
+     ▲                        coup ╮        ╭── coupure NETTE
+     │                    ╭───▌────╯╭───────╯   (l'apnée finale :
+     │              ╭─────╯ +aiguille           pas de cadence,
+     │        ╭─────╯ +cluster       ╰ tic-tac  pas de fin)
+     │  ╭─────╯ +étau chromatique      reprend,
+     │──╯ tic-tac seul                 plus serré
+     └───────────────────────────────────────────► temps
+       tour 1   tour 2   tour 3   tour 4   tour 5
+```
+
+### 5. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| L'agitation | tout bouge, tout est fort : l'action, pas la peur (m02-l13, confirmé) | la menace est dans ce qui ne bouge PAS encore — retiens |
+| Résoudre l'étau | la cadence qui libère : la tension s'évapore | la vis ne se desserre jamais ; la résolution appartient à l'image |
+| L'ostinato qui varie musicalement | le tic-tac « intéressant » : la mécanique humanisée, la peur perdue | le pattern est parfait et inhumain ; seuls les paramètres dérivent |
+| Le coup toutes les 8 mesures | l'événement devient le pattern : plus de surprise | UN coup par scène, deux maximum — et le silence-apnée vaut un coup |
+| Reverb partout | on glisse vers le noir (la solitude) ou l'horreur (le gouffre) | le thriller est SEC : la mécanique s'entend de près |
+| Boucle harmonique mal cousue | la couture s'entend à chaque tour : l'hypnose casse | `harmony.loop-coherence` (§7.3) — la vis doit tourner sans à-coup |
+
+### 6. Alternatives et frontières
+
+- **Thriller psychologique** : la vis harmonique sans le tic-tac — clusters, étau chromatique, aiguille : tout est lent, tout se déforme ;
+- **Thriller d'action** : le tic-tac à 140+, l'asymétrie 3+3+2 en avant, cuivres en coups — la frontière avec l'épique est le refus du palier proclamé ;
+- Frontières : + reverb, + espace, + jazz harmonique → néo-noir (m09-l03) ; + dissonance non-fonctionnelle, + effets étendus, + le gouffre sous la mécanique → horreur (V1) ; + résolutions et thème → l'action héroïque (le héros gagne : c'est un autre contrat, l07 M2).
+
+<QuizBlock id="m09-l04-quiz" questions={5} />
+<LessonFooter exercises={["m09-e07-the-screw", "m09-e08-tick-and-cut"]} />

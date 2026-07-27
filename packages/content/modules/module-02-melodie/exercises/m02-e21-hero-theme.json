@@ -1,0 +1,13 @@
+{ "id": "m02-e21-hero-theme", "lessonId": "m02-l11-ambiances-2",
+  "title": "Le thème du héros : la promesse tenue", "kind": "MELODY_COMPOSE",
+  "difficulty": 6, "xpReward": 120, "skills": { "MELODY": 1.0 },
+  "spec": { "prompt": "8–12 mesures héroïques en si♭ majeur : l'APPEL en signature (quarte ou quinte ascendante dans la cellule), anacrouse, sommets progressifs, et le climax TENU (blanche minimum — un sommet héroïque en croche est un héros qui trébuche), cadence parfaite ferme. Taux de surprise minimal : le héros est fiable.",
+    "given": { "key": { "tonic": 10, "mode": "major" } },
+    "constraints": { "key": { "tonic": 10, "mode": "major" }, "lengthBars": [8,12],
+      "mustContainInterval": [5,7], "intervalDirection": "up",
+      "requireAnacrusis": true, "ascendingPhrasePeaks": true,
+      "climaxWindow": [0.6, 0.85], "climaxMinDuration": 960,
+      "requiredCadence": "perfect", "mustEndOnDegrees": [1],
+      "mustUseMotif": true, "minMotifOccurrences": 3 },
+    "styleProfile": { "id": "epic-film", "targetMood": "heroic" },
+    "rubric": { "correctness": 20, "constraints": 40, "craft": 40 } } }

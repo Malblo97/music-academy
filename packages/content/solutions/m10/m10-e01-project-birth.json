@@ -1,0 +1,45 @@
+{
+    "exerciseId": "m10-e01-project-birth",
+    "payload": {
+      "mode": "declarative",
+      "checklist": [
+        {
+          "id": "e01-s1",
+          "expect": "dossier dédié Academy_M10_Setup — ne contient QUE ce projet"
+        },
+        {
+          "id": "e01-s2",
+          "expect": "Exports/ · MIDI/ · Refs/ créés vides"
+        },
+        {
+          "id": "e01-s3",
+          "expect": "48000 Hz / 24 bits (Project Setup)"
+        },
+        {
+          "id": "e01-s4",
+          "expect": "tempo initial posé — ♩=90 par défaut"
+        },
+        {
+          "id": "e01-s5",
+          "expect": "Root Key réglée : coloration hors-gamme active au Key Editor"
+        },
+        {
+          "id": "e01-s6",
+          "expect": "Auto Save 5 min / 10 sauvegardes"
+        },
+        {
+          "id": "e01-s7",
+          "expect": "4 pistes en nomenclature RÔLE-first : MEL Cor · CTR Celli · BASS Cb · TEX Pad"
+        },
+        {
+          "id": "e01-s8",
+          "expect": "couleurs par famille (palette §3.6) : cuivres ≠ cordes ≠ synthés au premier regard"
+        },
+        {
+          "id": "e01-s9",
+          "expect": "Academy_M10_Setup-01.cpr ET -02.cpr présents sur disque"
+        }
+      ]
+    },
+    "authorNotes": "« On coche quand on a VÉRIFIÉ, pas quand on a fait — c'est toute la différence entre un tutoriel et un réflexe. » Branche du verrou : lint de checklist (F-48). Structure : 9 étapes, chacune portant un attendu FALSIFIABLE par oui/non — l'étalon ne recopie pas le texte de la consigne (source de vérité unique : l'exercice), il porte les IDs et les attendus. Deux étapes sont chiffrées (48/24, 5 min/10 sauvegardes) parce qu'un réflexe non chiffré n'est pas un réflexe ; l'étape 9 est la seule vérifiable de l'extérieur (deux fichiers sur disque). Chiffres : 9 étapes, couverture verifyHint 1,00, IDs stables. Finding : F-60 — `checklist[].id` obligatoire, format e{NN}-s{N}, immuable ; sans lui le lint compare des positions et un ajout d'étape invalide l'étalon en silence."
+  }

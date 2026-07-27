@@ -1,0 +1,73 @@
+{
+  "id": "m05-e01-violin-roles",
+  "lessonId": "m05-l02-violins",
+  "title": "Violons I et II : deux métiers",
+  "kind": "ORCHESTRATE",
+  "difficulty": 4,
+  "xpReward": 100,
+  "skills": { "ORCHESTRATION": 0.8, "MELODY": 0.2 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "romantic-film", "targetMood": "default", "ruleWeights": {} },
+  "rubric": { "correctness": 30, "constraints": 40, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "Le thème fourni (8 mesures, sol majeur) est aux violons I — il ne bouge pas. TON travail est le second pupitre : trois versions des violons II, une par configuration de la fiche — et l'interdit absolu vaut pour les trois : les II ne sont JAMAIS des « I bis ». (1) LE LYRISME CLASSIQUE : les II à la tierce ou la sixte SOUS les I — la doublure chaude, parallèle assumée. (2) L'ÉNERGIE MODERNE : les II en ostinato spiccato médium sous les I chantants — deux vitesses, un pupitre qui chante, un qui propulse. (3) L'UNISSON LARGE : I et II à l'octave — le grand thème, déclaré tel. Partout : rien sous G3 (la corde grave s'arrête là, sans exception), et tout accord de plus de 2 sons se note div. — double stops ≠ divisi.",
+    "instrumentation": ["violins-1", "violins-2"],
+    "given": {
+      "key": { "tonic": 7, "mode": "major" },
+      "theme": "D5:q. E5:e D5:q B4:q | A4:h D5:h | E5:q. D5:e B4:q A4:q | G4:h. r:q | B4:q. C5:e D5:q E5:q | G5:h E5:h | D5:q B4:q A4:q. B4:e | G4:w",
+      "themeImmutable": true,
+      "chords": [
+        { "root": 7, "quality": "maj" },
+        { "root": 2, "quality": "7" },
+        { "root": 4, "quality": "min" },
+        { "root": 0, "quality": "maj" },
+        { "root": 7, "quality": "maj" },
+        { "root": 0, "quality": "maj" },
+        { "root": 2, "quality": "7" },
+        { "root": 7, "quality": "maj" }
+      ]
+    },
+    "parts": [
+      {
+        "id": "lyricism",
+        "prompt": "Les II à la tierce/sixte inférieure : le velours classique.",
+        "constraints": {
+          "role": "parallel-harmony",
+          "intervalWithMelody": { "allowed": [3, 4, 8, 9], "below": true, "minRatio": 0.8 },
+          "register": [55, 79]
+        }
+      },
+      {
+        "id": "energy",
+        "prompt": "Les II en ostinato spiccato : le moteur sous le chant.",
+        "constraints": {
+          "role": "rhythmic-ostinato",
+          "ostinatoRequired": true,
+          "ostinatoBarsLength": [1, 2],
+          "articulation": "spiccato",
+          "register": [55, 74],
+          "chordToneRatioMin": 0.8
+        }
+      },
+      {
+        "id": "large-unison",
+        "prompt": "I et II à l'octave : l'unisson large du grand thème.",
+        "constraints": {
+          "role": "octave-doubling",
+          "octaveUnison": { "withPart": "violins-1", "interval": -12, "exact": true }
+        }
+      }
+    ],
+    "constraints": {
+      "lengthBars": [8, 8],
+      "key": { "tonic": 7, "mode": "major" },
+      "noNotesBelowPitch": 55,
+      "instrumentRanges": { "violins-1": [55, 95], "violins-2": [55, 95] },
+      "divisiDeclarationRequired": true,
+      "rolePlan": { "declared": true, "onePupitreOneRole": true },
+      "checkers": ["orch.range-violation", "orch.register-color", "orch.role-coverage", "orch.balance"]
+    }
+  }
+}

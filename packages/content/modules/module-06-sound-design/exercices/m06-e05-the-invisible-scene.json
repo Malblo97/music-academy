@@ -1,0 +1,35 @@
+{
+  "id": "m06-e05-the-invisible-scene",
+  "lessonId": "m06-l05-textures",
+  "title": "La scène invisible",
+  "kind": "LAYERING",
+  "difficulty": 4,
+  "xpReward": 90,
+  "skills": { "SOUND_DESIGN": 1.0 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "thriller-tension", "targetMood": "dread", "ruleWeights": {} },
+  "rubric": { "correctness": 30, "constraints": 45, "craft": 25 },
+  "spec": {
+    "version": 1,
+    "prompt": "La scène : « un couloir d'hôpital, la nuit, quelqu'un attend » — 30 secondes de musique imaginée, 12 mesures à ♩=60. Le stack : un DRONE (2 couches — sub mono + body, l'automation d'ouverture déclarée : le crescendo géologique), une TEXTURE, une ATMOSPHÈRE musicalisée (décris sa référence ET sa musicalisation en champ libre : accordée ? rythmée ? harmonisée ?). PAS de pad, PAS de mélodie : l'exercice est de tenir une scène avec l'invisible seul. La pyramide des niveaux est stricte — chacun inaudible comme objet, évident comme absence : le test du mute a été inventé pour eux.",
+    "given": {
+      "key": { "tonic": 7, "mode": "minor" },
+      "tempoBpm": 60
+    },
+    "constraints": {
+      "lengthBars": [12, 12],
+      "requiredLayers": [
+        { "id": "drone-sub", "role": "sub", "band": { "low": 40, "highMax": 90 } },
+        { "id": "drone-body", "role": "body", "motion": { "type": "automation", "target": "cutoff", "shape": "opening" } },
+        { "id": "texture", "role": "texture" },
+        { "id": "atmosphere", "role": "texture", "freeFields": ["reference", "musicalization"] }
+      ],
+      "forbiddenRoles": ["melodic"],
+      "subMonoRequired": true,
+      "levelPyramid": { "order": ["texture", "atmosphere", "drone-body"], "droneMaxDb": -6, "atmosphereRange": [-15, -9], "textureRange": [-20, -12] },
+      "motionPlan": { "minMotions": 2 },
+      "checkers": ["sd.sub-conflict", "sd.sub-width", "sd.wash-out"]
+    }
+  }
+}

@@ -1,0 +1,78 @@
+---
+id: m10-l03-key-editor-1
+module: module-10-cubase
+title: "Key Editor I : éditer comme on écrit"
+estMinutes: 25
+skills: { daw_workflow: 0.8, rhythm: 0.2 }
+---
+
+### Pourquoi le Key Editor est ta vraie feuille de papier
+
+Tu passeras plus d'heures dans le Key Editor que partout ailleurs : c'est là que les notes jouées deviennent des notes *écrites*. Bonne nouvelle : tu le connais déjà à moitié — le piano roll du produit en est le cousin direct (mêmes ticks, même grille, §1.4 : 480 PPQ partout). Cette leçon transfère tes réflexes et ajoute ce que Cubase fait en plus. La leçon 4 s'occupera de l'expression (CC) ; ici, les **notes et le temps**.
+
+### 1. La grille et le snap : ta relation au temps
+
+Le trio à maîtriser : **Quantize Preset** (la résolution de la grille : 1/8, 1/16, 1/8T…), **Snap on/off** (J — la touche que ta main gauche doit connaître), **Snap Type** (Grid pour écrire, Relative pour décaler sans réaligner).
+
+Le piège annoncé en l09 M1 §5 se résout ici : des triolets involontaires viennent d'une grille en 1/8T oubliée. **Réflexe** : la grille se lit dans la barre d'état avant d'écrire — comme on vérifie l'armure avant de lire.
+
+### 2. Quantiser : réparer sans tuer
+
+La quantisation dure (tout sur la grille) produit la raideur que l10 M1 appelait « MIDI de démo ». L'échelle des remèdes, du plus doux au plus fort :
+
+| Outil | Effet | Quand |
+|---|---|---|
+| **Iterative Quantize** (~60 %) | rapproche de la grille SANS coller | le défaut : garde ton rubato en le disciplinant |
+| Quantize dur (Q) | tout sur la grille | ostinatos, patterns mécaniques (le tic-tac de m09-l04 le VEUT) |
+| Swing (%) sur le preset | décale les contretemps | jazz, shuffle — la fenêtre de l09 M1 en un curseur |
+| Pas de quantize du tout | le jeu brut | rubato assumé, cadenzas — et le produit s'en fiche : l'analyseur quantise pour lire les hauteurs (l10 M1 §4) |
+
+**La règle de style** : la quantisation est un curseur d'esthétique, pas une correction orthographique — le thriller quantise dur, la romance à peine (les genres du Module 9 ont chacun leur réglage, et c'est un choix à faire *par piste*, pas par projet).
+
+### 3. Les gestes d'édition qui changent la vie
+
+Le produit t'a donné dessiner/déplacer/redimensionner. Cubase ajoute les gestes de *masse* — ceux qui font la vitesse d'un professionnel :
+
+```
+Sélectionner...
+  toutes les notes d'une hauteur   → clic sur la touche du clavier virtuel
+                                     (toutes les rondes de pédale d'un coup)
+  du même type                     → Edit > Select : Equal Pitch / same...
+Déplacer...
+  d'un cran de grille              → Ctrl+←/→
+  d'un demi-ton / d'une octave     → ↑/↓ , Shift+↑/↓
+                                     (la transposition de l03 M2 : UN geste)
+Doubler la sélection à la suite    → Ctrl+D (l'ostinato en trois frappes)
+Legato (coller les fins aux débuts)→ la commande Legato — le legato de
+                                     l10 M1 §3, appliqué en un raccourci
+Couper les chevauchements          → Delete Overlaps (le nettoyage d'après-jeu)
+```
+
+Apprends-les EN JOUANT la mission — pas en liste. Trois sessions et ils sont dans les mains.
+
+### 4. Les cousins : Drum Editor et Score Editor (savoir qu'ils existent)
+
+- **Drum Editor** : le Key Editor pour percussions — chaque ligne = un instrument (kick, caisse claire…), les notes deviennent des losanges sans durée. Tu y passeras au Module 6 (patterns) ; pour l'orchestre, la percussion s'écrit très bien au Key Editor ;
+- **Score Editor** : tes notes en notation. Utile pour *relire* (une harmonie à 4 voix se vérifie mieux sur portée) et pour préparer l'export vers un copiste — pas pour composer au MVP de ton apprentissage. Le produit te fait la même promesse côté StaffLite (§6.6) : la portée est une vue, le roll est l'établi.
+
+### 5. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Grille 1/8T oubliée | le « flou rythmique mystérieux » (l09 M1) | lire la barre d'état avant d'écrire |
+| Tout quantiser dur par défaut | la raideur généralisée | Iterative 60 % par défaut ; le dur se choisit |
+| Éditer note à note ce qui s'édite en masse | des heures perdues | sélections par hauteur/type, Ctrl+D, Legato |
+| Chevauchements ignorés | legato sale, voix fantômes dans les banques | Delete Overlaps en fin de session |
+| Composer dans le Score Editor | joli, lent, frustrant | le roll est l'établi, la portée est la relecture |
+
+### La mission (m10-e03, PROUVÉE)
+
+Dans ton template : programme l'ostinato de m01-s18 (fourni en PDF-mission avec sa notation) au Key Editor — quantize dur assumé — puis la mélodie de m02-s21 jouée au clavier et traitée en **Iterative 60 %**. Exporte le MIDI des deux pistes et soumets : le moteur vérifie les hauteurs, les durées, ET le profil de quantisation (l'ostinato doit être mécanique, la mélodie doit garder de la vie — `quantizeInfo`, §4.1, sert enfin en mission).
+
+- [ ] Grille lue avant d'écrire ; J sous la main gauche
+- [ ] Iterative 60 % par défaut — la quantisation est un choix de style
+- [ ] Les gestes de masse : sélection par hauteur, Ctrl+D, Legato, ↑/↓
+- [ ] Roll = établi ; portée = relecture ; Drum Editor = plus tard
+
+<QuizBlock id="m10-l03-quiz" questions={5} />
+<LessonFooter exercises={["m10-e03-two-quantize-worlds"]} />

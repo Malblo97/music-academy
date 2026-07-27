@@ -1,0 +1,30 @@
+{
+  "id": "m04-e01-four-motions",
+  "lessonId": "m04-l01-dialogue",
+  "title": "Les quatre mouvements",
+  "kind": "THEORY_QUIZ",
+  "difficulty": 3,
+  "xpReward": 40,
+  "skills": { "COUNTERPOINT": 0.7, "EAR_TRAINING": 0.3 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "strict-counterpoint", "ruleWeights": {} },
+  "rubric": { "correctness": 40, "constraints": 30, "craft": 30 },
+  "rubricQuiz": { "correctness": 100, "constraints": 0, "craft": 0 },
+  "spec": {
+    "version": 1,
+    "prompt": "Le diagnostic d'entrée du module : les quatre mouvements à l'oreille et au roll, le classement des verticalités à deux voix nues, et le test du chant.",
+    "quiz": {
+      "interaction": "mc",
+      "generator": { "voicePairs": true, "motions": ["contrary", "oblique", "similar", "parallel"], "rounds": 8 },
+      "items": [
+        { "q": "▶ Les deux voix :", "play": "[C4+E5]:h [D4+C5]:h", "options": ["contraire", "oblique", "direct"], "answer": "contraire", "why": "La basse monte, le soprano descend : l'indépendance maximale — le mouvement-roi." },
+        { "q": "▶", "play": "[G3+D5]:h [G3+C5]:h", "options": ["oblique", "parallèle", "contraire"], "answer": "oblique", "why": "Une voix bouge, l'autre tient — l'indépendance douce, et le germe de la 4e espèce." },
+        { "q": "▶", "play": "[C4+G4]:h [D4+A4]:h", "options": ["direct légal", "parallèle interdit", "contraire"], "answer": "parallèle interdit", "why": "Quinte → quinte, même direction : les deux voix fusionnent en UNE — le pourquoi profond de vl.parallel-fifths." },
+        { "q": "▶", "play": "[C4+E4]:h [D4+F4]:h [E4+G4]:h", "options": ["parallèle interdit", "parallèle consonant légal", "direct"], "answer": "parallèle consonant légal", "why": "Des tierces : le velours — légal par grappes de deux-trois ; au-delà, une voix devient l'ombre de l'autre." },
+        { "q": "À deux voix NUES, la quarte est :", "options": ["consonante comme dans les accords", "dissonante — elle tombe vers la tierce", "neutre"], "answer": "dissonante — elle tombe vers la tierce", "why": "Le laboratoire a ses lois : l'histoire de sus4 (m01-l17) commence exactement ici." },
+        { "q": "▶ Trois extraits à deux voix. Lequel a DEUX vraies mélodies ?", "play": "assets/m04-e01-three-duos", "options": ["extrait 1", "extrait 2", "extrait 3"], "answer": "extrait 2", "why": "Contours différents, mouvement contraire dominant, chaque voix chantable seule. L'extrait 1 : une mélodie + une ombre en tierces ; le 3 : deux voix qui zigzaguent sans direction — le test du chant tranche." }
+      ]
+    }
+  }
+}

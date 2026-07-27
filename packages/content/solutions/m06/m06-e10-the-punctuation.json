@@ -1,0 +1,16 @@
+{
+  "exerciseId": "m06-e10-the-punctuation",
+  "payload": {
+    "target": { "markerRef": "B2", "timecode": "1:02.0", "bar": 26, "beat": 1 },
+    "tempoBpm": 72,
+    "layers": [
+      { "id": "riser", "role": "fx", "bars": [22, 25], "motions": [{ "dst": "cutoff", "shape": "rise" }, { "dst": "pitch", "curve": "+12 continu" }, { "dst": "width", "curve": "20 → 85 %" }, { "dst": "send-reverb", "shape": "rise" }] },
+      { "id": "impact-sub", "role": "fx", "band": [30, 85] },
+      { "id": "impact-body", "role": "fx", "band": [90, 1900] },
+      { "id": "impact-debris", "role": "fx", "band": [2100, 12000] },
+      { "id": "tail-drone", "role": "body", "birthFromImpact": "la traîne de l'impact devient le centre de la scène suivante" }
+    ],
+    "silenceBeforeImpact": { "bar": 25, "beat": 4, "beats": 1 }
+  },
+  "authorNotes": "**La cadence de production, prouvée.** Les quatre automations déclarées en motion — tout monte vers LA cible — et la fin du riser tombe **barre 26 temps 1 = B2, écart 0 tick** (croisement tempo×timecode du manifeste F-36 : 25 × 2,4793 s = 61,98 s). L'apnée : temps 4 de la barre 25, tout tacet — le vide amplifie. L'impact tri-couche a ses bandes **étagées à 0 % de chevauchement** (≤ 30 % exigé) : la poitrine, le corps, le débris. Erratum de spec : le donné porte encore `1:08.0`, qui est H1 (la porte) et non B2 — F-36 l'a tranché, la solution suit le manifeste."
+}

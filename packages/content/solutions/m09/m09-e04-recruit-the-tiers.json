@@ -1,0 +1,36 @@
+{
+  "exerciseId": "m09-e04-recruit-the-tiers",
+  "payload": {
+    "parts": [
+      { "role": "fondation",
+        "instruments": "contrebasses + tuba + timbales",
+        "band": [0, 48],
+        "entryBar": 1,
+        "notation": "",
+        "_todo": "Décrite en prose seulement dans la source : « pédale D2 (mes. 1-4) puis les fondamentales du mur ; timbales sur D2/A1 ». Notation non écrite — à compléter en Phase 1, ne pas reconstituer en Phase 0." },
+      { "role": "moteur",
+        "instruments": "celli/altos spiccato",
+        "band": [48, 60],
+        "entryBar": 1,
+        "notation": "D3:e r:q D3:e r:q A3:e r:e | D3:e r:q D3:e r:q A3:e r:e | D3:e r:q D3:e r:q A3:e r:e | D3:e r:q D3:e r:q A3:e r:e | D3:e r:q D3:e r:q A3:e r:e | D3:e r:q D3:e r:q A3:e r:e | D3:e r:q D3:e r:q A3:e r:e | D3:e r:q D3:e r:q A3:e r:e | D3:e r:q D3:e r:q A3:e r:e | D3:e r:q D3:e r:q A3:e r:e | D3:e r:q D3:e r:q A3:e r:e | D3:e r:q D3:e r:q r:q | D3:e r:q D3:e r:q A3:e r:e | D3:e r:q D3:e r:q A3:e r:e | D3:e r:q D3:e r:q A3:e r:e | D3:e r:q D3:e r:q A3:e r:e" },
+      { "role": "murs",
+        "instruments": "cors x4 + trombones, position large",
+        "band": [48, 72],
+        "entryBar": 5,
+        "notation": "[D3+A3+D4+F4]:w | [D3+F3+Bb3+D4]:w | [F3+A3+C4+F4]:w | [C3+G3+C4+E4]:w | [D3+A3+D4+F4]:w | [D3+F3+Bb3+D4]:w | [F3+A3+C4+F4]:w | [C3+G3+C4+E4]:h. r:q | [D3+A3+D4+F4]:w | [D3+F3+Bb3+D4]:w | [C3+G3+C4+E4]:w | [D3+A3+D4+F4]:w" },
+      { "role": "proclamation",
+        "instruments": "trompettes + cors à l'unisson",
+        "band": [60, 72],
+        "entryBar": 9,
+        "notation": "D4:h F4:h | D4:w | F4:h A4:h | G4:h. r:q | A4:h F4:h | D4:h F4:h | E4:h G4:h | A4:w" },
+      { "role": "voute",
+        "instruments": "violons aigus + flûtes/piccolo 8va",
+        "band": [72, 127],
+        "entryBar": 13,
+        "notation": "[D5+A5]:w | [D5+F5]:w | [E5+G5]:w | [D5+A5]:w" }
+    ],
+    "dyn": [58, 72, 88, 104]
+  },
+  "authorNotes": "Ré mineur, 16 mes., 4/4, ♩=92. Témoin F-54 : la cellule du moteur est identique aux 16 tours SAUF la troncature de la mes. 12 (D3:e r:q D3:e r:q r:q), légale par F-54 — silence général au temps 4 de la mes. 12 (requireSilenceBeforeBar 13, silenceBeats 1), puis le tutti. Quatre paliers de recrutement toutes les 4 mesures (fondation+moteur / murs / proclamation / voûte) ; dyn[] = quatre paliers de vélocité 58-72-88-104, jamais de rampe continue — l'ostinato recrute, il ne varie pas. Bandes de registre disjointes : la puissance vient de la couverture (l'immeuble, pas le tas). Jamais jugé au piano seul : la solution est déclarée et écoutée fondation + moteur d'abord (l10 M5). Removed : « un contrechant de cors en tierces sous la proclamation : coupé — il rendait la psalmodie mélodique, donc petite. Le monde doit faire la mélodie, pas la mélodie faire le monde. » Écart assumé : la médiante-bascule finale du schéma de l02 §5 (C→Ab) n'est pas employée — elle n'est pas dans les contraintes et contredirait le finalMove bVII→i du fil s03 ; le palier 4 conclut au marteau. Donné harmonique : le mur de m09-s03 (mes. 5-16).",
+  "_schema": "Noms des champs payload/parts provisoires — à aligner sur le schéma F-33/F-39/F-40 (sections M7) avant seed."
+}

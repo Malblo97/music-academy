@@ -1,0 +1,11 @@
+{ "id": "m02-e27-whistle-test", "lessonId": "m02-l14-ambiances-5",
+  "title": "Le test de la sifflabilité", "kind": "MELODY_COMPOSE",
+  "difficulty": 6, "xpReward": 110, "skills": { "MELODY": 1.0 },
+  "spec": { "prompt": "8 mesures WESTERN en sol mixolydien : sifflable OBLIGATOIREMENT (ambitus ≤ une 9e, conjoint + quartes, prosodie simple), la ♭7̂ exposée (pas de sensible appuyée — le majeur terrien), arche large et lente, conclusion ♭VII→I implicite (finis 7̂→1̂ par un TON entier descendant... non : ♭7̂ sous la tonique — l'atterrissage au marteau doux). Siffle-la avant de soumettre : c'est littéralement le test.",
+    "given": { "key": { "tonic": 7, "mode": "mixolydian" } },
+    "constraints": { "key": { "tonic": 7, "mode": "mixolydian" }, "lengthBars": [8,8],
+      "ambitusMax": 14, "maxLeap": 7, "minConjunctRatio": 0.6,
+      "mustExposeDegrees": [7], "contourShape": ["arch"],
+      "syncopationTarget": [0.1, 0.35], "mustEndOnDegrees": [1] },
+    "styleProfile": { "id": "classical-common", "targetMood": "western" },
+    "rubric": { "correctness": 20, "constraints": 45, "craft": 35 } } }

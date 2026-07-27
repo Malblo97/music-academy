@@ -1,0 +1,86 @@
+---
+id: m01-l20-substitutions
+module: module-01-fondamentaux
+title: "Substitutions : relative et tritonique — changer de costume"
+estMinutes: 30
+skills: { harmony: 1.0 }
+---
+
+### Pourquoi substituer
+
+Enrichir (l17) colorait un accord ; la dominante secondaire (l19) en insérait un ; la **substitution** en *remplace* un — même fonction, autre accord, autre lumière. Tu pratiques déjà la forme élémentaire depuis l15 (vi pour I, ii pour IV : les doublures de famille). Cette leçon systématise l'outil et t'offre la plus spectaculaire des substitutions : la tritonique — celle qui a transformé ta boucle néo-noir (m09-e05) et dont tu vas enfin démonter le mécanisme.
+
+### 1. Substitution diatonique : le rappel élevé en méthode
+
+Le principe de l15 — deux accords qui partagent deux notes sur trois partagent leur fonction — devient un outil de *réécriture* :
+
+```
+Progression source :   I    → IV   → V7  → I
+Réécritures :          vi   → IV   → V7  → I      (départ dans l'ombre)
+                       I    → ii   → V7  → vi     (arrivée doux-amère : l16)
+                       iii  → IV   → V7  → I      (départ flottant, rare)
+```
+
+Méthode de travail : prends toute progression validée et produis-en **trois variantes par substitution diatonique seulement**. Tu découvres que I–IV–V–I n'est pas *une* progression mais une *famille* — et que composer, c'est souvent choisir le bon membre de la famille pour la bonne scène. Le Harmony Coach (`sub.relative`) te propose ces échanges en un clic ; l'exercice m01-e37 te demande l'inverse : reconnaître, dans une variante, quelle progression-mère se cache dessous.
+
+### 2. La substitution tritonique : le mécanisme enfin démonté
+
+La star de la leçon. Reprends G7 et son triton B–F (l13). Question : quel *autre* accord de dominante contient exactement ce même triton ? Réponse : **D♭7** (D♭–F–A♭–C♭... et C♭ = B). Vérifie : le triton de D♭7 est F–C♭ = F–B. **Le même**.
+
+```
+        G7  =  G   B   D   F         les guide tones (3+7) :  B + F
+        D♭7 =  D♭  F   A♭  C♭(=B)    les guide tones (3+7) :  F + B
+                                      ────────────────────────────────
+        deux accords, UN triton — à un triton de distance l'un de l'autre
+        (G ↔ D♭ : 6 demi-tons). D'où le nom. Et d'où la loi :
+        TOUT V7 peut être remplacé par le V7 situé au triton.
+```
+
+Pourquoi ça marche : l'oreille conclut au **triton qui se résout** (B→C, F→E — les aimants de l14), pas à la fondamentale. Change la fondamentale, garde le triton : la promesse tient. Ce qui change, et c'est le trésor : **la basse**. G→C montait par quinte descendante (le saut solennel) ; D♭→C **descend par demi-ton** — le glissement chromatique, feutré, inexorable. Tu tiens l'explication de m09-l03 : « la cadence devient un couloir sombre au lieu d'une porte ».
+
+<MusicExample id="porte-vs-couloir" title="ii–V–I : la porte, puis le couloir">
+  A) MG: D3:h G2:h C3:w   MD: [F4+C5]:h [F4+B4]:h [E4+C5]:w      — Dm7 G7 Cmaj7 (l13 §5)
+  B) MG: D3:h Db3:h C3:w  MD: [F4+C5]:h [F4+B4]:h [E4+C5]:w      — Dm7 D♭7 Cmaj7
+  Regarde la main droite : IDENTIQUE — le triton fait son travail dans les deux cas.
+  Seule la basse change : D–G–C (la porte) devient D–D♭–C (le couloir chromatique).
+  Rejoue les deux en boucle : tu entends physiquement la différence de monde.
+</MusicExample>
+
+### 3. Mode d'emploi de la tritonique
+
+- **où** : partout où vit un V7 — y compris les dominantes secondaires (subV/x : avant Am, au lieu de E7, joue B♭7 — basse B♭→A, le couronnement devient glissement) ;
+- **la couleur canonique** : subV7**♯11** — la ♯11 du substitut (G naturel sur D♭7 !) est... la fondamentale de la dominante remplacée. L'accord porte le fantôme de celui qu'il remplace : c'est cette épaisseur qui fait le son néo-noir, et te voilà au bout du fil tiré depuis l18 ;
+- **la règle d'or** (c'est `harmony.tritone-sub-resolution`, §7.3) : **la basse DOIT descendre d'un demi-ton vers la cible**. Sans ce mouvement, le substitut n'est qu'un accord étranger plaqué — tout son sens est dans le glissement ;
+- **le dosage** : la tritonique est un parfum fort. En jazz et néo-noir : langage courant. En romantique film : une par grande phrase, aux moments de bascule. En épique franc : quasi jamais (elle feutre ce que le genre veut éclatant).
+
+### 4. Le panorama des substitutions (table de synthèse du bloc)
+
+| Substitution | Mécanisme | Ce qui est préservé | Ce qui change | Territoire |
+|---|---|---|---|---|
+| Diatonique (l15, §1) | notes partagées dans la famille | la fonction | la lumière (majeur↔mineur) | universel |
+| Tritonique | triton partagé entre deux V7 | la promesse de résolution | la basse (quinte→demi-ton) | jazz, noir, sophistication |
+| vii° pour V7 (l13) | le triton sans la fondamentale | la tension | le poids (plus léger) | classique, transitions |
+| Emprunts modaux | → leçon suivante | la fondamentale du degré | le mode de l'accord | LE cinéma |
+
+Lecture verticale de la colonne « préservé » : toute substitution repose sur un **invariant** — fonction, triton, tension, degré. C'est la définition même de l'outil : changer le costume exige de savoir ce qui, dessous, ne doit pas bouger. Retiens ce principe : il est plus important que chaque substitution particulière, et il te guidera quand tu inventeras les tiennes.
+
+### 5. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Tritonique sans le demi-ton de basse | « accord étranger » incompris, règle levée à raison | subV n'existe QUE par sa basse descendante |
+| D♭7 AVANT G7 (l'erreur annoncée en §7.3) | tension qui bégaie | il REMPLACE G7, il ne le précède pas |
+| Substituer les toniques de conclusion | la fin sur vi quand la scène exigeait I : doux-amer involontaire | en position finale, la substitution est un choix DRAMATIQUE — décide-le au storyboard, pas au clavier |
+| Tritoniques en série | boue chromatique, perte du centre (`harmony.overchromatic` sait, mais quand même) | une bascule à la fois ; la chaîne descendante par demi-tons est un effet spécial, pas un régime |
+| Oublier l'invariant | substitutions « créatives » qui cassent la phrase | avant de remplacer : QUE dois-je préserver ici ? fonction ? promesse ? basse ? |
+
+### Récapitulatif
+
+- [ ] Substituer = remplacer en préservant un invariant (fonction, triton, tension, degré)
+- [ ] Diatonique : la famille de l15 devenue méthode de réécriture
+- [ ] Tritonique : deux V7 partagent un triton ; la basse quinte→demi-ton, la porte→le couloir
+- [ ] subV7♯11 : le fantôme de l'accord remplacé — le son néo-noir démonté
+- [ ] Règle d'or : la basse du substitut descend d'un demi-ton, toujours
+
+<QuizBlock id="m01-l20-quiz" questions={7} />
+<LessonFooter exercises={["m01-e37-find-the-mother", "m01-e38-tritone-swap"]} />

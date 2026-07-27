@@ -1,0 +1,18 @@
+{ "id": "m10-l10-quiz", "interaction": "mc", "items": [
+  { "q": "Freeze vs Render in Place :",
+    "options": ["deux noms du même gel", "PAUSE RÉVERSIBLE vs IMPRESSION — aux trois métiers : alléger, figer, récolter", "MIDI vs audio d'entrée"],
+    "answer": "PAUSE RÉVERSIBLE vs IMPRESSION — aux trois métiers : alléger, figer, récolter",
+    "why": "Le flocon dé-gèle et tout revient (§1) ; le rendu est une vraie piste audio indépendante — l'immortalité (l06), la matière (M6), la collaboration (§2)." },
+  { "q": "La source rendue :",
+    "options": ["se supprime, le rendu la remplace", "reste MUTÉE en réserve — jamais supprimée", "se gèle en plus"],
+    "answer": "reste MUTÉE en réserve — jamais supprimée",
+    "why": "La correction impossible trois jours après est le coût réel (§erreurs) : le rendu remplace à l'écoute, l'original attend — et Dry pendant l'écriture, Complete à la livraison." },
+  { "q": "La jauge CPU avant/après le Freeze :",
+    "capture": "asset:m10-l10-capture-cpu-gauge (jauge : 82 % → 54 %)",
+    "options": ["est anecdotique", "se CHIFFRE — le freeze est une décision de budget machine", "ne bouge pas"],
+    "answer": "se CHIFFRE — le freeze est une décision de budget machine",
+    "why": "Geler au fil de l'eau, dès qu'une piste est stable (§erreurs) — pas le jour du tutti, quand le craquement arrive en pleine inspiration : le `verifyHint` de la mission est un nombre." },
+  { "q": "[intégrative] La doctrine « MIDI pour composer et prouver, audio pour livrer et durer » fonde :",
+    "options": ["le choix du sample rate", "le FLUX C (preuves MIDI) et la récolte de m06-l11 (les rendus-matière)", "le format des stems"],
+    "answer": "le FLUX C (preuves MIDI) et la récolte de m06-l11 (les rendus-matière)",
+    "why": "Le moteur analyse des notes, pas de l'audio (§3, périmètre §1.6) — et le braam de M6 est souvent un cuivre rendu puis maltraité : les deux workflows coexistent, chacun son métier." } ] }

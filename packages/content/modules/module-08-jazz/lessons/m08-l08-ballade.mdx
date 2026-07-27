@@ -1,0 +1,69 @@
+---
+id: m08-l08-ballade
+module: module-08-jazz
+title: "La ballade : l'harmonie qui respire"
+estMinutes: 25
+skills: { harmony: 0.6, melody: 0.4 }
+---
+
+### Pourquoi la ballade est le jazz du cinéma
+
+Le jazz rapide se cite ; la ballade **s'habite** — c'est le territoire jazz que le film emploie le plus : la scène de nuit, l'amour usé, la ville qui dort, le générique mélancolique. Et c'est un autre métier que le medium swing : le tempo suspendu (50–70) change TOUT — chaque accord devient un événement, chaque silence un abîme, chaque tension un aveu. La ballade est le jazz au microscope : rien ne s'y cache.
+
+### 1. Le temps de la ballade (les trois régimes)
+
+| Régime | Mécanique | Territoire |
+|---|---|---|
+| **La ballade en time** | la pulsation continue mais feutrée (balais, walking en blanches — la « half-time walking » : deux cibles par mesure au lieu de quatre) | le standard chanté, le club à minuit |
+| **Le rubato accompagné** | PAS de pulsation : le pianiste suit le soliste, les accords tombent aux respirations (le colla parte du jazz) | l'intro de ballade, la scène de film — le régime le plus cinématographique |
+| **Le double-time feel** | la pulsation double SOUS le tempo harmonique inchangé (les croches deviennent des doubles ressenties : la surface s'anime, le fond reste lent) | le milieu de chorus qui s'échauffe sans presser — le geste de relance signature |
+
+La leçon de temps : en ballade, **le swing s'assouplit vers le rubato** (le ratio de l01 devient élastique, le placement laid-back devient la norme) — et l'écriture MIDI suit : Iterative très léger, la Tempo Track en micro-rubato (m10-l11 §2 : le rubato écrit sert les ballades programmées).
+
+### 2. L'harmonie au microscope (les voicings de ballade)
+
+Le tempo lent expose chaque accord — l'harmonie de ballade compense en **densité et en mouvement interne** :
+
+```
+LES VOICINGS S'OUVRENT : le rootless serré de l02 s'éclate en
+  "spread voicings" — la main gauche descend (la 10e : 1+3 écartés,
+  le voicing de Bill Evans... nommé pour la culture), la main droite
+  monte : l'accord respire sur trois octaves (le tapis-cathédrale de
+  m07-l03, version piano)
+LES ACCORDS DE PASSAGE PULLULENT : entre deux accords de la grille,
+  la ballade INTERCALE (le dim7 passant de m03-l04, les ii-V d'une
+  mesure — la demi-mesure devient assez longue pour un accord entier) :
+  la grille de ballade est une grille densifiée
+LE MOUVEMENT INTERNE : sur un accord tenu 2 mesures, UNE voix bouge
+  (la line cliché de m01-l42... de m01 §27.2/s42 : i–i(maj7)–i7–i6 —
+  SA maison est la ballade) — l'accord qui respire de l'intérieur
+LA CADENCE RETARDÉE : le I final approché, évité (le vi, le ♭VI),
+  ré-approché — la ballade fait durer l'arrivée (l'extension de
+  m02-l06, harmonisée) : le dernier accord d'une ballade peut
+  prendre huit mesures à venir
+```
+
+### 3. La mélodie de ballade (le microscope mélodique)
+
+m02-l14 §3 a donné la mélodie de standard ; la ballade y ajoute ses lois de lenteur : **chaque note longue se travaille** (la tenue nue est un aveu : vibrato tardif, crescendo interne — le CC1 de m10-l04 en emploi maximal), **les fills habitent les trous** (les phrases de la mélodie laissent des mesures : les remplir est un art de réponse — le call-and-response du blues (l04 §3), en régime intime : le fill répond, il ne rivalise pas — m04-l11, le contrat du contrechant, vaut pour le pianiste qui « comble »), et **la double-croche devient l'ornement** (au tempo 60, la double est une trente-deuxième ressentie : les grupetti, les glisses — l'ornementation vocale écrite).
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| La ballade jouée comme un medium lent | le swing raide au microscope | le temps s'assouplit : rubato, laid-back, élasticité |
+| Les voicings serrés de l02 gardés | l'harmonie étriquée sur un temps immense | les spreads : l'accord respire sur trois octaves |
+| L'accord tenu inerte 2 mesures | le microscope révèle le vide | le mouvement interne : une voix bouge (la line cliché chez elle) |
+| Les fills qui rivalisent | deux solistes, zéro intimité | le fill répond dans les trous — le contrat du contrechant |
+
+### La mission (m08-e08, HARMONY_PROGRESSION + mélodie)
+
+La ballade de 16 mesures : la grille fournie (un standard-type AABA condensé) à **densifier** (≥ 3 intercalations : dim7 passant, ii-V d'une mesure — tags à l'appui), spread voicings (l'ambitus vertical moyen ≥ 2 octaves), une line cliché sur l'accord tenu du pont, la cadence finale retardée (≥ 1 évitement tagué), et la mélodie au microscope : tenues vivantes (le checker CC de m10-e04 — troisième service), ≥ 2 fills dans les trous (l'activité complémentaire mesurée). Tempo 60, `swingTarget` élargi [1.3, 2.6] (l'élasticité admise). Le rapport lit la respiration : « ta cadence a mis 6 mesures à arriver — la ballade fait durer ✓ ».
+
+- [ ] Trois régimes de temps : en time feutré, rubato accompagné, double-time feel
+- [ ] L'harmonie compense la lenteur : spreads, intercalations, mouvement interne, cadence retardée
+- [ ] Chaque tenue est un aveu ; les fills répondent dans les trous
+- [ ] La ballade est le jazz du cinéma — le microscope où rien ne se cache
+
+<QuizBlock id="m08-l08-quiz" questions={5} />
+<LessonFooter exercises={["m08-e08-the-ballad"]} />

@@ -1,0 +1,7 @@
+{
+  "exerciseId": "m04-e11-elenas-countermelody",
+  "variantId": "counter-rhythm",
+  "notation": "r:q A3:e B3:e C4:e B3:e A3:q~ | A3:q D4:e E4:e F4:e E4:e D4:q~ | D4:q F4:e G4:e A4:e G4:e F4:q~ | F4:q E4:e D4:e C4:e B3:e A3:q~ | A3:q C4:e D4:e E4:e C4:e A3:q~ | A3:q G3:e A3:e B3:e C4:e B3:q~ | B3:q C4:e D4:e E4:e F4:e E4:q~ | E4:q D4:e C4:e B3:e C4:e D4:q",
+  "payload": { "recipe": "counter-rhythm" },
+  "authorNotes": "Le contre-rythme : bouger quand elle tient, se taire quand elle marche. Le gabarit : temps 1 **toujours lié** (jamais d'attaque), la vague de croches sous les tenues d'Elena, l'ancre au temps 4 liée au suivant — attaques fortes simultanées mesurées **0,06** : le complément PAR CONSTRUCTION. Cellule : la vague conjointe montée-retour (m1, m2, m3 transposées ; m4 inversée). Écart conforme à la borne propre de la recette (≥ 7 dt — il tresse, il ne fuit pas) ; zéro octave consécutive, vérifié aux croisements m6–7, corrigés à la composition."
+}

@@ -1,0 +1,10 @@
+{ "id": "m01-e33-available-tensions", "lessonId": "m01-l18-tensions",
+  "title": "Disponible ou à traiter ?", "kind": "THEORY_QUIZ",
+  "difficulty": 5, "xpReward": 50, "skills": { "HARMONY": 1.0 },
+  "spec": { "prompt": "La règle du demi-ton supérieur, appliquée (l18 §2).",
+    "quiz": { "interaction": "mc",
+      "items": [
+        { "q": "Sur Cmaj7, la 11 naturelle (F) est :", "options": ["libre","à hausser en ♯11 ou éviter","interdite partout"], "answer": "à hausser en ♯11 ou éviter", "why": "F est ½ ton au-dessus de E, la tierce : frottement destructeur. ♯11 = couleur lydienne." },
+        { "q": "Sur Dm7, la 11 (G) est :", "options": ["libre","à éviter","réservée au jazz"], "answer": "libre", "why": "G est un TON au-dessus de F (la tierce) : aucun conflit — d'où les m11 du néo-noir." },
+        { "q": "♭9 et ♭13 appartiennent :", "options": ["aux toniques","aux dominantes","à tous"], "answer": "aux dominantes", "why": "Les altérations règlent l'intensité du RETOUR : sur un T, elles inquiètent la maison sans raison." },
+        { "q": "Le fantôme dans subV7♯11 :", "options": ["la ♯11 = fondamentale du V remplacé","la 9","le triton"], "answer": "la ♯11 = fondamentale du V remplacé", "why": "Sur D♭7♯11, la ♯11 est G — le G7 évincé hante son remplaçant (l20 confirmera)." } ] } } }

@@ -1,0 +1,70 @@
+---
+id: m03-l03-sixtes-augmentees
+module: module-03-harmonie-avancee
+title: "Les sixtes augmentées : le coin qui force la porte"
+estMinutes: 30
+skills: { harmony: 1.0 }
+---
+
+### Pourquoi un intervalle a engendré une famille d'accords
+
+Prends la dominante en la mineur : E. Deux notes veulent y aller de toutes leurs forces : **F (♭6̂), le demi-ton d'en haut**, et **D♯ (♯4̂), le demi-ton d'en bas**. Fais-les sonner ENSEMBLE — F à la basse, D♯ dans l'aigu : l'intervalle de **sixte augmentée**, un coin enfoncé dans la porte du V, qui s'ouvre en s'écartant : F descend, D♯ monte, les deux atterrissent sur E à l'octave. C'est la double sensible — l'attraction de l14 M1, mais en tenaille : la résolution la plus inévitable de toute l'harmonie fonctionnelle.
+
+<MusicExample id="le-coin" title="Le coin nu, puis habillé (la mineur)">
+  A) [F3+D#5]:h [E3+E5]:h                      — l'intervalle seul : la tenaille
+  B) [F3+A3+C4+D#5]:h [E3+G#3+B3+E5]:h | [A2+A3+C4+E5]:w
+     — habillé (version allemande, §2) → V → i : la porte forcée, puis franchie
+</MusicExample>
+
+### 1. Les trois nationalités (le folklore des noms, la réalité des notes)
+
+Le coin (♭6̂ + ♯4̂) s'habille de deux ou trois notes intérieures — trois recettes, trois noms hérités (aucun rapport réel avec les pays, mais tout le monde les emploie) :
+
+| Accord | Notes (en la mineur, basse F) | L'intérieur | Couleur |
+|---|---|---|---|
+| **Italienne** (It⁶) | F–A–D♯ | 1̂ seul (doublé) | la plus maigre, la plus perçante |
+| **Française** (Fr⁶) | F–A–B–D♯ | 1̂ + 2̂ | la plus étrange : DEUX tritons emboîtés — l'aïeule de la gamme par tons (l11 te la rendra) |
+| **Allemande** (Ger⁶) | F–A–C–D♯ | 1̂ + ♭3̂ | la plus riche, la plus courante — et la plus piégée (§3) |
+
+Toutes vont à V. Le seul soin de conduite : la Ger⁶ → V en accords directs produit des quintes parallèles (F–C → E–B) — l'école l'évite par le **i6/4 cadentiel intercalé** (Ger⁶ → i6/4 → V : le 64-cérémonie de l12 M1 trouve ici son emploi le plus fréquent), le cinéma les assume souvent (le poids 0.1 d'`epic-film`, §7.8 — tu sais désormais arbitrer).
+
+### 2. Le territoire dramatique
+
+La sixte augmentée est **l'approche de dominante la plus intense du système** — plus que ii, plus que iv, plus que le napolitain : la tenaille annonce que la porte va céder. D'où ses emplois : l'avant-climax (la dernière marche avant le sommet), le pathétique tendu (le romantisme en a fait sa signature d'angoisse noble), et — usage film — **la demi-cadence monumentale** : la phrase qui s'arrête sur Ger⁶ → V et NE résout pas (la dette maximale laissée ouverte : le « à suivre » harmonique).
+
+### 3. La retrouvaille enharmonique : Ger⁶ = un accord de septième déguisé
+
+Écoute une allemande hors contexte : F–A–C–D♯ ≡ F–A–C–**E♭** — **un F7**. Les mêmes pitch-classes exactement (l'insensibilité du moteur à l'orthographe, F-6, cesse d'être un détail technique : elle devient un fait musical majeur). Un seul et même son, deux futurs :
+
+```
+F7 entendu comme SUBV7 :  la basse F glisse vers E... — non : subV7 de
+                          quoi ? F7 → E : subV de la DOMINANTE ? Reprenons
+                          proprement :
+F–A–C–E♭ lu en MI♭ :      V7/♭... — la lecture standard :
+F7 = V7 de B♭            → il résout sur B♭ (la quinte descendante, l19 M1)
+F–A–C–D♯ lu en LA mineur : Ger⁶     → il résout sur E (le coin qui s'écarte)
+UN SON, DEUX PORTES DE SORTIE À UN TRITON L'UNE DE L'AUTRE (B♭ vs E).
+```
+
+C'est le **passage secret** le plus célèbre de l'harmonie : arriver sur l'accord dans un monde, en sortir dans l'autre — la modulation enharmonique, dont la leçon 5 fera un système. Retiens dès maintenant le principe : *les accords symétriques ou enharmoniques sont des gares de correspondance* — et l'analyseur les tague par leur **résolution réelle** (la cible dit la fonction : c'est exactement ainsi que le moteur distingue Ger⁶ de V7, aucune extension de dictionnaire nécessaire, l'idiome `aug6` est un comportement).
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Le coin qui ne s'écarte pas | ♭6̂ ou ♯4̂ quittées par saut : la tenaille désamorcée | ♭6̂→5̂ ET ♯4̂→5̂, toujours — c'est la définition |
+| Ger⁶→V direct sans y penser | les quintes (F–C→E–B) | i6/4 intercalé, ou l'assumer EN CONNAISSANCE (profil) |
+| La sixte augmentée décorative | l'intensité maximale gaspillée sur une mesure quelconque | l'avant-climax, la demi-cadence monumentale — les grands moments |
+| Confondre Ger⁶ et V7 à l'analyse | tout le passage lu de travers | la cible tranche : ½ ton écarté = aug6 ; quinte descendante = V7 |
+
+### La mission (m03-e03, HARMONY_PROGRESSION)
+
+10 mesures en sol mineur, le crescendo d'approche : iv → napolitain (l02 : la révision en acte) → **Ger⁶ → i6/4 → V** → i (l'escalade des sous-dominantes : chaque marche plus tendue), puis la reprise qui s'arrête sur la demi-cadence monumentale (Ger⁶ → V, non résolu, `requiredCadence: "half"`). Conduite du coin vérifiée (♭6̂ et ♯4̂ tracées jusqu'à 5̂), `requireIdiom: ["neapolitan","aug6"]`.
+
+- [ ] Le coin : ♭6̂ + ♯4̂ en tenaille sur 5̂ — la double sensible
+- [ ] It/Fr/Ger : trois habillages, une résolution ; la Fr porte deux tritons
+- [ ] Territoire : l'avant-climax, la demi-cadence monumentale
+- [ ] Ger⁶ ≡ V7 en pitch-classes : la gare de correspondance — la l05 s'annonce
+
+<QuizBlock id="m03-l03-quiz" questions={6} />
+<LessonFooter exercises={["m03-e03-the-wedge"]} />

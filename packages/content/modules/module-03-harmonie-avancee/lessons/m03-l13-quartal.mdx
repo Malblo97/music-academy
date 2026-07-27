@@ -1,0 +1,77 @@
+---
+id: m03-l13-quartal
+module: module-03-harmonie-avancee
+title: "L'harmonie quartale : la verticalité moderne"
+estMinutes: 25
+skills: { harmony: 1.0 }
+---
+
+### Pourquoi changer la brique
+
+Depuis m01-l11, tous tes accords empilent des **tierces** — c'est la brique du système tonal, et elle porte sa grammaire avec elle (la tierce dit majeur/mineur, donc l'émotion ; l'empilement de tierces dit la fonction). Change la brique : empile des **quartes** — do–fa–si♭–mi♭ — et tout change d'un coup : plus de majeur/mineur (la quarte est neutre), plus de fonction lisible, une verticalité **ouverte, suspendue, moderne**. L'harmonie quartale n'est pas un accord de plus : c'est une autre matière verticale — la troisième grande ressource du système 3 après les collections (l10–l12).
+
+### 1. L'inventaire de la quarte
+
+```
+LA BRIQUE : la quarte juste (5 demi-tons). Empilée ×2 : le trichorde
+  quartal (C–F–Bb) — LE voicing de base. ×3 : C–F–Bb–Eb. ×4 et plus :
+  la tour (l'orchestre moderne en vit)
+LA VARIANTE : glisser UNE quarte augmentée dans la pile (C–F#–B :
+  le "voicing viennois") — la tour qui penche : plus tendue, plus
+  étrange, la version noire du quartal
+LA PARENTÉ CACHÉE : C–F–Bb renversé donne F–Bb–C puis Bb–C–F — des
+  SECONDES et des QUINTES apparaissent : quartal, quintal et clusters
+  diffus sont la même famille sous rotation (l15 arrive). Et le
+  sus4 de m01-l17 était un trichorde quartal qui s'ignorait
+  (G–C–D ≡ C–D–G ≡ D–G–C) : tu en joues depuis le Module 1.
+CE QUE DIT L'OREILLE : ni majeur ni mineur ni dominante — "ouvert",
+  "neutre", "vaste". La quarte est l'intervalle du signal (m02-l02 :
+  l'appel !) : empilée, elle garde cette droiture — d'où le quartal
+  héroïque-moderne (le western urbain, le film de badge et de devoir)
+```
+
+### 2. Les trois emplois
+
+| Emploi | Recette | Territoire |
+|---|---|---|
+| **La couleur suspendue** | le trichorde tenu, éclaté sur deux octaves, sur une pédale (l07) — le sus4 devenu monde | l'attente neutre, l'aube urbaine, le vaste sans pathos |
+| **Le quartal modal** | les piles de quartes PUISÉES dans un mode (en ré dorien : D–G–C, E–A–D, G–C–F…) qui circulent en boucle — le jazz modal en a fait sa langue (McCoy Tyner : nommé pour la culture, sans partition) : la main gauche en quartes, la mélodie modale au-dessus | LE son du jazz moderne (Module 8 le pratiquera), le cool urbain, la nuit qui réfléchit |
+| **La tour orchestrale** | 4–6 quartes empilées, réparties par familles (M5 : les cuivres en quartes = le monolithe moderne, les cordes en quartes éclatées = le verre) | le monumental contemporain, la SF militaire, l'institution |
+
+<MusicExample id="quartal-modal" title="Le quartal modal : ré dorien, la nuit qui réfléchit">
+  [D3+G3+C4+F4]:h [E3+A3+D4+G4]:h | [G3+C4+F4+Bb3→Bb4]:h [D3+G3+C4+F4]:h |
+  [C3+F3+Bb3+Eb4]:h [E3+A3+D4+G4]:h | [D3+G3+C4+F4]:w
+  Des piles diatoniques doriennes qui glissent (le B ♮ dans E–A–D : le
+  pilier de l08 traduit en quartes). Aucune ne "va" quelque part : elles
+  ÉCLAIRENT le ré, chacune sous un angle. La boucle du système 2, la
+  brique du système 3 : le quartal modal est un pont entre les deux.
+</MusicExample>
+
+### 3. Faire vivre le neutre (les disciplines)
+
+1. **La mélodie décide de l'émotion** : le quartal étant neutre, c'est la ligne au-dessus qui porte majeur/mineur/mode — le partage des rôles le plus net de tout le cursus (l'harmonie fait l'espace, la mélodie fait le sentiment) ; corollaire : le quartal sans mélodie tient rarement une scène seul ;
+2. **le grave s'espace** (la loi éternelle) : la pile serrée sous C3 est de la boue quartale — la basse prend la fondation, les quartes vivent au-dessus (le trichorde main droite + basse simple : le voicing standard) ;
+3. **la résolution existe** : le quartal peut s'ouvrir sur du tertien (C–F–B♭ → C–E–G : la suspension géante qui se résout — le sus4 de m01-l17 à l'échelle du monde) : LE geste de bascule quartal→tonal, l'institution qui redevient humaine.
+
+Le moteur : tag `quartal-voicing` (verticalité dont les intervalles adjacents sont ≥ 80 % des quartes justes/augmentées — détection par comportement, fidèle à §40.1), contrainte `requireIdiom: ["quartal"]`, et en profils modernes le quartal est exclu du calcul majeur/mineur de `detectChord` (il est tagué avant d'être forcé dans une étiquette tertienne fausse — le même soin que F-1 : ne pas juger un objet avec la grammaire d'un autre).
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Le quartal analysé en tertien | « C'est un Dm7sus4add... » : l'étiquette torture l'objet | change de brique mentale : c'est une pile de quartes, point |
+| La pile au grave | la boue moderne | basse simple + quartes au-dessus de C3 |
+| Le quartal-tapisserie sans mélodie | le neutre qui n'exprime rien | la ligne porte l'émotion — toujours |
+| Une quarte augmentée par accident | la tour qui penche sans le vouloir | l'augmentée se choisit (le voicing viennois est un geste, pas une faute de frappe) |
+
+### La mission (m03-e13, HARMONY_PROGRESSION + mélodie)
+
+Le diptyque du neutre : **(1)** 8 mesures de quartal modal (la dorien, piles diatoniques en boucle, `requireIdiom: ["quartal"]` + `pillarExposure` dorien — les deux grammaires vérifiées ensemble), une mélodie dorienne au-dessus qui porte l'émotion ; **(2)** la bascule : 4 mesures où la pile s'ouvre sur du tertien (la résolution géante, taguée). Le rapport sépare ce que fait l'harmonie (l'espace) de ce que fait la ligne (le sentiment).
+
+- [ ] Changer la brique : la quarte est neutre — ni majeur, ni mineur, ni fonction
+- [ ] Trois emplois : la couleur suspendue, le quartal modal (le pont 2↔3), la tour
+- [ ] La mélodie décide de l'émotion ; le grave s'espace ; la résolution tertienne existe
+- [ ] Le sus4 de M1 était la première quarte empilée de ton parcours
+
+<QuizBlock id="m03-l13-quiz" questions={5} />
+<LessonFooter exercises={["m03-e13-change-the-brick"]} />

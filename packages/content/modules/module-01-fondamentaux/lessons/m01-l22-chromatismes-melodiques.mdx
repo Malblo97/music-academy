@@ -1,0 +1,75 @@
+---
+id: m01-l22-chromatismes-melodiques
+module: module-01-fondamentaux
+title: "Chromatismes mélodiques : passer entre les notes"
+estMinutes: 20
+skills: { melody: 0.8, harmony: 0.2 }
+---
+
+### Pourquoi revenir à la ligne
+
+Le bloc l19–l21 t'a appris le chromatisme *vertical* (les accords qui sortent de la gamme). Cette leçon est son miroir *horizontal* : les notes chromatiques dans la mélodie elle-même — sans que l'harmonie bouge. C'est le chromatisme le plus intime : une seule voix, un seul demi-ton, et la phrase gagne une ombre, un soupir, une élégance. C'est aussi la leçon qui donne son mode d'emploi complet à `melody.out-of-key` : tu sais depuis l03 que la règle exige un *traitement* — voici le catalogue des traitements.
+
+### 1. Le principe unique : la note chromatique est un passage, pas une destination
+
+Toutes les figures de cette leçon obéissent à une loi, que tu connais depuis l14 sous sa forme générale : **le chromatisme est la tension maximale, donc la résolution la plus proche** — un demi-ton, immédiatement. La note chromatique n'existe jamais pour elle-même : elle existe pour la note d'arrivée qu'elle rend inévitable.
+
+```
+   diatonique ──► CHROMATIQUE ──► diatonique
+                  (½ ton avant       (l'arrivée,
+                   l'arrivée)         magnifiée)
+```
+
+### 2. Le catalogue des figures
+
+**La note de passage chromatique** — remplir un ton par deux demi-tons : entre C et D, glisse un C♯. La ligne devient soyeuse, le mouvement plus continu. Sur temps faible, en valeurs courtes : c'est le lubrifiant mélodique universel, du classique au jazz.
+
+**La broderie chromatique** — quitter une note par le demi-ton inférieur (ou supérieur) et y revenir : `E–D♯–E`. La note brodée est *caressée* : insistance tendre ou inquiète selon le contexte. La broderie inférieure chromatique est le soupir du romantisme ; la supérieure (`E–F–E` étant diatonique, pense `G–A♭–G` en do), plus rare, a une couleur orientale.
+
+**L'appoggiature chromatique** — la plus expressive : la note chromatique arrive *sur le temps fort*, appuyée, puis se résout. C'est la tension de l14 poussée à son maximum : une dissonance étrangère à la gamme, exposée, qui fond dans sa résolution. Le « sanglot » mélodique du répertoire lyrique. À doser comme le iv de l21 : un par phrase bouleverse.
+
+**L'approche chromatique (jazz)** — viser une note d'accord par le demi-ton inférieur, systématiquement : avant la tierce, joue la tierce bémolisée. En jazz, ce n'est plus une figure, c'est une *grammaire* — d'où le poids 0.3 de `melody.out-of-key` dans le profil (§7.8) : l'approche est la norme du langage. Le Module 8 en fera des lignes entières (l'enclosure : encercler la cible par le dessus et le dessous).
+
+<MusicExample id="quatre-figures" title="Les quatre figures sur la même phrase (harmonie fixe : C)">
+  A) passage :      E4:q F4:e F#4:e G4:h                — F♯ glisse entre F et G
+  B) broderie :     G4:q F#4:e G4:e E4:h                — G caressé par en dessous
+  C) appoggiature : F#4:q. G4:e E4:q C4:h               — F♯ SUR le temps, appuyé, résolu
+  D) approche :     Eb4:e E4:e Bb4:e B4:e C5:h          — chaque cible visée par ½ ton
+  Quatre métiers pour le même matériau. Note que C et D « sonnent jazz » —
+  la figure fait le style autant que l'harmonie.
+</MusicExample>
+
+### 3. La ligne chromatique interne : le cas particulier qui est un trésor
+
+Quand le chromatisme s'installe dans une **voix intérieure tenue sur plusieurs accords**, il devient un procédé structurel : la *line cliché* — tu l'as croisée en suggestion du Harmony Coach (`reharm.line-cliche`, §4.1.3) et tu en as écrit une sans le savoir en l21 (A–A♭–G du IV→iv→I). Formes canoniques :
+
+```
+Sur un accord mineur tenu :   Am    Am(maj7)   Am7    Am6
+ligne interne :               A  →  G♯      →  G   →  F♯
+                              (la descente « espionnage / élégance sombre »)
+
+Sur la tonique majeure :      C     Caug       C6     C7
+ligne interne :               G  →  G♯      →  A   →  B♭  (et voilà V/IV, l19 !)
+```
+
+Le principe : **l'harmonie ne bouge presque pas, une seule voix voyage** — le mouvement minimal au service du maximum de couleur. C'est du voice leading pur (l12 : « notes communes tenues, le reste au plus court ») devenu procédé expressif, et une des textures favorites du néo-noir (l'obsession : tout est immobile sauf une chose).
+
+### 4. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Chromatisme sur temps fort non assumé | « fausse note » — c'était une appoggiature involontaire | temps faible pour passer, temps fort pour APPUYER (et alors résous en conscience) |
+| Note chromatique abandonnée par saut | la règle levée, à raison : la dette maximale exige le remboursement contigu | ½ ton vers la cible, toujours, ou réécris |
+| Double chromatisme simultané (mélodie + harmonie) non coordonné | frottements A/A♭ de l21, version aggravée | une porte à la fois : si l'harmonie emprunte, la ligne consent ; si la ligne glisse, l'harmonie tient |
+| Approche chromatique en style classique | anachronisme stylistique (le produit le pondère, l'auditeur l'entend) | connais ta grammaire : figure ponctuelle en classique, langage en jazz |
+
+### Récapitulatif
+
+- [ ] La note chromatique est un passage vers, jamais une destination
+- [ ] Quatre figures : passage (lubrifiant), broderie (caresse), appoggiature (sanglot), approche (jazz)
+- [ ] La line cliché : une voix voyage, tout le reste tient — le chromatisme structurel
+- [ ] Temps faible = glisser ; temps fort = appuyer et résoudre
+- [ ] Les trois portes (l21) + ces figures = tout chromatisme du module est désormais explicable
+
+<QuizBlock id="m01-l22-quiz" questions={6} />
+<LessonFooter exercises={["m01-e41-chromatic-figures", "m01-e42-line-cliche"]} />

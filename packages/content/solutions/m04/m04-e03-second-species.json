@@ -1,0 +1,7 @@
+{
+  "exerciseId": "m04-e03-second-species",
+  "partId": "above",
+  "notation": "r:h A4:h | A4:h B4:h | C5:h B4:h | D5:h C5:h | B4:h C5:h | D5:h A4:h | C5:h D5:h | E5:h D5:h | B4:h C#5:h | D5:w",
+  "payload": { "cf": "m04-cf-dorian-01", "cfPosition": "above" },
+  "authorNotes": "La levée inaugurale (le demi-soupir : l'indépendance dès la première seconde). **4 dissonances de passage** — B4 (m2), C5 (m4), C5 (m5), D5 (m7) — chacune par degré, même direction, entre deux consonances (`species2.passing-count` ≥ 3 ✓). L'octave de m4 atteinte par mouvement contraire ; aucun parallèle d'appui à appui ; climax E5 à 80 % ; **ficta m9 sur temps faible** (F-25). Appuis : –·3·6·8·3·6·3·6·5·8."
+}

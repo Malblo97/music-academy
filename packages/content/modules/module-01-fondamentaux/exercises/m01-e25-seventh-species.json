@@ -1,0 +1,10 @@
+{ "id": "m01-e25-seventh-species", "lessonId": "m01-l13-septiemes",
+  "title": "Les cinq espèces de septième", "kind": "THEORY_QUIZ",
+  "difficulty": 3, "xpReward": 50, "skills": { "HARMONY": 1.0 },
+  "spec": { "prompt": "Identifier à l'écoute et construire au clavier les cinq espèces (+ piège 7/maj7).",
+    "quiz": { "interaction": "mc",
+      "generator": { "roots": "all12", "species": ["7","maj7","m7","m7b5","dim7"], "buildAndIdentify": true, "rounds": 10 },
+      "items": [
+        { "q": "▶", "play": "[C4+Eb4+Gb4+Bb4]:w", "options": ["Cm7","Cm7♭5","Cdim7"], "answer": "Cm7♭5", "why": "Triade dim + 7 MINEURE : l'angoisse voilée. dim7 aurait A (7 diminuée)." },
+        { "q": "Construis A7 depuis A3", "interaction": "keyboard-pick", "answer": ["A3","C#4","E4","G4"], "why": "Triade MAJEURE + 7 mineure : le moteur. Note le C♯ : A7 est hors de do majeur — il pointe vers D (l19 t'attend)." },
+        { "q": "L'accord qui « veut résoudre » :", "options": ["Cmaj7","C7","C6"], "answer": "C7", "why": "Chiffre nu = 7e MINEURE = triton interne = promesse. maj7 flotte, satisfait." } ] } } }

@@ -1,0 +1,93 @@
+---
+id: m10-l05-expression-maps
+module: module-10-cubase
+title: "Expression Maps : les articulations sous les doigts"
+estMinutes: 30
+skills: { daw_workflow: 0.7, orchestration: 0.3 }
+---
+
+### Pourquoi cette leçon est la plus différenciante du module
+
+Le problème qu'elle résout : ta banque de cordes a douze articulations (legato, staccato, pizz, tremolo, sordino… — le vocabulaire de l10 M1 §3 et des fiches M5), et chacune vit sur un patch. Sans système, tu crées douze pistes par section — le template-cathédrale — ou tu changes de patch à la main. L'**Expression Map** est la solution de Cubase : *une piste, toutes les articulations, commutées par la partition elle-même*. C'est LE savoir-faire qui sépare la maquette artisanale du travail de studio — et curieusement le plus mal documenté. D'où trente minutes ici.
+
+### 1. Le principe en une image
+
+```
+SANS Expression Map :               AVEC :
+12 pistes "Violins legato",         1 piste "Violins"
+"Violins stacc", "Violins pizz"…    + une carte qui dit :
+→ la mélodie éclatée en confettis     "quand la note porte l'articulation
+  sur 12 pistes, illisible,            'pizz', envoie le keyswitch C0
+  inexportable proprement              à la banque AVANT la note"
+                                    → la ligne musicale reste UNE ligne ;
+                                      l'articulation est un ATTRIBUT de
+                                      la note, comme sa velocity
+```
+
+Le concept clé : l'articulation cesse d'être une affaire de routing pour devenir une **propriété musicale de la note** — exactement ce qu'elle est sur une partition. C'est aussi ce que le format d'échange du produit attend (le champ articulation des exports V1) : Expression Maps et produit parlent la même langue.
+
+### 2. Anatomie d'une map (construire la tienne, pas à pas)
+
+Ouvre **Expression Map Setup** (depuis l'Inspector de la piste). Une map = une liste de **Sound Slots**, chacun reliant trois choses :
+
+| Colonne | Contenu | Exemple (cordes) |
+|---|---|---|
+| **Slot / nom** | l'articulation telle que TU la nommes | Legato, Staccato, Pizz, Trem, Sordino |
+| **Art. (symbole)** | le symbole musical associé (pour le Score Editor) | ⌐, ·, pizz., ≋ |
+| **Output mapping** | CE QU'ON ENVOIE à la banque pour l'activer | keyswitch C0 / D0 / E0… ou un CC (selon la banque : sa doc le dit) |
+
+Deux **types de slot**, distinction cruciale :
+
+- **Direction** : l'articulation reste active jusqu'au prochain changement (legato, sordino — les *états*) ;
+- **Attribute** : l'articulation ne vaut que pour LES notes qui la portent (staccato, accent — les *événements*). 
+
+Le mapping type/musique : les états de la fiche M5 (sordino = une couleur qu'on installe, l02) sont des Directions ; les gestes ponctuels sont des Attributes. Se tromper de type = des pizz qui « collent » sur toute la suite — le bug classique du débutant en maps.
+
+### 3. L'utiliser : la lane d'articulations
+
+Dans le Key Editor, la controller lane gagne une entrée **Articulations** : tu y poses les changements comme tu poses des notes — et le Score Editor affichera les symboles. Le workflow complet d'une phrase :
+
+```
+1. Joue la ligne entière en legato (la pensée musicale d'abord — l10 M1)
+2. Dans la lane Articulations : pose les slots là où la phrase change
+   (les staccati de la mesure 3, le pizz de la ponctuation finale)
+3. Rejoue : la banque commute toute seule, la ligne reste UNE ligne
+4. Les keyswitches n'apparaissent PAS comme des notes parasites dans
+   ta partition — c'est tout l'intérêt vs les keyswitches "joués à la main"
+```
+
+Ce dernier point mérite son paragraphe : tu peux déclencher les articulations en jouant les notes-switch au clavier (C0, D0…) — rapide en jam, mais ces notes **polluent le MIDI** (elles sortiraient dans tes exports vers le produit, et l'analyseur les verrait comme des notes graves aberrantes — `orch.range-violation` garanti). L'Expression Map les garde hors de la musique. **Règle du produit : tout export MIDI de mission passe par des maps, jamais par des keyswitches joués.**
+
+### 4. La stratégie : quelles articulations dans ta map ?
+
+La tentation : mapper les 25 articulations de la banque. La sagesse (même logique que le template, l02) :
+
+| Famille | Le kit de survie (5–6 slots) | Ce qui attend d'avoir servi trois fois |
+|---|---|---|
+| Cordes | Legato, Sustain, Staccato/Spiccato, Pizz, Tremolo, Sordino | harmoniques, col legno, sul pont… |
+| Cuivres | Legato, Sustain, Staccato, Marcato, (Sourdine pour trompette — l09 M5) | rips, flutter… |
+| Bois | Legato, Sustain, Staccato | trilles (souvent mieux en vraies notes), flatter… |
+
+Une map par instrument du template Medium (l02 §1 : la promotion Sketch→Medium, c'est précisément *ajouter les maps*). Nomme les slots **pareil dans toutes tes maps** (Legato partout, pas « Leg » ici et « Sustain+ » là) : la cohérence fait la vitesse.
+
+### 5. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Keyswitches joués comme des notes | des C0 fantômes partout, exports pollués | la map, la lane, rien d'autre |
+| Direction/Attribute confondus | le pizz qui colle, le legato qui saute | états = Direction ; gestes = Attribute |
+| 25 slots au jour 1 | la map illisible, jamais utilisée | le kit de survie ; le reste sur preuve |
+| Noms incohérents entre maps | tu cherches, tu sors du flux (le mal de l02) | mêmes noms partout, même ordre |
+| Le switch posé SUR la note au lieu d'avant | la première note en mauvaise articulation (latence de commutation) | le slot se pose une double-croche avant l'attaque quand la banque est lente |
+
+### La mission (m10-e05, GUIDÉE puis PROUVÉE)
+
+Construis la map « Cordes — kit de survie » (6 slots, checklist guidée avec `verifyHint` par slot : « joue une note, entends-tu le pizz ? »). Puis programme la phrase fournie (8 mesures, PDF-mission : une ligne qui alterne legato / staccato / pizz / tremolo — chaque articulation notée) et exporte. **Vérification prouvée** : le MIDI importé ne doit contenir AUCUNE note sous G2 (le test anti-keyswitch — brutal et efficace) et les durées doivent refléter les articulations (staccati ≤ 50 % du temps, legato en chevauchements : `quantizeInfo` + profils de durée, checkers existants).
+
+- [ ] Une piste, toutes les articulations : l'articulation est une propriété de la note
+- [ ] Direction = état ; Attribute = geste — le bug classique meurt ici
+- [ ] Le kit de survie d'abord ; noms cohérents entre toutes les maps
+- [ ] Jamais de keyswitch joué : mes exports vers le produit restent purs
+
+<QuizBlock id="m10-l05-quiz" questions={5} />
+<LessonFooter exercises={["m10-e05-survival-map"]} />

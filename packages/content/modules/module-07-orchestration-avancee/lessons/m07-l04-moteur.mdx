@@ -1,0 +1,77 @@
+---
+id: m07-l04-moteur
+module: module-07-orchestration-avancee
+title: "Le moteur : orchestrer le rythme"
+estMinutes: 25
+skills: { orchestration: 0.7, rhythm: 0.3 }
+---
+
+### Pourquoi le rythme s'orchestre autrement
+
+Le rôle `rhythm` a une particularité acoustique : il vit dans les **attaques**, pas dans les tenues — l'inverse exact du tapis. Conséquence : tout ce qui compte ici s'appelle articulation, netteté, sécheresse — et les fiches M5 se relisent sous cet angle : l'agilité, le spiccato, le pizz, l'attaque du piano (la seule rubrique où il ne ment pas). Le moteur orchestral est le frère de l'arp (m06-l09) : mêmes lois dramatiques (il recrute, il dérive, il boite, il s'interrompt), autres muscles.
+
+### 1. Les matières du moteur (le casting du rôle rhythm)
+
+| Matière | Caractère | Fiche mobilisée |
+|---|---|---|
+| **Cordes spiccato/staccato** | LE moteur par défaut : net, infatigable, toute dynamique — celli pour le grave qui gronde, altos pour le médium qui trépide, violons pour la surface qui scintille | m05-l02/l03/l04 (l'ostinato en rôle n° 4 des cordes) |
+| **Pizzicato** | le pouls discret, la ponctuation — le moteur qui n'occupe presque pas d'espace spectral (l'équivalent du pluck : m06-l09, jumeau nommé) | m05-l02/l05 |
+| **Piano percussif** | la netteté absolue, le grave marqué — le moteur moderne (souvent doublé celli : l'alliage rythmique n° 1) | m05-l10 |
+| **Timbales / percussions¹** | la frappe qui pèse : les appuis, pas le flux (la percussion PONCTUE le moteur plus qu'elle ne le porte — l'erreur inverse est le cliché « boom » permanent) | fiches V1 |
+| **Cuivres en notes répétées** | le moteur qui menace (trompettes staccato : le signal mécanisé) — coûteux (endurance), donc par vagues | m05-l09 |
+| **Bois en traits** | la virevolte, la broderie rapide — le moteur-lumière (flûtes/clarinettes en doubles : l'agilité maximale au service du scintillement) | m05-l06/l08 |
+
+### 2. Les trois lois du moteur orchestral
+
+```
+1. LA LOI DE L'ÉTAGE NET : le moteur exige un étage DÉGAGÉ — des
+   attaques dans une bande occupée par des tenues deviennent du flou
+   (le masking par tenue : la version orchestrale de sd.band-pileup).
+   Le réglage type : moteur au CORPS (C3-C4), tapis éclaté AUTOUR
+   (socle + chant), mélodie au-dessus — trois plans, zéro friction.
+2. LA LOI DE L'ARTICULATION UNIFIÉE : un moteur réparti sur plusieurs
+   pupitres partage LA MÊME articulation (tous spiccato, ou tous
+   staccato) — deux articulations sur le même pattern = le flou
+   d'ensemble (l'équivalent orchestral de deux quantisations mélangées,
+   m10-l03 : le moteur est la piste qui se quantise dur, dans les
+   deux mondes)
+3. LA LOI DU RELAIS : le moteur ne s'arrête JAMAIS par accident —
+   il se relaie (celli → altos pendant que les celli respirent :
+   l'endurance gérée par tuilage) ou il s'interrompt EN GESTE
+   (l'apnée de m09-l04 : le silence du moteur est un événement
+   composé, jamais une fatigue)
+```
+
+### 3. Recruter le moteur (le pont vers l06)
+
+L'ostinato qui recrute (m09-l02 §2) a maintenant ses moyens précis — la gradation type d'un moteur qui monte en puissance, à connaître comme une gamme :
+
+```
+pizz celli seuls → +arco spiccato celli (le pizz devient arco : même
+pupitre, plus de chair) → +altos à l'octave (l'étage s'élargit) →
++piano doubleur (la netteté s'ajoute) → +violons en surface (le
+scintillement) → +timbales sur les appuis (le poids) → les cuivres
+en accents (la menace) — SIX crans, et le pattern n'a jamais changé :
+seule la matière a crû. C'est la doublure (l02) appliquée au temps.
+```
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Le moteur dans l'étage du tapis | le flou permanent | l'étage net : les attaques exigent le dégagement |
+| Deux articulations sur un pattern | l'ensemble qui bave | l'articulation unifiée — le moteur se « quantise dur » |
+| La percussion qui porte le flux | le « boom » permanent, le poids sans le pouls | la percussion ponctue ; les cordes portent |
+| Le moteur qui s'éteint de fatigue | le trou d'énergie non composé | le relais par tuilage, ou l'apnée en geste |
+
+### La mission (m07-e04, ORCHESTRATE)
+
+L'ostinato de m09-e03 (le mur éolien — troisième emploi : la continuité des exemples) orchestré en **moteur qui recrute** : 16 mesures, la gradation en ≥ 4 crans déclarés (le `rolePlan` par section), pattern invariant vérifié (`motifType: rhythmic` sur chaque part), articulation unifiée (durées cohérentes inter-parts), un relais de tuilage OU une apnée composée. Le moteur du produit trace la crue : « cran 3, mesure 9 : les altos entrent à l'octave — le pattern tient, la matière croît ✓ ».
+
+- [ ] Le rythme vit dans les attaques : articulation, netteté, étage dégagé
+- [ ] Six matières, un défaut (les cordes spiccato) et un jumeau (le pluck)
+- [ ] Trois lois : l'étage net, l'articulation unifiée, le relais
+- [ ] Recruter = doubler dans le temps : six crans, un pattern
+
+<QuizBlock id="m07-l04-quiz" questions={5} />
+<LessonFooter exercises={["m07-e04-the-recruiting-engine"]} />

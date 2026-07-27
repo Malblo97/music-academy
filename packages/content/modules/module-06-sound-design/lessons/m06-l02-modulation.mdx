@@ -1,0 +1,81 @@
+---
+id: m06-l02-modulation
+module: module-06-sound-design
+title: "La modulation : ce qui bouge est vivant"
+estMinutes: 25
+skills: { sound_design: 1.0 }
+---
+
+### Pourquoi la modulation est la moitié du métier
+
+Tiens un accord de pad trente secondes : si rien ne bouge, c'est un orgue — et l'oreille décroche en cinq. Le son acoustique vit *par nature* (l'archet tremble, le souffle fluctue) ; le son synthétique doit **fabriquer sa vie**. L'outil : la modulation — un signal invisible qui pilote un paramètre audible. C'est la règle `sd.static-stack` en positif : tout stack tenu porte au moins un mouvement.
+
+### 1. La grammaire : source → cible → quantité
+
+Toute modulation se lit en trois mots — la matrice de modulation de n'importe quel synthé n'est que ce tableau :
+
+```
+SOURCE (ce qui bouge)      CIBLE (ce qui est bougé)     QUANTITÉ
+LFO                        cutoff, pitch, volume, pan    ± combien
+enveloppe (une 2e ADSR)    cutoff surtout                
+molette / CC1              cutoff, vibrato               (m10-l04 : le même geste)
+velocity                   cutoff, attack                
+aftertouch                 vibrato, brillance            
+```
+
+### 2. Le LFO : l'oscillateur trop lent pour s'entendre
+
+Le LFO est un oscillateur sous ~20 Hz : on ne l'entend pas, on entend **ce qu'il remue**. Ses deux paramètres décisifs :
+
+| Paramètre | Lecture |
+|---|---|
+| **Forme** | sinus = la houle (naturel) ; triangle = va-et-vient franc ; carré = l'alternance (trémolo dur, pan qui saute) ; **random/S&H** = le scintillement imprévisible (les textures de l05 en vivent) |
+| **Vitesse** | LA décision : < 1 Hz = la respiration (imperceptible comme mouvement, perceptible comme vie) ; 1–8 Hz = le vibrato/trémolo (un geste entendu) ; **synchronisée au tempo** (1/4, 1/8, 1/16) = le rythme (le pad qui pulse, le sidechain du pauvre — l13 fera le riche) |
+
+Les quatre mariages source×cible qui couvrent 90 % des usages — les recettes du bestiaire les déclineront :
+
+```
+LFO lent (0.1–0.5 Hz) → cutoff (± léger)   la respiration du pad     [l04]
+LFO sync 1/8–1/16 → volume ou cutoff        la pulsation rythmique    [l09]
+LFO 5–6 Hz → pitch (± 5–15 cents)           le vibrato                [l08]
+LFO random lent → pan / pitch fin           le scintillement organique [l05]
+```
+
+### 3. L'enveloppe de modulation : le geste par note
+
+Le LFO tourne en boucle ; l'**enveloppe de modulation** (une seconde ADSR, routée vers le cutoff le plus souvent) fait un geste *à chaque note* : l'attaque qui s'ouvre puis se referme (le « wah » du pluck, la morsure du lead), la nappe dont la brillance se lève après le volume. Règle de lecture : **volume-ADSR dessine l'existence, filtre-ADSR dessine le caractère** — les deux enveloppes d'un même son racontent deux choses, et les décaler (la brillance qui arrive après le niveau) est le secret des pads qui « fleurissent » (l04).
+
+### 4. L'automation : la modulation composée
+
+Troisième étage, tu le connais déjà : l'**automation** (m10-l04 — les lanes de CC et de paramètres) est de la modulation *écrite dans le temps du morceau* plutôt que bouclée ou par note. Le partage des rôles, définitif :
+
+```
+LFO         = le mouvement PERPÉTUEL (la vie de fond)
+Enveloppe   = le mouvement PAR NOTE (le geste)
+Automation  = le mouvement DRAMATIQUE (la forme du morceau : le pad qui
+              s'ouvre sur 16 mesures vers la bascule — la tensionCurve
+              de l14 M1, jouée au cutoff)
+```
+
+Le champ `Layer.motion` du modèle déclare lequel des trois porte la vie de chaque couche — et `sd.static-stack` vérifie qu'au moins une couche en porte une. Un stack professionnel typique : le pad respire (LFO), le pluck mord (enveloppe), le drone s'ouvre vers le climax (automation) — trois vitesses de vie superposées, comme les trois couches de l'épique (m09-l02 §2 : la division du travail, version mouvement).
+
+### 5. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Tout moduler partout | le son-gélatine, aucune assise | UNE vie principale par couche (le champ motion est singulier à dessein) |
+| Vibrato dès l'attaque | le synthé-chèvre | délai de LFO : le vibrato arrive APRÈS la pose (comme un corniste, §5.2) |
+| LFO libre sur un élément rythmique | la pulsation qui dérive contre le tempo | sync au tempo dès que le mouvement est rythmique |
+| La respiration trop ample | le pad qui fait le yoyo | ± léger : la vie s'entend comme présence, pas comme geste |
+
+### La mission (m06-e02, LAYERING)
+
+Trois couches tenues 16 mesures (le même accord) : un pad qui **respire** (LFO lent→cutoff), un drone qui **s'ouvre** (automation de cutoff sur toute la durée, en arche vers la mesure 11 — le gabarit `default` de tensionCurve appliqué à un paramètre !), une couche haute qui **scintille** (LFO random→pan). Soumission `LayerStack` : le moteur vérifie les trois `motion` déclarés et leurs types distincts, et `sd.static-stack` reste muette. *(Checker `motionPlan` : le plan de mouvements par couche.)*
+
+- [ ] Source → cible → quantité : toute matrice se lit en trois mots
+- [ ] LFO = perpétuel, enveloppe = par note, automation = dramatique
+- [ ] La vitesse du LFO EST le sens : respiration / geste / rythme (sync !)
+- [ ] Une vie principale par couche ; trois vitesses de vie par stack
+
+<QuizBlock id="m06-l02-quiz" questions={5} />
+<LessonFooter exercises={["m06-e02-three-speeds-of-life"]} />

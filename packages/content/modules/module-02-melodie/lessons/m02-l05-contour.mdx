@@ -1,0 +1,56 @@
+---
+id: m02-l05-contour
+module: module-02-melodie
+title: "Contour et direction : la silhouette du thème"
+estMinutes: 20
+skills: { melody: 1.0 }
+---
+
+### Pourquoi la silhouette compte plus que les notes
+
+Fredonne un thème de loin, faux, sans rythme précis : on le reconnaît encore. Ce qui survit à ce massacre est le **contour** — la silhouette de la ligne. C'est la couche la plus profonde de la mémoire mélodique, et c'est ce que `contour()` extrait (chaîne U/D/R segmentée en arches, §4.1.4).
+
+### 1. Les cinq silhouettes fondamentales
+
+| Silhouette | Dessin | Sens câblé | Territoire |
+|---|---|---|---|
+| **L'arche** | ∩ montée-sommet-descente | effort→accomplissement→repos | LE défaut universel (l14 M1) |
+| **La chute** | ligne descendante | plainte, fatalité, lament | tristesse, adieux (la « lament line ») |
+| **L'ascension** | ligne montante | espoir, question, élévation | héroïsme, envol — exige une destination |
+| **La vague** | ∿ oscillation régulière | berceuse, mer, boucle du temps | apaisement, hypnose |
+| **Le plateau** | ─ statisme + micro-mouvements | tension retenue, récitation | thriller, sacré (et l07 M1 : le phrygien y vit) |
+
+Deux lois transversales : **une silhouette par phrase** (les contours à >3 changements de direction se retiennent mal, l01 §3) ; et **la fin de la silhouette EST le message** — arche qui redescend = résolution ; ascension coupée net = suspension (le point d'interrogation mélodique).
+
+### 2. Contour global vs contour local
+
+La silhouette vit à deux échelles : chaque phrase a la sienne, et la **suite des sommets de phrases** dessine le contour du thème entier. Le grand principe : les sommets successifs doivent *progresser* (chaque phrase culmine un peu plus haut → le climax global tombe naturellement aux 2/3) ou *décliner* en conscience (le thème qui s'éteint). Des sommets égaux = un thème qui piétine — c'est le point (b) de `melody.climax` (§7.2).
+
+<MusicExample id="sommets-progressifs" title="Trois phrases, trois sommets qui montent">
+  E4:q G4:q A4:h | G4:q E4:q D4:h |    — phrase 1, sommet A4
+  E4:q G4:q B4:h | A4:q G4:q E4:h |    — phrase 2, sommet B4
+  G4:q B4:q D5:q E5:q | D5:q B4:q C5:w — phrase 3, sommet E5 = climax global
+  Le même matériau, trois étages : la silhouette du thème est une arche
+  d'arches. C'est ce que mesure la corrélation d'archFit sur la durée totale.
+</MusicExample>
+
+### 3. Le registre comme dramaturgie
+
+Le contour choisit aussi *où* il vit : une même arche dans le grave (intimité, menace) ou l'aigu (lumière, urgence) raconte autre chose. Règle de gestion : **réserve un étage**. Si ta mélodie occupe tout son ambitus dès la phrase 1, le climax n'a plus d'espace — garde la quinte supérieure pour lui (c'est la version registre du budget de nuances, l10 M1).
+
+### Erreurs fréquentes
+
+| Erreur | Correction |
+|---|---|
+| Zigzag permanent | une silhouette par phrase ; les détails vivent DANS la silhouette |
+| Sommets égaux | hiérarchise : chaque phrase un cran plus haut (ou plan de déclin assumé) |
+| Tout l'ambitus dès le début | réserve l'étage du climax |
+| Ascension sans destination | l'ascension promet : cadence, climax ou suspension VOULUE |
+
+- [ ] Cinq silhouettes : arche, chute, ascension, vague, plateau
+- [ ] Une par phrase ; la suite des sommets dessine le thème
+- [ ] Réserve un étage pour le climax
+- [ ] La fin de la silhouette est le message
+
+<QuizBlock id="m02-l05-quiz" questions={5} />
+<LessonFooter exercises={["m02-e09-silhouette-match", "m02-e10-peak-ladder"]} />

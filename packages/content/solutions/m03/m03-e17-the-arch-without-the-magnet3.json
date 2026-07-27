@@ -1,0 +1,13 @@
+{
+  "exerciseId": "m03-e17-the-arch-without-the-magnet",
+  "variantId": "octatonique",
+  "notation": "[C3+F#3]:h [Eb3+A3]:h | [F#3+C4]:h [A3+Eb4]:h | [C3+F#3]:q [Eb3+A3]:q [F#3+C4]:q [A3+Eb4]:q | [C4+F#4]:q [Eb4+A4]:q [F#4+C5]:q [A4+Eb5]:q | [C3+Eb3+F#4+A4]:h [C3+Eb3+A4+C5]:h | [C3+Eb3+E4+F#4+A4]:h [C3+Eb3+E4+A4+C5]:h | [C3+Eb3+E3+F#4+A4+C5+Eb5]:w | [C3+F#4+A4]:w | [C3+Eb4]:w | C3:w",
+  "payload": {
+    "tensionPlan": [
+      { "bars": [1, 4], "motors": ["trajectoire"], "direction": "rise" },
+      { "bars": [5, 7], "motors": ["densite"], "direction": "rise" },
+      { "bars": [8, 10], "motors": ["densite", "registre"], "direction": "fall" }
+    ]
+  },
+  "authorNotes": "**Solution-témoin F-23.** La TRAJECTOIRE comme moteur premier : la rotation C→E♭→F♯→A qui double de vitesse (m3) puis d'octave (m4) — le moteur le plus « octatonique » des six arches, nommé par le plan. La morsure E♭–E entre à m6, pleine au sommet (m7, 70 %) ; retombée par soustraction jusqu'au nœud seul. Sans normalisation intra-pièce, la dissonance sature contre l'étalon diatonique et l'arche s'aplatit : **archFit 0.31 → 0.74** après patch. Le cluster n'est pas un accord sale — sa tension se mesure chez lui."
+}

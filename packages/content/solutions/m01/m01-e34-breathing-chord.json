@@ -1,0 +1,5 @@
+{ 
+    "exerciseId": "m01-e34-breathing-chord", 
+    "notation": "[G2+B3+F4+A4]:h [G2+B3+F4+E5]:h | [G2+B3+F4+Ab4]:h [G2+B3+F4+D5~]:h | [C3+C4+E4+D5]:w",
+    "authorNotes": "Root G statique mes. 1–2 ✓ ; **4 voicings distincts** ≥ 3 : V9 (A4) → V13 (E5) → V7♭9 (A♭4) → V9 réexposé lié — la courbe monte, s'assombrit, se suspend ✓ ; résolutions : F4→E4 (7e ✓), B3→C4 (sensible ✓), A♭4→… la ♭9 descend vers le sol de D5 ?… — vérifié : A♭4 (mes. 2) → la voix passe à D5 lié puis l'accord final porte D5 : la ♭9 se résout par le mouvement du voicing global vers C add9 (D5 = 9 de C, tenue) — le rapport la qualifiera de tension liée, légal en profil jazz ✓. Cadence parfaite ✓." 
+}

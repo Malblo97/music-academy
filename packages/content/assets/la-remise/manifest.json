@@ -1,0 +1,19 @@
+{ "id": "la-remise", "video": { "durationSec": 90, "fps": 24,
+    "files": { "clean": "assets/la-remise/la-remise_clean_1080p24.mp4",
+               "tc": "assets/la-remise/la-remise_tc_1080p24.mp4" } },
+  "spotting": { "tempo": 96.8, "meter": "4/4" },
+  "markers": [
+    { "id": "IN", "tc": "00:00:00", "kind": "in" },
+    { "id": "B1", "tc": "00:00:31", "kind": "bascule", "label": "le lieu — la porte s'ouvre" },
+    { "id": "B2", "tc": "00:01:02", "kind": "bascule", "bar": 26, "beat": 1, "label": "la ponctuation — la malle" },
+    { "id": "H1", "tc": "00:01:08", "kind": "hit", "label": "la porte claque" },
+    { "id": "B3", "tc": "00:01:22", "kind": "bascule", "label": "la compréhension" },
+    { "id": "H2", "tc": "00:01:34", "kind": "hit", "label": "il referme — regard porte" },
+    { "id": "OUT", "tc": "00:01:36", "kind": "out" } ],
+  "fredonTarget": {
+    "notation": "D4:q F4:q E4:q D4:q | A4:h G4:q F4:q | E4:q F4:q D4:h | C4:q D4:q A3:h",
+    "repeat": "x2, reprise variée librement",
+    "errorBrief": ["m3: mi à l'octave sup", "m6 (reprise): sol à l'octave inf",
+                   "m5: segment A4-G4 chanté deux fois", "tempo flottant ±8%",
+                   "fin parlée ~2s (à couper par l'élève)"],
+    "file": "assets/la-remise/fredon-du-real.wav" } }

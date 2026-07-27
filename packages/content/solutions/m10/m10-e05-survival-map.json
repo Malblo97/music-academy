@@ -1,0 +1,107 @@
+{
+    "exerciseId": "m10-e05-survival-map",
+    "notation": "A3:h C4:h | B3:h. A3:q | E4:q E4:q F4:q E4:q | A3:q C4:q E4:q C4:q | D4:q F4:q E4:q D4:q | C4:w | B3:h D4:h | C4:h A3:h",
+    "payload": {
+      "mode": "guided+proof",
+      "track": "STR Celli",
+      "key": "la mineur",
+      "tempo": 80,
+      "assets": [
+        "assets/m10-e05-mission.pdf"
+      ],
+      "canonicalAsset": {
+        "id": "m10-e05-phrase",
+        "status": "chiffré par ce fichier (F-58)"
+      },
+      "checklist": [
+        {
+          "id": "e05-s1",
+          "expect": "slot Legato — type DIRECTION"
+        },
+        {
+          "id": "e05-s2",
+          "expect": "slot Sustain — Direction"
+        },
+        {
+          "id": "e05-s3",
+          "expect": "slot Staccato/Spiccato — type ATTRIBUTE (un geste, pas un état)"
+        },
+        {
+          "id": "e05-s4",
+          "expect": "slot Pizz — Direction"
+        },
+        {
+          "id": "e05-s5",
+          "expect": "slot Tremolo — Direction"
+        },
+        {
+          "id": "e05-s6",
+          "expect": "slot Sordino — Direction (la couleur qu'on installe, l02 M5)"
+        },
+        {
+          "id": "e05-s7",
+          "expect": "noms pleins et constants : Legato, jamais « Leg »"
+        },
+        {
+          "id": "e05-s8",
+          "expect": "phrase jouée entière en legato PUIS articulations posées dans la lane"
+        },
+        {
+          "id": "e05-s9",
+          "expect": "slots posés une double-croche avant l'attaque (latence de commutation)"
+        }
+      ],
+      "articulationLane": [
+        {
+          "bars": [
+            1,
+            2
+          ],
+          "slot": "Legato"
+        },
+        {
+          "bars": [
+            3,
+            3
+          ],
+          "slot": "Staccato"
+        },
+        {
+          "bars": [
+            4,
+            5
+          ],
+          "slot": "Pizz"
+        },
+        {
+          "bars": [
+            6,
+            6
+          ],
+          "slot": "Tremolo"
+        },
+        {
+          "bars": [
+            7,
+            8
+          ],
+          "slot": "Legato"
+        }
+      ],
+      "durationPolicy": {
+        "staccato": {
+          "gate": 0.42
+        },
+        "legato": {
+          "overlapTicks": 18
+        },
+        "pizz": {
+          "gate": 0.9
+        },
+        "tremolo": {
+          "gate": 1
+        }
+      }
+    },
+    "authorNotes": "« La ligne est restée UNE ligne sur UNE piste. » Structure : 8 mesures, la mineur, quatre articulations posées dans la lane (legato 1–2, staccato 3, pizz 4–5, tremolo 6, legato 7–8) sur une phrase jouée d'abord entièrement en legato. Chiffres vérifiés : note la plus grave A3 (57) — quatorze demi-tons AU-DESSUS du seuil G2 (43) du test anti-keyswitch, choix délibéré pour qu'un échec ne puisse venir que d'un keyswitch réellement joué, jamais d'une note de musique ; gate staccato 0,42 ≤ 0,50 ✓ ; chevauchements legato +18 ticks sur 5/5 liaisons ✓ ; 9 étapes de checklist, couverture 1,00. Finding F-58 : `m10-e05-phrase` n'existait qu'en prose (« une ligne qui alterne quatre articulations ») — `pitchSequenceMatch` comparait à un fantôme. La notation ci-dessus EST désormais l'asset ; la PR du PDF de mission la cite, jamais l'inverse."
+  }

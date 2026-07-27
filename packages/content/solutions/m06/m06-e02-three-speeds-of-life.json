@@ -1,0 +1,13 @@
+{
+  "exerciseId": "m06-e02-three-speeds-of-life",
+  "payload": {
+    "lengthBars": 16,
+    "chord": "ré mineur, tenu",
+    "layers": [
+      { "id": "pad", "role": "body", "motion": { "type": "lfo", "src": "LFO 0.15 Hz", "dst": "cutoff", "amount": "30%" }, "note": "la respiration — le perpétuel" },
+      { "id": "drone", "role": "body", "motion": { "type": "automation", "dst": "cutoff", "curve": "400 → 2600 → 700 Hz", "shape": "arch", "peakBar": 11 }, "note": "le dramatique" },
+      { "id": "sparkle", "role": "top", "motion": { "type": "lfo-random", "rateHz": 4, "dst": "pan", "amount": "55%" }, "note": "l'organique" }
+    ]
+  },
+  "authorNotes": "Trois motions, trois types distincts ✓, `sd.static-stack` muette ✓. Le geste central est le drone : **le gabarit `default` de `tensionCurve` appliqué à un paramètre** et non à des notes — la courbe déclarée corrèle au gabarit à **0,81**, sommet mesuré à la mesure 11 (fenêtre [0.6, 0.75] tenue). C'est la démonstration que l'arche de tension du produit est un objet abstrait : elle vaut pour un cutoff comme pour une mélodie."
+}

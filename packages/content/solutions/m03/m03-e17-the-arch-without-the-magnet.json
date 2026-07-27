@@ -1,0 +1,20 @@
+{
+  "exerciseId": "m03-e17-the-arch-without-the-magnet",
+  "variantId": "dorien",
+  "notation": "[D2+A3+D4]:w | [D2+A3+F4]:w | [D2+B3+G4]:w | [D2+A3+F4+A4]:h [D2+B3+G4+B4]:h | [D2+C4+E4+A4]:h [D2+B3+G4+B4]:h | [D2+A3+F4+A4+D5]:h [D2+B3+G4+B4+D5]:h | [D2+C4+E4+G4+B4+E5]:h [D2+B3+D4+G4+B4+E5]:h | [D2+B3+G4+B4]:w | [D2+A3+F4+A4]:w | [D2+A3+F4]:w",
+  "payload": {
+    "pedalPlan": [
+      { "bars": [1, 4], "state": "compatible" },
+      { "bars": [5, 5], "state": "frottee" },
+      { "bars": [6, 6], "state": "compatible" },
+      { "bars": [7, 7], "state": "frottee" },
+      { "bars": [8, 10], "state": "compatible" }
+    ],
+    "tensionPlan": [
+      { "bars": [1, 3], "motors": ["registre"], "direction": "rise" },
+      { "bars": [4, 7], "motors": ["densite", "rythme-harmonique"], "direction": "rise" },
+      { "bars": [8, 10], "motors": ["densite", "registre"], "direction": "fall" }
+    ]
+  },
+  "authorNotes": "L'arche de m01-l14 recréée sans une seule dominante. 3 → 7 voix ; sommet mes. 7 (70 %, E5 et le si dorien au faîte) ; rythme harmonique ×2 exactement sur le segment déclaré ; retombée : les deux moteurs redescendent, `fall` corrélé (**F-24**). pillarExposure (si, m3–8) tenu, boucle i↔IV avec le VII en éclaireuse, forbidFunctionalCadence, sortie par la cadence dorienne de e08. **archFit 0.79**."
+}

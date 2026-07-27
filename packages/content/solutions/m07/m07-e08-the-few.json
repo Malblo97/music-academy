@@ -1,0 +1,16 @@
+{
+  "exerciseId": "m07-e08-the-few",
+  "payload": {
+    "lengthBars": 16,
+    "structure": [
+      { "bars": [1, 2], "content": "le tutti FOURNI (la fin de e07)", "note": "hors jugement — F-41" },
+      { "bars": [3, 8], "content": "LA COUPURE → le solo nu", "solo": "clarinette chalumeau", "argument": "la vérité d'Elena n'est pas une annonce — le caméléon au registre du secret", "accompaniment": ["contrabasses en tenues rares"], "elements": 1 },
+      { "bars": [9, 13], "content": "L'ENTRÉE DU TÉMOIN : alto seul", "recipe": "response", "note": "il parle dans les respirations de la clarinette" },
+      { "bars": [14, 16], "content": "LA DISSOLUTION : l'alto se tait, la clarinette pose sa quinte, la Cb reste — puis rien" }
+    ],
+    "maxActiveParts": 4,
+    "doubling": "aucune",
+    "silenceRatio": 0.34
+  },
+  "authorNotes": "**Témoin F-41 — les contraintes s'évaluent hors fenêtres du `given`.** L'exercice interdit toute doublure, mais son donné EST un tutti de 2 mesures saturé de doublures : la solution échouait sur des notes qu'elle n'a pas écrites. Le pipeline marque désormais les ticks du given, qui n'est jugé que comme contexte (liaisons, préparations, raccords) — troisième grande règle de fenêtrage du produit, générique et rétroactive. Le reste tient par soustraction : ≤ 4 parts, zéro doublure, un seul élément d'accompagnement (le presque-rien, pas un petit tapis), soliste en zone expressive (chalumeau D3–F4, §25.1). Et le silence est mesuré : **« 34 % de ta scène est tue — l'espace organise »** — crédité, pas toléré."
+}

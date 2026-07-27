@@ -1,0 +1,18 @@
+{
+  "exerciseId": "m07-e04-the-recruiting-engine",
+  "payload": {
+    "lengthBars": 16,
+    "tempoBpm": 120,
+    "pattern": "l'ostinato du mur éolien (1 mes., croches) — invariant sur toutes les parts",
+    "recruitmentPlan": [
+      { "step": 1, "bars": [1, 4], "parts": ["cellos spiccato"], "note": "l'étage net : C3–G3" },
+      { "step": 2, "bars": [5, 8], "adds": ["violas à l'octave"] },
+      { "step": 3, "bars": [9, 12], "adds": ["violins-2, 2e octave"] },
+      { "step": 4, "bars": [13, 16], "adds": ["violins-1 à l'octave aiguë", "contrabasses pizz sur les temps"] }
+    ],
+    "relay": { "bar": 8, "type": "tuilage", "note": "les celli respirent un temps, les altos tuilent" },
+    "apnea": { "bar": 12, "beat": 4, "note": "TOUT tacet un temps avant le cran 4" },
+    "articulation": { "unified": true, "gate": "0.45 ± 0.05 inter-parts" }
+  },
+  "authorNotes": "Troisième emploi du mur éolien — la continuité des exemples paie : zéro recalibrage de contenu. Le pattern **ne change jamais**, seule la matière croît : c'est la doublure appliquée au temps. Les trois lois vérifiées : l'étage net (aucune tenue dans la bande 48–60, sinon le moteur devient du flou), l'articulation unifiée (gate mesuré à ±0,05 entre parts — deux articulations sur un pattern font baver l'ensemble), et le relais AVEC son apnée composée. Le vide du temps 4 de la mesure 12 est un événement, pas une fatigue : il amplifie le cran 4 exactement comme la coupure sèche de l'épique."
+}

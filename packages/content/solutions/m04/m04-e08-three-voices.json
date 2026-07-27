@@ -1,0 +1,18 @@
+{
+  "exerciseId": "m04-e08-three-voices",
+  "payload": {
+    "voices": [
+      { "id": "S", "notation": "C5:q E5:q G5:q. F5:e | E5:q D5:q C5:h | A4:q B4:q C5:h | B4:h. C5:q | r:h E5:q D5:q | r:q E5:q C5:h | r:q G4:q A4:q B4:q | C5:h. r:q | C5:q E5:q G5:q. F5:e | E5:q F5:q G5:h | A5:q G5:q F5:q E5:q | F5:h~ F5:h~ | F5:h E5:h | D5:h D5:h | C5:q C5:q D5:h | C5:w" },
+      { "id": "M", "notation": "G4:h E4:h | G4:q F4:q E4:h | C4:h F4:h | G4:h. E4:q | G4:q B4:q D5:q. C5:e | B4:q A4:q G4:h | E4:h. D4:q | E4:h G4:h | E4:h G4:h | C5:h B4:h | C5:h~ C5:h | A4:h B4:h | G4:h~ G4:h | B4:h B4:h | A4:q A4:q B4:h | E4:w" },
+      { "id": "B", "notation": "C3:h G2:h | C3:h G2:h | F2:h A2:h | C3:h G2:h | A2:h E3:h | G2:h E3:h | C3:q E3:q G3:q. F3:e | E3:q D3:q C3:h | A2:h E3:h | C3:h D3:h | F3:h C3:h | D3:w | C3:w | G2:w | F2:h G2:h | C3:w" }
+    ],
+    "texturePlan": [
+      { "bars": [1, 4], "regime": "melodie-accompagnee" },
+      { "bars": [5, 8], "regime": "imitatif" },
+      { "bars": [9, 12], "regime": "polyphonie" },
+      { "bars": [13, 14], "regime": "suspension" },
+      { "bars": [15, 16], "regime": "homophone" }
+    ]
+  },
+  "authorNotes": "**Témoin F-29 — le retard généralisé hors espèces.** Le motif aux trois voix : S@C5 (m1–2, repris m9), M@G4 (m5–6, en imitation à la quinte), B@C3 (m7–8). LE RETARD À TROIS : F5 préparée (m12, consonante sur ré m), **liée**, suspendue m13 sur l'accord de do (4e contre C3 ET G4 — la suspension contre deux voix, taguée), résolue E5 ; l'arrivée {C3+G4+E5} triade complète — invisible au checker `species4` couplé au CF en rondes, d'où le découplage de `suspensionCheck` (toute paire, toute valeur, tout style — servira M7/M8 tel quel). Triades complètes 12/16 appuis (75 % ≥ 70 %) ; les incomplets assumés : m1 et m16 (« la conduite prime sur la complétude »). **La médiane jugée comme mélodie autonome** : arche propre (creux D4 m7, sommet C5 m10–11 à 66 %), conjointe 0,81 — la voix qui sert, enfin nommée. 5 régimes détectés, concordants au plan."
+}

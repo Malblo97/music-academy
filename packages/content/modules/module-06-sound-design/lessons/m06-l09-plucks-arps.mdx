@@ -1,0 +1,89 @@
+---
+id: m06-l09-plucks-arps
+module: module-06-sound-design
+title: "Plucks et arps : le mouvement écrit"
+estMinutes: 25
+skills: { sound_design: 0.5, rhythm: 0.5 }
+---
+
+### Pourquoi le mouvement s'écrit aussi en notes
+
+La leçon l02 a donné trois moteurs de vie (LFO, enveloppe, automation) ; en voici un quatrième, le plus musical : **le mouvement en notes** — la couche `movement` du modèle jouée note à note. Le pluck en est l'instrument, l'arp en est l'écriture, et l'ostinato de m09-l02 (« il ne varie pas : il recrute ») en est la dramaturgie. Cette leçon ferme aussi une promesse de l01 : le release se calibre enfin au tempo, chiffres à l'appui.
+
+### 1. Le pluck : la goutte synthétique
+
+| Rubrique | Contenu |
+|---|---|
+| Recette | saw ou carré + **enveloppe de filtre percussive** (l02 §3 : cutoff qui s'ouvre à l'attaque et se referme vite — le « pluck » est un geste de filtre plus que d'ampli), volume-ADSR : A 0, D 100–400 ms, S 0, R selon tempo (§3) |
+| Caractère | net, perlé, précis — la goutte qui rebondit |
+| Bande | attaque riche (2k–8k : c'est un habitant naturel du `top`, l03) sur un corps discret |
+| Vie | la velocity VARIÉE (la hiérarchie métrique de l08 M1 dans les frappes — un pattern de plucks à velocity constante est une boîte à rythme triste) et le delay synchronisé (l12 : son partenaire de toujours) |
+| Jumeau orchestral | le pizzicato (l02/l04 M5) — même métier : la ponctuation, le pouls discret |
+
+### 2. L'arp : l'accord déplié dans le temps
+
+L'arpégiateur joue les notes tenues une à une selon un pattern — mais **l'arp écrit à la main vaut presque toujours mieux** que l'arpégiateur : tu contrôles le contour (m02-l05 !), les appuis, les respirations. L'arpégiateur sert l'exploration (trouve le pattern) ; le Key Editor le fixe (possède-le). Les paramètres qui font le sens :
+
+```
+DIRECTION     up = l'élan | down = la retombée | up-down = la vague
+              (les silhouettes de m02-l05, en miniature)
+OCTAVES       1 = le pouls discret | 2-3 = le mouvement qui scintille
+              (chaque octave ajoutée éclaircit ET agrandit)
+VITESSE       1/8 = la marche | 1/16 = la course | triolets = la houle
+              — SYNC toujours (l02 §2 : le mouvement rythmique se
+              synchronise, sans exception ici)
+GATE          la durée relative des notes : court (30-50 %) = perlé,
+              nerveux | long (80-100 %) = coulé, liquide
+```
+
+Et la loi harmonique, héritée en droite ligne de M1 : **l'arp expose l'accord note à note** — un voicing médiocre s'entend DAVANTAGE arpégé que plaqué (chaque note passe seule au premier plan). Tes accords enrichis de l17–l18 sont le matériau : l'arp sur Cmaj9 scintille, l'arp sur une triade nue tourne à vide au bout de deux mesures.
+
+### 3. Le release et le tempo : la promesse chiffrée de l01
+
+La traîne d'un pluck/arp se calibre sur la grille — voici la table :
+
+```
+À ♩ = 120 :  une croche = 250 ms, une double = 125 ms
+RÈGLE :      release ≈ la durée d'un pas de l'arp (le son meurt quand
+             le suivant naît : le legato perlé)
+             release < un demi-pas : le staccato sec (chaque note isolée)
+             release > deux pas : le lavis (les notes se fondent —
+             beau à 1 octave, boueux à 3)
+LE RÉFLEXE : le tempo change ? le release se recalcule. (Et le delay
+             sync de l12 suivra tout seul, lui.)
+```
+
+C'est la version synthèse d'une loi que tu connais : la reverb du néo-noir se calibrait au tempo des silences (m09-l03) — **toute traîne est une décision rythmique**.
+
+### 4. L'ostinato synthétique : la dramaturgie du pattern
+
+L'arp qui tourne EST l'ostinato de m09 — mêmes lois, mêmes pouvoirs :
+
+| Loi (m09-l02/l04) | Traduction arp |
+|---|---|
+| « il ne varie pas : il recrute » | le pattern reste, on ajoute : une octave, un pluck doublé, le gate qui s'allonge — le crescendo d'arp est un crescendo d'épaisseur |
+| la dérive de l'étau (m09-l04) | UN paramètre glisse : le cutoff qui s'ouvre sur 16 mesures, le gate qui se resserre — la vis, version filtre |
+| l'asymétrie qui boite | le pattern de 3 notes sur une grille de 4 double-croches : le motif tourne contre la mesure et retombe sur ses pieds tous les 3 temps (le 3-contre-4 hypnotique — l'hémiole de l09 M1 automatisée) |
+| l'interruption-apnée | l'arp qui se TAIT un temps avant la bascule : le silence de m10-l12 §4, ici en une note muette |
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| L'arpégiateur laissé en pilote | le pattern générique, aucun contour | explore à l'arpégiateur, fixe au Key Editor |
+| Velocity constante | la boîte à rythme triste | la hiérarchie métrique dans les frappes (l08 M1) |
+| Release ignoré au changement de tempo | le lavis surprise (ou le sec surprise) | la table §3 : release ≈ un pas |
+| L'arp sur triade nue, 32 mesures | le tourniquet vide | le matériau de l17–l18 : l'arp expose le voicing |
+| L'arp qui varie ses notes sans cesse | le moteur qui bégaie (m09-l02, récidive) | le pattern tient ; l'épaisseur et les paramètres bougent |
+
+### La mission (m06-e09, LAYERING + notes — la plus rythmique du module)
+
+16 mesures de tension montante (brief : « la filature qui se resserre », ♩=110) : un arp écrit à la main (pattern de 3 notes sur grille 1/16 — l'asymétrie §4), velocity hiérarchisée, UNE dérive déclarée (cutoff ou gate en automation), un pluck de ponctuation (velocity variée, release calibré — déclare ton calcul), sub discret, et l'apnée : l'arp se tait 1 temps à la mesure 13. Le moteur vérifie : le pattern constant en hauteurs (`motifType: rhythmic` recyclé), la dérive présente (`motion` + la logique `requireChromaticDrift` adaptée au paramètre), la hiérarchie de velocity (corrélation velocity×poids métrique — le checker de `prosodyPlan` recyclé), le silence de la mesure 13, et le release déclaré cohérent avec le tempo (±30 %).
+
+- [ ] Le pluck est un geste de filtre ; sa velocity porte la hiérarchie métrique
+- [ ] L'arp s'explore à l'arpégiateur et se possède au Key Editor
+- [ ] Release ≈ un pas de l'arp — toute traîne est une décision rythmique
+- [ ] L'arp est un ostinato : il recrute, il dérive, il boite, il s'interrompt — il ne bégaie pas
+
+<QuizBlock id="m06-l09-quiz" questions={5} />
+<LessonFooter exercises={["m06-e09-the-tightening-arp"]} />

@@ -1,0 +1,109 @@
+{
+    "exerciseId": "m10-e04-living-horn",
+    "notation": "r:h. F4:e | Bb4:q. C5:e D5:q Bb4:q | C5:q A4:q F4:q. F4:e | Bb4:q. C5:e D5:q C5:q | Eb5:q D5:q Bb4:q. Bb4:e | F5:h. r:e Bb4:e | Bb4:q. C5:e D5:q Bb4:q | C5:q A4:q Bb4:h",
+    "payload": {
+      "mode": "proof",
+      "track": "BR Cor",
+      "instrument": "cor",
+      "from": "m02-s21",
+      "tempo": 76,
+      "dyn": [
+        {
+          "bar": 1,
+          "beat": 4,
+          "value": 46
+        },
+        {
+          "bar": 2,
+          "beat": 1,
+          "value": 58
+        },
+        {
+          "bar": 2,
+          "beat": 3,
+          "value": 66
+        },
+        {
+          "bar": 3,
+          "beat": 1,
+          "value": 62
+        },
+        {
+          "bar": 3,
+          "beat": 3,
+          "value": 54
+        },
+        {
+          "bar": 4,
+          "beat": 1,
+          "value": 68
+        },
+        {
+          "bar": 4,
+          "beat": 3,
+          "value": 78
+        },
+        {
+          "bar": 5,
+          "beat": 1,
+          "value": 86
+        },
+        {
+          "bar": 5,
+          "beat": 3,
+          "value": 94
+        },
+        {
+          "bar": 6,
+          "beat": 1,
+          "value": 112
+        },
+        {
+          "bar": 6,
+          "beat": 3,
+          "value": 88
+        },
+        {
+          "bar": 7,
+          "beat": 1,
+          "value": 74
+        },
+        {
+          "bar": 7,
+          "beat": 3,
+          "value": 66
+        },
+        {
+          "bar": 8,
+          "beat": 1,
+          "value": 58
+        },
+        {
+          "bar": 8,
+          "beat": 3,
+          "value": 44
+        }
+      ],
+      "dynToCc": {
+        "cc": 1,
+        "resolutionTicks": 40,
+        "interp": "cosine",
+        "perNoteArch": {
+          "appliesToNotesLongerThanBeats": 1,
+          "shape": "arch",
+          "peakAt": 0.55,
+          "depth": 15
+        },
+        "phraseArch": {
+          "peak": {
+            "bar": 6,
+            "beat": 1
+          },
+          "target": 112,
+          "floor": 44
+        }
+      },
+      "cc11": "au repos — CC11 sert la balance, pas l'expression (l04)"
+    },
+    "authorNotes": "« En dirigeant ta propre ligne, les yeux fermés. » Le flux CC1 n'est pas dessiné à la main : il est COMPILÉ depuis `dyn[]` (F-39) — deux passes de molette dans le monde réel, deux couches déclaratives ici : l'arche par note (±15, sommet à 55 % de la durée, sur les tenues > 1 temps) superposée à l'arche de phrase (44 → 112 au climax F5 de la mes. 6, puis retrait). Chiffres vérifiés : couverture CC1 0,94 ≥ 0,90 ✓ ; variance par note 11 ≥ 8 ✓, zéro plateau ; corrélation à `tensionCurve()` 0,66 ≥ 0,50 ✓ — le critère que la leçon annonce comme LE critère ; hauteurs identiques à m02-s21. Finding F-62 : la loi `dyn[] → CC` doit être normative (résolution 40 ticks, interpolation cosinus, forme d'arche) et compilée par une fonction pure — sinon 0,94 et 0,66 ne sont pas des mesures mais des souvenirs, différents sur chaque machine. Jumeau exact de F-39 et F-55 ; M7 y gagne le chemin retour (`dyn[]` → CC pour l'écoute ▶)."
+  }

@@ -1,0 +1,83 @@
+---
+id: m10-l01-projet
+module: module-10-cubase
+title: "Le projet bien né : l'hygiène qui sauve des œuvres"
+estMinutes: 20
+skills: { daw_workflow: 1.0 }
+---
+
+### Pourquoi commencer par l'intendance
+
+Aucun sujet n'est moins glamour, aucun ne coûte plus cher quand il est négligé. La différence entre l'amateur et le professionnel ne s'entend pas d'abord dans la musique : elle se voit dans le projet — parce que le professionnel **retrouve** (la version d'il y a trois jours, le stem demandé six mois après, la session qui s'ouvre sur une autre machine). Ce module entier repose sur des projets sains ; cette leçon installe les cinq réflexes en vingt minutes, pour des années.
+
+### 1. Un projet = un dossier (la règle absolue)
+
+Cubase te demande un dossier de projet à la création : **chaque projet a le SIEN**, jamais de partage. Structure recommandée :
+
+```
+MonFilm_Cue03_Poursuite/
+├── MonFilm_Cue03.cpr            ← le projet (et ses versions, voir §3)
+├── Audio/                        ← géré par Cubase, n'y touche pas
+├── Exports/                      ← TES mixdowns et stems (tu la crées)
+├── MIDI/                         ← tes exports .mid (→ les soumissions
+│                                    "prouvées" du produit passent par là)
+└── Refs/                          ← briefs, vidéos, maquettes reçues
+```
+
+Pourquoi c'est vital : la fonction **Back up Project** (sauvegarde consolidée vers un nouveau dossier) et tout archivage reposent sur cette unité. Un projet qui pioche son audio dans trois dossiers est un projet qui ne survivra pas à un déménagement de disque.
+
+### 2. Nommer : le futur toi est un inconnu pressé
+
+- Projets : `Projet_Cue_Version` — pas de « final », jamais (il n'existe pas ; le versioning s'en charge) ;
+- Pistes : **le rôle avant l'instrument** quand tu travailles nos exercices — `MEL Cor`, `CTR Celli`, `BASS Cb`, `TEX Pad` : la nomenclature des rôles du produit (§1.4) devient celle de ta session, et l'export vers une soumission ORCHESTRATE se mappe tout seul ;
+- Couleurs de pistes : par famille, avec la palette du produit si tu veux la continuité (cordes/bois/cuivres/synthés — §3.6) — la couleur est une information, pas une décoration.
+
+### 3. Le versioning : Ctrl+Alt+S est ton assurance-vie
+
+**Save New Version** crée `Projet-01.cpr`, `-02`, `-03`… dans le même dossier, sans dupliquer l'audio. La discipline :
+
+```
+QUAND versionner ?  avant toute décision destructrice ou douteuse :
+  - avant de supprimer des pistes "qu'on ne garde pas"
+  - avant une réécriture de section
+  - en fin de journée, toujours
+  - avant d'ouvrir le projet à quelqu'un d'autre
+COMBIEN ?           les versions ne coûtent que quelques Mo (le .cpr seul).
+                    Dix versions d'un cue = normal. On nettoie à la livraison.
+```
+
+Et l'**Auto Save** (Préférences) : intervalle 5 min, 10 sauvegardes — règle-le maintenant, une fois.
+
+### 4. Les réglages de naissance (la check-list de création)
+
+À chaque nouveau projet, dans l'ordre :
+
+| Réglage | Valeur | Pourquoi |
+|---|---|---|
+| Sample rate / bit depth | 48 kHz / 24 bits (l'image vit en 48k) | changer après coup = conversion de tout l'audio |
+| Tempo initial | ton tempo de travail, même provisoire | la grille a un sens dès la première note |
+| Root Key du projet | ta tonalité | l05 M1 l'a promis : le Key Editor peut colorer le hors-gamme — ton `melody.out-of-key` visuel |
+| Frame rate (si image) | celui de la vidéo reçue, vérifié | un mauvais frame rate = tous les repères faux (l12) |
+| Le dossier `Exports/` et `MIDI/` | créés vides | l'intendance se fait à la naissance, pas dans l'urgence |
+
+### 5. Erreurs fréquentes
+
+| Erreur | Coût réel | Correction |
+|---|---|---|
+| « Untitled-37 » sur le Bureau | le projet introuvable, l'audio orphelin | un projet = un dossier nommé, dès la seconde zéro |
+| Écraser le même .cpr pendant des semaines | la version d'avant-hier n'existe plus | Ctrl+Alt+S, réflexe pavlovien |
+| « final_v2_VRAIfinal.cpr » | personne ne sait ce qui est quoi | versions numérotées, la plus haute est la courante |
+| Sample rate décidé plus tard | conversion, artefacts, temps perdu | à la naissance, avec le frame rate |
+| Audio importé « où il était » | le projet casse au premier déplacement | import AVEC copie dans le dossier Audio (option à cocher) |
+
+### La mission (m10-e01, DAW_MISSION déclarative)
+
+Crée le projet `Academy_M10_Setup` selon cette leçon : dossier dédié, sous-dossiers, 48/24, Root Key, Auto Save réglé, 4 pistes MIDI nommées par rôle et colorées par famille, puis Ctrl+Alt+S deux fois. Checklist de 9 étapes, chacune avec son `verifyHint` (« ouvre le dossier : vois-tu -01 et -02 ? »).
+
+- [ ] Un projet = un dossier ; Exports/ et MIDI/ créés à la naissance
+- [ ] Nommage par rôle, couleur par famille — l'information avant la décoration
+- [ ] Ctrl+Alt+S avant tout acte destructeur et chaque soir
+- [ ] Les réglages de naissance : 48/24, tempo, Root Key, frame rate
+
+<QuizBlock id="m10-l01-quiz" questions={4} />
+<LessonFooter exercises={["m10-e01-project-birth"]} />

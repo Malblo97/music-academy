@@ -1,0 +1,21 @@
+{
+  "exerciseId": "m06-e15-la-remise-hybrid",
+  "partId": "part1-distribution",
+  "payload": {
+    "worldDistribution": [
+      { "role": "sub", "titular": "sinus-relais", "why": "la gravité sans archet" },
+      { "role": "body", "titular": "pad hybrid", "why": "l'acoustique déguisé — la scène est un souvenir" },
+      { "role": "top", "titular": "scintillement granulaire tracé", "why": "la lumière vient d'une matière du curriculum, pas d'un preset" },
+      { "role": "texture", "titular": "le grain du lieu", "why": "la remise a un bruit de fond, et il est accordé" },
+      { "role": "movement", "titular": "l'arp de s09 ralenti", "why": "la filature devient attente" },
+      { "role": "fx", "titular": "la phrase de s10", "why": "la ponctuation est déjà écrite et prouvée" },
+      { "role": "melodic", "titular": "keys lo-fi", "why": "le thème en mémoire" }
+    ],
+    "basculePlan": [
+      { "markerRef": "B1", "timecode": "0:31.0", "gesture": "place-change", "note": "l'espace s'ouvre — le geste de s12" },
+      { "markerRef": "B2", "timecode": "1:02.0", "gesture": "punctuation-phrase", "note": "riser → impact, s10 resservie" },
+      { "markerRef": "H1", "timecode": "1:08.0", "gesture": "world-handoff", "note": "le témoin — impact sec + apnée" }
+    ]
+  },
+  "authorNotes": "« La décision la plus structurante de la scène se prend sans toucher un synthé. » Les 7 rôles pourvus et argumentés, `sd.role-coverage` muette **en amont** — avant la première note. Les bascules sont désignées par **IDs de marqueurs du manifeste** (F-36) et non par timecodes bruts : B1 le lieu, B2 la ponctuation, H1 le passage de témoin. Quatre des sept titulaires sont du matériau déjà produit et jugé (s09, s10, s12, le thème) — le capstone n'invente pas un monde, il en distribue un."
+}

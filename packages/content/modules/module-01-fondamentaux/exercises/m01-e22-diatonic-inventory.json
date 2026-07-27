@@ -1,0 +1,10 @@
+{ "id": "m01-e22-diatonic-inventory", "lessonId": "m01-l11-triades",
+  "title": "L'inventaire de la tonalité", "kind": "THEORY_QUIZ",
+  "difficulty": 3, "xpReward": 40, "skills": { "HARMONY": 1.0 },
+  "spec": { "prompt": "Chiffres romains : le pattern MAJ-min-min-MAJ-MAJ-min-dim, dans toutes les tonalités.",
+    "quiz": { "interaction": "mc",
+      "generator": { "keys": "majorAll", "degrees": [1,2,3,4,5,6,7], "rounds": 8 },
+      "items": [
+        { "q": "Le vi de E majeur :", "options": ["C♯m","Cm","C♯"], "answer": "C♯m", "why": "6e degré de E = C♯, et vi est toujours mineur (minuscule)." },
+        { "q": "En A♭ majeur, D♭ est :", "options": ["IV","V","ii"], "answer": "IV", "why": "4e degré, majeur — la sous-dominante." },
+        { "q": "L'accord diminué de F majeur :", "options": ["Edim","Adim","Ddim"], "answer": "Edim", "why": "vii° se construit toujours sur la sensible (7̂ de F = E)." } ] } } }

@@ -1,0 +1,5 @@
+{ 
+    "exerciseId": "m01-e24-bass-melody", 
+    "notation": "[G3+B3+D4+G4]:h [F#3+A3+D4+A4]:h | [E3+B3+E4+G4]:h [D3+B3+G4+B4]:h | [C3+E4+G4+C5]:h [D3+C4+F#4+A4]:h | [G2+B3+D4+G4]:w", 
+    "authorNotes": "Basse G3–F♯3–E3–D3–C3–D3–G2 : descente nette, conjoint 5/6 = 0.83 ≥ 0.7 ✓ ; G/D = **64 de passage** textbook (basse E–D–C) ; D7 avec 7e (C4) résolue → B3 ✓ ; sensible finale F♯4 → D4 (voix interne frustrée, exception codée) ✓ ; cadence parfaite complète (V7 fond. → I fond., soprano A4→G4, temps fort) ✓. **F♯3→E3 mes. 1–2 = la sensible de passage (F-1)** — légale après patch, et c'est précisément pour la détecter que cette solution existe." 
+}

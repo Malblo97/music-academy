@@ -1,0 +1,84 @@
+---
+id: m08-l07-bebop
+module: module-08-jazz
+title: "Le vocabulaire bebop : enclosures, chromatismes, le langage"
+estMinutes: 25
+skills: { melody: 0.7, harmony: 0.3 }
+---
+
+### Pourquoi le bebop est une grammaire de ligne
+
+La carte de l06 dit *quelles notes* ; le bebop dit **comment on les dit** — c'est la grammaire de phrase du jazz moderne : le chromatisme organisé autour de cibles, les croches qui coulent en atterrissant juste, l'élégance de la ligne qui semble improvisée et tombe toujours sur ses pieds. Son secret tient en un principe, hérité en droite ligne du laboratoire : **le chromatisme est légal quand il vise** — le bebop est la cambiata (m04-l04) devenue civilisation.
+
+### 1. L'enclosure : l'encerclement de la cible
+
+LE geste bebop : au lieu d'atteindre la note visée directement, on l'**encercle** — la voisine supérieure, la voisine inférieure, puis la cible :
+
+```
+CIBLE : E4 (la 3 de Cmaj7 — la cible d'or de l03 §3)
+ENCLOSURES (par sophistication croissante) :
+  simple diatonique :  F4 – D4 – E4        (les deux voisines de gamme)
+  chromatique basse :  F4 – D#4 – E4       (l'approche ½ ton dessous)
+  double chromatique : F4 – Eb4... — F4 – D#4 déjà chromatique ; la
+  double : F#4? — proprement : F4 – D#4 – E4 et sa sœur inversée
+  D#4 – F4 – E4 ; la LONGUE : G4 – F4 – D#4 – E4 (deux dessus, une
+  dessous : l'orbite à trois notes)
+LA LOI : l'enclosure atterrit sur un TEMPS (la cible au temps fort,
+l'encerclement en levée) — le chromatisme en l'air, la justesse à
+l'appui : la hiérarchie métrique de m04-l03, párole... parole de
+bebop : c'est LA même loi, syncopée
+```
+
+L'enclosure est la cambiata généralisée (la dissonance qui vise en dessinant) — et le moteur la tague (`enclosure` : 2–4 notes encadrant une cible par voisines ±2 dt, atterrissage sur temps) : le vocabulaire se vérifie.
+
+### 2. Les gammes bebop (le chromatisme de passage institutionnalisé)
+
+Le problème mécanique du jazzman : les gammes ont 7 notes, la mesure a 8 croches — la gamme montée en croches *décale* les notes d'accord des temps. La solution historique : **ajouter une note de passage chromatique** qui refait tomber l'accord sur les temps :
+
+| Gamme bebop | L'ajout | Sur |
+|---|---|---|
+| **Dominante bebop** | la ♮7 de passage entre ♭7 et 1 (mixolydien + ♮7 : G-A-B-C-D-E-F-F♯-G) | V7 — LA gamme bebop : descendue en croches, chaque note d'accord tombe sur un temps |
+| Majeure bebop | la ♯5 entre 5 et 6 | Imaj |
+| Mineure bebop | la ♮3... — la ♮7 sur le dorien | ii m7 |
+
+Le principe au-dessus des recettes : **le chromatisme de passage se place pour que l'harmonique tombe juste** — la version croche-par-croche de la loi de l'enclosure. (Et la parenté profonde : la gamme bebop est le « passant » de m03-l04 §3 en horizontal — l'escalier doré, note à note.)
+
+### 3. Le phrasé (la carte devient langage)
+
+Trois lois de phrase transforment les gammes en musique :
+
+```
+1. LA PHRASE VISE (toujours) : une phrase bebop est un TRAJET vers
+   une cible harmonique (la 3, la 7, la 9 du prochain accord) — on
+   compose à l'envers, comme la walking (l05 : la même pensée, en
+   croches) ; la ligne qui ne vise pas erre
+2. LA PHRASE RESPIRE EN LEVÉE : elle commence rarement sur le temps 1
+   (l'anacrouse jazz : le départ sur le « et de 1 » ou le temps 2) et
+   finit souvent sur un « et » (l'anticipation, l01 §2) — la phrase
+   FLOTTE sur la grille au lieu de la scander
+3. LA PHRASE CONTRASTE SES DENSITÉS : la rafale de croches PUIS la
+   note tenue (le bebop alterne le plein et le posé — m02-l09, la
+   prosodie volubile : les longues rares deviennent des événements) ;
+   le solo en croches perpétuelles est un robinet, pas un discours
+```
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| L'enclosure qui atterrit en l'air | le chromatisme décoratif — le geste vidé de sa loi | la cible au temps : l'encerclement est une levée |
+| La gamme bebop montée-descendue | l'exercice en public (l06, récidive) | c'est un matériau de passage DANS des phrases qui visent |
+| Le chromatisme sans cible | la purée chromatique (« ça fait jazz ») | tout demi-ton a une destination — le bebop est la discipline du chromatisme, pas sa licence |
+| Les croches perpétuelles | le robinet | plein/posé : la densité contrastée fait le discours |
+
+### La mission (m08-e07, MELODY_COMPOSE — le vocabulaire)
+
+8 mesures sur le ii-V-I enchaîné fourni : ≥ 3 enclosures taguées (dont une chromatique) atterrissant sur guide tones, ≥ 1 passage de gamme dominante bebop (le F♯ de passage détecté entre F et G sur G7, notes d'accord sur les temps), phrases en levée (départ hors temps 1 vérifié), le contraste plein/posé (l'écart-type de densité par mesure), `swingTarget` et `chordScaleCheck` actifs. Le rapport nomme ton vocabulaire : « enclosure double sur la 3 de C, m.4 ✓ — le langage est parlé ».
+
+- [ ] L'enclosure : encercler en levée, atterrir au temps — la cambiata devenue civilisation
+- [ ] Les gammes bebop : le passage chromatique qui remet l'accord sur les temps
+- [ ] La phrase vise, flotte en levée, contraste ses densités
+- [ ] Le bebop est la discipline du chromatisme — chaque demi-ton a une destination
+
+<QuizBlock id="m08-l07-quiz" questions={5} />
+<LessonFooter exercises={["m08-e07-the-language"]} />

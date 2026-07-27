@@ -1,0 +1,41 @@
+{
+    "exerciseId": "m10-e06-tame-the-library",
+    "payload": {
+      "mode": "declarative",
+      "checklist": [
+        {
+          "id": "e06-s1",
+          "expect": "MediaBay : seuls les dossiers de contenu réel cochés — scan en minutes, pas en heures"
+        },
+        {
+          "id": "e06-s2",
+          "expect": "scan complet lancé une fois, index à jour"
+        },
+        {
+          "id": "e06-s3",
+          "expect": "geste 1 — recherche par attributs (Category + Character)"
+        },
+        {
+          "id": "e06-s4",
+          "expect": "geste 2 — pré-écoute alignée tempo/tonalité du projet"
+        },
+        {
+          "id": "e06-s5",
+          "expect": "5 Track Presets : instrument + réglages + couleur + Notepad-fiche"
+        },
+        {
+          "id": "e06-s6",
+          "expect": "10 sons ★★★★★ répartis sur ≥ 3 tags-moods DU REGISTRE M2/M9 (epic · neo-noir · tension · romance)"
+        },
+        {
+          "id": "e06-s7",
+          "expect": "règle du rejet : deux écoutes-rejets = ★"
+        },
+        {
+          "id": "e06-s8",
+          "expect": "patchs notés au nom de piste ou au Notepad — rétablissables dans six mois"
+        }
+      ]
+    },
+    "authorNotes": "« On ne réécoute jamais deux fois le même déchet. » Le seul étalon dont la valeur est taxonomique : il impose que les tags de la bibliothèque privée soient CEUX du produit — les 15 MOOD_TEMPLATES de M2 et les quatre genres de M9 deviennent le vocabulaire d'indexation, pas des mots inventés au fil de l'eau. Chiffres : 8 étapes, 5 Track Presets, 10 sons sur ≥ 3 tags, couverture verifyHint 1,00. Le seuil de trois tags est bas exprès : la discipline ne s'installe que si la première recherche (« pad + tension ») sort effectivement le bon son dès la première session — au-delà, on tague pour taguer."
+  }

@@ -1,0 +1,88 @@
+---
+id: m01-l23-modulation-1
+module: module-01-fondamentaux
+title: "Moduler I : tonalités voisines et accord pivot"
+estMinutes: 30
+skills: { harmony: 1.0 }
+---
+
+### Pourquoi déménager
+
+Tout le module a vécu dans une maison (la tonique) — quitte à la voiler d'emprunts. La **modulation** déménage : la tonalité change *vraiment*, durablement. Pourquoi ? Parce qu'une pièce de trois minutes dans une seule tonalité, c'est un film dans un seul décor : possible, mais tu te prives du moyen le plus puissant de marquer un changement de chapitre. La différence avec l'emprunt (l21) tient en un critère : **l'emprunt visite, la modulation s'installe** — après elle, c'est la *nouvelle* tonique qui est la maison.
+
+### 1. L'anatomie d'une modulation réussie : trois temps
+
+```
+1. ÉTABLIR      la tonalité de départ existe (cadences, temps — au moins
+                une phrase complète : on ne quitte que ce qui a existé)
+2. PIVOTER      un accord AMBIGU, qui appartient AUX DEUX tonalités,
+                sert de sas — l'oreille le traverse sans alarme
+3. CONFIRMER    la nouvelle tonalité est PROUVÉE : cadence V7→I dans le
+                nouveau monde, de préférence avec sa nouvelle sensible
+                exposée. Sans confirmation, ce n'était qu'un emprunt long.
+```
+
+Le temps 3 est celui que les débutants sautent : ils *glissent* vers la nouvelle tonalité mais ne la *prouvent* jamais — et l'auditeur (comme `estimateKey` en fenêtre glissante, §8.4 : « changement stable > 8 notes ») reste dans le doute. Une modulation est un acte notarié : elle exige la signature de la cadence.
+
+### 2. L'accord pivot : le sas entre deux mondes
+
+Le pivot est un accord qui a **une fonction dans chaque tonalité**. Exemple canonique, do majeur → sol majeur (les voisines du cycle, l05 — une altération d'écart) :
+
+```
+                 EN DO MAJEUR          EN SOL MAJEUR
+   Am     =         vi          ═══        ii
+                 (doublure de T)        (doublure de S)
+
+   C:  I → IV → [Am] → D7 → G  → confirmation en sol (cadence)
+                  ↑      ↑
+                pivot   le D7 — V de sol — révèle rétroactivement
+                        que Am était « déjà » un ii
+```
+
+Le mécanisme psychologique : au moment où Am sonne, l'oreille l'entend encore en do (vi) ; quand D7 arrive (F♯ ! la nouvelle sensible), elle *réinterprète* — « ah, c'était un ii ». La modulation par pivot est indolore parce qu'elle est **rétroactive** : on ne franchit pas de porte, on découvre qu'on l'avait déjà franchie.
+
+<MusicExample id="pivot-canonique" title="Do → sol par pivot : le déménagement indolore">
+  [C3+E4+G4+C5]:h [F3+F4+A4+C5]:h | [A2+E4+A4+C5]:h [D3+F#4+A4+C5]:h | [G2+D4+G4+B4]:w
+  I — IV — vi/ii — V7deG — G. Écoute le F♯ dans le D7 : c'est LUI l'événement,
+  la sensible du nouveau monde. Puis rejoue en t'arrêtant sur Am : à cet instant,
+  tu es ENCORE en do. La bascule n'existe que rétroactivement.
+</MusicExample>
+
+**Trouver les pivots** : liste les accords diatoniques des deux tonalités, l'intersection est ton stock. Entre voisines du cycle (une altération d'écart, six notes communes — l05), l'intersection est riche : quatre pivots entre do et sol (C=IV, Em=vi, G=I, Am=ii). Plus les tonalités s'éloignent sur le cycle, plus le stock maigrit — d'où la règle des débuts : **modulise d'abord vers les voisines** (V, IV, relatif mineur/majeur : les quatre déménagements doux), et garde les mondes lointains pour la leçon 24.
+
+### 3. Le pivot chromatique : dim7, la plaque tournante promise
+
+Rendez-vous pris en l13 §4 : le **dim7**, symétrique parfait, appartient à *quatre* mondes simultanément — c'est le pivot passe-partout. Mode d'emploi : tout dim7 est un V7♭9 sans fondamentale (compare : G7♭9 = G–B–D–F–A♭ ; ôte G : B–D–F–A♭ = Bdim7). Comme ses renversements sont le même accord, **un seul dim7 est la dominante déguisée de quatre toniques** (B°7 pointe vers C, E♭, G♭ et A). Entre par une porte, sors par une autre :
+
+```
+   ...en do : G7 attendu... joue plutôt B°7 (son ombre, l13)...
+   puis résous-le NON vers C mais vers E♭ : tu viens de sauter
+   trois cases du cycle en un accord. Le vertige contrôlé.
+```
+
+C'est l'outil des transitions rapides et des passages « le sol se dérobe » — à manier avec la parcimonie du dim7 lui-même (le cliché du film muet guette, l13).
+
+### 4. Modulation vs tonicisation : la frontière officielle
+
+Vocabulaire à fixer, car l'analyseur et le Module 11 s'en servent : une **tonicisation** est une dominante secondaire prolongée — on visite un degré (deux, trois accords dans son monde) puis on rentre ; une **modulation** s'installe et se confirme. La frontière pratique : **y a-t-il eu cadence confirmante ET la suite vit-elle dans le nouveau monde ?** Oui aux deux = modulation. C'est un continuum (l19 → tonicisation → modulation : le même outil à trois durées), et savoir *où tu es sur le continuum* est plus important que le nom.
+
+### 5. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Moduler sans avoir établi | « la pièce commence dans le flou » — on ne quitte rien | une phrase complète, cadencée, avant tout déménagement |
+| Glisser sans confirmer | l'auditeur (et `estimateKey`) hésite indéfiniment | cadence V7→I dans la nouvelle tonalité, sensible exposée |
+| Pivot qui n'en est pas un | accord chromatique brutal pris pour un sas | vérifie : fonction claire DANS LES DEUX tonalités |
+| Déménager toutes les 4 mesures | plus de maison du tout, fatigue de l'auditeur | une modulation est un événement de CHAPITRE, pas de phrase |
+| dim7-pivot en série | le vertige devient mal de mer | une plaque tournante par pièce, sauf intention « chute » assumée |
+
+### Récapitulatif
+
+- [ ] Établir → pivoter → CONFIRMER : la cadence notariée du nouveau monde
+- [ ] Le pivot = un accord à double fonction ; la bascule est rétroactive
+- [ ] Voisines d'abord : V, IV, relatif — le stock de pivots est riche
+- [ ] dim7 = quatre mondes, la plaque tournante (promesse de l13 tenue)
+- [ ] Tonicisation (visite) < modulation (installation) : un continuum, sache où tu es
+
+<QuizBlock id="m01-l23-quiz" questions={7} />
+<LessonFooter exercises={["m01-e43-pivot-hunt", "m01-e44-first-modulation"]} />

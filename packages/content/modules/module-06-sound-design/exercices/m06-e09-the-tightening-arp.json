@@ -1,0 +1,36 @@
+{
+  "id": "m06-e09-the-tightening-arp",
+  "lessonId": "m06-l09-plucks-arps",
+  "title": "L'arp qui se resserre",
+  "kind": "LAYERING",
+  "difficulty": 5,
+  "xpReward": 110,
+  "skills": { "SOUND_DESIGN": 0.5, "RHYTHM": 0.5 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "thriller-tension", "targetMood": "tension", "ruleWeights": {} },
+  "rubric": { "correctness": 25, "constraints": 45, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "16 mesures de tension montante — brief : « la filature qui se resserre », ♩=110. Un ARP écrit À LA MAIN (l'arpégiateur explore, le Key Editor possède) : pattern de 3 notes sur grille 1/16 — l'asymétrie qui boite, le 3-contre-4 hypnotique. La velocity HIÉRARCHISÉE (la hiérarchie métrique dans les frappes : la boîte à rythme triste est interdite). UNE dérive déclarée — cutoff ou gate en automation : la vis, version filtre. Un PLUCK de ponctuation (velocity variée, release CALIBRÉ : déclare ton calcul — release ≈ un pas de l'arp, la table de l09 §3). Un sub discret. Et l'APNÉE : l'arp se tait UN temps à la mesure 13 — le silence de la bombe.",
+    "given": {
+      "key": { "tonic": 4, "mode": "minor" },
+      "tempoBpm": 110
+    },
+    "constraints": {
+      "lengthBars": [16, 16],
+      "requiredLayers": [
+        { "id": "arp", "role": "movement", "hasNotes": true },
+        { "id": "pluck", "role": "top", "hasNotes": true, "freeFields": ["releaseCalculation"] },
+        { "id": "sub", "role": "sub", "band": { "low": 30, "highMax": 90 } }
+      ],
+      "patternConstant": { "layer": "arp", "patternNotes": 3, "grid": "1/16", "pitchesInvariant": true },
+      "velocityMetricCorrelation": { "layer": "arp", "min": 0.4 },
+      "driftRequired": { "layer": "arp", "targets": ["cutoff", "gate"], "type": "automation", "monotonic": true },
+      "releaseCalibration": { "layer": "pluck", "referenceStep": "1/16", "tolerancePct": 30 },
+      "silenceAtBar": { "layer": "arp", "bar": 13, "beats": 1 },
+      "subMonoRequired": true,
+      "checkers": ["sd.static-stack", "sd.sub-conflict"]
+    }
+  }
+}

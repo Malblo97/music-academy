@@ -1,0 +1,10 @@
+{ "id": "m01-e43-pivot-hunt", "lessonId": "m01-l23-modulation-1",
+  "title": "La chasse aux pivots", "kind": "THEORY_QUIZ",
+  "difficulty": 5, "xpReward": 50, "skills": { "HARMONY": 1.0 },
+  "spec": { "prompt": "Pour chaque paire de tonalités, identifie les accords pivots et leur double fonction.",
+    "quiz": { "interaction": "mc",
+      "generator": { "keyPairs": "circleNeighbors", "rounds": 6 },
+      "items": [
+        { "q": "Em est pivot entre C majeur et G majeur comme :", "options": ["iii / vi","vi / ii","ii / v"], "answer": "iii / vi", "why": "3e degré de C, 6e de G : double citoyenneté, fonction T faible des deux côtés." },
+        { "q": "Combien de pivots diatoniques entre C et F majeur ?", "options": ["2","4","6"], "answer": "4", "why": "Une altération d'écart : C(I/V), Dm(ii/vi), F(IV/I), Am(vi/iii)." },
+        { "q": "B°7 est la dominante déguisée de :", "options": ["C uniquement","C, E♭, G♭, A","C et Am"], "answer": "C, E♭, G♭, A", "why": "Le dim7 symétrique : quatre mondes, la plaque tournante (l13 §4, l23 §3)." } ] } } }

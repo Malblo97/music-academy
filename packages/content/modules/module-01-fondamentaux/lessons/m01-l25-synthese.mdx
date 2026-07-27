@@ -1,0 +1,90 @@
+---
+id: m01-l25-synthese
+module: module-01-fondamentaux
+title: "Synthèse : l'analyse guidée — tout le module sur seize mesures"
+estMinutes: 35
+skills: { harmony: 0.5, melody: 0.3, rhythm: 0.2 }
+---
+
+### Pourquoi finir par une analyse
+
+Vingt-quatre leçons d'outils. La compétence finale n'est pas de les connaître : c'est de les **reconnaître en situation** — dans la musique des autres (Module 11) et, surtout, dans la tienne, pour comprendre *pourquoi* ce que tu as joué fonctionne ou pas. Cette leçon te fait analyser une pièce complète de seize mesures, composée pour l'occasion (originale — la charte du produit s'applique à lui-même), qui mobilise tout le module. C'est aussi, mot pour mot, le protocole que suit l'analyseur du produit : tu vas faire à la main ce que `MusicAnalysisService` fait en machine — et c'est le meilleur moyen de lire ses rapports en collègue plutôt qu'en élève.
+
+### 1. La pièce : « Départ » (thème d'ouverture fictif, 16 mesures)
+
+```
+Tempo ♩=76, 4/4. Mélodie + accords chiffrés :
+
+mes. 1–4  (phrase A, antécédent) :
+  Cmaj7        | Am7          | Fadd9        | G7sus4  G7    |
+  E4:q G4:e A4:e G4:q E4:q | C4:q E4:e G4:e A4:h | A4:q F4:e E4:e F4:q A4:q | G4:h. r:q
+
+mes. 5–8  (phrase A', conséquent) :
+  Cmaj7        | Am7          | Fm6          | C  (G4:tonique au soprano) |
+  E4:q G4:e A4:e G4:q E4:q | C4:q E4:e G4:e A4:h | Ab4:q F4:e E4:e F4:q Ab4:q | G4:q E4:e D4:e C4:h
+
+mes. 9–12 (phrase B, l'élan) :
+  Am7          | D7           | G            | E7            |
+  A4:q B4:e C5:e B4:q A4:q | A4:q F#4:e A4:e D5:h | D5:q B4:e G4:e B4:q D5:q | E5:h. B4:e G#4:e
+
+mes. 13–16 (retour transformé) :
+  Am           | F     Fm     | C/G   G7     | C             |
+  C5:q B4:e A4:e E4:h | F4:q A4:h Ab4:q | G4:h G4:e F4:e D4:e B3:e | C4:w
+```
+
+Joue-la d'abord en entier, deux fois, sans analyser. L'oreille avant le crayon — toujours.
+
+### 2. L'analyse guidée, couche par couche
+
+**Couche 1 — Tonalité et structure** (l03, l05, l16). Do majeur, aucune altération à l'armure... mais des accidents partout : voilà le module résumé. Structure : 4+4+4+4 — une **période** (A antécédent / A' conséquent, l16 §5) suivie d'une phrase B et d'un retour. Vérifie les ponctuations : m.4 = arrêt sur G7 (**demi-cadence** : la question), m.8 = V implicite→C avec 1̂... non, regarde mieux : soprano sur G (5̂) — cadence **imparfaite** (conclusion douce : on continue). m.16 = V7→I, fondamentales, C au soprano, temps fort : **parfaite**, toutes cases cochées (l16 §2). La hiérarchie des ponctuations est respectée : ? puis ; puis . — le module en trois signes.
+
+**Couche 2 — Fonctions** (l15). Phrase A : T (Cmaj7) – T' (Am7, la doublure) – S (Fadd9) – D (G7). Le récit canonique T-S-D, enrichi (l17 : maj7 et add9 sur T et S, le V laissé net — sus4 qui résout en 3, le « lift » de cadence, l17 §4). Rien d'exotique : la pièce établit sa maison (l23 §1 : on ne quitte que ce qui a existé).
+
+**Couche 3 — Le premier événement : m.7** (l21). A' répète A... sauf **Fm6** à la place de Fadd9 : le **iv emprunté** — le nuage, avec la couleur m6 « douceur inquiète » (l17 §2). Suis la mélodie : A4 (m.3) est devenu **A♭4** (m.7) — la ligne *consent* à l'emprunt (l21 §3, la loi du consentement, appliquée). Une note change entre A et A', et le conséquent se souvient de quelque chose que l'antécédent ignorait. C'est la variation minimale au maximum d'effet — et `findMotifs` créditerait ici une occurrence *variée* du motif (§10.1).
+
+**Couche 4 — L'élan de B : m.9–12** (l19). Am7 → **D7** : ré majeur en do ? F♯ ? Tu sais lire : **V/V** (l19 §2), et le voilà qui résout... sur G (m.11). Tonicisation de la dominante — visite, pas déménagement (l23 §4) : aucune cadence confirmante en sol, et la suite repart ailleurs. Puis m.12 : **E7** — V/vi, le couronnement de l'ombre (l19, l'exemple même). Le G♯ mélodique en fin de mesure est sa sensible locale, qui monte vers... 
+
+**Couche 5 — La trahison magnifique : m.13** (l16, l19). E7 promettait Am couronné : Am arrive (promesse tenue)... mais suis le G♯ : il monte bien vers A (m.13, C5... regarde la ligne descendante C5–B4–A4 : le A est là, la sensible locale tient parole — l19 §3). Puis m.14 : **F → Fm** — le nuage *ralenti*, étalé sur deux temps, IV→iv à découvert cette fois (l21 : le geste canonique, exposé). m.15 : **C/G** — le fameux 2e renversement... en position **cadentielle** (l12 §3 : I64→V→I, le « moment cérémonie »), qui déclenche G7 puis la parfaite finale.
+
+**Couche 6 — Mélodie et rythme** (l02, l04, l09, l14). Motif de tête : `E-G-A-G-E` — arche miniature, notes charpentes E et G habillées (l04), réutilisé en m.5 (exact), varié en m.7 (A♭), transposé en substance en m.9 (départ sur A : la tête de motif au nouveau degré). Climax : **E5, m.13, temps 1** — la note la plus haute, aux trois quarts de la pièce, atteinte par le plus grand saut (B4→E5 : quarte... vérifie m.12–13 : E5 en m.12 déjà — le sommet est *tenu* à la couture B/retour, à ~70 % de la durée : l'arche de l14 §4, gabarit respecté). Rythme : croches et noires, une seule syncope douce (m.2, le A4 tenu) — fenêtre « romantique film » (l09 §4), cohérente du début à la fin.
+
+### 3. La fiche de synthèse (le rapport que tu viens d'écrire)
+
+| Couche | Outils mobilisés | Verdict |
+|---|---|---|
+| Tonalité/structure | l03, l05, l16 | do M, période + B + retour, ponctuations hiérarchisées ?-;-. |
+| Fonctions | l15, l17 | T-S-D enrichi, D net, lift sus4 |
+| Chromatismes | l19, l21, l22 | V/V (visite), V/vi (couronnement tenu), iv ×2 (voilé puis exposé) |
+| Cadence finale | l12, l16 | I64 cadentiel → V7 → parfaite complète |
+| Mélodie | l04, l14, §10.1 | motif ×4 dont 2 variés, climax à 70 %, arche conforme |
+| Ce qui est ABSENT | l20, l23–24 | ni substitution tritonique ni modulation : la pièce n'en avait pas besoin |
+
+La dernière ligne est la leçon la plus importante de la synthèse : **l'analyse note aussi ce qui n'est pas là, et pourquoi c'est juste**. Seize mesures, une seule tonalité, deux emprunts, deux dominantes secondaires — et tout le module est pourtant à l'œuvre, dans le choix de *ne pas* tout employer. La maîtrise n'est pas la densité d'outils : c'est leur nécessité.
+
+### 4. À toi : le protocole d'analyse (ton outil permanent)
+
+```
+1. JOUE deux fois sans crayon (l'oreille d'abord)
+2. TONALITÉ et STRUCTURE : armure réelle, phrases, ponctuations (l16)
+3. FONCTIONS en lettres sous chaque accord (l15)
+4. CERCLE tout accident chromatique → laquelle des trois portes ? (l21 §4)
+   ou quelle figure mélodique ? (l22) ou quel voyage ? (l23–24)
+5. MÉLODIE : motif, occurrences, variations, climax, arche (l14)
+6. RYTHME : fenêtre de syncope, cohérence de style (l09)
+7. ABSENCES : qu'est-ce qui manque, et est-ce un choix ?
+```
+
+C'est le protocole du Module 11 (analyse d'œuvres), celui de l'exercice final m01-e48 (analyser une deuxième pièce fournie, seul), et — tu peux maintenant le vérifier ligne à ligne — l'ordre exact du pipeline de `MusicAnalysisService` (§4.1). Le cours, l'élève et la machine partagent désormais la même méthode : c'était la promesse d'architecture de la Section 1, et c'est ta compétence de sortie.
+
+### Récapitulatif du module (les 25 leçons en sept phrases)
+
+- [ ] Je nomme et place : notes, intervalles, gammes, degrés, cycle (l01–l07)
+- [ ] Je structure le temps : mesures, syncopes, expression (l08–l10)
+- [ ] Je construis verticalement : triades, renversements, septièmes, tensions (l11–l13, l17–l18)
+- [ ] Je comprends le moteur : tension/résolution, fonctions, cadences (l14–l16)
+- [ ] Je sors de la gamme en sachant pourquoi : les trois portes + figures mélodiques (l19–l22)
+- [ ] Je voyage : pivots, jump-cuts, médiantes — par question dramatique (l23–l24)
+- [ ] J'analyse tout cela en situation, absences comprises (l25)
+
+<QuizBlock id="m01-l25-quiz" questions={10} />
+<LessonFooter exercises={["m01-e47-analyze-depart", "m01-e48-solo-analysis"]} />

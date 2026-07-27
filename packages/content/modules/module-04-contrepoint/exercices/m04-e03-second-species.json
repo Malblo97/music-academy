@@ -1,0 +1,34 @@
+{
+  "id": "m04-e03-second-species",
+  "lessonId": "m04-l03-deuxieme-espece",
+  "title": "Deuxième espèce : le mouvement contre la tenue",
+  "kind": "COUNTERPOINT",
+  "difficulty": 4,
+  "xpReward": 90,
+  "skills": { "COUNTERPOINT": 1.0 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "strict-counterpoint", "ruleWeights": {} },
+  "rubric": { "correctness": 35, "constraints": 40, "craft": 25 },
+  "spec": {
+    "version": 1,
+    "species": 2,
+    "prompt": "Le MÊME CF dorien qu'en e02 — la comparaison est le but : même partenaire, nouveau problème. Deux blanches par ronde, au-dessus puis au-dessous, avec la levée inaugurale (le demi-soupir : l'indépendance dès la première seconde). Contrainte POSITIVE : au moins 3 dissonances de passage, vérifiées une à une — l'espèce ne s'apprend pas en évitant la dissonance mais en la conduisant. Le rapport colore tes passages sur le roll : la dissonance domestiquée, visible.",
+    "liveFeedback": true,
+    "given": {
+      "cantusFirmus": "D4:w F4:w E4:w D4:w G4:w F4:w A4:w G4:w F4:w E4:w D4:w"
+    },
+    "parts": [
+      { "id": "above", "constraints": { "species": 2, "cfPosition": "above" } },
+      { "id": "below", "constraints": { "species": 2, "cfPosition": "below" } }
+    ],
+    "constraints": {
+      "species": 2,
+      "checkers": ["species2.strong-beat-parallels", "species2.passing-count"],
+      "requiredFigures": { "passing": 3 },
+      "requireOpeningRest": true,
+      "contraryObliqueMinRatio": 0.5,
+      "singleClimax": true
+    }
+  }
+}

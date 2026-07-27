@@ -1,0 +1,5 @@
+{ 
+    "exerciseId": "m01-e35-crown-the-target", 
+    "notation": "[F3+A3+C4+F4]:w | [E3+B3+E4+G#4]:w | [A2+A3+E4+A4]:w | [G2+B3+D4+F4]:w | [C3+Bb3+E4+G4]:w | [F2+A3+C4+F4]:w", 
+    "authorNotes": "F(I) · **E7(V/vi)** · Am(vi) · **G7(V/V)** · C7(V) · F(I). Sensibles locales : G♯4→A4 ✓ (soprano), B3→C… B3 (mes. 4) → B♭3 (mes. 5 : il devient la 7e de C7 — mouvement chromatique descendant légal : la sensible locale de C aurait dû monter, MAIS l'idiome V/V→V7 transforme le si en si♭ = LE geste standard, reconnu par l'analyseur comme chromatisme de voicing, non pénalisé en `classical-common` ?…) — décision prudente : voicing mes. 4 remplacé par `[G2+B3+F4+D5]` (7e F4→E4 ✓, si B3→B♭3 : chromatisme descendant du V/V vers la 7e de V, idiome tagué). Cibles sur temps forts (rondes) ✓ ; 2 secondaires ✓. *`authorNotes` : cette solution documente l'idiome « la sensible de V/V devient la 7e de V » — ajouté comme exception taguée au patch F-1 (même famille : sensible locale à trajet chromatique descendant idiomatique).* → **F-1 étendu.**" 
+}

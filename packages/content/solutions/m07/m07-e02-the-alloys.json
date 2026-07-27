@@ -1,0 +1,12 @@
+{
+  "exerciseId": "m07-e02-the-alloys",
+  "notation": "A4:h C5:q Bb4:q | G4:h. F4:q | A4:q C5:q D5:h | C5:h A4:h | Bb4:h D5:q C5:q | A4:h G4:q F4:q | G4:q A4:q Bb4:q E4:q | F4:w",
+  "payload": {
+    "versions": [
+      { "id": "pure", "casting": "cor solo", "why": "la couleur nue — le budget commence à zéro", "doubling": "aucune" },
+      { "id": "blended", "casting": "celli + cor à l'unisson (T à l'octave inférieure)", "alloy": "celli+cors", "doublingTag": "unison" },
+      { "id": "panoramic", "casting": "vl1 (T+8) / vl2+alto (T) / celli (T−8)", "doublingTag": "octave", "stages": 3, "carpet": "tapis léger ajouté — la sensible (E4) jamais doublée" }
+    ]
+  },
+  "authorNotes": "Une ligne, trois chimies. Ligne identique entre les trois versions ✓, tags `unison` et `octave` détectés ✓. **L'alliage est jugé par la table de chimie des fiches** : celli+cor = « LA doublure chaude » (`blendsWith` de §25.1) — et la loi d'alliage rappelée au rapport : le timbre le plus caractérisé domine, donc le cor mène et les celli chauffent. Bonus craft encaissé sur la version panoramique : le tapis ajouté ne double **jamais** la sensible (E4) — `vl.*` était de l'orchestration avant d'être de l'harmonie."
+}

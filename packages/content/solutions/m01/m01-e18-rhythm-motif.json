@@ -1,0 +1,5 @@
+{ 
+    "exerciseId": "m01-e18-rhythm-motif", 
+    "notation": "A3:q. A3:e C4:e A3:e E4:q | A3:q. A3:e C4:e A3:e D4:q | A3:q. A3:e B3:e A3:e E4:q | A3:h. E3:q | A3:q. A3:e C4:e A3:e F4:q | A3:q. A3:e C4:e A3:e E4:q | A3:q. A3:e C4:e E4:q. | C4:q B3:q A3:h", 
+    "authorNotes": "Cellule rythmique `q.-e-e-e-q` : 5 occurrences exactes (hauteurs variées : motifType *rhythmic*) + 2 variations (mes. 4 : tête augmentée `h.-q` ; mes. 7 : fin liée) ✓ ≥ 4 avec variation ✓. Fin 1̂ ✓. *Le pattern ne varie pas, il dévie — la grammaire de m09-l04 déjà en germe.*" 
+}

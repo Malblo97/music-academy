@@ -1,0 +1,31 @@
+{
+  "id": "m06-e02-three-speeds-of-life",
+  "lessonId": "m06-l02-modulation",
+  "title": "Trois vitesses de vie",
+  "kind": "LAYERING",
+  "difficulty": 3,
+  "xpReward": 60,
+  "skills": { "SOUND_DESIGN": 1.0 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "hybrid-score", "ruleWeights": {} },
+  "rubric": { "correctness": 35, "constraints": 40, "craft": 25 },
+  "spec": {
+    "version": 1,
+    "prompt": "Trois couches tenues 16 mesures sur le MÊME accord : un pad qui RESPIRE (LFO lent → cutoff), un drone qui S'OUVRE (automation de cutoff sur toute la durée, en arche vers la mesure 11 — le gabarit default de tensionCurve appliqué à un paramètre), une couche haute qui SCINTILLE (LFO random → pan). Trois motions, trois types distincts : le perpétuel, le dramatique, l'organique. Soumission LayerStack : sd.static-stack doit rester muette — et le rapport te dira laquelle de tes vies est la plus convaincante.",
+    "given": {
+      "key": { "tonic": 2, "mode": "minor" },
+      "chord": { "root": 2, "quality": "min" }
+    },
+    "constraints": {
+      "lengthBars": [16, 16],
+      "requiredLayers": [
+        { "id": "pad", "role": "body", "motion": { "type": "lfo", "target": "cutoff", "rateHzMax": 0.5 } },
+        { "id": "drone", "role": "body", "motion": { "type": "automation", "target": "cutoff", "shape": "arch", "peakWindow": [0.6, 0.75] } },
+        { "id": "sparkle", "role": "top", "motion": { "type": "lfo", "target": "pan", "shape": "random" } }
+      ],
+      "motionPlan": { "distinctTypes": 3 },
+      "checkers": ["motionPlan", "sd.static-stack"]
+    }
+  }
+}

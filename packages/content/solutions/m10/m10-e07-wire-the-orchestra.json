@@ -1,0 +1,65 @@
+{
+    "exerciseId": "m10-e07-wire-the-orchestra",
+    "payload": {
+      "mode": "guided",
+      "checklist": [
+        {
+          "id": "e07-s1",
+          "expect": "GRP Strings — mute : toutes les cordes se taisent"
+        },
+        {
+          "id": "e07-s2",
+          "expect": "GRP Winds"
+        },
+        {
+          "id": "e07-s3",
+          "expect": "GRP Brass — cors ET trompettes"
+        },
+        {
+          "id": "e07-s4",
+          "expect": "GRP Perc"
+        },
+        {
+          "id": "e07-s5",
+          "expect": "GRP Orchestra — les 4 familles dedans, les synthés dehors"
+        },
+        {
+          "id": "e07-s6",
+          "expect": "GRP Synths — hors d'Orchestra : deux mondes, deux faders"
+        },
+        {
+          "id": "e07-s7",
+          "expect": "FX Reverb Hall en send depuis toutes les pistes"
+        },
+        {
+          "id": "e07-s8",
+          "expect": "FX Reverb Room — la seconde profondeur, l08 s'en sert"
+        },
+        {
+          "id": "e07-s9",
+          "expect": "FX Delay — sends ponctuels, synthés"
+        },
+        {
+          "id": "e07-s10",
+          "expect": "nommage GRP <Famille> + couleurs de famille : la console se lit comme le rack"
+        }
+      ],
+      "topology": {
+        "familles": [
+          "GRP Strings",
+          "GRP Winds",
+          "GRP Brass",
+          "GRP Perc"
+        ],
+        "somme": "GRP Orchestra",
+        "parallele": "GRP Synths",
+        "fx": [
+          "Hall",
+          "Room",
+          "Delay"
+        ],
+        "ordre": "groupes → FX → sends"
+      }
+    },
+    "authorNotes": "« La plomberie avant les robinets. » Le `verifyHint` de câblage est le meilleur du module parce qu'il est binaire : on mute un groupe, la famille se taît ou ne se taît pas — aucune interprétation possible. C'est le niveau 3 à son sommet : le produit n'entend rien et vérifie tout. Chiffres : 10 étapes, 4 groupes-familles + 2 groupes de somme + 3 FX, couverture 1,00. Legs explicite : les 4 GRP de familles + GRP Synths SONT les trois stems de e14 (Orchestra / Synths / FX) — le câblage d'aujourd'hui est la livraison de la semaine prochaine, et c'est la raison pour laquelle GRP Synths reste hors de la somme orchestrale."
+  }

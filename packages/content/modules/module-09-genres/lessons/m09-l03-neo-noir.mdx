@@ -1,0 +1,96 @@
+---
+id: m09-l03-neo-noir
+module: module-09-film-genres
+title: "Néo-noir : composer l'ambiguïté"
+estMinutes: 35
+skills: { harmony: 0.4, sound_design: 0.3, orchestration: 0.3 }
+---
+
+### Pourquoi le néo-noir a son propre langage
+
+Le film noir raconte des personnages moralement ambigus dans des villes nocturnes. Sa musique doit donc dire deux choses à la fois : *séduction* et *menace*. Le langage qui fait ça naturellement existe déjà : **l'harmonie de jazz déplacée dans un contexte orchestral et électronique sombre**. Le néo-noir moderne y ajoute les synthés analogiques, les drones et l'espace (reverbs longues).
+
+Principe cardinal du genre : **ne jamais résoudre complètement**. La leçon 5.1 t'a appris à rembourser tes dettes de tension ; ici, tu apprends à les *refinancer indéfiniment*.
+
+### 1. Le vocabulaire harmonique
+
+| Outil | Construction | Effet |
+|---|---|---|
+| Accords mineurs enrichis | `m9`, `m11`, `m(maj7)` | tristesse sophistiquée ; le m(maj7) = l'ambiguïté incarnée (mineur + sensible) |
+| Mouvement chromatique de basse | basse descend par ½ tons sous harmonies changeantes | glissement inexorable, fatalité |
+| Substitution tritonique | `subV7(#11)` au lieu de V7 | la cadence devient un couloir sombre au lieu d'une porte |
+| Accords à quartes | empilement `C-F-Bb-Eb` | ni majeur ni mineur : suspension morale |
+| Emprunts sans confirmation | ♭VI, ♭II passés sans cadence | le sol se dérobe |
+| Pédale + harmonie flottante | basse fixe, accords qui dérivent au-dessus | obsession, surveillance |
+
+Progression-type du genre (à jouer, puis à varier) :
+
+```
+| Cm9        | Ab maj7#11  | Dm7b5      | G7b9→ Db7#11 |
+| Cm9        | ...          la substitution tritonique remplace
+                            la résolution attendue : on retombe sur Cm9
+                            comme on retombe dans la nuit.
+```
+
+Note la boucle : la progression **revient** au lieu d'aboutir. C'est la structure émotionnelle du genre — l'enquête qui tourne en rond.
+
+### 2. Instrumentation typique
+
+```
+COUCHE            INSTRUMENTS                      RÔLE
+─────────────────────────────────────────────────────────────────
+Fondation         contrebasses pizz OU sub synth   pouls lent, chaleur sombre
+Nappe             cordes con sordino, divisi       brume harmonique
+                  + pad analogique sombre          (layering leçon M6)
+Voix principale   trompette bouchée, sax ténor,    la solitude qui parle
+                  OU violoncelle solo              (UNE voix, jamais un tutti)
+Ponctuation       piano feutré, notes isolées      gouttes dans la nuit
+                  vibraphone, harpe grave
+Texture           drone grave, vinyl crackle,      le temps qui s'épaissit
+                  reverb longue (4–8 s)
+Tension           cluster de cordes ppp cresc.,    la menace sous la surface
+                  braam étouffé (rare, dosé)
+```
+
+**Règle d'or d'orchestration du genre** : *de l'espace*. Le néo-noir est une musique de **soustraction** — chaque élément doit être entouré de silence ou de brume. Si ta `densityMap` s'allume, tu as déjà perdu le genre.
+
+### 3. Tempo, rythme, forme
+
+- Tempo : 50–75 BPM, souvent rubato ou pouls à peine perceptible.
+- Rythme : le swing fantôme — croches légèrement inégales même hors jazz ; syncopes douces ; **jamais** de grille rythmique affirmée (dès que ça « groove », on bascule dans le polar d'action).
+- Forme : boucles harmoniques de 4–8 mesures qui reviennent, variées par la texture plus que par l'harmonie. Le développement est **timbral** (on ajoute/retire des couches) plus que thématique.
+
+### 4. Construction émotionnelle d'une scène type
+
+```
+   scène : filature nocturne, 2 min
+   tension
+     ▲                                    ╭─ braam étouffé, cluster
+     │                          ╭─────────╯   (le danger se montre)
+     │        ╭─ +trompette ────╯
+     │  ╭─────╯  bouchée (la voix)          ╭─ retour boucle initiale,
+     │──╯ drone + pizz                      │  MOINS la trompette :
+     │  (la ville)                          ╰─ non-résolution = fin
+     └──────────────────────────────────────────► temps
+```
+
+L'arche de la leçon 5.1 existe toujours — mais son sommet est un *événement de texture*, et sa « résolution » est un **retour amputé** : on finit plus vide qu'on a commencé. C'est le gabarit `neo-noir` que `tensionCurve()` utilise pour le craft de tes exercices.
+
+### 5. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Résoudre V→i franchement | ça devient une ballade triste | subV, ou retour direct au i sans dominante |
+| Trop de couches | brume → boue | max 3 couches actives + 1 événement ; coupe |
+| Mélodie trop chantante | on quitte l'ambiguïté | fragments courts, phrases inachevées, silences |
+| Reverb sur tout | perte totale de lisibilité | la fondation (basse) reste sèche ; la reverb est pour les voix et textures |
+| Swing appuyé | pastiche jazz-club | l'inégalité rythmique doit rester subliminale |
+
+### 6. Alternatives à l'intérieur du genre
+
+- **Néo-noir électronique** : remplacer cordes par pads analogiques, trompette par lead mono filtré — mêmes fonctions, autre époque.
+- **Néo-noir orchestral** : sans synthés — la brume vient des cordes divisi con sordino et des bois graves.
+- Frontières voisines : + tempo et grille rythmique → thriller ; + résolutions et chaleur → drame ; + dissonance non-fonctionnelle → horreur psychologique. Savoir où est la frontière te permet de la franchir *exprès*.
+
+<QuizBlock id="m09-l03-quiz" questions={5} />
+<LessonFooter exercises={["m09-e05-noir-progression", "m09-e06-noir-scene"]} />

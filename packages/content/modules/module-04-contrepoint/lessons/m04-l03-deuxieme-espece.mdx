@@ -1,0 +1,61 @@
+---
+id: m04-l03-deuxieme-espece
+module: module-04-contrepoint
+title: "La deuxième espèce : le mouvement contre la tenue"
+estMinutes: 25
+skills: { counterpoint: 1.0 }
+---
+
+### Pourquoi deux notes changent tout
+
+Deux blanches contre chaque ronde du CF : le temps vient de naître. Avec lui, LA distinction qui gouverne tout le reste du module (et que tu pratiques depuis m01-l08 sans la nommer ainsi) : **le temps fort et le temps faible n'ont pas les mêmes lois**. La deuxième espèce isole ce problème unique : que peut-on se permettre quand on passe *entre* deux appuis ?
+
+### 1. Les règles nouvelles (tout le reste hérite de l02)
+
+| Position | Loi | Le sens |
+|---|---|---|
+| **Temps fort** (la 1re blanche, contre l'attaque du CF) | consonance obligatoire — les lois de la première espèce s'y appliquent intégralement | l'appui reste pur : la charpente |
+| **Temps faible** (la 2e blanche) | consonance libre, OU **dissonance de passage** : approchée ET quittée par degré conjoint, même direction | la première dissonance légale de ton laboratoire — et c'est exactement la « note de passage » de m02-l08 §3 : sa définition est NÉE ici, dans cette espèce, il y a cinq siècles |
+| Les parallèles | interdits de temps fort à temps fort AUSSI (la quinte « cachée par » le temps faible s'entend quand même : l'oreille relie les appuis) | `species2.strong-beat-parallels` — le checker qui saute une note |
+| L'unisson | permis au temps faible (en passant) | le passage excuse presque tout |
+
+<MusicExample id="deuxieme-espece" title="Deuxième espèce sur le même CF (extrait, mesures 1–5)">
+  CF : D4:w        F4:w        E4:w        D4:w        G4:w
+  CP : r:h A4:h  | D5:h C5:h | B4:h C5:h | D5:h A4:h | B4:h D5:h
+  La levée d'un demi-temps (le départ en blanche après un demi-soupir :
+  l'usage d'école — et l'anacrouse de m02-l09 a son ancêtre). Mesure 2 :
+  C5 au temps faible contre F4 = quinte ✓ consonance libre. Mesure 3 :
+  C5 contre E4 = sixte ✓. Cherche la dissonance de passage : il n'y en a
+  pas encore — ajoutons-en une, mesure 4 réécrite :
+  CP m.4 : D5:h C5:h → le C5 contre D4 = septième ✗ … non : conduite ?
+  approché de D5 par degré ✓, quitté vers B4 par degré même direction ✓,
+  temps faible ✓ — LA dissonance de passage légale : elle FILE entre
+  deux consonances, elle ne s'installe pas.
+</MusicExample>
+
+### 2. Ce que l'espèce enseigne vraiment (les trois acquis)
+
+1. **La hiérarchie métrique est une loi d'harmonie** : ce qui sonne à l'appui définit ce qu'on entend ; ce qui passe au faible colore — c'est le fondement de `strongBeatDegrees` (§19.4), de la friction de m02-l08, et de toute l'analyse que `detectChord` fait en pondérant par position (§8.5 : les poids métriques du moteur descendent de cette espèce en droite ligne) ;
+2. **la dissonance est un mouvement, pas un état** : la passage n'existe que conduite — arrivée, direction, sortie (les trois colonnes de la table de m02-l08, qui est littéralement le tableau de bord de ce module) ;
+3. **le contrepoint respire en levée** : le demi-soupir initial n'est pas une coquetterie — il désolidarise les deux voix dès la première seconde (l'oblique inaugural : l'indépendance affichée d'entrée).
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| La dissonance au temps fort | l'appui souillé — le checker species2 est sans appel | la dissonance PASSE au faible ; l'appui est de la première espèce |
+| Le passage qui rebrousse | approché par degré, quitté par saut ou demi-tour : ce n'est plus un passage (c'est une broderie ratée — elle arrive en 3e espèce) | même direction, toujours |
+| Les parallèles « cachés » par le temps faible | quintes d'appui à appui | le checker saute une note : fais pareil en vérifiant |
+| Deux blanches = deux idées | la ligne qui zigzague au double de vitesse | la ligne reste UNE mélodie (arche unique) — elle a juste deux pas par enjambée |
+
+### La mission (m04-e03, COUNTERPOINT — species 2)
+
+Le même CF dorien qu'en l02 (la comparaison est le but : même partenaire, nouveau problème), deuxième espèce au-dessus puis au-dessous, **≥ 3 dissonances de passage** exigées et vérifiées une à une (`species2.passing-count` — la contrainte positive : l'espèce ne s'apprend pas en évitant la dissonance mais en la conduisant). Le rapport te montre tes passages sur le roll, colorés : la dissonance domestiquée, visible.
+
+- [ ] Temps fort = première espèce ; temps faible = la liberté conduite
+- [ ] La dissonance de passage : par degré, même direction, entre deux consonances — l'ancêtre de toute la table des étrangères
+- [ ] Les parallèles se vérifient d'appui à appui
+- [ ] La levée inaugurale : l'indépendance dès la première seconde
+
+<QuizBlock id="m04-l03-quiz" questions={5} />
+<LessonFooter exercises={["m04-e03-second-species"]} />

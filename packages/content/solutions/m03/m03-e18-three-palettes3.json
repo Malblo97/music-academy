@@ -1,0 +1,14 @@
+{
+  "exerciseId": "m03-e18-three-palettes",
+  "partId": "non-fonctionnel",
+  "notation": "[G2+C3+F3]:w | [G2+C3+F3+Bb3]:w | [G2+C3+F3+Bb3+Eb4]:w | [C3+F3+Bb3+Eb4+Ab4]:w | [F3+Bb3+Eb4+Ab4+Db5]:w | [G2+D3+Eb4~+F4]:w | [G2+D3+Eb4~+F4~+G4]:w | [G2+D3+Eb4~+F4~+G4~+Ab4]:w | [G2+D3+Eb4~+F4~+G4~+Ab4~+Bb4]:w | [G2+D3+Eb4~+F4~+G4~+Ab4~+Bb4~+C5]:w | [G2+D3+Eb4+F4+G4+Ab4+Bb4+C5+Db5]:w | [G2+D3+F4+G4+Ab4+Bb4]:w | [G2+D3+G4+Ab4]:w | [G2+D3+Ab4]:w | [G2+D3+G4]:w | [G2+D3]:w",
+  "payload": {
+    "declaredCenter": 7,
+    "tensionPlan": [
+      { "bars": [1, 5], "motors": ["registre"], "direction": "rise" },
+      { "bars": [6, 11], "motors": ["densite", "dissonance-altitude"], "direction": "rise" },
+      { "bars": [12, 16], "motors": ["densite", "dissonance-altitude"], "direction": "fall" }
+    ]
+  },
+  "authorNotes": "La même attente, dite en matière. Deux ressources taguées : **la tour quartale** qui s'étage et voyage (m1–5, le registre seul travaille) puis **la grappe cumulative** (m6–11, une note par mesure, tenues F-21 — densité ET dissonance-altitude, les deux moteurs déclarés ensemble et mesurés ensemble). Sommet m11 (69 %, 7 sons serrés sur le socle) ; la retombée est **la dissolution par les bords jusqu'à la quinte nue** — la fin qui ne tranche pas. Aucune boussole, l'insistance de sol comme seul lieu. **archFit 0.70**. Verdict transversal du capstone : 0.71 / 0.68 / 0.70 sur la même cible, trois plans de moteurs distincts pour une seule émotion — la démonstration par ses propres pièces que l'arche est universelle et la grammaire un choix."
+}

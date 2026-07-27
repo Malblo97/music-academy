@@ -1,0 +1,11 @@
+{ "id": "m01-e13-modal-melody", "lessonId": "m01-l07-modes",
+  "title": "Expose ta couleur modale", "kind": "MELODY_COMPOSE",
+  "difficulty": 4, "xpReward": 80, "skills": { "MELODY": 1.0 },
+  "spec": { "prompt": "8 mesures en RÉ DORIEN. Méthode l07 §4 : tonique établie (commence et finis sur D, marque-la), et la note-signature — le B naturel (6̂ majeure) — EXPOSÉE : temps forts, tenues ou sommets. Test de vérité appliqué par l'analyseur.",
+    "given": { "key": { "tonic": 2, "mode": "dorian" } },
+    "constraints": { "key": { "tonic": 2, "mode": "dorian" }, "lengthBars": [8,8],
+      "noteRange": [50,79], "maxLeap": 7, "mustEndOnDegrees": [1],
+      "mustExposeDegrees": [6], "minExposureCount": 2 },
+    "styleProfile": { "id": "romantic-film", "targetMood": "noble-melancholy",
+      "ruleWeights": { "melody.tension-placement": 0.5 } },
+    "rubric": { "correctness": 30, "constraints": 40, "craft": 30 } } }

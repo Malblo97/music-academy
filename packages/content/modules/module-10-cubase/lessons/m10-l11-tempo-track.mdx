@@ -1,0 +1,68 @@
+---
+id: m10-l11-tempo-track
+module: module-10-cubase
+title: "La Tempo Track : le temps vivant"
+estMinutes: 25
+skills: { daw_workflow: 0.6, rhythm: 0.4 }
+---
+
+### Pourquoi le tempo est une piste
+
+Deux leçons du Module 1 ont pris rendez-vous ici : l10 (*ritardando, accelerando, rubato — « dans ton DAW, cela vit sur la Tempo Track »*) et l24 (*la dérive de tempo du thriller*). Le rendez-vous est arrivé. Le tempo n'est pas un réglage de projet : c'est une **voix de la composition** — elle respire, elle accélère, elle s'effondre. Cubase la traite littéralement comme une piste, avec ses événements et ses courbes ; cette leçon t'apprend à l'écrire.
+
+### 1. Activer et écrire
+
+La Tempo Track s'ajoute comme toute piste (*Add Track → Tempo*) — et le bouton **Tempo** de la barre de transport doit être sur *Track* (sinon le projet ignore ta piste : LE piège n° 1). Deux types de points :
+
+```
+JUMP (saut)     le tempo change instantanément     → changements de scène,
+                                                     entrées de sections
+RAMP (rampe)    le tempo glisse d'un point à l'autre → rit., accel., rubato
+```
+
+Le geste d'écriture : le crayon pose des points, la sélection les déplace, et chaque point porte son type. Une courbe de tempo se lit comme une courbe de CC1 (l04) — c'est le même vocabulaire de formes, appliqué au temps lui-même.
+
+### 2. Les quatre gestes du tempo (le vocabulaire de l10 M1, exécutable)
+
+| Geste | Écriture Tempo Track | Dosage |
+|---|---|---|
+| **Le ritardando de cadence** | rampe descendante sur les 1–2 dernières mesures, −8 à −15 % | quasi obligatoire sur une fin lyrique (l10 M1 §4) ; la dernière note PUIS retour au tempo si la musique continue |
+| **L'accelerando dramatique** | rampe montante sur 4–8 mesures | la perte de contrôle : + 10–25 % — au-delà, l'auditeur décroche du pouls |
+| **La dérive du thriller** (m09-l04 §2 : la vis) | rampe TRÈS longue : +2 BPM toutes les 8 mesures | imperceptible consciemment, l'urgence qui monte « sans raison » — l'étau temporel |
+| **Le rubato écrit** | micro-points ± 2-4 BPM autour du tempo, aux respirations de phrase | pour les musiques programmées (pas jouées) qui doivent respirer quand même |
+
+Sur le rubato, la hiérarchie de vérité : **le rubato JOUÉ (ton interprétation au clavier, non quantisée) bat toujours le rubato écrit**. La Tempo Track rubato sert les ostinatos et les textures programmées qui accompagnent un jeu libre — pas à remplacer tes mains.
+
+### 3. Tempo Track vs grille : qui bouge quoi (le point conceptuel)
+
+Comprends une fois pour toutes : la Tempo Track ne déplace pas tes notes — **elle déforme le temps sous elles**. Tes notes restent aux mêmes positions musicales (mesure 5, temps 3) ; c'est la durée réelle en secondes de chaque mesure qui change. Conséquences :
+
+- le MIDI exporté vers le produit garde ses ticks (480 PPQ, positions musicales) : **tes soumissions sont insensibles à la Tempo Track** — l'analyseur juge la musique, pas l'interprétation temporelle ;
+- l'audio, lui, est en secondes : une piste audio posée puis un changement de tempo = le désalignement (le *Musical Mode* des événements audio gère l'élasticité — retiens qu'il existe, l13 s'en occupe) ;
+- à l'image (l12), c'est TOUT l'enjeu : les secondes du film sont fixes, tes mesures sont élastiques — la Tempo Track est le levier qui fait tomber les mesures sur les secondes.
+
+### 4. La Signature Track : le compagnon
+
+Même logique, pour les chiffrages : la **Signature Track** pose les changements de mesure (4/4 → 3/4 → 7/8). Ses usages de compositeur : la mesure d'extension (l06 M2 : la phrase de 5 mesures peut aussi être une mesure de 6/4 insérée), et l'asymétrie du thriller (m09-l04 : les mesures à 5 et 7 temps qui boitent). Un chiffrage se pose comme un point de tempo — et le produit suit : le `meter` de tes exports est lu par mesure.
+
+### 5. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Transport sur « Fixed » | la Tempo Track écrite et ignorée | le bouton Tempo sur Track — le réflexe de vérification |
+| Le rit. qui ne revient pas | toute la suite du cue ralentie | le point de retour au tempo APRÈS la cadence |
+| Rubato écrit sur du jeu réel | deux respirations qui se battent | le joué respire seul ; l'écrit sert le programmé |
+| L'accel. de +40 % | le pouls perdu, l'urgence devenue chaos | +10–25 % max ; au-delà, c'est un changement de tempo (Jump assumé) |
+| Audio posé avant le tempo réglé | tout se désaligne au premier point | le tempo d'abord, l'audio ensuite (ou Musical Mode) |
+
+### La mission (m10-e11, PROUVÉE — avec une subtilité)
+
+Reprends « Départ » (l25 M1, MIDI fourni) : écris sa Tempo Track — rit. de cadence aux mesures 15–16 (rampe), un rubato discret aux respirations de phrases (A/A'), et l'a tempo. Exporte le MIDI **avec les événements de tempo** et soumets. Le moteur vérifie la présence et la forme des rampes (extension `proofSubmission` : `tempoEvents` — un checker qui lit les meta-events de tempo du fichier MIDI : rampe descendante ≥ 8 % sur la fenêtre finale, retour, variance de rubato bornée). *Tes notes, elles, doivent être identiques au fourni : la leçon en acte — le tempo déforme le temps, pas la musique.*
+
+- [ ] Jump = scène ; Ramp = respiration — et le transport sur Track
+- [ ] Les quatre gestes : rit. de cadence, accel. borné, la vis du thriller, le rubato du programmé
+- [ ] La Tempo Track déforme le temps sous les notes — mes soumissions n'en dépendent pas
+- [ ] Signature Track : l'extension et l'asymétrie, posées comme des points
+
+<QuizBlock id="m10-l11-quiz" questions={5} />
+<LessonFooter exercises={["m10-e11-living-time"]} />

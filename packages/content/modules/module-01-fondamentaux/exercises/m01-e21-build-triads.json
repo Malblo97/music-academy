@@ -1,0 +1,9 @@
+{ "id": "m01-e21-build-triads", "lessonId": "m01-l11-triades",
+  "title": "Les quatre espèces sous les doigts", "kind": "THEORY_QUIZ",
+  "difficulty": 2, "xpReward": 40, "skills": { "HARMONY": 1.0 },
+  "spec": { "prompt": "Construis la triade demandée (fondamentale donnée). Compte les demi-tons : 4+3, 3+4, 3+3 ou 4+4.",
+    "quiz": { "interaction": "keyboard-pick",
+      "generator": { "roots": "all12", "qualities": ["maj","min","dim","aug"], "rounds": 10 },
+      "items": [
+        { "q": "E♭ mineur depuis Eb4", "answer": ["D#4","F#4","A#4"], "why": "3+4 : E♭–G♭–B♭. La tierce mineure d'abord — l'ombre." },
+        { "q": "B diminué depuis B3", "answer": ["B3","D4","F4"], "why": "3+3 : la quinte est le triton. Tu reconnaîtras cet accord en l13 : c'est G7 sans sa fondamentale." } ] } } }

@@ -1,0 +1,5 @@
+{ 
+    "exerciseId": "m02-e25-the-vise", 
+    "notation": "E3:e E3:e F3:e E3:e~ E3:q E3:e r:e | E3:e E3:e F#3:e E3:e~ E3:q E3:e r:e | E3:e E3:e G3:e E3:e~ E3:q E3:e r:e | E3:e E3:e G#3:e E3:e~ E3:q E3:e r:e",
+    "authorNotes": "16 occurrences rythmiques ✓ ; dérive F→F♯→G→G♯ : +1 dt / 4 mesures ✓ ; 5 hauteurs ≤ 5 ✓. *authorNotes : le coût `melody.out-of-key` du F♯ non résolu (≈ 6,6 pts après amortisseur et poids 0.6) est accepté — la dérive EST hors-gamme ; score projeté ≈ 92.*" 
+}

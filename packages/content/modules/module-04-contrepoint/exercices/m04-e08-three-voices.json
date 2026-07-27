@@ -1,0 +1,42 @@
+{
+  "id": "m04-e08-three-voices",
+  "lessonId": "m04-l08-trois-voix",
+  "title": "Le tissage à trois",
+  "kind": "COUNTERPOINT",
+  "difficulty": 6,
+  "xpReward": 120,
+  "skills": { "COUNTERPOINT": 0.8, "HARMONY": 0.2 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "classical-common", "ruleWeights": {} },
+  "rubric": { "correctness": 30, "constraints": 35, "craft": 35 },
+  "spec": {
+    "version": 1,
+    "species": "free",
+    "prompt": "16 mesures à trois voix en do majeur : le premier effectif où les verticalités sont des triades complètes et où vit le problème du milieu — trois métiers, zéro privilège. La carte des textures déclarée (≥ 3 régimes parmi : trio égal, mélodie + duo, duo sur pédale, homorythmie), le motif partagé entre LES TROIS voix, ≥ 1 retard à trois (la suspension contre deux voix : trois plans de temps, taguée), triades complètes sur ≥ 70 % des appuis — mais la conduite prime sur la complétude : omets la quinte, jamais la tierce. Les TROIS paires sous surveillance (S-A, A-B, S-B : le moteur n'oublie pas la troisième). Et le juge inhabituel : ta voix MÉDIANE est évaluée comme mélodie autonome — la voix qui sert, enfin jugée pour elle-même.",
+    "liveFeedback": true,
+    "given": {
+      "key": { "tonic": 0, "mode": "major" }
+    },
+    "constraints": {
+      "species": "free",
+      "lengthBars": [16, 16],
+      "voices": 3,
+      "key": { "tonic": 0, "mode": "major" },
+      "texturePlan": {
+        "declared": true,
+        "minRegimes": 3,
+        "allowed": ["equal-trio", "melody-duo", "duo-on-pedal", "homorhythm"]
+      },
+      "motifSharedAcrossVoices": 3,
+      "requiredFigures": { "suspensionAgainstTwo": 1 },
+      "completeTriadsMinRatio": 0.7,
+      "neverOmitThird": true,
+      "voicePairsSurveillance": ["S-A", "A-B", "S-B"],
+      "forbidAllVoicesSameDirectionIntoPerfect": true,
+      "spacing": "wide-low-tight-high",
+      "perVoiceMelodyJudging": true,
+      "middleVoiceReport": true
+    }
+  }
+}

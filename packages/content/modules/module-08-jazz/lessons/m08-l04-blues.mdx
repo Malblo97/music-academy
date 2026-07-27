@@ -1,0 +1,80 @@
+---
+id: m08-l04-blues
+module: module-08-jazz
+title: "Le blues : la forme-mère"
+estMinutes: 30
+skills: { harmony: 0.6, melody: 0.4 }
+---
+
+### Pourquoi le blues avant les standards
+
+Le blues est la forme-mère du jazz — historiquement (tout en descend) et pédagogiquement : **douze mesures, trois accords, et pourtant tout y est** — la forme fixe qui libère (on sait toujours où l'on est), la friction majeur/mineur qui fait la couleur, le dialogue appel/réponse qui structure la phrase. Et c'est un idiome de film à part entière : le road movie, l'Amérique, la sueur, la dignité — le blues se cite plus souvent qu'on ne croit.
+
+### 1. La grille des douze mesures (les trois étages de sophistication)
+
+```
+LE BLUES PRIMITIF (trois accords — apprends-le d'abord) :
+| F7  | F7  | F7  | F7  |     ← le I7 : QUATRE mesures d'un accord
+| Bb7 | Bb7 | F7  | F7  |       de dominante qui ne domine RIEN
+| C7  | Bb7 | F7  | C7  |       (le lydien ♭7 de m03-l09 §2 avait
+                                 prévenu : la dominante-monde existe —
+                                 le blues en est l'origine historique)
+LE JAZZ-BLUES (la grille enrichie — celle des standards) :
+| F7  | Bb7 | F7  | Cm7 F7 |   ← le ii-V vers le IV
+| Bb7 | Bdim7| F7 | Am7♭5 D7 |  ← le passant (m03-l04 !) et le ii-V
+| Gm7 | C7  | F7 D7| Gm7 C7 |    vers le ii, puis le turnaround (l03)
+LA LEÇON DES DEUX GRILLES : le jazz-blues est le primitif VISITÉ par
+des ii-V-I — la forme n'a pas changé, la circulation s'est densifiée.
+Tout blues joué alterne librement entre les étages : la grille est
+un territoire, pas un texte.
+```
+
+### 2. La blue note et la gamme blues (la friction fondatrice)
+
+Le blues chante **mineur sur des accords majeurs** — la friction n'est pas une erreur, c'est le genre :
+
+| Objet | Contenu | Le sens |
+|---|---|---|
+| **Les blue notes** | ♭3, ♭5, ♭7 — chantées/jouées CONTRE l'harmonie majeure (le mi♭ sur F7 qui contient la ♮3) | la plainte dans la lumière : le doux-amer structurel (m02-l14 §3 : « la blue note effleurée » du noir — voici sa maison) |
+| **La gamme blues** | 1 ♭3 4 ♭5 5 ♭7 (fa blues : F A♭ B♭ B C E♭) | six notes qui marchent sur TOUTE la grille — la première gamme « passe-partout » du cursus : elle ignore les changements (l'anti-chord-scale : l06 dira quand choisir l'une ou l'autre approche) |
+| **Le geste** | la blue note se PLIE : l'approche par en-dessous, le bend, la ♭3 qui glisse vers la ♮3 (au clavier : le grace note chromatique) | la blue note est un geste vocal avant d'être une hauteur — écris le pli (l'acciaccature ♭3→3 : LE lick de base) |
+
+### 3. L'appel et la réponse (la phrase de blues)
+
+La forme mélodique du blues est un dialogue codifié sur les trois lignes de 4 mesures :
+
+```
+mesures 1-4  : L'APPEL      (la phrase A — sur le I)
+mesures 5-8  : L'APPEL REDIT (A répété ou varié — sur le IV : la même
+               phrase, l'harmonie a bougé dessous : la re-dite éclairée
+               autrement — le principe de m09-l01 §1, aux origines)
+mesures 9-12 : LA RÉPONSE   (la phrase B — la résolution du dialogue,
+               sur la cadence)
+```
+
+AAB : la structure de phrase la plus solide du répertoire — et un outil de film direct (la scène qui pose, insiste, répond). La respiration interne : chaque phrase de 4 mesures occupe ~2,5 mesures et **laisse le reste vide** — les trous sont les réponses instrumentales (le call-and-response intégré : le blues compose ses silences, m09-l03 §5 en héritage direct).
+
+### 4. Le blues mineur (la variante dramatique)
+
+La grille en mineur (i7–iv7–V7alt : Cm7 | Fm7 | A♭7... — la forme canonique : `| Cm7 | Cm7 | Cm7 | Cm7 | Fm7 | Fm7 | Cm7 | Cm7 | Ab7 | G7alt | Cm7 | G7alt |`) : la plainte devenue gravité — LE blues de film noir et de drame (l'altéré de m03-l09 en résidence, le ♭VI7→V7alt en cadence signature). Moins de friction majeur/mineur (tout est mineur), plus de poids : le choix entre les deux blues est un choix de scène.
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Le blues « corrigé » (les I7 remplacés par des Imaj7) | la friction fondatrice supprimée : c'est devenu une chanson | le I7 EST le blues — la dominante-monde s'assume |
+| La gamme blues en purée continue | six notes partout, aucun geste | la blue note est un GESTE (le pli) sur une phrase construite (AAB) |
+| Les phrases pleines | 4 mesures remplies : plus de place pour la réponse | ~2,5 mesures et le trou — le blues compose ses silences |
+| Le blues sans le swing | la grille juste, le genre absent | l01 d'abord, toujours : le temps avant les notes |
+
+### La mission (m08-e04, MELODY_COMPOSE + grille)
+
+Le blues complet en fa : la grille jazz-blues fournie (▶ walking + ride), compose le chorus AAB — l'appel (≤ 2,5 mesures + le trou), la re-dite sur le IV (`findMotifs` : la variation tonale attendue), la réponse cadentielle ; ≥ 2 blue notes pliées (l'acciaccature ♭3→3 taguée), `swingTarget` actif, la gamme blues autorisée en passe-partout OU le suivi des changements (le choix se déclare — l'avant-goût de l06). Variante : le blues mineur (grille canonique, l'altéré en cadence). Le rapport lit ta forme : « AAB ✓, tes trous font 38 % — le dialogue respire ».
+
+- [ ] Douze mesures, trois étages de grille : le territoire, pas le texte
+- [ ] La blue note est un geste (le pli) ; la gamme blues est un passe-partout à doser
+- [ ] AAB : l'appel, la re-dite éclairée, la réponse — et les trous sont la moitié de la phrase
+- [ ] Majeur = le doux-amer ; mineur = la gravité — un choix de scène
+
+<QuizBlock id="m08-l04-quiz" questions={5} />
+<LessonFooter exercises={["m08-e04-twelve-bars"]} />

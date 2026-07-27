@@ -1,0 +1,7 @@
+{
+  "exerciseId": "m04-e04-third-species",
+  "partId": "below",
+  "notation": "r:q D3:q E3:q F3:q | A3:q G3:q F3:q D3:q | C3:q D3:q E3:q C3:q | B2:q A2:q G2:q B2:q | C3:q D3:q E3:q G3:q | A3:q G3:q F3:q A3:q | D3:q E3:q F3:q D3:q | B2:q C3:q D3:q E3:q | E3:q D3:q C3:q A2:q | D3:w",
+  "payload": { "cf": "m04-cf-dorian-01", "cfPosition": "below" },
+  "authorNotes": "La basse fleurie — l'ancêtre de la walking bass, et le rapport le dit. Passages dissonants nombreux (E3 m1, G3 m2, D3 m3, A2 m4, D3 m5…), **zéro cambiata** (« elle se raréfie au grave » — conforme : la spec below n'en exige pas), le creux G2 à 40 % (F-26), fonder en bougeant : chaque temps 1 consonant, la quinte cadentielle A2→D3."
+}

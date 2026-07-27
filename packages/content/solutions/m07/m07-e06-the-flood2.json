@@ -1,0 +1,14 @@
+{
+  "exerciseId": "m07-e06-the-flood",
+  "variantId": "vague",
+  "payload": {
+    "lengthBars": 24,
+    "crescendoPlan": "identique à la variante paliers — mêmes leviers, mêmes sections",
+    "entriesStyle": "entrées tuilées : chaque part entre en cours de phrase, crescendos individuels",
+    "falseRecession": { "bars": [15, 16] },
+    "summitHeld": 2.5,
+    "exitGesture": "cut-to-solo",
+    "exitDetail": "m24 temps 4 : tacet général → le hautbois seul — le pont vers e08"
+  },
+  "authorNotes": "Le même plan, l'autre architecture : les cinq courbes montrent des **rampes** au lieu d'escaliers. C'est toute la différence entre le crescendo qu'on voit monter et celui qu'on subit — les entrées invisibles de la clarinette-caméléon, appliquées à l'ensemble. La sortie change aussi de nature : la coupure vers le solo au dernier temps, qui n'est pas une fin mais **une porte** — elle ouvre littéralement sur e08, où le monde entier se tait pour une voix. Le diptyque a/b est une expérience contrôlée : mêmes leviers, mêmes mesures, deux dramaturgies."
+}

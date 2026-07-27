@@ -1,0 +1,22 @@
+{
+  "exerciseId": "m06-e13-flesh-glue-breath",
+  "payload": {
+    "sourceStack": "m06-e06-the-law-of-the-low",
+    "tempoBpm": 100,
+    "layers": [
+      { "id": "sub", "role": "sub", "band": [30, 90], "mono": true, "saturation": "aucune — déclaré pur" },
+      { "id": "growl", "role": "body", "saturation": { "dose": "35 %" }, "band": [100, 4800], "bandBefore": [100, 2400], "note": "bande élargie honnêtement : saturer crée des harmoniques" },
+      { "id": "pad", "role": "body" },
+      { "id": "ghost-kick", "role": "movement", "trigger": true, "notes": "noires", "note": "métronome de sidechain, aucun audio" }
+    ],
+    "busGlue": { "ratio": "2:1", "reductionDb": "1–2", "attackMs": 30, "dose": "légère" },
+    "sidechainPlan": {
+      "links": [
+        { "source": "sub", "target": "pad", "depthDb": 3, "note": "le nettoyage" },
+        { "source": "ghost-kick", "target": "growl-and-pad", "releaseMs": 480, "calculation": "pouls = 500 ms à ♩=120 ; 480 ∈ ±30 % ✓" }
+      ],
+      "nonCircular": true
+    }
+  },
+  "authorNotes": "**Témoin F-38 — la couche-déclencheur silencieuse.** Le kick fantôme est une source de sidechain SANS audio : le schéma ne savait pas le dire, et une couche muette violait la pyramide des niveaux tout en polluant la carte spectrale. `Layer.trigger: true` la sort des règles `sd.*` de spectre et de niveaux ; ses notes ne définissent qu'un rythme de pompage. Les trois gestes : la chair (35 % de saturation, et la bande déclarée le DIT — 2400 → 4800, avec un low tenu à 100 : le growl ne redescend jamais sous 90, `sd.sub-conflict` muette), le liant (glue de bus, 1–2 dB, attaque 30 ms : cimenter sans écraser), la respiration (deux liens non circulaires). Le rapport lira les liens comme des relations : « ton pad respire sur ton sub » est une phrase d'analyse."
+}

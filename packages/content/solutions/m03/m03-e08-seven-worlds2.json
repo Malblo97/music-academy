@@ -1,0 +1,21 @@
+{
+  "exerciseId": "m03-e08-seven-worlds",
+  "variantId": "phrygien",
+  "notation": "[E2+B3+E4+G4]:w | [E2+A3+C4+F4]:w | [E2+B3+E4+G4]:w | [E2+A3+C4+F4]:w | [E2+G3+B3+E4]:w | [E2+C4+F4+A4]:w | [E2+B3+E4+G4]:w | [E2+A3+D4+F4]:w | [E2+B3+E4+G4]:w | [E2+A3+C4+F4]:w | [E2+A3+C4+F4]:w | [E2+G3+B3+E4]:w",
+  "payload": {
+    "pedalPlan": [
+      { "bars": [1, 1], "state": "compatible" },
+      { "bars": [2, 2], "state": "frottee" },
+      { "bars": [3, 3], "state": "compatible" },
+      { "bars": [4, 4], "state": "frottee" },
+      { "bars": [5, 5], "state": "compatible" },
+      { "bars": [6, 6], "state": "frottee" },
+      { "bars": [7, 7], "state": "compatible" },
+      { "bars": [8, 8], "state": "frottee" },
+      { "bars": [9, 9], "state": "compatible" },
+      { "bars": [10, 11], "state": "frottee" },
+      { "bars": [12, 12], "state": "compatible" }
+    ]
+  },
+  "authorNotes": "Mi phrygien, piliers i–♭II. Boucle {Em, F, Dm/E}. Le F sur bourdon de mi produit une friction de septième majeure : elle est **déclarée frottée et assumée comme identité du mode** — c'est le style, le rapport le crédite. Le FA (♭2̂) exposé m2, m4, m6 (à l'aigu), m10, m11. **Cadence phrygienne ♭II→i** (m11→12 : F4→E4, C4→B3, A3→G3 — trois voix qui chutent par degré, la cadence-signature). Aucun B7, aucun ré♯ : l'interdit tenu."
+}

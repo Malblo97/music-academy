@@ -1,0 +1,77 @@
+---
+id: m03-l12-octatonique
+module: module-03-harmonie-avancee
+title: "L'octatonique : la symétrie qui menace"
+estMinutes: 30
+skills: { harmony: 1.0 }
+---
+
+### Pourquoi c'est la gamme de l'horreur moderne
+
+Huit notes, en alternance stricte demi-ton/ton : do–ré♭–mi♭–mi–fa♯–sol–la–si♭ — la troisième grande symétrie (1+2 répété quatre fois). Et son paradoxe fondateur : contrairement aux tons entiers qui avaient *perdu* les intervalles de la gravité, l'octatonique **contient tout** — des triades majeures ET mineures, des accords de 7e, des tritons partout, les demi-tons qui mordent. C'est une gamme où le familier existe mais où *la boussole ment* : les accords tonals y flottent sans hiérarchie, reliés par tierces mineures au lieu de quintes. Le connu devenu inquiétant — la définition même de l'inquiétante étrangeté, et la raison pour laquelle l'horreur et le thriller moderne en ont fait leur langue maternelle.
+
+### 1. L'inventaire (la maison des trois dim7)
+
+```
+TROIS GAMMES SEULEMENT : la symétrie 1+2 donne 3 objets (comme les
+  3 dim7 de l04 — et pour cause :)
+CHAQUE OCTATONIQUE = DEUX dim7 EMBOÎTÉS : {C,Eb,F#,A} + {Db,E,G,Bb}
+  — la gamme est littéralement la maison des dim7 (l04 §4 promettait
+  "sa version moderne et dé-connotée" : la voici — le dim7 exposé
+  était une moustache ; dissous dans son octatonique, il redevient
+  une menace crédible)
+CE QU'ON Y TROUVE (sur chaque nœud de tierce mineure — en do :
+  C, Eb, F#, A) : triades M et m, accords de 7e de dominante,
+  dim7 — QUATRE toniques potentielles à égalité, aucune vraie
+CE QUI ORGANISE : la rotation par tierces mineures (C → Eb → F# → A :
+  le cycle du dim7 pivot, l04 §2, devenu principe de circulation)
+```
+
+<MusicExample id="boussole-qui-ment" title="Des accords familiers, une boussole qui ment (octatonique de do)">
+  [C3+E4+G4+C5]:h [Eb3+G4+Bb4+Eb5]:h | [F#3+A#4+C#5+F#5]:h [A2+C#4+E4+A4]:h |
+  [C3+Eb4+F#4+A4]:w~ | [C3+Eb4+F#4+A4]:h [C3+E4+G4+Bb4]:h
+  Quatre triades MAJEURES à une tierce mineure l'une de l'autre — chacune
+  sonne "normale", leur enchaînement ne mène nulle part (la chaîne de
+  médiantes de l06, verrouillée en boucle par la symétrie). Puis le dim7
+  natal exposé, et C7 : la dominante qui EXISTE dans la gamme… et n'a
+  pas de tonique à résoudre. Le familier, orphelin.
+</MusicExample>
+
+### 2. Le territoire : le cauchemar articulé
+
+Là où les tons entiers dissolvent (le rêve), l'octatonique **articule** (la menace) : elle a des demi-tons qui mordent, des rythmes possibles (huit notes = des cellules anguleuses), des accords qui frappent. Ses emplois : l'horreur qui bouge (la créature, la poursuite surnaturelle — l'ostinato octatonique anguleux est un standard absolu du genre), le maléfique intelligent (la boussole qui ment = l'adversaire qui manipule), le rituel sombre, et — usage plus fin — **la corruption du familier** : le thème tonal du personnage ré-harmonisé en octatonique quand il bascule (les mêmes triades existent : le thème survit, son monde ment — la version harmonique du travestissement de m02-l04).
+
+### 3. Composer la menace (les quatre gestes)
+
+| Geste | Recette |
+|---|---|
+| **La rotation** | circuler par les quatre nœuds (C→E♭→F♯→A) en triades ou 7es — la chaîne sans issue ; le fil de note commune fonctionne entre nœuds voisins (ils partagent... C-E-G et Eb-G-Bb partagent G : oui, le fil de l06 opère — la couture veloutée au service du malaise) |
+| **La morsure** | exploiter les demi-tons de la gamme en frictions verticales (l'accord + sa seconde mineure — l15 arrive) et en balancements mélodiques (le 1̂–♭2̂ du thriller, m09-l04 : il est NATIF ici) |
+| **L'ostinato anguleux** | la cellule de 3–5 notes sur les nœuds, rythme asymétrique (m09-l04 §2) — LE moteur de l'horreur-action ; huit notes sans hiérarchie = aucune note d'arrivée : l'ostinato ne peut PAS conclure, et c'est le but |
+| **La corruption** | prendre un matériau tonal existant et le glisser dans l'octatonique la plus proche (celle qui contient sa triade de tonique) : le thème reconnaissable, le monde faussé |
+| |
+
+Et la distinction de bloc, en une ligne à retenir : **tons entiers = la gravité absente (le rêve) ; octatonique = la gravité truquée (la menace)** — le choix entre les deux EST le diagnostic dramatique de ta scène.
+
+Le moteur : `detectCollection: "octatonic"` (3 vecteurs), le profil `modern-horror` (seconde activation de §40.1 : `retrogression`/`unresolved-seventh` à 0, la répétition créditée — l'héritage thriller de §7.8), et le tag `octatonic-rotation` (la circulation par nœuds détectée : ≥ 3 verticalités successives à racines sur le cycle de tierces mineures de la collection).
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Confondre les deux symétries | le rêve là où il fallait la menace (et vice-versa) | le diagnostic : absente (tons entiers) vs truquée (octatonique) |
+| L'octatonique comme chromatisme flou | huit notes traitées en douze : la gamme perd sa signature | la rotation par nœuds — la discipline des tierces mineures |
+| La menace sans morsure | la rotation polie : de jolies médiantes | les demi-tons natifs s'exposent (vertical ou balancé) |
+| Le séjour sans rythme | l'octatonique tenue devient une couleur passive | elle ARTICULE : l'ostinato anguleux est son état naturel |
+
+### La mission (m03-e12, HARMONY_PROGRESSION + mélodie, à variantes)
+
+Variante **(a) « la créature »** : 12 mesures en octatonique de do (`requireCollection`), ostinato anguleux sur les nœuds (cellule ≤ 5 notes, asymétrie rythmique), rotation complète C→E♭→F♯→A taguée, une morsure verticale exposée. Variante **(b) « la corruption »** : le thème fourni (8 mesures, sol majeur, simple) à ré-harmoniser dans son octatonique d'accueil — le thème mélodique inchangé (`samePitchSequenceAsGiven`... aux notes hors-collection près : la spec liste les 2 notes à altérer), les triades familières aux nœuds, la boussole qui ment vérifiée (`forbidFunctionalCadence` + rotation). Le rapport nomme chaque nœud visité.
+
+- [ ] 1+2 ×4 : trois gammes, chacune = deux dim7 emboîtés — la maison
+- [ ] Le familier orphelin : triades et dominantes sans hiérarchie — la boussole qui ment
+- [ ] Quatre gestes : rotation, morsure, ostinato anguleux, corruption
+- [ ] Le diagnostic de bloc : gravité absente (rêve) vs truquée (menace)
+
+<QuizBlock id="m03-l12-quiz" questions={6} />
+<LessonFooter exercises={["m03-e12-the-lying-compass"]} />

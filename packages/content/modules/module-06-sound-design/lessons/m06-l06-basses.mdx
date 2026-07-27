@@ -1,0 +1,75 @@
+---
+id: m06-l06-basses
+module: module-06-sound-design
+title: "Les basses : sub, hybrid — la loi du grave"
+estMinutes: 25
+skills: { sound_design: 0.7, harmony: 0.3 }
+---
+
+### Pourquoi le grave a sa propre loi
+
+Tout le bas du spectre obéit à une physique impitoyable que tu connais déjà par morceaux : les intervalles s'y brouillent (`orch.low-interval-limit`, l12 M1), la largeur s'y annule (`sd.sub-width`), le royaume n'y tolère qu'un roi (`sd.sub-conflict`), et l'énergie y coûte plus qu'ailleurs (la moitié de la puissance d'un mix vit sous 200 Hz). La basse synthétique est l'instrument qui vit en permanence sous cette loi — cette leçon la fabrique, la fait jouer, et la marie au reste.
+
+### 1. La basse SUB : l'assise pure
+
+| Rubrique | Contenu |
+|---|---|
+| Recette | UN oscillateur sinus (ou triangle pour un soupçon de présence), AUCUN detune (le battement dans le sub = le pompage), mono strict, ADSR soutenu (A 5–15 ms, S haut, R court) |
+| Bande | 30–90 Hz — et RIEN au-dessus : c'est sa définition |
+| Écriture | **une note à la fois, jamais d'intervalle** (l12 M1 poussé à l'extrême : même la quinte y devient boue), lignes lentes, fondamentales des accords — le registre E1–C2 typique |
+| Métier | l'assise *physique* : le sub s'adresse au corps de l'auditeur (le caisson de la salle) plus qu'à son oreille |
+| Le problème qu'elle pose | invisible sur des petites enceintes — d'où la famille suivante |
+
+### 2. La basse HYBRID : l'assise qui s'entend partout
+
+Le sub pur disparaît sur un téléphone. La solution du métier : la basse en **deux couches solidaires** —
+
+```
+COUCHE 1 — LE SUB     sinus 30–90 Hz, mono (la fiche ci-dessus)
+COUCHE 2 — LE GROWL   la MÊME ligne, +1 octave ou en doublage direct,
+                       matière riche (saw filtrée, FM, ou basse
+                       acoustique/rendue), bande 90–800 Hz, saturation
+                       bienvenue (l13) — c'est LUI qu'on entend sur
+                       les petites enceintes ; le sub, on le sent
+Solidarité :           mêmes notes, même rythme, MÊME enveloppe ressentie
+                       — deux haut-parleurs d'un seul instrument.
+                       Dans le modèle : deux Layers, le growl porte
+                       les mêmes `notes`, et la déclaration `role: sub`
+                       + `role: body` les distingue proprement.
+```
+
+Le curseur expressif est le **filtre du growl** : fermé = la basse ronde et polie (drame) ; ouvert et saturé = la menace qui gronde (thriller, action) ; modulé par enveloppe = le « talk » funky ; automatisé vers l'ouverture = la basse qui se fâche avec la scène (la tensionCurve au cutoff, encore — l02 §4).
+
+### 3. Écrire pour la basse synthétique (le pont avec tout M1)
+
+La basse hybride hérite des métiers de la basse tout court (l12 M1 : la basse-fondations, la basse-mélodie) avec deux spécificités :
+
+| Spécificité | Conséquence d'écriture |
+|---|---|
+| Elle n'a pas de sustain naturel à entretenir (pas d'archet à nourrir) | les tenues infinies sont gratuites → le danger est l'immobilité : rythmise (le pattern d'ostinato, m09-l02) ou automatise |
+| Son attaque est programmable (l01) | l'attaque EST le groove : 0 ms = le punch électro ; 30–50 ms = le glissement organique ; et le **glide/portamento** (le pitch qui glisse entre notes liées) = la signature « synthé » assumée — réservé aux lignes monophoniques, dosé (50–120 ms) |
+| Le registre du growl (90–800 Hz) est la zone critique de l03 | la basse hybride mange le bas-médium : les pads se high-passent d'autant (100→150 Hz si le growl est riche) — la négociation de place est permanente |
+
+Et la règle de cohabitation orchestrale, anticipée en l05 et arbitrée pleinement en l14 : **basse synthétique OU contrebasses dans le sub — jamais les deux en même temps**. Le passage de témoin (les Cb tiennent la scène A, le sub prend la scène B) est un événement dramatique en soi : le monde acoustique cède au monde synthétique — un geste de mise en scène, pas un réglage.
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Le sub detuné « pour l'épaisseur » | le pompage lent qui rend malade | zéro detune sous 120 Hz ; l'épaisseur vit dans le growl |
+| Des quintes dans le sub | la boue physique | une note à la fois — la loi de l12 M1, version extrême |
+| Le growl oublié | « ma basse disparaît sur mon téléphone » | deux couches solidaires, toujours |
+| Sub + contrebasses + drone | trois rois, zéro royaume | UN occupant sous 90 Hz — le passage de témoin est un geste |
+| Le glide partout | la basse-sirène | mono, lié, 50–120 ms, et seulement où la ligne le chante |
+
+### La mission (m06-e06, LAYERING + notes)
+
+La ligne de basse fournie (8 mesures, l'ostinato de m09-e03 « le mur éolien ») à réaliser en basse hybride : deux couches solidaires (sub sinus mono + growl déclaré avec sa matière et son réglage de filtre), les `notes` identiques sur les deux, une automation d'ouverture du growl vers les mesures 7–8 (la charge). Le moteur vérifie : bandes réglementaires, sub mono et sans intervalles simultanés (`notes` monophoniques — checker trivial), solidarité des deux couches (mêmes attaques ± 10 ticks), motion présente, et `sd.sub-conflict`/`sd.sub-width` muettes. *Variante piège dans la spec : la version avec contrebasses actives dans le `given` — l'élève doit high-passer ou tacet : la cohabitation arbitrée en acte.*
+
+- [ ] Sub = sinus, mono, une note, 30–90 Hz — et rien d'autre
+- [ ] La basse hybride = deux couches solidaires : le sub qu'on sent, le growl qu'on entend
+- [ ] Le filtre du growl est le curseur dramatique ; le glide est une signature dosée
+- [ ] Un seul roi sous 90 Hz : synthé OU contrebasses — le passage de témoin est un geste de mise en scène
+
+<QuizBlock id="m06-l06-quiz" questions={5} />
+<LessonFooter exercises={["m06-e06-the-law-of-the-low"]} />

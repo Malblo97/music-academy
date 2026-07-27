@@ -1,0 +1,12 @@
+{ "id": "m01-e46-mediant-voyage", "lessonId": "m01-l24-modulation-2",
+  "title": "La porte des étoiles", "kind": "HARMONY_PROGRESSION",
+  "difficulty": 7, "xpReward": 130, "skills": { "HARMONY": 1.0 },
+  "spec": { "prompt": "8 mesures en logique de COULEUR PURE : au moins deux médiantes chromatiques (accords MAJEURS à distance de tierce, hors fonction), chaque bascule tenue par au moins une note commune dans une voix qui NE BOUGE PAS à la couture. Aucune cadence fonctionnelle avant la fin (tu peux conclure par retour au point de départ — la boucle d'apesanteur — ou par une parfaite assumée qui « rentre sur Terre »). L'analyseur vérifie le fil des notes communes ; `harmony.retrogression` est coupée : autre grammaire.",
+    "given": { "key": { "tonic": 0, "mode": "major" } },
+    "constraints": { "lengthBars": [8,8], "minVoices": 4,
+      "mustInclude": ["chromaticMediant>=2"], "commonToneThread": true,
+      "forbiddenCadencesBefore": ["perfect","plagal"], "forbiddenCadencesBeforeBar": 7,
+      "allMediantsMajor": true },
+    "styleProfile": { "id": "epic-film", "targetMood": "wonder",
+      "ruleWeights": { "harmony.retrogression": 0, "harmony.overchromatic": 0 } },
+    "rubric": { "correctness": 25, "constraints": 40, "craft": 35 } } }

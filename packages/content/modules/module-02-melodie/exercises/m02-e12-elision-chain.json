@@ -1,0 +1,10 @@
+{ "id": "m02-e12-elision-chain", "lessonId": "m02-l06-phrase",
+  "title": "La soudure", "kind": "MELODY_COMPOSE",
+  "difficulty": 6, "xpReward": 100, "skills": { "MELODY": 0.8, "RHYTHM": 0.2 },
+  "spec": { "prompt": "8 mesures, DEUX phrases soudées par élision : la note finale de la phrase 1 est la première de la phrase 2 (pas de respiration, réattaque sur temps fort). Puis une VRAIE respiration avant la conclusion — deux élisions maximum, l'élan perpétuel épuise (l06 §2).",
+    "given": { "key": { "tonic": 2, "mode": "minor" } },
+    "constraints": { "key": { "tonic": 2, "mode": "minor" }, "lengthBars": [8,8],
+      "minElisions": 1, "maxElisions": 2, "requireRestAtBar": [6],
+      "mustEndOnDegrees": [1], "mustUseMotif": true },
+    "styleProfile": { "id": "epic-film" },
+    "rubric": { "correctness": 20, "constraints": 45, "craft": 35 } } }

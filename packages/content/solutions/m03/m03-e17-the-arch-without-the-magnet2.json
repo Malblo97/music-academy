@@ -1,0 +1,14 @@
+{
+  "exerciseId": "m03-e17-the-arch-without-the-magnet",
+  "variantId": "pandiatonique",
+  "notation": "[G2+D3]:w | [G2+D3+A3]:w | [G2+D3+A3+E4]:w | [G2+D3+B3+E4+A4]:w | [G3+A3+B3+D4+E4]:w | [G3+A3+B3+C4+D4+E4]:w | [A3+B3+C4+D4+E4+F#4+G4]:w | [G3+B3+D4+E4]:w | [G2+D3+A3+E4]:w | [G2+D3+G3]:w",
+  "payload": {
+    "declaredPole": 7,
+    "tensionPlan": [
+      { "bars": [1, 4], "motors": ["registre", "densite"], "direction": "rise" },
+      { "bars": [5, 7], "motors": ["dissonance-altitude"], "direction": "rise" },
+      { "bars": [8, 10], "motors": ["dissonance-altitude", "densite"], "direction": "fall" }
+    ]
+  },
+  "authorNotes": "Le trajet-matière de l10 mis au service de l'arche : quintes ouvertes → **le resserrement** (m5 : les secondes entrent, la dissonance-altitude monte à densité quasi constante — les moteurs sont bien SÉPARÉS, c'est le point de la leçon) → cluster diatonique de 7 sons au sommet (m7, 70 %) → ré-espacement → le pôle nu. Collection stricte, pôle par insistance (F-19), aucune cadence. **archFit 0.72**."
+}

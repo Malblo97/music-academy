@@ -1,0 +1,12 @@
+{ "id": "m02-e05-transpose-and-sequence", "lessonId": "m02-l03-developper-1",
+  "title": "Répète, transpose, séquence — et casse", "kind": "MELODY_COMPOSE",
+  "difficulty": 5, "xpReward": 100, "skills": { "MELODY": 1.0 },
+  "spec": { "prompt": "Voici une cellule. Construis 8 mesures avec les trois outils de l03 : répétition exacte immédiate (l'ancrage), puis une SÉQUENCE de 3 occurrences maximum — la quatrième case DOIT casser (rythme suspendu, saut ou silence) — puis une conclusion ferme. Les trois lois de la séquence sont vérifiées.",
+    "given": { "key": { "tonic": 0, "mode": "major" },
+      "notation": "C4:e E4:e G4:q E4:e" },
+    "constraints": { "key": { "tonic": 0, "mode": "major" }, "lengthBars": [8,8],
+      "givenCellAsMotif": true, "minMotifOccurrences": 4,
+      "requireSequence": true, "sequenceMaxRun": 3,
+      "requiredCadence": "perfect", "mustEndOnDegrees": [1] },
+    "styleProfile": { "id": "classical-common" },
+    "rubric": { "correctness": 25, "constraints": 45, "craft": 30 } } }

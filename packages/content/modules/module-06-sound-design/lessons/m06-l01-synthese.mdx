@@ -1,0 +1,91 @@
+---
+id: m06-l01-synthese
+module: module-06-sound-design
+title: "Le son fabriqué : oscillateurs, filtres, ADSR"
+estMinutes: 25
+skills: { sound_design: 1.0 }
+---
+
+### Pourquoi apprendre la synthèse quand on a des presets
+
+Parce qu'un preset est une réponse à la question de quelqu'un d'autre. Tant que tu ne sais pas *lire* un son — d'où vient sa matière, ce qui le sculpte, ce qui dessine son existence dans le temps — tu passes ta vie à chercher (la demi-heure des quarante pads, m10-l06). Trois notions suffisent à lire 90 % des synthés : la source, le sculpteur, l'enveloppe. Cette leçon les installe ; tout le bestiaire (l04–l11) parlera cette langue.
+
+### 1. L'oscillateur : la matière première
+
+L'oscillateur produit une onde répétée — la hauteur vient de sa vitesse, le **timbre de sa forme**. Les quatre formes canoniques, à écouter côte à côte (la mission le fait faire, une octave tenue chacune) :
+
+| Forme | Contenu harmonique | Caractère | Territoire |
+|---|---|---|---|
+| **Sinus** | la fondamentale seule — rien d'autre | pur, rond, invisible | LE sub (l06), les cloches douces |
+| **Triangle** | harmoniques impaires faibles | doux, flûté | subs avec un peu de présence, nappes discrètes |
+| **Dent de scie (saw)** | TOUTES les harmoniques, fortes | riche, cuivré, plein | la matière universelle : pads, leads, cordes synthétiques |
+| **Carré / pulse** | harmoniques impaires fortes | creux, boisé, « clarinette électrique » | basses qui grognent, leads rétro ; la largeur d'impulsion (PW) module le creux |
+
+Deux oscillateurs légèrement **désaccordés** (detune ± quelques cents) créent le battement — l'épaisseur vivante qui fait le son « analogique ». Retiens l'équation : *saw + detune = 80 % des pads du cinéma* (l04 le déclinera).
+
+### 2. Le filtre : le sculpteur
+
+Le filtre retire des fréquences — c'est la soustraction qui fait le son (le parallèle avec l'EQ soustractif de m10-l08 n'est pas un hasard : même philosophie, ici en instrument). Le vocabulaire minimal :
+
+```
+TYPE :      low-pass (coupe le haut) = 90 % de l'usage — plus tu fermes,
+            plus le son s'assombrit ; high-pass (coupe le bas) = nettoyer
+            la place du sub (l03 !) ; band-pass = le son "téléphone/radio"
+CUTOFF :    LA poignée la plus expressive de tout le synthétiseur —
+            ouvrir/fermer le cutoff, c'est le crescendo TIMBRAL
+            (le CC1 des cordes a son jumeau : beaucoup de patchs mappent
+            le cutoff sur la molette — m10-l04 s'applique tel quel)
+RÉSONANCE : le sifflement au bord de la coupe — un peu = de la présence,
+            beaucoup = le "wow" acide, trop = l'auto-oscillation
+```
+
+### 3. L'ADSR : le dessin de l'existence
+
+L'enveloppe ADSR décrit comment le son naît, vit et meurt à chaque note — les quatre paramètres du modèle `Layer.envelope`, et le vocabulaire commun de tout le module :
+
+```
+niveau
+  ▲    A         D
+  │   ╱ ╲______S______
+  │  ╱                 ╲ R
+  └─┴──────────────────┴───► temps
+   note ON            note OFF
+
+A (attack)  : le temps de naissance — 0 ms = percussif, 2 s = la nappe
+              qui se lève
+D (decay)   : la retombée initiale vers…
+S (sustain) : …le NIVEAU (pas un temps !) de la tenue
+R (release) : le temps de mort après le relâcher — la traîne
+```
+
+**La grille de lecture** : l'ADSR *est* le rôle. Quatre profils couvrent le bestiaire entier :
+
+| Profil | A / D / S / R | C'est… |
+|---|---|---|
+| Percussif | 0 / court / 0 / court | pluck, keys frappées (l07, l09) |
+| Soutenu | court / — / haut / moyen | lead, basse (l06, l08) |
+| Nappe | long / — / haut / long | pad, drone (l04, l05) |
+| Geste | long / long / 0 / long | riser, swell — le son-crescendo (l10) |
+
+Et le pont avec tout ce que tu sais : **l'ADSR fait au synthé ce que l'articulation fait à l'orchestre** (m10-l05) — le staccato est un profil percussif, le legato une nappe courte. Même pensée, autres poignées.
+
+### 4. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Chercher le timbre dans les effets | 40 plugins sur un son mou | la forme d'onde et le filtre D'ABORD — l'effet habille, il ne crée pas |
+| Sustain confondu avec un temps | des enveloppes incompréhensibles | S est un NIVEAU ; les trois autres sont des temps |
+| Résonance à fond « pour le caractère » | le sifflement qui perce tout | un peu = présence ; le wow se dose comme un accent |
+| Release infini partout | la bouillie entre les accords | la traîne se calibre sur le tempo (l09 chiffrera) |
+
+### La mission (m06-e01, LAYERING minimal)
+
+Dans un synthé de Cubase : fabrique quatre sons depuis l'init patch — un percussif, un soutenu, une nappe, un geste — en ne touchant QUE forme d'onde, cutoff, ADSR. Soumets les quatre en `Layer[]` (source, enveloppe, bande estimée) : le moteur vérifie que chaque enveloppe correspond au profil demandé (checker `envelopeProfile` — comparaison aux quatre gabarits, tolérances larges). *Ton premier stack : quatre existences dessinées à la main.*
+
+- [ ] Sinus/triangle/saw/carré : la matière se choisit avant de se traiter
+- [ ] Le cutoff est le CC1 du synthé ; la résonance s'accentue, ne s'installe pas
+- [ ] A-D-R sont des temps, S est un niveau — et l'ADSR EST le rôle
+- [ ] Quatre profils : percussif, soutenu, nappe, geste — tout le bestiaire en découle
+
+<QuizBlock id="m06-l01-quiz" questions={5} />
+<LessonFooter exercises={["m06-e01-four-lives"]} />

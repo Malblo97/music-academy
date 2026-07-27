@@ -1,0 +1,46 @@
+---
+id: m02-l06-phrase
+module: module-02-melodie
+title: "La phrase et la respiration : sculpter le temps du discours"
+estMinutes: 20
+skills: { melody: 0.8, rhythm: 0.2 }
+---
+
+### Pourquoi dépasser le 4+4
+
+Tu possèdes deux structures : la période (l16 M1) et le sentence (l03). Toutes deux carrées — 4+4, 1+1+2. Le carré est la norme... et la norme est ce qu'on module pour créer du sens. Cette leçon t'apprend à **étirer, comprimer et souder** les phrases : la respiration irrégulière qui fait qu'une mélodie *parle* au lieu de scander.
+
+### 1. Extension et compression
+
+**L'extension** retarde la cadence attendue : la phrase de 4 mesures en dure 5 ou 6 — par cadence rompue (l16 M1 : la relance), par séquence du dernier fragment, ou par simple étirement de la note pénultième. Effet : le lyrisme, la phrase qui « n'arrive pas à finir » (l'adieu qui se prolonge). **La compression** fait l'inverse : la phrase attendue sur 4 mesures conclut en 3 — urgence, décision, interruption. Loi d'usage : l'irrégularité n'a de sens que **contre** une régularité installée — étends la troisième phrase, pas la première.
+
+### 2. L'élision : la soudure dramatique
+
+Le geste le plus dynamique du répertoire : **la note finale d'une phrase est simultanément la première de la suivante**. Pas de respiration — la phrase 2 *vole* la conclusion de la phrase 1. Effet : l'élan perpétuel, la pensée qui rebondit sur elle-même. C'est l'outil des sections d'action et des développements fiévreux ; `phraseAnalysis()` la détecte comme frontière sans silence avec réattaque sur temps fort.
+
+<MusicExample id="elision" title="Respiration normale, puis élision">
+  A) C4:q E4:q G4:q E4:q | D4:q F4:q E4:h r:q A4:q | ...   — la phrase respire
+  B) C4:q E4:q G4:q E4:q | D4:q F4:q E4:q A4:q | C5:...    — le E4 conclut ET le
+     A4 relance dans le même souffle : la phrase 2 a volé la respiration.
+</MusicExample>
+
+### 3. Le silence structurel
+
+La respiration n'est pas un vide entre deux phrases : elle **appartient** à la phrase (c'est sa ponctuation sonore — `melody.phrase-breathing` la protège). Trois calibres : la **virgule** (½ temps–1 temps : la phrase continue), le **point** (1–2 temps : la phrase est dite), le **silence dramatique** (2+ temps : l'attente comme événement — utilisé une fois par pièce, avant le climax ou après lui). Le calibre de tes respirations est un paramètre de style aussi sûr que l'harmonie : le classique respire régulièrement, le récitatif librement, l'action par élisions.
+
+### Erreurs fréquentes
+
+| Erreur | Correction |
+|---|---|
+| Irrégularité dès la phrase 1 | installe le carré d'abord ; l'écart se mesure à la norme |
+| Extension = remplissage | l'extension retarde LA CADENCE — elle a une cible, pas du rab |
+| Élisions en chaîne | l'élan perpétuel épuise : deux maximum, puis une vraie respiration |
+| Respirations toutes égales | trois calibres : virgule, point, silence dramatique |
+
+- [ ] Extension (lyrisme) et compression (urgence) — contre une norme installée
+- [ ] Élision : la soudure qui vole la respiration
+- [ ] Trois calibres de silence ; le dramatique une fois par pièce
+- [ ] La respiration appartient à la phrase
+
+<QuizBlock id="m02-l06-quiz" questions={5} />
+<LessonFooter exercises={["m02-e11-stretch-and-cut", "m02-e12-elision-chain"]} />

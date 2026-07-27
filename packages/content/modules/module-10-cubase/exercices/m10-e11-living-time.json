@@ -1,0 +1,18 @@
+{ "id": "m10-e11-living-time", "lessonId": "m10-l11-tempo-track",
+  "title": "Le temps vivant", "difficulty": 4, "xpReward": 100,
+  "skills": { "DAW_WORKFLOW": 0.6, "RHYTHM": 0.4 },
+  "spec": { "prompt": "Reprends « Départ » (l25 M1, MIDI fourni) et écris sa Tempo Track : le ritardando de cadence aux mesures 15–16 (RAMPE, −8 à −15 %), un rubato discret aux respirations des phrases A/A' (micro-points ± 2–4 BPM), et l'a tempo. Exporte AVEC les événements de tempo et soumets. La subtilité qui EST la leçon : tes notes doivent être IDENTIQUES au fourni — la Tempo Track déforme le temps sous les notes, pas la musique.",
+    "mission": { "mode": "proof",
+      "checklist": [
+        { "step": "Tempo Track ajoutée ET le bouton Tempo du transport sur TRACK", "verifyHint": "Le piège n° 1 : ta piste écrite est-elle ÉCOUTÉE ?" },
+        { "step": "Rampe descendante sur les mesures 15–16 (−8 à −15 %)", "verifyHint": "La cadence finale respire-t-elle sans s'effondrer ?" },
+        { "step": "Le point de retour a tempo APRÈS la cadence", "verifyHint": "Si la musique continuait, repartirait-elle au bon pouls ?" },
+        { "step": "Rubato aux respirations de phrases : micro-points ± 2–4 BPM, pas plus", "verifyHint": "Ça respire ou ça titube ? La variance se borne." } ],
+      "proofSubmission": { "given": "assets/m01-l25-depart.mid", "includeTempoEvents": true,
+        "checks": {
+          "samePitchSequenceAsGiven": true, "sameDurationsAsGiven": true,
+          "tempoEvents": {
+            "finalRitWindow": { "bars": [15,16], "minDropPct": 8, "maxDropPct": 15, "type": "ramp" },
+            "requireReturnToTempo": true,
+            "rubatoVarianceBpm": [1,5] } } } },
+    "rubric": { "correctness": 40, "constraints": 40, "craft": 20 } } }

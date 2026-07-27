@@ -1,0 +1,25 @@
+
+{
+  "exerciseId": "m04-e10-the-chase-fugato",
+  "payload": {
+    "subject": "G3:q D4:e C4:e Bb3:q A3:q | Bb3:e C4:e D4:q G3:h",
+    "tonalAnswer": "D4:q G4:e F4:e Eb4:q D4:q | Eb4:e F4:e G4:q D4:h",
+    "counterSubject": "Bb3:h G3:q F3:q | G3:e A3:e Bb3:q Bb3:h",
+    "texturePlan": [
+      { "bars": [1, 6], "texture": "exposition" },
+      { "bars": [7, 10], "texture": "episode" },
+      { "bars": [11, 13], "texture": "strette-pedale" },
+      { "bars": [14, 15], "texture": "homophone" }
+    ],
+    "score": [
+      { "bars": [1, 2], "A": "Sj@G3 (seul)" },
+      { "bars": [3, 4], "S": "réponse tonale @D4", "A": "CS" },
+      { "bars": [5, 6], "B": "Sj@G2", "S": "CS +8va (l'inversion encaissée : 10-6-6-6 mesurés)", "A": "r" },
+      { "bars": [7, 8], "S": "F4:q C5:e Bb4:e A4:q G4:q | Eb4:q Bb4:e Ab4:e G4:q F4:q", "A": "A3:h Bb3:h | C4:h Bb3:h", "B": "F3:h E3:h | Eb3:h D3:h" },
+      { "bars": [9, 10], "S": "D5:q Bb4:q C5:h | Bb4:h A4:h", "A": "F4:h Eb4:h | D4:h C4:h", "B": "Bb2:h F3:h | Bb2:h D3:h" },
+      { "bars": [11, 13], "B": "D2:w | D2:w | D2:w (pédale de dominante)", "entries": "tête@G3 (A, b11.1) · tête@D4 (S, b11.3 — Δ1/2) · tête@Bb3 (A, b12.1) · tête@F4 (S, b12.3)", "b13": "S: Eb4:q D4:q C4:q A3:q · A: F#3:w" },
+      { "bars": [14, 15], "tutti": "[D3+A3+F#4]:h [D3+C4+F#4]:h | [G2+Bb3+D4]:w" }
+    ]
+  },
+  "authorNotes": "**Témoin F-28 — la réponse tonale.** Le sujet (le mien) est AUTO-TESTÉ d'abord : Sj contre Sj décalé aux délais 2/1/0.5 — consonances aux appuis, zéro parallèle : la strette est solvable PAR CONSTRUCTION, le checker de casting l'exige. La réponse : tête 1̂→5̂ répondue **5̂→1̂** (+5 pour +7, mutation sur le premier intervalle SEULEMENT, suite exacte) — refusée avant patch, taguée `answer: tonal` après ; la restriction (mutation en zone de tête, contour identique, rythme conservé) empêche F-12 de tout avaler. CS **invertible à l'octave** : tierces/sixtes seulement, ZÉRO quinte — donc zéro quarte à l'inversion ; les deux positions mesurées consonantes (`fugato.invertible`). Épisode : la tête séquencée F→E♭ (2 marches ≤ 3), module au relatif (estimateKey b9–10 : Si♭). Strette : 4 têtes aux délais 1/2 sur D2 (pedalPlan, F-18) ; F♯3 (b13) prépare la sensible ; conclusion homophone V→i complète. Le rapport raconte : « exposition propre, épisode qui module au relatif, strette à délai 1/2 — le filet se resserre réglementairement. »"
+}

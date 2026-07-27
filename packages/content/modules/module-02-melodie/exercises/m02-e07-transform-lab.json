@@ -1,0 +1,13 @@
+{ "id": "m02-e07-transform-lab", "lessonId": "m02-l04-developper-2",
+  "title": "Le laboratoire des transformations", "kind": "MELODY_COMPOSE",
+  "difficulty": 6, "xpReward": 110, "skills": { "MELODY": 1.0 },
+  "spec": { "prompt": "Voici une cellule. 8 mesures utilisant AU MOINS DEUX transformations de l04 parmi : augmentation/diminution (rythme ×2 ou ÷2), inversion (intervalles retournés), fragmentation (un morceau martelé). Une transformation à la fois — les empilements ne sont pas crédités. Ancre d'abord (une exacte avant de transformer).",
+    "given": { "key": { "tonic": 9, "mode": "minor" },
+      "notation": "A4:q. E4:e F4:q D4:q" },
+    "constraints": { "key": { "tonic": 9, "mode": "minor" }, "lengthBars": [8,8],
+      "givenCellAsMotif": true, "minMotifOccurrences": 4,
+      "minTransformations": 2,
+      "allowedTransformations": ["augmentation","diminution","inversion","fragmentation"],
+      "mustEndOnDegrees": [1] },
+    "styleProfile": { "id": "romantic-film" },
+    "rubric": { "correctness": 20, "constraints": 45, "craft": 35 } } }

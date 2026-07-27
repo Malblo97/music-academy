@@ -1,0 +1,77 @@
+---
+id: m01-l03-gamme-majeure
+module: module-01-fondamentaux
+title: "La gamme majeure : l'échelle de référence"
+estMinutes: 20
+skills: { melody: 0.7, harmony: 0.3 }
+---
+
+### Pourquoi la gamme majeure d'abord
+
+La gamme majeure est le **mètre étalon** de la musique occidentale : les gammes mineures, les modes, les accords, les fonctions harmoniques — tout se définit *par rapport à elle*, comme écart ou comme dérivé. Apprends-la comme une formule, pas comme une liste de notes : la formule marche depuis n'importe quelle note de départ, la liste ne marche que depuis do.
+
+### 1. La formule : T–T–½–T–T–T–½
+
+Une gamme majeure, c'est **sept notes** choisies parmi les douze, selon cette suite d'intervalles (T = ton, ½ = demi-ton) :
+
+```
+         T    T    ½    T    T    T    ½
+    C ── D ── E ── F ── G ── A ── B ── C
+    1̂    2̂    3̂    4̂    5̂    6̂    7̂    1̂
+```
+
+En do, la formule tombe sur les touches blanches — c'est un accident heureux du clavier, pas une propriété de la gamme. La preuve : construis-la depuis G.
+
+```
+    G ── A ── B ── C ── D ── E ── F♯ ── G
+       T    T    ½    T    T    T     ½
+```
+
+Le F devient F♯ : c'est la formule qui commande, pas les touches. **Exercice immédiat** : construis au clavier les gammes de D, de F, de B♭, en comptant les demi-tons. Tu feras des erreurs autour de E–F et B–C (leçon 1) — c'est normal et c'est exactement ce que le quiz vérifie.
+
+<MusicExample id="majeure-trois-toniques" title="La même formule, trois couleurs de départ">
+  C4:e D4:e E4:e F4:e G4:e A4:e B4:e C5:q |
+  G3:e A3:e B3:e C4:e D4:e E4:e F#4:e G4:q |
+  F3:e G3:e A3:e Bb3:e C4:e D4:e E4:e F4:q
+  Trois gammes majeures : même « visage », trois altitudes. Si tu entends
+  trois fois la même chose transposée, ta formule est bonne.
+</MusicExample>
+
+### 2. Pourquoi ces deux demi-tons changent tout
+
+Les demi-tons de la formule tombent entre **3̂–4̂** et **7̂–1̂**. Relis la leçon 14 (tu la croiseras bientôt) : ce sont précisément les deux attractions maîtresses du système tonal — 4̂ tiré vers 3̂, 7̂ tiré vers 1̂. La gamme majeure n'est pas une convention arbitraire : c'est une **machine à créer de la gravité** autour de sa tonique. Les autres échelles (modes, leçon 7) déplacent ces demi-tons — et c'est exactement ce qui change leur couleur.
+
+```
+   demi-tons de la gamme majeure = ses aimants
+        ↓demi-ton            ↓demi-ton
+   1̂  2̂  3̂←4̂   5̂  6̂  7̂→1̂
+              attraction    attraction
+              descendante   ascendante
+```
+
+### 3. Diatonique vs chromatique : le vocabulaire de l'analyseur
+
+Une note **diatonique** appartient à la gamme courante ; une note **chromatique** n'y appartient pas. C'est le vocabulaire exact de la règle `melody.out-of-key` que tu verras dans tes rapports d'exercice : elle ne t'interdit pas les notes chromatiques (le cinéma en vit), elle vérifie qu'elles sont *traitées* — résolues par demi-ton — et non accidentelles. Dès maintenant, quand tu joues librement, demande-toi : « cette note est-elle dans ma gamme ? si non, où va-t-elle ? »
+
+### 4. Chanter les degrés : l'outil des pros
+
+Associe chaque degré à son numéro et chante-le (« un, deux, trois… » ou do-ré-mi mobile, peu importe le système). Objectif : entendre `5̂ → 1̂` comme un *geste* identifiable, quelle que soit la tonalité. C'est cette compétence — l'oreille relative — qui te permettra plus tard de transcrire un thème entendu ou de composer loin du clavier. Cinq minutes par jour : chante 1̂–3̂–5̂–3̂–1̂, puis 1̂–4̂, puis 5̂–1̂, dans trois tonalités différentes.
+
+### 5. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Apprendre les gammes comme des listes | panique hors de C, G et F | reconstruis TOUJOURS par la formule T-T-½-T-T-T-½ |
+| Mélanger ♯ et ♭ dans une même gamme | « B♭ majeur = B♭ C D E♭... F♯ ?? » | une gamme majeure utilise chaque *nom* de note une fois : A♯ et B♭ ne coexistent pas |
+| Ignorer où tombent les demi-tons | mélodies qui « n'accrochent » pas | 3̂–4̂ et 7̂–1̂ : tes aimants, repère-les dans chaque nouvelle tonalité |
+| Pratiquer sans chanter | oreille qui ne suit pas les doigts | chante les degrés en jouant, même faux, même tout bas |
+
+### Récapitulatif
+
+- [ ] T–T–½–T–T–T–½ : je construis une gamme majeure depuis n'importe quelle note
+- [ ] Les demi-tons tombent entre 3̂–4̂ et 7̂–1̂ : ce sont les aimants de la tonalité
+- [ ] Diatonique = dans la gamme ; chromatique = hors gamme, à traiter
+- [ ] Je chante 1̂–3̂–5̂ et 5̂→1̂ dans plusieurs tonalités
+
+<QuizBlock id="m01-l03-quiz" questions={6} />
+<LessonFooter exercises={["m01-e05-build-scales", "m01-e06-diatonic-or-not"]} />

@@ -1,0 +1,82 @@
+---
+id: m04-l09-imitation
+module: module-04-contrepoint
+title: "L'imitation : le canon et la conversation"
+estMinutes: 30
+skills: { counterpoint: 0.9, melody: 0.1 }
+---
+
+### Pourquoi l'imitation est une machine à musique
+
+Le moteur n° 1 de l07 (le motif partagé) poussé à sa logique : une voix énonce, l'autre **répète la même chose, en décalé** — l'imitation. Sa puissance est économique : *une seule idée engendre toute la texture* (le rêve de m02-l02 — « la cellule contient la pièce » — réalisé littéralement : la pièce EST la cellule, superposée à elle-même). Et sa magie est conversationnelle : l'auditeur entend des voix qui *se répondent* — la forme musicale du dialogue, câblée aussi profond que l'appel-réponse.
+
+### 1. Les paramètres de l'imitation (les quatre curseurs)
+
+| Curseur | Valeurs | Effet |
+|---|---|---|
+| **L'intervalle d'entrée** | à l'octave/unisson (la réponse égale), à la quinte (LA tradition — la réponse « éclairée autrement », et l'origine du couple sujet/réponse de la fugue), à d'autres degrés (couleurs libres) | où la conversation se déplace |
+| **Le délai** | long (2–4 mesures : les phrases se répondent — la conversation posée) → court (1 mesure, 2 temps : les voix se marchent dessus — l'urgence, la strette §3) | LE curseur de tension de l'imitation |
+| **La transformation** | exacte, tonale (±1 dt : l'ajustement à la gamme — F-12 !), par inversion, par augmentation (tout m02-l04 s'applique : l'imitation est le développement rendu simultané) | la conversation qui varie |
+| **La longueur imitée** | tout (le canon strict, §2) ou la tête seulement (l'imitation libre : on répond au début, on s'émancipe ensuite — 90 % de l'usage réel) | du mécanisme au geste |
+
+### 2. Le canon : l'imitation totale
+
+Le canon impose que l'imitation dure **toute la pièce** : la voix 2 rejoue intégralement la voix 1, décalée. La conséquence technique fascinante : **la voix 1 se compose contre elle-même** — chaque mesure que tu écris doit sonner avec la mesure que tu as écrite il y a [délai] (elle sera dessous) ET permettre celle que tu écriras dans [délai] (elle sera dessus). C'est le puzzle absolu du contrepoint :
+
+```
+LA MÉTHODE DU CANON (à l'octave, délai 1 mesure) :
+1. Écris la mesure 1 de V1 (libre — c'est la dernière liberté totale)
+2. La mesure 1 passe à V2 (mesure 2) : écris la mesure 2 de V1 CONTRE
+   elle (première espèce mentale : consonances, mouvements — le
+   laboratoire sert ici à chaque pas)
+3. Répète : chaque nouvelle mesure de V1 se teste contre la précédente
+4. La sortie : le canon se ROMPT à la cadence (V2 abandonne l'imitation
+   pour la clausule) — la convention universelle : la machine s'arrête,
+   les humains concluent
+```
+
+<MusicExample id="canon-octave" title="Canon à l'octave, délai 1 mesure (les 4 premières mesures)">
+  V1 : G4:q A4:q B4:h | C5:q B4:q A4:q D5:q | B4:h G4:q A4:q | B4:q C5:q D5:h …
+  V2 : r:w            | G3:q A3:q B3:h      | C4:q B3:q A3:q D4:q | B3:h G3:q A3:q …
+  Vérifie m.2 : V1 (C5-B4-A4-D5) contre V2 (G3-A3-B3) — 4te?… C5/G3 =
+  11e≡4te : à deux voix… composée large : consonance d'usage ✓ ;
+  B4/A3 = 9e conduite en passage ✓… — le point n'est pas la perfection
+  de l'extrait : c'est que TU VOIS la mécanique — chaque mesure de V1
+  est devenue l'accompagnement obligé de la suivante. Le produit rend
+  ce puzzle jouable : le mode canon de l'éditeur AFFICHE l'ombre de ta
+  voix décalée pendant que tu écris (le fantôme gris sur le roll) —
+  tu composes contre toi-même en le voyant.
+</MusicExample>
+
+*(Extension produit actée : le mode canon de l'éditeur — la voix-fantôme décalée en surimpression, parameter `canonShadow: {interval, delay}` de la spec COUNTERPOINT. Coût minime, valeur pédagogique majeure.)*
+
+### 3. La strette et la dramaturgie du délai
+
+Resserrer le délai s'appelle la **strette** : les entrées se chevauchent de plus en plus tôt — la conversation devient dispute, l'urgence monte *structurellement* (pas un instrument de plus, pas un décibel : juste le temps qui se compresse). C'est un moteur de tension au sens de m03-l17 — ajoute-le mentalement à sa table (le 7e : la compression d'imitation) — et l'arme secrète des fins de fugato (l10). Le geste inverse existe : l'élargissement du délai détend, les voix se lâchent — la dispute qui s'apaise.
+
+### 4. L'imitation au cinéma (l'usage réel, tout de suite)
+
+- **L'entrée en imitation = le thème qui se propage** : le motif du héros énoncé au cor, imité par les violons, puis le tutti — la propagation EST un crescendo narratif (l'idée qui gagne — m09-l02 : « l'ostinato recrute », version mélodique) ;
+- **l'imitation courte = la nervosité intelligente** : le thriller qui tisse sa cellule-signal en entrées serrées (m09-l04 + strette : l'étau contrapuntique) ;
+- **le canon caché = la texture qui hante** : deux nappes dont l'une est l'autre, décalée (M6 : le delay de m06-l12 est un canon d'échantillon — la boucle des mondes, encore).
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| L'imitation qui n'entre pas sur le motif | la « réponse » que personne ne reconnaît | on imite LA TÊTE — l'identité (m02-l02 : l'ancrage vaut ici) |
+| Le canon composé sans regarder derrière | le puzzle qui s'effondre mesure 5 | chaque mesure se teste contre son ombre — le mode canon est là pour ça |
+| La strette d'entrée | l'urgence avant la conversation | le délai long installe, le court précipite : l'ordre est une arche |
+| Le canon qui refuse de se rompre | la cadence impossible, la machine qui cale | la rupture à la clausule est la convention — les humains concluent |
+
+### La mission (m04-e09, COUNTERPOINT — imitation)
+
+Trois volets progressifs : **(1)** l'imitation libre — 8 mesures à 2 voix, la tête donnée (4 notes), entrée à la quinte, délai 2 mesures, émancipation après la tête (`findMotifs` vérifie l'entrée, la liberté ensuite) ; **(2)** le canon à l'octave — 8 mesures, délai 1 mesure, mode `canonShadow` actif, rupture cadentielle en dernière mesure (le checker vérifie l'identité V2=V1 décalée SAUF la clausule) ; **(3)** la strette — le motif du volet 1 en 3 entrées aux délais 2, puis 1, puis 0.5 mesure (la compression taguée, l'arche de délais vérifiée). XP majoré : la machine à musique est à toi.
+
+- [ ] Une idée engendre la texture : l'imitation est l'économie faite art
+- [ ] Quatre curseurs : l'intervalle, le délai, la transformation, la longueur
+- [ ] Le canon : composer contre soi-même — et se rompre pour conclure
+- [ ] La strette : le temps compressé comme moteur de tension — le 7e de la table
+
+<QuizBlock id="m04-l09-quiz" questions={6} />
+<LessonFooter exercises={["m04-e09-imitation-machine"]} />

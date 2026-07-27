@@ -1,0 +1,95 @@
+---
+id: m04-l02-premiere-espece
+module: module-04-contrepoint
+title: "Le cantus firmus et la première espèce : note contre note"
+estMinutes: 30
+skills: { counterpoint: 1.0 }
+---
+
+### Pourquoi commencer par des rondes
+
+La première espèce est le contrepoint réduit à son os : une ronde contre une ronde — **aucun rythme, aucun ornement, aucune dissonance** : rien que des verticalités consonantes et des mouvements. C'est le problème n° 1 isolé à l'état pur : *choisir, pour chaque note du chant donné, LA note qui fait une belle verticalité ET une belle ligne*. Douze notes, douze décisions — et chaque décision engage les deux exigences de l01.
+
+### 1. Le cantus firmus : le partenaire immuable
+
+Le CF est une mélodie modèle : des rondes, du conjoint dominant, une arche simple, un ambitus sage — le partenaire idéal parce qu'il est *sain* (tout ce que m02 t'a appris, en version minérale). Le produit en fournit une banque (générés et validés par le moteur : conjoint ≥ 0.75, un seul climax, départ/arrivée sur la finale — le générateur §4.3 a son premier emploi contrapuntique) ; en voici un, le compagnon des trois prochaines leçons :
+
+```
+CF (ré dorien — le laboratoire aime les modes de l08 M3 : pas de
+sensible qui aimante, la ligne respire) :
+D4:w F4:w E4:w D4:w G4:w F4:w A4:w G4:w F4:w E4:w D4:w
+```
+
+### 2. Les règles de la première espèce (la table de référence)
+
+Au-dessus (ou au-dessous) du CF, une ronde par ronde :
+
+| Règle | Détail | Le checker (§4.1.5) |
+|---|---|---|
+| **Verticalités** : consonances seulement | imparfaites (3, 6) en majorité ; parfaites (5, 8) aux ancrages | `species1.verticalities` |
+| **Début** : parfaite | unisson, quinte ou octave (au-dessus) — le monde s'ouvre stable | `species1.opening` |
+| **Fin** : octave ou unisson, approchée par mouvement contraire | la cadence du laboratoire : 2̂→1̂ contre 7̂→1̂ (ou l'inverse) — la formule clausulaire | `species1.cadence` |
+| **Parallèles** : quintes et octaves interdites | ET les directes vers parfaite en mouvement direct (la « quinte cachée ») quand le soprano saute | `vl.parallel-*` + `cpt.hidden-fifths` |
+| **Mouvement** : contraire dominant | ≥ 50 % contraire+oblique | `cpt.contrary-preference` |
+| **La ligne elle-même** : une mélodie saine | conjoint dominant, les sauts récupérés (melody.leap-recovery — chez lui ici, poids 1.5), UN climax, pas de répétition immédiate | tout `melody.*` en profil strict |
+| **Unisson** : interdit sauf début/fin | deux voix sur la même note = zéro indépendance | `species1.unison` |
+
+<MusicExample id="premiere-espece" title="Première espèce sur le CF (contrepoint au-dessus)">
+  CP : A4:w A4:w?  — non, répétition. Version travaillée :
+  CP : A4:w D5:w C5:w B4:w B4:w? — non : B4 contre G4 = tierce ✓ mais
+       répétition encore. La version FINALE, vérifiée verticalité par
+       verticalité :
+  CP : A4:w D5:w C5:w B4:w D5:w A4:w C5:w B4:w A4:w G4:w D5:w?
+       — fin sur D5 contre D4 : octave ✓ mais approchée par saut direct.
+       Dernière correction (la clausule) :
+  CP : A4:w D5:w C5:w B4:w D5:w A4:w C5:w B4:w A4:w C#5:w D5:w
+  Verticalités : 5-6-6-6-5-3-3-3-3-6-8 — imparfaites dominantes ✓,
+  parfaites aux ancrages ✓. La clausule : C#5→D5 contre E4→D4 —
+  le mouvement contraire vers l'octave, la sensible dorienne HAUSSÉE
+  en cadence (la musica ficta : le laboratoire l'admet à la clausule,
+  et c'est l'ancêtre direct de ta sensible de m01-l06). Le climax : D5,
+  atteint trois fois ? — deux fois en route, la troisième conclut :
+  acceptable en dorien, perfectible ; le rapport du produit te le
+  dirait avec le même mot.
+</MusicExample>
+
+*(Le brouillon corrigé en direct ci-dessus est volontaire : la première espèce s'écrit ainsi — on pose, on vérifie, on répare. La mission te fera vivre exactement cette boucle, avec le LiveFeedback en juge de paix.)*
+
+### 3. La méthode d'écriture (l'ordre des décisions)
+
+```
+1. LA FIN d'abord : la clausule est imposée (contraire vers 8/1) —
+   écris les deux dernières notes avant tout
+2. LE DÉBUT : la parfaite d'ouverture
+3. LE CLIMAX : choisis SA position (les 2/3 — l'arche de m02-l05
+   vaut pour une ligne de rondes) et SA note (souvent la plus haute
+   consonance disponible contre le sommet du CF... ou contre son creux :
+   le contraire, toujours)
+4. RELIE : entre ces trois piliers, note à note — à chaque pas, liste
+   les consonances possibles, élimine celles qui créent parallèles ou
+   directes, choisis celle qui sert le contour (le contraire d'abord)
+5. CHANTE les deux voix séparément (le test de l01) puis ensemble
+```
+
+C'est un puzzle à contraintes — et c'est exactement pour cela que le produit excelle à l'accompagner : le LiveFeedback (Flux A, §1.5) colore chaque verticalité en temps réel (consonance/dissonance, parallèle détecté au moment où tu poses la note) : la première espèce dans le piano roll du produit est peut-être la meilleure rencontre outil-pédagogie de tout le cursus.
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Écrire de gauche à droite sans plan | la fin impossible à cadencer | la clausule d'abord, le climax ensuite, relier enfin |
+| Tout en tierces | le velours qui devient ombre (l01 §2) | trois parallèles consonantes max — le contraire reprend |
+| La belle verticalité, la ligne laide | des sauts non récupérés pour attraper la « bonne note » | la ligne est une mélodie : melody.* juge aussi |
+| Deux climax | l'arche indécise | UN sommet — comme toujours depuis m02-l05 |
+
+### La mission (m04-e02, COUNTERPOINT — species 1)
+
+Trois cantus firmi de la banque (dorien, éolien, ionien) : écris la première espèce au-dessus du premier, au-dessous du deuxième (les règles s'inversent en miroir — la basse cadence 5̂→1̂), au choix pour le troisième. Le checker species 1 au complet, profil `strict-counterpoint`, LiveFeedback actif. XP majoré : c'est l'exercice-fondation du module.
+
+- [ ] Une ronde contre une ronde : le problème des verticalités à l'état pur
+- [ ] Imparfaites en chair, parfaites aux ancrages, clausule en contraire
+- [ ] La méthode : la fin, le début, le climax, puis relier
+- [ ] Chaque voix chante seule — le juge final
+
+<QuizBlock id="m04-l02-quiz" questions={5} />
+<LessonFooter exercises={["m04-e02-first-species"]} />

@@ -1,0 +1,87 @@
+---
+id: m01-l21-emprunts
+module: module-01-fondamentaux
+title: "Emprunts modaux : la couleur du cinéma"
+estMinutes: 25
+skills: { harmony: 1.0 }
+---
+
+### Pourquoi cette leçon est celle que tu attendais
+
+Depuis le début du module, des rendez-vous s'accumulent : l'homonyme « bascule dramatique du film » (l06), les couleurs ♭VII et ♭VI « à noter dans un coin » (l15), le iv « emprunt le plus expressif du cinéma » (§4.1.3)... Tous pointaient ici. L'**emprunt modal** consiste à utiliser, en tonalité majeure, un accord venu du **mineur homonyme** (ou d'un mode parallèle) — même tonique, autre monde, le temps d'un accord. C'est LA signature harmonique de la musique de film : le majeur qui se souvient de l'ombre.
+
+### 1. Le mécanisme : ouvrir la porte de l'homonyme
+
+Do majeur et do mineur partagent leur tonique (l06 : l'homonyme, « le même héros, un autre destin »). L'emprunt entrouvre la porte entre les deux : la pièce reste en do majeur — la maison ne change pas — mais un accord vient de l'autre côté, chargé de ♭3̂, ♭6̂ ou ♭7̂ :
+
+```
+   DO MAJEUR (la pièce)          DO MINEUR (la réserve d'ombres)
+   I  ii  iii  IV  V  vi  vii°   i  ii°  ♭III  iv  v  ♭VI  ♭VII
+                 │                            │        │     │
+                 └──── l'emprunt : IV devient iv,      │     │
+                       ou ♭VI, ♭VII entrent ───────────┴─────┘
+```
+
+Différence cruciale avec tout ce qui précède : la dominante secondaire *tirait vers l'avant* (tension directionnelle), la tritonique *glissait* — l'emprunt, lui, **assombrit sur place**. Pas de promesse, pas de résolution obligée : un nuage passe devant le soleil, puis s'en va. C'est pourquoi l'analyseur le tague `borrowed` sans exiger de résolution (§4.1.3) : sa grammaire est celle de la couleur, pas du mouvement.
+
+### 2. Les quatre emprunts majeurs (par ordre d'importance au cinéma)
+
+**iv — le nuage** (Fm en do majeur). L'emprunt roi. Son geste canonique : **IV→iv→I** — la sous-dominante s'assombrit *en passant* (A→A♭→G au fil des trois accords : une ligne chromatique descendante interne, la voilà). Effet : la tendresse qui se voile, le sourire aux larmes. C'est l'accord des adieux, des photos jaunies, du « c'était il y a longtemps ». Si tu ne retiens qu'un emprunt, c'est lui.
+
+<MusicExample id="le-nuage" title="IV → iv → I : le sourire aux larmes">
+  [C3+E4+G4+C5]:h [F3+F4+A4+C5]:h | [F3+F4+Ab4+C5]:h [C3+E4+G4+C5]:w
+  I — IV — iv — I. Suis la voix interne : A... A♭... G. Trois notes, et tu as
+  écrit l'accord le plus bouleversant du répertoire hollywoodien. Rejoue SANS
+  le iv : la phrase est jolie. Avec : elle se souvient de quelque chose.
+</MusicExample>
+
+**♭VI — la bascule épique** (A♭ en do majeur). Un accord *majeur* construit sur la ♭6̂ : il ne pleure pas, il **agrandit**. I→♭VI est le geste « le décor s'ouvre » — révélation, vaisseau qui surgit, plan large. Enchaîné en I→♭VI→♭VII→I, tu obtiens LA formule de l'héroïsme sombre moderne (trailers, fantasy de guerre) : trois accords majeurs dont deux empruntés — du majeur partout, de l'ombre partout. Le paradoxe qui définit le son épique contemporain.
+
+**♭VII — le majeur terrien** (B♭ en do majeur). Ton vieil ami mixolydien (l07, l15) relu comme emprunt : ♭VII→I conclut « terre et cuir », ♭VII→IV→I déroule l'aventure. Frontière poreuse : un ♭VII isolé est un emprunt ; un ♭VII *systématique* signifie que tu as en fait changé de mode (et le `keyDetect` du produit fera la même lecture : pondération de ♭7̂ → inférence mixolydienne, §8.4 — le cours et le moteur, même jugement).
+
+**♭III — le sursaut** (E♭ en do majeur). Le plus brutal : la tierce de la tonalité elle-même contredite. I→♭III est un *jump-cut* harmonique — changement de plan sans transition. À hautes doses, il ouvre sur le monde des médiantes chromatiques (le langage des blockbusters SF — Module 9 y consacrera une leçon) ; à dose unitaire, c'est la surprise pure.
+
+### 3. Le dosage : l'emprunt est un événement
+
+La grammaire de l'emprunt tient en trois lois :
+
+- **la rareté fait la valeur** : un iv par thème bouleverse ; un iv par mesure lasse. L'emprunt tire son pouvoir du contraste avec la diatonie qui l'entoure (le principe du dosage de l17, degré au-dessus) ;
+- **le placement fait le sens** : le même iv en milieu de phrase = nuage passager ; en fin de phrase (iv→I, la plagale mineure — « l'amen sombre ») = conclusion voilée ; juste avant V = préparation dramatisée (le iv→V du romantisme, poing serré avant la cadence) ;
+- **la mélodie doit consentir** : si l'harmonie joue A♭ (iv) pendant que la mélodie tient A (diatonique), le frottement est une faute, pas une couleur. L'emprunt se prépare dans la ligne : fais passer la mélodie par ♭6̂, ou évite-lui la 6̂ à cet instant. (C'est le seul cas où `melody.out-of-key` et l'harmonie doivent se coordonner — l'analyseur vérifie la cohérence note-accord, pas les deux séparément.)
+
+### 4. Synthèse du chromatisme harmonique : les trois portes
+
+Le bloc l19–l21 t'a donné trois façons de sortir de la diatonie. Table de navigation — c'est aussi, mot pour mot, l'arbre de décision de l'exercice de synthèse m01-e40 :
+
+<DecisionTree id="trois-portes">
+Que veut ce moment de la scène ?
+├─ TIRER vers un accord, dramatiser son arrivée
+│    → dominante secondaire V/x (l19) — tension directionnelle
+├─ GLISSER vers la conclusion, feutrer, sophistiquer
+│    → substitution tritonique subV (l20) — la basse en demi-ton
+└─ ASSOMBRIR sur place, voiler, agrandir, se souvenir
+     → emprunt modal iv, ♭VI, ♭VII, ♭III (l21) — la couleur sans promesse
+</DecisionTree>
+
+Trois portes, trois grammaires, un invariant commun : **chaque note chromatique introduite sait pourquoi elle est là** — sensible locale qui monte, basse qui glisse, ou ♭6̂/♭7̂/♭3̂ venues de l'homonyme. C'est la définition du chromatisme maîtrisé, et la raison pour laquelle `harmony.overchromatic` ne se déclenche jamais chez qui a compris ce bloc : ses heuristiques d'explication (§7.3) sont littéralement la liste de ces trois portes.
+
+### 5. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Emprunt attendu comme une dominante | « il ne se résout pas ! » — non : il n'a rien promis | l'emprunt colore ; seules les portes 1 et 2 tirent |
+| Mélodie diatonique sur harmonie empruntée | frottement A/A♭ « fausse note » | la ligne consent : passe par ♭6̂ ou contourne |
+| iv systématique | le doux-amer devient tic | un nuage par thème ; la diatonie autour lui donne son prix |
+| ♭VII partout « parce que épique » | tu es en mixolydien sans le savoir, et V7 sonne soudain étranger | emprunt ponctuel OU mode assumé — choisis et tiens |
+| Confondre ♭VI (A♭ majeur) et vi (Am) | « ma bascule épique sonne triste » | ♭VI est MAJEUR sur ♭6̂ ; vi est mineur sur 6̂ — deux mondes, un demi-ton d'écart de fondamentale |
+
+### Récapitulatif
+
+- [ ] Emprunter = utiliser un accord de l'homonyme mineur : assombrir sur place, sans promesse
+- [ ] iv = le nuage (IV→iv→I : la ligne A–A♭–G) ; ♭VI = la bascule épique ; ♭VII = le terrien ; ♭III = le sursaut
+- [ ] Dosage : rareté, placement, consentement de la mélodie
+- [ ] Les trois portes du chromatisme : tirer (V/x), glisser (subV), voiler (emprunt)
+- [ ] Toute note chromatique sait pourquoi elle est là — sinon elle n'est pas encore écrite
+
+<QuizBlock id="m01-l21-quiz" questions={7} />
+<LessonFooter exercises={["m01-e39-borrow-the-cloud", "m01-e40-three-doors"]} />

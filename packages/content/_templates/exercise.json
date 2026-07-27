@@ -1,0 +1,5 @@
+{ "id": "mNN-eNN-slug", "lessonId": "mNN-lNN-slug", "title": "",
+  "kind": "MELODY_COMPOSE", "difficulty": 4, "xpReward": 60,
+  "skills": {}, "spec": { "prompt": "", "given": {}, "constraints": {},
+  "styleProfile": { "id": "classical-common" },
+  "rubric": { "correctness": 30, "constraints": 45, "craft": 25 } } }

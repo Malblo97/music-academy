@@ -1,0 +1,47 @@
+{
+  "id": "m07-e05-elena-cast",
+  "lessonId": "m07-l05-ligne-et-ame",
+  "title": "La garde-robe d'Elena",
+  "kind": "ORCHESTRATE",
+  "difficulty": 6,
+  "xpReward": 120,
+  "skills": { "ORCHESTRATION": 0.7, "COUNTERPOINT": 0.3 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "pool": "medium",
+  "styleProfile": { "id": "romantic-film", "targetMood": "noble-melancholy", "ruleWeights": {} },
+  "rubric": { "correctness": 25, "constraints": 40, "craft": 35 },
+  "spec": {
+    "version": 1,
+    "prompt": "Ton contrechant d'Elena (m04-e11 — le fil continue) enfin DISTRIBUÉ : 16 mesures, la garde-robe complète. Exposition 1 : le thème NU, couleur déclarée (l'ancrage : le thème s'expose pur avant de s'habiller). Exposition 2 : + ton contrechant, casté selon ta recette — le fleuve lent aux celli ténor (l'or pur : LE son « thème de film complet »), l'ombre aux altos ou au chalumeau, le descant au ciel. Puis L'ÉCHANGE : 4 mesures où le contrechant prend le premier rôle — la passation se fait sur une respiration du thème (il parle dans les silences ; ici il y RÈGNE), et le retour aussi. Les trois écarts sont mesurés (étage ≥ une octave, timbre, profil rythmique) — plus la MANIÈRE, qui compte comme un timbre. Le cran dynamique en dessous se vérifie par effectivePower, pas par les nuances écrites : celli mf contre violons section mf, le contrechant est déjà dominé. Le rapport dira qui règne, mesure par mesure.",
+    "given": {
+      "key": { "tonic": 9, "mode": "minor" },
+      "theme": "asset:m02-e30-elena-theme",
+      "countermelody": "sourceSubmission:m04-e11-elenas-countermelody",
+      "themeImmutable": true
+    },
+    "constraints": {
+      "lengthBars": [16, 16],
+      "format": "Part[]",
+      "pool": "medium",
+      "structure": "exposition-nue / exposition-habillee / echange",
+      "rolePlan": { "declared": true, "perSection": true, "verifiedAgainstDetected": true },
+      "recipeDeclared": { "allowed": ["response", "slow-river", "chromatic-line", "counter-rhythm", "descant"], "argued": true },
+      "separationAxes": {
+        "registerSemitonesMin": 12,
+        "timbreFamiliesDistinct": true,
+        "rhythmicComplement": { "simultaneousStrongAttacksMax": 0.35 },
+        "mannerCounts": true
+      },
+      "dynamicRankBelow": { "part": "countermelody", "steps": 1, "checker": "effectivePower" },
+      "hierarchyExchange": {
+        "required": true,
+        "lengthBars": 4,
+        "handoverOnThemeBreath": true,
+        "returnRequired": true,
+        "verifiedBy": ["activity", "stage"]
+      },
+      "checkers": ["orch.range-violation", "orch.balance", "orch.masking", "orch.register-color", "densityMap"]
+    }
+  }
+}

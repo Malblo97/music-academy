@@ -1,0 +1,107 @@
+---
+id: m01-l06-gammes-mineures
+module: module-01-fondamentaux
+title: "Les gammes mineures : trois visages d'une même ombre"
+estMinutes: 25
+skills: { melody: 0.5, harmony: 0.5 }
+---
+
+### Pourquoi « les » mineures
+
+Le mineur n'est pas une gamme mais une **famille de trois variantes** — naturelle, harmonique, mélodique — qui répondent à un dilemme précis : *comment avoir à la fois la couleur sombre ET la force de conclusion ?* Comprendre ce dilemme, c'est comprendre pourquoi le mineur est le territoire favori de la musique de film : il oblige à des choix, et chaque choix est une couleur.
+
+### 1. Le mineur naturel : la couleur pure
+
+Formule : **T–½–T–T–½–T–T**. Autre lecture, plus utile : c'est la gamme majeure lue depuis son 6e degré. La mineur = les notes de do majeur, de A à A. On dit que la mineur est le **relatif mineur** de do majeur : même armure, deux toniques.
+
+```
+    A ── B ── C ── D ── E ── F ── G ── A
+       T    ½    T    T    ½    T    T
+    1̂    2̂   ♭3̂   4̂    5̂   ♭6̂   ♭7̂   1̂
+```
+
+Nomenclature : on décrit le mineur *par rapport au majeur* — d'où ♭3̂, ♭6̂, ♭7̂. La ♭3̂ est l'ombre elle-même (tierce mineure, leçon 2). Mais remarque **♭7̂** : un ton sous la tonique. Pas de demi-ton 7̂→1̂, donc **pas de sensible, pas d'aimant de conclusion**. Le mineur naturel est modal, flottant, archaïque — magnifique pour le folk, la fantasy, les paysages — mais il conclut mal.
+
+<MusicExample id="naturel-flottant" title="La beauté flottante du naturel">
+  A4:q G4:q A4:q C5:q | B4:q A4:q G4:h | A4:q C5:q B4:q G4:q | A4:w
+  Écoute la fin : G→A conclut « en douceur de conteur », sans l'autorité
+  d'une sensible. Ni défaut ni qualité : une couleur.
+</MusicExample>
+
+### 2. Le mineur harmonique : l'aimant greffé
+
+Solution au dilemme : hausser ♭7̂ en **7̂ naturelle** pour recréer la sensible. C'est le mineur **harmonique** — nommé ainsi car sa raison d'être est l'*harmonie* : permettre un accord de dominante majeur (V) qui conclut fort (tu verras pourquoi à la leçon 15).
+
+```
+    A ── B ── C ── D ── E ── F ── G♯ ── A
+       T    ½    T    T    ½    1½T    ½
+                              ↑ seconde augmentée (3 demi-tons)
+```
+
+Le prix à payer : entre ♭6̂ et 7̂ apparaît une **seconde augmentée** — l'intervalle que la règle `vl.augmented-second` surveille en écriture stricte. Mélodiquement, F→G♯ a une couleur orientale/dramatique très marquée : soit tu la veux (et c'est un trésor — la moitié des musiques « désert, Espagne, Europe de l'Est » du cinéma vit dessus, la règle est d'ailleurs à poids 0 dans tous les styles film), soit tu ne la veux pas — et alors :
+
+### 3. Le mineur mélodique : lisser le chemin
+
+Pour monter vers la tonique sans la seconde augmentée, on hausse **aussi ♭6̂** : c'est le mineur **mélodique ascendant** (T–½–T–T–T–T–½ — une gamme majeure avec ♭3̂, retiens-le comme ça). En descendant, plus besoin de sensible : on redescend traditionnellement par le naturel.
+
+```
+  montée :   A  B  C  D  E  F♯  G♯  A    (6̂ et 7̂ haussées : élan fluide)
+  descente : A  G  F  E  D  C   B   A    (naturel : la couleur revient)
+```
+
+En pratique moderne (jazz, film), on utilise souvent le mélodique **dans les deux sens** — et le jazz en a fait une mine de couleurs à part entière (Module 8).
+
+### 4. La vraie règle d'usage : le mineur est un menu, pas un règlement
+
+Voici comment pensent les compositeurs réels — et comment l'analyseur du produit raisonne (son profil mineur étendu tolère les trois variantes, cf. la leçon technique que tu n'as pas besoin de lire) :
+
+<DecisionTree id="quel-mineur">
+Où va ta phrase ?
+├─ Elle conclut sur 1̂ avec autorité
+│    → sensible requise : 7̂ haussée (harmonique ou mélodique)
+├─ Elle monte vers 1̂ en ligne fluide
+│    → mélodique ascendant (6̂ et 7̂ haussées)
+├─ Elle descend, ou flotte, ou raconte (folk, paysage, mystère)
+│    → naturel (♭7̂, ♭6̂) — la couleur pure
+└─ Tu veux l'exotisme dramatique
+     → harmonique avec sa seconde augmentée EXPOSÉE, assumée
+</DecisionTree>
+
+Dans une même phrase de huit mesures, tu peux — tu *vas* — mélanger les trois. Le « mineur » d'une vraie partition est ce mélange ; les trois gammes des manuels sont les ingrédients, pas des plats séparés.
+
+### 5. Relatif vs homonyme : les deux parentés du mineur
+
+Deux liens à ne jamais confondre, tous deux essentiels au cinéma :
+
+| Lien | Exemple | Ce qui est partagé | Effet expressif |
+|---|---|---|---|
+| **Relatif** (même armure) | C majeur ↔ A mineur | les 7 notes | glissement d'éclairage sans changer de décor |
+| **Homonyme** (même tonique) | C majeur ↔ C mineur | la tonique, 5̂, 2̂, 4̂ | le même héros, un autre destin — LA bascule dramatique du film |
+
+L'homonyme prépare les **emprunts modaux** de la leçon 21 (le fameux iv en majeur) : quand tu y arriveras, tout sera déjà en place.
+
+<MusicExample id="homonyme-bascule" title="Même thème, deux destins">
+  A) C4:q E4:q G4:q E4:q | D4:q E4:q C4:h     — majeur : le thème au soleil
+  B) C4:q Eb4:q G4:q Eb4:q | D4:q Eb4:q C4:h  — mineur homonyme : UNE note change (E→E♭),
+                                                 tout bascule. C'est la puissance de ♭3̂.
+</MusicExample>
+
+### 6. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Croire qu'il faut « choisir sa gamme mineure » et s'y tenir | phrases raides, conclusions molles ou exotisme involontaire | pense par phrase : montée conclusive = haussée, descente = naturelle |
+| Seconde augmentée par accident | couleur orientale non voulue au milieu d'un thème sobre | si tu hausses 7̂ en montant depuis ♭6̂, hausse aussi 6̂ |
+| Confondre relatif et homonyme | modulations qui ne font pas l'effet prévu | relatif = même armure ; homonyme = même tonique — deux outils différents |
+| Oublier que ♭7̂ existe | tout harmoniser avec sensible, perte de la couleur modale | le naturel est un choix légitime, pas un mineur « incomplet » |
+
+### Récapitulatif
+
+- [ ] Naturel = relatif du majeur, ♭3̂ ♭6̂ ♭7̂, flottant, sans sensible
+- [ ] Harmonique = 7̂ haussée pour conclure ; prix : la seconde augmentée (qui est aussi un trésor)
+- [ ] Mélodique = 6̂ et 7̂ haussées pour monter fluide ; descente par le naturel
+- [ ] Le mineur réel est un mélange des trois, décidé phrase par phrase
+- [ ] Relatif (même armure) ≠ homonyme (même tonique) : deux parentés, deux usages
+
+<QuizBlock id="m01-l06-quiz" questions={7} />
+<LessonFooter exercises={["m01-e11-minor-variants", "m01-e12-minor-melody"]} />

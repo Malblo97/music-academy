@@ -1,0 +1,14 @@
+{
+  "exerciseId": "m06-e06-the-law-of-the-low",
+  "variantId": "solo",
+  "payload": {
+    "lengthBars": 8,
+    "layers": [
+      { "id": "sub", "role": "sub", "source": "sine", "band": [30, 90], "mono": true, "detune": 0, "notes": "l'ostinato du mur éolien, E1–G1" },
+      { "id": "growl", "role": "body", "band": [100, 2400], "material": "saw + FM", "filterSetting": "250 Hz — fermé, poli", "notes": "les MÊMES notes que le sub, attaques à ±4 ticks" }
+    ],
+    "motion": { "layer": "growl", "type": "automation", "dst": "cutoff", "curve": "250 → 1400 Hz", "bars": [7, 8], "note": "la charge" },
+    "humanize": { "seed": 11, "offsetTicks": 4 }
+  },
+  "authorNotes": "« Deux haut-parleurs d'un seul instrument. » Solidarité vérifiée : notes identiques, attaques à ±4 ticks ≤ 10 ✓ ; sub mono, détune ZÉRO (l'épaisseur vit ailleurs — dans le growl) ✓ ; bandes 30–90 / 100–2400 sans chevauchement ✓. L'automation d'ouverture est datée aux mesures 7–8, là où le mur éolien atteint son ♭VII : la charge est harmonique avant d'être spectrale."
+}

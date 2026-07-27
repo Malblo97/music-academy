@@ -1,0 +1,13 @@
+{
+  "exerciseId": "m03-e08-seven-worlds",
+  "variantId": "dorien",
+  "notation": "[D2+A3+D4+F4]:w | [D2+B3+D4+G4]:w | [D2+A3+D4+F4]:w | [D2+G3+D4+B4]:w | [D2+A3+F4+A4]:w | [D2+B3+G4+B4]:w | [D2+A3+F4+A4]:w | [D2+C4+E4+G4]:w | [D2+A3+D4+F4]:w | [D2+B3+D4+G4]:w | [D2+B3+D4+G4]:w | [D2+A3+D4+F4]:w",
+  "payload": {
+    "pedalPlan": [
+      { "bars": [1, 7], "state": "compatible" },
+      { "bars": [8, 8], "state": "frottee" },
+      { "bars": [9, 12], "state": "compatible" }
+    ]
+  },
+  "authorNotes": "Ré dorien, piliers i–IV. Boucle {Dm, G, C/D} = 3 accords. Le SI (6̂ majeure, la note qui décide du mode) exposé m2, m4 (soprano, ronde), m6 (doublé — légal : 6̂ n'est pas une sensible), m10–11 : pillarExposure ≥ 0.25. m8 : la subtonique C en éclaireuse (le « marteau doux » annoncé). **Cadence dorienne IV→i** (m11→12 : B3→A3, G4→F4 — la 6̂ majeure qui retombe sur la tierce mineure : LA couleur du mode en un geste). Aucun A(7) nulle part : l'interdit du mode tenu."
+}

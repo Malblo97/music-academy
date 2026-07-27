@@ -1,0 +1,35 @@
+{
+  "exerciseId": "m09-e06-noir-scene",
+  "payload": {
+    "parts": [
+      { "role": "fondation",
+        "elements": ["contrebasses pizz sur les fondamentales", "drone sub sinus G1 (-18 dB, mono)"],
+        "space": "sec, reverb 0",
+        "entryBar": 1,
+        "exitBar": 28,
+        "notation": "",
+        "_todo": "Pizz décrit en prose : hauteurs C2 | F2 | D2 | Db2 x7 tours, une attaque par mesure, mes. 9-16 + une contretemps sur 2,5, mes. 28 drone seul (aucun pizz). Durées d'attaque et notation du contretemps non écrites dans la source — à compléter en Phase 1." },
+      { "role": "nappe",
+        "elements": ["cordes divisi con sord — les 4 voix supérieures de la boucle m09-s05", "vinyl crackle (-22 dB)"],
+        "space": "reverb 6 s",
+        "entryBar": 5,
+        "exitBar": 26,
+        "notation": "",
+        "_todo": "Matière définie par référence : « les 4 voix supérieures de la boucle s05 » (m09-s05, 7 tours, harmonie inchangée). Non réécrite dans la source — dériver mécaniquement de m09-s05 en Phase 1." },
+      { "role": "voix",
+        "elements": ["trompette bouchée (mute: straight, F-40) — UNE voix, jamais un tutti"],
+        "space": "reverb 6 s, pré-delay 40 ms",
+        "entryBar": 9,
+        "exitBar": 20,
+        "notation": "r:h G4:q Bb4:e C5:e | Eb5:h. r:q | r:w | r:h G4:h | r:q C5:e Eb5:e G5:h | G5:q F5:h Eb5:q | r:h Ab4:h | r:w | r:w | r:w | r:q Eb5:e D5:e C5:h | r:h G4:h" },
+      { "role": "evenement",
+        "elements": ["cluster de cordes con sord ppp→mf (seconde mineure Eb/D qui enfle)"],
+        "entryBar": 17,
+        "exitBar": 19,
+        "notation": "",
+        "_todo": "Décrit en prose (cluster Eb/D, ppp→mf sur 3 mesures, 18→76, coupé net à la mes. 20). Notation non écrite — à compléter en Phase 1." }
+    ]
+  },
+  "authorNotes": "Do mineur, 28 mes., ♩=58. Témoin F-56 : 3 rôles actifs + 1 événement, les éléments comptés dans leur rôle (5 éléments passent la pyramide de niveaux et sd.sub-conflict — un seul roi sous 90 Hz : le G1). Structure loop-voice-event-amputated-return : la ville (mes. 1-8, fondation puis nappe mes. 5) → la voix (9-16) → l'événement (17-20) → le retour amputé (21-28 : la boucle initiale MOINS la trompette) ; mes. 27 la nappe se retire, mes. 28 le drone seul sur le Db7#11 — on finit plus vide qu'on a commencé, aucune cadence. La trompette ne joue que 9 fragments sur 28 mesures : elle se tait plus qu'elle ne parle ; son dernier mot (G4, mes. 20) est la même note qu'à la mes. 12 — le #11 du couloir, non résolu. Syncopation 0,15 (contretemps de pizz mes. 9-16 + trois croches d'appui de la trompette) : le swing fantôme reste subliminal. dyn[] déclarée (à formaliser, schéma F-33) : fondation plate (48) ; nappe en arche lente (32→58→30) ; cluster 18→76 puis coupé net — le sommet est un événement de texture, pas une note aiguë. Removed : « un vibraphone de ponctuation (les gouttes de l03 §2) : coupé — quatre couches, et la nuit devenait meublée. Trois rôles, c'était déjà le plafond ; le silence est la quatrième couche. » Socle harmonique : la boucle de m09-s05, inchangée sur 7 tours — le développement est timbral, non thématique.",
+  "_schema": "Noms des champs payload/parts provisoires — à aligner sur le schéma F-33/F-39/F-40 (+ rolePlan F-56) avant seed."
+}

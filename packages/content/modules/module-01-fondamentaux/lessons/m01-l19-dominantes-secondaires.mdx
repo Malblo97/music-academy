@@ -1,0 +1,82 @@
+---
+id: m01-l19-dominantes-secondaires
+module: module-01-fondamentaux
+title: "Dominantes secondaires : dramatiser une arrivée"
+estMinutes: 25
+skills: { harmony: 1.0 }
+---
+
+### Pourquoi sortir de la diatonie
+
+Jusqu'ici, tes sept accords vivaient dans la gamme. Les trois prochaines leçons t'apprennent à en sortir **sans te perdre** — le chromatisme harmonique contrôlé. Premier outil, le plus sûr et le plus employé : la **dominante secondaire**. Son principe tient en une phrase que tu portes depuis la leçon 13 : *chaque accord X7 désigne sa cible*. Il est temps d'exploiter ce pouvoir à volonté.
+
+### 1. Le principe : offrir une dominante à n'importe qui
+
+En do majeur, seul I possède « sa » dominante native (V7 = G7). Mais rien n'interdit de fabriquer, ponctuellement, la dominante *d'un autre accord* : avant Am (vi), insère E7 — la dominante de la... et l'arrivée de Am devient un événement. Notation : **V/vi** (« cinq de six »).
+
+```
+Sans :   C ──────────► Am        vi arrive : bien.
+Avec :   C ──► E7 ──► Am         V/vi ANNONCE vi : vi arrive COURONNÉ.
+              ↑
+        hors diatonie (G♯ !)
+        mais l'oreille sait
+        exactement où il va
+```
+
+Le mécanisme psychologique : E7 contient G♯ — chromatique en do — mais ce G♯ est la **sensible de la** (7̂ locale, l'aimant de la leçon 14 recréé sur mesure). L'oreille ne se perd pas : elle est *tirée*. C'est le chromatisme le plus sûr qui existe, car il porte sa propre explication. Et c'est exactement ainsi que l'analyseur le reconnaît (§4.1.3 : « X7 dont la cible diatonique suit dans ≤ 2 accords » → tag V/x, aucune pénalité `melody.out-of-key` pour le G♯).
+
+<MusicExample id="couronnement" title="La même arrivée, sans puis avec couronnement">
+  A) [C3+E4+G4]:h [F3+F4+A4]:h | [A2+E4+A4+C5]:w              — C  F  Am : correct
+  B) [C3+E4+G4]:h [E3+E4+G#4+B4+D5]:h | [A2+E4+A4+C5]:w       — C  E7 Am : le G♯
+     tend vers A, le D descend vers C♯... non — vers C : Am est mineur. Écoute
+     l'arrivée : deux fois plus « méritée ». C'est ça, dramatiser.
+</MusicExample>
+
+### 2. La carte des cibles
+
+On peut viser tout accord diatonique **majeur ou mineur** (pas le vii°, trop instable pour être une destination). En do majeur :
+
+| Cible | Dominante secondaire | Notes chromatiques introduites | Couleur de l'événement |
+|---|---|---|---|
+| ii (Dm) | **V/ii = A7** | C♯ | assombrit puis installe le départ |
+| iii (Em) | **V/iii = B7** | D♯, F♯ | la plus « lointaine », rare et précieuse |
+| IV (F) | **V/IV = C7** | B♭ | ⚠️ c'est I devenu dominante ! le geste « on ouvre une porte » (voir §4) |
+| V (G) | **V/V = D7** | F♯ | LA plus courante : muscle la demi-cadence et prépare les grandes cadences |
+| vi (Am) | **V/vi = E7** | G♯ | le doux-amer : couronner l'ombre |
+
+Deux remarques d'atelier :
+
+- **V/V est ton premier réflexe à acquérir** : …ii–V–I devient …ii–V/V–V–I ? Non — relis : ii et V/V ont la même fondamentale à un détail près (Dm7 vs D7). Passer de ii à V/V, c'est *majoriser* le ii (hausser sa tierce F→F♯) juste avant V : le « lift » chromatique le plus économique du répertoire. Une note bouge, la cadence double de puissance ;
+- **l'enchaînement en chaîne** : les dominantes secondaires se cascadent — E7→A7→D7→G7→C descend le cycle des quintes (l05 : le voilà qui devient un toboggan). Chaque accord est à la fois résolution du précédent et dominante du suivant. Quatre mesures de chute contrôlée vers la maison : le geste « générique de fin » par excellence. C'est aussi la « logique identifiable » que `harmony.overchromatic` (§7.3) sait reconnaître : une chaîne de V/x n'est jamais du chromatisme perdu.
+
+### 3. Résoudre — ou trahir
+
+Une dominante secondaire est une promesse locale, et toute promesse s'exploite deux fois (l16, la rompue — même arme, échelle réduite) :
+
+- **tenir** : V/x → x, l'arrivée couronnée — 90 % des usages ;
+- **trahir** : V/vi → ...F (au lieu d'Am). La rompue *locale* : micro-surprise en pleine phrase, très cinéma. La règle de sécurité : la voix qui portait la sensible locale (le G♯) doit se résoudre *quelque part* de façon chantable (G♯→A même si l'harmonie est F... et te voilà sur un F♯ ? non : sur la tierce de F — vérifie au clavier : G♯→A fonctionne sur F, A est sa tierce. La mélodie tient sa promesse même quand l'harmonie trahit la sienne).
+
+### 4. Le cas V/IV : quand la maison devient une porte
+
+C7 mérite sa section : c'est **I qui se transforme**. Tu joues C (maison, repos)... tu ajoutes B♭... et instantanément C n'est plus une arrivée : c'est un départ vers F. Ce geste — *la tonique convertie en dominante de sa sous-dominante* — est l'ouverture de phrase la plus naturelle du langage tonal : « il était une fois (C)... un jour (C7) il partit (F) ». Tu le retrouveras partout, du gospel aux codas de Beatles en passant par la moitié des thèmes de comédie. Et il illustre la frontière de l17 mieux que tout : **une seule note (♭7) change la fonction** — c'est pourquoi la septième mineure n'a jamais été un « enrichissement ».
+
+### 5. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| V/x qui ne va nulle part | chromatisme flottant, `melody.out-of-key` levée à raison | une dominante secondaire se résout (ou trahit VERS un accord précis) dans les 2 accords |
+| Sensible locale abandonnée | le G♯ de E7 saute à un E : « fausse note » ressentie | la sensible locale monte d'un demi-ton, comme toute sensible (l14) |
+| V/x sur temps fort, cible sur temps faible | l'annonce pèse plus que l'événement | la CIBLE prend le temps fort ; la dominante secondaire est une anacrouse harmonique |
+| Cascade de V/x trop longue | quatre accords : toboggan ; huit : l'auditeur ne sait plus où est la maison | au-delà de 3–4 maillons, réaffirme la tonique ou assume la modulation (l23) |
+| Confondre V/V et II | « pourquoi mon ré majeur sonne-t-il bizarre ici ? » | D7 en do n'existe que POUR G ; sans G derrière, c'est un emprunt lydien (autre leçon, autre logique) |
+
+### Récapitulatif
+
+- [ ] V/x = fabriquer la dominante de n'importe quel accord cible : chromatisme auto-expliqué
+- [ ] La sensible locale (note chromatique introduite) monte vers sa tonique locale
+- [ ] V/V = majoriser le ii : une note, le double de puissance cadentielle
+- [ ] Les chaînes de V/x descendent le cycle des quintes : chute contrôlée vers la maison
+- [ ] V/IV = la maison devenue porte : ♭7 sur I, et le récit démarre
+
+<QuizBlock id="m01-l19-quiz" questions={7} />
+<LessonFooter exercises={["m01-e35-crown-the-target", "m01-e36-dominant-chain"]} />

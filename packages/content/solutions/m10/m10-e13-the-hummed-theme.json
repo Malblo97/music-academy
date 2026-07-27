@@ -1,0 +1,64 @@
+{
+    "exerciseId": "m10-e13-the-hummed-theme",
+    "notation": "D4:q F4:q E4:q D4:q | A4:h G4:q F4:q | E4:q F4:q D4:h | C4:q D4:q A3:h | D4:q F4:q E4:q D4:q | Bb4:h A4:q G4:q | F4:q G4:q E4:h | D4:q C4:q D4:h",
+    "payload": {
+      "mode": "proof",
+      "assets": [
+        "assets/audio-fredon-du-real-v1.wav"
+      ],
+      "canonicalAsset": {
+        "id": "la-remise/fredon-target",
+        "status": "8 mesures chiffrées par ce fichier (F-58)",
+        "key": "ré mineur",
+        "notes": 26,
+        "variation": "mes. 5–8 : la même tête, la réponse ouverte à la sixte (Bb4), la descente qui ferme sur la tonique au lieu de tomber à la quinte grave",
+        "deliberateFlawsForVocalTake": [
+          "2 octaves fausses (mes. 3 et 6)",
+          "1 segment doublé (mes. 5)",
+          "tempo flottant ±8 %"
+        ]
+      },
+      "tempo": 72,
+      "pipeline": [
+        "tempo détecté vérifié et corrigé À LA MAIN avant Musical Mode",
+        "Musical Mode",
+        "VariAudio (monophonique)",
+        "Extract MIDI",
+        "relecture note à note",
+        "Iterative léger (0,5) sur les positions"
+      ],
+      "corrections": [
+        {
+          "bar": 3,
+          "issue": "octave fausse (E5 pour E4)",
+          "fix": "−12 demi-tons"
+        },
+        {
+          "bar": 6,
+          "issue": "octave fausse (A5 pour A4)",
+          "fix": "−12 demi-tons"
+        },
+        {
+          "bar": 5,
+          "issue": "segment doublé (D4 scindé par le souffle)",
+          "fix": "fusion"
+        },
+        {
+          "bars": [
+            2,
+            4,
+            7,
+            8
+          ],
+          "issue": "miettes < 40 ticks issues du glissando vocal",
+          "fix": "suppression (4)"
+        }
+      ],
+      "acceptedDivergence": {
+        "bar": 8,
+        "count": 1,
+        "reason": "la dernière note fredonnée GLISSE d'un demi-ton vers le bas : geste vocal, pas note — laissé tel quel et documenté"
+      }
+    },
+    "authorNotes": "« Tu es noté sur ta relecture d'extraction — la compétence réelle du métier, pas le clic sur le bouton. » Chiffres vérifiés : 25/26 hauteurs concordantes = 0,962 ≥ 0,90 ✓, obtenu par 3 corrections structurelles (2 octaves recalées, 1 segment fusionné) et 4 miettes supprimées. La divergence restante n'est pas une imperfection tolérée : c'est le PLAFOND réel de l'exercice — la tolérance de 10 % existe précisément pour que le glissando final ne soit pas compté comme une faute de relecture. La boucle du diptyque se referme ici : le réal fredonne `fredon-target`, l'élève extrait, le cue de e15 déploie le même thème (thème-mémoire). Finding F-58 : F-49 ne chiffrait que 4 mesures et « ×2 varié » — on ne peut pas comparer un MIDI à un fantôme. Les 8 mesures ci-dessus sont désormais l'asset ; la prise vocale chantera celles-là, avec les défauts spécifiés."
+  }

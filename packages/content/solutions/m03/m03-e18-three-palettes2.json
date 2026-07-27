@@ -1,0 +1,21 @@
+{
+  "exerciseId": "m03-e18-three-palettes",
+  "partId": "modal",
+  "notation": "[D2+D3+A3+F4]:w | [D2+D3+B3+G4]:w | [D2+A3+F4+A4]:w | [D2+B3+G4+B4]:w | [D2+A3+F4+D5]:w | [D2+B3+G4+D5]:w | [D2+A3+F4+A4+D5]:h [D2+B3+G4+B4+D5]:h | [D2+C4+E4+A4+E5]:h [D2+B3+G4+B4+E5]:h | [D2+A3+D4+F4+A4+D5]:h [D2+B3+D4+G4+B4+D5]:h | [D2+C4+E4+G4+A4+E5]:h [D2+B3+D4+G4+B4+E5]:h | [D2+E4+G4+B4+E5+G5]:w | [D2+B3+G4+B4+D5]:w | [D2+A3+F4+A4]:w | [D2+B3+G4]:w | [D2+A3+F4]:w | [D2+B3+G4]:w",
+  "payload": {
+    "declaredMode": { "tonic": 2, "mode": "dorian" },
+    "pedalPlan": [
+      { "bars": [1, 7], "state": "compatible" },
+      { "bars": [8, 8], "state": "frottee" },
+      { "bars": [9, 9], "state": "compatible" },
+      { "bars": [10, 11], "state": "frottee" },
+      { "bars": [12, 16], "state": "compatible" }
+    ],
+    "tensionPlan": [
+      { "bars": [1, 6], "motors": ["registre"], "direction": "rise" },
+      { "bars": [7, 11], "motors": ["densite", "rythme-harmonique"], "direction": "rise" },
+      { "bars": [12, 16], "motors": ["densite", "registre"], "direction": "fall" }
+    ]
+  },
+  "authorNotes": "La même dramaturgie que la part 1, dite en système 2 : **l'insistance remplace la pédale-personnage, les moteurs remplacent l'aimant** (plan corrélé segment par segment, F-24). Sommet m11 (69 %, sol5 au faîte). Et la fin qui n'apaise pas : **le dernier balancement i↔IV interrompu à mi-course — la pièce finit sur IV, le pilier-tonique évité**, la boucle jamais refermée. pillarExposure 0.31, forbidFunctionalCadence, mode confirmé par l'ancrage F-19. **archFit 0.68**."
+}

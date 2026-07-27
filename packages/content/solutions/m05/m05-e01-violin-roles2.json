@@ -1,0 +1,13 @@
+{
+  "exerciseId": "m05-e01-violin-roles",
+  "partId": "energy",
+  "notation": "B3:e D4:e G3:e D4:e B3:e D4:e G3:e D4:e | A3:e D4:e F#4:e C4:e A3:e D4:e F#4:e C4:e | B3:e E4:e G3:e E4:e B3:e E4:e G3:e E4:e | C4:e E4:e G3:e E4:e C4:e E4:e G3:e E4:e | B3:e D4:e G3:e D4:e B3:e D4:e G3:e D4:e | C4:e E4:e G3:e E4:e C4:e E4:e G3:e E4:e | A3:e D4:e F#4:e C4:e A3:e D4:e F#4:e C4:e | B3:e D4:e G3:e D4:e G3:h",
+  "payload": {
+    "instrument": "violins-2",
+    "role": "rhythmic-ostinato",
+    "articulation": "spiccato",
+    "ostinatoCell": { "bars": 1, "shape": "3̂–5̂–1̂–5̂ en croches, invariant, transposé par accord" },
+    "divisi": false
+  },
+  "authorNotes": "Deux vitesses, un pupitre qui chante et un qui propulse. La cellule d'UNE mesure ne varie jamais de forme (3̂–5̂–1̂–5̂ en croches, huit attaques) : seule sa transposition suit la grille — c'est un moteur, pas une contre-mélodie, et c'est la différence entre l'énergie et le bavardage. **Ratio de notes d'accord 1,00 ≥ 0,80** (les seules notes étrangères possibles, la 7e de D7, sont chiffrées : do4 aux mes. 2 et 7 = note d'accord). Registre G3–F♯4 (55–66) ⊂ [55,74] : le médium sec, sous le chant des I, jamais dans leur bande. Mes. 8 : le moteur s'arrête sur la tonique en blanche — l'ostinato ne se termine pas, il **atterrit**. Spiccato déclaré : hors de l'articulation, la même cellule sonne comme un accompagnement de salon."
+}

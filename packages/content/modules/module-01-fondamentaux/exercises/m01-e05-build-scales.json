@@ -1,0 +1,9 @@
+{ "id": "m01-e05-build-scales", "lessonId": "m01-l03-gamme-majeure",
+  "title": "Construis la gamme majeure", "kind": "THEORY_QUIZ",
+  "difficulty": 2, "xpReward": 40, "skills": { "MELODY": 0.5, "HARMONY": 0.5 },
+  "spec": { "prompt": "Clique les 7 notes de la gamme demandée, dans l'ordre ascendant. La formule commande : T-T-½-T-T-T-½.",
+    "quiz": { "interaction": "keyboard-pick",
+      "generator": { "tonics": ["G","D","A","E","F","Bb","Eb","Ab"], "rounds": 6 },
+      "items": [
+        { "q": "Gamme de D majeur depuis D4", "answer": ["D4","E4","F#4","G4","A4","B4","C#4"], "why": "Deux dièses : F♯ et C♯ — le nouveau dièse est toujours la sensible (l05)." },
+        { "q": "Gamme de Bb majeur depuis Bb3", "answer": ["A#3","C4","D4","D#4","F4","G4","A4"], "why": "B♭ et E♭. Une gamme utilise chaque NOM de note une fois : E♭, pas D♯ (l'affichage corrigera l'orthographe)." } ] } } }

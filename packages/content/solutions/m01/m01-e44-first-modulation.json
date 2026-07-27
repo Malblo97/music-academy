@@ -1,0 +1,5 @@
+{ 
+    "exerciseId": "m01-e44-first-modulation", 
+    "notation": "[C3+E4+G4+C5]:w | [F3+F4+A4+C5]:w | [G2+D4+G4+B4]:h [G2+F4+G4+B4]:h | [C3+E4+G4+C5]:w | [A2+E4+A4+C5]:w | [D3+F#4+A4+D5]:w | [G2+D4+G4+B4]:w | [C3+E4+G4+C5]:h [A2+C4+E4+A4]:h | [D3+F#4+A4+C5]:w | [G2+B3+D4+G4]:w", 
+    "authorNotes": "**Établir** : I–IV–V7–I, cadence parfaite en do (mes. 1–4) ✓ (`requireEstablishingCadence`). **Pivoter** : Am = vi/ii (mes. 5). **Confirmer** : D7 (F♯ = la nouvelle sensible, exposée au ténor) → G, puis re-confirmation C(=IV de sol)–Am(ii)–D7–G : fenêtres finales stables en sol ✓, cadence parfaite finale en sol ✓ (F♯4→G4 ✓). *(F-5 : le V7→I de la mes. 3–4 est une cadence de segment légitime — arrivée tenue une ronde ; aucune cadence parasite en ré : D7 mes. 9 ne « tient » pas comme arrivée.)*" 
+}

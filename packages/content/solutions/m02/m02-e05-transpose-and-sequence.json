@@ -1,0 +1,5 @@
+{ 
+    "exerciseId": "m02-e05-transpose-and-sequence", 
+    "notation": "C4:e E4:e G4:q E4:e r:e G4:q | C4:e E4:e G4:q E4:e r:e G4:q | D4:e F4:e A4:q F4:e r:e A4:q | E4:e G4:e B4:q G4:e C5:q. | r:e C4:e E4:e G4:e~ G4:e E4:e r:e E4:e~ | E4:e A4:e~ A4:e G4:e~ G4:e F4:e~ F4:e E4:e~ | E4:e F4:e~ F4:e E4:e~ E4:e D4:e~ D4:e B3:e~ | B3:e C4:q.~ C4:h~ | C4:e", 
+    "authorNotes": "Séquence C-D-E = run de 3, la 4e case **casse** (C5:q. suspendu) ✓ ; 5 occurrences ✓ ; cadence mélodique parfaite (B3=7̂ → C4 ronde) ✓ F-2." 
+}

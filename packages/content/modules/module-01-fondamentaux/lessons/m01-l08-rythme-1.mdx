@@ -1,0 +1,80 @@
+---
+id: m01-l08-rythme-1
+module: module-01-fondamentaux
+title: "Rythme I : pulsation, mesures, valeurs — le squelette du temps"
+estMinutes: 20
+skills: { rhythm: 1.0 }
+---
+
+### Pourquoi le rythme avant d'aller plus loin
+
+Tu as passé sept leçons sur les hauteurs. Vérité d'atelier : **une mélodie médiocre avec un bon rythme survit ; une belle suite de hauteurs au rythme plat meurt**. Le rythme est aussi ce que ton DAW comprend le mieux — grille, quantisation, ticks : cette leçon connecte la théorie au Key Editor que tu utilises déjà.
+
+### 1. Pulsation, temps, tempo
+
+La **pulsation** est le battement régulier sous-jacent — ce que tape le pied. Le **tempo** en fixe la vitesse en BPM (battements par minute) : ♩=60, une pulsation par seconde. Le tempo est un choix *dramatique* avant d'être technique :
+
+| BPM | Territoire expressif typique |
+|---|---|
+| 40–60 | contemplation, deuil, immensité |
+| 60–80 | narration calme, romance, tension rampante (le néo-noir vit ici) |
+| 80–110 | marche, affirmation, aventure |
+| 110–140 | action, urgence, danse |
+| 140+ | poursuite, panique, virtuosité |
+
+### 2. La mesure : le contrat de lecture
+
+La musique groupe les pulsations en **mesures**. Le chiffrage `4/4` dit : 4 temps par mesure (chiffre du haut), la noire vaut un temps (chiffre du bas). Ce groupement crée la **hiérarchie métrique** — des temps inégaux en *poids* :
+
+```
+4/4 :   1     2     3     4    |
+        FORT  faible mi-   faible
+                     fort
+3/4 :   1     2     3    |            (valse : UN-deux-trois)
+        FORT  faible faible
+```
+
+Cette hiérarchie n'est pas décorative : c'est elle qui a donné sens à « temps fort » dans les leçons 4 et 14 (notes charpentes et tensions *sur temps forts*), et c'est elle que la règle `rhythm.meter-integrity` protège — une mesure de 4/4 qui contient 5 temps n'est pas de l'audace, c'est un contrat rompu par accident.
+
+### 3. Binaire vs ternaire : les deux respirations
+
+En `4/4` ou `3/4`, chaque temps se divise naturellement en **2** (binaire). En `6/8`, l'unité de pulsation réelle est la noire pointée, divisée en **3** (ternaire) :
+
+```
+4/4 binaire :  ♩ = ♪♪        1-&  2-&  3-&  4-&      carré, marché
+6/8 ternaire : ♩. = ♪♪♪      1-2-3  4-5-6            balancé, roulé
+```
+
+⚠️ `6/8` n'est pas « du 3/4 en croches » : 3/4 = TROIS temps binaires (valse), 6/8 = DEUX temps ternaires (barcarolle, galop, mer). Compte à voix haute les deux — la différence s'entend immédiatement. Le cinéma adore le ternaire pour ce qu'il *roule* : chevauchées (6/8 rapide), berceuses (6/8 lent), houle (12/8).
+
+<MusicExample id="binaire-ternaire" title="Même hauteurs, deux respirations">
+  A) 4/4 : C4:q E4:q G4:q E4:q | C4:q E4:q G4:h        — carré, il marche
+  B) 6/8 : C4:q. E4:e G4:q E4:e | C4:q. G4:q. — balancé, il roule
+</MusicExample>
+
+### 4. Valeurs, points, liaisons — et les ticks de ton DAW
+
+Tu connais `w h q e s` (leçon 1) et le point (+50 %). La **liaison** additionne deux valeurs par-dessus la barre de mesure : c'est le seul moyen légal de traverser la barre (le contrat de lecture reste lisible). Sous le capot, le produit — comme Cubase — compte en **ticks** : 480 par noire. Croche = 240, double = 120, noire pointée = 720. Tu n'as jamais à calculer ; mais savoir que la grille du Key Editor et l'analyseur parlent la même unité t'évitera des mystères de quantisation au Module 10.
+
+### 5. Le silence est une note
+
+Chaque valeur a son silence (`r:q`, `r:e`…). Deux métiers du silence, dès maintenant : **la respiration** (fin de phrase — la règle `melody.phrase-breathing` t'y ramènera) et **le poids** (un temps fort *silencieux* crée une attente plus forte que n'importe quelle note : l'auditeur tombe dans le vide). Réflexe à installer : quand une phrase ne « décolle » pas, essaie d'abord d'y *retirer* des notes.
+
+### 6. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Composer sans pulsation intérieure | rythmes flottants, quantisation qui « répare » au hasard | métronome ou tape du pied, toujours, même en esquissant |
+| Confondre 3/4 et 6/8 | accompagnements à contre-pied | compte à voix haute : UN-deux-trois vs UN-deux |
+| Remplir chaque temps | bouillie, aucune hiérarchie | le silence sur temps fort est un outil, pas un trou |
+| Ignorer la hiérarchie métrique | tensions et charpentes posées n'importe où | temps 1 > temps 3 > temps 2/4 : place en conscience |
+
+### Récapitulatif
+
+- [ ] Pulsation, tempo (choix dramatique), mesure (contrat), hiérarchie des temps
+- [ ] Binaire (÷2) vs ternaire (÷3) : 3/4 ≠ 6/8, et je l'entends
+- [ ] 480 ticks = une noire : ma grille DAW et l'analyseur parlent pareil
+- [ ] Le silence est une note — respiration et poids
+
+<QuizBlock id="m01-l08-quiz" questions={6} />
+<LessonFooter exercises={["m01-e15-meter-reading", "m01-e16-rest-power"]} />

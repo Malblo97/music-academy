@@ -1,0 +1,60 @@
+{
+  "id": "m07-e02-the-alloys",
+  "lessonId": "m07-l02-doublures",
+  "title": "Les alliages",
+  "kind": "ORCHESTRATE",
+  "difficulty": 5,
+  "xpReward": 110,
+  "skills": { "ORCHESTRATION": 1.0 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "pool": "mvp",
+  "styleProfile": { "id": "romantic-film", "targetMood": "tender", "ruleWeights": {} },
+  "rubric": { "correctness": 30, "constraints": 40, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "Le thème fourni (8 mesures, lyrique) orchestré TROIS fois — la même ligne, trois chimies. (1) PUR : une couleur nue, au choix — l'ancrage, la couleur qui s'expose avant de s'allier. (2) FONDU : un alliage d'UNISSON du catalogue, déclaré (violons+hautbois : le chant qui parle ; celli+cors : la chaleur signature ; altos+clarinette : le velours) — et souviens-toi de la loi d'alliage : le timbre le plus caractérisé domine. (3) PANORAMIQUE : l'octave à 2–3 étages — la ligne devient colonne. Le moteur détecte tes doublures (tags unison/octave/compound), vérifie que la LIGNE est identique entre les trois versions, et confronte chaque alliage à la table de chimie des fiches (blendsWith / avoidWith : cor+trompette ff est un alliage où l'un avale l'autre). Bonus craft si tu ajoutes le tapis : la sensible ne se double JAMAIS — vl.* était de l'orchestration avant tout.",
+    "given": {
+      "key": { "tonic": 10, "mode": "major" },
+      "theme": "asset:m07-e02-lyric-theme",
+      "themeImmutable": true
+    },
+    "parts": [
+      {
+        "id": "pure",
+        "prompt": "Une couleur nue : l'ancrage.",
+        "constraints": { "maxPartsOnMelody": 1, "forbidDoubling": true }
+      },
+      {
+        "id": "blended",
+        "prompt": "Un alliage d'unisson du catalogue, déclaré.",
+        "constraints": {
+          "requiredDoubling": { "type": "unison", "count": 1 },
+          "alloyDeclared": true,
+          "alloyTable": { "source": "instruments.ts", "fields": ["blendsWith", "avoidWith"] }
+        }
+      },
+      {
+        "id": "panoramic",
+        "prompt": "L'octave à 2–3 étages : la ligne devient colonne.",
+        "constraints": {
+          "requiredDoubling": { "type": "octave", "minStages": 2, "maxStages": 3 }
+        }
+      }
+    ],
+    "constraints": {
+      "lengthBars": [8, 8],
+      "format": "Part[]",
+      "pool": "mvp",
+      "melodyIdenticalAcrossVersions": true,
+      "doublingDetection": { "enabled": true, "tagTypes": ["unison", "octave", "compound"] },
+      "doublingRules": {
+        "doubleRootFirst": true,
+        "fifthSecond": true,
+        "thirdSparingly": true,
+        "neverDoubleLeadingTone": true
+      },
+      "checkers": ["orch.range-violation", "orch.blend-risk", "orch.balance", "orch.register-color"]
+    }
+  }
+}

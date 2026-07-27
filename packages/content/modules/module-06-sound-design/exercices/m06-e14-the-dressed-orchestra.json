@@ -1,0 +1,33 @@
+{
+  "id": "m06-e14-the-dressed-orchestra",
+  "lessonId": "m06-l14-hybride",
+  "title": "L'orchestre habillé",
+  "kind": "LAYERING",
+  "difficulty": 7,
+  "xpReward": 150,
+  "skills": { "SOUND_DESIGN": 0.5, "ORCHESTRATION": 0.5 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "epic-film", "targetMood": "heroic", "ruleWeights": {} },
+  "rubric": { "correctness": 30, "constraints": 40, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "La répétition générale de l'hybride : « l'orchestre habillé » sur le thème de m05-e08 (ton thème héroïque orchestré — il ne change pas). Ajoute le stack d'habillage : le SUB RELAIS (départ à 40 Hz — le given te le dit : les contrebasses tiennent jusqu'à E1, ton sub commence OÙ elles s'arrêtent), le PAD FANTÔME (les MÊMES notes que tes cordes, −6 dB minimum dessous, high-passé à 150 : l'oreille fusionne les timbres qui bougent ensemble — le pad devient la résonance des cordes), une TEXTURE, et UN protocole de fusion déclaré : le fantôme granulaire (tracé à un rendu — la matière est LA MÊME, la fusion est parfaite par construction) OU le relais d'enveloppe sur le climax (le synthé porte l'attaque, l'archet porte la tenue). L'objectif : l'orchestre plus grand que lui-même, sans qu'on entende de synthé — l'hybride invisible, 70 % du métier. Première soumission jugée par les DEUX registres à la fois : sd.* et orch.* muets ensemble.",
+    "given": {
+      "sourceSubmission": "m05-e08-horn-roles",
+      "theme": "asset:m02-s21-hero-theme",
+      "contrabassesLowLimit": 28
+    },
+    "constraints": {
+      "requiredLayers": [
+        { "id": "sub-relay", "role": "sub", "band": { "low": 40, "highMax": 90 } },
+        { "id": "phantom-pad", "role": "body", "hasNotes": true, "band": { "lowMin": 150 }, "levelMaxDbRelative": -6 },
+        { "id": "texture", "role": "texture" }
+      ],
+      "subsetNotesOf": { "layer": "phantom-pad", "reference": "strings-parts", "method": "pitch-class-set-windows" },
+      "bandHandoff": { "acoustic": "contrabasses", "synthetic": "sub-relay", "maxOverlapHz": 0 },
+      "fusionProtocol": { "declared": true, "allowed": ["granular-phantom", "envelope-relay"], "granularRequiresSourceTraceability": true },
+      "checkers": ["sd.sub-conflict", "sd.sub-width", "sd.band-pileup", "sd.wash-out", "orch.range-violation", "orch.balance", "orch.masking"]
+    }
+  }
+}

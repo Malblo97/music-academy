@@ -1,0 +1,11 @@
+{ "id": "m01-e30-cadence-lab", "lessonId": "m01-l16-cadences",
+  "title": "Le laboratoire des ponctuations", "kind": "HARMONY_PROGRESSION",
+  "difficulty": 4, "xpReward": 80, "skills": { "HARMONY": 1.0 },
+  "spec": { "prompt": "Quatre segments de 2 mesures en do majeur, MÊME ouverture (I–IV ou I–ii, à toi), QUATRE fins différentes dans cet ordre : 1) parfaite complète (les 4 conditions), 2) imparfaite (une condition décochée, dis-toi laquelle), 3) demi-cadence, 4) rompue. L'analyseur identifie chaque cadence — si ta « parfaite » sort « imparfaite », cherche la case décochée par accident.",
+    "given": { "key": { "tonic": 0, "mode": "major" } },
+    "constraints": { "lengthBars": [8,8], "minVoices": 4,
+      "segmentBars": 2,
+      "requiredCadences": ["perfect","imperfect","half","deceptive"] },
+    "styleProfile": { "id": "classical-common",
+      "ruleWeights": { "vl.leading-tone-resolution": 1.2 } },
+    "rubric": { "correctness": 30, "constraints": 50, "craft": 20 } } }

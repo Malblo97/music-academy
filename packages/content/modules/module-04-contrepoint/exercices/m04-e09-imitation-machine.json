@@ -1,0 +1,60 @@
+{
+  "id": "m04-e09-imitation-machine",
+  "lessonId": "m04-l09-imitation",
+  "title": "La machine à conversation",
+  "kind": "COUNTERPOINT",
+  "difficulty": 6,
+  "xpReward": 140,
+  "skills": { "COUNTERPOINT": 0.9, "MELODY": 0.1 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "classical-common", "ruleWeights": {} },
+  "rubric": { "correctness": 35, "constraints": 40, "craft": 25 },
+  "spec": {
+    "version": 1,
+    "species": "imitation",
+    "prompt": "Trois volets progressifs — l'imitation du geste au mécanisme. (1) L'IMITATION LIBRE : 8 mesures à 2 voix, la tête donnée (4 notes), entrée à la QUINTE, délai 2 mesures, émancipation après la tête (on imite l'identité, on répond librement ensuite). (2) LE CANON À L'OCTAVE : 8 mesures, délai 1 mesure, le mode canonShadow actif — le fantôme gris de ta voix décalée s'affiche pendant que tu écris : tu composes contre toi-même en le voyant. La rupture cadentielle en dernière mesure : la machine s'arrête, les humains concluent. (3) LA STRETTE : le motif du volet 1 en 3 entrées aux délais 2, puis 1, puis 0.5 mesure — le temps compressé comme moteur de tension, l'arche de délais vérifiée.",
+    "liveFeedback": true,
+    "given": {
+      "key": { "tonic": 7, "mode": "major" },
+      "motifHead": "G4:q A4:q B4:h"
+    },
+    "parts": [
+      {
+        "id": "free-imitation",
+        "constraints": {
+          "species": "imitation",
+          "lengthBars": [8, 8],
+          "voices": 2,
+          "imitationPlan": { "interval": 7, "delayBars": 2, "scope": "head", "emancipationAfterHead": true }
+        }
+      },
+      {
+        "id": "canon",
+        "constraints": {
+          "species": "imitation",
+          "lengthBars": [8, 8],
+          "voices": 2,
+          "canonShadow": { "interval": 12, "delayBars": 1 },
+          "canonStrict": true,
+          "cadentialBreakBars": 1
+        }
+      },
+      {
+        "id": "stretto",
+        "constraints": {
+          "species": "imitation",
+          "voices": 3,
+          "entryDelaysPlan": [2, 1, 0.5],
+          "delaysDescending": true
+        }
+      }
+    ],
+    "constraints": {
+      "species": "imitation",
+      "key": { "tonic": 7, "mode": "major" },
+      "checkers": ["cpt.imitation-entry", "cpt.canon-identity"],
+      "perVoiceMelodyJudging": true
+    }
+  }
+}

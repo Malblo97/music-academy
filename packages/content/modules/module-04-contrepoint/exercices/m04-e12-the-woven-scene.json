@@ -1,0 +1,59 @@
+{
+  "id": "m04-e12-the-woven-scene",
+  "lessonId": "m04-l12-synthese",
+  "title": "La scène tissée",
+  "kind": "COUNTERPOINT",
+  "difficulty": 8,
+  "xpReward": 350,
+  "skills": { "COUNTERPOINT": 0.7, "MELODY": 0.2, "ORCHESTRATION": 0.1 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "badge": "module-04-contrepoint",
+  "styleProfile": { "id": "classical-common", "ruleWeights": {} },
+  "rubric": { "correctness": 25, "constraints": 35, "craft": 40 },
+  "spec": {
+    "version": 1,
+    "species": "free",
+    "prompt": "Le capstone : « Le rendez-vous — deux personnages qui se cherchent, se trouvent, et le monde autour. 24 mesures, trois voix, trois actes. » Trois soumissions, trois descriptions convergentes d'une même scène — et la convergence est la note.",
+    "liveFeedback": true,
+    "parts": [
+      {
+        "id": "part1-casting",
+        "prompt": "LES DEUX THÈMES : compose les personnages — thème A (2–4 mesures) et thème B CONTRASTÉ (prosodie ET contour vérifiés en opposition), puis la preuve de compatibilité : les deux thèmes superposés tels quels. S'ils ne tiennent pas ensemble, la scène 3 est morte d'avance — le checker de contrepoint double les teste l'un contre l'autre avant de te laisser continuer.",
+        "constraints": {
+          "themes": 2,
+          "themeContrast": { "prosody": true, "contour": true },
+          "compatibilityProof": { "checker": "fugato.invertible", "superposed": true }
+        }
+      },
+      {
+        "id": "part2-scene",
+        "prompt": "LA SCÈNE : 24 mesures, 3 voix, texturePlan déclaré. Acte 1 « se chercher » : A seul (une voix + socle discret), puis B en imitation LOINTAINE (délai long — ils ne se sont pas encore vus). Acte 2 « se trouver » : la strette des entrées (le délai qui fond), UN retard expressif au point de rencontre (la suspension comme émotion du regard). Acte 3 « ensemble » : A et B SUPERPOSÉS (la preuve de la part 1 encaissée), la troisième voix en fleuve lent dessous, la conclusion homophone — les trois enfin d'accord.",
+        "constraints": {
+          "lengthBars": [24, 24],
+          "voices": 3,
+          "texturePlan": { "declared": true, "verifiedAgainstDetected": true },
+          "actPlan": [
+            { "act": 1, "requires": ["theme-A-alone", "imitation-long-delay"] },
+            { "act": 2, "requires": ["stretto-compression", "expressive-suspension"] },
+            { "act": 3, "requires": ["themes-superposed", "slow-river-third-voice", "homophonic-conclusion"] }
+          ],
+          "entryDelaysPlan": "descending-across-acts",
+          "voicePairsSurveillance": ["S-A", "A-B", "S-B"],
+          "perVoiceMelodyJudging": true
+        },
+        "rubric": { "correctness": 30, "constraints": 35, "craft": 35 }
+      },
+      {
+        "id": "part3-reading",
+        "prompt": "LA LECTURE : ton commentaire en 5 champs guidés — quel moteur de dialogue par acte, où est le climax de tissage, quelle recette de contrechant en acte 3, ce que tu as retiré. Le produit ne juge pas la prose : il VÉRIFIE la concordance déclaré↔détecté. Apprendre à dire ce qu'on a fait est la dernière compétence du module — celle du compositeur qui parle aux réalisateurs.",
+        "constraints": {
+          "commentary": {
+            "fields": 5,
+            "concordanceChecks": ["texturePlan-vs-detected", "recipe-vs-metrics", "climax-declared-vs-tensionCurve"]
+          }
+        }
+      }
+    ]
+  }
+}

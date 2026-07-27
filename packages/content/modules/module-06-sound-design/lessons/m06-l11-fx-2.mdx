@@ -1,0 +1,77 @@
+---
+id: m06-l11-fx-2
+module: module-06-sound-design
+title: "FX cinéma II : reverse, granular — le son comme matière"
+estMinutes: 25
+skills: { sound_design: 1.0 }
+---
+
+### Pourquoi le sound designer est un sculpteur
+
+Jusqu'ici tu as *fabriqué* des sons (oscillateurs) et *joué* des sons (samples). Troisième voie, la plus cinématographique : **transformer** — prendre un son qui existe et le sculpter jusqu'à ce qu'il devienne autre chose. C'est la voie de la famille HYBRID (l04 §5) généralisée : ta matière première est partout (tes rendus de m10-l10, ta voix, une porte qui grince), et deux techniques couvrent l'essentiel du métier : le reverse et le granulaire.
+
+### 1. Le reverse : le temps retourné
+
+Retourner un audio (Cubase : sélection → *Process → Reverse*) inverse son enveloppe : la traîne devient montée, l'attaque devient coupure. Trois usages canoniques :
+
+| Usage | Recette | Effet |
+|---|---|---|
+| **Le reverse-riser** | une cymbale, un accord de piano, un impact — retournés : la queue de reverb devient un crescendo naturel vers l'attaque originelle | le riser organique (l10) — plus vivant que le bruit blanc, car sa montée porte le timbre de sa source |
+| **Le pré-écho** | la note retournée, placée juste AVANT la vraie note (la version reverse mène à l'originale) | la note qui s'annonce elle-même — l'anacrouse fantôme (m02-l09, version studio) : LE geste des intros de ballades et des bascules douces |
+| **La nappe retournée** | un accord tenu retourné en boucle (fin ↔ début crossfadés) | le pad qui « aspire » en permanence — l'inconfort doux du thriller psychologique |
+
+Le point technique qui change tout : le reverse se calcule sur l'événement audio — **coupe d'abord la région exacte** (la note + sa traîne complète), retourne ensuite, puis cale la FIN du reverse sur le temps cible (c'est une cible en ticks, comme le riser : la grammaire de l10 s'applique).
+
+### 2. Le granulaire : le son atomisé
+
+La synthèse granulaire découpe un audio en **grains** (5–100 ms) rejoués en nuage — position, hauteur, densité et taille des grains deviennent des paramètres jouables. C'est l'outil qui transforme *n'importe quoi* en texture, nappe ou monstre :
+
+```
+LES QUATRE POIGNÉES (tout moteur granulaire les a, quel que soit son nom) :
+POSITION   où on lit dans le sample — FIGÉE : le temps s'arrête sur une
+           syllabe (le freeze granulaire : une voyelle devient un drone) ;
+           BALAYÉE lentement : le sample s'étire à l'infini sans changer
+           de hauteur (le time-stretch extrême, matière des nappes HYBRID)
+TAILLE     grains longs (50-100 ms) = la source reconnaissable, lisse ;
+           grains courts (5-20 ms) = la matière abstraite, granuleuse
+DENSITÉ    clairsemée = le crépitement pointilliste (une texture de l05
+           née de n'importe quoi) ; dense = la nappe continue
+PITCH      transpose les grains sans changer la vitesse — l'octave basse
+           du chœur granulaire, le +7 cristallin
+```
+
+Les trois recettes de studio, du matériau du produit :
+
+| Recette | Source → geste → résultat |
+|---|---|
+| **Le drone de celli fantôme** | tes celli rendus (m10-l10) → position figée sur une tenue, grains 60 ms, densité haute, ± 5 cents de jitter → le drone organique-étrange de l05, qui porte l'ADN de ton orchestre (la famille HYBRID, littéralement) |
+| **La voix-relique** | une voix parlée → grains courts, position balayée très lentement, pitch −12 → la présence humaine méconnaissable — l'inquiétude du « quelqu'un a été là » |
+| **Le scintillement** | un pluck ou une cloche → grains clairsemés, pitch +12, pan random (l02 : LFO random → pan) → la poussière lumineuse au-dessus du stack (un `top` de l03, né d'une seule note) |
+
+### 3. La doctrine de la matière (les trois disciplines)
+
+1. **Source-first** : la qualité du granulaire vient de la source — un rendu riche (le cor vivant de m10-e04 !) donne un nuage riche ; un bip donne de la poussière de bip. Ta bibliothèque de rendus EST ta réserve de matière : le Render in Place de m10-l10 devient un geste de *récolte* ;
+2. **la transformation garde une trace** : le meilleur son transformé laisse deviner son origine sans la livrer (« on reconnaît sans savoir », m02-l04 — la variation subliminale, version timbre : c'est la 3e fois que ce principe revient, c'est qu'il est fondamental) ;
+3. **nomme et range** (m10-l06) : le son sculpté est irremplaçable — perdu, il n'existe plus. `Refs/Matière/` + tags MediaBay + la règle « possédé ou rendu » s'appliquent à tes propres créations d'abord.
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Le reverse mal calé | la montée qui atterrit à côté (le riser raté de l10, récidive) | la FIN du reverse sur la cible, en ticks |
+| Le pré-écho systématique | chaque note qui s'annonce : le tic de production | un par section — c'est une anacrouse, pas un sustain |
+| Granulaire sur source pauvre | le nuage de rien | source-first : la récolte de rendus d'abord |
+| La transformation totale | le son sans origine = un preset comme un autre | garder la trace : on reconnaît sans savoir |
+| Le chef-d'œuvre non sauvé | le son perdu à jamais | bounce, nomme, tague — immédiatement |
+
+### La mission (m06-e11, LAYERING + déclaratif de matière)
+
+La récolte et la sculpture : pars de DEUX rendus de tes missions M10 (déclare lesquels — le champ `source` porte l'id de mission d'origine : la traçabilité du curriculum en donnée), produis un reverse-riser calé sur cible et un élément granulaire (drone OU scintillement — les quatre poignées déclarées en champ dédié). Assemble-les dans un mini-stack de bascule (8 mesures). Le moteur vérifie : le calage du reverse (cible ±1 temps), les déclarations granulaires complètes et cohérentes (position figée → rôle drone ; clairsemée+pitch haut → rôle top), les sources tracées, et le stack réglementaire (`sd.*`).
+
+- [ ] Reverse : la traîne devient montée — et la FIN se cale sur la cible
+- [ ] Granulaire : position, taille, densité, pitch — quatre poignées, tout moteur
+- [ ] Source-first : le Render est une récolte, ta bibliothèque est ta matière
+- [ ] On reconnaît sans savoir : la transformation garde une trace
+
+<QuizBlock id="m06-l11-quiz" questions={5} />
+<LessonFooter exercises={["m06-e11-harvest-and-sculpt"]} />

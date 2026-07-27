@@ -1,0 +1,103 @@
+---
+id: m01-l13-septiemes
+module: module-01-fondamentaux
+title: "Les accords de septième : le premier enrichissement"
+estMinutes: 25
+skills: { harmony: 1.0 }
+---
+
+### Pourquoi une quatrième note
+
+Ajoute une tierce de plus au sommet de la triade : tu obtiens un accord de **septième** — quatre notes, et surtout une **dissonance intégrée** : la septième frotte contre la fondamentale (m7 ou M7, tes « dissonances douces » et « dures » de la leçon 2). L'accord cesse d'être un état pour devenir une *intention* : la septième veut aller quelque part. C'est le premier pas hors du monde des blocs stables — et la porte du jazz, du néo-noir et de toute l'harmonie de film sophistiquée.
+
+### 1. Les cinq espèces à connaître
+
+En combinant l'espèce de la triade et la taille de la septième :
+
+| Nom | Formule | Demi-tons | Sur C | Caractère | Territoire |
+|---|---|---|---|---|---|
+| **7e de dominante** | triade MAJ + 7m | 0–4–7–10 | C7 | tension motrice, « veut résoudre » | LE moteur tonal ; blues |
+| **7e majeure** | triade MAJ + 7M | 0–4–7–11 | Cmaj7 | lumière suspendue, sophistication | jazz, romance, nappes |
+| **7e mineure** | triade min + 7m | 0–3–7–10 | Cm7 | mélancolie douce, ronde | jazz, néo-noir, soul |
+| **demi-diminué** | triade dim + 7m | 0–3–6–10 | Cm7♭5 | angoisse voilée | le ii du mineur ; noir |
+| **7e diminuée** | triade dim + 7d | 0–3–6–9 | Cdim7 | vertige, suspense pur | thriller, transitions |
+
+(La sixième espèce, **m(maj7)** — triade mineure + 7M, 0–3–7–11 — t'attend au Module 9 : tu l'as croisée dans la leçon néo-noir comme « l'ambiguïté incarnée ». Rare et précieuse.)
+
+<MusicExample id="cinq-especes" title="Les cinq espèces depuis C — tiens chacune, écoute où elle « veut » aller">
+  [C4+E4+G4+Bb4]:w | [C4+E4+G4+B4]:w | [C4+Eb4+G4+Bb4]:w | [C4+Eb4+Gb4+Bb4]:w | [C4+Eb4+Gb4+A4]:w
+  C7 pousse en avant. Cmaj7 flotte, satisfait de frotter. Cm7 s'enveloppe.
+  Cm7♭5 s'inquiète. Cdim7 tourne sur lui-même sans sol sous les pieds.
+</MusicExample>
+
+### 2. La star : V7 et son triton
+
+Construis la 7e de dominante sur le 5e degré : en C majeur, **G7 = G–B–D–F**. Regarde qui est dedans : **B (7̂) et F (4̂)** — les deux aimants de la leçon 14, réunis dans un seul accord, formant le triton. G7 n'est pas un accord parmi d'autres : c'est **la machine à conclure** du système tonal, et sa résolution vers C est câblée (B→C, F→E — tu connais déjà le schéma, c'est le §3 de m01-l14 : les deux leçons se répondent).
+
+Deux conséquences immédiates :
+
+- **le vii° démasqué** : Bdim (B–D–F) = G7 sans sa fondamentale. Le « accord bizarre » de la leçon 11 est une dominante déguisée — même triton, même envie de résoudre, juste plus léger. Tout s'explique ;
+- **la règle du remboursement, version accord** : la septième d'un accord **descend d'un degré** à l'accord suivant (le F de G7 → le E de C). C'est la règle `harmony.unresolved-seventh` (§7.3), stricte en classique, quasi éteinte en jazz et néo-noir — où les septièmes sont des couleurs habitables, pas des dettes. Tu retrouves la matrice des styles : *même note, deux philosophies*.
+
+### 3. Les septièmes diatoniques : l'inventaire complet
+
+Comme pour les triades (l11), empile les septièmes sur chaque degré de la gamme majeure :
+
+```
+Degré :   Imaj7   ii m7   iii m7   IVmaj7   V7   vi m7   vii m7♭5
+En C :    Cmaj7   Dm7     Em7      Fmaj7    G7   Am7     Bm7♭5
+```
+
+Observe la répartition : **une seule 7e de dominante** (sur V — d'où son nom), deux maj7 (I, IV), trois m7 (ii, iii, vi), un demi-diminué (vii). Cette signature est un outil d'analyse à l'envers : entends un accord X7 quelque part, et tu sais qu'un V est en train de parler — et donc *vers quelle tonique il pointe*. C'est le fondement des dominantes secondaires (l19) : chaque X7 désigne sa cible.
+
+Ajoute le balayage des septièmes à ton exercice quotidien : mêmes doigts que les triades, une note de plus, un monde de plus.
+
+### 4. Le dim7 : l'accord-plaque tournante
+
+Le **Cdim7** (0–3–6–9) a une propriété unique : il divise l'octave en quatre parts égales (que des tierces mineures). Conséquences vertigineuses : ses renversements sont *le même accord* transposé (Cdim7 = E♭dim7 = G♭dim7 = Adim7), et il ne pointe vers aucune tonique en particulier — il pointe vers **quatre à la fois**. D'où ses deux métiers de cinéma :
+
+- **le suspense en apesanteur** : tenu, trémolo de cordes, il suspend le temps sans dire où l'on va (le vieux « accord du film muet » — cliché parce qu'efficace) ;
+- **la plaque tournante de modulation** : puisqu'il appartient à quatre mondes, il permet d'entrer par l'un et sortir par l'autre. La leçon 23 en fera un pivot de modulation ; note-le dès maintenant.
+
+### 5. Premier voicing réel : la main qui pense
+
+Quatre notes serrées, ça s'épaissit vite. Voici ta première recette de **voicing** (répartition entre les mains), celle qui servira de base au Module 8 :
+
+```
+Main gauche : fondamentale (+ quinte si tu veux du poids)
+Main droite : tierce + septième (+ ce que tu veux au-dessus)
+
+G7 :  MG : G2 (+D3)    MD : B3 + F4
+```
+
+Pourquoi tierce + septième à droite ? Parce que ce sont **les notes qui définissent** l'accord (la tierce dit majeur/mineur, la septième dit l'espèce) — le jazz les appelle *guide tones*. Fondamentale et quinte sont le squelette remplaçable ; tierce et septième sont l'identité. Tu comprends au passage le voicing *rootless* mentionné dans la spec du détecteur d'accords : supprime la fondamentale, l'identité reste.
+
+<MusicExample id="guide-tones" title="ii–V–I en guide tones : trois accords, deux doigts qui bougent à peine">
+  MG: D3:h G2:h C3:w
+  MD: [F4+C5]:h [F4+B4]:h [E4+C5]:w
+  Dm7 → G7 → Cmaj7 : à la main droite, le F tient puis descend en E,
+  le C descend en B puis remonte. Voice leading minimal, identités maximales.
+  C'est LA progression du jazz — et tu viens de la jouer proprement.
+</MusicExample>
+
+### 6. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Confondre C7 et Cmaj7 | « pourquoi mon accord veut-il résoudre ?! » | 7 = septième MINEURE (moteur) ; maj7 = septième MAJEURE (couleur) — la nomenclature est piégeuse, pas toi |
+| Septième doublée ou plaquée dans le grave | boue + résolutions impossibles | une seule septième par accord, au médium/aigu (et jamais doublée : même logique que `vl.doubled-leading-tone`) |
+| Résoudre la septième vers le haut | frottement « faux » à l'enchaînement | la septième DESCEND (en style classique) — ou vit sa vie (jazz), mais ne monte pas par accident |
+| Éviter dim7 et m7♭5 | palette amputée de ses couleurs d'ombre | apprivoise-les : m7♭5 = le ii du mineur (partout au cinéma), dim7 = ton futur pivot |
+| maj7 à pleine puissance dans le grave | frottement 7M écrasé, dureté involontaire | les maj7 aiment le médium-aigu et les nuances douces |
+
+### Récapitulatif
+
+- [ ] Cinq espèces : 7 (moteur), maj7 (lumière), m7 (mélancolie), m7♭5 (angoisse), dim7 (vertige)
+- [ ] V7 contient LE triton (7̂+4̂) : c'est la machine à conclure ; vii° est son ombre
+- [ ] La septième descend d'un degré — ou est une couleur habitable, selon le style
+- [ ] Guide tones = tierce + septième : l'identité de l'accord tient en deux notes
+- [ ] dim7 : symétrique, quatre mondes, futur pivot de modulation
+- [ ] Prochaine étape : l14 (tension/résolution) — que tu liras avec des yeux neufs : tu sais maintenant QUI crée la tension
+
+<QuizBlock id="m01-l13-quiz" questions={7} />
+<LessonFooter exercises={["m01-e25-seventh-species", "m01-e26-guide-tones"]} />

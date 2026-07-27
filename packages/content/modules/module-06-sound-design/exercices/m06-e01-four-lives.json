@@ -1,0 +1,33 @@
+{
+  "id": "m06-e01-four-lives",
+  "lessonId": "m06-l01-synthese",
+  "title": "Quatre existences dessinées à la main",
+  "kind": "LAYERING",
+  "difficulty": 2,
+  "xpReward": 50,
+  "skills": { "SOUND_DESIGN": 1.0 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "hybrid-score", "ruleWeights": {} },
+  "rubric": { "correctness": 40, "constraints": 40, "craft": 20 },
+  "spec": {
+    "version": 1,
+    "prompt": "Dans un synthé de Cubase, depuis l'init patch : fabrique QUATRE sons — un percussif, un soutenu, une nappe, un geste — en ne touchant QUE la forme d'onde, le cutoff et l'ADSR. Aucun effet : la matière et le sculpteur d'abord, l'habillage n'existe pas encore. Soumets les quatre en Layer[] (source, enveloppe, bande estimée) : le moteur compare chaque enveloppe à son gabarit — tolérances larges, l'esprit compte plus que les millisecondes. Ton premier stack : quatre existences dessinées à la main.",
+    "constraints": {
+      "requiredLayers": [
+        { "id": "percussive", "envelopeProfile": "percussive" },
+        { "id": "sustained", "envelopeProfile": "sustained" },
+        { "id": "pad", "envelopeProfile": "pad" },
+        { "id": "gesture", "envelopeProfile": "gesture" }
+      ],
+      "allowedControls": ["waveform", "cutoff", "envelope"],
+      "envelopeProfiles": {
+        "percussive": { "a": [0, 10], "s": [0, 0.1], "r": [0, 400] },
+        "sustained": { "a": [0, 80], "s": [0.6, 1.0] },
+        "pad": { "a": [400, 3000], "s": [0.6, 1.0], "r": [800, 4000] },
+        "gesture": { "a": [500, 4000], "s": [0, 0.15], "r": [500, 4000] }
+      },
+      "checkers": ["envelopeProfile"]
+    }
+  }
+}

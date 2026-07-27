@@ -1,0 +1,16 @@
+{
+  "exerciseId": "m05-e08-horn-roles",
+  "partId": "tapis",
+  "payload": {
+    "instrumentation": ["french-horn-1", "french-horn-2", "french-horn-3", "french-horn-4"],
+    "role": "harmonic-pad",
+    "dynamics": "p → mp, sans crescendo",
+    "voices": [
+      { "id": "cor-1", "notation": "G4:w | A4:w | A4:w | B4:w | C5:w | C5:w | Bb4:w | G4:w" },
+      { "id": "cor-2", "notation": "E4:w | F4:w | E4:w | G4:w | G4:w | Ab4:w | F4:w | E4:w" },
+      { "id": "cor-3", "notation": "C4:w | C4:w | C4:w | D4:w | E4:w | Eb4:w | D4:w | C4:w" },
+      { "id": "cor-4", "notation": "G3:w | F3:w | A3:w | G3:w | C4:w | C4:w | F3:w | G3:w" }
+    ]
+  },
+  "authorNotes": "Le liant : le cor remplit le milieu du spectre, là où l'harmonie vit. Vérifié : **toutes les notes dans 48–72** (do3–do5, le sweet spot exact de la fiche) ; **zéro quinte ou octave parallèle** sur les 8 verticalités, toutes paires testées ; zéro croisement ; écarts entre voix adjacentes 3–7 demi-tons partout sauf mes. 7 (9 — voir F-65, le seuil manquant). Les huit accords de la grille détectés sans ambiguïté. Le geste central est la mes. 6 : le **♭VI (la♭)** atteint par note commune (do tenu à deux voix, mi→mi♭ et sol→la♭) — le nuage épique par un seul demi-tondans chaque voix mobile. Rondes exclusivement (`minNoteDuration: h` largement tenu) : un tapis qui bouge n'est plus un tapis. Dynamique plafonnée à mp : à quatre, le cor sature le milieu bien avant le f."
+}

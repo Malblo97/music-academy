@@ -1,0 +1,5 @@
+{ 
+    "exerciseId": "m01-e40-three-doors", 
+    "notation": "[C3+E4+G4+C5]:w | [A2+E4+A4+C5]:w | [E3+D4+G#4+B4]:w | [A2+C4+E4+A4]:w | [Ab2+C4+Gb4+Eb5]:w | [G2+B3+D4+G4]:w | [F3+C4+F4+A4]:w | [F3+C4+F4+Ab4]:w | [G2+B3+D4+F4]:w | [C3+E4+G4+C5]:w", 
+    "authorNotes": "I · vi · V/vi · vi · **A♭7=subV de G, basse A♭2→G2 ✓** · G · IV · **iv** · G7 · I. Trois portes ✓, parfaite finale ✓, chaque chromatisme expliqué (`harmony.overchromatic` ×1.3 : silence) ✓." 
+}

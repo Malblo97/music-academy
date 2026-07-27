@@ -1,0 +1,18 @@
+{ "id": "m01-l01-quiz", "interaction": "mc",
+  "generator": { "families": ["find-pc", "midi-anchor", "half-steps"], "rounds": 5 },
+  "items": [
+    { "q": "Clique le do central", "interaction": "keyboard-pick", "answer": ["C4"],
+      "why": "C4 = MIDI 60 : la boussole de tout ton travail en DAW (§1)." },
+    { "q": "Les deux couples de touches blanches SANS noire entre elles :",
+      "options": ["C–D et F–G", "E–F et B–C", "A–B et D–E"], "answer": "E–F et B–C",
+      "why": "Les deux demi-tons naturels (§3) — toute la construction des gammes repose sur cette asymétrie." },
+    { "q": "C♯ et D♭ sont :",
+      "options": ["deux touches voisines", "la même touche, deux orthographes selon le contexte", "un ton d'écart"],
+      "answer": "la même touche, deux orthographes selon le contexte",
+      "why": "L'enharmonie (§4) : le nom dit d'où l'on vient et où l'on va — l'orthographe est un choix de sens." },
+    { "q": "`r:e` dans la notation du produit :",
+      "options": ["un mi", "un demi-temps de silence", "une répétition"], "answer": "un demi-temps de silence",
+      "why": "Le silence est une note à part entière (§5) — tu l'apprendras à tes dépens si tu l'oublies." },
+    { "q": "[intégrative] Combien de classes de hauteur le système compte-t-il ?",
+      "options": ["7", "12", "88"], "answer": "12",
+      "why": "7 est le piège (les touches blanches) : compte les demi-tons, pas les noms (§erreurs) — les 12 reviendront à chaque gamme, chaque accord, chaque analyse." } ] }

@@ -1,0 +1,18 @@
+{ "id": "m10-l06-quiz", "interaction": "mc", "items": [
+  { "q": "Le Track Preset est :",
+    "options": ["un raccourci de chargement", "l'UNITÉ DE RÉUTILISATION — la piste-savoir : instrument + réglages + couleur + Notepad-fiche", "réservé au Rack"],
+    "answer": "l'UNITÉ DE RÉUTILISATION — la piste-savoir : instrument + réglages + couleur + Notepad-fiche",
+    "why": "Plus souple que le Rack (§1) : la piste toute faite se rapatrie dans n'importe quel projet — pistes Instrument par défaut, jusqu'au Full." },
+  { "q": "★★★★★ plafonné à ~20 sons par catégorie, parce que :",
+    "options": ["le MediaBay ralentit au-delà", "une élite pléthorique n'est plus une élite — la présélection d'urgence", "les étoiles sont limitées"],
+    "answer": "une élite pléthorique n'est plus une élite — la présélection d'urgence",
+    "why": "Quand l'inspiration est là, on ne cherche que dans les 5 étoiles (§3) — et la règle du rejet : un son écouté et rejeté deux fois prend ★, on ne réécoute jamais deux fois le même déchet." },
+  { "q": "La recherche « pad + tension » : le tagging a réussi si...",
+    "capture": "asset:m10-l06-capture-mediabay-search (résultats MediaBay : le pad tagué en tête)",
+    "options": ["quarante résultats sortent", "TON son sort en tête — les tags sont les moods de M9", "aucun résultat : la catégorie est propre"],
+    "answer": "TON son sort en tête — les tags sont les moods de M9",
+    "why": "« pad + neo-noir » sort TES sons du genre (§3) : les vocabulaires du Module 9 deviennent tes clés de recherche — la bibliothèque finit organisée par ta propre esthétique." },
+  { "q": "[intégrative] « Possédé ou rendu » rejoint :",
+    "options": ["la loi des templates", "la TRAÇABILITÉ des sources de m06-l11 — pas de son mortel dans un projet durable", "le gain staging"],
+    "answer": "la TRAÇABILITÉ des sources de m06-l11 — pas de son mortel dans un projet durable",
+    "why": "La démo qui expire tue le cue à la réouverture, six mois plus tard (§4) : l'audio rendu est la seule immortalité d'un son — le rendez-vous est pris avec l10." } ] }

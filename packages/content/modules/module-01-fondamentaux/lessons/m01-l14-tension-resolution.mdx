@@ -1,0 +1,134 @@
+---
+id: m01-l14-tension-resolution
+module: module-01-fondamentaux
+title: "Tension et résolution : le moteur de toute musique"
+estMinutes: 25
+skills: { harmony: 0.6, melody: 0.4 }
+---
+
+### Pourquoi cette leçon existe
+
+Toute musique qui « fonctionne » raconte une seule chose : **un déséquilibre qui cherche son équilibre**. Une note instable veut aller quelque part ; une note stable est un lieu d'arrivée. Si tu comprends ce mécanisme, tu comprends pourquoi une mélodie semble « finie » ou « suspendue », pourquoi un accord « appelle » le suivant, et pourquoi certaines musiques de film te tiennent en haleine pendant trois minutes sur deux accords.
+
+Sans cette notion, composer revient à aligner des notes qui ne se doivent rien. Avec elle, chaque note a une **intention**.
+
+### 1. La hiérarchie de stabilité des degrés
+
+Dans une tonalité, les sept degrés ne sont pas égaux. Voici leur hiérarchie, à mémoriser comme tes tables de multiplication :
+
+| Degré | Nom | Stabilité | Tendance naturelle |
+|---|---|---|---|
+| 1̂ | Tonique | ●●●● maximale | aucune — c'est la maison |
+| 3̂ | Médiante | ●●● stable | colore (majeur/mineur), repos possible |
+| 5̂ | Dominante (note) | ●●● stable | repos possible, mais « en l'air » |
+| 2̂ | Sus-tonique | ●● instable | descend vers 1̂ ou monte vers 3̂ |
+| 6̂ | Sus-dominante | ●● instable | descend vers 5̂ |
+| 4̂ | Sous-dominante | ● très instable | **descend vers 3̂** (attraction forte) |
+| 7̂ | **Sensible** | ○ instable maximale | **monte vers 1̂** (attraction maximale) |
+
+Les deux attractions les plus fortes du système tonal : **7̂→1̂** (demi-ton ascendant) et **4̂→3̂** (demi-ton descendant). Retiens-les ensemble : elles forment le **triton** de l'accord de dominante 7e — on y revient au §3.
+
+<MusicExample id="stable-vs-instable" title="Écoute la différence">
+  A) C4:q E4:q G4:q C5:h        — degrés 1̂ 3̂ 5̂ 1̂ : tout est stable, rien ne « tire »
+  B) C4:q F4:q B4:q C5:h        — 1̂ 4̂ 7̂ 1̂ : le F et le B créent une aimantation vers l'arrivée
+</MusicExample>
+
+Joue les deux sur ton clavier. Dans B, arrête-toi sur `B4` sans jouer le `C5` : l'inconfort que tu ressens **est** la tension. Ce n'est pas une métaphore, c'est le matériau de ton métier.
+
+### 2. Comment doser la tension dans une mélodie
+
+Quatre leviers, du plus doux au plus fort :
+
+```
+NIVEAU DE TENSION MÉLODIQUE
+faible ──────────────────────────────────────────► forte
+
+degrés stables      degrés instables     note étrangère      chromatisme
+sur temps forts     sur temps forts      à l'accord           hors tonalité
+(1̂ 3̂ 5̂)            (2̂ 4̂ 6̂ 7̂)           (appoggiature…)      (résolution requise)
+```
+
+**Règle de dosage** (celle que vérifie l'analyseur, `melody.tension-placement`) : une note instable est un *investissement* — elle doit être *remboursée* par une résolution. Plus la tension est forte, plus la résolution doit être proche et claire.
+
+- Tension faible (2̂, 6̂) : peut flotter plusieurs temps avant résolution.
+- Tension forte (7̂, 4̂, appoggiature) : résolution attendue dans le temps ou le temps suivant.
+- Chromatisme : résolution **immédiate** par demi-ton, sauf effet volontaire (voir Alternatives).
+
+<MusicExample id="dette-remboursee" title="Une dette bien remboursée">
+  Sol majeur : D5:q C5:e B4:e A4:q G4:q  |  F#4:h G4:h
+  La phrase descend (détente), puis F#4 (7̂, tension maximale) → G4 (1̂) : conclusion parfaite.
+</MusicExample>
+
+### 3. La tension harmonique : le triton et sa résolution
+
+L'accord `G7` en do majeur contient `G B D F`. Isole `B` (7̂) et `F` (4̂) : un **triton**, l'intervalle le plus instable du système. Sa résolution est doublement aimantée :
+
+```
+F4 ──── demi-ton descendant ────► E4   (4̂ → 3̂)
+B3 ──── demi-ton ascendant  ────► C4   (7̂ → 1̂)
+
+G7 ────────────────────────────► C     la cadence parfaite n'est pas une
+                                        convention : c'est de la physique
+                                        des attractions
+```
+
+**Quand tu écris `V7 → I`, ces deux résolutions sont ta priorité absolue de voice leading.** Tout le reste (doubler la quinte, omettre la quinte de V7…) se négocie ; le triton, non — en style classique du moins.
+
+### 4. La courbe de tension d'une phrase : penser en arche
+
+Une phrase réussie ressemble rarement à une ligne plate. Le gabarit le plus robuste depuis quatre siècles :
+
+```
+tension
+  ▲
+  │            ╭──── climax (souvent aux 2/3 de la phrase)
+  │        ╭───╯    ╲
+  │    ╭───╯          ╲
+  │╭───╯                ╲──╮
+  └┴───────────────────────┴──► temps
+   départ                 résolution
+   stable                 stable
+```
+
+C'est exactement ce que mesure `tensionCurve()` dans tes exercices : la corrélation entre ta courbe et le gabarit du *mood* demandé. Un thème héroïque a un climax haut et tardif ; une berceuse, une arche presque plate ; un thriller, des pics répétés **jamais totalement résolus**.
+
+### 5. Quand utiliser quoi (arbre de décision)
+
+<DecisionTree id="tension-usage">
+Quel effet cherches-tu ?
+├─ Conclusion ferme (fin de thème, fin de scène)
+│    → phrase finissant 7̂→1̂ ou 2̂→1̂, harmonie V7→I, temps fort
+├─ Suspension (la scène continue, question sans réponse)
+│    → finir sur 5̂ ou 2̂ mélodique, harmonie en demi-cadence (…→V)
+├─ Fausse détente (le danger n'est pas parti)
+│    → préparer V7 puis résoudre sur vi (cadence rompue)
+└─ Tension permanente (thriller, drone)
+     → ostinato sur degrés instables, résolutions systématiquement évitées,
+       pédale de dominante sous harmonies changeantes
+</DecisionTree>
+
+### 6. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Tout stable | mélodie « jolie mais plate », rien ne se passe | place 4̂ ou 7̂ sur un temps fort avant ta cadence |
+| Tout instable | fatigue de l'auditeur, aucun repère | ancre chaque phrase sur 1̂/3̂/5̂ au départ et à l'arrivée |
+| Tension non remboursée | sensation de « faute » sans savoir pourquoi | toute 7̂ exposée doit atteindre 1̂ (même après détour) |
+| Climax au début | la phrase s'essouffle | garde ta note la plus haute/tendue pour les 2/3 |
+| Double climax égal | la phrase hésite | un seul sommet ; le second doit être plus haut ou supprimé |
+
+### 7. Alternatives et styles : quand enfreindre
+
+- **Jazz** : les tensions (9, 11, 13) sont des couleurs *habitables* — on ne les « résout » pas systématiquement. La dette devient un mode de vie.
+- **Musique modale de film** (fantasy, folk) : sans sensible (mode dorien, éolien sans 7̂ haussée), l'attraction 7̂→1̂ disparaît ; la gravité vient alors du **mouvement de basse** et des pédales.
+- **Thriller / horreur** : la non-résolution est le langage. Tu dois d'abord maîtriser la résolution pour que son évitement soit un choix, pas un accident.
+
+### Récapitulatif
+
+- [ ] Je connais la hiérarchie de stabilité des 7 degrés
+- [ ] Je sais que 7̂→1̂ et 4̂→3̂ sont les deux attractions maîtresses (triton de V7)
+- [ ] Je pense chaque phrase comme une arche : stable → climax ≈ 2/3 → stable
+- [ ] Toute tension forte a une résolution planifiée — ou son évitement est un choix stylistique conscient
+
+<QuizBlock id="m01-l14-quiz" questions={5} />
+<LessonFooter exercises={["m01-e49-tension-arch"]} />

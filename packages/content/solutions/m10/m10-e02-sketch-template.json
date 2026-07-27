@@ -1,0 +1,63 @@
+{
+    "exerciseId": "m10-e02-sketch-template",
+    "notation": "C4:q D4:q E4:q G4:q | A4:h G4:h | F4:q E4:q D4:q C4:q | D4:h. r:q | E4:q G4:q A4:q C5:q | B4:h A4:h | G4:q F4:q E4:q D4:q | C4:w",
+    "payload": {
+      "mode": "declarative+proof",
+      "checklist": [
+        {
+          "id": "e02-s1",
+          "expect": "TEMPLATE_Sketch, règles e01 appliquées"
+        },
+        {
+          "id": "e02-s2",
+          "expect": "ordre du conducteur : bois en haut → cordes en bas"
+        },
+        {
+          "id": "e02-s3",
+          "expect": "WW Bois (patch ensemble)"
+        },
+        {
+          "id": "e02-s4",
+          "expect": "BR Cors + BR Trompettes"
+        },
+        {
+          "id": "e02-s5",
+          "expect": "PERC Timbales + KEYS Piano"
+        },
+        {
+          "id": "e02-s6",
+          "expect": "STR Violons / Altos / Celli+Cb"
+        },
+        {
+          "id": "e02-s7",
+          "expect": "SYN Pad sombre / Pluck / Sub"
+        },
+        {
+          "id": "e02-s8",
+          "expect": "Notepad-fiche M5 par piste — cors : « sweet spot C3–C5 ; ff = unisson ; aigu bref »"
+        },
+        {
+          "id": "e02-s9",
+          "expect": "FX reverb ≈2,2 s en SEND depuis toutes les pistes : une seule salle"
+        },
+        {
+          "id": "e02-s10",
+          "expect": "tutti ≈ −6 dB au master, marge conservée"
+        },
+        {
+          "id": "e02-s11",
+          "expect": "agents Track Visibility « Compo » et « Cordes seules »"
+        },
+        {
+          "id": "e02-s12",
+          "expect": "Save as Template + traversée MIDI vers Melody Practice"
+        }
+      ],
+      "witness": {
+        "track": "KEYS Piano",
+        "tempo": 90,
+        "target": "melody-practice-free"
+      }
+    },
+    "authorNotes": "« Le témoin n'est pas jugé musicalement : il prouve que le tuyau existe. » Branche : lint (12 étapes) + témoin PROUVÉ. La notation est volontairement banale — do majeur, arche simple, aucune subtilité : c'est un test d'étanchéité du flux C (produit → Cubase → produit), pas une composition. Chiffres : 8 mesures ∈ [8,16] ✓, 27 notes ≥ 8 ✓, round-trip `parseNotation ≡ renderNotation` (verrou n°3) ✓, couverture verifyHint 1,00. C'est le seul étalon du lot dont la valeur musicale est nulle et la valeur d'infrastructure maximale : la première traversée complète du produit."
+  }

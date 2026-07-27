@@ -1,0 +1,42 @@
+{
+  "id": "m04-e10-the-chase-fugato",
+  "lessonId": "m04-l10-fugato",
+  "title": "Le fugato de poursuite",
+  "kind": "COUNTERPOINT",
+  "difficulty": 7,
+  "xpReward": 130,
+  "skills": { "COUNTERPOINT": 0.9, "HARMONY": 0.1 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "classical-common", "ruleWeights": {} },
+  "rubric": { "correctness": 30, "constraints": 40, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "species": "fugato",
+    "prompt": "Le fugato complet — un geste de 60 à 90 secondes, pas un traité. Le sujet : le fourni, ou LE TIEN — mais casté d'abord : le checker refuse un sujet qui frotte contre lui-même décalé (canonShadow en auditeur de casting). Puis la machine : l'EXPOSITION à 3 voix (sujet nu → réponse à la quinte avec contre-sujet → retour à l'octave), le contre-sujet en CONTREPOINT DOUBLE — il sonnera au-dessus ET au-dessous, le checker le teste littéralement en renversant les deux lignes. UN ÉPISODE en séquence sur la tête du sujet (modulation légère : la circulation, l'enquête qui suit ses pistes). La STRETTE FINALE sur pédale de dominante — le filet qui se resserre. Et la conclusion HOMOPHONE : le bloc tranche ce que le tissage a construit — LA cadence de fugato de cinéma.",
+    "liveFeedback": true,
+    "given": {
+      "key": { "tonic": 2, "mode": "minor" },
+      "subjectBank": ["m04-fugato-subject-01"],
+      "allowOwnSubject": true
+    },
+    "constraints": {
+      "species": "fugato",
+      "voices": 3,
+      "key": { "tonic": 2, "mode": "minor" },
+      "subjectSelfCompatibilityTest": { "checker": "cpt.canon-identity", "delayBars": [0.5, 1] },
+      "expositionPlan": {
+        "entries": [
+          { "voice": 1, "transposition": 0 },
+          { "voice": 2, "transposition": 7, "counterSubject": true },
+          { "voice": 3, "transposition": 12 }
+        ]
+      },
+      "invertibleCounterSubject": { "checker": "fugato.invertible" },
+      "episode": { "required": true, "source": "subject-head", "technique": "sequence", "modulation": "light" },
+      "finalStretto": { "required": true, "onDominantPedal": true },
+      "homophonicConclusion": true,
+      "texturePlan": { "declared": true }
+    }
+  }
+}

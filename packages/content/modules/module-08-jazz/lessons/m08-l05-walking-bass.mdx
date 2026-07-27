@@ -1,0 +1,74 @@
+---
+id: m08-l05-walking-bass
+module: module-08-jazz
+title: "La walking bass : la 3e espèce du jazz"
+estMinutes: 25
+skills: { harmony: 0.5, counterpoint: 0.3, rhythm: 0.2 }
+---
+
+### Pourquoi la promesse de m04 se tient ici
+
+m04-l04 l'avait annoncé : la basse fleurie du contrepoint est l'ancêtre de la walking bass. La filiation est exacte : **quatre noires par mesure** (la 3e espèce), qui doivent à la fois **fonder l'harmonie** (dire l'accord — le CF est devenu la grille) et **chanter** (être une ligne, pas une énumération). La walking est le contrepoint de Fux en costume de club — et l'exercice d'écriture jazz le plus formateur qui soit : celui qui force à penser cible et chemin.
+
+### 1. La mécanique : cibles et chemins
+
+```
+LA LOI DES TEMPS (la hiérarchie de m04-l03, en marche) :
+TEMPS 1 : la CIBLE — la fondamentale de l'accord (le défaut absolu),
+          ou sa tierce/quinte (la variété qui reste harmonique)
+TEMPS 2-3 : le CHEMIN — notes de l'accord, de la gamme, ou chromatiques
+          de liaison (les figures de m04-l04 : passage, broderie —
+          en noires swing)
+TEMPS 4 : l'APPROCHE — la note qui VISE la cible suivante :
+          par demi-ton (dessous ou dessus — l'approche chromatique :
+          LE geste walking), par quinte (le saut dominant), ou
+          diatonique
+LE PRINCIPE : la walking se compose À L'ENVERS — la cible d'abord,
+l'approche ensuite, le chemin en dernier (la méthode de m04-l02 §3 :
+la fin d'abord — la même, à l'échelle de la mesure)
+```
+
+<MusicExample id="walking" title="Deux mesures de walking sur Dm7–G7–Cmaj7 (le ii-V-I marché)">
+  Dm7 : D2:q F2:q A2:q Ab2:q | G7 : G2:q B2:q D3:q Db3:q | Cmaj7 : C3:q …
+  Temps 1 = fondamentales ✓ ; le A♭2 (temps 4) approche G par demi-ton
+  supérieur ✓ ; le D♭3 approche C ✓ ; entre les deux : l'accord arpégé
+  en chemin. Quatre noires ÉGALES et DROITES (l01 : la pulsation ne
+  swingue pas — la walking est le tapis roulant lui-même).
+</MusicExample>
+
+### 2. Le vocabulaire de la marche (les cinq patterns)
+
+| Pattern | Recette (sur un accord/mesure) | Caractère |
+|---|---|---|
+| **L'arpège dirigé** | 1-3-5 + approche | le défaut : solide, harmonique |
+| **La gamme qui monte/descend** | 1-2-3 + approche (ou descendant) | le coulé, la ligne qui voyage |
+| **Le chromatique double** | 1-(cible+2)-(cible+1)-cible : deux demi-tons vers le prochain temps 1 | l'aimantation maximale — l'enclosure de basse (l07 arrive) |
+| **La pédale marchée** | la fondamentale répétée en octaves (1-8-1-8) | l'insistance, le groove qui martèle (deux mesures max) |
+| **Le saut-récupération** | l'octave ou la quinte sautée, récupérée en conjoint | le relief — melody.leap-recovery à la basse : la règle vit partout |
+
+La ligne globale obéit à m02 : **une arche sur le chorus entier** (la walking qui reste dans une octave ennuie ; celle qui zigzague épuise — le registre voyage en vagues lentes sur les 12/32 mesures, E1–G3 : la fiche contrebasse, m05-l05).
+
+### 3. La walking au-delà de la contrebasse (l'outil de compositeur)
+
+La walking n'est pas qu'un accompagnement de club : c'est un **générateur de basse chromatique** pour toute musique — la basse de comédie élégante, le pizz du noir (m09-l03), et le truc de métier : *quand une progression sonne raide, fais-la marcher* (la walking mentale révèle les approches chromatiques qui manquaient — puis on garde les temps 1 et 4 en blanches : la basse « semi-walking » du drame urbain). Le tag `walking-bass` du moteur : noires continues + temps 1 harmoniques ≥ 75 % + approches chromatiques détectées — et le checker croise la 3e espèce (le laboratoire m04 en juge de ligne).
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Composer de gauche à droite | le temps 4 orphelin, les cibles ratées | à l'envers : cible → approche → chemin |
+| L'énumération d'arpèges | harmonique et mort | les cinq patterns se mélangent ; l'arche globale gouverne |
+| La walking qui swingue | le tapis roulant qui tangue | noires droites — c'est la pulsation (l01 §2) |
+| Le registre statique | 12 mesures dans une quinte | les vagues lentes sur E1–G3 |
+
+### La mission (m08-e05, HARMONIZE_MELODY inversé — la basse sous la grille)
+
+La grille du blues de e04 (le pont entre leçons) : compose la walking complète des 12 mesures — temps 1 harmoniques, ≥ 4 approches chromatiques, ≥ 3 patterns différents identifiés, l'arche de registre (ambitus ≥ une 10e, en vagues), noires droites (`swingRatio` ≈ 1 sur cette part !). Le rapport double la lecture : le juge jazz (tag walking, approches) ET le juge Fux (la 3e espèce : conjoint, figures, ligne) — les deux mondes notent la même marche.
+
+- [ ] Cible (temps 1) → approche (temps 4) → chemin (2-3) : composée à l'envers
+- [ ] Cinq patterns, une arche globale — la marche est une mélodie
+- [ ] Noires droites : la walking EST la pulsation
+- [ ] Le générateur de basse chromatique de toute musique — pas qu'un accompagnement
+
+<QuizBlock id="m08-l05-quiz" questions={5} />
+<LessonFooter exercises={["m08-e05-the-walk"]} />

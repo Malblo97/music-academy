@@ -1,0 +1,83 @@
+---
+id: m01-l09-rythme-2
+module: module-01-fondamentaux
+title: "Rythme II : syncopes, contretemps, triolets — l'art du déséquilibre"
+estMinutes: 25
+skills: { rhythm: 1.0 }
+---
+
+### Pourquoi déséquilibrer
+
+La leçon 8 a posé la grille ; celle-ci t'apprend à jouer *contre* elle. Le principe est le même que la tension/résolution mélodique (l14) transposé au temps : **la grille crée une attente, la syncope la contrarie, le retour sur le temps la rembourse**. Une musique toujours sur la grille est prévisible ; toujours contre, illisible. L'art est dans le dosage — et c'est littéralement ce que mesure `rhythm.syncopation-target` : chaque style a sa fenêtre de déséquilibre (classique : basse, jazz : haute).
+
+### 1. Le contretemps : frapper entre les poids
+
+Un **contretemps** attaque sur la subdivision faible (le « & ») et retombe. Une **syncope** attaque sur le faible et *tient à travers* le fort suivant — elle vole le poids du temps fort :
+
+```
+grille :        1   &   2   &   3   &   4   &
+contretemps :       ♪       ♪       ♪       ♪     (rebond, léger)
+syncope :           ♪———————♪———————♪              (le & tient À TRAVERS 2 et 3 :
+                                                    le poids est déplacé)
+```
+
+<MusicExample id="carre-vs-syncope" title="La même phrase, redressée puis penchée">
+  A) C4:q C4:q E4:q E4:q | G4:h C4:h              — sur la grille : ferme, un peu raide
+  B) C4:q. C4:e~C4:q E4:e E4:e~ | E4:e G4:q. C4:h — syncopée : elle penche en avant
+  La version B « tire » vers l'avant : l'oreille attend le temps, la note
+  arrive tôt et tient — c'est une avance perpétuelle, le moteur du groove.
+</MusicExample>
+
+### 2. Le triolet : la division étrangère
+
+Le **triolet** divise un temps binaire en 3 au lieu de 2 — trois croches de triolet dans le temps d'une noire. C'est une *importation ternaire* en terrain binaire : localement, la musique roule au lieu de marcher.
+
+Trois emplois majeurs au cinéma :
+- **le triolet isolé** avant un temps fort : élan, appel (l'anacrouse de fanfare : `♪♪♪|♩`) ;
+- **le flux de triolets** : urgence roulante sans changer de chiffrage (poursuites, cavalcades — l'action à trois-pour-deux) ;
+- **le trois-contre-deux** (une voix en triolets sur une voix binaire) : friction hypnotique — tu le retrouveras au Module 6 en arpeggiators superposés.
+
+### 3. Motif rythmique : le rythme EST un motif
+
+La leçon sur les motifs mélodiques (Module 2) a un jumeau immédiat : **un rythme répété est identifiable même sans les hauteurs**. Tape « ta-ta-ta-taaa » sur une table : reconnu instantanément, aucune hauteur nécessaire. D'où la méthode, redoutablement efficace :
+
+```
+1. Compose ton MOTIF RYTHMIQUE seul (frappe-le, enregistre-le sur une note)
+2. Teste-le : répété 4×, tient-il sans ennuyer ? (sinon, varie sa fin)
+3. Pose ensuite les hauteurs dessus (charpente/habillage, leçon 4)
+```
+
+L'analyseur voit ce que tu fais : `findMotifs` reconnaît la variation *rythmique* d'un motif (augmentation, diminution) comme une variation à part entière — répéter tes hauteurs en doublant les durées est une technique créditée, pas une monotonie.
+
+### 4. Le dosage par style (la fenêtre de syncope)
+
+| Style | Taux de syncope cible | Le déséquilibre typique |
+|---|---|---|
+| Choral classique | quasi nul | suspensions préparées (Module 4) uniquement |
+| Romantique film | léger | anticipations expressives en fin de phrase |
+| Épique moderne | modéré | ostinatos avec UN accent déplacé récurrent |
+| Néo-noir | doux | croches légèrement inégales, « swing fantôme » (m09-l03) |
+| Jazz | élevé | le contretemps est la norme, le temps l'exception |
+| Action/thriller | élevé, mécanique | patterns asymétriques répétés (3+3+2) |
+
+Le pattern **3+3+2** (huit croches groupées ainsi : `♪♪♪-♪♪♪-♪♪`) mérite d'être nommé dès maintenant : c'est LA cellule asymétrique de l'action moderne — stable car répétée, instable car inégale. Programme-la en boucle sur une note : tu reconnaîtras la moitié des scores de thriller récents.
+
+### 5. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Syncoper partout | grille détruite, plus de déséquilibre possible | la syncope n'existe que si la grille reste audible quelque part (basse, batterie, ostinato) |
+| Triolets non voulus par quantisation | flou rythmique « mystérieux » dans le DAW | vérifie la valeur de quantisation du Key Editor (1/8 vs 1/8T) |
+| Motif rythmique jamais varié | le fameux ostinato qui fatigue à la 8e mesure | varie la FIN du motif toutes les 2 ou 4 occurrences |
+| Ignorer le style | jazz raide, choral qui groove | connais ta fenêtre de syncope avant d'écrire |
+
+### Récapitulatif
+
+- [ ] Contretemps (rebond) ≠ syncope (vol de poids à travers le temps fort)
+- [ ] La syncope n'existe que si la grille reste audible : dette et remboursement, version temps
+- [ ] Triolet = ternaire importé : isolé (élan), en flux (urgence), contre binaire (friction)
+- [ ] Je compose le motif rythmique AVANT les hauteurs
+- [ ] 3+3+2 : la cellule asymétrique de l'action — je l'ai programmée et entendue
+
+<QuizBlock id="m01-l09-quiz" questions={6} />
+<LessonFooter exercises={["m01-e17-syncopation-lab", "m01-e18-rhythm-motif"]} />

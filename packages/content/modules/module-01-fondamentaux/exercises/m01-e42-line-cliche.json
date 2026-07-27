@@ -1,0 +1,11 @@
+{ "id": "m01-e42-line-cliche", "lessonId": "m01-l22-chromatismes-melodiques",
+  "title": "Une voix voyage, tout tient", "kind": "HARMONY_PROGRESSION",
+  "difficulty": 6, "xpReward": 100, "skills": { "HARMONY": 0.7, "MELODY": 0.3 },
+  "spec": { "prompt": "4 mesures : la line cliché descendante sur la mineur — Am → Am(maj7) → Am7 → Am6 (la voix interne A→G♯→G→F♯) — puis 4 mesures de suite libre qui en fait quelque chose (résolution en ré mineur ? retour ? à toi). Contrainte structurelle : pendant la ligne, TOUTES les autres voix tiennent ou bougent au minimum — l'immobilité fait ressortir le voyage.",
+    "given": { "key": { "tonic": 9, "mode": "minor" } },
+    "constraints": { "lengthBars": [8,8], "minVoices": 4,
+      "requiredProgressionPattern": "Am-AmMaj7-Am7-Am6", "patternBars": [1,4],
+      "innerChromaticLine": [0,11,10,9] },
+    "styleProfile": { "id": "neo-noir" },
+    "craftMultipliersOverride": { "vl.smoothness": 1.8 },
+    "rubric": { "correctness": 30, "constraints": 40, "craft": 30 } } }

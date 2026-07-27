@@ -1,0 +1,75 @@
+---
+id: m06-l13-tenue
+module: module-06-sound-design
+title: "La tenue du son : saturation, compression, sidechain"
+estMinutes: 25
+skills: { sound_design: 0.8, rhythm: 0.2 }
+---
+
+### Pourquoi trois traitements de plus (et pas dix)
+
+m10-l08 t'a interdit presque tous les traitements — et sa règle d'or tient (*l'écriture avant le fader*). Mais le monde synthétique a une différence de nature : **ses sons n'ont pas de corps** — pas de bois qui vibre, pas de cuivre qui sature naturellement, pas de section qui se cimente en jouant ensemble. Les trois outils de cette leçon fabriquent ce corps manquant : la saturation donne la chair, la compression donne le liant, le sidechain donne… autre chose — un geste rythmique à part entière, le seul traitement de tout le cursus qui soit aussi une écriture.
+
+### 1. La saturation : la chair
+
+La saturation ajoute des harmoniques en « écrêtant » doucement le signal — c'est la distorsion apprivoisée, et c'est LE traitement du monde synthétique :
+
+| Dose | Effet | Usage |
+|---|---|---|
+| **Légère** (drive à peine engagé) | le son « prend corps » : +2 dB de présence perçue sans +2 dB réels | quasi universelle sur les couches synthétiques principales — le body, le growl (l06 : promis), le lead |
+| **Moyenne** | le grain audible, la chaleur qui mord | le growl fâché du thriller, les keys lo-fi (l07), le caractère |
+| **Lourde** | la matière transformée | le braam (l10 : promis aussi), les FX — c'est de la sculpture (l11), plus du traitement |
+
+Deux lois d'application : **la saturation s'applique par couche, jamais sur le stack entier** (saturer le mix = la boue harmonique : chaque couche sature SA bande) ; et **le sub ne sature qu'exprès** — saturer le sub crée des harmoniques au-dessus de 90 Hz, c'est-à-dire un growl involontaire qui envahit le bas-médium (l03) : soit c'est le but (la basse hybride en UNE couche : légitime, déclare alors la vraie bande), soit c'est une fuite.
+
+### 2. La compression : le liant (la version synthétique de la doctrine)
+
+m10-l08 §3 t'a donné la doctrine orchestrale (un seul, doux, sur le groupe — le CC1 fait le reste). Le monde synthétique la module en deux points :
+
+```
+CE QUI NE CHANGE PAS : pas de compression par couche "pour le punch" —
+  l'enveloppe ADSR (l01) fait au synthé ce que le CC1 fait à l'orchestre :
+  si le pluck manque de punch, c'est son decay, pas un compresseur
+CE QUI CHANGE : le GLUE de stack — un compresseur doux (2:1, 1-2 dB de
+  réduction, attaque lente 30 ms, release auto) sur le BUS des couches
+  synthétiques soude le stack en un instrument : les couches de l03
+  cessent d'être des voisines et deviennent un corps. C'est le liant
+  que les sections orchestrales ont par nature (l'acoustique partagée)
+  et que le synthétique doit fabriquer.
+```
+
+Le réglage qui compte : **l'attaque lente** (20–30 ms) laisse passer les transitoires (les attaques des plucks, la définition) et ne comprime que la tenue — le glue cimente sans écraser. L'attaque rapide, elle, mange les transitoires : c'est un autre outil (le nivellement), rarement le tien.
+
+### 3. Le sidechain : le traitement qui est une écriture
+
+Le sidechain fait baisser une couche **quand une autre joue** : le compresseur écoute la source (le kick, le sub, l'impact) et « pompe » la cible (le pad, le body). Né du mixage (faire de la place), il est devenu un **geste rythmique** — la respiration du stack :
+
+| Usage | Recette | Effet |
+|---|---|---|
+| **Le nettoyage** (l'origine) | le sub sidechaine le body/pad : 2–4 dB de creux à chaque note de basse, release rapide | le grave reste lisible sans EQ — la négociation de place de l03, automatisée |
+| **Le pompage rythmique** | la source est un kick fantôme (une piste muette qui bat la pulsation !) ; le pad pompe 4–8 dB, release calé au tempo (l09 §3 : encore la loi des traînes) | le stack ENTIER respire sur le pouls — l'ostinato sans notes : le mouvement de l02, fabriqué par le creux |
+| **La bascule dramatique** | l'impact (l10) sidechaine tout le stack : 1 coup = tout s'efface 1 seconde puis remonte | le choc qui fait le silence — l'apnée de m09-l04, automatisée |
+
+Le champ `sidechainedBy` du modèle (§35.1) déclare ces liens — et le rapport les lit comme des relations : « ton pad respire sur ton sub » est une phrase d'analyse, pas de mixage. Jumeau orchestral du pompage : il n'en a pas — c'est le premier geste de tout le cursus qui n'existe QUE dans le monde synthétique. Note-le : tu viens de franchir la frontière où l'hybride cesse d'imiter l'orchestre et devient lui-même (l14 est la porte à côté).
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Saturer le stack entier | la boue harmonique | par couche, chacune sa bande |
+| Le sub saturé sans le savoir | un growl fantôme dans le bas-médium | le sub reste pur — ou la saturation est déclarée (bande élargie) |
+| Compresser chaque couche « pour le punch » | l'ADSR contredite par son traitement | le punch est dans le decay ; le glue est sur le bus |
+| Le pompage sur tout, tout le temps | la mer malade — le tic de production des années 2010 | le sidechain est un geste : rythmique assumé, ou nettoyage discret (2–4 dB), pas un état du monde |
+| Le release de pompage non calé | la respiration qui boite contre le tempo | release ≈ le pas du pouls (la table de l09 §3 sert une troisième fois) |
+
+### La mission (m06-e13, LAYERING)
+
+Reprends ton stack de basse hybride (m06-e06) + un pad body : déclare la saturation du growl (dose, bande résultante élargie honnêtement), le glue de bus (champ dédié du stack), et DEUX sidechains — le nettoyage (sub → pad, 2–4 dB) et le pompage rythmique (kick fantôme → body, release calé : déclare ton calcul au tempo). Le moteur vérifie : la cohérence bande×saturation (growl saturé → `band.high` ≥ 800), les liens `sidechainedBy` non circulaires (checker trivial), le release déclaré ±30 % du pas, et `sd.sub-conflict` toujours muette (le growl saturé ne doit pas redescendre sous 90).
+
+- [ ] Saturation = la chair, par couche et par bande — le sub reste pur ou se déclare
+- [ ] Le glue de bus soude le stack ; le punch vit dans l'ADSR, pas dans un compresseur
+- [ ] Le sidechain est une écriture : nettoyage, pompage calé, ou apnée automatisée
+- [ ] Premier geste sans jumeau orchestral : l'hybride commence à parler sa propre langue
+
+<QuizBlock id="m06-l13-quiz" questions={5} />
+<LessonFooter exercises={["m06-e13-flesh-glue-breath"]} />

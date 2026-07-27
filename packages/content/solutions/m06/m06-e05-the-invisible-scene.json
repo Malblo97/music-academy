@@ -1,0 +1,14 @@
+{
+  "exerciseId": "m06-e05-the-invisible-scene",
+  "payload": {
+    "lengthBars": 12,
+    "tempoBpm": 60,
+    "layers": [
+      { "id": "drone-sub", "role": "sub", "source": "sine", "pitch": "la 55 Hz", "band": [40, 90], "mono": true, "dry": true, "levelDb": -8 },
+      { "id": "drone-body", "role": "body", "band": [90, 400], "motion": { "type": "automation", "dst": "cutoff", "shape": "opening", "bars": [1, 9] }, "levelDb": -8 },
+      { "id": "texture", "role": "texture", "source": "grain d'électricité statique", "band": [4000, 12000], "levelDb": -18 },
+      { "id": "atmosphere", "role": "texture", "levelDb": -14, "reference": "le ventilateur du néon", "musicalization": "bande étroite autour de 660 Hz, accordée : la quinte du drone — le lieu devient un intervalle" }
+    ]
+  },
+  "authorNotes": "Tenir une scène avec l'invisible seul : ni pad, ni mélodie (`forbiddenRoles` respecté). Pyramide des niveaux stricte : **−18 < −14 < −8** ✓ — chaque couche inaudible comme objet, évidente comme absence. `sd.sub-conflict` muette (un seul roi sous 90 Hz) ✓, deux motions ✓. Le champ le plus important est la musicalisation de l'atmosphère : le ventilateur n'est pas un bruitage, il est **accordé à la quinte du drone** — c'est là que le sound design devient de la composition, et le champ libre de la spec existe pour permettre de le dire."
+}

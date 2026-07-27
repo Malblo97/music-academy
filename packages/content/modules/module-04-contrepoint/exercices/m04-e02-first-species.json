@@ -1,0 +1,35 @@
+{
+  "id": "m04-e02-first-species",
+  "lessonId": "m04-l02-premiere-espece",
+  "title": "Première espèce : note contre note",
+  "kind": "COUNTERPOINT",
+  "difficulty": 4,
+  "xpReward": 120,
+  "skills": { "COUNTERPOINT": 1.0 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "strict-counterpoint", "ruleWeights": {} },
+  "rubric": { "correctness": 40, "constraints": 35, "craft": 25 },
+  "spec": {
+    "version": 1,
+    "species": 1,
+    "prompt": "Trois cantus firmi, trois contrepoints de première espèce : au-DESSUS du dorien, au-DESSOUS de l'éolien (les règles s'inversent en miroir — la basse cadence 5̂→1̂), au choix pour l'ionien. La méthode dans l'ordre : la clausule d'abord, le début, le climax, puis relier — à chaque pas, liste les consonances, élimine les parallèles, choisis le contraire. Chante chaque voix seule avant de valider : le LiveFeedback colore les verticalités, mais le juge final est ton chant.",
+    "liveFeedback": true,
+    "given": {
+      "cantusFirmus": "D4:w F4:w E4:w D4:w G4:w F4:w A4:w G4:w F4:w E4:w D4:w",
+      "cfBank": ["m04-cf-dorian-01", "m04-cf-aeolian-01", "m04-cf-ionian-01"]
+    },
+    "parts": [
+      { "id": "above-dorian", "constraints": { "species": 1, "cfPosition": "above" } },
+      { "id": "below-aeolian", "constraints": { "species": 1, "cfPosition": "below" } },
+      { "id": "choice-ionian", "constraints": { "species": 1, "cfPosition": "choice" } }
+    ],
+    "constraints": {
+      "species": 1,
+      "checkers": ["species1.verticalities", "species1.opening", "species1.cadence", "species1.unison", "cpt.hidden-fifths"],
+      "contraryObliqueMinRatio": 0.5,
+      "minConjunctRatio": 0.6,
+      "singleClimax": true
+    }
+  }
+}

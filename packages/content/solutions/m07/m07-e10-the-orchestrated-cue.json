@@ -1,0 +1,14 @@
+{
+  "exerciseId": "m07-e10-the-orchestrated-cue",
+  "partId": "part1-architecture",
+  "payload": {
+    "sectionMap": [
+      { "id": "S1", "name": "L'EXIL", "bars": [1, 10], "regime": "intime", "effectif": ["clarinette chalumeau", "contrabasses"], "content": "le thème VOILÉ (fragments)" },
+      { "id": "S2", "name": "L'ESPOIR", "bars": [11, 24], "regime": "la crue", "effectif": "hautbois + fleuve → +5 parts", "plan": "crescendoPlan 5 leviers (architecture vague, s06-b)" },
+      { "id": "S3", "name": "LE SOUVENIR DU DÉPART", "bars": [25, 32], "regime": "tutti", "content": "l'immeuble (s07-a), le thème PLEIN — s30-elena intégral, extension m9–14 comprise" },
+      { "id": "S4", "name": "LA VÉRITÉ", "bars": [33, 40], "regime": "coupure", "effectif": ["clarinette", "alto témoin"], "sectionEffectiveDelta": 0.71 },
+      { "id": "S5", "name": "CE QUI RESTE", "bars": [41, 48], "regime": "coda", "effectif": ["celli ténor seuls"], "content": "LE FLEUVE devenu thème — l'échange de e05, ultime" }
+    ]
+  },
+  "authorNotes": "« La forme d'un cue se planifie en effectifs avant de se planifier en thèmes. » Cinq sections nommées, leurs effectifs déclarés, le rolePlan par section, le crescendoPlan assigné à S2. Le geste se chiffre : la coupure S3→S4 mesure **71 % de différentiel d'effectif** ≥ 60 % — une coupure déclarée qui ne se chiffre pas n'est pas une coupure, c'est une diminution. La coda est le retournement du module : le contrechant du fleuve, né en M4 comme accompagnement, **finit thème** — cinq modules de métier pour cette seule ligne."
+}

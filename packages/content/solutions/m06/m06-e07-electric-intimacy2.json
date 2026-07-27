@@ -1,0 +1,17 @@
+{
+  "exerciseId": "m06-e07-electric-intimacy",
+  "variantId": "souvenir-qui-s-efface",
+  "notation": "[E4+G4+B4+D5]:w | [G4+A4+C5+E5]:w | [A4+C5+E5+G5]:w | [F4+A4+C5+D5]:h [F4+G4+B4+D5]:h | [F4+Ab4+C5+D5]:w",
+  "payload": {
+    "family": "lofi",
+    "brief": "le souvenir qui s'efface",
+    "layers": [
+      { "id": "keys", "role": "body", "band": [100, 6000], "hasNotes": true, "note": "bande plafonnée à 6 kHz — la mémoire filtrée" },
+      { "id": "sub", "role": "sub", "band": [30, 90], "mono": true, "notation": "C2:w | A1:w | F1:w | G1:w | F1:w" }
+    ],
+    "motion": { "layer": "keys", "type": "wow-flutter", "wowRateHz": 0.4, "note": "la motion signature lo-fi" },
+    "performanceOnly": ["quantizeInfo"],
+    "humanize": { "seed": 42, "offsetTicks": 18 }
+  },
+  "authorNotes": "L'expérience A/B à matériau strictement constant : **mêmes notes, même sub, même humanize** — seules la famille et la motion signature changent. Le Rhodes fait la nuit chaude, le lo-fi fait la mémoire dégradée, et le plafond à 6 kHz est l'argument audible du second brief. C'est le protocole de m06-e12 en miniature, un module plus tôt : quand une seule variable bouge, l'oreille apprend."
+}

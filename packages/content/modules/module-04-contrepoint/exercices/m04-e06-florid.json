@@ -1,0 +1,35 @@
+{
+  "id": "m04-e06-florid",
+  "lessonId": "m04-l06-cinquieme-espece",
+  "title": "Le contrepoint fleuri",
+  "kind": "COUNTERPOINT",
+  "difficulty": 6,
+  "xpReward": 150,
+  "skills": { "COUNTERPOINT": 1.0 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "badge": "laboratoire",
+  "styleProfile": { "id": "strict-counterpoint", "ruleWeights": {} },
+  "rubric": { "correctness": 30, "constraints": 40, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "species": 5,
+    "prompt": "Le capstone du laboratoire : le fleuri complet sur DEUX cantus firmi (le dorien compagnon + un ionien neuf). La carte des textures d'abord — déclare ton texturePlan (le tensionPlan a cinq siècles) : commencer posé, s'animer vers le climax, et LA CADENCE PASSE PAR LA SYNCOPE (le retard final 7–6 ou 4–3 : conclure, c'est d'abord émouvoir). Chaque figure garde la grammaire de son espèce d'origine — le fleuri n'assouplit rien, il juxtapose — et chaque figure est re-testée par son checker d'origine. Les croches : par paires, temps faibles, conjointes. Pas deux mesures consécutives dans la même espèce.",
+    "liveFeedback": true,
+    "given": {
+      "cantusFirmus": "D4:w F4:w E4:w D4:w G4:w F4:w A4:w G4:w F4:w E4:w D4:w",
+      "cfBank": ["m04-cf-ionian-02"]
+    },
+    "constraints": {
+      "species": 5,
+      "checkers": ["species5.variety", "species1.verticalities", "species2.passing-count", "species3.cambiata", "species4"],
+      "texturePlan": { "declared": true, "verifiedAgainstDetected": true },
+      "minSpeciesRepresented": 4,
+      "requiredFigures": { "suspension": 2, "cambiata": 1 },
+      "requireCadentialSuspension": true,
+      "eighthNotes": { "pairsOnly": true, "weakBeatsOnly": true, "conjunctOnly": true },
+      "maxConsecutiveSameTexture": 1,
+      "singleClimax": true
+    }
+  }
+}

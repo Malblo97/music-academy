@@ -1,0 +1,11 @@
+{ "id": "m01-e49-tension-arch", "lessonId": "m01-l14-tension-resolution",
+  "title": "L'arche de tension", "kind": "MELODY_COMPOSE",
+  "difficulty": 3, "xpReward": 70, "skills": { "MELODY": 0.7, "HARMONY": 0.3 },
+  "spec": { "prompt": "8 mesures en fa majeur : construis l'arche de l14 §4 — départ stable (1̂/3̂/5̂), montée en tension (degrés instables sur temps forts assumés), CLIMAX vers les 2/3, résolution ferme 7̂→1̂. Ta courbe de tension sera comparée au gabarit.",
+    "given": { "key": { "tonic": 5, "mode": "major" } },
+    "constraints": { "key": { "tonic": 5, "mode": "major" }, "lengthBars": [8,8],
+      "noteRange": [53,79], "maxLeap": 9, "requiredCadence": "perfect",
+      "mustEndOnDegrees": [1], "climaxWindow": [0.55, 0.8] },
+    "styleProfile": { "id": "romantic-film", "targetMood": "default",
+      "ruleWeights": { "melody.tension-placement": 1.2, "melody.climax": 1.0 } },
+    "rubric": { "correctness": 30, "constraints": 30, "craft": 40 } } }

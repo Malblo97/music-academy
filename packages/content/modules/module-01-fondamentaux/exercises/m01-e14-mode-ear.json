@@ -1,0 +1,9 @@
+{ "id": "m01-e14-mode-ear", "lessonId": "m01-l07-modes",
+  "title": "Quel mode entends-tu ?", "kind": "EAR_QUIZ", "mvpFallback": "THEORY_QUIZ",
+  "difficulty": 4, "xpReward": 60, "skills": { "EAR_TRAINING": 1.0 },
+  "spec": { "prompt": "Écoute la phrase (tonique établie) et identifie le mode par sa note-signature.",
+    "quiz": { "interaction": "mc",
+      "generator": { "modes": ["lydian","mixolydian","dorian","aeolian","phrygian"], "rounds": 8 },
+      "items": [
+        { "q": "▶", "play": "D3:h D3:h | D4:q F4:q A4:q B4:q | C5:q A4:q B4:e A4:e D4:h", "options": ["dorien","éolien","phrygien"], "answer": "dorien", "why": "Le B naturel (6̂ majeure) éclaire le mineur : le rayon de lumière." },
+        { "q": "▶", "play": "E3:h E3:h | E4:q F4:q E4:q G4:q | F4:q E4:q F4:e E4:e E4:h", "options": ["phrygien","éolien","locrien"], "answer": "phrygien", "why": "La ♭2̂ (F) pèse sur la tonique : la lame." } ] } } }

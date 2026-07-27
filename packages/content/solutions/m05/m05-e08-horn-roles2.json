@@ -1,0 +1,12 @@
+{
+  "exerciseId": "m05-e08-horn-roles",
+  "partId": "appel",
+  "notation": "C3:q. G3:e C3:q. G3:e | G4:h. r:q | C4:q. G4:e C4:q. G4:e | C4:h. r:q | r:h C3:q. G3:e | C3:q. G3:e C3:q. G3:e | G4:q. G4:e C4:q. G4:e | C4:w",
+  "payload": {
+    "instrumentation": ["french-horn-1", "french-horn-2"],
+    "role": "signal",
+    "unisonPlayers": 2,
+    "dynamics": "mf, cor 1+2 à l'unisson strict"
+  },
+  "authorNotes": "L'archétype « appel » de m02-l02, rendu au pupitre qui l'a inventé. **Aucun intervalle mélodique autre que 0, ±7 et ±12** : l'ensemble de hauteurs se réduit à {do3, sol3, do4, sol4} et le graphe des mouvements légaux interdit la quarte — d'où le contour en balancier quinte/octave, jamais la sonnerie de clairon en 1-3-5. Rythme pointé sur 6 des 8 mesures (q. e), les deux autres en blanche pointée + silence : **le silence fait partie de l'appel** — c'est lui qui installe le lointain. Registre do3–sol4 (48–67) ⊂ [48,67] ✓. Unisson à 2 déclaré : un cor seul, même mf, n'est pas un appel, c'est une note."
+}

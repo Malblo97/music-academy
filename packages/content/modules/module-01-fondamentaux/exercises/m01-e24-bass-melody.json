@@ -1,0 +1,9 @@
+{ "id": "m01-e24-bass-melody", "lessonId": "m01-l12-renversements",
+  "title": "La basse est une mélodie", "kind": "HARMONY_PROGRESSION",
+  "difficulty": 4, "xpReward": 80, "skills": { "HARMONY": 1.0 },
+  "spec": { "prompt": "Compose 4 mesures (1 à 2 accords/mesure) en sol majeur dont la basse DESCEND en ligne diatonique de G3 à G2 (ou au moins une octave de parcours net). Choisis librement accords et renversements — c'est la ligne qui commande. Grave écarté sous C3 (l12 §4).",
+    "given": { "key": { "tonic": 7, "mode": "major" } },
+    "constraints": { "lengthBars": [4,4], "minVoices": 3, "maxVoices": 4,
+      "bassContour": "descending", "minBassConjunctRatio": 0.7, "requiredCadence": "perfect" },
+    "styleProfile": { "id": "classical-common" },
+    "rubric": { "correctness": 35, "constraints": 35, "craft": 30 } } }

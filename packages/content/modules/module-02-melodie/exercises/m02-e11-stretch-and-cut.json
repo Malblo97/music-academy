@@ -1,0 +1,11 @@
+{ "id": "m02-e11-stretch-and-cut", "lessonId": "m02-l06-phrase",
+  "title": "Étire la phrase", "kind": "MELODY_COMPOSE",
+  "difficulty": 6, "xpReward": 110, "skills": { "MELODY": 1.0 },
+  "spec": { "prompt": "Une période... déséquilibrée : antécédent de 4 mesures (demi-cadence), conséquent ÉTENDU à 6 mesures — l'extension retarde LA cadence (rompue puis parfaite, ou pénultième étirée : à toi). L'irrégularité contre la norme : ton antécédent doit être carré pour que l'extension s'entende.",
+    "given": { "key": { "tonic": 7, "mode": "major" },
+      "chords": [ {"root":7,"quality":"maj"},{"root":0,"quality":"maj"},{"root":4,"quality":"min"},{"root":2,"quality":"7"},{"root":7,"quality":"maj"},{"root":0,"quality":"maj"},{"root":4,"quality":"min"},{"root":2,"quality":"7"},{"root":2,"quality":"7"},{"root":7,"quality":"maj"} ] },
+    "constraints": { "lengthBars": [10,10], "phraseBarPlan": [4,6],
+      "phraseStructure": "period", "antecedentEndDegrees": [2,5],
+      "mustEndOnDegrees": [1], "mustUseMotif": true },
+    "styleProfile": { "id": "romantic-film" },
+    "rubric": { "correctness": 20, "constraints": 45, "craft": 35 } } }

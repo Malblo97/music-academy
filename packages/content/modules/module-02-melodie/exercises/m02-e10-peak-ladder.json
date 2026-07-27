@@ -1,0 +1,11 @@
+{ "id": "m02-e10-peak-ladder", "lessonId": "m02-l05-contour",
+  "title": "L'échelle des sommets", "kind": "MELODY_COMPOSE",
+  "difficulty": 5, "xpReward": 100, "skills": { "MELODY": 1.0 },
+  "spec": { "prompt": "12 mesures = 3 phrases de 4 mesures, sommets PROGRESSIFS : chaque phrase culmine plus haut que la précédente, climax global dans la phrase 3. Réserve un étage (l05 §3) : la phrase 1 ne dépense pas ton ambitus. L'analyseur compare les trois sommets.",
+    "given": { "key": { "tonic": 5, "mode": "major" } },
+    "constraints": { "key": { "tonic": 5, "mode": "major" }, "lengthBars": [12,12],
+      "segmentBars": 4, "ascendingPhrasePeaks": true,
+      "climaxWindow": [0.6, 0.9], "requiredCadence": "perfect",
+      "mustUseMotif": true },
+    "styleProfile": { "id": "romantic-film" },
+    "rubric": { "correctness": 20, "constraints": 45, "craft": 35 } } }

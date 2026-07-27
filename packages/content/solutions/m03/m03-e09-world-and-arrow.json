@@ -1,0 +1,8 @@
+{
+  "exerciseId": "m03-e09-world-and-arrow",
+  "notation": "[G2+F3+B3+D4]:h [G2+F3+B3+E4]:h | [G2+F3+B3+C#4]:h~[G2+F3+B3+C#4]:h | [G2+F3+B3+D4]:h [G2+F3+B3+F4]:h | [G2+F3+B3+E4]:h [G2+F3+B3+D4]:h | [G2+F3+B3+C#4]:w | [G2+F3+B3+D4]:h [G2+F3+B3+E4]:h | [G2+F3+B3+F4]:h [G2+F3+B3+E4]:h | [G2+F3+B3+D4]:w | [G2+F3+B3+C#4]:w | [F#2+F#3+A#3+C#4]:w",
+  "payload": {
+    "pedalPlan": [{ "bars": [1, 9], "state": "compatible" }]
+  },
+  "authorNotes": "LE MONDE (m1–8) : G7♯11 bouclé sur pédale de sol déclarée ; la ligne de tête expose les deux piliers — ♯4̂ (do♯ : m2 tenue-liée, m5 ronde) et ♭7̂ (fa : m3, m7 à l'aigu). requireCollection melodic-minor (rotation de ré mineur mélodique — **F-20**) : toutes les hauteurs ∈ {D,E,F,G,A,B,C♯}. Huit mesures où cette sonorité de dominante N'EST PAS une dominante : elle est un lieu. LA FLÈCHE (m9–10) : la MÊME sonorité (m9 ≡ m2), puis la basse plonge d'un demi-ton (G2→F♯2), le triton se referme (F3→F♯3, B3→A♯3) et **le do♯ ne bouge pas** — ♯11 de G7 = quinte de F♯, la note qui appartient aux deux vérités. Le rapport met m5 et m9 côte à côte : le même son, le régime fait le sens."
+}

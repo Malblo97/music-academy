@@ -1,0 +1,64 @@
+---
+id: m11-l05-analyser-temps
+module: module-11-analyse
+title: "Analyser le temps : la forme, la tension, l'image"
+estMinutes: 25
+skills: { ear_training: 0.4, rhythm: 0.3, harmony: 0.3 }
+---
+
+### Pourquoi le temps est la dernière famille technique
+
+Thème, harmonie, orchestration : trois familles répondent à « qu'entend-on ? ». La quatrième répond à **« quand, et pourquoi là ? »** — la forme (comment ça se découpe), la tension (comment ça monte et retombe), et pour la musique à l'image : la relation au film (comment ça se cale). C'est l'analyse qui prépare le mieux au métier : le temps est ce que le réalisateur discute avec toi.
+
+### 1. Lire la forme (le cartographe outillé)
+
+La passe 2 de l01 s'arme : les frontières de section s'entendent à quatre indices, par force décroissante — **la cadence** (l'arrivée qui ferme, m01-l16), **le changement d'effectif** (l04 : la timeline EST une analyse de forme), **le changement de matériau** (nouveau thème, nouveau motif — l02), **le changement de système ou de tonalité** (l03). La méthode : poser les frontières aux endroits où *plusieurs* indices coïncident (la frontière franche) et noter les frontières *floues* comme floues (la couture tuilée, m10-l02... m07-l06 : la vague — l'ambiguïté de frontière est un choix de compositeur, donc une information d'analyse). Puis nommer : les schémas connus (AABA de m08-l15, la période, le couplet-refrain, l'arche) OU la forme libre — et dans ce cas, chercher ce qui la tient (souvent : la tension, §2).
+
+### 2. Lire la tension (les moteurs à rebours)
+
+L'exercice `draw-tension` (l01) donne la courbe ; cette section apprend à l'**expliquer** — la question d'artisan : *par quels moteurs cette montée est-elle fabriquée ?* La grille de lecture est la table de m03-l17 §1 (les six moteurs), plus les acquis d'effectif :
+
+```
+LE PROTOCOLE D'AUTOPSIE D'UNE MONTÉE (sur LE crescendo du cue) :
+pour chaque minute de montée, coche ce qui bouge —
+  densité ? (plus de notes, plus serrées)          [m03-l17]
+  registre ? (l'étau, ou l'ambitus qui s'ouvre)     [m03-l17]
+  dissonance ? (la friction qui croît)              [m03-l17]
+  rythme harmonique ? (les accords qui accélèrent)  [m03-l17]
+  effectif ? (le recrutement — et par paliers ou    [m07-l06]
+  en vague ?)
+  activité ? (les valeurs qui raccourcissent)       [m07-l06]
+  la strette ? (les entrées qui se compressent)     [m04-l09]
+  le volume seul ? (le crescendo pauvre — ça
+  s'entend, et ça se note)
+LE VERDICT TYPE : "montée à trois moteurs — effectif par paliers,
+rythme harmonique ×2, registre qui s'ouvre — la dynamique gardée
+en réserve jusqu'au sommet" : UNE PHRASE, et tu sais refaire.
+```
+
+C'est la compétence-signature de l'analyste-compositeur : le spectateur sent que ça monte ; toi, tu sais *avec quoi* — et chaque autopsie enrichit ta propre boîte (le pillage légal, encore : les moteurs ne s'approprient pas).
+
+### 3. Lire la relation à l'image (le spotting inversé)
+
+Sur une scène filmée (ton propre visionnage — l'étage 2 du corpus), l'analyse ajoute la dimension : **où la musique se cale-t-elle, et où refuse-t-elle ?** Les questions de m10-l12 retournées : les bascules du film reçoivent-elles un geste musical (le hit, le changement de lieu, la coupure) — ou la musique *traverse*-t-elle la coupe (le legato d'image : la musique qui unit ce que le montage sépare) ? Y a-t-il du mickey-mousing, et est-il assumé (comédie) ou fuit-il (drame) ? Et la question reine, héritée de la sixième famille (l01 §2) : **où la musique s'arrête-t-elle** — les entrées et sorties de musique sont les décisions les plus dramaturgiques d'un score, et les moins analysées (le silence après deux minutes de musique est un événement plus fort que n'importe quel accord).
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Les frontières posées sur un seul indice | la forme sur-découpée | la coïncidence d'indices fait la frontière — le flou se note flou |
+| « Ça monte » sans autopsie | la sensation sans le savoir-faire | les moteurs se cochent un à un : c'est la boîte qu'on se remplit |
+| Ignorer les entrées/sorties de musique | l'analyse du score sans sa décision première | où la musique commence, s'arrête, se tait — toujours noté |
+| Le crescendo pauvre non nommé | l'indulgence d'oreille | le volume seul est un verdict — savoir le dire, c'est savoir l'éviter |
+
+### La mission (m11-e05, ANALYSIS)
+
+Deux volets : **(1)** la forme et la tension sur une pièce générée longue (2'30", calibrée avec un crescendo à 3 moteurs et une forme à frontière floue) — `label-segments` (les frontières franches ET la floue, qualifiée), `draw-tension`, puis **l'autopsie** : la check-list des moteurs par segment de montée (le champ structuré, vérifié contre le `tensionPlan` de génération — l'exercice le plus « professeur » du module : tu expliques une montée dont la machine connaît la recette) ; **(2)** le spotting inversé sur « La Remise » (la vidéo de m10-e12 + le cue de m10-e15) : les bascules servies / traversées / refusées, et les entrées-sorties de musique (contre le spotting de la solution). Le rapport rend le différentiel : « bascule 2 : tu as entendu le hit ; tu as manqué le changement de lieu (la reverb s'ouvre) — réécoute avec l04 §3 ».
+
+- [ ] Les frontières se posent aux coïncidences d'indices — le flou est une information
+- [ ] L'autopsie des montées : les moteurs se cochent — une phrase, et tu sais refaire
+- [ ] Le spotting inversé : servie, traversée, refusée — et le mickey-mousing se qualifie
+- [ ] Les entrées et sorties de musique : la décision première, la moins analysée
+
+<QuizBlock id="m11-l05-quiz" questions={5} />
+<LessonFooter exercises={["m11-e05-time-autopsy"]} />

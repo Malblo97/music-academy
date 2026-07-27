@@ -1,0 +1,80 @@
+---
+id: m06-l05-textures
+module: module-06-sound-design
+title: "Textures, atmosphères, drones : le grain du temps"
+estMinutes: 25
+skills: { sound_design: 1.0 }
+---
+
+### Pourquoi ces trois-là ensemble
+
+Le pad porte l'harmonie ; les trois objets de cette leçon portent **autre chose** : la texture porte le *grain* (la matière du temps qui passe), l'atmosphère porte le *lieu*, le drone porte la *gravité*. Aucun des trois n'est mélodique, aucun n'est vraiment harmonique — et pourtant ils font 50 % de l'émotion d'un score hybride : ce sont les couches qu'on ne remarque que quand elles manquent. Le test : coupe la texture d'une scène de drame contemporain — tout devient une démo MIDI.
+
+### 1. La texture : le grain
+
+**Définition de travail** : une couche à faible niveau (−12 à −20 dB sous le body), spectralement large mais *diffuse*, sans hauteur nette — du vinyl crackle, du souffle de bande, de l'air de pièce, du grain granulaire. Rôle `texture` du modèle (l03) : elle n'occupe pas une bande, elle **poudre** le spectre.
+
+| Aspect | Règle |
+|---|---|
+| Niveau | à la limite de l'audible : on la SENT — le test : mute-la, le son devient « nu » ; remonte-la de 6 dB, elle devient un effet (raté) |
+| Vie | LFO random ou l'irrégularité native de la matière (le crackle EST sa propre motion — `sd.static-stack` la compte) |
+| Métier dramatique | l'époque (vinyl = mémoire), la matière (souffle = intimité), l'inquiétude (grain irrégulier = quelque chose vit dans le noir) |
+| Jumeau orchestral | les tremolos ppp des cordes, la brume de m09-l01 — la texture est un tremolo de studio |
+
+### 2. L'atmosphère : le lieu
+
+L'atmosphère est une texture **référentielle** : elle évoque un espace réel ou plausible — vent, pluie lointaine, rumeur urbaine, résonance de hall. Frontière avec le sound design du film (les ambiances du monteur son) : la tienne est *musicalisée* — accordée (filtrée autour de la tonalité), rythmée (sa houle suit le tempo) ou harmonisée (une résonance qui contient l'accord). La règle de métier : **l'atmosphère musicale se place LÀ OÙ le montage son ne va pas** — vérifie ce que la scène porte déjà avant d'ajouter ta pluie à la sienne.
+
+### 3. Le drone : la gravité
+
+Le drone est une **note tenue érigée en monde** : une fondamentale (souvent + quinte) qui dure des minutes — la pédale de l15 M1 devenue instrument. Sa puissance est harmonique : tout ce qui se joue au-dessus se mesure à lui (le drone sur SOL transforme chaque accord en fonction de sol — c'est un centre tonal en béton).
+
+```
+Recette type :  2 couches — un sub-drone (sinus/triangle, 40–90 Hz,
+                MONO : les lois de l03 s'appliquent à lui d'abord) +
+                un body-drone (la même note +1 ou +2 octaves, matière
+                riche : corde frottée rendue, saw filtrée, bol)
+Vie :           l'automation LENTE (le drone qui s'ouvre sur 32 mesures =
+                la tension qui monte sans qu'un seul accord change —
+                l'étau de m09-l04, version timbre)
+Piège majeur :  le drone + une basse jouée = deux occupants du royaume
+                (sd.sub-conflict !) — quand le drone règne, la basse
+                se tait ou monte d'une octave
+```
+
+Territoires : la menace sourde (thriller), le sacré (drone + choir), le désert (western moderne), la SF (le drone désaccordé de quelques cents contre lui-même : le battement lent comme angoisse).
+
+### 4. L'assemblage des trois (la pyramide de l'invisible)
+
+Le trio se superpose souvent — et sa hiérarchie de niveaux est stricte :
+
+```
+        DRONE (si la scène en veut un)   niveau : sous le body, -6 à -9
+        ATMOSPHÈRE                        -9 à -15
+        TEXTURE                           -12 à -20
+Règle : chacun doit être INAUDIBLE comme objet, ÉVIDENT comme absence.
+Le test du mute (l03 §3, étape 5) est LEUR test — c'est pour eux
+qu'il a été inventé.
+```
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| La texture au niveau d'un instrument | l'effet « radio cassée » non voulu | −12 dB minimum sous le body : on la sent, on ne l'écoute pas |
+| L'atmosphère qui double le montage son | deux pluies, la bouillie référentielle | vérifier la scène ; musicaliser la tienne (accordée/rythmée) |
+| Drone + basse active | la guerre du royaume (`sd.sub-conflict`) | un roi à la fois : la basse se tait ou monte |
+| Le drone plat 3 minutes | la gravité devenue papier peint | l'automation lente : le drone est un crescendo géologique |
+| Tout le trio à la fois, fort | le mur mystique | la pyramide des niveaux, et le test du mute |
+
+### La mission (m06-e05, LAYERING)
+
+La scène : « un couloir d'hôpital, la nuit, quelqu'un attend » (30 s de musique imaginée, 12 mesures à ♩=60). Stack demandé : un drone (2 couches, sub mono + body, automation d'ouverture déclarée), une texture, une atmosphère musicalisée (décris sa référence et sa musicalisation en champ libre) — PAS de pad, PAS de mélodie : l'exercice est de tenir une scène avec l'invisible seul. Le moteur vérifie la pyramide des niveaux (`level` décroissants texture < atmosphère < drone < 0), le sub-drone mono, les motions, et `sd.sub-conflict` sur l'ensemble.
+
+- [ ] Texture = le grain, atmosphère = le lieu, drone = la gravité
+- [ ] Inaudibles comme objets, évidents comme absences — la pyramide des niveaux
+- [ ] Le drone est un centre tonal en béton : un seul roi sous 90 Hz
+- [ ] L'atmosphère musicale se place là où le montage son ne va pas
+
+<QuizBlock id="m06-l05-quiz" questions={5} />
+<LessonFooter exercises={["m06-e05-the-invisible-scene"]} />

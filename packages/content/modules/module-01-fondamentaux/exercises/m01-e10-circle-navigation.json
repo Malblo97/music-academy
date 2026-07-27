@@ -1,0 +1,10 @@
+{ "id": "m01-e10-circle-navigation", "lessonId": "m01-l05-cycle-quintes",
+  "title": "Navigation sur le cycle", "kind": "THEORY_QUIZ",
+  "difficulty": 3, "xpReward": 40, "skills": { "HARMONY": 1.0 },
+  "spec": { "prompt": "Distances et parentés : le cycle comme carte (l05 §3).",
+    "quiz": { "interaction": "mc",
+      "items": [
+        { "q": "Combien de notes partagent C majeur et A majeur ?", "options": ["4","5","6"], "answer": "4", "why": "3 pas sur le cycle = 3 altérations d'écart = 7−3 notes communes." },
+        { "q": "La voisine « douce » pour moduler depuis F majeur, côté dièses :", "options": ["C","G","Bb"], "answer": "C", "why": "Un pas horaire : une seule note change (B♭→B)." },
+        { "q": "Le nouveau dièse quand on passe de D à A majeur :", "options": ["G♯","C♯","D♯"], "answer": "G♯", "why": "Toujours la sensible de la nouvelle tonalité (7̂ de A)." },
+        { "q": "Tonalité la plus LOINTAINE de E♭ majeur :", "options": ["A","B","D"], "answer": "A", "why": "Opposée sur le cadran (6 pas) : une seule note commune — la modulation-événement (l24)." } ] } } }

@@ -1,0 +1,7 @@
+{
+  "exerciseId": "m04-e02-first-species",
+  "partId": "below-aeolian",
+  "notation": "A2:w | A2:w | G2:w | F2:w | C3:w | B2:w | A2:w | E3:w | A3:w",
+  "payload": { "cf": "m04-cf-aeolian-01", "cfPosition": "below" },
+  "authorNotes": "**Témoin F-26 — le miroir de la voix grave.** Intervalles : 8·10·10·6·10·10·10·5·unisson ; parallèles de dixièmes par grappes de 3 max. Le contour s'évalue INVERSÉ : le pôle expressif est **le creux F2 à 44 %** (fenêtre 40–75 %), et la remontée cadentielle est hors comptage. Pénultième = quinte atteinte par mouvement contraire, puis **la basse cadence 5̂→1̂ montante vers l'unisson final** — la clausule grave d'école, que `melody.climax` non patchée punissait."
+}

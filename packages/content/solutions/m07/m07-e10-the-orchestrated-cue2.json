@@ -1,0 +1,24 @@
+{
+  "exerciseId": "m07-e10-the-orchestrated-cue",
+  "partId": "part2-score",
+  "payload": {
+    "lengthBars": 48,
+    "format": "Part[]",
+    "pool": "medium",
+    "maxSimultaneousParts": 8,
+    "verified": {
+      "rolePlan": "détectés ≈ déclarés (l01)",
+      "alloys": "celli+cor en S3, chimie ✓",
+      "carpetLife": "les trois vies, S2–S3",
+      "unifiedArticulation": "le moteur de S2",
+      "hierarchy": "le duo de S2, effectivePower via dyn[]",
+      "fiveCurves": "la crue de S2",
+      "edifice": "S3, croisé densityMap",
+      "silenceRatio": "S4 : 0.29",
+      "melody": "archFit 0.77 contre le gabarit elena",
+      "counterpoint": "cpt.* sur le contrechant",
+      "harmony": "harmony.* sur la grille — le iv voilé de S5, tagué"
+    }
+  },
+  "authorNotes": "Le moteur déroule TOUT le module, et tous les registres sortent verts ensemble — c'est le rapport le plus complet du produit. Le détail qui referme la boucle du cursus : le thème est jugé par `melody.*` contre le gabarit **elena**, celui-là même qui a été calibré en M2 sur ce personnage. **Le gabarit juge son propre cue**, archFit 0,77. Huit parts au plus fort seulement : le pool Medium n'est pas dépensé, il est administré — S1 en tient deux, S5 une seule."
+}

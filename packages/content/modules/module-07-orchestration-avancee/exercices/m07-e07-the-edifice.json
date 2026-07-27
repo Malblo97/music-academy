@@ -1,0 +1,55 @@
+{
+  "id": "m07-e07-the-edifice",
+  "lessonId": "m07-l07-tutti",
+  "title": "L'immeuble",
+  "kind": "ORCHESTRATE",
+  "difficulty": 7,
+  "xpReward": 140,
+  "skills": { "ORCHESTRATION": 1.0 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "pool": "medium",
+  "styleProfile": { "id": "epic-film", "targetMood": "heroic", "ruleWeights": {} },
+  "rubric": { "correctness": 25, "constraints": 45, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "Le sommet d'e06 développé en tutti complet de 8 mesures, DEUX versions. (a) L'HYMNE : la masse qui chante d'une voix — mélodie en colonne (chant+ciel), murs homophones au cœur, socle en rondes. (b) LE STRATIFIÉ : la masse qui bout en restant lisible — 4 plans à rythmes distincts, chacun avec SON articulation unifiée : la colonne mélodique + le moteur au corps + les murs tenus + le socle. Les trois lois de l'immeuble sont vérifiées étage par étage : UN emploi par étage (le cœur qui double le chant vole l'étage du contrechant — c'est LA source de boue des tuttis amateurs), la MÉLODIE EN COLONNE (le tutti n'expose pas une ligne fine, il l'érige : ≥ 2 étages d'octaves), le SOCLE LENT (le grave qui s'agite brouille tout l'édifice — quand la masse doit courir, c'est le moteur qui court au corps). Le rapport dessine ta coupe d'immeuble : la vue en cinq lignes de l01, remplie au maximum.",
+    "given": {
+      "key": { "tonic": 9, "mode": "minor" },
+      "sourceSubmission": "m07-e06-the-flood",
+      "summitMaterial": "asset:m02-e30-elena-theme"
+    },
+    "parts": [
+      {
+        "id": "hymn",
+        "prompt": "Le tutti-hymne : homophone, la colonne + les murs.",
+        "constraints": { "homophonyMinRatio": 0.8, "distinctRhythmPlansMax": 2 }
+      },
+      {
+        "id": "stratified",
+        "prompt": "Le tutti stratifié : 4 plans, articulations unifiées par plan.",
+        "constraints": { "distinctRhythmPlans": 4, "unifiedArticulation": { "perPlan": true } }
+      }
+    ],
+    "constraints": {
+      "lengthBars": [8, 8],
+      "format": "Part[]",
+      "pool": "medium",
+      "edificeCheck": {
+        "stages": {
+          "ciel": { "employments": ["melody", "trait"] },
+          "chant": { "employments": ["melody"] },
+          "coeur": { "employments": ["harmony"] },
+          "corps": { "employments": ["countermelody", "bass-octave", "rhythm"] },
+          "socle": { "employments": ["bass"] }
+        },
+        "oneEmploymentPerStage": true,
+        "crossedByDensityMap": true
+      },
+      "melodicColumn": { "minOctaveStages": 2, "detectedBy": "doublingTags" },
+      "slowSocle": { "meanDurationRatioVsCorps": 2.0 },
+      "rolePlan": { "declared": true, "perSection": true, "verifiedAgainstDetected": true },
+      "checkers": ["orch.range-violation", "orch.balance", "orch.masking", "orch.endurance", "orch.low-interval-limit", "densityMap"]
+    }
+  }
+}

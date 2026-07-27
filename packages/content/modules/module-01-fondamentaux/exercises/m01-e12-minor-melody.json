@@ -1,0 +1,11 @@
+{ "id": "m01-e12-minor-melody", "lessonId": "m01-l06-gammes-mineures",
+  "title": "Mélodie mineure : le menu, pas le règlement", "kind": "MELODY_COMPOSE",
+  "difficulty": 3, "xpReward": 70, "skills": { "MELODY": 1.0 },
+  "spec": { "prompt": "8 mesures en la mineur. Consigne l06 §4 : descentes par le NATUREL (sol naturel, fa naturel), montée conclusive avec la SENSIBLE (G♯→A). Les deux mondes dans une seule phrase.",
+    "given": { "key": { "tonic": 9, "mode": "minor" } },
+    "constraints": { "key": { "tonic": 9, "mode": "minor" }, "lengthBars": [8,8],
+      "noteRange": [55,81], "maxLeap": 7, "mustEndOnDegrees": [1],
+      "requireLeadingToneBeforeFinal": true, "minConjunctRatio": 0.6 },
+    "styleProfile": { "id": "romantic-film", "targetMood": "sad",
+      "ruleWeights": { "vl.augmented-second": 0.5, "melody.tension-placement": 1.0 } },
+    "rubric": { "correctness": 35, "constraints": 35, "craft": 30 } } }

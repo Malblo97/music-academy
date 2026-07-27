@@ -1,0 +1,12 @@
+{
+  "exerciseId": "m05-e01-violin-roles",
+  "partId": "large-unison",
+  "notation": "D4:q. E4:e D4:q B3:q | A3:h D4:h | E4:q. D4:e B3:q A3:q | G3:h. r:q | B3:q. C4:e D4:q E4:q | G4:h E4:h | D4:q B3:q A3:q. B3:e | G3:w",
+  "payload": {
+    "instrument": "violins-2",
+    "role": "octave-doubling",
+    "octaveUnison": { "withPart": "violins-1", "interval": -12, "exact": true },
+    "divisi": false
+  },
+  "authorNotes": "L'unisson large : 22 attaques, **toutes à −12 exactement, tous les onsets identiques** — la part est volontairement mécanique, l'octave se vérifie note à note. Le fait remarquable est arithmétique : la transposition fait descendre le thème pile sur **sol3 = 55 aux mes. 4 et 8** — la corde à vide de sol, la limite absolue de la fiche, touchée deux fois et jamais franchie. À −13, la part serait injouable ; à −12, elle tient au demi-ton près. C'est ce que la fiche veut faire comprendre : le grand thème à l'octave n'est pas un effet, c'est une décision de tessiture qu'on prend AVANT d'écrire."
+}

@@ -1,0 +1,70 @@
+---
+id: m03-l14-planing
+module: module-03-harmonie-avancee
+title: "Le planing : le bloc qui glisse"
+estMinutes: 25
+skills: { harmony: 0.8, orchestration: 0.2 }
+---
+
+### Pourquoi cette leçon règle une vieille dette
+
+Depuis §7.4, une règle t'accompagne avec son étrangeté : `vl.parallel-fifths`, poids 1.0 en contrepoint strict, 0.1 en épique — et la promesse répétée qu'un jour l'interdit deviendrait un style. Ce jour est arrivé : le **planing** (harmonie parallèle) consiste à prendre un accord entier et à le faire **glisser en bloc** — toutes les voix dans le même mouvement, quintes et octaves parallèles *par définition*. Ce que le contrepoint interdisait (les voix qui fusionnent au lieu de dialoguer), le planing le recherche : l'accord cesse d'être un chœur de voix pour devenir **un timbre épaissi** — une seule ligne, peinte au rouleau. La dette est réglée : l'interdit et le style étaient les deux faces d'un même fait perceptif.
+
+### 1. Les deux planings (LA distinction de la leçon)
+
+| Type | Mécanique | Résultat | Monde |
+|---|---|---|---|
+| **Diatonique** | le bloc glisse DANS une gamme : les intervalles s'ajustent (majeur devient mineur selon le degré — Em, F, G, Am… en glissant des triades sur do majeur) | la couleur qui ondule en restant chez elle | le pandiatonisme (l10 : ses « vagues d'accords parallèles » annoncées), le modal (l08 : les piliers en mouvement) |
+| **Chromatique (réel)** | le bloc glisse EXACTEMENT : le même accord transposé (C, D♭, E♭majeurs…) — chaque position est une entorse à toute gamme | le timbre pur en mouvement : l'harmonie devenue glissando | l'impressionnisme, le rêve, l'irréel qui bouge — et l'horreur douce (le familier qui glisse : cousin de la corruption de l12) |
+
+Le diagnostic en une question : *le bloc respecte-t-il un monde (diatonique) ou n'obéit-il qu'à lui-même (réel) ?* — et le moteur fait exactement ce diagnostic (tag `planing`, sous-type `diatonic`/`real` : ≥ 3 verticalités successives de même structure intervallique ±1 dt (diatonique) ou exacte (réel), toutes voix de même direction).
+
+### 2. Que fait-on glisser ? (le planing hérite de tout)
+
+Le planing est un *geste*, pas un vocabulaire — il s'applique à tout objet vertical du cursus :
+
+```
+des TRIADES        le planing classique — la vague lumineuse (diatonique)
+                   ou la bascule d'irréel (réel)
+des 7es/9es        le planing lush : l'impressionnisme opulent, le jazz
+                   qui glisse (les blocs de m01-l18, au rouleau)
+des QUARTES (l13)  LE combo moderne : le quartal qui plane = le générique
+                   urbain contemporain — deux neutralités qui s'additionnent
+des CLUSTERS (l15) le banc de brume qui se déplace — l'horreur atmosphérique
+UNE MÉLODIE        le "thickened line" : la ligne doublée en accords
+                   parallèles (chaque note de mélodie porte son bloc) —
+                   le big band (M8), les cuivres de fanfare moderne, et
+                   l'orchestrateur le connaît déjà : c'est une DOUBLURE
+                   généralisée (M5 : la doublure à l'octave était un
+                   planing à un intervalle)
+```
+
+### 3. Les disciplines du rouleau
+
+1. **La ligne d'abord** : en planing, l'harmonie EST une mélodie épaissie — donc tout m02 s'applique à la voix supérieure (contour, arche, motif) : un planing sans belle ligne de tête est un rouleau sans dessin ;
+2. **la basse choisit son camp** : elle glisse AVEC le bloc (la fusion totale — le vrai rouleau) ou elle tient une pédale DESSOUS (l07 : le bloc qui glisse sur le sol immobile — la friction organisée, et le meilleur des deux mondes : la couleur bouge, la gravité reste) ;
+3. **le planing se cadre** : 3 à 8 accords par geste — le planing permanent dissout tout (c'est un geste de *phrase*, pas un état du monde) ; l'entrée et la sortie du glissement sont les événements (le retour au mouvement contraire après huit accords parallèles : les voix qui « redeviennent des personnes ») ;
+4. **l'orchestration amplifie** : le planing est né au piano mais vit à l'orchestre — le bloc confié à UNE famille homogène (cordes seules, cuivres seuls : M5) fusionne ; réparti entre familles, il se délite (la fusion timbrale sert la fusion harmonique).
+
+Le moteur, en clôture de la dette : en présence du tag `planing` dans un profil moderne, `vl.parallel-fifths` et `vl.parallel-octaves` passent à 0 **sur la fenêtre du geste** — et le craft crédite la qualité de la ligne de tête (m02 recyclé sur la voix supérieure du bloc). Hors fenêtre, les règles reprennent : le parallélisme *accidentel* d'une écriture à voix reste détecté — l'interdit et le style cohabitent, chacun chez soi.
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Le planing sans ligne | le rouleau sans dessin | la voix de tête est une mélodie : m02 entier s'applique |
+| Le planing permanent | tout fusionne, rien ne dialogue plus | 3–8 accords : un geste de phrase, cadré |
+| Diatonique/réel mélangés par accident | la couleur qui bégaie entre deux logiques | choisis : le monde ou le bloc — et tiens le choix sur le geste |
+| Le bloc réparti entre familles | le glissement qui se délite | une famille homogène par bloc (M5) |
+
+### La mission (m03-e14, HARMONY_PROGRESSION)
+
+Le triptyque du rouleau : **(1)** 4 mesures de planing diatonique (triades sur mi éolien, la vague — ligne de tête arquée) ; **(2)** 4 mesures de planing réel (le même dessin de tête, en majeures exactes : l'irréel — compare à l'oreille) ; **(3)** 4 mesures du combo moderne : quartes (l13) en planing sur pédale (l07). Tags `planing` (sous-types vérifiés), ligne de tête jugée par les règles mélodiques, et les quintes parallèles… créditées — pour la première fois du cursus, en toutes lettres dans le rapport.
+
+- [ ] Le planing : l'accord devenu timbre, la ligne peinte au rouleau — la dette de §7.4 réglée
+- [ ] Diatonique (le monde qui ondule) vs réel (le bloc qui n'obéit qu'à lui-même)
+- [ ] Tout se plane : triades, 7es, quartes, clusters, une mélodie (le thickened line)
+- [ ] La ligne d'abord, la basse choisit, le geste se cadre, la famille fusionne
+
+<QuizBlock id="m03-l14-quiz" questions={5} />
+<LessonFooter exercises={["m03-e14-the-roller"]} />

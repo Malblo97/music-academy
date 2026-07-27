@@ -1,0 +1,10 @@
+{ "id": "m02-e14-expectation-budget", "lessonId": "m02-l07-attente",
+  "title": "Le budget d'attente", "kind": "THEORY_QUIZ",
+  "difficulty": 4, "xpReward": 50, "skills": { "MELODY": 1.0 },
+  "spec": { "prompt": "Le contrat 60/30/10 et les cinq déviations, en situation.",
+    "quiz": { "interaction": "mc",
+      "items": [
+        { "q": "Le climax préparé sur 6 mesures arrive... piano. C'est :", "options": ["une erreur de dynamique","le sous-régime — l'intimité inattendue","une rupture"], "answer": "le sous-régime — l'intimité inattendue", "why": "Donner PRESQUE ce qui est attendu : le sommet est là, l'intensité est retournée. Bouleversant bien placé." },
+        { "q": "Pourquoi trop de RUPTURES tue l'intérêt :", "options": ["c'est trop difficile à jouer","l'auditeur doit avoir raison souvent pour que ses défaites le ravissent","les ruptures sont interdites"], "answer": "l'auditeur doit avoir raison souvent pour que ses défaites le ravissent", "why": "Pas de pattern fiable = pas d'attente = rien à déjouer." },
+        { "q": "Après une rupture, la règle :", "options": ["ne plus jamais la rejouer","la répéter (l'intégrer au contrat) ou revenir à la terre ferme","moduler"], "answer": "la répéter (l'intégrer au contrat) ou revenir à la terre ferme", "why": "La rupture jamais réintégrée s'entend comme une erreur ; réintégrée, elle devient la signature (l07 §3)." },
+        { "q": "La séquence devait monter d'un degré, elle monte d'une tierce :", "options": ["le dépassement — le « plus que promis »","une faute de séquence","une modulation"], "answer": "le dépassement — le « plus que promis »", "why": "La déviation-générosité : l'attente est dépassée dans sa propre direction." } ] } } }

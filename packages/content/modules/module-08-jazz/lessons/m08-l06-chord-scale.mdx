@@ -1,0 +1,69 @@
+---
+id: m08-l06-chord-scale
+module: module-08-jazz
+title: "Les gammes d'accords : le chord-scale system"
+estMinutes: 30
+skills: { harmony: 0.6, melody: 0.4 }
+---
+
+### Pourquoi le système qui fâche est indispensable
+
+Le chord-scale system associe à chaque accord **la gamme qui le contient et le prolonge** — l'accord vu comme une gamme verticalisée, la gamme comme un accord déplié (la révélation : *accord et gamme sont le même objet* — m01-l18 empilait des tierces jusqu'à 13 : sept notes, c'est-à-dire une gamme complète). Le système a ses détracteurs (« on ne phrase pas avec des gammes ») — et ils ont raison : c'est une **carte, pas un itinéraire** (l07 donnera le phrasé). Mais sans la carte, l'écriture de ligne jazz est de la devinette : cette leçon la donne entière.
+
+### 1. La carte (la table de référence du module)
+
+| Accord | Gamme | La note qui décide | Déjà vue en |
+|---|---|---|---|
+| **Imaj7** | ionien (ou lydien pour l'ouverture : la ♯11 sur maj7 — le « moderne » par défaut) | la 4 : juste=ionien (et elle s'évite sur l'accord), ♯=lydien (et elle s'expose) | m01-l03, m03-l08 |
+| **ii m7** | dorien | la 6 majeure (le B sur Dm7 : la note qui fait « jazz » et pas « triste ») | m01-l07, m03-l08 |
+| **V7 (vers majeur)** | mixolydien ; + les options : lydien ♭7 (la ♯11), diminuée demi-ton/ton (♭9 ♯9 ♯11 13 : l'octatonique de m03-l12 — SA maison fonctionnelle est le V7 !), tons entiers (♯5 : m03-l11) | le degré d'altération voulu — l'échelle : mixo < lyd♭7 < dim < altéré | m03-l08/l09/l11/l12 |
+| **V7alt (vers mineur)** | altérée | tout est altéré (m03-l09 : la crise qui se traverse) | m03-l09 |
+| **m7♭5** | locrien ♮2 | la ♮2 (la mélodie possible sur l'accord impossible) | m03-l09 |
+| **i m(maj7)/m6** | mineur mélodique | la 7 majeure (le vertige du noir) | m03-l09, m09-l03 |
+| **dim7** | diminuée ton/demi-ton | — | m03-l04/l12 |
+| **7sus4** | mixolydien (la 3 en réserve) | — | m01-l17 |
+
+**La grande récolte** : cette table ne contient RIEN de neuf — chaque ligne renvoie à M1 ou M3. Le chord-scale system est la réindexation jazz de tout ton savoir harmonique : la carte existait, elle change d'orientation (par accord au lieu de par tonalité).
+
+### 2. Les deux lectures de la carte (l'horizontale et la verticale)
+
+```
+LA LECTURE HORIZONTALE (la tonalité d'abord) : sur un ii-V-I en do,
+  dorien de ré + mixolydien de sol + ionien de do = LES MÊMES SEPT
+  NOTES (do majeur trois fois) — le débutant qui « change de gamme »
+  à chaque accord travaille pour rien : ON PENSE LA TONALITÉ, on
+  vise les guide tones (l03 §3) — 80 % du jeu réel
+LA LECTURE VERTICALE (l'accord d'abord) : elle devient nécessaire
+  quand l'accord SORT de la tonalité — le V7alt, le subV, le dim7,
+  l'emprunt : LÀ, la gamme change vraiment (l'altérée sur G7alt
+  n'est pas do majeur) — 20 % du jeu, 80 % de la couleur
+LA RÈGLE DE MÉTIER : horizontal par défaut, vertical aux accords
+  spéciaux — et la transition entre les deux EST le son du jazz
+  moderne (la ligne diatonique qui s'altère PILE sur le V7alt puis
+  retombe en lumière sur le I : le clair-obscur en une phrase)
+```
+
+### 3. Les notes à éviter (la nuance qui sauve le système)
+
+Chaque gamme contient une ou deux notes qui **frottent contre l'accord** sans l'enrichir (la 4 juste sur maj7, la ♭6... — la 6 mineure implicite sur m7 éolien : d'où le dorien) : les *avoid notes*. La règle honnête : elles ne s'évitent pas — elles **passent** (temps faibles, notes de passage : la table de m02-l08, éternelle) et ne se *posent* pas (tenues, appuis). Le `chordScaleCheck` du moteur applique exactement cette nuance : hors-gamme = signalé ; avoid note posée = suggestion ; avoid note passante = silence — le système en checker, avec sa souplesse d'origine.
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| La gamme montée-descendue sur chaque accord | l'exercice de conservatoire en public | la carte n'est pas l'itinéraire — le phrasé vient de l07 et de m02 |
+| Penser vertical sur les accords diatoniques | l'effort inutile, la ligne hachée | horizontal par défaut : la tonalité pense pour toi |
+| L'avoid note bannie | la ligne qui contourne au lieu de couler | elle passe, elle ne se pose pas — nuance, pas interdit |
+| L'altération sans retour | le clair-obscur sans le clair | l'altéré se traverse (m03-l09) : la retombée en lumière fait la phrase |
+
+### La mission (m08-e06, MELODY_COMPOSE — la carte en acte)
+
+La grille fournie (8 mesures : ii-V-I majeur, ii-V-i mineur, un subV, un dim7 passant — le parcours des deux lectures) : compose la ligne qui pense **horizontal sur le diatonique, vertical sur les spéciaux** — `chordScaleCheck` actif (la première sortie du checker reine), les guide tones aux changements, l'altération du V7alt exposée PUIS résolue (le clair-obscur vérifié : ≥ 2 notes altérées sur l'accord, retombée diatonique dans le temps suivant), les avoid notes passantes uniquement. Le rapport colore ta ligne par gamme : la carte, superposée à ton itinéraire.
+
+- [ ] Accord = gamme verticalisée : la table est une réindexation de M1+M3
+- [ ] Horizontal par défaut (la tonalité pense), vertical aux spéciaux (la couleur)
+- [ ] Les avoid notes passent et ne se posent pas — la nuance d'origine
+- [ ] La carte n'est pas l'itinéraire : le phrasé arrive (l07)
+
+<QuizBlock id="m08-l06-quiz" questions={6} />
+<LessonFooter exercises={["m08-e06-the-map"]} />

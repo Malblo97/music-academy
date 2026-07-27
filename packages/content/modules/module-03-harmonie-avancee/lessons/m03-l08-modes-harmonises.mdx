@@ -1,0 +1,77 @@
+---
+id: m03-l08-modes-harmonises
+module: module-03-harmonie-avancee
+title: "Harmoniser les modes : sept mondes, sept grammaires"
+estMinutes: 30
+skills: { harmony: 1.0 }
+---
+
+### Pourquoi le modal harmonique est un autre métier
+
+l07 M1 t'a donné les modes comme couleurs *mélodiques* ; te voilà au système 2 de la carte (l01) : les modes comme **langages harmoniques complets** — chacun avec ses accords-piliers, ses interdits, sa cadence propre. Le principe fondateur, à graver : **en modal, la dominante fonctionnelle est un poison**. Le V7→I contient la machine tonale entière (la sensible, le triton) : joue-le en dorien et ton dorien redevient du mineur ordinaire — le mode s'évapore. Toute la grammaire modale découle de cette interdiction : il faut créer la gravité *sans l'aimant*.
+
+### 1. La méthode d'harmonisation d'un mode (les quatre gestes)
+
+```
+1. TROUVE LA NOTE CARACTÉRISTIQUE (l07 M1 : la note qui distingue le
+   mode de son cousin majeur/mineur — le B du ré dorien, le B♭ du mi
+   phrygien...)
+2. IDENTIFIE LES ACCORDS QUI LA CONTIENNENT : ce sont les PILIERS —
+   les accords qui font sonner le mode (en ré dorien : IV majeur (G)
+   et ii (Em) portent le B)
+3. BANNIS (ou neutralise) L'ACCORD QUI RAMÈNE LA MACHINE TONALE :
+   celui qui contient le triton actif vers la tonique du cousin —
+   et la sensible étrangère au mode
+4. FORGE LA CADENCE MODALE : l'arrivée sur i/I par un pilier —
+   le mouvement de basse remplace l'aimant (souvent par seconde :
+   ♭VII→i, II→I... — la conclusion "au marteau doux" que le
+   mixolydien de m02-l27 pratiquait déjà)
+```
+
+### 2. La table des sept mondes (le cœur de la leçon — transpose partout)
+
+| Mode | Note caractéristique | Piliers | Cadence modale | L'interdit n° 1 | Territoire (rappel l07 M1, désormais harmonisé) |
+|---|---|---|---|---|---|
+| **Ionien** | — (la référence) | I, IV, V | (c'est le tonal) | — | quand tu veux la machine, prends-la |
+| **Dorien** | 6̂ majeure | **IV majeur**, ii | IV→i ou ii→i | le V majeur (la sensible tue le dorien) | la noblesse sombre, le folk celte, l'espoir digne (Elena !) |
+| **Phrygien** | ♭2̂ | **♭II majeur**, ♭vii | ♭II→i (le napolitain de l02, devenu INDIGÈNE : ici il ne visite pas, il habite) | tout accord portant la sensible | la menace, l'Espagne, l'antique guerrier |
+| **Lydien** | ♯4̂ | **II majeur**, vii... — les deux accords à ♯4̂ : II (D sur do lydien) et viiø | II→I (la cadence qui MONTE d'un ton entier : l'envol) | le IV (il n'existe pas : ♯4̂ l'a remplacé — un F♮ en do lydien ramène l'ionien) | l'émerveillement, le vol, la SF lumineuse |
+| **Mixolydien** | ♭7̂ | **♭VII majeur**, v mineur | ♭VII→I (le marteau doux — l'épique et le western le savaient : m09-l02, m02-l27) | le V majeur avec sensible | le terrien, le rock, l'héroïsme sans église |
+| **Éolien** | ♭6̂ (vs dorien) | ♭VI, ♭VII, iv | ♭VI→♭VII→i (LA montée éolienne — m09-l02 §1 : la grammaire épique était du modal harmonisé, te voilà à sa source) | V majeur (le mineur harmonique le réintroduit : c'est le choix tonal/modal en un accord) | la fatalité, l'épique sombre |
+| **Locrien** | ♭5̂ (la tonique est DIMINUÉE) | — | (pas de repos possible : la tonique elle-même est instable) | — | inhabitable comme monde ; utilisable comme SEUIL (quatre mesures de vertige avant de basculer ailleurs) — l'honnêteté de la table |
+
+<MusicExample id="deux-cadences-modales" title="La même arrivée sur RÉ : trois grammaires">
+  A) [A2+A3+C#4+E4]:h [D3+A3+D4+F4]:w        — V→i : TONAL (la machine)
+  B) [G2+B3+D4+G4]:h [D3+A3+D4+F4]:w         — IV→i : DORIEN (le B fait tout)
+  C) [C3+G3+C4+E4]:h [D3+A3+D4+F4]:w         — ♭VII... — en ré éolien : C→Dm,
+     le marteau doux. Joue les trois : même destination, trois mondes.
+</MusicExample>
+
+### 3. Vivre dans un mode (les trois disciplines du séjour)
+
+- **La tonique s'affirme par insistance, pas par attraction** : elle ouvre, elle revient, elle dure — la pédale et le bourdon de l07 sont les meilleurs amis du modal (le sol tenu établit ce que l'aimant n'établit plus) : les deux leçons se donnent la main, et ce n'est pas un hasard de sommaire ;
+- **la boucle remplace la phrase cadentielle** : le modal pense en cycles de 2–4 accords qui tournent (i–IV–i–♭VII…) — `harmony.loop-coherence` (§7.3) devient la règle reine, et la variété vient de la mélodie, du timbre et de la texture, pas du trajet harmonique (le paysage, pas le récit : l01) ;
+- **la note caractéristique s'expose ou meurt** : une harmonisation dorienne qui n'emploie jamais le IV majeur est de l'éolien qui s'ignore — `mustExposeDegrees` version harmonique (`pillarExposure` : les piliers doivent porter ≥ 25 % de la durée harmonisée — nouvelle contrainte, mécanique triviale sur `detectProgression`).
+
+Le moteur au complet : profil modal → `forbidFunctionalCadence` actif (V7→i détecté = warning « ta machine tonale vient de tuer ton mode », le message le plus pédagogique du registre), `harmony.retrogression` → 0 (pas de sens interdit dans un paysage), et la cadence modale attendue par `requiredCadence: "modal"` (arrivée sur la tonique par pilier ou par seconde, tenue — la définition F-5 s'applique).
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Le V7 réflexe | le mode s'évapore à la cadence | la cadence modale : le pilier, le marteau doux |
+| Le mode sans ses piliers | la couleur annoncée, jamais entendue | `pillarExposure` : les accords caractéristiques portent le séjour |
+| Le récit tonal en costume modal | des « fonctions » qui vont quelque part — le paysage traversé au pas de course | la boucle, l'insistance, la variété par la texture |
+| Le locrien habité | quatre minutes d'instabilité sans repos | le locrien est un seuil, pas une maison |
+
+### La mission (m03-e08, HARMONY_PROGRESSION à variantes)
+
+Le séjour modal : 12 mesures dans le mode tiré (variantes dorien/phrygien/lydien/mixolydien — chacune avec sa note caractéristique, ses piliers et sa cadence en contraintes), boucle de 4 accords maximum, `forbidFunctionalCadence`, `pillarExposure ≥ 0.25`, pédale ou bourdon bienvenus (crédit craft), cadence modale finale. Le rapport nomme ton mode par ses piliers — et te dit si ton dorien était du vrai dorien.
+
+- [ ] La méthode : note caractéristique → piliers → interdit → cadence modale
+- [ ] La table des sept : chaque mode a SA grammaire (et le locrien est un seuil)
+- [ ] La gravité sans aimant : l'insistance, la boucle, la pédale
+- [ ] Le V7 est un poison modal — le marteau doux le remplace
+
+<QuizBlock id="m03-l08-quiz" questions={6} />
+<LessonFooter exercises={["m03-e08-seven-worlds"]} />

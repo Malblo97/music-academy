@@ -1,0 +1,82 @@
+---
+id: m07-l01-distribution
+module: module-07-orchestration-avancee
+title: "La distribution : des rôles aux pupitres"
+estMinutes: 25
+skills: { orchestration: 1.0 }
+---
+
+### Pourquoi l'orchestration est un casting
+
+Une esquisse de piano contient des *idées* ; une partition contient des *emplois*. Entre les deux, l'acte d'orchestrer est exactement un casting : chaque idée reçoit un rôle (m05-l01 en donnait six : melody, countermelody, harmony, bass, rhythm, texture), chaque rôle reçoit un interprète, et — la partie qu'on oublie — chaque interprète reçoit un **espace** où être entendu. Cette leçon installe la méthode ; les neuf suivantes la déclinent par rôle et par situation.
+
+### 1. La méthode en quatre questions (l'extension de rôle→registre→couleur)
+
+```
+1. QUELS RÔLES cette musique contient-elle ? (l'inventaire : rarement
+   plus de 4 rôles SIMULTANÉS — au-delà, l'auditeur n'en suit plus —
+   la loi du stack de m06-l03 §3, valable à 80 musiciens comme à
+   4 couches : max 3-4 plans actifs + les événements)
+2. QUELLE HIÉRARCHIE ? à chaque instant, UN rôle est premier (le regard
+   de l'auditeur), un ou deux sont seconds, le reste est décor — la
+   hiérarchie du contrechant (m04-l11 §1) généralisée à tout l'orchestre
+3. QUELS ÉTAGES ? chaque rôle reçoit SA bande de registre (l'immeuble
+   de m09-l02 §3, érigé en méthode universelle : la puissance ET la
+   clarté viennent de l'espace couvert, pas de la densité locale)
+4. QUELLES COULEURS ? enfin les fiches M5 : parmi les instruments qui
+   couvrent l'étage, lequel a le timbre du rôle et de l'émotion ?
+```
+
+L'erreur structurelle des débutants est de commencer par la question 4 (« je veux des cors ») — mais l'erreur des intermédiaires est plus sournoise : sauter la question 2. Une orchestration où tout est « important » est un tutti permanent en germe : **la hiérarchie est la première décision sonore**, et elle se paie en retenue (les pupitres qui se taisent — la soustraction de m06-l03, côté acoustique).
+
+### 2. La grille de distribution (l'outil de travail du module)
+
+Chaque exercice ORCHESTRATE du module commence par remplir cette grille — c'est le `rolePlan`, désormais un livrable :
+
+| Rôle | Étage (bande) | Pupitre(s) | Hiérarchie | Notes |
+|---|---|---|---|---|
+| melody | — | — | 1er / 2e / décor | — |
+| countermelody | — | — | — | (m04-l11 : la recette) |
+| harmony | — | — | — | (l03 : le tapis) |
+| bass | — | — | — | — |
+| rhythm | — | — | — | (l04 : le moteur) |
+| texture | — | — | — | — |
+
+Trois lois de remplissage : **un pupitre, un rôle à la fois** (m05-l04 : le violoncelle ne peut pas être basse ET ténor simultanément — divise ou choisis) ; **les étages ne se chevauchent qu'en connaissance** (le chevauchement est légal quand les timbres séparent — m03-l16 §1 : les trois séparateurs valent ici) ; **la grille se re-remplit à chaque section** (la distribution n'est pas un décor planté : elle évolue avec la scène — c'est même elle, souvent, la dramaturgie : l06 en fera un art).
+
+### 3. Le premier réflexe : la partition mentale en cinq lignes
+
+Avant tout logiciel, l'orchestrateur pense sa page en cinq portées mentales — le conducteur réduit :
+
+```
+CIEL        (au-dessus de C6)  : brillance, voûte, air
+CHANT       (C5–C6)            : là où la mélodie règne par défaut
+CŒUR        (C4–C5)            : contrechants, harmonie haute — la
+                                  zone la plus disputée de l'orchestre
+CORPS       (C3–C4)            : harmonie, ténor, la chaleur
+SOCLE       (sous C3)          : basse, fondations — l'espace obligatoire
+                                  (low-interval-limit, éternel)
+```
+
+L'exercice mental qui change tout : à l'écoute de n'importe quel score, dessine ces cinq lignes et place ce que tu entends — cinq secondes de diagnostic, et tu *vois* la distribution (M11 systématisera ; le rapport du produit te montre déjà cette vue : la `densityMap` de §4.1.6 est exactement ce dessin).
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Commencer par la couleur | le registre pris, le rôle flou (m05-l01, confirmé au carré) | les quatre questions, dans l'ordre |
+| Tout au rang 1 | le tutti permanent en germe | la hiérarchie se décide — et se paie en silences |
+| Cinq rôles simultanés | l'auditeur décroche | 3–4 plans actifs, comme en M6 |
+| La grille remplie une fois pour toutes | l'orchestration-décor | elle se rejoue par section : c'est la dramaturgie |
+
+### La mission (m07-e01, ORCHESTRATE — le premier Part[])
+
+L'esquisse fournie (piano, 8 mesures : un thème, des accords, une basse — trois rôles évidents, un caché) : remplis la grille (`rolePlan`), distribue sur 5 parts (pool MVP §25.1), étages déclarés. Le moteur vérifie : les rôles détectés ≈ déclarés (la première confrontation plan↔réalisation du module), zéro chevauchement d'étage non justifié, `orch.range-violation`/`balance` muets. Le rôle caché (un contre-rythme dans la main gauche de l'esquisse) : le trouver vaut un crédit craft — l'oreille de casting, testée dès l'entrée.
+
+- [ ] L'orchestration est un casting : rôles → hiérarchie → étages → couleurs
+- [ ] Un rôle premier à chaque instant ; 3–4 plans actifs maximum
+- [ ] Les cinq lignes mentales : le diagnostic en cinq secondes
+- [ ] La grille se rejoue par section — la distribution est une dramaturgie
+
+<QuizBlock id="m07-l01-quiz" questions={5} />
+<LessonFooter exercises={["m07-e01-first-casting"]} />

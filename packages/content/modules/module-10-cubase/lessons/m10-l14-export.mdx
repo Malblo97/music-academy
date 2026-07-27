@@ -1,0 +1,81 @@
+---
+id: m10-l14-export
+module: module-10-cubase
+title: "Export et livraison : la dernière ligne droite"
+estMinutes: 25
+skills: { daw_workflow: 1.0 }
+---
+
+### Pourquoi la livraison est une compétence
+
+Une musique n'existe professionnellement que livrée — au bon format, au bon niveau, découpée comme le mixeur du film l'attend. C'est ici que trois investissements du module paient d'un coup : les groupes de l07 (tu vas comprendre leur vraie raison d'être), le headroom de l08, et l'hygiène de l01. La livraison ratée est le cliché du débutant talentueux ; cette leçon l'élimine.
+
+### 1. L'Export Audio Mixdown : les réglages qui comptent
+
+La fenêtre (File → Export → Audio Mixdown) et ses cinq décisions :
+
+| Réglage | Valeur de livraison | Pourquoi |
+|---|---|---|
+| Plage | les **locators** sur le cue exact — ou le cycle marker du cue (l12 : ils resservent) | le silence de tête/queue se règle ici, pas au montage |
+| Format | WAV, **24 bits, 48 kHz** (le monde de l'image) | le MP3 est une courtoisie d'écoute, jamais un master |
+| Canaux | Stereo Out (interleaved) | — |
+| Niveau | les crêtes du fichier ≤ **−1 dB**, sans limiteur qui écrase | le headroom de l08 §1 rend ça naturel : le tutti à −6 laisse la place |
+| Nommage | `Projet_Cue03_v2_MIX.wav` dans `Exports/` | l01 : le futur toi est un inconnu pressé — et la prod reçoit dix cues de dix compositeurs |
+
+Et le **Real-Time Export** : coché si des instruments externes ou des plugins capricieux l'exigent ; sinon l'offline est fiable et rapide.
+
+### 2. Les stems : la vraie raison d'être des groupes
+
+Le **stem** est un mixdown partiel : les cordes seules, les cuivres seuls, les synthés seuls — le film final se mixe avec TES familles séparées, pour que le mixeur du film puisse baisser les cuivres sous le dialogue sans toucher à tes cordes. La demande standard : **un stem par groupe de l07** — et voilà pourquoi l'architecture en familles n'était pas de l'ordre pour l'ordre :
+
+```
+La méthode Cubase : Export Audio Mixdown → section Channel Selection →
+coche les GROUPES (GRP Strings, GRP Winds, GRP Brass, GRP Perc?…,
+GRP Synths) → "Multiple" : UN export, N fichiers, mêmes locators
+La loi des stems : la somme des stems = le mix. Donc :
+  - les FX Channels (reverbs !) doivent être routés OU exportés en
+    stem propre ("GRP + ses sends" : l'option qui inclut les départs)
+  - AUCUN traitement sur le master pendant l'export des stems (le
+    limiteur du master s'appliquerait N fois — une fois par stem)
+Le test de vérité : réimporte les stems dans un projet vide, aligne,
+somme : compare au mix. Identique ? livrable. Différent ? cherche le
+send orphelin ou le master sale.
+```
+
+### 3. Le colis de livraison (la check-list du métier)
+
+Ce qu'une livraison professionnelle contient — et que la mission fait assembler :
+
+```
+Exports/Livraison_Cue03_v2/
+├── Cue03_v2_MIX.wav               le mix référence
+├── Stems/                          un par famille, mêmes locators
+├── Cue03_v2_MIDI.mid              le MIDI complet (le mixeur ou le
+│                                   copiste peuvent en avoir besoin —
+│                                   et la macro PREP de l09 l'a nettoyé)
+├── Cue03_notes.txt                tempo(s), tonalité, timecode IN/OUT,
+│                                   frame rate, versions de montage
+└── (le .cpr archivé via Back up Project — chez toi, pas dans le colis)
+```
+
+### 4. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Exporter « ce qui joue » sans locators | trois secondes de silence, la queue de reverb coupée | les locators sur le cue, la reverb qui finit DANS la plage |
+| Le MP3 comme livrable | la prod re-demande, tu as l'air amateur | WAV 24/48 ; le MP3 en plus, jamais à la place |
+| Stems avec le limiteur master | la somme ≠ le mix, le mixeur du film t'appelle | master nu pendant les stems ; le test de la somme |
+| Les reverbs orphelines | des stems secs, l'espace perdu | sends inclus ou stem FX dédié |
+| « final_MIX_new2.wav » | personne ne sait quoi mixer | versionné, daté, dans Livraison_ |
+
+### La mission (m10-e14, GUIDÉE)
+
+Le colis complet sur ta maquette de l08 : mix (locators, −1 dB), 3 stems par groupes (test de la somme en `verifyHint` : « réimporte, somme, compare — null test à l'oreille »), MIDI nettoyé par PREP, notes.txt rédigé. Checklist 11 étapes — déclarative, mais chaque étape porte son auto-contrôle : c'est le niveau 3 (§30.1) en régime de croisière.
+
+- [ ] WAV 24/48, crêtes −1 dB, locators justes, reverb incluse
+- [ ] Un stem par groupe, master nu, la somme = le mix (le test de vérité)
+- [ ] Le colis : mix + stems + MIDI propre + notes — nommé pour un inconnu pressé
+- [ ] Les groupes de l07 étaient les stems de l14 : rien n'était décoratif
+
+<QuizBlock id="m10-l14-quiz" questions={5} />
+<LessonFooter exercises={["m10-e14-the-delivery"]} />

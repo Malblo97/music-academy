@@ -1,0 +1,75 @@
+---
+id: m04-l01-dialogue
+module: module-04-contrepoint
+title: "Deux lignes, un art : les lois du dialogue"
+estMinutes: 20
+skills: { counterpoint: 1.0 }
+---
+
+### Pourquoi « point contre point »
+
+*Punctus contra punctum* : note contre note. Le contrepoint pense la musique **horizontalement** — non pas « quel accord ici ? » (la question de M1) mais « que fait chaque voix, et que font-elles ENSEMBLE ? ». Les deux pensées décrivent la même musique sous deux angles (une harmonie EST la coupe verticale de voix qui bougent ; des voix SONT le déroulé horizontal d'accords) — mais l'angle change tout : le compositeur vertical remplit des accords ; le compositeur horizontal fait *parler* des personnages. Ce module t'installe le second angle.
+
+### 1. L'objectif unique : l'indépendance dans l'union
+
+Deux lignes réussies satisfont deux exigences contradictoires — tout le contrepoint est la gestion de ce paradoxe :
+
+| Exigence | Ce qui la sert | Ce qui la tue |
+|---|---|---|
+| **INDÉPENDANCE** : chaque voix est une mélodie qui vaudrait seule (chante chacune : le test) | contours différents, rythmes différents, directions contraires | les parallèles (deux voix en quintes/octaves fusionnent en UNE — le pourquoi profond de `vl.parallel-fifths`, enfin énoncé à la source : ce n'était jamais une superstition, c'était la défense de l'indépendance) |
+| **UNION** : ensemble, elles sonnent — les verticalités sont contrôlées | les consonances aux points d'appui, les dissonances *conduites* | la dissonance sauvage (non préparée, non résolue), les frottements accidentels |
+
+### 2. Les quatre mouvements (le vocabulaire de base)
+
+Entre deux voix, à chaque pas, quatre relations possibles :
+
+```
+CONTRAIRE   ↑↓  les voix s'écartent ou se croisent en sens inverse
+            → l'INDÉPENDANCE maximale : le mouvement-roi du contrepoint
+OBLIQUE     ↑─  une voix bouge, l'autre tient
+            → l'indépendance douce (et le germe de la 4e espèce, l05)
+DIRECT      ↑↑  même direction, intervalles différents
+            → l'union en marche : légal, à doser (trop = la fusion rampante)
+PARALLÈLE   ↑↑  même direction, MÊME intervalle
+            → tierces/sixtes : le velours (légal, délicieux, à doser aussi —
+              trois de suite maximum en style strict : au-delà, une voix
+              devient l'ombre de l'autre) ; quintes/octaves : l'interdit
+              fondateur (§1)
+```
+
+La hiérarchie d'usage : **le contraire d'abord, l'oblique ensuite, le direct avec soin, le parallèle consonant par grappes de deux-trois**. Ce n'est pas une esthétique : c'est la recette mécanique de l'indépendance — et `cpt.contrary-preference` (§7.9) la mesure littéralement (le ratio de mouvement contraire+oblique, cible ≥ 0.5 en strict).
+
+### 3. Consonance et dissonance : le classement du laboratoire
+
+Le contrepoint d'école classe les intervalles avec une sévérité que M1 n'avait pas — parce que le laboratoire isole deux voix nues (aucun accord pour « couvrir ») :
+
+| Classe | Intervalles | Statut |
+|---|---|---|
+| Consonances parfaites | unisson, quinte, octave | stables mais CREUSES (m02-l13 le savait) : les points d'ancrage — début, fin — pas la chair |
+| Consonances imparfaites | tierces, sixtes | LA chair du contrepoint : pleines, chaudes, directionnelles |
+| Dissonances | secondes, septièmes, **la quarte** (oui : à deux voix, la quarte est dissonante — elle « tombe » vers la tierce ; l'histoire de sus4, m01-l17, commence ici), le triton | jamais libres : conduites (passage, broderie, retard — la table de m02-l08 §3 est née dans ce laboratoire) |
+
+### 4. Le laboratoire et ses règles (le contrat des cinq espèces)
+
+Les espèces (l02–l06) travaillent sur un **cantus firmus** — un chant donné en rondes, immuable — contre lequel tu écris une voix selon des règles strictes. Pourquoi accepter des contraintes que la musique réelle assouplit ? La réponse d'atelier : *chaque espèce isole UN problème* (les verticalités pures, puis le temps faible, puis l'ornement, puis la dissonance liée, puis tout ensemble) — c'est une gamme de compositeur : personne ne joue des gammes en concert, personne ne compose sans les avoir jouées. Et le produit t'accompagne exactement là-dessus : le profil `strict-counterpoint` applique les poids maximaux DANS le laboratoire, et les relâche dès l07 (la matrice §7.8 a été construite pour ce module autant que pour les styles de film — la boucle architecture↔pédagogie se referme).
+
+### Erreurs fréquentes
+
+| Erreur | Correction |
+|---|---|
+| Penser les deux voix comme mélodie + accompagnement | deux MÉLODIES : le test du chant (chaque voix, seule, doit valoir) |
+| Les parallèles vus comme un tabou arbitraire | c'est la défense de l'indépendance : deux voix parallèles = une voix épaisse (et le planing de m03-l14 le VEUT — les deux faces, tu les connais) |
+| La quarte traitée en consonance « comme dans les accords » | à deux voix nues, elle tombe : le laboratoire a ses lois, et elles t'expliquent sus4 |
+| Vouloir sauter le laboratoire | les espèces sont les gammes : l07–l11 s'écroulent sans elles |
+
+### La mission (m04-e01, THEORY_QUIZ + EAR)
+
+Le diagnostic d'entrée : identifier les quatre mouvements à l'oreille et au roll (generator : paires de voix, 8 rounds), classer des verticalités à deux voix, et le test du chant — trois extraits à deux voix dont un seul a deux vraies mélodies : lequel ? (le `why` explique par les mouvements et les contours).
+
+- [ ] Horizontal : que fait chaque voix, et que font-elles ensemble
+- [ ] L'indépendance dans l'union — le paradoxe fondateur
+- [ ] Contraire > oblique > direct > parallèle (consonant, par grappes)
+- [ ] Le laboratoire est une gamme de compositeur : cinq espèces, cinq problèmes isolés
+
+<QuizBlock id="m04-l01-quiz" questions={5} />
+<LessonFooter exercises={["m04-e01-four-motions"]} />

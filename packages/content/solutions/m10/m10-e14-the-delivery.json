@@ -1,0 +1,64 @@
+{
+    "exerciseId": "m10-e14-the-delivery",
+    "payload": {
+      "mode": "guided",
+      "source": "maquette de m10-e08",
+      "checklist": [
+        {
+          "id": "e14-s1",
+          "expect": "locators sur le cue exact — la queue de reverb DANS la plage (1'32\"0 pour La Remise)"
+        },
+        {
+          "id": "e14-s2",
+          "expect": "WAV 24 bits / 48 kHz, Stereo Out interleaved"
+        },
+        {
+          "id": "e14-s3",
+          "expect": "crêtes ≤ −1 dB sans limiteur qui écrase"
+        },
+        {
+          "id": "e14-s4",
+          "expect": "nommage Projet_Cue_v2_MIX.wav dans Exports/Livraison_.../"
+        },
+        {
+          "id": "e14-s5",
+          "expect": "MASTER NU pour les stems — bypass vérifié AVANT l'export multiple"
+        },
+        {
+          "id": "e14-s6",
+          "expect": "Channel Selection : 3 groupes → Multiple, mêmes locators, N fichiers"
+        },
+        {
+          "id": "e14-s7",
+          "expect": "reverbs incluses : « GRP + ses sends » ou stem FX dédié"
+        },
+        {
+          "id": "e14-s8",
+          "expect": "TEST DE LA SOMME : stems réimportés, alignés, sommés, comparés au mix"
+        },
+        {
+          "id": "e14-s9",
+          "expect": "MIDI complet nettoyé par la macro PREP (l09) → Cue_v2_MIDI.mid"
+        },
+        {
+          "id": "e14-s10",
+          "expect": "notes.txt : tempo(s), tonalité, timecode IN/OUT, frame rate, version de montage"
+        },
+        {
+          "id": "e14-s11",
+          "expect": "Back up Project — l'archive chez soi, hors du colis"
+        }
+      ],
+      "notesTxt": {
+        "tempos": "♩=96,8 (mes. 1–25) · ♩=99,7 en 5/4 (mes. 26–27) · ♩=93,3 (mes. 28–36)",
+        "tonalite": "ré mineur — fin non résolue (♭VI♯11 sur pédale de tonique)",
+        "timecodeIn": "00:00:00:00",
+        "timecodeOut": "00:01:29:05",
+        "frameRate": "24 fps",
+        "montage": "Cut_v1",
+        "stems": "Orchestra / Synths / FX",
+        "peak": "−1,0 dBFS"
+      }
+    },
+    "authorNotes": "« Le mixeur du film peut-il travailler sans t'appeler ? » Le gabarit `notes.txt` est rempli avec les valeurs réelles du cue de e15 : c'est le même colis, du même film — l'étalon de e14 et celui de e15-part3 se lisent ensemble. Chiffres : 11 étapes, WAV 24/48, crêtes ≤ −1 dB, 3 stems, couverture verifyHint 1,00. Trois investissements sont encaissés d'un coup et l'étalon le dit : les groupes de l07 deviennent les stems, le headroom de l08 rend le −1 dB naturel, l'hygiène de l01 rend le colis lisible. L'étape 8 est la seule non négociable : le test de la somme attrape la seule erreur qu'on ne s'entend pas faire — le send qui n'est dans aucun stem."
+  }

@@ -1,0 +1,92 @@
+---
+id: m02-l03-developper-1
+module: module-02-melodie
+title: "Développer I : répétition, transposition, séquence"
+estMinutes: 25
+skills: { melody: 1.0 }
+---
+
+### Pourquoi le développement est le vrai métier
+
+Tu as une cellule robuste. La tentation : en inventer une deuxième, puis une troisième — et produire ce catalogue d'idées que personne ne retient (l01 §5). Le métier fait l'inverse : **tirer d'une cellule tout ce qu'elle contient**. Cette leçon couvre les trois outils de développement *conservateurs* (l'identité reste évidente) ; la leçon 4 couvrira les outils *transformateurs* (l'identité se cache). Ensemble, ils sont l'échelle de variation — du plus reconnaissable au plus dissimulé.
+
+### 1. La répétition exacte : l'ancrage
+
+Répéter la cellule à l'identique n'est pas de la paresse : c'est **l'installation du contrat** (l01 §1). La première fois, l'auditeur entend ; la deuxième, il *reconnaît* — et la reconnaissance est un plaisir en soi. Règles d'usage :
+
+- **une répétition exacte immédiate est presque toujours juste** (mes. 1 → mes. 2, ou mes. 1–2 → mes. 3–4 : la moitié des thèmes du répertoire commencent ainsi) ;
+- **la troisième exacte est le seuil de vigilance** : c'est là que `melody.monotony` commence à compter (§7.2 : ≥ 4 exactes sans variation = alerte) — et que l'auditeur commence à attendre autre chose. La règle des pros : *deux fois pareil, la troisième différente* ;
+- exception assumée : l'ostinato (profil `thriller-tension`, où la répétition est l'outil — la matrice §7.8 t'en a montré le poids 0).
+
+### 2. La transposition : le même geste, ailleurs
+
+Rejouer la cellule **plus haut ou plus bas** — même forme intervallique, autre point de départ. C'est la variation la plus économique et la plus puissante : l'identité est intacte (l'oreille suit la *forme*, l02 §1), mais la position change le *sens* :
+
+```
+transposition ASCENDANTE  = intensification, question qui insiste, espoir
+transposition DESCENDANTE = apaisement, résignation, écho qui s'éloigne
+```
+
+Nuance de métier — **les deux transpositions** :
+- **réelle** (chromatique) : intervalles exacts, quitte à sortir de la gamme — le geste garde sa taille précise. Dramatique, moderne, cinéma ;
+- **tonale** (diatonique) : on reste dans la gamme, les intervalles s'ajustent (la quinte devient parfois quarte...) — le geste s'adapte au terrain. Classique, fluide, invisible.
+
+`findMotifs` reconnaît les deux comme `transposed` (il compare les formes intervalliques — la tonale à ±1 demi-ton près est gérée par la variation rythmique... non : elle est reconnue quand la forme reste dans la tolérance de la comparaison exacte des intervalles ; sinon elle bascule en « variation » au sens large). En pratique : commence par la tonale (elle ne te sortira jamais de la tonalité), réserve la réelle aux moments où le geste doit garder sa taille exacte — typiquement l'intervalle-signature.
+
+### 3. La séquence : la transposition mise en marche
+
+Répète la cellule en la transposant **chaque fois du même intervalle, dans la même direction** : tu obtiens une séquence — l'outil de progression dramatique le plus fiable du langage tonal.
+
+```
+cellule sur I  →  cellule un degré plus haut  →  encore un degré  →  ...
+   énoncé            insistance                    montée en puissance
+```
+
+<MusicExample id="sequence" title="Une cellule, une séquence, une phrase entière">
+  Cellule : C4:e E4:e G4:q E4:e (le pas arpégé)
+  C4:e E4:e G4:q E4:e | D4:e F4:e A4:q F4:e | E4:e G4:e B4:q G4:e | F4:e A4:e C5:q. r:e |
+  E4:e G4:e C5:q G4:e | D4:q B3:q C4:h
+  Mesures 1–4 : séquence ascendante par degrés (tonale). La mesure 4 CASSE
+  la séquence (rythme suspendu) — juste avant la lassitude. Mesures 5–6 :
+  descente conclusive bâtie sur la même cellule. SIX mesures, UNE cellule.
+</MusicExample>
+
+Les trois lois de la séquence, héritées de trois siècles d'usage :
+
+1. **Trois occurrences maximum** (deux, c'est une séquence ; trois, c'est le plafond ; quatre, c'est une machine — l'auditeur a compris le procédé et décroche). La quatrième case doit casser : rythme suspendu, saut, silence ;
+2. **La séquence a une destination** : elle monte VERS quelque chose (le climax, la dominante, la cadence). Une séquence qui monte puis redescend sans événement est un escalier vers rien ;
+3. **Le pas de séquence porte le sens** : par degrés (2de) = progression organique ; par tierces = envol lyrique ; par quartes/quintes = le toboggan harmonique (elle épouse alors la chaîne de dominantes de l19 M1 — séquence mélodique et séquence harmonique sont le même animal vu de deux côtés).
+
+### 4. Assembler : la grammaire énoncé–répétition–développement
+
+Les trois outils de la leçon suffisent déjà à construire des phrases entières selon le schéma le plus productif du métier — le **sentence** (pour l'appeler par son nom de manuel), petit frère de la période (l16 M1) :
+
+```
+ÉNONCÉ (cellule, 1 mes.) → RÉPÉTITION (exacte ou transposée, 1 mes.)
+→ DÉVELOPPEMENT (séquence resserrée ou fragments, 1 mes.)
+→ CONCLUSION (geste cadentiel, 1 mes.)
+        = la structure « 1+1+2 » : dire, redire, précipiter, conclure
+```
+
+Vérifie : l'exemple de dissection de l01 §2 suit ce schéma en 8 mesures (2+2+4). L'exercice m02-e06 te fait composer trois sentences sur trois cellules d'archétypes différents — c'est l'exercice charnière du module : après lui, tu ne « cherches » plus la suite d'une cellule, tu la *construis*.
+
+### 5. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Peur de la répétition exacte | variation dès la 2e occurrence : l'ancrage n'a pas lieu | deux fois pareil, la troisième différente |
+| Séquence de 4+ occurrences | l'effet « machine à coudre » | trois maximum, la quatrième casse |
+| Séquence sans destination | montée qui retombe dans le vide | décide l'arrivée AVANT d'écrire la séquence |
+| Transposition réelle par accident | sorties de tonalité inexpliquées (`melody.out-of-key`) | tonale par défaut ; réelle en conscience |
+| Tout développer, jamais conclure | la phrase tourne sans atterrir | le schéma 1+1+2 réserve son dernier quart au geste cadentiel |
+
+### Récapitulatif
+
+- [ ] Répétition exacte = ancrage : deux fois pareil, la troisième différente
+- [ ] Transposition : ascendante intensifie, descendante apaise ; tonale par défaut
+- [ ] Séquence : 3 occurrences max, une destination, le pas porte le sens
+- [ ] Le sentence (1+1+2) : dire, redire, précipiter, conclure — ma deuxième structure
+- [ ] Une cellule bien développée = une phrase entière sans rien inventer
+
+<QuizBlock id="m02-l03-quiz" questions={6} />
+<LessonFooter exercises={["m02-e05-transpose-and-sequence", "m02-e06-three-sentences"]} />

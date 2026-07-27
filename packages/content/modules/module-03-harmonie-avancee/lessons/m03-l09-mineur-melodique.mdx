@@ -1,0 +1,72 @@
+---
+id: m03-l09-mineur-melodique
+module: module-03-harmonie-avancee
+title: "Les modes du mineur mélodique : la seconde galaxie"
+estMinutes: 25
+skills: { harmony: 1.0 }
+---
+
+### Pourquoi une seconde galaxie
+
+Les sept modes de l08 tournent tous autour d'UNE gamme-mère : le majeur. Mais tu possèdes une autre gamme-mère depuis l06 M1 : le **mineur mélodique** (la forme ascendante prise comme gamme fixe : 1 2 ♭3 4 5 6 7). Fais-la tourner comme on a fait tourner le majeur : sept nouveaux modes — une seconde galaxie de couleurs, plus étranges, plus modernes. Honnêteté de sommaire : trois de ces sept portent l'essentiel de l'usage réel — cette leçon les traite en fiches complètes et nomme les autres en passant.
+
+### 1. La gamme-mère et sa couleur propre
+
+Le mineur mélodique harmonisé est déjà une bizarrerie splendide : i(maj7) sur la tonique — **l'accord du vertige** (m09-l03 : le m(maj7) du néo-noir a sa gamme natale), DEUX accords de dominante (V7 et IV7... — vérifions : sur la 4̂ et la 5̂, les tétrades sont IV7 (dominante de structure) et V7), et deux accords semi-diminués. C'est la gamme du clair-obscur : mineure par sa tierce, majeure par tout le haut.
+
+### 2. Les trois modes qui comptent (les fiches)
+
+**MODE IV — le LYDIEN ♭7** (sur la 4̂ : 1 2 3 ♯4 5 6 ♭7)
+
+| Rubrique | Contenu |
+|---|---|
+| L'identité | le lydien (♯4̂, l'émerveillement) PLUS la ♭7̂ (le terrien mixolydien) : **l'accord de dominante qui ne domine rien** — un V7♯11 posé comme un monde, pas comme une flèche |
+| Piliers | I7(♯11) lui-même — le mode s'harmonise volontiers en UN accord habité (le paysage réduit à sa couleur pure) |
+| Territoire | LA gamme du subV7♯11 (l20 M1 : le fantôme a trouvé sa maison), la SF qui sourit, le rétro-futur, l'étrange confortable |
+| Le pont | c'est le mode-passerelle entre les systèmes : fonctionnel (il EST le son du subV), modal (il se boucle), non-fonctionnel (son I7 flotte sans cible) — la carte de l01 en une gamme |
+
+**MODE VII — l'ALTÉRÉ** (sur la 7̂ : 1 ♭2 ♭3 ♭4... — toutes les tensions altérées : ♭9, ♯9, ♭5, ♯5)
+
+| Rubrique | Contenu |
+|---|---|
+| L'identité | LA gamme de la dominante en crise : V7 avec TOUTES ses altérations à bord — le maximum de tension chromatique compatible avec une résolution |
+| Emploi | strictement fonctionnel et bref : l'altéré ne s'habite pas, il se traverse — c'est le V7alt du jazz (le Module 8 s'en régalera), l'accord de LA seconde avant la résolution (ou la non-résolution : le thriller tient son accord de bord de falaise) |
+| Territoire | le jazz moderne, le climax harmonique, la dominante du film noir |
+
+**MODE VI — le LOCRIEN ♮2** (sur la 6̂) — la fiche courte : le locrien rendu *presque* habitable (la ♮2 adoucit le seuil) — la gamme du semi-diminué (iiø7 du mineur, l13 M1), donc du **ii–V mineur** : l'antichambre élégante de la tragédie jazz. Les quatre autres modes (dorien ♭2, lydien augmenté, mixolydien ♭6, et le mineur mélodique lui-même) existent, se déduisent par la même méthode (l08 §1 — elle marche sur n'importe quelle gamme-mère : c'est ça, la vraie leçon), et attendent le Module 8 pour leur usage idiomatique.
+
+### 3. La galaxie en pratique : trois emplois de film
+
+```
+LE MONDE EN UN ACCORD (lydien ♭7) : la scène entière sur I7♯11 bouclé —
+  pédale de tonique (l07), la mélodie expose ♯4̂ et ♭7̂ (m02-e26 avait
+  la mélodie ; voici son harmonie), le mouvement vient du timbre (M6)
+LA DOMINANTE HABILLÉE (altéré) : ta cadence tonale de M1, le V devenu
+  V7alt — la même flèche, empoisonnée : le climax du drame moderne
+LE VERTIGE TONIQUE (mineur mélodique mère) : i(maj7) tenu comme repos
+  impossible — le néo-noir harmonisé à la source (m09-l03 §1 : la
+  boucle est bouclée, le genre a sa gamme)
+```
+
+Le moteur : `detectCollection` gagne les profils `melodic-minor` et ses rotations remarquables (`lydian-b7`, `altered`) — la détection par couverture pondérée de l'ouverture §40.1, trois vecteurs de plus ; et `requireCollection: "lydian-b7"` devient la contrainte des exercices de séjour.
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| L'altéré habité | la crise permanente : l'oreille sature en 4 mesures | l'altéré se traverse — c'est une dominante, pas un pays |
+| Le lydien ♭7 résolu par réflexe | le monde traité en flèche : le subV qui part vers sa cible alors qu'on voulait y rester | décide le régime (l01) : monde OU flèche, et tiens-le |
+| Confondre les deux galaxies | un « dorien » à 7̂ majeure, un « lydien » à ♭7 non voulus | nomme la gamme-mère d'abord : majeur ou mineur mélodique |
+| Les sept modes appris par cœur | l'encyclopédie sans usage | la MÉTHODE (l08 §1) + trois fiches : le reste se déduit |
+
+### La mission (m03-e09, HARMONY_PROGRESSION + mélodie)
+
+Le diptyque du mode IV : **(1)** le séjour — 8 mesures en sol lydien ♭7 (`requireCollection`), le monde en un accord (G7♯11 bouclé, pédale bienvenue), une ligne mélodique qui expose ♯4̂ et ♭7̂ ; **(2)** la flèche — la MÊME sonorité (G7♯11) employée en subV dans une cadence en fa♯... — en clair : deux mesures où G7♯11 → F♯ (la basse au demi-ton, l20 M1). Le rapport met les deux emplois côte à côte : *le même son, le monde puis la flèche — le régime fait le sens* (la démonstration finale de la carte de l01).
+
+- [ ] La seconde galaxie : le mineur mélodique tourné comme le majeur
+- [ ] Trois fiches : lydien ♭7 (le monde-passerelle), altéré (la crise qui se traverse), locrien ♮2 (l'antichambre)
+- [ ] i(maj7) : le néo-noir a sa gamme natale
+- [ ] La méthode vaut pour toute gamme-mère — c'est elle, l'acquis
+
+<QuizBlock id="m03-l09-quiz" questions={5} />
+<LessonFooter exercises={["m03-e09-world-and-arrow"]} />

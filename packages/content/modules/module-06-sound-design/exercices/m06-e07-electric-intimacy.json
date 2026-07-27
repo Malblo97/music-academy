@@ -1,0 +1,47 @@
+{
+  "id": "m06-e07-electric-intimacy",
+  "lessonId": "m06-l07-keys",
+  "title": "L'intimité électrique",
+  "kind": "LAYERING",
+  "difficulty": 4,
+  "xpReward": 90,
+  "skills": { "SOUND_DESIGN": 0.7, "HARMONY": 0.3 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "romantic-film", "targetMood": "tender", "ruleWeights": {} },
+  "rubric": { "correctness": 30, "constraints": 40, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "La progression de la romance (m09-l01 §1 — le nuage compris) réalisée aux KEYS : le brief est tiré (« la confidence tard le soir » → Rhodes, la nuit chaude ; « le souvenir qui s'efface » → lo-fi, la mémoire dégradée) — choisis la famille en conséquence. Voicings ENRICHIS main droite (≥ 3 accords à tensions : le Rhodes est fait pour les 9 et les 11, elles y sonnent crémeuses), la basse au SUB en couche dédiée (deux couches, deux rôles), la motion signature déclarée (trémolo stéréo Rhodes ou wow lo-fi). Et la loi de l'instrument-humain : les keys se JOUENT — Iterative 60 %, jamais de quantize dur : un Rhodes quantisé dur est un FM qui s'ignore.",
+    "given": {
+      "key": { "tonic": 0, "mode": "major" },
+      "briefs": ["la confidence tard le soir", "le souvenir qui s'efface"],
+      "chords": [
+        { "root": 0, "quality": "maj7" },
+        { "root": 9, "quality": "m7" },
+        { "root": 5, "quality": "add9" },
+        { "root": 7, "quality": "7sus4-7" },
+        { "root": 0, "quality": "maj7" },
+        { "root": 9, "quality": "m7" },
+        { "root": 5, "quality": "m6" },
+        { "root": 0, "quality": "maj" }
+      ]
+    },
+    "constraints": {
+      "lengthBars": [8, 8],
+      "requiredLayers": [
+        { "id": "keys", "role": "body", "hasNotes": true, "noNotesBelowPitch": 48, "band": { "lowMin": 100 } },
+        { "id": "sub", "role": "sub", "hasNotes": true, "band": { "low": 30, "highMax": 90 } }
+      ],
+      "familyBriefMapping": {
+        "la confidence tard le soir": ["rhodes"],
+        "le souvenir qui s'efface": ["lofi"]
+      },
+      "minEnrichedChords": 3,
+      "monophonicNotesRequired": ["sub"],
+      "motionPlan": { "signatureRequired": ["tremolo-pan", "wow-flutter"] },
+      "quantizeProfilePlan": { "keys": { "gridDeviationWindow": [8, 60] } },
+      "checkers": ["sd.sub-conflict", "quantizeInfo"]
+    }
+  }
+}

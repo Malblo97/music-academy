@@ -1,0 +1,38 @@
+{
+  "id": "m07-e08-the-few",
+  "lessonId": "m07-l08-intime",
+  "title": "Le peu",
+  "kind": "ORCHESTRATE",
+  "difficulty": 6,
+  "xpReward": 120,
+  "skills": { "ORCHESTRATION": 1.0 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "pool": "chamber",
+  "styleProfile": { "id": "romantic-film", "targetMood": "bittersweet", "ruleWeights": {} },
+  "rubric": { "correctness": 25, "constraints": 45, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "L'anti-tutti — et le geste le plus puissant du répertoire : après la crue et le sommet, LA COUPURE. 16 mesures : les 2 premières sont le tutti fourni, puis le monde entier se tait pour UNE voix. Choisis ton soliste à la table (celli ténor : la confession virile ; violon solo : l'individu extrait de la foule ; cor : la solitude noble ; hautbois : l'enfance ; chalumeau : le nocturne trouble ; flûte grave : le velours spectral — inaudible en tutti, c'est ICI son royaume) et ARGUMENTE. Puis le PRESQUE-RIEN : le soliste + un espace de 2 éléments maximum — pas un petit tapis : une pédale, une tenue, le silence. Puis L'ENTRÉE DU TÉMOIN : la 2e voix, recette déclarée (souvent LE moment émotionnel de la scène : quelqu'un répond). Puis la dissolution. Contraintes du pôle : ≤ 4 parts actives, ZÉRO doublure (le tag de l02 devient interdit — la doublure à cinq est un rôle sacrifié), et le soliste dans son registre EXPRESSIF, au cent près : ici tout est exposé. Le rapport mesure ton silence.",
+    "given": {
+      "key": { "tonic": 9, "mode": "minor" },
+      "tuttiIntro": "sourceSubmission:m07-e07-the-edifice",
+      "theme": "asset:m02-e30-elena-theme"
+    },
+    "constraints": {
+      "lengthBars": [16, 16],
+      "format": "Part[]",
+      "pool": "chamber",
+      "structure": "cut / almost-nothing / witness-entry / dissolution",
+      "cutRequired": { "atBar": 3, "effectiveDeltaMin": 0.6 },
+      "maxActiveParts": 4,
+      "forbidDoubling": true,
+      "accompanimentMaxElements": 2,
+      "soloDeclared": { "argued": true, "table": ["cello-tenor", "solo-violin", "horn", "oboe", "clarinet-chalumeau", "flute-low", "piano"] },
+      "soloRegisterExpressive": { "useSweetSpot": true, "riskyZonesAllowedIfDeclared": true },
+      "witnessEntry": { "required": true, "recipeDeclared": true },
+      "silenceRatioMin": 0.25,
+      "checkers": ["orch.range-violation", "orch.register-color", "orch.balance", "orch.role-coverage", "densityMap"]
+    }
+  }
+}

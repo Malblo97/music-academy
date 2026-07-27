@@ -1,0 +1,11 @@
+{ "id": "m02-e24-open-question", "lessonId": "m02-l12-ambiances-3",
+  "title": "La question sans réponse", "kind": "MELODY_COMPOSE",
+  "difficulty": 7, "xpReward": 120, "skills": { "MELODY": 1.0 },
+  "spec": { "prompt": "8 mesures MYSTÉRIEUSES — l'un des rares exercices où l'objectif est que l'analyseur NE TROUVE PAS ta tonalité (ambiguë voulue : dorien flottant, majeur/mineur non tranché, ♯4̂ qui cloche). Plateau ou vague lente, PAS de climax franc, phrases finissant sur degrés instables, motif répété à intervalles IRRÉGULIERS (l'attente déjouée). Le mystère fascine : garde une beauté.",
+    "given": {},
+    "constraints": { "lengthBars": [8,8], "requireAmbiguousKey": true,
+      "contourShape": ["plateau","wave"], "flatTension": true,
+      "mustEndOnDegrees": [2,5], "mustUseMotif": true,
+      "minMotifOccurrences": 3 },
+    "styleProfile": { "id": "hybrid-sd", "targetMood": "mysterious" },
+    "rubric": { "correctness": 15, "constraints": 45, "craft": 40 } } }

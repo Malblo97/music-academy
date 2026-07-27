@@ -1,0 +1,96 @@
+---
+id: m10-l08-mix
+module: module-10-cubase
+title: "Le mix du compositeur : équilibrer sans mixer"
+estMinutes: 25
+skills: { daw_workflow: 0.6, orchestration: 0.4 }
+---
+
+### Pourquoi « sans mixer »
+
+Tu n'es pas ingénieur du son, et ce produit ne prétend pas t'en faire un. Mais ta maquette doit *sonner* — assez pour convaincre un réalisateur, assez pour que TES oreilles jugent ton orchestration. La bonne nouvelle : **le mix d'une maquette orchestrale bien écrite est à 80 % déjà fait** — par l'écriture (registres étagés, `orch.balance`, ton CC1). Cette leçon couvre les 20 % restants : gain staging, l'espace, et trois traitements — pas un de plus.
+
+### 1. Le gain staging : de la marge partout
+
+Le principe : chaque étage (piste → groupe → master) doit recevoir un signal confortable, jamais saturé. La discipline en trois chiffres :
+
+```
+Pistes :   les crêtes autour de −12 à −8 dB    (le fader de piste
+                                                 proche de 0, c'est le
+                                                 VSTi qu'on baisse si besoin)
+Groupes :  jamais dans le rouge, faders ~0      (ils REÇOIVENT l'équilibre,
+                                                 ils ne le créent pas — l07)
+Master :   le tutti fff culmine vers −6 dB      (la marge de l02 §2.5 :
+                                                 elle sert au limiteur du
+                                                 jour de livraison, l14)
+```
+
+Pourquoi −6 et pas 0 : le headroom n'est pas de la prudence, c'est du **futur** — le mastering, les stems, la sommation. Un master qui tape 0 en cours d'écriture n'a plus nulle part où grandir.
+
+### 2. L'espace : pan et profondeur (le seating plan)
+
+L'orchestre a une géographie et ton auditeur la connaît inconsciemment. Le placement standard, à encoder dans le template une fois :
+
+```
+        fond :  percussions, cors (oui : les cors à gauche-fond ou
+                centre-fond — leur pavillon vers l'arrière)
+      milieu :  bois (flûte/hautbois centre-gauche, clar/basson centre-droit)
+      devant :  V1 ──── gauche | Altos ─ centre | V2 ─ centre-droit?…
+```
+— convention moderne (seating américain) : **V1 gauche, V2 centre-gauche, altos centre-droit, celli droite, contrebasses fond-droite**. Cuivres au fond (cors gauche, trompettes/trombones droite), bois au centre-milieu, percussions fond.
+
+Deux outils pour la *profondeur* (l'avant/arrière) — et te voilà au pourquoi des DEUX reverbs de l07 :
+
+| Outil | Effet |
+|---|---|
+| **Le ratio send Room/Hall** | devant = plus de Room courte, moins de Hall ; fond = l'inverse. La distance s'entend dans la proportion de salle |
+| **Le filtre coupe-haut léger** sur les pistes du fond | l'air mange les aigus : −2/3 dB au-dessus de 8 kHz et les cors *reculent* |
+
+C'est tout. La profondeur d'une maquette tient dans ces deux gestes — le néo-noir (m09-l03) et sa « fondation sèche, reverb pour les voix » deviennent des réglages de sends.
+
+### 3. Les trois traitements du compositeur (et l'interdiction du reste)
+
+| Traitement | Usage légitime en maquette | La ligne rouge |
+|---|---|---|
+| **EQ soustractif** | creuser 2–3 dB là où deux éléments se masquent (le contrechant mangé par les cors : −2 dB aux cors vers 400–800 Hz — la version console de `orch.masking`) ; couper le grave inutile des pistes non-basses (coupe-bas ~80 Hz sur tout sauf celli/Cb/sub) | jamais d'EQ additif « pour embellir » : si ça manque de brillance, c'est l'orchestration (registre, doublure — M5/M7), pas l'EQ |
+| **Compression douce** | UN compresseur léger (2:1, 2–3 dB de réduction) sur GRP Orchestra pour cimenter — éventuellement | pas de compression par piste en maquette orchestrale : ton CC1 EST la gestion de dynamique ; le compresseur qui le nivelle détruit ta leçon l04 |
+| **Limiteur de contrôle** | sur le master, transparent, −1 dB de plafond : le garde-fou anti-clip | s'il travaille fort, le problème est en amont (gain staging) — le limiteur signale, il ne répare pas |
+
+**La règle d'or de la leçon** : *quand la maquette sonne mal, la réponse est presque toujours dans l'écriture* — un registre encombré (`orch.density-overload`), une doublure manquante, un CC1 plat. Le fader est le dernier recours, pas le premier réflexe. Le produit et la console te disent la même chose ; celui qui l'apprend ici économise dix ans de forums de mixage.
+
+### 4. La méthode d'équilibrage (20 minutes, dans l'ordre)
+
+```
+1. Tous faders à 0, tutti le plus dense en boucle
+2. Gain staging : ramène chaque VSTi à des crêtes ~−10 dB piste
+3. Le seating : pans + ratios Room/Hall + coupe-haut du fond (une fois
+   par template, plus jamais ensuite)
+4. Écoute EN MONO deux minutes (bouton mono du Control Room ou un
+   plugin) : les masquages sautent aux oreilles sans le secours du pan —
+   ce que tu entends mal en mono s'écrit mal
+5. Corrige À L'ÉCRITURE ce que le mono a révélé ; EQ soustractif
+   seulement si l'écriture a raison et le timbre a tort
+6. Le limiteur de contrôle, et c'est fini : ta maquette est honnête
+```
+
+### 5. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Mixer AVANT d'orchestrer | des heures de faders pour cacher un registre encombré | l'écriture d'abord — le mono le révèle en deux minutes |
+| Master qui tape 0 en écriture | plus de headroom pour livrer | le tutti à −6, la marge est du futur |
+| Une seule reverb pour tout | tout au même plan, pas de profondeur | Room/Hall en ratio = la distance |
+| Compresser chaque piste | le CC1 de l04 annulé, la vie aplatie | un seul, doux, sur Orchestra — ou rien |
+| EQ additif partout | le son « amélioré » qui fatigue | soustractif, chirurgical, ou l'orchestration |
+
+### La mission (m10-e08, GUIDÉE + auto-contrôle)
+
+La passe d'équilibrage complète sur ta maquette de l04 (le cor vivant) enrichie de 3 pistes (cordes tenues, sub, percussion) : les 6 étapes de la méthode, checklist avec le **test mono** en `verifyHint` central (« en mono : le cor reste-t-il lisible sous les cordes ? sinon, quel registre encombre ? »). Déclarative — le produit ne peut pas entendre ton mix, mais il t'a appris à l'entendre toi-même : c'est le niveau 3 de §30.1 dans son plein usage.
+
+- [ ] Crêtes −10 piste, tutti −6 master : la marge est du futur
+- [ ] Seating + Room/Hall + coupe-haut du fond = la profondeur en trois gestes
+- [ ] EQ soustractif, UN compresseur doux, un limiteur-garde-fou — rien d'autre
+- [ ] Le test mono avant tout fader ; l'écriture avant tout traitement
+
+<QuizBlock id="m10-l08-quiz" questions={5} />
+<LessonFooter exercises={["m10-e08-honest-balance"]} />

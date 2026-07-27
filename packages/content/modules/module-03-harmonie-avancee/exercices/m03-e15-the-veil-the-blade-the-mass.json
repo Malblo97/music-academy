@@ -1,0 +1,15 @@
+{ "id": "m03-e15-the-veil-the-blade-the-mass", "lessonId": "m03-l15-clusters",
+  "title": "Le voile, la lame, la masse", "kind": "HARMONY_PROGRESSION",
+  "difficulty": 8, "xpReward": 140, "skills": { "HARMONY": 0.8, "ORCHESTRATION": 0.2 },
+  "spec": { "prompt": "12 mesures, la densité comme couleur — les trois familles du cluster, chacune définie par sa BRIQUE, son REGISTRE et son ENVELOPPE. LE VOILE (mes. 1–4) : cluster PENTATONIQUE à l'aigu (brique = secondes majeures), déposé note à note sur un socle pandiatonique de sol (e10 recyclé en fondation) — la lumière poudrée. LA LAME (mes. 5–8) : la grappe CHROMATIQUE au médium — cumulative : UNE attaque par temps sur deux mesures, chaque note TENUE (F-21 : c'est exactement pour elle que la liaison par note existe), jusqu'à la quinte chromatique remplie, tenue. LA MASSE ET SA FIN (mes. 9–12) : l'effondrement — le bloc se resserre PAR LES BORDS, 6 notes, 3 notes… l'UNISSON : un seul son, tenu. La résolution de masse : densité ≠ volume — c'est le nombre de sons qui raconte.",
+    "given": { "key": { "tonic": 7, "mode": "major" } },
+    "constraints": { "lengthBars": [12,12], "minVoices": 1, "maxVoices": 8,
+      "requireIdiom": ["cluster"],
+      "clusterPlan": [
+        { "barWindow": [1,4], "brick": "pentatonic", "register": "high", "envelope": "additive" },
+        { "barWindow": [5,8], "brick": "chromatic", "register": "medium", "envelope": "cumulative" },
+        { "barWindow": [9,12], "envelope": "collapse" } ],
+      "cumulativeEnvelope": { "attacksPerBeat": 1, "eachNoteHeld": true },
+      "endOnUnison": true },
+    "styleProfile": { "id": "impressionist", "targetMood": "matter" },
+    "rubric": { "correctness": 20, "constraints": 50, "craft": 30 } } }

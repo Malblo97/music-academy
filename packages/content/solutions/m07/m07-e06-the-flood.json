@@ -1,0 +1,19 @@
+{
+  "exerciseId": "m07-e06-the-flood",
+  "variantId": "paliers",
+  "payload": {
+    "lengthBars": 24,
+    "crescendoPlan": [
+      { "section": "S1", "bars": [1, 6], "content": "thème + fleuve (l'acquis de s05)", "lever": "effectif", "parts": 3 },
+      { "section": "S2", "bars": [7, 12], "adds": ["violins-2 tapis", "contrabasses pizz"], "lever": "étages", "note": "3 → 5 parts, +1 octave bas" },
+      { "section": "S3", "bars": [13, 17], "adds": ["violins-1 doublent le hautbois à l'octave"], "lever": "doublures", "tag": "octave" },
+      { "section": "S4", "bars": [18, 21], "adds": ["violas", "le moteur s'anime"], "lever": "activité", "note": "croches, densité ×2,3" },
+      { "section": "S5", "bars": [22, 24], "lever": "dynamique", "note": "f → ff via dyn[] (F-39) — dépensé en DERNIER" }
+    ],
+    "falseRecession": { "bars": [15, 16], "note": "vl1 et Cb se taisent, l'activité chute — puis tout revient" },
+    "summitHeld": 2.5,
+    "exitGesture": "decrease-from-top",
+    "entriesStyle": "chaque levier entre sur une barre franche"
+  },
+  "authorNotes": "L'ordre de dépense du métier, respecté à la lettre : effectif → étages → doublures → activité → **dynamique en dernier**. Le crescendo raté fait l'inverse (ff dès le début, puis plus rien à donner) ; ici la nuance n'entre qu'à la mesure 22, quand tous les autres leviers sont épuisés. Architecture PALIERS : les cinq courbes tracées montrent des **escaliers** — on voit les marches monter. La fausse décrue est détectée comme creux local sur ≥ 2 leviers avant le sommet ✓, le sommet est un ÉTAT (2,5 mesures ≥ 2) ✓, et la sortie se compose : la décrue par le haut — vl1 puis hautbois se retirent, le fleuve reste. F-41 aux raccords."
+}

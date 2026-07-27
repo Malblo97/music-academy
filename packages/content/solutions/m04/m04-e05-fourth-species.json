@@ -1,0 +1,7 @@
+{
+  "exerciseId": "m04-e05-fourth-species",
+  "partId": "catalog",
+  "notation": "r:h A4:h~ | A4:h C5:h~ | C5:h E5:h~ | E5:h D5:h~ | D5:h E5:h~ | E5:h D5:h~ | D5:h C5:h~ | C5:h B4:h~ | B4:h C#5:h | D5:w",
+  "payload": { "cf": "m04-cf-dorian-01", "cfPosition": "above" },
+  "authorNotes": "≥ 4 retards, 3 types, chaque cellule au triple test préparation–suspension–résolution : **9-8** (m4 : E5 sur D4 → D5, prep octave m3, dissonance par inertie, un pas descendant) ; **7-6** (m6 : E5 sur F4 → D5 — et E5 = climax, tenu-souffrant : la suspension comme sommet) ; **4-3** (m7 : D5 sur A4 → C5) ; **4-3** (m8 : C5 sur G4 → B4 — deux 4-3 enchaînés). m9 : **syncope rompue** (C♯5 non liée) — la licence de clausule F-27, taguée `syncope-break`, gratuite en zone cadentielle ; ficta F-25. La résolution descend, TOUJOURS."
+}

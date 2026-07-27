@@ -1,0 +1,9 @@
+{ "id": "m01-e08-degree-ear", "lessonId": "m01-l04-degres",
+  "title": "Où suis-je ? (degrés à l'oreille)", "kind": "EAR_QUIZ", "mvpFallback": "THEORY_QUIZ",
+  "difficulty": 3, "xpReward": 50, "skills": { "EAR_TRAINING": 1.0 },
+  "spec": { "prompt": "La gamme s'installe, puis une note sonne : nomme son degré. Astuce l04 §3 : où VEUT-elle aller ?",
+    "quiz": { "interaction": "mc",
+      "generator": { "keys": ["C","G","F","D"], "degrees": [1,2,3,4,5,6,7], "rounds": 10 },
+      "items": [
+        { "q": "▶ (gamme de C, puis…)", "play": "C4:e D4:e E4:e F4:e G4:e A4:e B4:e C5:q r:q B4:h", "options": ["2̂","7̂","5̂"], "answer": "7̂", "why": "Elle « veut monter d'un cran » : la flèche, la sensible." },
+        { "q": "▶ (gamme de C, puis…)", "play": "C4:e D4:e E4:e F4:e G4:e A4:e B4:e C5:q r:q F4:h", "options": ["4̂","6̂","3̂"], "answer": "4̂", "why": "Elle pèse vers le bas, vers 3̂ — l'autre aimant." } ] } } }

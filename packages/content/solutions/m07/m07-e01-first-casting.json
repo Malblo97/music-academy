@@ -1,0 +1,21 @@
+{
+  "exerciseId": "m07-e01-first-casting",
+  "payload": {
+    "lengthBars": 8,
+    "rolePlan": [
+      { "part": "violins-1", "role": "melody", "stage": "chant" },
+      { "part": "violins-2", "role": "harmony", "stage": "coeur" },
+      { "part": "violas", "role": "rhythm", "stage": "coeur", "note": "LE RÔLE CACHÉ" },
+      { "part": "cellos", "role": "countermelody", "stage": "corps" },
+      { "part": "contrabasses", "role": "bass", "stage": "socle" }
+    ],
+    "parts": [
+      { "instrumentId": "violins-1", "range": "E4–G5", "content": "le thème de l'esquisse, verbatim" },
+      { "instrumentId": "violins-2", "range": "G3–D4", "content": "les accords resserrés en blanches — [G3+B3+D4] etc." },
+      { "instrumentId": "violas", "content": "le contre-rythme de la main gauche EXHUMÉ — r:e D4:e r:e D4:e …" },
+      { "instrumentId": "cellos", "content": "la basse chantée à l'octave supérieure de la MG (G2→G3 : l'or pur)" },
+      { "instrumentId": "contrabasses", "content": "la basse de l'esquisse, notes longues seules" }
+    ]
+  },
+  "authorNotes": "L'ordre de la méthode, tenu : inventaire → hiérarchie → étages → couleurs. Rôles détectés ≈ déclarés **5/5, le caché compris — crédit craft encaissé** : les contretemps que l'esquisse fondait dans la main gauche deviennent une part à eux seuls, aux altos. Étages sans chevauchement (socle E2–G3 / ténor G3–E4 / cœur G3–D4), le recouvrement cœur/ténor étant dégagé par l'octave du violoncelle — justifié au plan, comme la spec l'exige. `orch.range-violation` et `orch.balance` muets ✓. La leçon en une ligne : les couleurs arrivent en quatrième, et c'est pour ça que le casting tient."
+}

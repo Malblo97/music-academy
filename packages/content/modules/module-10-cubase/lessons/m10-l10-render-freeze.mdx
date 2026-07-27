@@ -1,0 +1,69 @@
+---
+id: m10-l10-render-freeze
+module: module-10-cubase
+title: "Render in Place et Freeze : le budget machine"
+estMinutes: 15
+skills: { daw_workflow: 1.0 }
+---
+
+### Pourquoi une leçon courte mais non négociable
+
+Ta machine a un budget : CPU, RAM, disque. Le jour où le projet grossit — et le Medium de l02 grossira — tu entendras le budget craquer : craquements audio, curseur qui saccade, banques qui refusent de charger. Les deux outils de cette leçon convertissent de la **flexibilité** (le MIDI éditable) en **ressources** (de l'audio léger) — et l'un des deux est aussi, tu le sais depuis l06, la seule immortalité d'un son. Quinze minutes, deux outils, une doctrine.
+
+### 1. Freeze : la congélation réversible
+
+Le **Freeze** (le flocon dans l'Inspector) rend la piste en audio *en interne* et décharge l'instrument de la RAM/CPU. La piste devient non-éditable — mais un clic **dé-gèle** et tout revient. C'est une pause, pas un adieu.
+
+```
+Quand geler ?   la piste est ÉCRITE et STABLE (tu n'y touches plus
+                cette semaine), mais le projet continue
+Quoi geler ?    les gourmands d'abord : les banques orchestrales à
+                grosses articulations, les synthés à oscillateurs lourds
+Le geste :      flocon → "Freeze Instrument + Channel" (inclut les
+                inserts) → la machine respire
+```
+
+### 2. Render in Place : l'impression définitive
+
+**Render in Place** (menu Edit) imprime la sélection en une **vraie piste audio** dans le projet — éditable comme tout audio, indépendante de l'instrument d'origine. C'est l'outil aux trois métiers :
+
+| Métier | Pourquoi |
+|---|---|
+| **L'immortalité** (l06 §4, promesse tenue) | l'audio rendu survivra à la démo expirée, au plugin abandonné, au changement de machine — un projet livré se rend, point |
+| **Le son comme matière** | une fois rendu, le cor devient de l'audio qu'on peut retourner, étirer, filtrer — la porte du sound design (Module 6 s'en régalera : le braam est souvent un cuivre rendu puis maltraité) |
+| **La collaboration** | envoyer le projet à quelqu'un qui n'a pas tes banques : tout rendu, tout audible partout |
+
+Réglages qui comptent : *Complete Signal Path* (avec inserts et sends) vs *Dry* (le MIDI nu en audio — préférable si le mix viendra après) ; et **garde la source** (l'option qui mute la piste MIDI au lieu de la supprimer) : le rendu remplace à l'écoute, l'original reste en réserve.
+
+### 3. La doctrine : flexible tant que ça compose, imprimé dès que ça livre
+
+```
+PENDANT l'écriture   tout reste MIDI (la flexibilité est reine)
+                     → Freeze les stables si la machine peine
+À LA MAQUETTE VALIDÉE Render in Place (Dry) des pistes définitives
+                     → le projet devient transportable et pérenne
+À LA LIVRAISON (l14)  tout est rendu — le MIDI mute en réserve,
+                     l'audio est la vérité livrée
+```
+
+Corollaire produit : tes missions prouvées exportent du **MIDI** (le moteur analyse des notes, pas de l'audio — périmètre §1.6) ; le rendu ne concerne que ta vie de producteur. Les deux workflows coexistent : le MIDI pour apprendre et prouver, l'audio pour livrer et durer.
+
+### 4. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Ne jamais geler « pour garder la main » | la session injouable à 60 pistes | le Freeze est réversible : c'est une pause |
+| Rendre puis SUPPRIMER le MIDI | la correction impossible trois jours après | garder la source mutée, toujours |
+| Rendre avec tout le signal path « par défaut » | le mix figé trop tôt dans l'audio | Dry pendant l'écriture ; Complete à la livraison |
+| Découvrir le budget machine le jour du tutti | le craquement en pleine inspiration | geler au fil de l'eau, dès qu'une piste est stable |
+
+### La mission (m10-e10, déclarative)
+
+Sur ta maquette de l08 : gèle les deux pistes les plus lourdes (vérifie la jauge CPU avant/après — le `verifyHint` chiffré), puis Render in Place (Dry, source gardée) de la piste cor. Checklist 6 étapes.
+
+- [ ] Freeze = pause réversible ; Render = impression aux trois métiers
+- [ ] La source rendue reste mutée en réserve — jamais supprimée
+- [ ] Doctrine : MIDI pour composer et prouver, audio pour livrer et durer
+
+<QuizBlock id="m10-l10-quiz" questions={4} />
+<LessonFooter exercises={["m10-e10-budget-machine"]} />

@@ -1,0 +1,45 @@
+{
+  "exerciseId": "m09-e08-tick-and-cut",
+  "payload": {
+    "parts": [
+      { "role": "moteur",
+        "elements": ["celli spiccato (reverb 0)", "à partir de la mes. 25 : + piano grave sec (doublage E2)"],
+        "entryBar": 1,
+        "notation": "E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e r:q | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e E2:e r:e E2:e r:e | E2:e r:e r:e" },
+      { "role": "fondation",
+        "elements": ["pédale de contrebasses E1, tenues"],
+        "entryBar": 5,
+        "notation": "",
+        "_todo": "Décrite en prose (tour 2 : + le sol qui ment, pédale E1 tenue). Notation non écrite — à compléter en Phase 1." },
+      { "role": "etau",
+        "elements": ["altos con sord : B3 → C4 → C#4 → D4 → Eb4, tenus, un demi-ton par tour"],
+        "entryBar": 9,
+        "notation": "",
+        "_todo": "Décrit en prose (tours 3-8 : B3 mes. 9, C4 mes. 13, C#4 mes. 17, D4 mes. 21, Eb4 mes. 25 — la vis de m09-s07 poursuivie). Notation non écrite — à compléter en Phase 1." },
+      { "role": "cluster",
+        "elements": ["cordes con sord E4/F4 ppp cresc."],
+        "entryBar": 13,
+        "notation": "",
+        "_todo": "Décrit en prose. dyn 16→72. Notation non écrite — à compléter en Phase 1." },
+      { "role": "aiguille",
+        "elements": ["violons suraigus B5 tenus, harmoniques"],
+        "entryBar": 17,
+        "notation": "",
+        "_todo": "Décrit en prose. dyn 24→60. Notation non écrite — à compléter en Phase 1." },
+      { "role": "evenement",
+        "elements": ["LE COUP : tutti bref + col legno + timbales, ff (118)"],
+        "entryBar": 25,
+        "notation": "",
+        "_todo": "Mes. 25, croches 1-3, un seul événement (maxTextureEvents 1, eventMaxBars 1). Notation non écrite — à compléter en Phase 1. Mentions V1 : col legno = le bois de l'archet, squelettique ; cor bouché = métallique menaçant." }
+    ],
+    "tempoPlan": [
+      { "bar": 1, "bpm": 63 },
+      { "bar": 9, "bpm": 65 },
+      { "bar": 17, "bpm": 67 },
+      { "bar": 25, "bpm": 69 }
+    ],
+    "humanize": null
+  },
+  "authorNotes": "« Le tic-tac quantisé au tick est le seul endroit du corpus où la machine est le bon interprète » — humanize: null volontaire, contre-emploi assumé de F-35. Mi mineur, 7/8 (3+2+2, attaques aux croches 1-4-6 : le pas qui boite), 32 mes., ♩=63→69. Témoin F-54 : une seule hauteur (E2) sur 32 mesures, cellule identique à chaque tour ; les deux seules altérations sont l'APNÉE (mes. 24 : E2:e r:e r:e E2:e r:e r:q — 2 croches de rien, l'unité est la croche en 7/8) et la COUPURE (mes. 32 : E2:e r:e r:e — le tic-tac s'arrête, rien après), légales par F-54. Après le coup (mes. 25, croches 1-3), le tic-tac reprend dans la même mesure — cellule standard, le coup ne libère rien ; postEventTightening : +1 élément (piano grave), +1 demi-ton d'étau (Eb4), +2 BPM. Témoin F-55 : tempoPlan +2 BPM toutes les 8 mesures (63-65-67-69), tempoRange évalué sur l'enveloppe entière. Huit tours, UN paramètre serré par tour (voir table §87.5, docs/production). Aucune cadence, aucune arrivée, aucun accord final — la résolution appartient à l'image. Le thriller est SEC : reverb tic-tac 0, pédale 0, cluster 1,2 s, aiguille 1,8 s — aucune nappe résonante sur la mécanique. dyn[] déclarée (à formaliser, schéma F-33) : tic-tac plat à 64 sur 32 mesures (ni crescendo, ni humanisation — le pattern est inhumain) ; cluster 16→72, aiguille 24→60, coup 118. Removed : « un second ostinato en contretemps aux bois : coupé — deux mécaniques font un groove, et le groove fait de l'action, pas de la peur. » Matière : la vis de m09-s07.",
+  "_schema": "Noms des champs payload/parts provisoires — à aligner sur le schéma F-33/F-39/F-40 (+ tempoPlan F-55) avant seed."
+}

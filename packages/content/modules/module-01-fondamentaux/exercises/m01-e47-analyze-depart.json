@@ -1,0 +1,11 @@
+{ "id": "m01-e47-analyze-depart", "lessonId": "m01-l25-synthese",
+  "title": "Analyse guidée : « Départ »", "kind": "THEORY_QUIZ",
+  "difficulty": 6, "xpReward": 90, "skills": { "HARMONY": 0.5, "MELODY": 0.3, "RHYTHM": 0.2 },
+  "spec": { "prompt": "Questions sur la pièce de la leçon 25 (partition et lecture ▶ disponibles dans l'exercice). Protocole l25 §4 : rejoue avant de répondre.",
+    "quiz": { "interaction": "mc",
+      "items": [
+        { "q": "La ponctuation de la mesure 4 :", "options": ["parfaite","demi-cadence","rompue"], "answer": "demi-cadence", "why": "Arrêt SUR G7 : la question de l'antécédent." },
+        { "q": "Le Fm6 de la mesure 7 est :", "options": ["un ii de mi♭","un iv emprunté","une erreur de la pièce"], "answer": "un iv emprunté", "why": "Le nuage — et la mélodie consent : A4 devient A♭4." },
+        { "q": "Le D7 de la mesure 10 :", "options": ["une modulation en sol","V/V, une tonicisation","un emprunt lydien"], "answer": "V/V, une tonicisation", "why": "Il résout sur G (m.11) mais AUCUNE cadence ne confirme sol : visite, pas déménagement (l23 §4)." },
+        { "q": "Le C/G de la mesure 15 :", "options": ["une erreur de basse","le 64 cadentiel","un pivot"], "answer": "le 64 cadentiel", "why": "I64→V7→I : le moment cérémonie (l12 §3) — les trois emplois encadrés du 2e renversement." },
+        { "q": "Ce que la pièce N'UTILISE PAS :", "options": ["l'emprunt modal","la substitution tritonique","la dominante secondaire"], "answer": "la substitution tritonique", "why": "L'analyse note les absences : 16 mesures n'avaient pas besoin du couloir — la maîtrise est la nécessité, pas la densité (l25 §3)." } ] } } }

@@ -1,0 +1,6 @@
+{
+  "exerciseId": "m03-e12-the-lying-compass",
+  "variantId": "corruption",
+  "notation": "[Eb3+Bb3+G4]:h [F#3+Db4+A4]:h | [A3+E4+C5]:h [F#3+Db4+A4]:h | [C3+G3+E4]:h [Eb3+Bb3+F#4]:h | [C3+G3+Eb4+G4]:w | [Db4+E4+A4]:h [A3+E4+Db5]:h | [Eb3+G3+Bb4]:h [C3+G3+Eb4+C5]:h | [F#3+Db4+A4]:h [F#3+Bb3+Db4+F#4]:h | [Eb2+Bb3+G4]:w",
+  "authorNotes": "Le donné (thème innocent en sol majeur) est inchangé à l'octave près **sauf les deux notes listées** — D♭5 (m5) et B♭4 (m6) : samePitchSequenceAsGiven { allowAlteredIndices }. Le thème entre alors dans OCT(C) : la même maison que la variante « créature », l'A/B est jouable à collection constante. Harmonisation exclusivement en triades majeures/mineures sur les quatre nœuds C/Cm, E♭/E♭m, F♯/F♯m, A/Am — **aucun accord de sol n'existe** : le thème est en sol, sa boussole ment jusqu'à la dernière mesure (G4 final posé sur mi♭ majeur). Aucun V→I ; les quatre nœuds visités, chacun nommé par le rapport."
+}

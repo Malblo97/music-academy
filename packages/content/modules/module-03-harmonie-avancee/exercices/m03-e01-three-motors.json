@@ -1,0 +1,12 @@
+{ "id": "m03-e01-three-motors", "lessonId": "m03-l01-carte",
+  "title": "Trois systèmes, une oreille", "kind": "THEORY_QUIZ",
+  "difficulty": 4, "xpReward": 50, "skills": { "HARMONY": 1.0 },
+  "spec": { "prompt": "Le quiz-classification du module : écoute chaque passage et nomme son SYSTÈME (1 fonctionnel, 2 modal, 3 non-fonctionnel). L'objet ne suffit jamais — cherche le régime : y a-t-il un aimant, une gravité sans aimant, ou seulement la couleur ?",
+    "quiz": { "interaction": "mc",
+      "generator": { "systems": [1,2,3], "surfaceTraps": true, "rounds": 8 },
+      "items": [
+        { "q": "▶", "play": "[C3+E4+G4+C5]:h [F3+F4+A4+C5]:h | [G3+F4+G4+B4]:h [C3+E4+G4+C5]:h", "options": ["système 1","système 2","système 3"], "answer": "système 1", "why": "V7→I : l'aimant tire, la sensible monte — la grammaire de M1." },
+        { "q": "▶", "play": "[D2+A3+D4+F4]:w | [D2+B3+D4+G4]:w | [D2+A3+D4+F4]:w | [D2+B3+D4+G4]:w", "options": ["système 1","système 2","système 3"], "answer": "système 2", "why": "Boucle i↔IV sur bourdon : la gravité vient de l'insistance, aucun accord ne TIRE." },
+        { "q": "▶", "play": "[A3+D4+G4]:q [B3+E4+A4]:q [C4+F4+Bb4]:q [D4+G4+C5]:q", "options": ["système 1","système 2","système 3"], "answer": "système 3", "why": "Des quartes qui glissent en bloc : la couleur est la seule loi — aucune fonction à raconter." },
+        { "q": "Le même G7 peut appartenir aux trois systèmes :", "options": ["faux — G7 est une dominante","vrai — le régime fait le sens, pas l'objet","vrai, mais seulement en jazz"], "answer": "vrai — le régime fait le sens, pas l'objet", "why": "V7 qui résout (1), sonorité-monde bouclée (2), verticalité-couleur (3) : c'est TOUTE la carte de l01 — et la démonstration finale t'attend en l09." },
+        { "q": "Ce qui définit le système d'une pièce :", "options": ["les accords qu'elle emploie","la gamme","ce qui lui donne sa gravité — ou son absence"], "answer": "ce qui lui donne sa gravité — ou son absence", "why": "Système 1 : l'aimant. Système 2 : l'insistance. Système 3 : rien — le trajet de matière remplace le trajet de fonctions." } ] } } }

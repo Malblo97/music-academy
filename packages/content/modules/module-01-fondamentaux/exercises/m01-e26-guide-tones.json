@@ -1,0 +1,11 @@
+{ "id": "m01-e26-guide-tones", "lessonId": "m01-l13-septiemes",
+  "title": "ii–V–I en guide tones", "kind": "HARMONY_PROGRESSION",
+  "difficulty": 4, "xpReward": 90, "skills": { "HARMONY": 1.0 },
+  "spec": { "prompt": "Écris ii7–V7–Imaj7 dans TROIS tonalités (F, G, B♭), voicing l13 §5 : fondamentale seule à gauche, tierce+septième (+1 note libre max) à droite. Objectif mesuré : le voice leading des guide tones — mouvement minimal, notes communes tenues.",
+    "constraints": { "lengthBars": [6,6], "minVoices": 3, "maxVoices": 4,
+      "requiredProgressionPattern": "ii7-V7-Imaj7", "keys": [5,7,10],
+      "guideToneVoicing": true },
+    "styleProfile": { "id": "jazz",
+      "ruleWeights": { "harmony.unresolved-seventh": 0.8 } },
+    "craftMultipliersOverride": { "vl.smoothness": 1.8 },
+    "rubric": { "correctness": 30, "constraints": 30, "craft": 40 } } }

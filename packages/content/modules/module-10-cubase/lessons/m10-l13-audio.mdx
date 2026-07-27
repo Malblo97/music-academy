@@ -1,0 +1,61 @@
+---
+id: m10-l13-audio
+module: module-10-cubase
+title: "L'audio du compositeur : VariAudio et compagnie"
+estMinutes: 20
+skills: { daw_workflow: 1.0 }
+---
+
+### Pourquoi le compositeur touche à l'audio
+
+Ton monde est le MIDI — mais l'audio entre dans ta session par quatre portes : la **voix enregistrée** (le chanteur, la voix parlée à traiter), les **maquettes reçues** (le thème fredonné du réalisateur dans son téléphone — un classique absolu), tes **rendus** (l10), et les **samples** (Module 6). Cette leçon couvre le kit audio du compositeur : pas l'ingénierie — les quatre gestes qui débloquent les quatre portes.
+
+### 1. Le Musical Mode : l'audio qui suit le tempo
+
+Le rendez-vous de l11 §3 : l'audio vit en secondes, ta grille en mesures élastiques. Le **Musical Mode** (dans la Sample Editor ou la Pool) rend l'événement audio *élastique* : il suit désormais la Tempo Track comme le fait le MIDI.
+
+```
+Le geste :  ouvre l'audio dans le Sample Editor → vérifie le tempo
+            DÉTECTÉ (corrige-le si Cubase s'est trompé : c'est fréquent
+            sur les boucles courtes) → coche Musical Mode
+Le test :   change le tempo du projet : l'audio suit ? c'est bon.
+Le prix :   l'étirement a un coût sonore (l'algorithme choisi dans la
+            Pool : élastique ≠ gratuit) — au-delà de ±10 %, ça s'entend ;
+            au-delà de ±20 %, ça se dégrade franchement
+```
+
+Doctrine : Musical Mode **ON** pour tout audio qui doit vivre dans la grille (boucles, rendus retravaillés, maquettes à caler) ; **OFF** pour ce qui vit en secondes (la voix synchronisée à l'image, les ambiances).
+
+### 2. VariAudio : le MIDI caché dans l'audio
+
+VariAudio (Sample Editor, onglet dédié) analyse un audio **monophonique** — une voix, un instrument seul — et le transforme en segments éditables : chaque note détectée devient un bloc qu'on peut déplacer en hauteur, redresser, étirer. Deux métiers pour toi :
+
+| Métier | Le geste | La limite honnête |
+|---|---|---|
+| **La correction discrète** | la note de la chanteuse à 30 cents près : tu la recentres (Pitch Snap partiel — jamais 100 % : la justesse parfaite sonne morte, c'est le CC1 plat de l'intonation) | monophonique seulement ; les corrections > 1 ton s'entendent |
+| **L'extraction de MIDI** | *Extract MIDI* : la maquette fredonnée du réalisateur devient une piste MIDI — son thème dans TON Key Editor, analysable, harmonisable… et soumissible au produit (le Melody Practice analyse le thème du réal : la boucle la plus inattendue du workflow) | la détection se relit note à note — le fredon est approximatif, l'extraction aussi : c'est un brouillon fidèle, pas une partition |
+
+### 3. Les gestes d'édition audio de survie
+
+Le reste du kit, en quatre gestes : le **fade** par les poignées d'événement (jamais de clic de coupe : tout bord d'audio porte son micro-fade) ; le **crossfade** (X) entre deux événements qui se chevauchent ; le **gain d'événement** (la poignée du milieu : ±dB sans toucher au fader — l'équilibrage local avant la console) ; et **Bounce Selection** (consolider des éditions en un fichier propre — le cousin audio du Render).
+
+### 4. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Musical Mode sur un mauvais tempo détecté | l'audio « suit » n'importe quoi | vérifier/corriger le tempo détecté AVANT de cocher |
+| VariAudio sur de la polyphonie | des segments fantaisistes | monophonique strict ; la polyphonie, c'est l'oreille (l25 M1) |
+| Pitch Snap 100 % | la voix morte, l'auto-tune involontaire | corriger vers, jamais jusqu'à |
+| Coupes sans fades | clics à chaque bord | le micro-fade est un réflexe, pas une option |
+
+### La mission (m10-e13, PROUVÉE — la plus rusée du module)
+
+Le produit fournit un audio : un thème **fredonné** (voix, 8 mesures, volontairement approximatif — l'asset « le fredon du réal », 30 s, à produire avec « La Remise »). Mission : Musical Mode, VariAudio, Extract MIDI, **relecture et correction** de l'extraction (les octaves fausses, les segments doublés), puis soumission du MIDI corrigé. Le moteur compare à la mélodie-cible connue : `samePitchSequenceAsGiven` en tolérance (≥ 90 % de la séquence) — *tu es noté sur ta relecture d'extraction, la compétence réelle du métier*.
+
+- [ ] Musical Mode : l'audio élastique — tempo détecté vérifié, ±10 % sans douleur
+- [ ] VariAudio : corriger vers (jamais jusqu'à) ; Extract MIDI = le fredon devient partition-brouillon
+- [ ] Fades partout, gain d'événement avant le fader
+- [ ] L'extraction se relit note à note — c'est la relecture qui est le métier
+
+<QuizBlock id="m10-l13-quiz" questions={4} />
+<LessonFooter exercises={["m10-e13-the-hummed-theme"]} />

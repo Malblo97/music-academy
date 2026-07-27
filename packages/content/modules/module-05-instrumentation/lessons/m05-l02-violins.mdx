@@ -1,0 +1,78 @@
+---
+id: m05-l02-violins
+module: module-05-orchestration
+title: "Les violons : la voix de l'orchestre"
+estMinutes: 30
+skills: { orchestration: 1.0 }
+---
+
+### Carte d'identité
+
+| Propriété | Valeur |
+|---|---|
+| Tessiture praticable | `G3`–`B6` (au-delà : possible, risqué en section) |
+| Sweet spot | `A3`–`E6` |
+| Agilité | maximale (10/10) — tout est jouable, traits, sauts, trilles |
+| Tenue | illimitée (archet alterné en section : le son infini) |
+| Puissance | pp 2/10 → ff 7/10 par pupitre, mais LA SECTION multiplie |
+
+### Pourquoi irremplaçable
+
+La section de violons est la **voix chantée** de l'orchestre : le seul pupitre capable de porter une mélodie du murmure au cri, sur quatre octaves, sans jamais respirer. C'est aussi le plus *humain* des timbres orchestraux — le vibrato des cordes est câblé comme une voix qui tremble. Quand tu ne sais pas à qui confier ton thème : violons. Ce n'est pas de la paresse, c'est la norme dont tout le reste est l'écart expressif.
+
+### Couleur par registre
+
+```
+G3 ────── D4 ─────────────── E6 ────── B6
+│ GRAVE   │     MÉDIUM/AIGU   │ SURAIGU │
+│ chaud,  │ le chant — toute  │ cristal,│
+│ râpeux, │ l'expressivité    │ tendu,  │
+│ voilé   │ humaine vit ici   │ irréel  │
+│ (corde G: la couleur         (harmoniques,
+│  « gitane », intense)          flageolets)
+```
+
+**Le grave** (corde de sol) : intensité sombre, presque rauque — le lyrisme viscéral. **Le médium-aigu** : 90 % de ton écriture mélodique. **Le suraigu** : au-dessus de E6, le son se désincarne — nappes célestes, tension glaciale (divisi pp) ou brillance de tutti ff.
+
+### Violons I vs violons II : deux métiers
+
+| | Violons I | Violons II |
+|---|---|---|
+| Rôle par défaut | mélodie, la ligne exposée | contrechant, harmonie, doublure à l'octave ou à la 3ce inférieure |
+| Registre typique | plus aigu | médium |
+| L'erreur classique | — | les traiter en « violons I bis » : ils sont l'alto aigu de l'harmonie, pas un écho |
+
+Les II à la tierce/sixte sous les I = le lyrisme classique ; les II en ostinato sous les I chantants = l'énergie moderne ; I et II à l'octave = l'unisson large des grands thèmes.
+
+### Rôles et techniques signatures
+
+| Rôle/technique | Écriture | Effet |
+|---|---|---|
+| Cantabile (arco legato) | ligne conjointe, médium-aigu | le chant — rôle n° 1 |
+| Tremolo | note répétée à l'archet, mesuré ou non | tension, frémissement (pp) ou fureur (ff) |
+| Pizzicato | notes détachées, sèches | ponctuation, espièglerie, noir |
+| Ostinato (spiccato/staccato) | croches/doubles détachées | le moteur rythmique de l'action moderne |
+| Divisi | la section coupée en 2–4+ voix | nappes, accords éthérés — noter `div.` |
+| Con sordino | sourdine | brume, intimité, distance (le néo-noir en vit) |
+| Harmoniques | flageolets aigus | l'irréel, le froid |
+
+### Associations
+
+Violons + flûte à l'octave = la lumière classique ; + hautbois à l'unisson = le chant renforcé et focalisé ; + violoncelles à l'octave (I en haut, celli en bas) = LE thème lyrique de film ; + cor à l'unisson = chaleur cuivrée (rare, superbe).
+
+### Erreurs fréquentes (détectées)
+
+| Erreur | Règle |
+|---|---|
+| Écrire sous G3 | `orch.range-violation` — la corde grave s'arrête là, sans exception |
+| Mélodie pp noyée dans le suraigu sous un tutti | `orch.balance` — le suraigu pp est fragile |
+| Divisi non déclaré (accords de 4 sons « pour violons ») | double stops ≠ divisi : au-delà de 2 sons, note `div.` |
+| Tout confier aux I, les II en remplissage | `orch.role-coverage` — deux pupitres, deux métiers |
+
+- [ ] Violons = la voix par défaut ; l'écart se justifie, pas la norme
+- [ ] Corde de sol = intensité ; suraigu = désincarnation
+- [ ] II = contrechant/harmonie, jamais « I bis »
+- [ ] Divisi déclaré, jamais sous G3
+
+<QuizBlock id="m05-l02-quiz" questions={5} />
+<LessonFooter exercises={["m05-e01-violin-roles"]} />

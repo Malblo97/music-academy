@@ -1,0 +1,14 @@
+{ "id": "m10-e01-project-birth", "lessonId": "m10-l01-projet",
+  "title": "Le projet bien né", "difficulty": 1, "xpReward": 40,
+  "spec": { "prompt": "Crée le projet Academy_M10_Setup selon les cinq réflexes de la leçon. Chaque étape porte son auto-contrôle : coche quand tu as VÉRIFIÉ, pas quand tu as fait.",
+    "mission": { "mode": "declarative",
+      "checklist": [
+        { "step": "Nouveau projet dans un dossier DÉDIÉ nommé Academy_M10_Setup", "verifyHint": "Le dossier ne contient-il QUE ce projet ?" },
+        { "step": "Sous-dossiers Exports/, MIDI/ et Refs/ créés vides", "verifyHint": "Ouvre le dossier : les trois y sont ?" },
+        { "step": "Sample rate / bit depth : 48 kHz / 24 bits (Project Setup)", "verifyHint": "Relis la barre d'état du projet : 48/24 ?" },
+        { "step": "Tempo initial posé (même provisoire)", "verifyHint": "La grille a-t-elle un sens dès la mesure 1 ?" },
+        { "step": "Root Key du projet réglée", "verifyHint": "Le Key Editor propose-t-il la coloration hors-gamme ?" },
+        { "step": "Auto Save : intervalle 5 min, 10 sauvegardes max (Préférences)", "verifyHint": "Réglé UNE fois — pour toujours." },
+        { "step": "4 pistes MIDI nommées par RÔLE : MEL Cor, CTR Celli, BASS Cb, TEX Pad", "verifyHint": "Le rôle avant l'instrument — la nomenclature §1.4 dans ta session." },
+        { "step": "Couleurs par famille (la palette du produit, §3.6)", "verifyHint": "La couleur est une information : cuivres ≠ cordes ≠ synthés au premier regard ?" },
+        { "step": "Ctrl+Alt+S deux fois", "verifyHint": "Ouvre le dossier : vois-tu Academy_M10_Setup-01.cpr ET -02.cpr ?" } ] } } }

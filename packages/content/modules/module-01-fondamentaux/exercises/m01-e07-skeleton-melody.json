@@ -1,0 +1,11 @@
+{ "id": "m01-e07-skeleton-melody", "lessonId": "m01-l04-degres",
+  "title": "Charpente puis habillage", "kind": "MELODY_COMPOSE",
+  "difficulty": 2, "xpReward": 60, "skills": { "MELODY": 1.0 },
+  "spec": { "prompt": "Compose 4 mesures en sol majeur, méthode l04 §2 : temps forts sur 1̂/3̂/5̂ (charpente), habillage conjoint entre eux, 7̂ juste avant la 1̂ finale. Joue-la au clavier avant de valider.",
+    "given": { "key": { "tonic": 7, "mode": "major" } },
+    "constraints": { "key": { "tonic": 7, "mode": "major" }, "lengthBars": [4,4],
+      "noteRange": [55,79], "maxLeap": 5, "strongBeatDegrees": [1,3,5],
+      "mustEndOnDegrees": [1], "penultimateDegrees": [7,2], "minConjunctRatio": 0.65 },
+    "styleProfile": { "id": "classical-common",
+      "ruleWeights": { "melody.leap-recovery": 1.0, "melody.out-of-key": 1.2, "melody.ending-weak": 1.2 } },
+    "rubric": { "correctness": 35, "constraints": 40, "craft": 25 } } }

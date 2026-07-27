@@ -1,0 +1,101 @@
+---
+id: m01-l01-notes-clavier
+module: module-01-fondamentaux
+title: "Le son, la note, le clavier : ton alphabet"
+estMinutes: 20
+skills: { melody: 0.5, rhythm: 0.5 }
+---
+
+### Pourquoi commencer ici
+
+Tout ce que tu composeras — le thème qui fait pleurer, le braam qui fait sursauter — sera fait de notes placées dans le temps. Cette leçon installe l'alphabet ; la grammaire viendra ensuite. Elle est courte, mais **fais chaque manipulation au clavier** : la théorie qui ne passe pas par les doigts s'évapore.
+
+### 1. La hauteur : douze noms, à l'infini
+
+Une note est d'abord une **hauteur**. Le système occidental en nomme douze, qui se répètent de grave en aigu :
+
+```
+do  do♯  ré  ré♯  mi  fa  fa♯  sol  sol♯  la  la♯  si   puis do à nouveau
+C   C#   D   D#   E   F   F#   G    G#    A    A#   B    (notation anglo-saxonne)
+```
+
+Le produit utilise la notation anglo-saxonne (`C`, `D`, `E`…) parce que c'est celle de Cubase, de tes banques de sons et du MIDI. Les deux te seront demandées au quiz — un compositeur de film navigue entre les deux mondes.
+
+Chaque répétition du cycle s'appelle une **octave**, numérotée : `C4` est le do central du piano. `C5` est le do au-dessus, `C3` en dessous. En MIDI, chaque note a un numéro : `C4 = 60`, et chaque demi-ton ajoute 1 (`C#4 = 61`, `D4 = 62`…). Retiens `C4 = 60` : c'est la boussole de tout ton travail en DAW.
+
+<MusicExample id="octaves" title="La même note, trois étages">
+  C3:h C4:h C5:h C4:w
+  Écoute : c'est « le même do » — même identité, autre altitude. Cette
+  identité s'appelle la classe de hauteur (pitch class).
+</MusicExample>
+
+### 2. Le clavier : la carte que tu liras toute ta vie
+
+```
+        C#  D#      F#  G#  A#
+       ┌─┐ ┌─┐     ┌─┐ ┌─┐ ┌─┐
+       │ │ │ │     │ │ │ │ │ │
+ ┌─────┴─┴─┴─┴─────┴─┴─┴─┴─┴─┴────┐
+ │  C  │ D │ E │ F │ G │ A │ B │ C │
+ └────────────────────────────────┘
+   ↑ le groupe de DEUX touches noires : le C est juste à sa gauche
+```
+
+Deux repères et tout le clavier s'ouvre : **C est à gauche du groupe de deux noires ; F à gauche du groupe de trois**. Exercice immédiat : sans regarder de schéma, pose la main sur ton clavier et trouve tous les C, puis tous les F, sur toute la largeur. Trente secondes par jour pendant une semaine, et c'est acquis à vie.
+
+### 3. Demi-ton et ton : l'unité de mesure
+
+Le **demi-ton** est la plus petite distance : deux touches adjacentes (noire ou blanche, peu importe). Le **ton** = deux demi-tons.
+
+| De → à | Distance | Vérifie au clavier |
+|---|---|---|
+| E → F | demi-ton | aucune touche entre elles |
+| B → C | demi-ton | idem — les deux « pièges » du clavier |
+| C → D | ton | C♯ est entre les deux |
+| F♯ → G♯ | ton | G est entre les deux |
+
+E–F et B–C sont les deux seuls couples de blanches sans noire entre elles. Toute la construction des gammes (leçon 3) repose sur cette asymétrie — vérifie-la physiquement maintenant.
+
+### 4. Dièses, bémols, enharmonie
+
+`♯` monte d'un demi-ton, `♭` descend d'un demi-ton. Donc `C♯` et `D♭` sont **la même touche** : on dit qu'ils sont *enharmoniques*. Pourquoi deux noms pour un son ? Parce que le nom dit *d'où l'on vient et où l'on va* : dans un contexte de ré, cette touche s'écrira `C♯` (elle monte vers D) ; dans un contexte de la♭, elle s'écrira `D♭`. Tu n'as pas encore les contextes — retiens seulement : **un son, plusieurs orthographes, et l'orthographe est un choix de sens**. Le produit choisira l'orthographe pour toi selon la tonalité (c'est le `spell()` de l'analyseur) ; ton travail est de comprendre pourquoi elle change.
+
+### 5. La durée : placer la note dans le temps
+
+Une note, c'est une hauteur **et** une durée. Les valeurs, chacune valant la moitié de la précédente :
+
+| Valeur | Symbole produit | Durée (si la noire = 1 temps) |
+|---|---|---|
+| ronde | `w` | 4 temps |
+| blanche | `h` | 2 temps |
+| noire | `q` | 1 temps |
+| croche | `e` | ½ temps |
+| double-croche | `s` | ¼ temps |
+
+Le **point** ajoute la moitié de la valeur : `h.` = 3 temps. Le silence se note `r` : `r:q` = un temps de silence. Le silence est une note à part entière — tu l'apprendras à tes dépens si tu l'oublies (leçon 9, et la règle `melody.phrase-breathing` te le rappellera).
+
+<MusicExample id="premiere-phrase" title="Ta première phrase (joue-la !)">
+  C4:q D4:q E4:q C4:q | E4:q C4:q E4:h
+  Hauteurs + durées + un contour qui monte et redescend : c'est déjà de la musique.
+</MusicExample>
+
+### 6. Erreurs fréquentes
+
+| Erreur | Conséquence | Correction |
+|---|---|---|
+| Confondre note et touche | « il y a 7 notes » — non : 12 classes de hauteur | compte les demi-tons, pas les touches blanches |
+| Oublier E–F et B–C | gammes fausses dès la leçon 3 | vérifie au clavier, pas de mémoire pure |
+| Ignorer les octaves MIDI | notes saisies une octave trop haut/bas dans le DAW | ancre-toi sur C4 = 60 |
+| Négliger les durées | tout saisir en noires « pour l'instant » | dès aujourd'hui, chaque exemple avec ses vraies durées |
+
+### 7. Et après ?
+
+Tu sais nommer et placer. La leçon 2 t'apprend à **mesurer** : les intervalles, c'est-à-dire la distance entre deux notes — la notion dont découle *tout le reste du programme*, des accords à l'orchestration.
+
+- [ ] Je trouve C et F instantanément sur mon clavier
+- [ ] Je sais que E–F et B–C sont les demi-tons naturels
+- [ ] C4 = MIDI 60
+- [ ] `C4:q` = do central, une noire — je lis la notation du produit
+
+<QuizBlock id="m01-l01-quiz" questions={5} />
+<LessonFooter exercises={["m01-e01-find-notes", "m01-e02-note-durations"]} />

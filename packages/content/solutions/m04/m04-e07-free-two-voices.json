@@ -1,0 +1,11 @@
+{
+  "exerciseId": "m04-e07-free-two-voices",
+  "payload": {
+    "voices": [
+      { "id": "V1", "notation": "G4:q B4:e C5:e D5:q B4:q | C5:q A4:q G4:h | r:q E5:h D5:q | C5:h~ C5:q B4:q | D5:q F#5:e G5:e A5:q F#5:q | G5:q E5:q D5:h | r:q B4:q C5:h | D5:h. B4:q | G4:q B4:e C5:e D5:q~ D5:q | C5:q B4:q E5:q D5:q | C5:q B4:q A4:q B4:q | A4:q G4:h." },
+      { "id": "V2", "notation": "G3:h A3:h | B3:h~ B3:q G3:q | G3:q B3:e C4:e D4:q B3:q | C4:q A3:q G3:h | B3:h A3:h | G3:h~ G3:q B3:q | D3:q F#3:e G3:e A3:q F#3:q | G3:q E3:q D3:h | r:q G3:q E3:h | B3:q G3:q D3:h | E3:q C3:q D3:h | D3:q G2:h." }
+    ],
+    "declaredAppoggiaturas": [{ "bar": 10, "beat": 3, "note": "E5" }]
+  },
+  "authorNotes": "Motif M = G4:q B4:e C5:e D5:q B4:q | C5:q A4:q G4:h (erratum : le donné de la spec §50 diffère — la banque §68 fait foi). Partage : V1 = M@G4 (m1–2) et M@D5 transposé (m5–6) ; V2 = M@G3 (m3–4) et M@D3 (m7–8) — 2 énoncés par voix, `findMotifs` par part ; m9 : la tête en écho étiré. Complément : attaques fortes simultanées **0,33 ≤ 0,40** (les entrées de M toujours sous tenue ou silence de l'autre). **L'appoggiature libre déclarée : m10 t.3, E5 sur D3** (9e), atteinte par SAUT (B4→E5, le sommet du geste), quittée par degré, non liée — le checker croise figure ET contour : posée froidement c'est une faute, au sommet d'un élan c'est le sanglot. Clausule complète : 2̂→1̂ sur 5̂→1̂, dixième→octave par mouvement contraire ; polarité contraire aux appuis 9/12 ; grappes de tierces ≤ 3."
+}

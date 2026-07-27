@@ -1,0 +1,20 @@
+{ "id": "m03-e16-the-double-bottom", "lessonId": "m03-l16-polyaccords",
+  "title": "Le double-fond", "kind": "HARMONY_PROGRESSION",
+  "difficulty": 9, "xpReward": 180, "skills": { "HARMONY": 0.8, "ORCHESTRATION": 0.2 },
+  "spec": { "prompt": "Deux mondes SUPERPOSÉS, 12 mesures, composés ENSEMBLE (les deux plans dans la même soumission — le premier exercice bi-plans du cursus). PLAN A, l'innocent : sol majeur, au-dessus de G3, une boucle-berceuse serrée (I↔IV, un V passager toléré). PLAN B, ce qui rôde : mi♭, sous C3 — la médiante sombre en duel avec le sol de A (le G partagé est leur fil : la table de l06 fournit la motivation). Dégagement de registre OBLIGATOIRE : la superposition ne se perçoit que si chaque monde a son étage. Mesures 1–8 : chaque plan DANS SA BOUSSOLE (évaluée sur cette fenêtre — F-22), leurs contacts verticaux tagués polychord. Mesures 9–12 : ta fin — choisis-la avant d'écrire.",
+    "parts": { "mode": "simultaneous",
+      "plans": [
+        { "id": "A", "label": "L'innocent", "key": { "tonic": 7, "mode": "major" }, "noteRange": [55,84] },
+        { "id": "B", "label": "Ce qui rôde", "key": { "tonic": 3, "mode": "major" }, "noteRange": [24,48] } ] },
+    "variants": [
+      { "id": "fusion", "label": "Fusion — les deux mondes deviennent UN objet",
+        "constraints": { "endingWindow": [9,12], "endingCheck": "convergence" } },
+      { "id": "victoire", "label": "Victoire — un plan capture puis éteint l'autre",
+        "constraints": { "endingWindow": [9,12], "endingCheck": "extinction" } },
+      { "id": "coexistence", "label": "Coexistence — personne ne cède",
+        "constraints": { "endingWindow": [9,12], "endingCheck": "polychord-final" } } ],
+    "constraints": { "lengthBars": [12,12],
+      "eachPlanInItsKey": { "barWindow": [1,8] },
+      "registerSeparation": true, "requireIdiom": ["polychord"] },
+    "styleProfile": { "id": "modern-horror", "targetMood": "dread" },
+    "rubric": { "correctness": 25, "constraints": 40, "craft": 35 } } }

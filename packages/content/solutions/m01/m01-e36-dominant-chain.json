@@ -1,0 +1,5 @@
+{ 
+    "exerciseId": "m01-e36-dominant-chain", 
+    "notation": "[E2+G#3+D4]:w | [A2+G3+C#4]:w | [D2+F#3+C4]:w | [G2+F3+B3]:w | [C3+E3+C4]:w", 
+    "authorNotes": "Escalier des guide tones : D4→C♯4 (7e de E7→3 de A7) ✓ · G3→F♯3 ✓ · C4→B3 ✓ · F3→E3 ✓ — **chaque maillon : la 7e descend d'un ½ ton vers la tierce du suivant**, l'exercice entier ✓ ; 3 voix, fondamentales à la basse ✓ ; smoothness ≈ 0.5 dt/voix/transition (hors basse) ✓." 
+}

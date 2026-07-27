@@ -1,0 +1,17 @@
+{
+  "exerciseId": "m07-e07-the-edifice",
+  "variantId": "hymn",
+  "payload": {
+    "lengthBars": 8,
+    "edifice": [
+      { "stage": "ciel", "parts": ["violins-1"], "employment": "melody", "range": "E5–A5", "content": "la ligne d'Elena au sommet" },
+      { "stage": "chant", "parts": ["violins-2", "oboe", "trumpet"], "employment": "melody", "content": "LA COLONNE — thème aux octaves ×3" },
+      { "stage": "coeur", "parts": ["violas", "clarinet"], "employment": "harmony", "content": "les murs, voicings serrés, arches dyn[]" },
+      { "stage": "corps", "parts": ["cellos", "french-horns"], "employment": "countermelody", "content": "le ténor en blanches" },
+      { "stage": "socle", "parts": ["contrabasses", "cellos div."], "employment": "bass", "content": "rondes, quintes sans tierce" }
+    ],
+    "homophony": "≥ 0.8",
+    "slowSocle": "durée moyenne du grave = 2,6× le corps"
+  },
+  "authorNotes": "La masse qui chante d'une voix. Les trois lois vérifiées étage par étage : **un emploi par étage** (le cœur qui doublerait le chant volerait l'étage du contrechant — LA source de boue des tuttis amateurs) ; **la mélodie en colonne** (≥ 2 étages d'octaves, détectés par les tags de doublure : le tutti n'expose pas une ligne fine, il l'érige) ; **le socle lent** (2,6× ≥ 2,0 — quand la masse doit courir, c'est le moteur qui court au corps, jamais le grave). Le rapport dessine la coupe d'immeuble : les cinq lignes de l01, remplies au maximum."
+}

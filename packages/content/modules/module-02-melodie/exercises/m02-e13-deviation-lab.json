@@ -1,0 +1,10 @@
+{ "id": "m02-e13-deviation-lab", "lessonId": "m02-l07-attente",
+  "title": "Installer, dévier, réintégrer", "kind": "MELODY_COMPOSE",
+  "difficulty": 6, "xpReward": 110, "skills": { "MELODY": 1.0 },
+  "spec": { "prompt": "8 mesures sur le contrat de l07 : installe le pattern (motif ×2 EXACT), puis UNE déviation calibrée du catalogue (retard, anticipation, dépassement, note voisine...), puis RÉINTÈGRE (répète la déviation ou reviens à l'exact). L'analyseur vérifie la trajectoire des occurrences : exact, exact, varié, puis réintégré.",
+    "given": { "key": { "tonic": 0, "mode": "major" } },
+    "constraints": { "key": { "tonic": 0, "mode": "major" }, "lengthBars": [8,8],
+      "mustUseMotif": true, "minMotifOccurrences": 4,
+      "patternThenDeviation": true, "mustEndOnDegrees": [1,3] },
+    "styleProfile": { "id": "romantic-film" },
+    "rubric": { "correctness": 20, "constraints": 40, "craft": 40 } } }

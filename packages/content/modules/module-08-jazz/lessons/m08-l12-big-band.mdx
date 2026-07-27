@@ -1,0 +1,78 @@
+---
+id: m08-l12-big-band
+module: module-08-jazz
+title: "Le big band : les sections qui parlent"
+estMinutes: 30
+skills: { orchestration: 0.6, harmony: 0.4 }
+---
+
+### Pourquoi le big band est M7 en costume de swing
+
+Dix-sept musiciens en quatre sections : **saxophones** (2 altos, 2 ténors, 1 baryton), **trompettes** (×4), **trombones** (×4), **rythmique** (piano, basse, batterie, guitare). C'est un orchestre — et toute la méthode de M7 s'applique (rôles, étages, alliages, tutti) avec un idiome propre : les sections *parlent* (le call-and-response entre pupitres est la syntaxe même du genre), et la ligne s'épaissit en blocs (le thickened line de m03-l14 §2, tenu en promesse depuis l'impressionnisme, trouve ici sa patrie industrielle).
+
+### 1. Les quatre sections (les fiches de familles)
+
+| Section | Caractère | Emplois canoniques |
+|---|---|---|
+| **Saxes** | la chair souple : legato, velours, agilité — la « section de cordes » du big band | le chant en soli (§2), les tapis (backgrounds), les tuttis fondus |
+| **Trompettes** | l'éclat : le sommet, les punchs, les shakes — la lumière dure (m05-l09 ×4) | le lead au sommet, les accents, les screamers (le lead trumpet au-dessus du monde) |
+| **Trombones** | le bronze : les pads cuivrés, les glissandi, le poids | les tenues qui pèsent, les réponses graves, le choral |
+| **Rythmique** | LE moteur (l01 : la pulsation incarnée) — elle ne s'écrit pas note à note : elle se CHIFFRE (la grille + les kicks : les accents notés que la batterie doit marquer) | le time, les kicks, les fills de relance |
+
+### 2. Le thickened line : la ligne en bloc (la technique-mère)
+
+L'écriture big band harmonise la mélodie **note à note en bloc parallèle** — chaque note du chant reçoit son accord complet dessous, toute la section bouge d'un seul geste :
+
+```
+LES TROIS ÉPAISSEURS :
+UNISSON/OCTAVES : la section d'une seule voix — le punch, la clarté
+  (le début de phrase, l'énoncé du thème)
+LE BLOC À 4 (close voicing) : mélodie + 3 voix serrées dessous
+  (l'accord complet sous CHAQUE note — y compris les notes de
+  passage : harmonisées en dim7 passant ou en approche chromatique
+  parallèle : le planing réel de m03-l14 au service du chant —
+  la "boue" chromatique légale parce qu'elle BOUGE en bloc)
+LE DROP 2 : la 2e voix du bloc descendue d'une octave — le bloc
+  aéré (la version spread : plus large, plus orchestral) — LE
+  voicing de section par défaut
+LA LOI DU LEAD : toute la section suit LA VOIX DE TÊTE (le lead
+  alto, le lead trumpet) — on écrit la mélodie d'abord, le bloc
+  se déduit (m03-l14 §3 : "la ligne d'abord" — la même loi, le
+  même geste, l'idiome en plus)
+```
+
+### 3. La syntaxe : le call-and-response des sections
+
+Le big band parle par **échanges de blocs** : les saxes énoncent (2 mesures), les cuivres répondent (le punch), les trombones commentent (la tenue) — le call-and-response du blues (l04 §3) devenu architecture d'orchestration. Les figures de syntaxe :
+
+| Figure | Mécanique |
+|---|---|
+| **Le soli** | UNE section en thickened line exposée (le soli de saxes : le chœur virtuose — LE moment de bravoure d'un chart) |
+| **Le background** | une section en tapis discret sous le soliste (des tenues, des riffs doux — le contrat de m04-l11 : répondre dans les trous, jamais couvrir) |
+| **Le shout chorus** | le tutti final : toutes les sections en blocs alternés puis superposés, la batterie en kicks — le sommet du chart (le tutti stratifié de m07-l07, en swing : les plans sont des sections) |
+| **Les kicks** | les accents d'ensemble notés à la rythmique (le « et de 4 » poinçonné par tous) — la ponctuation qui soude la machine |
+
+### 4. Le big band à l'image
+
+Trois emplois : **le diégétique** (le club à l'écran : le chart d'époque, exact — la citation stylistique se documente), **le swing dramatique** (la poursuite comique, le casse élégant — le shout chorus comme moteur d'action), **l'hybride** (le big band + cordes du crime-jazz : les sections cuivres sur tapis orchestral — le pont m09-l03/M7, et le son des génériques de polar). Dans les trois cas, la vérité d'atelier : le big band s'écrit *vite et net* (des blocs, des riffs, des échanges — la sophistication est dans le rythme des échanges, pas dans le contrepoint interne).
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Le bloc qui ignore son lead | l'harmonisation d'abord, la mélodie tordue ensuite | le lead s'écrit seul et beau ; le bloc se déduit |
+| Les sections qui jouent toutes, tout le temps | le mur de cuivre sans syntaxe | le call-and-response : les sections PARLENT — donc se taisent |
+| La rythmique écrite note à note | la machine bridée | la grille + les kicks : la rythmique se chiffre |
+| Le passage non harmonisé dans le bloc | le trou dans le thickened line | TOUT s'harmonise en bloc — le dim7 passant est là pour ça |
+
+### La mission (m08-e12, ORCHESTRATE — format Part[] en sections)
+
+Le chart condensé (16 mesures, le thème fourni — un riff de swing medium) : l'énoncé en unisson de saxes, le thickened line du thème (drop 2, la voix de lead vérifiée = le thème, les passages harmonisés — le tag `planing` réutilisé en détection de bloc), un échange call-and-response saxes/cuivres (≥ 2 allers-retours, l'alternance d'activité par section mesurée), 4 kicks notés, et le mini shout final (4 mesures, sections superposées en plans). `swingTarget` global. Le rapport parle la syntaxe : « saxes 2 mesures, trompettes répondent sur le "et de 4" — la machine parle ✓ ».
+
+- [ ] Quatre sections, quatre caractères — et la rythmique se chiffre
+- [ ] Le thickened line : le lead d'abord, le bloc se déduit (drop 2 par défaut)
+- [ ] La syntaxe est le call-and-response : les sections parlent, donc se taisent
+- [ ] Le shout chorus est le tutti stratifié en swing — M7 en costume
+
+<QuizBlock id="m08-l12-quiz" questions={5} />
+<LessonFooter exercises={["m08-e12-the-talking-sections"]} />

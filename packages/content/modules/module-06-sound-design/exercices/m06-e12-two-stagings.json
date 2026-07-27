@@ -1,0 +1,31 @@
+{
+  "id": "m06-e12-two-stagings",
+  "lessonId": "m06-l12-espace",
+  "title": "Deux mises en scène",
+  "kind": "LAYERING",
+  "difficulty": 5,
+  "xpReward": 100,
+  "skills": { "SOUND_DESIGN": 0.8, "ORCHESTRATION": 0.2 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "hybrid-score", "ruleWeights": {} },
+  "rubric": { "correctness": 30, "constraints": 45, "craft": 25 },
+  "spec": {
+    "version": 1,
+    "prompt": "L'espace comme paramètre de composition, prouvé par l'expérience contrôlée. Reprends ton stack canonique de m06-e03 et mets-le en scène DEUX fois : version A « le studio » (tout devant — rooms courtes, wet faible, largeurs sages), version B « la cathédrale du rêve » (le même stack projeté — hall, largeurs ouvertes, pre-delays longs). MÊMES notes, MÊMES couches : seuls sends, width et pan changent — l'invariance du matériau est vérifiée note à note. Puis déclare la BASCULE : sur 2 mesures, A devient B (les automations d'espace en motion — changer de lieu EST une bascule, au même titre qu'une modulation). Et dans les DEUX scènes, le sub reste sec et mono : le hors-lieu ne se négocie pas.",
+    "given": {
+      "sourceSubmission": "m06-e03-the-canonical-stack"
+    },
+    "constraints": {
+      "stagings": [
+        { "id": "A-studio", "profile": { "reverbType": "room", "wetMax": 0.3, "widthBudget": "tight" } },
+        { "id": "B-cathedral", "profile": { "reverbType": "hall", "preDelayMinMs": 40, "widthBudget": "open" } }
+      ],
+      "materialInvariance": { "betweenStagings": ["A-studio", "B-cathedral"], "sameLayers": true, "sameNotes": true },
+      "stagingContrast": { "widthDeltaMin": 0.3, "wetDeltaMin": 0.25 },
+      "subConstraints": { "dry": true, "mono": true, "inBothStagings": true },
+      "basculeDeclared": { "lengthBars": 2, "motionsOnSpaceParams": true },
+      "checkers": ["sd.wash-out", "sd.sub-width"]
+    }
+  }
+}

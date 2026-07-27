@@ -1,0 +1,13 @@
+{
+  "exerciseId": "m06-e12-two-stagings",
+  "payload": {
+    "sourceStack": "m06-e03-the-canonical-stack",
+    "stagings": [
+      { "id": "A-studio", "reverb": { "type": "room", "decayS": 0.9, "preDelayMs": 12 }, "widths": { "body": 0.3, "top": 0.55, "texture": 0.6 }, "widthBudget": 0.42, "pans": "sages" },
+      { "id": "B-cathedral", "reverb": { "type": "hall", "decayS": 3.7, "preDelayMs": 85 }, "widths": { "body": 0.7, "top": 0.95, "texture": 1.0 }, "widthBudget": 0.86 }
+    ],
+    "sub": { "dry": true, "mono": true, "inBothStagings": true },
+    "bascule": { "lengthBars": 2, "motions": "sends et widths interpolés — changer de lieu EST une bascule" }
+  },
+  "authorNotes": "L'espace comme paramètre de composition, prouvé par l'expérience contrôlée : **couches et notes strictement identiques A↔B**, seuls `sends`, `width` et `pan` diffèrent — l'invariance est vérifiée note à note, sinon la démonstration ne vaut rien. Contrastes mesurés : budget de largeur 0,42 vs 0,86 (Δ ≥ 0,3 ✓), wet Δ ≥ 0,25 ✓. Le decay du hall est calé musicalement : **3,7 s = quatre temps à ♩=65**, le tempo de la scène — une réverbération se compose, elle ne se choisit pas dans une liste. Et dans les deux mondes, le sub reste sec et mono : le hors-lieu ne se négocie pas."
+}

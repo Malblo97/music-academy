@@ -1,0 +1,16 @@
+{
+  "exerciseId": "m04-e06-florid",
+  "variantId": "cf-dorien",
+  "notation": "r:h A4:q B4:q | C5:h D5:q C5:q | C5:q B4:q C5:h~ | C5:h B4:q A4:q | B4:q C5:q D5:q E5:q | F5:q E5:q C5:q D5:q | C5:h C5:h~ | C5:h B4:q D5:q~ | D5:h C#5:h | D5:w",
+  "payload": {
+    "cf": "m04-cf-dorian-01",
+    "texturePlan": [
+      { "bars": [1, 2], "texture": "blanches" },
+      { "bars": [3, 4], "texture": "syncope" },
+      { "bars": [5, 6], "texture": "noires" },
+      { "bars": [7, 9], "texture": "syncope" },
+      { "bars": [10, 10], "texture": "ronde" }
+    ]
+  },
+  "authorNotes": "Le rapport attendu, mot pour mot : « 4 régimes ✓ (le plan concorde), retard 7-6 orné m4 ✓, retard 4-3 m8 ✓, **retard cadentiel 7-6 m9** ✓ (la cadence passe par la syncope), cambiata m6 ✓ (climax F5), passages ✓ — ton laboratoire est complet. » Chaque figure re-testée par le checker de son espèce d'origine : le fleuri n'assouplit rien, il juxtapose. La liaison de noire m8 (D5:q~) : l'idiome sp5 d'anticipation, couvert. Pas deux mesures consécutives dans la même espèce ✓."
+}

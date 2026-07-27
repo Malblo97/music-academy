@@ -1,0 +1,15 @@
+{
+  "exerciseId": "m03-e07-the-stubborn-ground",
+  "variantId": "pedale-gagne",
+  "notation": "[G2+D4+G4+B4]:w | [G2+E4+G4+C5]:w | [G2+E4+G4+B4]:w | [G2+D4+G4+B4]:w | [G2+Eb4+G4+Bb4]:w | [G2+Eb4+G4+C5]:w | [G2+F4+A4+C5]:w | [G2+Eb4+Ab4+C5]:w | [G2+D4+F#4+C5]:w | [G2+D4+F#4+C5]:w | [G2+D4+G4+B4]:w | [G2+D4+B4+G5]:w",
+  "payload": {
+    "pedalPlan": [
+      { "bars": [1, 4], "state": "compatible" },
+      { "bars": [5, 7], "state": "frottee" },
+      { "bars": [8, 8], "state": "contredite" },
+      { "bars": [9, 10], "state": "frottee" },
+      { "bars": [11, 12], "state": "resolution" }
+    ]
+  },
+  "authorNotes": "La pédale de TONIQUE gagne. Installation compatible (m1–4 : G · C/G · Em · G — la pédale est fondamentale, quinte ou tierce). Friction croissante : m5–6 les emprunts (♭VI, iv : G consonant mais le monde s'assombrit), m7 ♭VII (G = 9e étrangère, frottée), **m8 A♭ majeur — l'accord CONTREDIT** (G = septième majeure contre la fondamentale : la pédale niée). Sortie : m9–10 V7 sur pédale de tonique (la friction fonctionnelle tenue deux mesures — l'attente), m11 F♯4→G4 et C5→B4, l'harmonie revient cadencer SUR elle ; m12 l'élargissement conclusif (octave du soprano, geste assumé). **F-18 en acte** : sans le patch, m7 se lit « F9 » et m8 ne se lit pas — c'est pour produire ce constat que la solution est composée."
+}

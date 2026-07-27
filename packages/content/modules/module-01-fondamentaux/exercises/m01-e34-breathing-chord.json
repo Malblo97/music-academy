@@ -1,0 +1,10 @@
+{ "id": "m01-e34-breathing-chord", "lessonId": "m01-l18-tensions",
+  "title": "L'accord qui respire", "kind": "HARMONY_PROGRESSION",
+  "difficulty": 6, "xpReward": 100, "skills": { "HARMONY": 1.0 },
+  "spec": { "prompt": "Deux mesures sur UN SEUL G7 (fondamentale immobile), puis résolution sur C à la mesure 3. Fais vivre la dominante : au moins 3 voicings distincts qui dessinent une courbe (ex. V7 → V9 → V13 → V7♭9 → C). Lois du voicing l18 §3 : grave vide, guide tones, tensions à l'aigu.",
+    "given": { "key": { "tonic": 0, "mode": "major" } },
+    "constraints": { "lengthBars": [3,3], "minVoices": 4, "maxVoices": 5,
+      "staticRootBars": [1,2], "staticRootPc": 7, "minDistinctVoicings": 3,
+      "requiredCadence": "perfect" },
+    "styleProfile": { "id": "jazz" },
+    "rubric": { "correctness": 30, "constraints": 35, "craft": 35 } } }

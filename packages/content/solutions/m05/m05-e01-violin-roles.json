@@ -1,0 +1,12 @@
+{
+  "exerciseId": "m05-e01-violin-roles",
+  "partId": "lyricism",
+  "notation": "B4:q. C5:e B4:q G4:q | F#4:w | G4:q. B4:e G4:q F#4:q | E4:h. r:q | G4:q. A4:e B4:q C5:q | E5:h C5:h | F#4:q D4:q F#4:q. D4:e | B3:w",
+  "payload": {
+    "instrument": "violins-2",
+    "role": "parallel-harmony",
+    "divisi": false,
+    "articulation": "legato, sur la corde"
+  },
+  "authorNotes": "« Les II ne sont jamais des I bis » — ici ils sont l'ombre chaude, et c'est un métier. **22/22 notes à 3, 4, 8 ou 9 demi-tons SOUS le thème** (ratio 1,00 ≥ 0,80) : tierces là où l'accord le permet, sixtes là où la tierce mentirait — mes. 2 (D7) : la sixte fa♯ sous le ré, parce que si serait la 13e ; mes. 3 (Em) : la sixte sol sous le mi, parce que do serait hors de l'accord ; mes. 8 (G) : la sixte si sous le sol, la seule qui donne un accord complet à deux voix. La mes. 2 est une ronde tenue sous deux notes du thème (3 puis 8) : le pupitre s'assoit quand le thème bouge. Registre B3–E5 (59–76) ⊂ [55,79], rien sous sol3 ✓, aucun double stop donc aucun `div.` ✓, zéro quinte ou octave parallèle — tierces et sixtes seulement, la parallèle assumée de la fiche."
+}

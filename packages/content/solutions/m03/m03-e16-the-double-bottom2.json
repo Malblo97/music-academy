@@ -1,0 +1,20 @@
+{
+  "exerciseId": "m03-e16-the-double-bottom",
+  "variantId": "victoire",
+  "payload": {
+    "parts": {
+      "mode": "simultaneous",
+      "plans": [
+        {
+          "id": "A",
+          "notation": "[G3+B3+D4]:w | [G3+C4+E4]:w | [G3+B3+D4]:w | [G3+C4+E4]:w | [B3+D4+G4]:w | [C4+E4+G4]:w | [A3+D4+F#4]:w | [G3+B3+D4]:w | [G3+B3+D4]:w | [G3+Bb3+Eb4]:w | [G3+Eb4]:h r:h | r:w"
+        },
+        {
+          "id": "B",
+          "notation": "r:w | Eb2:w | G2:h Bb2:h | Eb2:w | Ab2:h G2:h | Eb2:w | Bb1:w | Eb2:w | Eb2:w | [Eb2+Bb2]:w | [Eb2+Bb2]:w | [Eb1+Eb2+Bb2]:w"
+        }
+      ]
+    }
+  },
+  "authorNotes": "Même tronc m1–8. FIN « victoire » : A est CAPTURÉ (m10 — il joue du mi♭ sans le savoir), puis s'amenuise (m11, demi-mesure) et se tait (m12) ; B conclut plein — [E♭1+E♭2+B♭2], **la tierce laissée hors du grave** (low-interval-limit respecté, geste documenté). Verdict F-22 : extinction mesurée d'un plan + plénitude de l'autre. La fin la plus littérale du triptyque : un monde éteint l'autre sans jamais le contredire — il l'a d'abord contaminé."
+}

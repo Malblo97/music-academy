@@ -1,0 +1,19 @@
+{
+  "exerciseId": "m07-e03-the-carpet",
+  "variantId": "spread-cathedral",
+  "payload": {
+    "lengthBars": 8,
+    "octaveSpan": 5,
+    "materials": ["cordes", "cors"],
+    "parts": [
+      { "instrumentId": "contrabasses", "content": "C1 — le socle" },
+      { "instrumentId": "cellos", "content": "C2–G2, quintes sans tierce" },
+      { "instrumentId": "french-horns", "content": "G3 + E4 — le relais du milieu, respirations alternées déclarées" },
+      { "instrumentId": "violas", "content": "médium ouvert" },
+      { "instrumentId": "violins-2", "content": "médium ouvert" },
+      { "instrumentId": "violins-1", "content": "tenues E5 / G5" }
+    ],
+    "carpetLife": ["breathing", "renewal", "complement"]
+  },
+  "authorNotes": "Le même accord, l'autre architecture : cinq octaves, deux matières (le maximum — trois mélangées font le gris riche). Étagement harmonique mesuré : large en bas, resserré en montant, **jamais de tierce au socle** ✓. Les trois vies sont toutes présentes : la respiration (les cors se relaient — la fiche le dit, la déclaration le prouve), le renouvellement (vl1 réattaque à la mesure 5), le complément. L'A/B avec la version serrée est l'argument du module : même harmonie, deux émotions, et rien d'autre n'a changé que la disposition."
+}

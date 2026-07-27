@@ -1,0 +1,5 @@
+{ 
+    "exerciseId": "m02-e12-elision-chain", 
+    "notation": "D4:q F4:q A4:q D5:q | C5:q A4:q F4:q A4:q | G4:q A4:q Bb4:q C5:q | D5:q C5:q Bb4:q A4:q | G4:q F4:q E4:q G4:q | F4:h r:h | A4:q G4:q E4:q C#4:q | D4:w", 
+    "authorNotes": "Le D5 (b4 temps 1) conclut la phrase 1 ET lance la 2 — soudure sans respiration, réattaque temps fort ✓ (1 élision ∈ [1,2]) ; vraie respiration b6 ✓ ; fin 1̂ ✓." 
+}

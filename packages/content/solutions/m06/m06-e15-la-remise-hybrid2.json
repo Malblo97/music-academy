@@ -1,0 +1,26 @@
+{
+  "exerciseId": "m06-e15-la-remise-hybrid",
+  "partId": "part2-stack",
+  "payload": {
+    "layersCount": 11,
+    "durationSec": 90,
+    "tempoBpm": 72,
+    "cruise": ["drone", "sub", "pad", "texture"],
+    "played": [
+      { "id": "keys", "role": "melodic", "judgedBy": "M1 — la progression du cue" },
+      { "id": "lead-memoire", "role": "melodic", "judgedBy": "M2 — la ligne, arche vérifiée" },
+      { "id": "arp", "role": "movement" }
+    ],
+    "fxTargets": [
+      { "markerRef": "B2", "deviationTicks": 0 },
+      { "markerRef": "H1", "type": "impact tri-couche, bandes étagées" }
+    ],
+    "sidechains": [
+      { "source": "sub", "target": "pad", "depthDb": 3 },
+      { "source": "ghost-trigger", "target": "body", "note": "F-38" }
+    ],
+    "threeCoordinates": "bande × sends × width/pan déclarés pour les 11 couches",
+    "subMono": true
+  },
+  "authorNotes": "Le rapport le plus large du produit avec m10-e15 : le moteur déroule tout et sort vert. Onze couches sur 90 secondes, mais **quatre seulement en croisière** — la densité est un événement, pas un état. Les couches jouées sont re-jugées par les registres de leur discipline (l'harmonie par M1, la ligne par M2) : dans ce module, une couche qui joue reste de la musique. Les FX sont calés en ticks × timecode (B2 : ±0 tick), les sidechains déclarés et non circulaires, les trois coordonnées — fréquence × profondeur × largeur — renseignées couche par couche : la `densityMap` en trois dimensions. Pyramide et budget stéréo tenus ✓."
+}

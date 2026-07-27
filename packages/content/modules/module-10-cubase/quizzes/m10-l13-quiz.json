@@ -1,0 +1,18 @@
+{ "id": "m10-l13-quiz", "interaction": "mc", "items": [
+  { "q": "Le Musical Mode rend l'audio :",
+    "options": ["plus fort", "ÉLASTIQUE — il suit la Tempo Track comme le MIDI (±10 % sans douleur)", "monophonique"],
+    "answer": "ÉLASTIQUE — il suit la Tempo Track comme le MIDI (±10 % sans douleur)",
+    "why": "Le rendez-vous de l11 §3 (§1) : tempo détecté VÉRIFIÉ avant de cocher (fréquent qu'il soit faux sur les boucles courtes) — au-delà de ±20 %, ça se dégrade franchement." },
+  { "q": "On corrige la justesse :",
+    "options": ["à 100 % — la précision est le métier", "VERS, jamais JUSQU'À — la justesse absolue tue la voix", "seulement les notes fausses d'un ton"],
+    "answer": "VERS, jamais JUSQU'À — la justesse absolue tue la voix",
+    "why": "Le Pitch Snap 100 % est l'auto-tune involontaire (§2, erreurs) : le CC1 plat de l'intonation — la voix morte." },
+  { "q": "▶ L'extraction brute du fredon, puis la version relue. Les défauts types du brut :",
+    "playAsset": "asset:m10-l13-ab-extraction (A : Extract MIDI brut · B : après relecture note à note)",
+    "options": ["le tempo faux", "OCTAVES FAUSSES, SEGMENTS DOUBLÉS — la relecture est la compétence", "la tonalité perdue"],
+    "answer": "OCTAVES FAUSSES, SEGMENTS DOUBLÉS — la relecture est la compétence",
+    "why": "Extract MIDI fait entrer l'idée chantée dans le monde des notes (§2) : un brouillon fidèle, pas une partition — la mission e13 te note sur ta relecture, la compétence réelle du métier." },
+  { "q": "[intégrative] La cible du fredon vit :",
+    "options": ["dans l'oreille du correcteur", "au MANIFESTE (F-49) — le réal a fredonné une phrase que le produit connaît", "dans le fichier audio"],
+    "answer": "au MANIFESTE (F-49) — le réal a fredonné une phrase que le produit connaît",
+    "why": "`samePitchSequenceAsGiven` en tolérance ≥ 90 % (§ mission) : le thème du réal analysé par le Melody Practice — la boucle la plus inattendue du workflow." } ] }

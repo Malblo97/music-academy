@@ -1,0 +1,12 @@
+{ "id": "m02-e23-romantic-surge", "lessonId": "m02-l12-ambiances-3",
+  "title": "L'élan et sa retenue", "kind": "MELODY_COMPOSE",
+  "difficulty": 6, "xpReward": 120, "skills": { "MELODY": 1.0 },
+  "spec": { "prompt": "10 mesures romantiques (4+6 : la dernière phrase « n'arrive pas à finir », l06) : la SIXTE ascendante en signature, chaque grand saut remboursé en conjoint (le geste canonique — melody.leap-recovery est TON style ici, poids plein), au moins une appoggiature, montée par vagues vers un climax atteint PAR SAUT à ~65 %. Une phrase retenue pour une phrase déployée.",
+    "given": { "key": { "tonic": 3, "mode": "major" } },
+    "constraints": { "key": { "tonic": 3, "mode": "major" }, "lengthBars": [10,10],
+      "phraseBarPlan": [4,6], "mustContainInterval": [8,9], "intervalDirection": "up",
+      "minChromaticFigures": 1, "climaxWindow": [0.55, 0.75],
+      "climaxApproachLeap": 5, "mustEndOnDegrees": [1,3] },
+    "styleProfile": { "id": "romantic-film", "targetMood": "romantic",
+      "ruleWeights": { "melody.leap-recovery": 1.3 } },
+    "rubric": { "correctness": 25, "constraints": 35, "craft": 40 } } }

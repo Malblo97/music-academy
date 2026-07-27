@@ -14,5 +14,17 @@ export default tseslint.config(
         }]
       }]
     }
+  },
+  {
+    // Dérogation scopée : ces fichiers lisent du contenu réel (packages/content)
+    // pour le verrou n°3 (S1.J4). D-T2 protège le moteur LIVRÉ (src/) et le reste
+    // de la suite de tests, qui restent isomorphes ; ce harnais de fixtures/locks
+    // n'est ni l'un ni l'autre.
+    files: [
+      'test/fixtures/notation/solutions.test.ts',
+      'test/solutions.ts',
+      'test/locks/roundtrip.test.ts',
+    ],
+    rules: { 'no-restricted-imports': 'off' }
   }
 );

@@ -1,0 +1,20 @@
+{
+  "exerciseId": "m06-e14-the-dressed-orchestra",
+  "notation": "G4:q. C5:e C5:q D5:q | E5:h C5:h | F5:q. E5:e D5:q C5:q | D5:h G4:h | G4:q. C5:e C5:q D5:q | E5:h G5:h | A5:q G5:q F5:q D5:q | C5:w",
+  "payload": {
+    "given": {
+      "note": "l'extrait de référence de m05-e08 produit dans ce lot (F-37) — 8 mesures, ut majeur",
+      "themeInstrument": "trompette",
+      "strings": "C | C | F→G | G | C | C→Em | F→G | C (voicings en série harmonique, vl./alt./vc.)",
+      "contrabasses": "C2 → … → E1 aux barres 7–8 — la descente donnée"
+    },
+    "layers": [
+      { "id": "sub-relay", "role": "sub", "source": "sine", "band": [30, 40], "entersBar": 7, "note": "il ne prend que SOUS le E1 des Cb — relais, pas doublure" },
+      { "id": "phantom-pad", "role": "body", "band": [150, 5000], "levelDbRelative": -7, "hasNotes": true, "notes": "⊆ notes des cordes (pitch-class sets par fenêtre : 8/8)" },
+      { "id": "texture", "role": "texture", "source": "air" }
+    ],
+    "bandHandoff": { "acoustic": "contrabasses", "synthetic": "sub-relay", "overlapHz": 0 },
+    "fusionProtocol": { "type": "envelope-relay", "bars": [7, 8], "note": "les cordes attaquent, le pad porte la tenue" }
+  },
+  "authorNotes": "**Témoin F-37 et première soumission jugée par les DEUX registres.** La règle générale née ici : tout `given` qui cite un exercice antérieur pointe **la solution de référence** de cet exercice — et comme la pièce héroïque de m05-e08 dormait au backlog assets, la solution s14 était incomposable : l'extrait de 8 mesures est donc produit dans ce lot (le backlog s'allège d'autant). L'habillage est invisible par construction : le sub-relais entre à la barre 7, **exactement où les contrebasses s'arrêtent** (chevauchement 0 Hz — un relais, pas un renfort) ; le pad fantôme joue un sous-ensemble strict des notes des cordes (8/8 fenêtres) à −7 dB sous elles, high-passé à 150 : l'oreille fusionne les timbres qui bougent ensemble, et le pad devient la résonance des cordes. Le protocole déclaré est le relais d'enveloppe au climax. Verdict : **`sd.*` et `orch.*` muets ensemble** — l'hybride invisible, 70 % du métier."
+}

@@ -1,0 +1,13 @@
+{
+  "exerciseId": "m06-e04-five-families",
+  "payload": {
+    "layers": [
+      { "id": "brief-1", "brief": "la mémoire d'un été", "family": "analog", "role": "body", "band": [100, 3500], "motion": "détune lent", "why": "la chaleur — le détune est la nostalgie du réglage instable" },
+      { "id": "brief-2", "brief": "la salle des serveurs", "family": "digital", "role": "body", "band": [100, 8000], "motion": "LFO sync 1/8", "why": "le froid — la wavetable ne respire pas, elle cycle" },
+      { "id": "brief-3", "brief": "le monastère en ruine", "family": "choir", "role": "body", "band": [100, 5000], "motion": "wash ambient + formants", "why": "le sacré — les formants portent l'humain sans le mot" },
+      { "id": "brief-4", "brief": "le héros se souvient", "family": "hybrid", "role": "body", "band": [100, 4000], "motion": "morph lent", "why": "le souvenir est un objet composite : l'acoustique déguisé" }
+    ],
+    "bandDiscipline": "high-pass 100 Hz sur les quatre — le pad n'est pas le monde"
+  },
+  "authorNotes": "« Tu ne cherches plus un pad : tu le choisis. » Les trois briefs univoques tombent sur la table de décision sans hésiter. Le quatrième est le piège, et il est traité comme tel : **hybrid déclaré, la défense analog argumentée dans le même champ** — le rapport crédite les deux et affiche les deux raisons, comme la spec le promet. Une motion par pad ✓, high-pass 100 partout ✓, `sd.band-pileup` et `sd.static-stack` muettes ✓."
+}

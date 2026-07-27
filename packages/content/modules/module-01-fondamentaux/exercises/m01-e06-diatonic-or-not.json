@@ -1,0 +1,9 @@
+{ "id": "m01-e06-diatonic-or-not", "lessonId": "m01-l03-gamme-majeure",
+  "title": "Chasse la note chromatique", "kind": "THEORY_QUIZ",
+  "difficulty": 2, "xpReward": 40, "skills": { "MELODY": 1.0 },
+  "spec": { "prompt": "Une mélodie s'affiche dans le piano roll avec sa tonalité déclarée. Clique la ou les notes hors gamme.",
+    "quiz": { "interaction": "roll-pick",
+      "generator": { "keys": "majorAll", "chromaticCount": [1,2], "lengthBars": 2, "rounds": 8 },
+      "items": [
+        { "q": "Sol majeur : ▶", "play": "G4:q A4:q B4:q F4:q | G4:h D4:h", "answer": ["F4"], "why": "En sol majeur, 7̂ = F♯. Le F naturel est chromatique (♭7̂ — couleur mixolydienne si voulue, l07)." },
+        { "q": "Fa majeur : ▶", "play": "F4:q G4:q B4:q A4:q | C5:h F4:h", "answer": ["B4"], "why": "Fa majeur porte B♭ : le B naturel est la ♯4̂ (couleur lydienne si voulue)." } ] } } }

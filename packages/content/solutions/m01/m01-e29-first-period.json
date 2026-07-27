@@ -1,0 +1,5 @@
+{ 
+    "exerciseId": "m01-e29-first-period", 
+    "notation": "B4:q. A4:e G4:q B4:q | C5:q. B4:e A4:q G4:q | A4:q. B4:e C5:q E5:q | D5:h A4:h | B4:q. A4:e G4:q B4:q | C5:q. B4:e A4:q C5:q | D5:q C5:q B4:q A4:q | G4:w", 
+    "authorNotes": "Antécédent → **demi-cadence** : arrêt sur A4 (2̂) sur D7, blanches = respiration ✓ ; conséquent reprend la tête (motif `q.-e-q` descendant : mes. 1 = mes. 5 exactes, mes. 2/6 transposées) ✓ ; conclusion 2̂→1̂, ronde, parfaite sur D7→G ✓. Sommet E5 unique (mes. 3)." 
+}

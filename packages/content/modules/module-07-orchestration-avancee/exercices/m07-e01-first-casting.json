@@ -1,0 +1,45 @@
+{
+  "id": "m07-e01-first-casting",
+  "lessonId": "m07-l01-distribution",
+  "title": "Le premier casting",
+  "kind": "ORCHESTRATE",
+  "difficulty": 4,
+  "xpReward": 90,
+  "skills": { "ORCHESTRATION": 1.0 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "pool": "mvp",
+  "styleProfile": { "id": "romantic-film", "targetMood": "default", "ruleWeights": {} },
+  "rubric": { "correctness": 30, "constraints": 40, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "Le premier Part[] du cursus. L'esquisse fournie (piano, 8 mesures : un thème, des accords, une basse — trois rôles évidents, UN caché) se distribue sur 5 parts. Dans l'ordre, toujours : (1) l'inventaire des rôles, (2) la HIÉRARCHIE — à chaque instant UN rôle est premier, un ou deux sont seconds, le reste est décor : c'est la première décision sonore, et elle se paie en retenue, (3) les ÉTAGES — chaque rôle reçoit sa bande (l'immeuble : la clarté vient de l'espace couvert, pas de la densité), (4) seulement alors les COULEURS. Remplis la grille (rolePlan), puis orchestre. Le rôle caché — un contre-rythme dans la main gauche — vaut un crédit craft si tu le débusques : l'oreille de casting, testée dès l'entrée.",
+    "given": {
+      "key": { "tonic": 5, "mode": "major" },
+      "sketch": "asset:m07-e01-piano-sketch",
+      "hiddenRole": "rhythm"
+    },
+    "constraints": {
+      "lengthBars": [8, 8],
+      "format": "Part[]",
+      "pool": "mvp",
+      "partsCount": [5, 5],
+      "rolePlan": {
+        "declared": true,
+        "perSection": true,
+        "verifiedAgainstDetected": true,
+        "hierarchyRequired": true,
+        "roles": ["melody", "countermelody", "harmony", "bass", "rhythm", "texture"]
+      },
+      "maxActivePlans": 4,
+      "stagePlan": {
+        "declared": true,
+        "lines": { "ciel": [84, 108], "chant": [72, 84], "coeur": [60, 72], "corps": [48, 60], "socle": [21, 48] },
+        "overlapMustBeJustified": true
+      },
+      "hiddenRoleDetection": { "expected": "rhythm", "creditsCraft": true },
+      "onePupitreOneRole": true,
+      "checkers": ["orch.range-violation", "orch.balance", "orch.register-color", "orch.role-coverage", "densityMap"]
+    }
+  }
+}

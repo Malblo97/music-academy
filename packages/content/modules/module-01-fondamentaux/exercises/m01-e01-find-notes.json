@@ -1,0 +1,10 @@
+{ "id": "m01-e01-find-notes", "lessonId": "m01-l01-notes-clavier",
+  "title": "Trouve les notes sur le clavier", "kind": "THEORY_QUIZ",
+  "difficulty": 1, "xpReward": 30, "skills": { "MELODY": 1.0 },
+  "spec": { "prompt": "Clique toutes les occurrences de la note demandée sur le clavier virtuel (3 octaves affichées). Vitesse et précision comptent : c'est ton réflexe à vie.",
+    "quiz": { "interaction": "keyboard-pick",
+      "generator": { "targetPc": "all12", "octaves": [2,5], "rounds": 8 },
+      "items": [
+        { "q": "Clique tous les C", "answer": ["C2","C3","C4","C5"], "why": "C est à gauche du groupe de DEUX touches noires." },
+        { "q": "Clique tous les F", "answer": ["F2","F3","F4"], "why": "F est à gauche du groupe de TROIS touches noires." },
+        { "q": "Clique tous les Bb", "answer": ["A#2","A#3","A#4"], "why": "B♭ = la noire à gauche de B ; même touche que A♯ (enharmonie)." } ] } } }

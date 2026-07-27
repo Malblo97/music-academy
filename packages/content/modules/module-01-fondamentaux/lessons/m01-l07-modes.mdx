@@ -1,0 +1,120 @@
+---
+id: m01-l07-modes
+module: module-01-fondamentaux
+title: "Les modes : sept couleurs pour le cinéma"
+estMinutes: 30
+skills: { melody: 0.5, harmony: 0.5 }
+---
+
+### Pourquoi les modes sont la leçon la plus « cinéma » du module
+
+Le majeur et le mineur sont deux couleurs. Les modes en offrent **sept** — et la musique de film moderne vit largement en dehors du couple majeur/mineur : la fantasy est dorienne ou éolienne, le western mixolydien, l'émerveillement lydien, la menace phrygienne. Apprendre les modes, c'est multiplier ton nuancier par trois, avec des notes que tu connais déjà toutes.
+
+### 1. Le principe : une échelle, sept points de vue
+
+Prends les sept notes de do majeur. Joue-les de C à C : c'est le mode **ionien** (= la gamme majeure). Joue *les mêmes notes* de D à D : c'est le **dorien**. De E à E : le **phrygien**. Et ainsi de suite. Chaque mode est la même collection de notes entendue depuis une autre tonique — donc avec les demi-tons placés ailleurs. Et tu sais depuis la leçon 3 que **la position des demi-tons fait la couleur**.
+
+```
+Notes de do majeur, sept toniques, sept mondes :
+C→C  ionien      (= majeur)
+D→D  dorien
+E→E  phrygien
+F→F  lydien
+G→G  mixolydien
+A→A  éolien      (= mineur naturel)
+B→B  locrien
+```
+
+⚠️ Le piège pédagogique classique : jouer « D dorien » en *pensant* do majeur. Tant que ton oreille entend C comme maison, tu n'entends pas le dorien — tu entends du do majeur qui commence bizarrement. **Un mode existe quand sa tonique est établie** : commence et finis dessus, martèle-la à la basse, fais-en le centre de gravité. Tous les exemples ci-dessous font ça.
+
+### 2. Le classement qui sert vraiment : du plus lumineux au plus sombre
+
+Plutôt que l'ordre du clavier, mémorise l'ordre de **luminosité** — chaque mode ne diffère de son voisin que d'UNE note bémolisée. C'est le nuancier réel :
+
+```
+LUMINEUX ────────────────────────────────────────────► SOMBRE
+
+LYDIEN    IONIEN    MIXOLYDIEN    DORIEN    ÉOLIEN    PHRYGIEN    LOCRIEN
+ ♯4̂       (réf.)      ♭7̂          ♭7̂ ♭3̂     ♭7̂♭3̂♭6̂    ♭7̂♭3̂♭6̂♭2̂    tout + ♭5̂
+émerveil-  majeur    épique       noble     mineur    menace      instable
+lement     franc     terrien      sombre    naturel   ancestrale  (rare)
+```
+
+Lecture : le lydien est « un majeur encore plus lumineux » (♯4̂) ; le mixolydien « un majeur qui a perdu sa sensible » ; le dorien « un mineur qui garde un rayon de lumière » (6̂ majeure) ; le phrygien « un mineur assombri jusqu'à la menace » (♭2̂).
+
+### 3. Fiche par mode (les six utiles + le cas locrien)
+
+Pour chaque mode : sa **note-signature** (celle qui le distingue), son caractère, son emploi au cinéma, et un micro-exemple à jouer *en établissant la tonique*.
+
+**LYDIEN — la note-signature : ♯4̂**
+Le majeur émerveillé. La ♯4̂ flotte au-dessus de la tonique sans jamais peser. Cinéma : magie bienveillante, envol, enfance, rêve. Piège : la ♯4̂ est un triton au-dessus de 1̂ — exposée trop longtemps sans son contexte, elle bascule vers l'étrange (ce qui peut être voulu : le lydien est aussi le mode du « rêve qui cloche »).
+
+<MusicExample id="lydien" title="Lydien : l'émerveillement (tonique C)">
+  C4:q E4:q F#4:q G4:q | A4:q G4:q F#4:e E4:e C4:h
+  La F♯ (♯4̂) fait toute la magie — remplace-la par F : le rêve retombe en majeur ordinaire.
+</MusicExample>
+
+**IONIEN** — la référence (leçon 3). Franc, résolu, diurne. Au cinéma, souvent *trop* franc : les compositeurs le teintent (emprunts, leçon 21) ou lui préfèrent le lydien (merveilleux) et le mixolydien (aventure).
+
+**MIXOLYDIEN — la note-signature : ♭7̂**
+Le majeur terrien, sans sensible : la conclusion se fait par ♭7̂→1̂ (un ton), moins « aimantée », plus rustique. Cinéma : western, aventure celtique, rock héroïque, folk. C'est le mode du ♭VII→I, cadence emblématique de l'épique moderne (leçon 15 y reviendra : c'est aussi pourquoi `harmony.retrogression` pèse 0.2 en `epic-film`).
+
+<MusicExample id="mixolydien" title="Mixolydien : l'aventure terrienne (tonique G)">
+  G4:q B4:q D5:q B4:q | F4:q G4:q F4:e D4:e G4:h
+  Le F naturel (♭7̂) au lieu de F♯ : plus de sensible — l'héroïsme devient
+  poussière et cuir au lieu de marbre et trompettes.
+</MusicExample>
+
+**DORIEN — la note-signature : 6̂ majeure (dans un contexte mineur)**
+Le mineur qui espère. La 6̂ majeure éclaire le mineur sans le rendre gai. Cinéma : fantasy noble, héros mélancolique, mers et légendes, science-fiction contemplative. C'est le mode que l'analyseur infère quand ta mélodie mineure pondère fortement la 6̂ majeure (leçon technique §8.4 — le produit et le cours, même cerveau).
+
+<MusicExample id="dorien" title="Dorien : le mineur noble (tonique D)">
+  D4:q F4:q A4:q B4:q | C5:q A4:q B4:e A4:e D4:h
+  Le B naturel (6̂ majeure) est le rayon de lumière ; joue B♭ à la place :
+  te voilà en éolien, plus sombre, plus résigné.
+</MusicExample>
+
+**ÉOLIEN** — le mineur naturel (leçon 6). Sombre, flottant, sans sensible. Cinéma : drame, mélancolie, épique sombre. Tu le connais déjà — note simplement qu'entre dorien (6̂) et éolien (♭6̂), UNE note décide entre *noblesse* et *fatalité*.
+
+**PHRYGIEN — la note-signature : ♭2̂**
+Le demi-ton au-dessus de la tonique est une lame : la ♭2̂ pèse sur 1̂ comme une menace immédiate. Cinéma : antagonistes, guerre antique, tension métallique ; en version « majeure » (phrygien dominant : ♭2̂ + 3̂ majeure, dérivé du mineur harmonique de la leçon 6) : Espagne, désert, mysticisme.
+
+<MusicExample id="phrygien" title="Phrygien : la menace (tonique E)">
+  E4:q F4:q E4:q G4:q | F4:q E4:q F4:e E4:e E4:h
+  Tout tient dans E–F : le balancement 1̂–♭2̂ est l'ostinato de menace le plus
+  économique du répertoire. Deux notes, une scène entière.
+</MusicExample>
+
+**LOCRIEN** — ♭2̂ ET ♭5̂ : la tonique elle-même repose sur un accord diminué — le mode ne peut pas « s'asseoir ». Quasi inutilisable comme centre stable, précieux comme *couleur passagère* d'instabilité totale. Sache qu'il existe, ne construis pas dessus (avant le Module 9, horreur).
+
+### 4. Méthode de composition modale (exercice m01-e13)
+
+```
+1. Choisis une CIBLE émotionnelle (ex. « noble et mélancolique » → dorien)
+2. Établis la tonique : pédale ou basse répétée sur 1̂, 4 mesures
+3. Compose en EXPOSANT la note-signature : qu'elle tombe sur temps forts,
+   qu'elle soit tenue, répétée — c'est elle que l'auditeur doit entendre
+4. Test de vérité : remplace la note-signature par sa version majeure/mineure
+   « normale ». Si rien ne change à l'oreille, tu ne composais pas dans le mode.
+```
+
+Le point 3 est le secret des pros : **un mode ne s'affiche pas, il s'expose**. Une mélodie dorienne qui évite sa 6̂ n'est dorienne que sur le papier.
+
+### 5. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Jouer le mode en pensant sa gamme-mère | « le dorien sonne comme du majeur » | établis la tonique : commence, finis, martèle la basse dessus |
+| Cacher la note-signature | mode indétectable, couleur absente | expose-la : temps forts, tenues, sommets |
+| Vouloir une sensible en mode | cadences V7→I qui détruisent la couleur modale | les modes concluent autrement : ♭VII→i, ♭II→i, IV→I… (leçon 16) |
+| Tout composer en modes « parce que c'est cinéma » | perte de l'outil tension/résolution tonal | le tonal et le modal sont deux moteurs : choisis par scène, pas par dogme |
+
+### Récapitulatif
+
+- [ ] Un mode = une collection connue + une tonique établie + des demi-tons déplacés
+- [ ] Je connais l'ordre de luminosité : lydien → … → phrygien
+- [ ] Je connais la note-signature de chaque mode et je sais l'EXPOSER
+- [ ] Test de vérité : si la note-signature ne change rien, le mode n'existe pas
+
+<QuizBlock id="m01-l07-quiz" questions={8} />
+<LessonFooter exercises={["m01-e13-modal-melody", "m01-e14-mode-ear"]} />

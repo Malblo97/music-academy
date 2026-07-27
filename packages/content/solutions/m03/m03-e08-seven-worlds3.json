@@ -1,0 +1,21 @@
+{
+  "exerciseId": "m03-e08-seven-worlds",
+  "variantId": "lydien",
+  "notation": "[F2+C4+F4+A4]:w | [F2+B3+D4+G4]:w | [F2+C4+F4+A4]:w | [F2+B3+D4+B4]:w | [F2+A3+C4+F4]:w | [F2+B3+E4+G4]:w | [F2+C4+F4+A4]:w | [F2+B3+D4+G4]:w | [F2+A3+C4+A4]:w | [F2+B3+D4+B4]:w | [F2+B3+D4+G4]:w | [F2+C4+F4+A4]:w",
+  "payload": {
+    "pedalPlan": [
+      { "bars": [1, 1], "state": "compatible" },
+      { "bars": [2, 2], "state": "frottee" },
+      { "bars": [3, 3], "state": "compatible" },
+      { "bars": [4, 4], "state": "frottee" },
+      { "bars": [5, 5], "state": "compatible" },
+      { "bars": [6, 6], "state": "frottee" },
+      { "bars": [7, 7], "state": "compatible" },
+      { "bars": [8, 8], "state": "frottee" },
+      { "bars": [9, 9], "state": "compatible" },
+      { "bars": [10, 11], "state": "frottee" },
+      { "bars": [12, 12], "state": "compatible" }
+    ]
+  },
+  "authorNotes": "Fa lydien, piliers I–II. Boucle {F, G, Em/F} — **do majeur (le V) est banni** : c'est l'interdit lydien, le seul accord qui rendrait la gravité fonctionnelle. Le SI (♯4̂) exposé m2, m4 (soprano), m6, m8, m10, m11. **Cadence lydienne II→I** (m11→12 : B3→C4, la ♯4̂ qui monte à la quinte ; D4→F4, G4→A4). Le bourdon de fa est déclaré même là où il est fondamentale (règle d'écriture du lot : tout bourdon se déclare, sinon F-18 ne s'applique pas)."
+}

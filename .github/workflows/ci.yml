@@ -14,4 +14,4 @@ jobs:
       - run: pnpm typecheck
       - run: pnpm test
       - run: pnpm content:count        # échouera tant que 0.4 n'est pas fini : c'est VOULU
-        continue-on-error: true         # passe à false à la fin du J5
+        continue-on-error: false         # passe à false à la fin du J5

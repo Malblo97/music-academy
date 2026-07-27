@@ -1,0 +1,87 @@
+---
+id: m10-l04-key-editor-2
+module: module-10-cubase
+title: "Key Editor II : la vie des notes — velocity, CC1, CC11"
+estMinutes: 25
+skills: { daw_workflow: 0.6, orchestration: 0.4 }
+---
+
+### Pourquoi cette leçon est la plus rentable du module
+
+La leçon 10 du Module 1 t'a donné la théorie : *velocity = l'attaque, CC = la vie de la tenue, une tenue sans courbe est une tenue morte*. Cette leçon te donne les gestes. C'est le savoir-faire au meilleur rapport effort/résultat de toute la maquette : **la différence entre « MIDI de démo » et « maquette qui émeut » tient à 80 % dans les contrôleurs continus** — pas dans les banques, pas dans le mix.
+
+### 1. La lane de contrôleur : ton deuxième piano roll
+
+Sous les notes du Key Editor vit la **controller lane** : clic sur le sélecteur (en bas à gauche) → Velocity, CC1, CC11, ou tout autre. Ajoutes-en plusieurs (le petit +) : ta vue de travail standard est **notes + CC1 + CC11 empilés** — trois étages, une seule vérité.
+
+Le partage des rôles, une fois pour toutes :
+
+| Contrôleur | Rôle | Métaphore |
+|---|---|---|
+| **Velocity** | la force de l'ATTAQUE — fixée à la frappe, une valeur par note | le geste du bras |
+| **CC1 (modulation)** | l'INTENSITÉ du son pendant la tenue — dans les banques orchestrales : le crossfade entre couches de dynamique (le p, le mf, le ff *enregistrés*) | le souffle / l'archet |
+| **CC11 (expression)** | le VOLUME expressif fin, par-dessus CC1 | la distance au micro |
+
+**La règle des banques orchestrales** (l'immense majorité des libraries modernes) : les instruments à tenue (cordes, vents, cuivres) écoutent **CC1 pour la dynamique** — la velocity n'y contrôle souvent que l'attaque, voire rien. Corollaire : *le crescendo d'un cor s'écrit en CC1, jamais en velocity*. C'est LE malentendu qui produit des maquettes plates ; il meurt ici. (Les instruments à décroissance — piano, harpe, percussions — restent au royaume de la velocity : l10 M5, la fiche piano, te l'a préparé.)
+
+### 2. Le geste : enregistrer les CC en jouant (pas les dessiner d'abord)
+
+Deux écoles ; l'ordre professionnel est le suivant :
+
+```
+1. JOUE la ligne (les notes), sans te soucier des CC
+2. REJOUE-LA en n'enregistrant QUE le CC1 : molette de modulation sous
+   les doigts, la piste en overdub MIDI (Preferences → Record → MIDI :
+   mode Merge), les yeux fermés, en CHANTANT intérieurement la phrase
+   — tu "diriges" ta propre ligne
+3. AFFINE au crayon dans la lane : les pointes trop hautes, les creux
+   trop vides — l'édition corrige, elle ne crée pas
+```
+
+Pourquoi cet ordre : une courbe *jouée* a la respiration d'un geste ; une courbe *dessinée* a la régularité d'une rampe — et l'oreille entend la différence immédiatement. Le crayon et l'outil Ligne (rampes, sinus) servent pour les cas mécaniques : risers, pulsations de synthé (Module 6 en vivra), fades chirurgicaux.
+
+### 3. Les cinq formes de CC1 à connaître par cœur
+
+Toute l'expressivité orchestrale tient dans cinq gestes de molette — apprends-les comme un vocabulaire :
+
+```
+1. L'ARCHE DE NOTE      chaque tenue gonfle puis retombe légèrement
+   ╱‾╲  (± 15 valeurs)  → le vibrato de vie de base : AUCUNE tenue plate
+2. L'ARCHE DE PHRASE    le CC suit la tensionCurve de ta mélodie (l14 M1 !)
+   la molette monte vers le climax, retombe à la résolution
+3. LE CRESCENDO CIBLÉ   la rampe longue vers un point précis (l10 M1 §2 :
+   "un crescendo a une cible") — souvent dessiné, lui, à l'outil Ligne
+4. LE SFORZANDO-CREUX   pic bref à l'attaque, creux immédiat, regonflement
+   ⌃╲╱‾  → le sforzando-piano-crescendo des grandes tenues dramatiques
+5. LE NIENTE            partir de ~0 ou y mourir — l'entrée invisible
+   (la clarinette de m05-l08 le fait acoustiquement ; le CC1 le fait
+   pour tout le monde)
+```
+
+L'arche de phrase (n° 2) est la connexion profonde du produit : **ta courbe de CC1 devrait ressembler à ta courbe de tension** — le moteur qui analyse l'une (§10.2) décrit l'autre. Un jour prochain, le rapport de mission comparera les deux ; en attendant, c'est ton critère d'auto-contrôle.
+
+### 4. Velocity : le travail qui reste
+
+Même au royaume du CC, la velocity garde deux métiers : **différencier les attaques** dans une même phrase (l'appui du temps fort vs la note de passage — une ligne à velocity constante 100 sonne martelée même avec un beau CC1) et **piloter les articulations courtes** (staccati, pizz : pas de tenue, donc pas de CC — tout est dans la frappe). Geste de masse utile : sélection de notes → la lane Velocity → outil Ligne en pente douce = le decrescendo d'attaques en deux secondes.
+
+### 5. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Crescendo de cordes en velocity | rien ne bouge (la banque n'écoute pas) | CC1 — le réflexe à recâbler définitivement |
+| Tenues à CC constant | le "MIDI de démo" : propre et mort | l'arche de note, partout, toujours |
+| Courbes dessinées à la souris d'abord | des rampes d'ascenseur, pas des phrases | jouer la molette, corriger au crayon |
+| CC1 ET CC11 utilisés pour la même chose | courbes qui se battent, volume incontrôlable | CC1 = dynamique de jeu ; CC11 = ajustement fin par-dessus (± 20 max) |
+| Velocity constante « puisque le CC gère » | attaques martelées | la hiérarchie métrique (l08 M1) dans les frappes |
+
+### La mission (m10-e04, PROUVÉE — la première à vérifier les CC)
+
+Reprends ta soumission de s21 (le thème du héros) dans Cubase, piste cor du template : pose les notes, puis **enregistre le CC1 à la molette en deux passes** (arches de note + l'arche de phrase vers le climax F5). Exporte le MIDI *avec contrôleurs* et soumets. Le moteur vérifie : présence de CC1 sur ≥ 90 % des tenues > 1 temps, variance minimale par tenue (mort aux plateaux), et **corrélation CC1 ↔ tensionCurve ≥ 0.5** sur la phrase — l'arche jouée contre l'arche calculée. *(Extension `proofSubmission` : les contraintes `ccCoverage`, `ccPerNoteVariance`, `ccTensionCorrelation` — trois checkers nouveaux, mécanique triviale sur les events CC du MIDI importé.)*
+
+- [ ] CC1 = la dynamique des tenues ; velocity = l'attaque (et les courtes)
+- [ ] Jouer la molette, corriger au crayon — jamais l'inverse
+- [ ] Les cinq formes : arche de note, arche de phrase, crescendo ciblé, sfz-creux, niente
+- [ ] Ma courbe de CC1 ressemble à ma courbe de tension — c'est le critère
+
+<QuizBlock id="m10-l04-quiz" questions={5} />
+<LessonFooter exercises={["m10-e04-living-horn"]} />

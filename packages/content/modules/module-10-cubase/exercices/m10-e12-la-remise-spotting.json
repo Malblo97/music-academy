@@ -1,0 +1,18 @@
+{ "id": "m10-e12-la-remise-spotting", "lessonId": "m10-l12-image",
+  "title": "« La Remise » : le spotting", "difficulty": 4, "xpReward": 90,
+  "skills": { "DAW_WORKFLOW": 0.7, "RHYTHM": 0.3 },
+  "spec": { "prompt": "Le premier asset-film du produit : « La Remise », 90 secondes muettes (un personnage, une remise, une découverte — trois bascules, deux hits nets). Mission : les vérifications de naissance, le spotting complet, puis fais tomber la mesure sur le hit n° 1 par la méthode manuelle. La composition sera le capstone de l15 — cette mission livre son squelette temporel.",
+    "mission": { "mode": "guided", "assets": ["assets/video-la-remise-v1.mp4"],
+      "checklist": [
+        { "step": "Video Track créée, fichier importé", "verifyHint": "L'image joue dans la session ?" },
+        { "step": "Vérification 1 : FRAME RATE du fichier = celui du projet (Project Setup)", "verifyHint": "Sinon TOUS les timecodes mentent — vérifie avant toute note." },
+        { "step": "Vérification 2 : Project Start Time réglé sur le timecode du fichier", "verifyHint": "Tes repères et ceux de la prod parlent-ils pareil ?" },
+        { "step": "Vérification 3 : version nommée et archivée dans Refs/ (Cut_v1)", "verifyHint": "Le recut est la vie du métier : l'historique commence aujourd'hui." },
+        { "step": "DEUX visionnages muets, sans rien faire", "verifyHint": "L'oreille avant le crayon — qu'as-tu VU changer, et quand ?" },
+        { "step": "Passe 3 : markers IN et OUT de la musique", "verifyHint": "Où entre-t-elle ? Où meurt-elle ?" },
+        { "step": "Markers des 2 HITS (les instants que la musique soulignera)", "verifyHint": "La porte : as-tu le timecode à la frame ?" },
+        { "step": "Markers des 3 BASCULES (les changements d'émotion)", "verifyHint": "Où la scène TOURNE-t-elle ? Ce ne sont pas les coupes — ce sont les émotions." },
+        { "step": "Chaque marker : UNE ligne de description — ce qui se passe + ce que la musique doit y faire", "verifyHint": "« bascule chaud→froid, iv ? » — le spotting traduit le film en brief." },
+        { "step": "Cycle marker sur le cue entier + raccourcis Locate 1–9", "verifyHint": "Navigues-tu le cue comme un plan, pas comme une bande ?" },
+        { "step": "Méthode manuelle sur le HIT n° 1 : tempo naturel, regarde où tombe le hit, ajuste le tempo de la section d'approche de quelques BPM", "verifyHint": "♩=92 → ♩=94.5 : personne n'entend la différence de tempo ; tout le monde entend le hit qui tombe." },
+        { "step": "Verrouille : marker « HIT — porte », la section suivante repart de là", "verifyHint": "Lecture à 1'02\"0 : le temps 1 sonne-t-il AVEC la porte ?" } ] } } }

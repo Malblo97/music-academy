@@ -1,0 +1,12 @@
+{ "id": "m01-e44-first-modulation", "lessonId": "m01-l23-modulation-1",
+  "title": "Le déménagement notarié", "kind": "HARMONY_PROGRESSION",
+  "difficulty": 6, "xpReward": 120, "skills": { "HARMONY": 1.0 },
+  "spec": { "prompt": "10 à 12 mesures : ÉTABLIS do majeur (une phrase cadencée complète — on ne quitte que ce qui a existé), PIVOTE (choisis ton sas parmi les 4 pivots C/G), CONFIRME sol majeur par une cadence parfaite avec le F♯ exposé. L'analyseur fait tourner sa détection en fenêtre glissante : elle doit conclure à un changement STABLE vers sol — pas un flou, pas une visite.",
+    "given": { "key": { "tonic": 0, "mode": "major" } },
+    "constraints": { "lengthBars": [10,12], "minVoices": 4,
+      "startKey": { "tonic": 0, "mode": "major" },
+      "targetKey": { "tonic": 7, "mode": "major" },
+      "requireEstablishingCadence": true, "requireConfirmingCadence": "perfect",
+      "modulationType": "pivot" },
+    "styleProfile": { "id": "classical-common" },
+    "rubric": { "correctness": 30, "constraints": 45, "craft": 25 } } }

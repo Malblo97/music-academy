@@ -1,0 +1,109 @@
+---
+id: m09-l02-epique
+module: module-09-film-genres
+title: "Épique : composer l'immensité"
+estMinutes: 30
+skills: { harmony: 0.3, orchestration: 0.4, rhythm: 0.3 }
+---
+
+### Pourquoi l'épique est un genre d'architecture
+
+m02-l11 t'a donné la vérité inconfortable : l'épique est peu mélodique — sa matière est la **masse organisée**. Cette leçon assemble l'édifice entier : l'harmonie modale qui porte, l'ostinato qui propulse, l'orchestration en étages qui écrase ou élève. Le compositeur épique est un architecte : il ne dessine pas des lignes, il empile des forces.
+
+### 1. Le vocabulaire harmonique
+
+| Outil | Construction | Effet | Vu en |
+|---|---|---|---|
+| **La grammaire modale** | ♭VII→I, ♭VI→♭VII→i (la montée éolienne) | l'héroïsme terrien, la fatalité en marche | l07, l15, l16 M1 |
+| Accords majeurs sur degrés sombres | I–♭VI–♭VII : « du majeur partout, de l'ombre partout » | le paradoxe fondateur du son épique moderne | l21 M1 |
+| Les médiantes chromatiques | C→A♭, C→E, en chaîne | l'agrandissement, la bascule de monde | l24 M1 |
+| Le sus jamais résolu | quartes empilées, sus4 comme état | la neutralité monumentale (ni gai ni triste : GRAND) | l17 M1 |
+| La pédale de dominante | basse tenue sous harmonies mouvantes | la charge qui se prépare | l15 M1 |
+| Les quintes parallèles assumées | mouvement en quintes/octaves des masses | la puissance brute — le poids 0.1 de la matrice §7.8, ENFIN son contexte complet | l20 M1, §7.4 |
+
+Le principe unificateur : **l'épique évite la sensible**. Pas de V7→I aimanté (trop intime, trop « résolu ») — sa gravité vient du mouvement de basse par tons entiers (♭VII→I : la conclusion au marteau) et des masses qui se déplacent en blocs. C'est une harmonie de tectonique, pas d'attraction.
+
+Progression-type (à jouer en blocs de 4–5 sons, quintes à la basse) :
+
+```
+| i        | ♭VI       | ♭III      | ♭VII      |   ×2, puis :
+| i        | ♭VI       | ♭VII      | i         |
+  la boucle éolienne — quatre accords MAJEURS sauf le i : l'ombre
+  qui avance en pleine lumière. Aucune dominante, aucune sensible :
+  la gravité est dans la basse qui arpente le mode.
+```
+
+### 2. L'ostinato : le moteur (la moitié du genre)
+
+L'épique moderne repose sur la **superposition mélodie lente / rythme rapide** : la psalmodie de m02-l11 flotte sur un ostinato qui propulse. L'ostinato épique canonique :
+
+- cellule de 1–2 mesures, cordes graves (celli/basses spiccato, l04–l05) ou percussions ;
+- pattern souvent **asymétrique** (le 3+3+2 de l09 M1 : stable car répété, instable car inégal) ;
+- il **s'épaissit par étages** : celli seuls → +altos à l'octave → +violons → +cuivres en accents. L'ostinato ne varie pas : il *recrute*.
+
+C'est la division du travail du genre : la mélodie porte l'identité (le thème, simple), l'harmonie porte l'ombre (le mode), l'ostinato porte l'énergie. Trois couches, trois vitesses — le contraire exact du « gros son » indifférencié.
+
+### 3. Instrumentation : les étages
+
+```
+COUCHE            INSTRUMENTS (M5)                  RÔLE
+──────────────────────────────────────────────────────────────
+Fondation         contrebasses + celli + tuba¹ +    le continent —
+                  timbales¹                          octaves et quintes,
+                                                     JAMAIS serré (l12 M1)
+Moteur            celli/altos spiccato, percussions le pouls asymétrique
+                  (+ piano percussif, l10)           qui recrute
+Masse harmonique  cors ×4 (le liant, §5.2) +        les murs — blocs
+                  trombones¹, position large         en quintes/octaves
+Proclamation      trompettes + cors unisson          le thème psalmodique
+                  (octaves séparées : le blend-risk  — LARGE, pas fin
+                  géré, l09/§5.2)
+Ciel              violons aigus + flûtes/piccolo     la voûte : tenues
+                  8va (l06)                          suraiguës, lumière
+Chœur¹            voix en voyelles ouvertes          l'humanité massifiée
+```
+¹ fiches V1 — mentions suffisantes au MVP : tuba = l'octave sous les trombones ; timbales = toniques/dominantes frappées ; trombones = le choral de bronze ; chœur = « aah » sur les voyelles du mode.
+
+La loi d'assemblage : **l'épique s'étage, il ne s'empile pas** — chaque couche occupe SA bande de registre (fondation sous C3, moteur C3–C4, murs C3–C5, proclamation C4–C5, voûte au-dessus). C'est la `densityMap` (§4.1.6) en usage positif : la puissance vient de l'espace couvert, pas de la densité locale. Le tutti épique est un immeuble, pas un tas.
+
+### 4. Tempo, rythme, forme
+
+- Tempo : deux régimes — la marche (80–100, l'armée qui avance) et la charge (130–150, l'ostinato en feu) ; le ressenti est toujours *large* (la mélodie en blanches sur le moteur en croches : deux vitesses simultanées) ;
+- Forme : **par paliers** (le gabarit `epic` de m02-l11 : montée-plateau-montée-plateau) — l'épique ne fait pas d'arche, il gravit. Chaque palier = une couche recrutée ;
+- Le silence stratégique : LA coupure sèche avant le palier final (tout s'arrête un temps — puis le tutti). Le plus vieux truc du genre, toujours efficace : l'immensité se mesure au vide qui la précède.
+
+### 5. Construction émotionnelle d'une scène type
+
+```
+   scène : la bataille commence, 3 min
+   masse
+     ▲                                          ╭── TUTTI : tous étages,
+     │                              ╭── ¦silence¦   thème aux cuivres,
+     │                    ╭─────────╯ (1 temps)     médiante finale
+     │          ╭─────────╯ +cors, murs             (C→A♭ : le monde
+     │  ╭───────╯ +ostinato qui recrute             bascule)
+     │──╯ pédale grave + psalmodie nue
+     │  (l'armée au loin)
+     └───────────────────────────────────────────► temps
+        palier 1    palier 2    palier 3    palier 4
+```
+
+### 6. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Le tas | tout le monde joue tout, partout : la boue puissante | l'immeuble : une bande de registre par couche (`orch.density-overload` te le dira) |
+| Fortissimo permanent | l'immensité sans échelle : plus rien n'est grand | les paliers — et le silence avant le sommet |
+| Mélodie trop riche | elle rivalise avec son propre monde (m02-l11, confirmé) | psalmodie : 4–5 notes, le monde fait le reste |
+| V7→I de conclusion | l'épique qui finit en hymne d'église | ♭VII→I au marteau, ou la médiante-bascule |
+| Ostinato qui varie | le moteur qui bégaie | l'ostinato ne varie pas : il recrute |
+| Tester au piano seul | « c'est vide » — évidemment (l10 M5 : le piano ment) | juge sur fondation + moteur minimal, toujours |
+
+### 7. Alternatives intérieures au genre
+
+- **Épique sombre** (la défaite, le sacrifice) : même architecture, mode phrygien (♭2̂), tempo de marche funèbre — les paliers descendent ;
+- **Épique lumineux** (la victoire, l'aube) : majeur/mixolydien, la voûte domine (violons/flûtes), médiantes ascendantes ;
+- Frontières : + intimité mélodique → héroïque de personnage (m02-l11 : la distinction fondatrice) ; + apesanteur et espace → SF (m02-l13 : l'épique gravit, la SF flotte) ; + ostinato sans mélodie ni paliers → thriller (leçon suivante : le moteur sans la proclamation).
+
+<QuizBlock id="m09-l02-quiz" questions={5} />
+<LessonFooter exercises={["m09-e03-eolian-wall", "m09-e04-recruit-the-tiers"]} />

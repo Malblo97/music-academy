@@ -1,0 +1,5 @@
+{ 
+    "exerciseId": "m01-e38-tritone-swap", 
+    "notation": "[D3+F4+C5+E5]:w | [G2+F4+Bb4+D5]:w | [Eb3+Db4+G4+A4]:w | [D3+F4+A4+D5]:w | [Ab2+Gb4+C5+Eb5]:w | [G2+F4+Bb4+D5]:w | [A2+G4+C#5+E5]:w | [D3+F4+A4+D5]:w", 
+    "authorNotes": "E♭7 (3=G4, 7=D♭4) basse→D3 ✓ ; A♭7 (3=C5, 7=G♭4) basse→G2 ✓ ; `harmony.tritone-sub-resolution` ×1.5 : les deux demi-tons de basse ✓ ; le contraste porte/couloir : A7→Dm final = la porte conservée ✓. *(F-6 : G♭4 ≡ F♯4 en pitch-class — la détection tient.)*" 
+}

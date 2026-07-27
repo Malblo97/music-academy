@@ -1,0 +1,9 @@
+{ "id": "m01-e19-dynamics-map", "lessonId": "m01-l10-expression",
+  "title": "La carte d'intensité", "kind": "THEORY_QUIZ",
+  "difficulty": 3, "xpReward": 40, "skills": { "ORCHESTRATION": 0.6, "RHYTHM": 0.4 },
+  "spec": { "prompt": "Une scène est décrite : choisis le plan de nuances qui la sert. Le budget dramatique, l10 §1.",
+    "quiz": { "interaction": "mc",
+      "items": [
+        { "q": "Scène : révélation finale après 2 min de tension rampante. Le plan :", "options": ["ff constant dès le début","pp → cresc. long → ff SUR la révélation","mf partout, ff sur chaque accent"], "answer": "pp → cresc. long → ff SUR la révélation", "why": "Le fff n'existe que par les pp qui précèdent. Cible + moment : le crescendo a une adresse." },
+        { "q": "Une tenue de cordes sans courbe CC1/11 sonne :", "options": ["stable","morte","plus puissante"], "answer": "morte", "why": "La velocity fixe l'attaque ; la VIE de la tenue est dans le contrôleur continu." },
+        { "q": "L'outil « surprise » le moins cher :", "options": ["accelerando","subito pp après crescendo","tremolo"], "answer": "subito pp après crescendo", "why": "La vague qui se retire avant de frapper (l10 §2)." } ] } } }

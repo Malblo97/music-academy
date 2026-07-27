@@ -1,0 +1,9 @@
+{ "id": "m01-e20-articulation-scene", "lessonId": "m01-l10-expression",
+  "title": "Quatre sens pour les mêmes notes", "kind": "THEORY_QUIZ",
+  "difficulty": 3, "xpReward": 40, "skills": { "ORCHESTRATION": 1.0 },
+  "spec": { "prompt": "Associe l'articulation à l'intention — puis vérifie à l'oreille (chaque option est jouable ▶).",
+    "quiz": { "interaction": "mc",
+      "items": [
+        { "q": "Une pensée qui se déroule sans rupture :", "options": ["staccato","legato","marcato"], "answer": "legato", "play": "C4:q~D4:q~E4:q~G4:h", "why": "Notes liées = ligne = chant." },
+        { "q": "Une mécanique espiègle :", "options": ["tenuto","legato","staccato"], "answer": "staccato", "play": "C4:e r:e D4:e r:e E4:e r:e G4:q", "why": "Notes écourtées, détachées : la légèreté nerveuse." },
+        { "q": "Pour une ponctuation sombre et sèche aux cordes :", "options": ["tremolo","pizzicato","legato"], "answer": "pizzicato", "why": "La corde pincée : la goutte dans la nuit (tu l'as vue dans l'instrumentation néo-noir)." } ] } } }

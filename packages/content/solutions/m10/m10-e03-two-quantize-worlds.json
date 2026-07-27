@@ -1,0 +1,48 @@
+{
+    "exerciseId": "m10-e03-two-quantize-worlds",
+    "payload": {
+      "mode": "proof",
+      "ppq": 480,
+      "meter": "4/4",
+      "tempo": 100,
+      "assets": [
+        "assets/m10-e03-mission.pdf"
+      ],
+      "tracks": [
+        {
+          "name": "OST Celli",
+          "from": "m01-s18",
+          "entry": "crayon (programmé)",
+          "articulation": "spiccato",
+          "notation": "A3:q. A3:e C4:e A3:e E4:q | A3:q. A3:e C4:e A3:e D4:q | A3:q. A3:e B3:e A3:e E4:q | A3:h. E3:q | A3:q. A3:e C4:e A3:e F4:q | A3:q. A3:e C4:e A3:e E4:q | A3:q. A3:e C4:e E4:e~E4:q | C4:q B3:q A3:h",
+          "quantize": {
+            "mode": "hard",
+            "grid": "1/8",
+            "strength": 1
+          },
+          "humanize": null
+        },
+        {
+          "name": "MEL Cor",
+          "from": "m02-s21",
+          "entry": "joué au clavier",
+          "articulation": "legato",
+          "notation": "r:h. F4:e | Bb4:q. C5:e D5:q Bb4:q | C5:q A4:q F4:q. F4:e | Bb4:q. C5:e D5:q C5:q | Eb5:q D5:q Bb4:q. Bb4:e | F5:h. r:e Bb4:e | Bb4:q. C5:e D5:q Bb4:q | C5:q A4:q Bb4:h",
+          "humanize": {
+            "seed": 11,
+            "offsetTicks": 60,
+            "distribution": "uniform"
+          },
+          "quantize": {
+            "mode": "iterative",
+            "grid": "1/8",
+            "strength": 0.6
+          }
+        }
+      ],
+      "postProcess": [
+        "Delete Overlaps sur les deux pistes"
+      ]
+    },
+    "authorNotes": "« Deux pistes, deux esthétiques du temps — et la même musique du corpus : l'exercice ne compare pas des œuvres, il compare deux rapports au temps. » Piste 1 = l'ostinato de m01-s18 au crayon, quantize dur assumé (le tic-tac le veut) ; piste 2 = le thème de m02-s21 JOUÉ puis Iterative 60 %. Chiffres vérifiés : piste 1 écart max 0 tick ≤ 5 ✓, profil `quantizeInfo` 1,00 ; piste 2 résidu moyen 12 ticks, max 24 ∈ [8,60] ✓, profil 0,63 ; hauteurs 100 % conformes aux deux sources ; zéro chevauchement après Delete Overlaps. Finding F-59 : §76 déclarait ce témoin conforme avec `humanize ±14` puis itération 0,6 — or une force de 60 % RAPPROCHE de 60 %, le résidu vaut 40 % de l'écart, soit 5,6 ticks : sous le plancher de 8, le témoin échouait à son propre checker. Sémantique désormais normative (résidu = (1 − strength) × écart) et témoin recalibré à ±60 ticks (≈ ±75 ms à ♩=100, un jeu au clavier plausible). Le chiffre de sortie de §76 (0,63) était juste, son chiffre d'entrée non."
+  }

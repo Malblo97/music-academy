@@ -1,0 +1,92 @@
+{
+  "id": "m07-e10-the-orchestrated-cue",
+  "lessonId": "m07-l10-synthese",
+  "title": "Le cue orchestré : Elena",
+  "kind": "ORCHESTRATE",
+  "difficulty": 8,
+  "xpReward": 400,
+  "skills": { "ORCHESTRATION": 0.6, "MELODY": 0.1, "HARMONY": 0.1, "COUNTERPOINT": 0.1, "DAW_WORKFLOW": 0.1 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "pool": "medium",
+  "badge": "module-07-orchestration-avancee",
+  "styleProfile": { "id": "romantic-film", "targetMood": "noble-melancholy", "ruleWeights": {} },
+  "rubric": { "correctness": 25, "constraints": 35, "craft": 40 },
+  "spec": {
+    "version": 1,
+    "prompt": "Le capstone — et il était déjà commencé : e05 a donné à Elena sa garde-robe, e06 sa crue, e07 son sommet, e08 sa coupure. Il ne manquait que les coutures, une coda, et la conscience de la forme. Le brief : « Elena — le cue complet. 48 mesures, l'arche entière : l'exil (intime) → l'espoir (la crue) → le souvenir du départ (le sommet) → la vérité (la coupure) → ce qui reste (la coda). » Le thème est le même, la grille bouge à peine : TOUTE la dramaturgie est orchestrale. C'est la thèse du module — l'orchestration EST la forme.",
+    "given": {
+      "key": { "tonic": 9, "mode": "minor" },
+      "theme": "asset:m02-e30-elena-theme",
+      "sourceSubmissions": [
+        "m04-e11-elenas-countermelody",
+        "m07-e05-elena-cast",
+        "m07-e06-the-flood",
+        "m07-e07-the-edifice",
+        "m07-e08-the-few"
+      ],
+      "tempoBpm": 76
+    },
+    "parts": [
+      {
+        "id": "part1-architecture",
+        "prompt": "L'ARCHITECTURE : trois plans superposés déclarés sur la forme entière — la carte des sections (5 sections nommées, leurs effectifs), le rolePlan par section, le crescendoPlan de la crue (les cinq leviers assignés). La forme d'un cue se planifie en effectifs avant de se planifier en thèmes. Et le geste se chiffre : une coupure déclarée, c'est un différentiel d'effectif ≥ 60 % entre sections adjacentes.",
+        "constraints": {
+          "sectionMap": { "sectionsCount": 5, "named": true, "effectifsDeclared": true },
+          "rolePlan": { "declared": true, "perSection": true, "verifiedAgainstDetected": true },
+          "crescendoPlan": { "declared": true, "levers": ["dynamics", "effectif", "stages", "doublings", "activity"] },
+          "sectionEffectiveDelta": { "onDeclaredCut": 0.6 },
+          "planCompleteness": true
+        }
+      },
+      {
+        "id": "part2-score",
+        "prompt": "LA PARTITION : les 48 mesures en Part[] complet, pool Medium. Le moteur déroule TOUT le module — les rôles détectés contre déclarés, les alliages contre la table de chimie, le tapis et ses trois vies, le moteur et son articulation unifiée, la hiérarchie du duo, les cinq courbes du crescendo, l'immeuble du tutti, le silence organisé de l'intime — plus melody.* sur le thème, cpt.* sur le contrechant, harmony.* sur la grille. Le rapport le plus complet du produit, tous registres confondus.",
+        "constraints": {
+          "lengthBars": [48, 48],
+          "format": "Part[]",
+          "pool": "medium",
+          "rolePlan": { "verifiedAgainstDetected": true, "perSection": true },
+          "doublingDetection": { "enabled": true, "alloyTable": { "source": "instruments.ts" } },
+          "carpetLife": { "minLives": 1 },
+          "unifiedArticulation": { "perPlan": true },
+          "separationAxes": { "registerSemitonesMin": 12, "timbreFamiliesDistinct": true, "rhythmicComplement": { "simultaneousStrongAttacksMax": 0.35 } },
+          "fiveCurvesTracing": {
+            "effectif": "activePartsCount",
+            "stages": "ambitusSpan",
+            "doublings": "doublingTags",
+            "activity": "attackDensity",
+            "dynamics": "velocityMean"
+          },
+          "edificeCheck": { "oneEmploymentPerStage": true, "onSummitSectionOnly": true },
+          "silenceRatioMin": { "onIntimateSection": 0.25 },
+          "summitHeld": { "minBars": 2 },
+          "exitGesture": { "required": true, "allowed": ["decrease-from-top", "cut-to-solo"] },
+          "codaRequired": { "lengthBars": [4, 8], "effectifBelowOpening": true },
+          "checkers": [
+            "orch.range-violation", "orch.balance", "orch.masking", "orch.register-color",
+            "orch.endurance", "orch.agility", "orch.low-interval-limit", "orch.role-coverage",
+            "orch.blend-risk", "densityMap", "effectivePower",
+            "melody.climax", "melody.tension-placement", "cpt.contrary-preference", "harmony.loop-coherence"
+          ]
+        },
+        "rubric": { "correctness": 30, "constraints": 35, "craft": 35 }
+      },
+      {
+        "id": "part3-reading",
+        "prompt": "LA LECTURE : cinq champs guidés — la bascule principale et son geste orchestral, le budget dépensé (qu'as-tu gardé en réserve, et jusqu'où), le choix de soliste et son pourquoi, ce que la passe 6 t'a fait corriger, ce que tu as retiré. Le produit ne juge pas la prose : il vérifie la concordance déclaré↔détecté. Dire ce qu'on a fait est la compétence qui parle aux réalisateurs.",
+        "constraints": {
+          "commentary": {
+            "fields": 5,
+            "concordanceChecks": [
+              "rolePlan-vs-detected",
+              "crescendoPlan-vs-five-curves",
+              "solo-choice-vs-register-report",
+              "sectionMap-vs-densityMap"
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "id": "m06-e15-la-remise-hybrid",
+  "lessonId": "m06-l15-synthese",
+  "title": "« La Remise » : la version hybride",
+  "kind": "LAYERING",
+  "difficulty": 8,
+  "xpReward": 400,
+  "skills": { "SOUND_DESIGN": 0.6, "ORCHESTRATION": 0.2, "HARMONY": 0.1, "MELODY": 0.1 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "badge": "module-06-sound-design",
+  "styleProfile": { "id": "hybrid-score", "ruleWeights": {} },
+  "rubric": { "correctness": 25, "constraints": 40, "craft": 35 },
+  "spec": {
+    "version": 1,
+    "prompt": "Le capstone LAYERING — la plus grande soumission déclarative du produit. « La Remise » : la scène que tu as spottée (m10-e12) et composée pour orchestre (m10-e15) se réécrit en score HYBRIDE — même vidéo, mêmes bascules, autre monde sonore. Le diptyque m10-e15 / m06-e15 devient la pièce maîtresse de ton portfolio : la même scène, deux mondes, une seule dramaturgie — la preuve que la composition précède l'instrumentarium.",
+    "parts": [
+      {
+        "id": "part1-distribution",
+        "prompt": "LA DISTRIBUTION : avant toute note, le plan des mondes — pour chacun des 7 rôles (sub/body/top/texture/movement/fx/melodic), le titulaire et le POURQUOI (champ libre par rôle) : l'orchestre habillé, la machine humanisée, ou le duel ? Puis le plan des bascules : quel geste à 0'31\", 1'02\", 1'08\" — phrase de ponctuation, changement de lieu, passage de témoin, ouverture de largeur. La décision la plus structurante de la scène se prend sans toucher un synthé.",
+        "constraints": {
+          "worldDistribution": { "roles": ["sub", "body", "top", "texture", "movement", "fx", "melodic"], "titularRequired": true, "argumentRequired": true },
+          "basculePlan": {
+            "bascules": ["0:31.0", "1:02.0", "1:08.0"],
+            "allowedGestures": ["punctuation-phrase", "place-change", "world-handoff", "width-opening"]
+          },
+          "checkers": ["sd.role-coverage"]
+        }
+      },
+      {
+        "id": "part2-stack",
+        "prompt": "LE STACK COMPLET : le LayerStack intégral — 8 à 14 couches sur la durée de la scène. Le stack de croisière (3–4 couches actives, réglementaires), les couches jouées (notes incluses : l'harmonie re-jugée par M1, la ligne par M2), les FX événementiels calés aux bascules (cibles en ticks × timecode — la vérification signature de M10, recyclée), les sidechains déclarés, et les TROIS coordonnées de chaque couche : fréquence × profondeur × largeur — la scène sonore complète, la densityMap en trois dimensions. Le moteur déroule TOUT : le rapport le plus large du produit avec m10-e15.",
+        "constraints": {
+          "layersCount": [8, 14],
+          "cruiseStack": { "maxActiveLayers": 4 },
+          "playedLayersJudged": { "harmony": true, "melody": true },
+          "fxTargets": { "onBascules": ["0:31.0", "1:02.0", "1:08.0"], "toleranceBeats": 1 },
+          "threeCoordinatesPerLayer": { "band": true, "sends": true, "widthPan": true },
+          "levelPyramid": { "invisibleLayers": ["texture"] },
+          "subMonoRequired": true,
+          "checkers": ["sd.sub-conflict", "sd.sub-width", "sd.band-void", "sd.band-pileup", "sd.static-stack", "sd.wash-out", "sd.role-coverage", "motionPlan"]
+        },
+        "rubric": { "correctness": 30, "constraints": 40, "craft": 30 }
+      },
+      {
+        "id": "part3-subtraction",
+        "prompt": "LA SOUSTRACTION : le livrable d'économie. Le champ removed est OBLIGATOIRE et argumenté — au moins 2 couches essayées puis coupées, et pourquoi. On assemble par addition, on finit par soustraction : la discipline érigée en livrable noté — on juge aussi ce que tu as su enlever.",
+        "constraints": {
+          "removedRequired": { "min": 2, "argued": true }
+        }
+      }
+    ],
+    "given": {
+      "video": "asset:video-la-remise-v1",
+      "sourceSubmissions": ["m10-e12-la-remise-spotting", "m10-e15-la-remise-complete"],
+      "tempoBpm": 72
+    }
+  }
+}

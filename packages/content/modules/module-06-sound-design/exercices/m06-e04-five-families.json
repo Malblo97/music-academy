@@ -1,0 +1,34 @@
+{
+  "id": "m06-e04-five-families",
+  "lessonId": "m06-l04-pads",
+  "title": "Cinq familles, trois briefs (et un piège)",
+  "kind": "LAYERING",
+  "difficulty": 4,
+  "xpReward": 90,
+  "skills": { "SOUND_DESIGN": 0.8, "ORCHESTRATION": 0.2 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "hybrid-score", "ruleWeights": {} },
+  "rubric": { "correctness": 35, "constraints": 40, "craft": 25 },
+  "spec": {
+    "version": 1,
+    "prompt": "Trois briefs courts : « la mémoire d'un été », « la salle des serveurs », « le monastère en ruine ». Pour chacun : choisis la famille à la table de décision (chaleur→analog, espace→ambient, froid→digital, sacré→choir, étrange→hybrid), fabrique ou ajuste le pad, déclare sa couche (role body, famille en source, bande disciplinée — high-pass à 100 : le pad n'est pas le monde — et une motion). Puis le quatrième brief, le piège : « le héros se souvient » — deux familles sont défendables (analog / hybrid) : le rapport crédite les deux et affiche le pourquoi de chacune. Tu ne cherches plus un pad : tu le choisis.",
+    "constraints": {
+      "requiredLayers": [
+        { "id": "brief-1", "role": "body", "brief": "la mémoire d'un été", "band": { "lowMin": 90 } },
+        { "id": "brief-2", "role": "body", "brief": "la salle des serveurs", "band": { "lowMin": 90 } },
+        { "id": "brief-3", "role": "body", "brief": "le monastère en ruine", "band": { "lowMin": 90 } },
+        { "id": "brief-4", "role": "body", "brief": "le héros se souvient", "band": { "lowMin": 90 } }
+      ],
+      "familyBriefMapping": {
+        "la mémoire d'un été": ["analog"],
+        "la salle des serveurs": ["digital"],
+        "le monastère en ruine": ["choir"],
+        "le héros se souvient": ["analog", "hybrid"]
+      },
+      "motionPlan": { "minMotionsPerLayer": 1 },
+      "bandDiscipline": true,
+      "checkers": ["sd.band-pileup", "sd.static-stack"]
+    }
+  }
+}

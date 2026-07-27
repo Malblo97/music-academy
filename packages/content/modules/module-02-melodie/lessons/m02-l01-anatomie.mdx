@@ -1,0 +1,102 @@
+---
+id: m02-l01-anatomie
+module: module-02-melodie
+title: "L'anatomie d'une mélodie mémorable"
+estMinutes: 25
+skills: { melody: 1.0 }
+---
+
+### Pourquoi commencer par la mémoire
+
+Le test ultime d'un thème de film n'est pas « est-il beau ? » mais : **le spectateur peut-il le fredonner en sortant de la salle ?** Un thème qu'on ne retient pas ne peut pas faire son travail narratif — revenir, se transformer, signifier. Cette leçon dissèque ce qui rend une mélodie *mémorisable* : ce n'est ni un mystère ni un don, c'est une liste de propriétés mesurables — celles, précisément, que `findMotifs` et ses collègues calculent sur tes exercices.
+
+### 1. Le contrat avec l'auditeur
+
+Une mélodie mémorable honore un contrat en trois clauses :
+
+```
+1. IDENTITÉ    quelque chose d'assez distinctif pour être reconnu
+               (un motif, un intervalle-signature, un rythme)
+2. ÉCONOMIE    assez peu de matériau pour être retenu
+               (les grands thèmes tiennent sur 1 ou 2 cellules)
+3. FAMILIARITÉ ORGANISÉE   assez de répétition pour ancrer,
+               assez de variation pour ne pas lasser
+```
+
+La clause 3 est l'équilibre central du module — le couloir entre deux règles du moteur que tu connais : `melody.no-motif` (rien à retenir) et `melody.monotony` (répétition sans vie). Tout le métier mélodique habite entre ces deux murs.
+
+### 2. La dissection : de quoi un thème est fait
+
+Prends n'importe quel grand thème que tu as en tête (on travaille sur les *principes*, jamais sur les partitions — charte du produit) et dissèque-le mentalement. Tu trouveras presque toujours :
+
+| Composant | Taille typique | Rôle |
+|---|---|---|
+| **Le motif** (la cellule) | 2–6 notes | l'ADN — c'est LUI qu'on retient |
+| **La phrase** | 2–4 mesures | le motif mis en situation, avec sa respiration |
+| **Le thème** | 8–16 mesures | 2–4 phrases organisées (souvent en période, l16 M1) |
+| **L'intervalle-signature** | 1 intervalle | le geste identitaire (la quinte héroïque, la sixte romantique — table l02 M1 §6) |
+
+Proportion révélatrice : dans un thème de 8 mesures (~30 notes), le matériau *nouveau* représente souvent moins de 40 % — le reste est répétition et variation du motif. **Composer une mélodie, c'est à 60 % réorganiser ce qu'on a déjà dit.** Les débutants inventent trop ; les professionnels développent.
+
+<MusicExample id="dissection" title="Dissection d'un thème original de 8 mesures">
+  G4:q. D5:e D5:q C5:e B4:e | A4:q. D4:e D4:h | G4:q. D5:e D5:q C5:e B4:e | C5:q. A4:e A4:h |
+  B4:q. G4:e G4:q A4:e B4:e | C5:q D5:q E5:h | D5:q C5:e B4:e A4:q D4:q | G4:w
+  Dissèque : motif = « q. e » + saut de quinte G→D (mes. 1). Mes. 3 : répétition
+  EXACTE (ancrage). Mes. 5 : le rythme du motif, l'intervalle inversé (variation).
+  Mes. 7 : descente conclusive = fragment du motif étiré. Matériau nouveau : la
+  mesure 6 — UNE sur huit. Et pourtant, rien ne se répète « bêtement ».
+</MusicExample>
+
+Rejoue l'exemple et vérifie chaque affirmation au clavier — puis passe-le dans le Melody Practice : `findMotifs` retrouvera le motif, ses 3 occurrences (1 exacte, 2 variées) et créditera `hasVariedRepetition`. **L'analyse machine et la dissection manuelle doivent coïncider : c'est ton contrôle qualité mutuel.**
+
+### 3. Les cinq propriétés mesurables de la mémorabilité
+
+Ce que la recherche sur la mémoire musicale et deux siècles de métier convergent à dire — et ce que le produit mesure :
+
+1. **Un motif court, répété avec variation** — la propriété reine (`findMotifs` : occurrences ≥ 3, dont ≥ 1 variée).
+2. **Un contour simple** — arche, ligne descendante, ou vague : les contours à plus de 3 changements de direction par phrase se retiennent mal (`contour()` compte les segments).
+3. **Majorité de mouvement conjoint, sauts rares donc signifiants** — le saut mémorable est celui qui est SEUL de son espèce dans la phrase (`leapProfile`).
+4. **Un rythme identifiable indépendamment des hauteurs** — le test de la table (l09 M1 §3) : tape le rythme seul ; s'il est reconnaissable, la mélodie tiendra.
+5. **Un atterrissage clair** — la fin est la deuxième chose qu'on retient après le début (`melody.ending-weak`).
+
+Remarque ce que la liste NE contient PAS : l'originalité harmonique, la sophistication, la virtuosité. Un thème mémorable peut être harmoniquement banal (beaucoup le sont) ; un thème sophistiqué et sans motif s'évapore. **La hiérarchie du métier : mémorable d'abord, intéressant ensuite.**
+
+### 4. Le test des trois écoutes (ton protocole de validation)
+
+Avant de soumettre toute mélodie du module, applique ce protocole :
+
+```
+1. Joue ta mélodie UNE fois, attentivement.
+2. Fais autre chose pendant 2 minutes (littéralement : lève-toi).
+3. Essaie de la CHANTER de mémoire, sans clavier.
+   → tu la chantes entière : mémorable ✓
+   → tu chantes le début puis inventes : le développement ne tient pas
+     (trop de matériau nouveau après la mesure 4 — cas le plus fréquent)
+   → tu ne retrouves rien : pas de motif, ou contour chaotique
+4. Ce que ta mémoire a GARDÉ est ton vrai motif — même si ce n'est pas
+   celui que tu croyais avoir écrit. Ce que ta mémoire a JETÉ est ce
+   qu'il faut retravailler.
+```
+
+L'étape 4 est l'enseignement le plus précieux : **ta propre mémoire est ton premier analyseur** — elle exécute `findMotifs` biologiquement. Le produit fait le même travail en machine ; quand les deux divergent, écoute ta mémoire.
+
+### 5. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Inventer en continu | « jolie mais je ne la retiens pas moi-même » | 60 % de développement, 40 % de nouveau — maximum |
+| Confondre mémorable et simpliste | peur de la répétition → fuite en avant | la répétition VARIÉE est l'outil des maîtres, pas des paresseux |
+| Trois idées dans une phrase | l'auditeur ne sait pas quoi retenir | une cellule par thème ; la 2e idée attendra le pont |
+| Juger au clavier, jamais de mémoire | l'oreille suit les doigts, tout semble tenir | le test des trois écoutes, systématique |
+| Chercher LA grande mélodie d'emblée | paralysie | un bon motif développé bat une grande idée isolée — toujours |
+
+### Récapitulatif
+
+- [ ] Le contrat : identité, économie, familiarité organisée
+- [ ] Anatomie : motif (2–6 notes) → phrase → thème ; ~60 % de développement
+- [ ] Les 5 propriétés mesurables — et ce qui n'en fait pas partie
+- [ ] Le test des trois écoutes est mon protocole permanent
+- [ ] Ma mémoire exécute findMotifs : quand elle jette quelque chose, je retravaille
+
+<QuizBlock id="m02-l01-quiz" questions={5} />
+<LessonFooter exercises={["m02-e01-dissect", "m02-e02-three-listens"]} />

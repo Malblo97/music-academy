@@ -1,0 +1,5 @@
+{ 
+    "exerciseId": "m01-e27-function-story", 
+    "notation": "[D3+F#4+A4+D5]:w | [B2+F#4+B4+D5]:w | [G2+G4+B4+D5]:w | [A2+G4+A4+C#5]:w | [D3+F#4+A4+D5]:w | [E3+G4+B4+D5]:w | [A2+G4+A4+C#5]:w | [D3+F#4+A4+D5]:w", 
+    "authorNotes": "Plan : D(T) · Bm(T) · G(S) · A7(D) · D(T) · Em(S) · A7(D) · D(T) — `functionOf` case par case ✓ ; les deux D sont costumés différemment (S = G puis Em : la variété dans le plan) ; 7e de A7 (G4) → F♯4 les deux fois ✓ ; sensible C♯5→D5 ✓ ; cadence parfaite ✓." 
+}

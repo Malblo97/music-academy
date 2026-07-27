@@ -1,0 +1,5 @@
+{ 
+    "exerciseId": "m01-e13-modal-melody", 
+    "notation": "D4:q F4:q A4:q B4:q | B4:h A4:h | D4:q E4:q F4:q G4:q | A4:q G4:q F4:q E4:q | F4:q A4:q B4:h | C5:q B4:q A4:q G4:q | A4:q G4:q F4:q E4:q | E4:q C4:q D4:h", 
+    "authorNotes": "Expositions du B (6̂ majeure) : mes. 2 (temps fort + blanche) et mes. 5 (blanche sur temps 3) — `minExposureCount 2` ✓. Tonique établie (départ/arrivée D, 100 % dorien). *Test de vérité de l07 : remplace les B par B♭ — tout bascule en éolien.*" 
+}

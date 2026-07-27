@@ -1,0 +1,20 @@
+{
+  "exerciseId": "m04-e12-the-woven-scene",
+  "partId": "part2-scene",
+  "payload": {
+    "texturePlan": [
+      { "bars": [1, 8], "acte": 1, "texture": "melodie+socle puis imitation lointaine" },
+      { "bars": [9, 16], "acte": 2, "texture": "strette + suspension" },
+      { "bars": [17, 20], "acte": 3, "texture": "superposition + fleuve" },
+      { "bars": [21, 24], "acte": 3, "texture": "homophone" }
+    ],
+    "score": [
+      { "bars": [1, 8], "V1": "A @D4 (m1–2) · r:h G4:h~ (m3) · G4:h A4:h (m4) · fragments de tête espacés (m5–8)", "V2": "r (m1–4) · B @B3 (m5–7 — l'entrée LOINTAINE : délai 4, l'autre registre) · A3:h~ A3:h (m8)", "V3": "G2:w | E2:w | C3:w | D3:w | G2:w | C3:w | A2:w | D3:w (le socle discret)" },
+      { "bars": [9, 14], "entries": "tête-A @G4 (m9, V1) → tête-B @B3 (m11, V2 : Δ2) → tête-A @D5 (m12, V1 : Δ1) → tête-B @E4 (m12.5, V2 : Δ0.5 — ils se voient)", "b13-14": "convergence par mouvement contraire (V1 descend de D5, V2 monte de E4)" },
+      { "bars": [15, 16], "V1": "C5:h~ tenue sur l'accord de sol (4e contre G3/V3 et B3/V2), résolue B4 (m15.3), puis B4:w", "V2": "G3:w (m16)", "V3": "G2:w (m16) — la respiration avant l'ensemble" },
+      { "bars": [17, 20], "V1": "A @D4 tel quel", "V2": "B @B3 tel quel (la preuve de part 1 encaissée note à note)", "V3": "r:w | r:h G2:h~ | G2:h A2:h~ | A2:h D3:h (le fleuve lent dessous)", "b20": "V1: E5:q D5:q B4:h · V2: C4:h A3:h" },
+      { "bars": [21, 24], "tutti": "[G2+B3+D5]:h [G2+C4+E5]:h | [C3+C4+E5]:h [D3+B3+D5]:h | [D3+A3+C5]:h [D3+C4+D5]:h | [G2+B3+G4]:w" }
+    ]
+  },
+  "authorNotes": "**Témoin F-32 — la strette à deux sujets** : l'acte 2 compresse les entrées de DEUX têtes différentes (A et B qui se rapprochent) ; le checker fusionne les entrées des `heads[]` déclarées dans UNE timeline et mesure l'arche de délais sur la suite fusionnée — délais mesurés 2 → 1 → 0.5 ✓. LE RETARD DU REGARD (m15) : préparation consonante (m14) → liaison → 4e sur appui → résolution descendante (`suspensionCheck`, F-29) — climax de tissage à 62 %. La superposition (m17–19) = l'ancrage de part 1 vérifié À L'IDENTIQUE (F-31). Le fleuve de V3 : les métriques de la recette s11-fleuve (entrées décalées, jamais couvrir). Correction de composition appliquée à m23 : la sixte A3–C5 file vers la septième C4 sur D (V7) avant l'accord final — le choral cadence V→I ; l'ultime verticalité {G,B,G} assume sa quinte absente : 3 voix, la conduite prime. 4 régimes détectés aux frontières déclarées."
+}

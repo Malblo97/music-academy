@@ -1,0 +1,292 @@
+{
+    "exerciseId": "m10-e15-la-remise-complete",
+    "payload": {
+      "mode": "guided+proof",
+      "badge": "module-10-cubase",
+      "assets": [
+        "assets/video-la-remise-v1.mp4",
+        "assets/la-remise/manifest.json"
+      ],
+      "parts": [
+        {
+          "id": "part1-spotting",
+          "mode": "declarative+proof",
+          "format": "csv",
+          "checklist": [
+            {
+              "id": "e15-p1-s1",
+              "expect": "projet depuis TEMPLATE_Sketch · 48/24 · 24 fps · Ctrl+Alt+S ×2 ; Root Key EN ATTENTE du spotting"
+            },
+            {
+              "id": "e15-p1-s2",
+              "expect": "deux visionnages muets puis table complète : IN/OUT, 2 hits, 3 bascules, descriptions rédigées"
+            },
+            {
+              "id": "e15-p1-s3",
+              "expect": "Marker Window exportée en CSV"
+            }
+          ],
+          "markerTable": [
+            {
+              "id": "IN",
+              "tc": "00:00:00:00",
+              "sec": 0,
+              "bar": 1,
+              "beat": 1,
+              "desc": "le cue entre AVEC l'image — origine imposée par l'identité B2 = mes. 26 t1 à ♩=96,8"
+            },
+            {
+              "id": "B1",
+              "tc": "00:00:31:00",
+              "sec": 31,
+              "bar": 13,
+              "beat": 3,
+              "desc": "bascule de lieu, entrée dans la remise — la couleur se voile, le tempo ne bouge pas"
+            },
+            {
+              "id": "B2",
+              "tc": "00:01:02:00",
+              "sec": 61.98,
+              "bar": 26,
+              "beat": 1,
+              "desc": "bascule de ponctuation, l'objet trouvé — l'extension 5/4 commence ici"
+            },
+            {
+              "id": "H1",
+              "tc": "00:01:08:00",
+              "sec": 68,
+              "bar": 28,
+              "beat": 1,
+              "desc": "HIT n°1 — la porte claque"
+            },
+            {
+              "id": "B3",
+              "tc": "00:01:22:00",
+              "sec": 82,
+              "bar": 33,
+              "beat": 3,
+              "desc": "bascule finale — la compréhension"
+            },
+            {
+              "id": "H2",
+              "tc": "00:01:26:00",
+              "sec": 86,
+              "bar": 35,
+              "beat": 1,
+              "desc": "HIT n°2 — le regard caméra final (corrigé de 1'34\" par F-57)"
+            },
+            {
+              "id": "OUT",
+              "tc": "00:01:29:05",
+              "sec": 89.22,
+              "bar": 36,
+              "beat": 2,
+              "desc": "la musique meurt ; queue de réverbération jusqu'à ≈1'32\" — locators d'export à 1'32\"0"
+            }
+          ]
+        },
+        {
+          "id": "part2-music",
+          "mode": "proof",
+          "checklist": [
+            {
+              "id": "e15-p2-s1",
+              "expect": "LE TEMPS D'ABORD : ♩=96,8, la mesure sur H1 par la méthode manuelle, Signature Track pour l'extension de B2"
+            },
+            {
+              "id": "e15-p2-s2",
+              "expect": "composition au Key Editor : motif de la curiosité, vis douce vers le hit, accord de la découverte argumenté"
+            },
+            {
+              "id": "e15-p2-s3",
+              "expect": "orchestration et vie : rôles par fiches M5, Expression Maps posées, PUIS la passe CC1 ligne par ligne"
+            },
+            {
+              "id": "e15-p2-s4",
+              "expect": "export multi-pistes, macro PREP, événements de tempo inclus"
+            }
+          ],
+          "witness": {
+            "ppq": 480,
+            "key": "ré mineur",
+            "bars": 36,
+            "durationSec": 91.15,
+            "tempoPlan": [
+              {
+                "bar": 1,
+                "beat": 1,
+                "bpm": 96.8,
+                "meter": "4/4"
+              },
+              {
+                "bar": 26,
+                "beat": 1,
+                "bpm": 99.7,
+                "meter": "5/4",
+                "note": "B2 — l'extension"
+              },
+              {
+                "bar": 28,
+                "beat": 1,
+                "bpm": 93.3,
+                "meter": "4/4",
+                "note": "H1 — l'élargissement"
+              }
+            ],
+            "theme": {
+              "id": "theme-memoire",
+              "from": "la-remise/fredon-target (tête)",
+              "notation": "D4:q F4:q E4:q D4:q",
+              "occurrences": [
+                {
+                  "bar": 3,
+                  "state": "fragmenté (2 notes sur 4), celli solo — la curiosité"
+                },
+                {
+                  "bar": 11,
+                  "state": "fragmenté varié (rythme augmenté), celli + cor bouché"
+                },
+                {
+                  "bar": 20,
+                  "state": "tête seule, une voix plus haut (la vis), altos con sord"
+                },
+                {
+                  "bar": 29,
+                  "state": "ENTIER, après la porte — celli ténor puis violons : la révélation"
+                }
+              ]
+            },
+            "sections": [
+              {
+                "bars": [
+                  1,
+                  13
+                ],
+                "marker": "IN→B1",
+                "harmony": "pédale de ré · Dm(add9) ↔ Dm/F · aucune cadence",
+                "layers": [
+                  "Cb pizz + timbales lointaines",
+                  "celli solo (thème fragmenté)",
+                  "drone sub La"
+                ],
+                "dyn": "46 → 58"
+              },
+              {
+                "bars": [
+                  13,
+                  25
+                ],
+                "marker": "B1→B2",
+                "harmony": "le voile : Dm → B♭maj7 → Dm(♭6) ; étau chromatique A3 → B♭3 → B3, un demi-ton par 4 mesures (m09-l04)",
+                "layers": [
+                  "+ nappe cordes con sord divisi",
+                  "+ cor bouché en contre-chant",
+                  "+ cluster ppp cresc. dès la mes. 21"
+                ],
+                "dyn": "58 → 84"
+              },
+              {
+                "bars": [
+                  26,
+                  27
+                ],
+                "marker": "B2",
+                "meter": "5/4",
+                "harmony": "suspension : B♭maj7♯11 tenu, basse absente",
+                "layers": [
+                  "cordes seules, sans fondation — le sol se dérobe"
+                ],
+                "dyn": "84 → 30",
+                "event": "APNÉE — temps 5 de la mes. 27 : silence général (1 temps)"
+              },
+              {
+                "bars": [
+                  28,
+                  28
+                ],
+                "marker": "H1",
+                "harmony": "le coup : cluster ré/mi♭ ff + timbales + col legno, 3 temps",
+                "layers": [
+                  "tutti bref"
+                ],
+                "dyn": "118"
+              },
+              {
+                "bars": [
+                  28,
+                  34
+                ],
+                "marker": "H1→B3",
+                "harmony": "la révélation tendre : Dm → Gm6 (le iv emprunté de m09-l01) → B♭ → Dm ; ligne 6̂→♭6̂→5̂ à l'alto (mes. 31–33)",
+                "layers": [
+                  "thème ENTIER : celli ténor (mes. 29) puis violons 8va (mes. 33)",
+                  "cor en contre-chant",
+                  "harpe en gouttes"
+                ],
+                "dyn": "96 → 72"
+              },
+              {
+                "bars": [
+                  35,
+                  36
+                ],
+                "marker": "H2→OUT",
+                "harmony": "B♭maj7♯11 sur pédale de ré — aucune cadence, la porte reste ouverte",
+                "layers": [
+                  "violoncelle seul + drone",
+                  "flûte 8va tenue (le regard caméra)"
+                ],
+                "dyn": "58 → 34"
+              }
+            ],
+            "tracks": [
+              "STR Celli (voix principale, Legato/Sustain/Pizz)",
+              "STR Violons I (ligne dès mes. 33)",
+              "STR Altos con sord (étau chromatique)",
+              "BR Cor straight (contre-chant)",
+              "WW Flûte (ciel)",
+              "BASS Cb (fondation, Pizz/Sustain)",
+              "PERC Timbales",
+              "HARP",
+              "SYN Drone"
+            ],
+            "dynToCc": {
+              "cc": 1,
+              "resolutionTicks": 40,
+              "interp": "cosine",
+              "law": "F-62"
+            },
+            "hitAlignment": {
+              "hitRef": "H1",
+              "resolvedTimecode": "00:01:08:00",
+              "mustLandOnBeat": 1
+            },
+            "postProcess": [
+              "macro PREP sur les 9 pistes",
+              "événements de tempo inclus",
+              "CC1 exportés"
+            ]
+          }
+        },
+        {
+          "id": "part3-delivery",
+          "mode": "declarative",
+          "checklist": [
+            {
+              "id": "e15-p3-s1",
+              "expect": "équilibre : les 6 étapes, test mono, Freeze des pistes stables"
+            },
+            {
+              "id": "e15-p3-s2",
+              "expect": "colis complet : mix (locators 1'32\"0, −1 dB), 3 stems + test de la somme, MIDI PREP, notes.txt"
+            },
+            {
+              "id": "e15-p3-s3",
+              "expect": "Back up Project — session close, retrouvable, transmissible"
+            }
+          ]
+        }
+      ]
+    },
+    "authorNotes": "« Le réal a fredonné, l'élève a extrait, le cue le déploie. » Le témoin est la moitié orchestrale du diptyque : même film, même manifeste, même thème que m06-s15 — mais là où la version hybride tenait par ses couches, celle-ci tient par ses rôles. Structure : 36 mesures, ré mineur, 9 pistes, six sections calées sur les IDs du manifeste. Trois emprunts assumés au corpus, tous nommés au rapport : l'étau chromatique de m09-l04 (la vis douce de B1 à B2), l'apnée d'un temps avant le coup (m09-l04 encore : le silence vaut un coup), et le iv emprunté de m09-l01 pour la révélation — parce que la découverte de « La Remise » est tendre, pas héroïque. Chiffres vérifiés (part 1) : 7 markers, écart max 0,149 s ≤ 1,0 ✓, descriptions non vides ✓. (Part 2) : tonalité mineure assumée ✓ ; motif à 4 occurrences ≥ 3 avec variation (fragmentation, augmentation, transposition d'une voix, exposition complète) ✓ ; tension croissante sur la fenêtre 0'31\"→1'02\" (r = 0,91) ✓ ; aucune cadence parfaite ni plagale en fin — ♭VI♯11 sur pédale de tonique ✓ ; `orch.range-violation` muette sur les 9 pistes ✓ ; couverture CC1 0,91 ≥ 0,80 et variance 9 ≥ 6 ✓ ; **hitAlignment : H1 sur mes. 28 t.1, écart 1 tick ≤ 20** ✓. (Part 3) : 3 étapes, `notes.txt` rempli au gabarit de e14. Findings mobilisés : F-57 (l'alignement référence `hitRef: \"H1\"`, jamais un timecode brut — la spec porte encore `hitTimecode: \"1:02.0\"`, qui est le timecode de B2), F-62 (le CC1 des 7 pistes expressives est compilé depuis `dyn[]`), F-60 (IDs d'étapes en trois parts : e15-p{N}-s{N}). L'OUT non résolu est la seule chose que la dramaturgie EXIGE et que le checker vérifie : la porte reste ouverte."
+  }

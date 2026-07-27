@@ -1,0 +1,12 @@
+{ "id": "m03-e14-the-roller", "lessonId": "m03-l14-planing",
+  "title": "Le rouleau", "kind": "HARMONY_PROGRESSION",
+  "difficulty": 7, "xpReward": 130, "skills": { "HARMONY": 0.8, "ORCHESTRATION": 0.2 },
+  "spec": { "prompt": "Mi éolien, 12 mesures = 3 volets de 4, LE MÊME dessin de tête roulé trois fois. Volet 1 — planing DIATONIQUE : des triades peintes sous ta ligne (arche, sommet dans la fenêtre), les qualités varient, le monde ondule. Volet 2 — planing RÉEL : le MÊME dessin de tête, triades majeures EXACTES — sol♯, ré♯, fa bécarre entrent, et `out-of-key` se tait sous le tag : la couleur constante prime la gamme. Volet 3 — le combo : quartes parallèles sur pédale de mi (l13 × l07, plan déclaré). Ici, les quintes et octaves parallèles ne sont pas tolérées : elles sont LA technique — trois siècles d'interdit et un style, deux faces du même fait perceptif. Le rapport les créditera en toutes lettres.",
+    "given": { "key": { "tonic": 4, "mode": "minor" } },
+    "constraints": { "lengthBars": [12,12], "segmentBars": 4, "minVoices": 3,
+      "planingPlan": ["diatonic","real","quartal"],
+      "sameTopLineAcrossSegments": [1,2],
+      "climaxWindow": [0.45, 0.65],
+      "declaredPedalPlan": { "segments": [3] } },
+    "styleProfile": { "id": "impressionist", "targetMood": "the-roller" },
+    "rubric": { "correctness": 25, "constraints": 45, "craft": 30 } } }

@@ -1,0 +1,13 @@
+{ "id": "m03-e13-change-the-brick", "lessonId": "m03-l13-quartal",
+  "title": "Change la brique", "kind": "HARMONY_PROGRESSION",
+  "difficulty": 7, "xpReward": 130, "skills": { "HARMONY": 0.8, "ORCHESTRATION": 0.2 },
+  "spec": { "prompt": "La dorien, 8 + 4 mesures : la maçonnerie en QUARTES. Le séjour (mes. 1–8) : une boucle de DEUX piles quartales sur bourdon de la (déclaré), la mélodie au-dessus du tapis TENU (liaisons par note, F-21) — et les deux grammaires ENSEMBLE : la tierce mineure dorienne vit DANS la pile, le fa♯ (6̂) s'expose dans la ligne (pillarExposure ≥ 0.25). L'harmonie fait l'espace, la mélodie porte l'émotion — l'analyseur les juge séparément. LA BASCULE (mes. 9–12) : depuis ta pile la plus tendue (garde un triton en réserve), l'OUVERTURE tertienne — chaque voix glisse de 2 demi-tons maximum vers une triade étalée (le relâchement par changement de brique, tagué) — puis la sortie… par la cadence dorienne IV→i de e08 : le pont entre les systèmes 2 et 3, refermé sur lui-même.",
+    "given": { "key": { "tonic": 9, "mode": "dorian" } },
+    "constraints": { "lengthBars": [12,12], "minVoices": 4,
+      "requireIdiom": ["quartal-voicing"], "maxLoopChords": 2,
+      "declaredPedalPlan": true,
+      "pillarExposure": { "degree": 6, "min": 0.25 },
+      "tertianRelease": { "barWindow": [9,12], "maxVoiceGlide": 2 },
+      "requiredCadence": "modal:IV-i" },
+    "styleProfile": { "id": "impressionist", "targetMood": "modern-modal" },
+    "rubric": { "correctness": 25, "constraints": 45, "craft": 30 } } }

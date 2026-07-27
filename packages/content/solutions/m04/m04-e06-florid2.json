@@ -1,0 +1,16 @@
+{
+  "exerciseId": "m04-e06-florid",
+  "variantId": "cf-ionien",
+  "notation": "r:h G4:h | G4:h B4:q C5:q | B4:q C5:q D5:h~ | D5:h C5:q A4:q | B4:h C5:h~ | C5:h B4:q D5:q~ | D5:h C5:h | F5:q E5:q C5:q D5:q | A4:h B4:h | C5:w",
+  "payload": {
+    "cf": "m04-cf-ionian-02",
+    "texturePlan": [
+      { "bars": [1, 2], "texture": "blanches+noires" },
+      { "bars": [3, 4], "texture": "mixte" },
+      { "bars": [5, 7], "texture": "syncope" },
+      { "bars": [8, 8], "texture": "noires" },
+      { "bars": [9, 10], "texture": "clausule" }
+    ]
+  },
+  "authorNotes": "Le second CF du capstone de laboratoire. Retards 4-3 (m6) et 4-3 (m7 : D5 sur la — la paire enchaînée) ✓, cambiata + climax m8 ✓, 4 régimes ✓, clausule **sans ficta** (ionien) en mouvement contraire ✓. XP majoré, badge « Laboratoire »."
+}

@@ -1,0 +1,54 @@
+---
+id: m05-l05-contrebasse
+module: module-05-orchestration
+title: "La contrebasse : le sol sous les pieds"
+estMinutes: 30
+skills: { orchestration: 1.0 }
+---
+
+### Carte d'identité
+
+| Propriété | Valeur |
+|---|---|
+| Tessiture | `E1`–`G3` (écrite une octave au-dessus du réel — le produit gère la transposition) |
+| Sweet spot | `E1`–`D3` |
+| Agilité | 4/10 — les traits rapides s'empâtent |
+| Tenue | illimitée |
+| Puissance | pp 3/10 → ff 7/10 (et une présence *physique* : on la sent plus qu'on l'entend) |
+
+### Pourquoi irremplaçable
+
+La contrebasse n'est pas « un gros violoncelle » : c'est **le plancher**. Elle définit où est le sol harmonique — et son silence est aussi puissant que son jeu : retirer les contrebasses fait *flotter* l'orchestre (l'apesanteur avant la chute), les faire entrer fait *atterrir*. C'est un interrupteur de gravité.
+
+### Couleur et usages
+
+```
+E1 ─────────── A2 ─────── G3
+│ PROFOND      │  HAUT     │
+│ le plancher, │ tendu,    │
+│ l'assise,    │ grognant  │
+│ la menace    │ (rare)    │
+```
+
+| Rôle | Écriture |
+|---|---|
+| Doublure des celli à l'octave | LE réglage par défaut de la basse orchestrale |
+| Pédale grave | tenue sur tonique ou dominante : la gravité qui attend (l15 M1) |
+| Pizzicato | le pouls jazz/noir ; en classique : la ponctuation sèche |
+| Ligne indépendante | rare, moderne : la menace qui rôde seule |
+| Le silence stratégique | l'apesanteur — l'outil le plus sous-coté de la fiche |
+
+### Erreurs fréquentes (détectées)
+
+| Erreur | Règle |
+|---|---|
+| Sous E1 (sans extension) | `orch.range-violation` |
+| Tierces/accords en dessous de C2 | `orch.low-interval-limit` — la contrebasse joue des LIGNES, octaves ou quintes, jamais des positions serrées |
+| Traits de doubles croches rapides | `orch.agility` — ça devient du bruit gris |
+| Jamais de silence | l'interrupteur de gravité inutilisé : pense ses entrées/sorties comme des événements |
+
+- [ ] Le plancher : son entrée/sortie est un événement dramatique
+- [ ] Octave sous les celli = défaut ; pédale = attente ; silence = apesanteur
+- [ ] Des lignes, jamais des accords
+
+<QuizBlock id="m05-l05-quiz" questions={5} />

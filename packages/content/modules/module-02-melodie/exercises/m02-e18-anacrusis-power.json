@@ -1,0 +1,11 @@
+{ "id": "m02-e18-anacrusis-power", "lessonId": "m02-l09-prosodie",
+  "title": "La levée constante", "kind": "MELODY_COMPOSE",
+  "difficulty": 5, "xpReward": 90, "skills": { "MELODY": 0.6, "RHYTHM": 0.4 },
+  "spec": { "prompt": "8 mesures dont le motif commence EN ANACROUSE (1 à 3 notes avant le temps fort) — et politique constante : chaque occurrence garde sa levée. Front-loading vérifié : l'aspérité rythmique vit en tête de phrase, les fins se détendent (longues, conjoint).",
+    "given": { "key": { "tonic": 5, "mode": "major" } },
+    "constraints": { "key": { "tonic": 5, "mode": "major" }, "lengthBars": [8,8],
+      "mustUseMotif": true, "minMotifOccurrences": 3,
+      "requireAnacrusis": true, "anacrusisPolicy": "constant",
+      "mustEndOnDegrees": [1] },
+    "styleProfile": { "id": "romantic-film" },
+    "rubric": { "correctness": 20, "constraints": 45, "craft": 35 } } }

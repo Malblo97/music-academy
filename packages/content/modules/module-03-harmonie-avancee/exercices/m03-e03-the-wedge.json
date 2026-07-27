@@ -1,0 +1,13 @@
+{ "id": "m03-e03-the-wedge", "lessonId": "m03-l03-sixtes-augmentees",
+  "title": "Le coin qui force la porte", "kind": "HARMONY_PROGRESSION",
+  "difficulty": 6, "xpReward": 110, "skills": { "HARMONY": 1.0 },
+  "spec": { "prompt": "10 mesures en sol mineur : L'ESCALADE — iv → ♭II⁶ → Ger⁶ → i6/4 → V → i (les trois ombres en gradation, chaque bascule au coût minimal de voix), cadence parfaite interne — puis la reprise de la tête et un Ger⁶ DIRECT vers la demi-cadence monumentale : V tenu, non résolu, fin de segment. Deux chemins pour la sixte allemande, les deux sont enseignés : interposer le 6/4 (la tenaille ♭6̂→5̂ ET ♯4̂→5̂), ou résoudre direct — et assumer les QUINTES DE MOZART, que l'analyseur nomme en info, pas en erreur (F-15). La sixte augmentée doit s'ouvrir en octave par mouvement contraire : c'est le coin.",
+    "given": { "key": { "tonic": 7, "mode": "minor" } },
+    "constraints": { "key": { "tonic": 7, "mode": "minor" }, "lengthBars": [10,10],
+      "minVoices": 4, "maxVoices": 4,
+      "requiredProgressionPattern": "…iv-bII6-Ger6-i64-V-i…Ger6-V",
+      "requireIdiom": ["neapolitan","aug6"], "mustInclude": ["aug6>=2"],
+      "requiredCadence": "half" },
+    "styleProfile": { "id": "classical-common",
+      "ruleWeights": { "vl.parallel-perfects": 1.0 } },
+    "rubric": { "correctness": 35, "constraints": 35, "craft": 30 } } }

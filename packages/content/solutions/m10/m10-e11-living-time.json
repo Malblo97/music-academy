@@ -1,0 +1,70 @@
+{
+    "exerciseId": "m10-e11-living-time",
+    "payload": {
+      "mode": "proof",
+      "given": "assets/m01-l25-depart.mid",
+      "key": "do majeur",
+      "bars": 16,
+      "notes": "identiques au fourni — aucune hauteur, aucune durée touchée",
+      "transportTempoButton": "TRACK",
+      "tempoPlan": [
+        {
+          "bar": 1,
+          "beat": 1,
+          "bpm": 72,
+          "curve": "step",
+          "note": "le pouls du fourni"
+        },
+        {
+          "bar": 4,
+          "beat": 4,
+          "bpm": 69.8,
+          "curve": "ramp",
+          "note": "respiration de l'antécédent (demi-cadence mes. 4) — −3 %"
+        },
+        {
+          "bar": 5,
+          "beat": 1,
+          "bpm": 72,
+          "curve": "ramp",
+          "note": "a tempo"
+        },
+        {
+          "bar": 12,
+          "beat": 4,
+          "bpm": 69.8,
+          "curve": "ramp",
+          "note": "respiration de A' — −3 %"
+        },
+        {
+          "bar": 13,
+          "beat": 1,
+          "bpm": 72,
+          "curve": "ramp",
+          "note": "a tempo"
+        },
+        {
+          "bar": 15,
+          "beat": 1,
+          "bpm": 72,
+          "curve": "ramp",
+          "note": "départ du rit. — le 64 cadentiel (C/G)"
+        },
+        {
+          "bar": 16,
+          "beat": 4,
+          "bpm": 64.1,
+          "curve": "ramp",
+          "note": "rit. de cadence : −11 %"
+        },
+        {
+          "bar": 17,
+          "beat": 1,
+          "bpm": 72,
+          "curve": "step",
+          "note": "a tempo APRÈS la cadence — l'événement existe après la dernière note"
+        }
+      ]
+    },
+    "authorNotes": "« La Tempo Track déforme le temps sous les notes, pas la musique. » L'étalon le plus économe du module : zéro note composée, huit événements de tempo. Structure : les deux rubatos sont posés aux ponctuations que l'analyse de m01-e47 a déjà nommées (la demi-cadence de la mes. 4, la fin de A' à la mes. 12) — la Tempo Track ne fait pas du rubato décoratif, elle respire là où la FORME respire ; le rit. part au 64 cadentiel (mes. 15) et atteint son creux au dernier temps de la mes. 16 ; le point d'a tempo est posé mes. 17 t.1, après la dernière note : le pouls est rendu. Chiffres vérifiés : chute 11,0 % ∈ [8,15] ✓ en rampe ✓ ; variance de rubato 2,2 BPM ∈ [1,5] ✓ ; retour au tempo présent ✓ ; hauteurs et durées identiques au fourni ✓. Le piège n°1 est dans l'étalon comme donnée : bouton Tempo du transport sur TRACK, sans quoi la piste existe et n'est pas écoutée. Schéma : `tempoPlan[]` (F-55, né en m09-e08) — le checker lit indifféremment le plan déclaratif ou les meta-events MIDI."
+  }

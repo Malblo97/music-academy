@@ -1,0 +1,47 @@
+{
+  "id": "m04-e05-fourth-species",
+  "lessonId": "m04-l05-quatrieme-espece",
+  "title": "Quatrième espèce : la tension liée",
+  "kind": "COUNTERPOINT",
+  "difficulty": 5,
+  "xpReward": 120,
+  "skills": { "COUNTERPOINT": 1.0 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "strict-counterpoint", "ruleWeights": {} },
+  "rubric": { "correctness": 35, "constraints": 40, "craft": 25 },
+  "spec": {
+    "version": 1,
+    "species": 4,
+    "prompt": "L'espèce-reine, en deux volets. (1) Le CF dorien, syncopes au-dessus : ≥ 4 retards dont ≥ 2 types différents (7–6, 4–3, 9–8) — chaque cellule préparation-suspension-résolution vérifiée par le triple test du checker : la préparation consonante et installée, la suspension liée (l'inertie est le mécanisme — deux attaques = une appoggiature, autre objet, refusé ici), la résolution qui DESCEND, toujours. Quand la chaîne casse, une mesure de deuxième espèce répare la couture : l'école l'admet, le checker aussi. (2) La chaîne : le CF descendant fourni, la chaîne 7–6 complète — la voix descend l'escalier en retardant chaque marche. Si elle est réglementaire, le rapport la nomme : « ton lamento est réglementaire ».",
+    "liveFeedback": true,
+    "parts": [
+      {
+        "id": "catalog",
+        "given": { "cantusFirmus": "D4:w F4:w E4:w D4:w G4:w F4:w A4:w G4:w F4:w E4:w D4:w" },
+        "constraints": {
+          "species": 4,
+          "cfPosition": "above",
+          "requiredFigures": { "suspension": 4 },
+          "retardCatalog": { "minDistinctTypes": 2, "allowed": ["7-6", "4-3", "9-8"], "forbidden": ["2-1"] }
+        }
+      },
+      {
+        "id": "chain",
+        "given": { "cantusFirmus": "F4:w E4:w D4:w C4:w" },
+        "constraints": {
+          "species": 4,
+          "cfPosition": "above",
+          "chainPattern": { "type": "7-6", "minLinks": 3 }
+        }
+      }
+    ],
+    "constraints": {
+      "species": 4,
+      "checkers": ["species4"],
+      "resolutionDirection": "down",
+      "preparationMinDuration": "suspension",
+      "allowSecondSpeciesRepair": true
+    }
+  }
+}

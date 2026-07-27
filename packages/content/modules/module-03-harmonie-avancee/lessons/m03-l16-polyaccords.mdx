@@ -1,0 +1,83 @@
+---
+id: m03-l16-polyaccords
+module: module-03-harmonie-avancee
+title: "Polyaccords et polytonalité : deux mondes superposés"
+estMinutes: 25
+skills: { harmony: 0.8, orchestration: 0.2 }
+---
+
+### Pourquoi la superposition est la dernière ressource
+
+Tu as changé de brique (l13, l15), changé de collection (l10–l12), fait glisser des blocs (l14). Dernier geste du système 3 : **ne rien changer — tout empiler**. Le polyaccord superpose deux accords parfaitement ordinaires (C majeur ET F♯ majeur, ensemble) ; la polytonalité superpose deux *plans* entiers. Chaque étage est simple, familier, consonant — c'est leur **coexistence** qui fait la couleur : deux vérités simultanées. C'est la ressource dramatique par excellence : le conflit, le double-fond, l'ironie — l'harmonie qui raconte deux choses à la fois, littéralement.
+
+### 1. Le polyaccord : l'anatomie de la superposition
+
+```
+LA NOTATION : une fraction — F#/C... non : la barre de fraction du
+  polyaccord s'écrit avec un trait HORIZONTAL (F♯ sur C) pour ne pas
+  confondre avec le slash de renversement (F♯/C = F♯ basse do). Dans
+  le produit : deux ChordEvent simultanés tagués `polychord`.
+LA LOI D'AUDIBILITÉ (la seule qui compte) : les deux étages doivent
+  être SÉPARABLES à l'oreille, sinon on n'a pas deux accords mais un
+  cluster informe (l15 — la frontière est réelle). Trois séparateurs :
+  1. LE REGISTRE : une octave de dégagement entre les étages (l'étage
+     bas resserré, l'étage haut au-dessus — le low-interval-limit
+     protège la lisibilité du bas, comme toujours)
+  2. LE TIMBRE : deux familles (M5 : cordes en bas, bois en haut —
+     l'oreille sépare par la couleur ce que la hauteur rapproche)
+  3. LE RYTHME : deux enveloppes (l'étage bas tenu, le haut arpégé) —
+     deux vies, deux identités
+```
+
+### 2. La table des distances (quel couple pour quel effet)
+
+La couleur du polyaccord dépend de la **distance entre les deux fondamentales** — la table, depuis un do majeur à l'étage bas :
+
+| Étage haut | Distance | Notes en conflit | Couleur | Territoire |
+|---|---|---|---|---|
+| **D majeur** | +2 | aucune frontale (D–F♯–A sur C–E–G : le lydien complet !) | la lumière étagée — le polyaccord « doux » | l'émerveillement moderne : c'est un C maj13♯11 éclaté — les tensions de m01-l18 étaient des polyaccords timides |
+| **E♭ majeur** | +3 | E♭ contre E | le doux-amer dense | la nostalgie moderne, le blues symphonique |
+| **E majeur** | +4 | G♯ contre G | la médiante simultanée (l06 : le saut devenu accord) | le merveilleux qui inquiète |
+| **F♯ majeur** | +6 | tout contre tout (le triton de fondamentales) | LE polyaccord du sacre — la bitonalité maximale | la violence rituelle, le choc, l'ancien-brutal |
+| **A♭ majeur** | +8 | C partagé, E♭/A♭ contre E/G | l'ombre solennelle étagée | le monumental sombre |
+
+Deux lectures : **plus les fondamentales sont proches du cycle des quintes, plus le polyaccord fusionne** (C+G = un Cmaj9 qui s'ignore) ; plus elles s'en éloignent (le triton en tête), plus les deux mondes *se battent*. Et la retrouvaille : les polyaccords doux (D sur C) sont tes accords à tensions de M1 **vus en coupe** — l18 M1 empilait des tierces jusqu'à 13 ; le polyaccord dit la même chose en deux objets : les deux notations décrivent un continuum, et le choix de l'une ou l'autre est un choix de *pensée* (un accord enrichi = une couleur ; un polyaccord = deux personnages).
+
+### 3. La polytonalité : les plans entiers
+
+Le polyaccord étendu dans le temps : deux **plans** qui vivent chacun leur vie tonale/modale — la mélodie en fa sur l'accompagnement en do, l'ostinato en mi♭ sous le choral en la. Les emplois dramatiques (c'est ici que la ressource devient récit) :
+
+| Emploi | Mécanique | Scène type |
+|---|---|---|
+| **Le conflit incarné** | deux personnages, deux tonalités — leurs thèmes superposés dans leurs mondes respectifs | la confrontation, le duel intérieur (le Module 7 orchestrera : deux familles, deux plans) |
+| **Le double-fond** | le plan visible (l'accompagnement innocent) et le plan caché (la ligne étrangère qui rôde dessous) | le mensonge à l'écran : ce que dit la scène vs ce qu'elle est — l'outil d'ironie dramatique le plus littéral du métier |
+| **La foule** | plusieurs plans simples simultanés | le marché, la bataille, la ville — le chaos organisé |
+| **La pédale généralisée** | l07 §1 relu : la pédale « contredite » était de la polytonalité embryonnaire — un plan d'UNE note contre un plan complet ; la boucle du module se referme | — |
+
+### 4. Les disciplines de l'étage
+
+1. **Deux, pas cinq** : trois plans et plus = la foule (un effet de masse, légitime mais autre) — le conflit lisible est un duel ;
+2. **chaque étage reste simple** : deux triades se superposent ; deux accords de 13e produisent du gris (la complexité se met dans LA RELATION, pas dans les termes — la leçon de tout le module en une phrase) ;
+3. **la résolution est un choix dramatique** : les deux mondes fusionnent (l'un absorbe l'autre : la réconciliation), l'un gagne (l'autre s'éteint : la victoire), ou la coexistence demeure (la fin ouverte) — la sortie du polyaccord EST la fin de l'histoire qu'il racontait ;
+4. **le moteur suit** : tag `polychord` (deux sous-ensembles de la verticalité, chacun triade/7e complète, séparés par registre ≥ 12 dt — la détection réutilise `segmentVerticalities` + le dictionnaire par sous-ensemble), et en polytonalité `estimateKey` s'applique **par plan déclaré** (les parts de l'exercice) : deux boussoles, deux mondes — l'architecture multi-parts de §24.0 trouve son emploi harmonique.
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Les étages qui se touchent | le cluster involontaire (l15 : la frontière franchie sans le savoir) | une octave de dégagement, deux timbres, deux rythmes |
+| Deux accords complexes superposés | le gris riche | des termes simples, une relation complexe |
+| La polytonalité décorative | deux tonalités « pour faire moderne », aucun récit | la superposition raconte : conflit, double-fond, foule — sinon un seul monde suffit |
+| La sortie escamotée | les deux mondes s'arrêtent, personne ne gagne | la résolution se compose : fusion, victoire, ou coexistence assumée |
+
+### La mission (m03-e16, HARMONY_PROGRESSION bi-plans)
+
+Le double-fond : 12 mesures en deux plans (le format `submissionParts` en simultané — extension mineure : les parts se superposent au lieu de se succéder, flag `simultaneous: true`). Plan A (visible) : un accompagnement innocent en sol majeur, simple. Plan B (caché) : une ligne grave qui rôde en mi♭ (la médiante sombre de l06 : le choix est motivé). Mesures 9–12 : la résolution déclarée (variante fusion / victoire / coexistence). Le moteur vérifie chaque plan dans sa boussole, le dégagement de registre, le tag `polychord` aux points de contact, et nomme la relation : « ton sol et ton mi♭ : la médiante sombre en duel ».
+
+- [ ] Deux vérités simultanées : chaque étage simple, la relation complexe
+- [ ] La table des distances : de la lumière étagée (D sur C) au sacre (F♯ sur C)
+- [ ] Séparables ou cluster : registre, timbre, rythme — les trois séparateurs
+- [ ] La sortie est la fin de l'histoire : fusion, victoire, coexistence
+
+<QuizBlock id="m03-l16-quiz" questions={5} />
+<LessonFooter exercises={["m03-e16-the-double-bottom"]} />

@@ -1,0 +1,77 @@
+---
+id: m10-l02-template
+module: module-10-cubase
+title: "Le template : ton studio prêt avant l'inspiration"
+estMinutes: 30
+skills: { daw_workflow: 0.7, orchestration: 0.3 }
+---
+
+### Pourquoi le template est une décision artistique
+
+L'inspiration dure vingt minutes ; charger des banques en dure quinze. Le template — ce projet-modèle qui s'ouvre prêt à jouer — n'est pas une commodité technique : c'est **la condition matérielle de la spontanéité**. Et sa composition est un autoportrait : les instruments que tu y mets sont ceux avec lesquels tu penseras. Cette leçon construit ton premier template sérieux, dimensionné à ta machine et adossé aux fiches du Module 5.
+
+### 1. La philosophie : trois tailles de template
+
+| Taille | Contenu | Pour qui / quoi |
+|---|---|---|
+| **Sketch** (8–15 pistes) | piano, un patch par famille (strings/brass/winds ensemble), 2–3 synthés, une reverb | la composition pure — 90 % de ton travail dans ce produit commence ici |
+| **Medium** (30–60 pistes) | sections séparées (V1, V2, Va, Vc, Cb…), cuivres par pupitre, bois solistes, percussions, synthés | la maquette sérieuse, l'orchestration réelle |
+| **Full** (150+ pistes) | tout, articulations éclatées ou Expression Maps complètes | les pros à machines lourdes — PAS ton point de départ |
+
+**La vérité d'atelier** : le template trop gros tue plus de musique que le template trop petit. Commence Sketch, promeus en Medium quand tes exercices ORCHESTRATE le réclament. Le Full attendra que ta machine et ton métier le justifient.
+
+### 2. Construire le Sketch (pas à pas, c'est la mission)
+
+```
+1. Nouveau projet "TEMPLATE_Sketch" (règles de l01)
+2. Pistes instrument, DANS L'ORDRE DE LA PARTITION (bois en haut,
+   cordes en bas — l'ordre du métier, celui du Module 5) :
+   WW  Bois (patch ensemble)        │ le rack se lit comme
+   BR  Cors (patch section)         │ un conducteur :
+   BR  Trompettes                   │ c'est voulu, et ça
+   PERC Timbales/percus             │ t'entraîne
+   KEYS Piano                       │
+   STR Violons / Altos / Celli+Cb   │
+   SYN Pad sombre / Pluck / Sub
+3. Chaque piste : nom, couleur famille, Root Key suivie
+4. Un bus de reverb en send (FX Channel, une belle salle, ~2,2 s) —
+   TOUTES les pistes y envoient un peu : l'orchestre dans UNE pièce
+   (le pourquoi complet en l07–l08)
+5. Volumes de repos : le tutti à ~-6 dB au master (le gain staging
+   naîtra en l08 ; pour l'instant : de la marge)
+6. Track Visibility : configure 2 agents — "Compo" (tout visible)
+   et "Cordes seules" (tu découvres l'outil ; l09 le rendra puissant)
+7. File → Save as Template, catégorie personnelle
+```
+
+### 3. Le template au service des fiches M5
+
+Ton Sketch encode déjà de l'orchestration : le patch « Cors section » doit jouer dans `C3–C5` (le registre-or de la fiche §5.2) — mets une **note de piste** (le champ Notepad) : `"sweet spot C3–C5 ; ff = unisson ; aigu bref"`. Fais-le pour chaque piste : **ton template devient ton aide-mémoire d'orchestrateur**, les fiches infusées dans l'outil. Quand tu joues une ligne de cor au clavier, la fiche est à un clic — et le produit, lui, vérifiera au ré-import (`orch.range-violation` sur le MIDI prouvé : la boucle complète).
+
+### 4. La maintenance : le template vit
+
+- **Une modification par mois maximum**, notée (un template qui change chaque semaine n'est plus un repère) ;
+- ce qui entre au template doit avoir **servi trois fois** dans des projets réels — le template n'est pas une wishlist ;
+- versionne le template lui-même (`TEMPLATE_Sketch-03`) : les règles de l01 s'appliquent à lui d'abord.
+
+### 5. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Le template-cathédrale au jour 1 | 4 min de chargement, inspiration morte | Sketch d'abord ; la taille se mérite |
+| L'ordre des pistes au hasard | tu cherches, donc tu sors du flux | l'ordre du conducteur, toujours le même |
+| Pas de reverb commune | chaque instrument dans sa boîte : le "MIDI de démo" | un send global dès le Sketch |
+| Le template-wishlist | 40 synthés jamais ouverts | trois usages réels avant l'entrée |
+| Aucune note de piste | les fiches M5 restent dans le produit | le Notepad = l'orchestration infusée |
+
+### La mission (m10-e02, déclarative + amorce prouvée)
+
+Construis le Sketch complet (checklist 12 étapes), puis **joue 8 mesures libres dessus** (n'importe quoi : le but est de vérifier que tout sonne) et exporte le MIDI de la piste piano vers une soumission libre du Melody Practice — ta première traversée complète produit→Cubase→produit.
+
+- [ ] Sketch → Medium → Full : la taille se mérite
+- [ ] L'ordre du conducteur, les couleurs, les Notepads-fiches
+- [ ] Une reverb commune dès le premier jour
+- [ ] Le template vit : lentement, sur preuves, versionné
+
+<QuizBlock id="m10-l02-quiz" questions={5} />
+<LessonFooter exercises={["m10-e02-sketch-template"]} />

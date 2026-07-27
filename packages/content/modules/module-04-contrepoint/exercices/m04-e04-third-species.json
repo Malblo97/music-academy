@@ -1,0 +1,34 @@
+{
+  "id": "m04-e04-third-species",
+  "lessonId": "m04-l04-troisieme-espece",
+  "title": "Troisième espèce : la ligne fleurie",
+  "kind": "COUNTERPOINT",
+  "difficulty": 5,
+  "xpReward": 100,
+  "skills": { "COUNTERPOINT": 1.0 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "strict-counterpoint", "ruleWeights": {} },
+  "rubric": { "correctness": 30, "constraints": 40, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "species": 3,
+    "prompt": "Quatre noires par ronde sur le CF dorien : la voix devient une VRAIE ligne (44 notes = une mélodie complète — l'arche se dessine sur toute la longueur, pas mesure par mesure). Le catalogue complet exigé : ≥ 2 passages, ≥ 1 broderie, ≥ 1 cambiata au dessin EXACT (−2, −3, +2 — le checker connaît la figure ; l'à-peu-près est refusé). Puis la variante : au-DESSOUS du CF, où la cambiata se raréfie et la basse fleurie apprend à fonder en bougeant — l'ancêtre de la walking bass, et le rapport te le dira.",
+    "liveFeedback": true,
+    "given": {
+      "cantusFirmus": "D4:w F4:w E4:w D4:w G4:w F4:w A4:w G4:w F4:w E4:w D4:w"
+    },
+    "parts": [
+      { "id": "above", "constraints": { "species": 3, "cfPosition": "above", "requiredFigures": { "passing": 2, "neighbor": 1, "cambiata": 1 } } },
+      { "id": "below", "constraints": { "species": 3, "cfPosition": "below", "requiredFigures": { "passing": 2, "neighbor": 1 } } }
+    ],
+    "constraints": {
+      "species": 3,
+      "checkers": ["species3.cambiata", "species2.strong-beat-parallels"],
+      "figuresTaggedInReport": true,
+      "minConjunctRatio": 0.7,
+      "singleClimax": true,
+      "climaxPlanned": true
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "exerciseId": "m04-e04-third-species",
+  "partId": "above",
+  "notation": "r:q F4:q G4:q A4:q | C5:q D5:q C5:q A4:q | B4:q C5:q D5:q C5:q | D5:q C5:q B4:q A4:q | B4:q C5:q D5:q E5:q | F5:q E5:q C5:q D5:q | E5:q D5:q C5:q A4:q | B4:q C5:q D5:q B4:q | G4:q A4:q B4:q C#5:q | D5:w",
+  "payload": { "cf": "m04-cf-dorian-01", "cfPosition": "above" },
+  "authorNotes": "Le catalogue complet, tagué au rapport : **6 passages** (G4 m1, C5 m4, C5 m5, D5 m7, C5 m8, A4 m9 — tous conjoints entre consonances) ≥ 2 ✓ ; **broderie** m3 temps 3 (D5, voisine supérieure dissonante encadrée) ✓ ; **cambiata m6 : F5–E5–C5–D5** (8-7-5-6, le dessin-manuel exact — l'à-peu-près est refusé) ✓, et F5 = climax unique à 60 %. Conjoint 0,83 ≥ 0,70. Clausule m9 : la montée G–A–B–**C♯** (ficta F-25) vers l'octave."
+}

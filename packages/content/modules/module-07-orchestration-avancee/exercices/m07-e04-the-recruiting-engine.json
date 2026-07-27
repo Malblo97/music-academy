@@ -1,0 +1,35 @@
+{
+  "id": "m07-e04-the-recruiting-engine",
+  "lessonId": "m07-l04-moteur",
+  "title": "Le moteur qui recrute",
+  "kind": "ORCHESTRATE",
+  "difficulty": 5,
+  "xpReward": 110,
+  "skills": { "ORCHESTRATION": 0.7, "RHYTHM": 0.3 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "pool": "mvp",
+  "styleProfile": { "id": "epic-film", "targetMood": "heroic", "ruleWeights": {} },
+  "rubric": { "correctness": 25, "constraints": 45, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "L'ostinato du mur éolien (m09-e03 — troisième emploi : la continuité des exemples) orchestré en MOTEUR QUI RECRUTE, 16 mesures. La gradation en au moins 4 crans déclarés (pizz celli → arco spiccato → +altos 8va → +piano doubleur → +violons en surface → +percussion sur les appuis) : le pattern NE CHANGE JAMAIS, seule la matière croît — c'est la doublure appliquée au temps. Trois lois vérifiées : l'ÉTAGE NET (les attaques exigent le dégagement — un moteur sous des tenues devient du flou), l'ARTICULATION UNIFIÉE (tous spiccato ou tous staccato : deux articulations sur un pattern font baver l'ensemble — le moteur est la piste qui se quantise dur, dans les deux mondes), et le RELAIS (un tuilage celli→altos pendant que les celli respirent, OU une apnée composée : le silence du moteur est un événement, jamais une fatigue).",
+    "given": {
+      "key": { "tonic": 2, "mode": "minor" },
+      "ostinato": "asset:m09-e03-eolian-wall-ostinato",
+      "tempoBpm": 96
+    },
+    "constraints": {
+      "lengthBars": [16, 16],
+      "format": "Part[]",
+      "pool": "mvp",
+      "rolePlan": { "declared": true, "perSection": true, "verifiedAgainstDetected": true },
+      "recruitmentPlan": { "minSteps": 4, "declared": true, "patternInvariant": true },
+      "patternConstant": { "checker": "motifType:rhythmic", "perPart": true },
+      "unifiedArticulation": { "acrossParts": true, "durationToleranceTicks": 20 },
+      "clearStageRequired": { "role": "rhythm", "band": [48, 60], "forbidSustainsInBand": true },
+      "relayOrApnea": { "required": true, "allowed": ["tuilage", "composed-apnea"] },
+      "checkers": ["orch.range-violation", "orch.agility", "orch.endurance", "orch.masking", "densityMap"]
+    }
+  }
+}

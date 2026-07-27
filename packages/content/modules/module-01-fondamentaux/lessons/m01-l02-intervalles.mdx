@@ -1,0 +1,123 @@
+---
+id: m01-l02-intervalles
+module: module-01-fondamentaux
+title: "Les intervalles : mesurer la musique"
+estMinutes: 25
+skills: { melody: 0.6, ear_training: 0.4 }
+---
+
+### Pourquoi c'est la leçon la plus importante du module
+
+Un intervalle est la distance entre deux notes. Tout ce qui suit en dépend : une gamme est une suite d'intervalles, un accord est un empilement d'intervalles, une mélodie est un chemin d'intervalles, l'orchestration est une gestion d'intervalles entre pupitres. Quand un compositeur « entend » une partition en la lisant, il lit des intervalles. Investis dans cette leçon : elle paie sur les onze modules suivants.
+
+### 1. Le tableau à connaître par cœur (oui, par cœur)
+
+| Demi-tons | Nom | Abrév. | Caractère émotionnel brut | Repère mnémotechnique* |
+|---|---|---|---|---|
+| 0 | unisson | P1 | fusion | — |
+| 1 | seconde mineure | m2 | frottement, menace | le suspense qui approche |
+| 2 | seconde majeure | M2 | pas simple, neutre | début de « Frère Jacques » |
+| 3 | tierce mineure | m3 | ombre, tristesse | la douceur sombre |
+| 4 | tierce majeure | M3 | lumière, clarté | la douceur claire |
+| 5 | quarte juste | P4 | appel, ouverture | fanfares, hymnes |
+| 6 | triton | TT | instabilité maximale | l'inquiétude pure |
+| 7 | quinte juste | P5 | force, espace ouvert | puissance neutre — ni majeur ni mineur |
+| 8 | sixte mineure | m6 | élan douloureux | le romantisme inquiet |
+| 9 | sixte majeure | M6 | élan chaleureux | le grand saut lyrique |
+| 10 | septième mineure | m7 | tension douce, jazz | la question posée |
+| 11 | septième majeure | M7 | tension lumineuse | le frottement sophistiqué |
+| 12 | octave | P8 | même identité, autre étage | le héros qui se redresse |
+
+*Les caractères sont des tendances, pas des lois — le contexte peut tout renverser. Mais ces tendances sont assez fiables pour que le cinéma les exploite depuis un siècle, et l'exerciseur d'oreille (EAR_QUIZ, V1) te les fera reconnaître les yeux fermés.
+
+**Méthode de mémorisation** (deux semaines, 5 min/jour) : joue chaque intervalle depuis des notes de départ *différentes* — l'intervalle est une distance, pas une paire de touches. Monte, descends, chante-le. L'ordre d'acquisition qui marche : P8, P5, P4 (les piliers) → M3, m3 (les couleurs) → M2, m2 (les pas) → le reste.
+
+### 2. Qualifier : majeur, mineur, juste, augmenté, diminué
+
+Pourquoi « tierce mineure » et pas juste « 3 demi-tons » ? Parce que le nom porte deux informations : le **nombre de degrés** enjambés (tierce = 3 noms de notes : C→E) et la **qualité** (mineure = version courte, majeure = version longue). Les quartes, quintes et octaves sont dites **justes** : elles n'ont pas de version majeure/mineure, seulement des altérations *augmentée* (+1 demi-ton) ou *diminuée* (−1).
+
+```
+C → E  = tierce majeure (4 dt)      C → E♭ = tierce mineure (3 dt)
+C → G  = quinte juste  (7 dt)       C → G♯ = quinte augmentée (8 dt)
+C → G♭ = quinte diminuée (6 dt)  ⚠️ même son que le triton F♯ :
+                                     l'enharmonie de la leçon 1, appliquée
+                                     aux intervalles — le NOM dépend du contexte
+```
+
+Au niveau du MVP, l'analyseur travaille en demi-tons (il te dira « saut de 6 demi-tons ») et le cours te donne les noms ; l'orthographe fine des intervalles devient cruciale au Module 4 (contrepoint) — pour l'instant, sache qu'elle existe.
+
+### 3. Mélodique ou harmonique : le même intervalle, deux métiers
+
+**Mélodique** (notes successives) : c'est un *geste*. **Harmonique** (simultanées) : c'est une *couleur*.
+
+<MusicExample id="melodique-vs-harmonique" title="Un intervalle, deux vies">
+  A) C4:q G4:h.            — quinte MÉLODIQUE : un élan, un départ de thème héroïque
+  B) [C4+G4]:w             — quinte HARMONIQUE : un espace ouvert, vide, ni gai ni triste
+</MusicExample>
+
+Cette distinction structure tout le produit : l'analyse de mélodie (Module 2) juge tes intervalles mélodiques ; le voice leading et l'orchestration (Modules 3, 5, 7) jugent tes intervalles harmoniques. La règle `melody.leap-recovery` que tu rencontreras dès tes premiers exercices parle d'intervalles mélodiques ≥ 6te : tu sais désormais lire son vocabulaire.
+
+### 4. Consonance et dissonance : la physique de la tension
+
+Classement traditionnel, du plus stable au plus instable :
+
+```
+CONSONANCES parfaites : P1, P8, P5          — stables, « creuses »
+CONSONANCES imparfaites : M3, m3, M6, m6    — stables, « pleines » (la chaleur)
+DISSONANCES douces : m7, M2                 — tension habitable
+DISSONANCES dures : m2, M7, TT              — tension exigeante
+```
+
+Attention au mot : **dissonance ≠ laideur**. Une dissonance est une *énergie* — la leçon 14 t'apprendra à la dépenser (résolution). La musique sans dissonance est une musique sans mouvement : les nappes « célestes » de film sont pleines de M7 et de M2 qui flottent. Le classement te dit le *coût* de chaque intervalle, pas sa valeur.
+
+<MusicExample id="echelle-tension" title="L'échelle de tension, à l'oreille">
+  [C4+C5]:h [C4+G4]:h [C4+E4]:h [C4+A4]:h [C4+A#4]:h [C4+B4]:h [C4+F#4]:w
+  P8 → P5 → M3 → M6 → m7 → M7 → TT : écoute la tension monter marche par marche.
+  Rejoue la série à l'envers : tu viens d'entendre ta première « résolution ».
+</MusicExample>
+
+### 5. Renversement : le raccourci qui double ta connaissance
+
+Renverser un intervalle = monter la note du bas à l'octave. La règle : **les nombres somment à 9, les qualités s'échangent** (majeur↔mineur, augmenté↔diminué, juste reste juste).
+
+| Intervalle | Renversement |
+|---|---|
+| m2 (C→D♭) | M7 (D♭→C) |
+| M3 (C→E) | m6 (E→C) |
+| P4 (C→F) | P5 (F→C) |
+| TT | TT (le seul auto-symétrique — encore lui) |
+
+Utilité immédiate : tu ne mémorises vraiment que la moitié du tableau du §1 ; l'autre moitié se déduit. Utilité future : les renversements d'accords (leçon 12) et les voicings (Module 8) reposent entièrement sur ce mécanisme.
+
+### 6. Les intervalles au cinéma : premier aperçu
+
+| Geste | Intervalle typique | Tu l'entendras dans |
+|---|---|---|
+| Héroïsme, appel | P4, P5 ascendantes | fanfares, thèmes d'aventure |
+| Romantisme, élan | M6, m6 ascendantes | thèmes d'amour |
+| Menace rampante | m2 répétée | requins et couloirs sombres |
+| Inquiétude, étrangeté | TT | SF, danger, magie noire |
+| Nostalgie | m3 descendante | adieux, souvenirs |
+| Émerveillement | P8 ascendante | révélations, envols |
+
+Le Module 2 transformera ce tableau en exercices de composition par ambiance ; le Module 9 l'appliquera genre par genre. Pour l'instant : joue chaque ligne au clavier et *ressens* la correspondance — c'est ton premier vocabulaire expressif.
+
+### 7. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Compter les touches au lieu des demi-tons | tierces fausses autour de E–F et B–C | compte les *pas*, pas les positions |
+| Apprendre les intervalles seulement depuis C | incapacité dès qu'on transpose | chaque jour, une note de départ différente |
+| Confondre le nombre (tierce) et les demi-tons (3 ou 4) | qualités fausses | le nombre vient des noms de notes, la qualité des demi-tons |
+| Éviter les dissonances « parce que c'est moche » | musique plate, sans énergie | la dissonance est un coût à dépenser, pas une faute |
+
+### Récapitulatif
+
+- [ ] Je connais les 13 intervalles (0–12 demi-tons) avec noms et caractères
+- [ ] Je distingue mélodique (geste) et harmonique (couleur)
+- [ ] Je connais l'échelle consonance → dissonance et je sais que dissonance = énergie
+- [ ] Renversement : somme 9, qualités échangées, juste reste juste
+- [ ] J'ai joué le tableau « cinéma » et ressenti chaque geste
+
+<QuizBlock id="m01-l02-quiz" questions={7} />
+<LessonFooter exercises={["m01-e03-interval-build", "m01-e04-interval-ear"]} />

@@ -1,0 +1,10 @@
+{ "id": "m01-e04-interval-ear", "lessonId": "m01-l02-intervalles",
+  "title": "Reconnais l'intervalle à l'oreille", "kind": "EAR_QUIZ", "mvpFallback": "THEORY_QUIZ",
+  "difficulty": 2, "xpReward": 50, "skills": { "EAR_TRAINING": 1.0 },
+  "spec": { "prompt": "Écoute, puis nomme l'intervalle. Ordre d'acquisition : P8-P5-P4, puis tierces, puis le reste (l02 §1).",
+    "quiz": { "interaction": "mc",
+      "generator": { "intervals": [3,4,5,7,12], "thenAdd": [2,8,9,6,10,11,1], "melodicAndHarmonic": true, "rounds": 12 },
+      "items": [
+        { "q": "▶", "play": "C4:q G4:h", "options": ["P4","P5","M6"], "answer": "P5", "why": "L'élan « ouvert », ni majeur ni mineur — le départ héroïque." },
+        { "q": "▶", "play": "[E4+C5]:w", "options": ["m6","M6","P5"], "answer": "m6", "why": "L'élan douloureux — harmonique ici : couleur, pas geste." },
+        { "q": "▶", "play": "B3:q F4:h", "options": ["P5","TT","P4"], "answer": "TT", "why": "L'inquiétude pure — 6 demi-tons, l'intervalle auto-symétrique." } ] } } }

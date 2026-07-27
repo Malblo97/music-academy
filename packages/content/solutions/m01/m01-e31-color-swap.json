@@ -1,0 +1,5 @@
+{ 
+    "exerciseId": "m01-e31-color-swap", 
+    "notation": "[C3+G3+E4+D5]:w | [A2+A3+E4+C5]:w | [F2+A3+E4+C5]:w | [G2+D4+G4+C5]:h [G2+D4+G4+B4]:h | [C3+E4+G4+C5]:w", 
+    "authorNotes": "Enrichis : **Cadd9** (D5, pas de 7e — la frontière l17/l18), **Fmaj7**, **Gsus4→3** (C5 préparée par le Fmaj7, résolue C5→B4 : le lift de cadence, seul ornement permis sur V) = 3 ✓ ; vi laissé en triade (le contraste) ; fonctions intactes T-T'-S-D-T ✓ ; aucun ♭7 clandestin ✓." 
+}

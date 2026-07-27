@@ -1,0 +1,78 @@
+---
+id: m01-l10-expression
+module: module-01-fondamentaux
+title: "Tempo, nuances, articulations : les mots de l'expression"
+estMinutes: 20
+skills: { rhythm: 0.4, orchestration: 0.6 }
+---
+
+### Pourquoi cette leçon avant les accords
+
+Deux compositeurs écrivent les mêmes notes ; l'un fait pleurer, l'autre laisse froid. La différence tient presque toujours dans **le comment** : intensité, attaque, liaison, respiration du tempo. En MIDI, ces paramètres ont des noms concrets — velocity, CC1, CC11, articulations — et cette leçon les connecte au vocabulaire musical historique. C'est aussi le socle du Module 5 (chaque fiche instrument parle en dynamiques) et du Module 10 (Expression Maps).
+
+### 1. Les nuances : l'échelle d'intensité
+
+```
+ppp   pp    p    mp    mf    f    ff    fff
+└─ murmure ─┘    └─ parole ─┘    └── cri ──┘
+```
+
+Trois vérités d'atelier que les débutants découvrent trop tard :
+
+1. **La nuance est relative à l'instrument** : le ff d'une flûte est plus faible que le mf d'un trombone — c'est la colonne `dynamicPower` des fiches du Module 5, et la matière première de la règle `orch.balance`.
+2. **La nuance est un budget dramatique** : si tout est ff, plus rien n'est fort. Le fff d'une scène finale n'existe que par les pp qui l'ont précédé. Pense ta pièce comme une carte d'intensités *avant* de la remplir.
+3. **En MIDI, deux contrôles distincts** : la *velocity* (force de l'attaque, fixée à la frappe) et le *CC1/CC11* (intensité continue pendant la tenue). Les instruments à tenue (cordes, vents, pads) vivent par le CC — une tenue sans courbe de CC est une tenue morte. Habitude à prendre dès aujourd'hui, même sur le piano virtuel : *pense* le crescendo, tu apprendras à le dessiner au Module 10.
+
+### 2. Crescendo, diminuendo : le mouvement d'intensité
+
+Le crescendo est l'outil de tension le plus primitif et le plus fiable — il fonctionne même sans harmonie (un drone qui enfle suffit à inquiéter, le Module 6 en fera des risers). Règles de dosage :
+
+- un crescendo a une **cible** (nuance + moment d'arrivée) : « cresc. vers ff au temps 1 de la mesure 8 » — sinon il enfle dans le vide ;
+- plus il est **long**, plus il est puissant (le cresc. de 8 mesures d'un tutti est un événement ; celui d'un temps est un accent) ;
+- le **subito** (changement brutal : cresc. vers… *subito pp*) est la surprise la moins chère et la plus efficace du métier — la vague qui se retire avant de frapper.
+
+### 3. Les articulations : la façon de toucher la note
+
+| Articulation | Geste | Effet | En MIDI/banques |
+|---|---|---|---|
+| legato | notes liées, sans rupture | ligne, chant, souffle continu | patch legato, notes qui se chevauchent |
+| staccato | note écourtée, détachée | légèreté, précision, nervosité | patch staccato ou durées ~50 % |
+| marcato | attaque appuyée, détachée | affirmation, poids | velocity haute + durée franche |
+| tenuto | tenue pleine, appuyée | insistance, gravité | durée 100 % + CC soutenu |
+| accent | attaque renforcée ponctuelle | relief, surprise | pic de velocity isolé |
+| tremolo (cordes) | répétition rapide de la note | tension, frémissement | patch tremolo |
+| pizzicato (cordes) | corde pincée | ponctuation, espièglerie, noir | patch pizz |
+
+L'articulation change le *sens* à notes égales : une gamme legato est une phrase, la même en staccato est une mécanique. Au Module 5, chaque instrument aura ses articulations idiomatiques ; au Module 10, tu les piloteras par Expression Maps dans Cubase (une piste, toutes les articulations, commutées au clavier).
+
+<MusicExample id="articulations" title="Quatre sens pour les mêmes notes">
+  A) legato :   C4:q~D4:q~E4:q~G4:h     — une pensée qui se déroule
+  B) staccato : C4:e r:e D4:e r:e E4:e r:e G4:q — une machine espiègle
+  C) marcato :  C4:q! D4:q! E4:q! G4:h!  — une déclaration martelée
+  D) A + crescendo vers le G           — la pensée devient élan
+</MusicExample>
+
+### 4. Le tempo vivant : rubato, ritardando, accelerando
+
+Le tempo n'est pas un métronome, c'est une respiration. Trois gestes à connaître : **ritardando** (ralentir — l'atterrissage : quasi obligatoire sur une cadence finale lyrique), **accelerando** (accélérer — la perte de contrôle, la poursuite qui s'emballe), **rubato** (micro-fluctuations expressives autour du tempo — le « temps volé » du soliste). Dans ton DAW, cela vit sur la **Tempo Track** (Module 10) ; dès maintenant, quand tu joues tes exercices au clavier, autorise-toi le rubato — l'analyseur quantise pour analyser les hauteurs, il ne te reprochera jamais d'avoir respiré.
+
+### 5. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Tout à velocity 100, aucun CC | le fameux son « MIDI de démo », raide et mort | courbes de CC1/11 sur toute tenue, velocity variée |
+| Pas de plan de nuances | pièce plate ou saturée en permanence | carte d'intensité de la pièce AVANT d'orchestrer |
+| Crescendo sans cible | tension qui n'aboutit nulle part | nuance + mesure d'arrivée, toujours |
+| Articulation unique partout | legato permanent = brume ; staccato permanent = machine | change d'articulation aux frontières de phrases |
+| Tempo métronomique sur musique lyrique | froideur inexplicable | rit. aux cadences, rubato sur les sommets |
+
+### Récapitulatif
+
+- [ ] ppp→fff est un budget : je dépense en conscience
+- [ ] Velocity = attaque ; CC1/11 = vie de la tenue — les deux, toujours
+- [ ] Chaque articulation est un sens, pas un détail de finition
+- [ ] Crescendo avec cible ; subito pour la surprise ; rit. pour atterrir
+- [ ] Fin de la première moitié du module : je sais nommer, mesurer, placer et EXPRIMER — place aux accords (l11)
+
+<QuizBlock id="m01-l10-quiz" questions={6} />
+<LessonFooter exercises={["m01-e19-dynamics-map", "m01-e20-articulation-scene"]} />

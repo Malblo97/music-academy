@@ -1,0 +1,9 @@
+{ "id": "m01-e15-meter-reading", "lessonId": "m01-l08-rythme-1",
+  "title": "Lire et compléter la mesure", "kind": "THEORY_QUIZ",
+  "difficulty": 2, "xpReward": 40, "skills": { "RHYTHM": 1.0 },
+  "spec": { "prompt": "Chiffrages, hiérarchie des temps, mesures à compléter.",
+    "quiz": { "interaction": "mc",
+      "items": [
+        { "q": "En 4/4, cette mesure `q q e e` est :", "options": ["complète","incomplète d'un temps","excédentaire"], "answer": "incomplète d'un temps", "why": "1+1+0,5+0,5 = 3 temps. `rhythm.meter-integrity` la refuserait : contrat rompu." },
+        { "q": "▶ compte à voix haute :", "play": "C4:q. C4:q. | C4:q. C4:q.", "options": ["3/4","6/8","2/4"], "answer": "6/8", "why": "DEUX temps ternaires (♩. divisée en 3) — ça roule, ça ne valse pas." },
+        { "q": "Le temps le plus lourd après le 1er, en 4/4 :", "options": ["2e","3e","4e"], "answer": "3e", "why": "FORT-faible-mifort-faible : la hiérarchie de l08 §2." } ] } } }

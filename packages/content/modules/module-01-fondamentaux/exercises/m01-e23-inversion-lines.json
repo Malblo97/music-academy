@@ -1,0 +1,11 @@
+{ "id": "m01-e23-inversion-lines", "lessonId": "m01-l12-renversements",
+  "title": "Fais marcher la basse", "kind": "HARMONY_PROGRESSION",
+  "difficulty": 4, "xpReward": 80, "skills": { "HARMONY": 1.0 },
+  "spec": { "prompt": "Voici I–vi–IV–V–I en do majeur, tout à l'état fondamental (basse qui saute). SANS changer les accords, choisis des renversements pour que la basse devienne une ligne majoritairement CONJOINTE. Écris les voicings complets à 4 voix — et regarde tes voix supérieures : elles devraient à peine bouger.",
+    "given": { "key": { "tonic": 0, "mode": "major" },
+      "chords": [ { "root": 0, "quality": "maj" }, { "root": 9, "quality": "min" }, { "root": 5, "quality": "maj" }, { "root": 7, "quality": "maj" }, { "root": 0, "quality": "maj" } ] },
+    "constraints": { "lengthBars": [4,5], "minVoices": 4, "maxVoices": 4,
+      "mustKeepChordFunctions": true, "bassMaxLeap": 4, "minBassConjunctRatio": 0.6 },
+    "styleProfile": { "id": "classical-common",
+      "ruleWeights": { "vl.parallel-fifths": 1.0, "vl.parallel-octaves": 1.0, "vl.spacing": 1.0 } },
+    "rubric": { "correctness": 40, "constraints": 35, "craft": 25 } } }

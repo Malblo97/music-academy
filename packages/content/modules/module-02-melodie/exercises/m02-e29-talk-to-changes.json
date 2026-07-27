@@ -1,0 +1,11 @@
+{ "id": "m02-e29-talk-to-changes", "lessonId": "m02-l14-ambiances-5",
+  "title": "Converser avec la grille", "kind": "MELODY_COMPOSE",
+  "difficulty": 8, "xpReward": 140, "skills": { "MELODY": 0.6, "HARMONY": 0.4 },
+  "spec": { "prompt": "La grille jazz est fournie (ii–V–I puis subV, m01-e38 en héritage). Compose la mélodie de standard : guide tones et tensions visés aux temps forts (le climax sur la 9, pas sur la tonique), fenêtre de syncope 35–70 % (le temps fort est l'exception), au moins deux approches chromatiques, anticipations bienvenues. Chaque note se définit par ce qu'elle est POUR l'accord du moment.",
+    "given": { "key": { "tonic": 5, "mode": "major" },
+      "chords": [ {"root":7,"quality":"m7"},{"root":0,"quality":"7"},{"root":5,"quality":"maj7"},{"root":2,"quality":"m7"},{"root":7,"quality":"m7"},{"root":6,"quality":"7"},{"root":5,"quality":"maj7"},{"root":5,"quality":"maj7"} ] },
+    "constraints": { "lengthBars": [8,8], "guideToneTargets": true,
+      "syncopationTarget": [0.35, 0.7], "minChromaticFigures": 2,
+      "chromaticResolutionRequired": true },
+    "styleProfile": { "id": "jazz", "targetMood": "jazz_ballad" },
+    "rubric": { "correctness": 20, "constraints": 40, "craft": 40 } } }

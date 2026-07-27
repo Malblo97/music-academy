@@ -1,0 +1,17 @@
+{ "id": "m10-l01-quiz", "interaction": "mc", "items": [
+  { "q": "Un projet, c'est :",
+    "options": ["un fichier .cpr, où qu'il soit", "UN DOSSIER — avec Exports/ et MIDI/ créés à la naissance", "un dossier partagé entre les cues d'un même film"],
+    "answer": "UN DOSSIER — avec Exports/ et MIDI/ créés à la naissance",
+    "why": "Back up Project et tout archivage reposent sur cette unité (§1) : l'intendance se décide au premier jour, pas dans l'urgence — un projet qui pioche dans trois dossiers ne survivra pas à un déménagement de disque." },
+  { "q": "Le nommage des pistes suit :",
+    "options": ["l'instrument, puis le numéro", "le RÔLE (MEL Cor, BASS Cb) ; la couleur suit la famille — l'information avant la décoration", "l'ordre de création"],
+    "answer": "le RÔLE (MEL Cor, BASS Cb) ; la couleur suit la famille — l'information avant la décoration",
+    "why": "La nomenclature des rôles du produit devient celle de ta session (§2) : l'export vers une soumission ORCHESTRATE se mappe tout seul." },
+  { "q": "Ctrl+Alt+S (Save New Version) s'utilise :",
+    "options": ["à la livraison seulement", "avant tout acte destructeur et chaque soir — versions incrémentées", "quand le projet devient instable"],
+    "answer": "avant tout acte destructeur et chaque soir — versions incrémentées",
+    "why": "« Final_v2_VRAIfinal.cpr » est le symptôme (§erreurs) : les versions ne coûtent que le .cpr — la plus haute est la courante, il n'existe pas de « final »." },
+  { "q": "[intégrative] Les réglages de naissance (48/24, Root Key, frame rate) évitent :",
+    "options": ["de la paperasse administrative", "les CONVERSIONS DESTRUCTRICES en aval — le colis de l14 se prépare ici", "les surcharges CPU"],
+    "answer": "les CONVERSIONS DESTRUCTRICES en aval — le colis de l14 se prépare ici",
+    "why": "Changer le sample rate après coup convertit tout l'audio, un mauvais frame rate fausse tous les repères (§4, l12) — et la Root Key rend le hors-gamme visible (l05 M1) : rien n'est décoratif, dès la seconde zéro." } ] }

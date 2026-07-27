@@ -1,0 +1,23 @@
+{ "id": "m10-e05-survival-map", "lessonId": "m10-l05-expression-maps",
+  "title": "La map de survie", "difficulty": 4, "xpReward": 100,
+  "skills": { "DAW_WORKFLOW": 0.7, "ORCHESTRATION": 0.3 },
+  "spec": { "prompt": "Partie guidée : construis la map « Cordes — kit de survie » (6 slots). Partie prouvée : programme la phrase fournie (8 mesures, PDF-mission — une ligne qui alterne legato / staccato / pizz / tremolo, chaque articulation notée) via la LANE d'articulations, et exporte. Le test anti-keyswitch est brutal et efficace : AUCUNE note sous G2 dans ton MIDI — sinon, tu as joué tes switches au lieu de les mapper.",
+    "mission": { "mode": "guided+proof",
+      "checklist": [
+        { "step": "Expression Map Setup : slot Legato (type DIRECTION)", "verifyHint": "Joue deux notes liées : le legato de la banque s'active ?" },
+        { "step": "Slot Sustain (Direction)", "verifyHint": "La tenue par défaut répond ?" },
+        { "step": "Slot Staccato/Spiccato (type ATTRIBUTE — un geste, pas un état)", "verifyHint": "Pose-le sur UNE note : la suivante revient-elle au sustain ?" },
+        { "step": "Slot Pizz (Direction — pizz est un état qu'on installe)", "verifyHint": "Joue une note : entends-tu le pizz ? La suivante aussi ?" },
+        { "step": "Slot Tremolo (Direction)", "verifyHint": "≋ — la brume nerveuse répond ?" },
+        { "step": "Slot Sordino (Direction — la couleur qu'on installe, l02 M5)", "verifyHint": "Le velours con sordino s'entend ?" },
+        { "step": "Noms de slots COHÉRENTS (Legato, pas « Leg ») — les mêmes dans toutes tes futures maps", "verifyHint": "La cohérence fait la vitesse." },
+        { "step": "La phrase : jouée entière en legato D'ABORD, puis les changements posés dans la lane Articulations", "verifyHint": "La ligne est restée UNE ligne sur UNE piste ?" },
+        { "step": "Slots posés une double-croche AVANT l'attaque si la banque commute lentement", "verifyHint": "La première note de chaque changement est-elle dans la BONNE articulation ?" } ],
+      "proofSubmission": { "assets": ["assets/m10-e05-mission.pdf"],
+        "checks": {
+          "pitchSequenceMatch": "m10-e05-phrase",
+          "noNotesBelowPitch": 43,
+          "durationProfileByArticulation": {
+            "staccato": { "maxBeatRatio": 0.5 },
+            "legato": { "requireOverlaps": true } } } } },
+    "rubric": { "checklist": 40, "correctness": 30, "constraints": 30 } } }

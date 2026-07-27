@@ -1,0 +1,34 @@
+{
+    "exerciseId": "m10-e08-honest-balance",
+    "payload": {
+      "mode": "declarative",
+      "source": "maquette de m10-e04 + 3 pistes (cordes tenues, sub, percussion)",
+      "checklist": [
+        {
+          "id": "e08-s1",
+          "expect": "tous faders à 0, boucle sur le tutti le plus dense"
+        },
+        {
+          "id": "e08-s2",
+          "expect": "gain staging : crêtes piste ≈ −10 dB, obtenues AU VSTi (pas au fader)"
+        },
+        {
+          "id": "e08-s3",
+          "expect": "seating : pans V1 gauche → Cb fond-droite, cors fond-gauche · ratio Room/Hall · coupe-haut −2/3 dB > 8 kHz sur le fond"
+        },
+        {
+          "id": "e08-s4",
+          "expect": "DEUX MINUTES d'écoute en mono"
+        },
+        {
+          "id": "e08-s5",
+          "expect": "correction À L'ÉCRITURE d'abord ; EQ soustractif seulement si l'écriture a raison (−2/3 dB, coupe-bas 80 Hz sauf celli/Cb/sub)"
+        },
+        {
+          "id": "e08-s6",
+          "expect": "limiteur de contrôle −1 dB transparent ; tutti fff ≈ −6 dB au master"
+        }
+      ]
+    },
+    "authorNotes": "« Quand la maquette sonne mal, la réponse est presque toujours dans l'ÉCRITURE. » L'étalon assume ce que le produit ne peut pas faire : il n'entendra jamais ce mix. Sa contribution est donc l'ORDRE des six gestes et la règle du milieu. Chiffres du métier portés par les attendus : −10 dB crêtes piste, −6 dB tutti, −1 dB limiteur qui travaille à peine, −2/3 dB d'EQ chirurgical, coupe-bas 80 Hz. Le pivot est l'étape 4 : le test mono ne se note pas, il RÉVÈLE — et l'étape 5 pose la seule question qui distingue un compositeur qui mixe d'un compositeur qui bricole : « as-tu corrigé une note avant de bouger un fader ? »"
+  }

@@ -1,0 +1,14 @@
+{
+  "exerciseId": "m04-e12-the-woven-scene",
+  "partId": "part3-reading",
+  "payload": {
+    "commentary": {
+      "moteurParActe": "acte 1 : l'imitation lointaine ; acte 2 : la strette des deux têtes + le retard ; acte 3 : la superposition sur fleuve",
+      "climaxDeTissage": "m15, la suspension au point de rencontre",
+      "recetteActe3": "fleuve lent",
+      "ceQueJaiRetire": "V2 muette tout l'acte 1 ; le fleuve absent des actes 1–2 ; aucun contrechant sur la conclusion",
+      "ecartAssume": "l'accord final sans quinte"
+    }
+  },
+  "authorNotes": "Le commentaire vérifié — le produit ne juge pas la prose, il VÉRIFIE la concordance déclaré↔détecté : champ 1 concorde avec les tags ✓ ; champ 2 concorde (le pic de densité d'événements contrapuntiques mesuré : m15) ✓ ; champ 3 concorde (métriques l11 sur V3) ✓ ; champ 4 déclaratif (consigné, non jugé) ; champ 5 croisé avec l'authorNote de la part 2 ✓. Verdict : « trois descriptions de la même scène — plan, détecté, commentaire — convergentes. » La convergence est la note. XP 350, badge de module."
+}

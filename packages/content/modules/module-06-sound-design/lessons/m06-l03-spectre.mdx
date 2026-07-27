@@ -1,0 +1,86 @@
+---
+id: m06-l03-spectre
+module: module-06-sound-design
+title: "Le spectre et la place : penser en couches"
+estMinutes: 25
+skills: { sound_design: 0.8, orchestration: 0.2 }
+---
+
+### Pourquoi c'est la leçon-clé du module
+
+Le Module 5 t'a appris que l'orchestre s'étage en registres et en rôles ; le monde synthétique obéit à la même loi, exprimée en hertz : **un son n'existe que s'il a une place**. Cette leçon installe la carte du spectre, les sept rôles de couche, et la méthode d'assemblage — c'est le mode d'emploi du modèle `Layer` (§35.1), donc de tous les exercices LAYERING à venir.
+
+### 1. La carte du spectre (à connaître comme le cycle des quintes)
+
+```
+20 ─── 60 ──── 120 ─────── 350 ─────── 2k ─────── 8k ─────── 20k Hz
+│ INFRA │  SUB  │  BAS-MÉDIUM │  MÉDIUM   │  PRÉSENCE │   AIR    │
+│ senti,│ LE    │ la chaleur   │ la parole,│ l'attaque,│ le       │
+│ pas   │ sub — │ ET la boue   │ le corps  │ la clarté │ souffle, │
+│ entendu│ SEUL │ (la zone     │ des sons  │           │ le       │
+│       │ et    │ critique :   │           │           │ scintill.│
+│       │ MONO  │ tout veut    │           │           │          │
+│       │       │ y vivre)     │           │           │          │
+```
+
+Trois lois de la carte, qui sont trois règles du moteur :
+
+1. **Le sub est un royaume à occupant unique** (`sd.sub-conflict`) : sous ~90 Hz, deux sources se battent en phase et produisent du chaos — UNE couche y règne (et l'orchestre compte : contrebasses + sub synthétique = déjà deux prétendants, l14 arbitrera) ;
+2. **le grave est mono** (`sd.sub-width`) : la largeur stéréo sous 120 Hz s'annule en mono et floute l'assise — le sub au centre, toujours, la largeur commence au médium ;
+3. **le bas-médium (120–350 Hz) est la zone critique** : la chaleur de tout y habite (pads, basses, cordes, cors) — c'est là que `sd.band-pileup` veille, et c'est là que le high-pass de l01 travaille (nettoyer le bas des couches qui n'ont rien à y faire : le pad qui commence à 200 Hz laisse la place à la basse).
+
+### 2. Les sept rôles (le vocabulaire du modèle Layer)
+
+| Rôle | Bande typique | Métier | L'analogie orchestrale |
+|---|---|---|---|
+| **sub** | 30–90 Hz | l'assise physique — sentie autant qu'entendue | la contrebasse (l05 M5 : l'interrupteur de gravité) |
+| **body** | 90–500 Hz | le corps harmonique : l'accord, la chaleur | celli + cors (le tapis) |
+| **top** | 2k–12k | la définition : l'attaque, la brillance | violons aigus + flûtes (la voûte) |
+| **texture** | large, faible | le grain du temps : vinyl, air, granulaire | les tremolos ppp (la brume) |
+| **movement** | variable | ce qui pulse : arps, gates, LFO sync | l'ostinato (m09-l02 : le moteur) |
+| **fx** | événementiel | risers, impacts, braams — la ponctuation | les percussions et les rips |
+| **melodic** | selon la ligne | le lead, la voix — porte des `notes` | la mélodie, tout simplement |
+
+La grande révélation du module tient dans la colonne de droite : **le layering EST de l'orchestration** — mêmes questions (rôle → registre → couleur, m05-l01 §3), autres instruments. Un élève qui a fait le Module 5 sait déjà layerer ; il lui manquait la carte en hertz.
+
+### 3. La méthode d'assemblage (l'ordre qui évite la boue)
+
+```
+1. LE BODY d'abord : le corps harmonique, seul, au niveau de référence
+   (0 dB du stack) — c'est lui qu'on habille
+2. LE SUB ensuite : mono, sinus/triangle, SOUS le body (high-pass du
+   body à ~100 Hz pour lui céder la place) — et le test : coupe le
+   sub → le stack doit maigrir, pas s'effondrer (le sub soutient,
+   il ne porte pas)
+3. LE TOP : la définition — souvent une couche fine (le même accord
+   une octave plus haut, filtré high-pass, OU juste l'attaque d'un
+   pluck) : +2 dB de top remplacent +6 dB de volume
+4. LA VIE : les motions de l02 (qui respire, qui pulse, qui s'ouvre)
+5. LA SOUSTRACTION : mute chaque couche une par une — celle dont
+   l'absence ne s'entend pas DÉGAGE (la règle du néo-noir m09-l03 §5,
+   érigée en méthode : max 3–4 couches actives + les événements)
+```
+
+L'étape 5 est la discipline qui sépare le stack pro de l'empilement d'amateur : **on assemble par addition, on finit par soustraction**. Le rapport de tes exercices LAYERING la vérifie à sa façon (`sd.band-pileup`, et le craft crédite les stacks économes).
+
+### 4. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Deux subs (le pad qui descend + la basse) | la boue qui pompe | `sd.sub-conflict` : high-pass du pad, le royaume a un roi |
+| Le sub stéréo « pour l'ampleur » | l'assise qui disparaît en mono | mono sous 120 Hz, la largeur au-dessus |
+| Cinq couches dans le bas-médium | la chaleur devenue marécage | high-pass discipliné, `sd.band-pileup` |
+| Monter le volume au lieu d'ajouter du top | le stack fort ET terne | +2 dB à 5 kHz > +6 dB partout |
+| Ne jamais soustraire | le mur de son indifférencié | le test du mute, couche par couche, avant de valider |
+
+### La mission (m06-e03, LAYERING — le premier stack complet)
+
+Le stack canonique : body (saw detuné, high-passé à 100 Hz) + sub (sinus, mono) + top (attaque de pluck ou octave filtrée) + une texture — sur la progression fournie (4 accords, la boucle néo-noir de m09-e05 revisitée). Soumission `LayerStack` complet : bandes déclarées, high-pass du body prouvé par sa bande (`low ≥ 90`), sub mono, une motion, ET la déclaration de ce que tu as **soustrait** (champ libre `removed` : qu'as-tu essayé puis muté, et pourquoi — la soustraction devient un livrable). Les six règles `sd.*` jugent leur premier stack réel.
+
+- [ ] La carte : infra/sub/bas-médium/médium/présence/air — et ses trois lois
+- [ ] Sept rôles = l'orchestration en hertz (rôle → bande → source)
+- [ ] L'ordre : body → sub → top → vie → SOUSTRACTION
+- [ ] Le test du mute : ce qui ne manque pas dégage
+
+<QuizBlock id="m06-l03-quiz" questions={5} />
+<LessonFooter exercises={["m06-e03-the-canonical-stack"]} />

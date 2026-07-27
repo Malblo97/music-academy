@@ -1,0 +1,11 @@
+{ "id": "m02-e26-weightless", "lessonId": "m02-l13-ambiances-4",
+  "title": "L'apesanteur", "kind": "MELODY_COMPOSE",
+  "difficulty": 7, "xpReward": 120, "skills": { "MELODY": 1.0 },
+  "spec": { "prompt": "8 mesures de SF contemplative : les intervalles CREUX dominent (quartes, quintes, octaves ≥ 50 % des intervalles), silences LARGES (au moins 30 % de la durée), courbe de tension quasi plate à altitude moyenne — ni pic ni repos : la fascination constante. La SF flotte, elle ne gravit pas.",
+    "given": { "key": { "tonic": 0, "mode": "lydian" } },
+    "constraints": { "key": { "tonic": 0, "mode": "lydian" }, "lengthBars": [8,8],
+      "minPerfectIntervalRatio": 0.5, "minRestRatio": 0.3,
+      "flatTension": true, "minAvgDuration": 960,
+      "mustExposeDegrees": [4] },
+    "styleProfile": { "id": "hybrid-sd", "targetMood": "scifi" },
+    "rubric": { "correctness": 15, "constraints": 45, "craft": 40 } } }

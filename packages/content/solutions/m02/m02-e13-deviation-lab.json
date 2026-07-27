@@ -1,0 +1,5 @@
+{ 
+    "exerciseId": "m02-e13-deviation-lab", 
+    "notation": "G4:e E4:e F4:e G4:e C5:q r:q | G4:e E4:e F4:e G4:e C5:q r:q | G4:e E4:e F4:e G4:e~ G4:q C5:e r:e | r:e G4:e E4:e F4:e G4:e C5:e~ C5:e r:e | r:e A4:e F4:e G4:e A4:e D5:e~ D5:e r:e | r:e E5:e~ E5:e D5:e~ D5:e C5:e~ C5:e A4:e~ | A4:e G4:e~ G4:e A4:e~ A4:e B4:e~ B4:e D5:e~ | D5:e C5:e~ C5:e G4:e~ G4:e E4:q.~ | E4:e", 
+    "authorNotes": "Trajectoire [exact, exact, **rythmique** (le retard : G4:q. — la note attendue arrive tard), exact] ✓ `patternThenDeviation` ; 5 occ. ✓ ; fin 3̂ ✓." 
+}

@@ -1,0 +1,19 @@
+{
+  "exerciseId": "m03-e08-seven-worlds",
+  "variantId": "mixolydien",
+  "notation": "[G2+D4+G4+B4]:w | [G2+C4+F4+A4]:w | [G2+D4+G4+B4]:w | [G2+A3+C4+F4]:w | [G2+B3+D4+G4]:w | [G2+C4+E4+G4]:w | [G2+B3+D4+G4]:w | [G2+C4+F4+A4]:w | [G2+D4+G4+B4]:w | [G2+A3+C4+F4]:w | [G2+C4+F4+A4]:w | [G2+D4+G4+B4]:w",
+  "payload": {
+    "pedalPlan": [
+      { "bars": [1, 1], "state": "compatible" },
+      { "bars": [2, 2], "state": "frottee" },
+      { "bars": [3, 3], "state": "compatible" },
+      { "bars": [4, 4], "state": "frottee" },
+      { "bars": [5, 7], "state": "compatible" },
+      { "bars": [8, 8], "state": "frottee" },
+      { "bars": [9, 9], "state": "compatible" },
+      { "bars": [10, 11], "state": "frottee" },
+      { "bars": [12, 12], "state": "compatible" }
+    ]
+  },
+  "authorNotes": "Sol mixolydien, piliers I–♭VII — **solution-témoin F-19**. Boucle {G, F, C/G} ; le FA (♭7̂) exposé m2, m4 (soprano), m8, m10, m11. **Cadence mixolydienne ♭VII→I** (m11→12 : C4→D4, F4→G4 — l'atterrissage au ton entier —, A4→B4 : tout monte, aucune sensible). Sans l'ancrage par insistance, cette pièce se lisait « do majeur, demi-cadence IV→V » : elle existe pour verrouiller le patch — la collection de sol mixolydien EST celle de do majeur, seule l'insistance tranche."
+}

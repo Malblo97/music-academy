@@ -1,0 +1,7 @@
+{
+  "exerciseId": "m04-e11-elenas-countermelody",
+  "variantId": "descant",
+  "notation": "r:w | r:w | r:h G5:h~ | G5:h F5:h | E5:h~ E5:h | D5:h~ D5:h | G5:h~ G5:h | F5:h D5:h",
+  "payload": { "recipe": "descant", "dyn": [{ "bar": 3, "value": 28, "note": "pp constant — la hiérarchie est dynamique" }] },
+  "authorNotes": "Le descant : le ciel. Deux mesures de retenue (le thème d'abord — l'ancrage, toujours), puis la tenue qui glisse : cellule h~h + pas descendant (m3–4, m7–8 varié). Jamais sous le thème, même à son E5 (m3, m7 : la tierce AU-DESSUS du sommet). Velocity déclarée pp — la hiérarchie est dynamique, pas registrale : il plane, il ne rivalise pas. Fin D5, l'octave d'Elena. Attaques fortes simultanées 0,13."
+}

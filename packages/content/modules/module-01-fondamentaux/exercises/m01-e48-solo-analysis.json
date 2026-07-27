@@ -1,0 +1,10 @@
+{ "id": "m01-e48-solo-analysis", "lessonId": "m01-l25-synthese",
+  "title": "Analyse en solo : la pièce mystère", "kind": "THEORY_QUIZ",
+  "difficulty": 7, "xpReward": 120, "skills": { "HARMONY": 0.5, "MELODY": 0.3, "EAR_TRAINING": 0.2 },
+  "spec": { "prompt": "Une seconde pièce de 16 mesures (originale, fournie avec partition et ▶ — asset assets/m01-e48-piece.json) : applique le protocole SEUL, puis réponds. Les questions couvrent les 7 étapes ; certaines sont à réponses multiples.",
+    "quiz": { "interaction": "mc",
+      "items": [
+        { "q": "Tonalité principale et éventuel voyage :", "options": ["mi mineur, sans modulation","mi mineur → sol majeur confirmé","sol majeur, teinté d'éolien"], "answer": "mi mineur → sol majeur confirmé", "why": "Cadence confirmante en sol à la mesure 12 — le relatif majeur, le déménagement le plus doux (l23 §2)." },
+        { "q": "Coche toutes les portes chromatiques utilisées :", "interaction": "multi", "options": ["V/x","subV","emprunt","médiante chromatique"], "answer": ["V/x","emprunt"], "why": "Un V/III (tonicisation du relatif) et un iv final : deux portes, sobrement." },
+        { "q": "Le climax mélodique se situe :", "options": ["mesure 4","mesure 11","mesure 15"], "answer": "mesure 11", "why": "≈ 70 % de la durée, atteint par le plus grand saut compensé — l'arche canonique." },
+        { "q": "La fenêtre de syncope correspond à :", "options": ["classique (quasi nulle)","romantique (légère)","jazz (élevée)"], "answer": "romantique (légère)", "why": "Anticipations expressives aux fins de phrases uniquement (l09 §4)." } ] } } }

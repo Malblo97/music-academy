@@ -1,0 +1,64 @@
+---
+id: m08-l11-jazz-modal
+module: module-08-jazz
+title: "Le jazz modal : le lieu plutôt que le trajet"
+estMinutes: 20
+skills: { harmony: 0.6, melody: 0.4 }
+---
+
+### Pourquoi l'autre jazz
+
+Tout le module jusqu'ici a parcouru le jazz **tonal** — les grilles denses, la circulation en ii-V, le trajet. À la fin des années 50, une révolution simplifie tout : le jazz **modal** — un accord (ou deux) pendant huit, seize mesures ; une gamme comme territoire ; le soliste libéré de la course aux changements et confronté à un problème plus nu : *que dire quand rien ne bouge ?* Tu connais déjà la théorie (m03-l08 : le système 2, le lieu contre le trajet — la carte de m03-l01 avait tout prévu) ; cette leçon donne l'idiome.
+
+### 1. La grille modale (l'anti-grille)
+
+```
+LE MODÈLE CANONIQUE (le "So What"-type, nommé pour la culture) :
+| Dm7 (dorien) ×16 mesures | Ebm7 (dorien) ×8 | Dm7 ×8 |
+— AABA où chaque section est UN accord-lieu ; la "modulation" est
+un glissement de demi-ton (le même monde, une marche plus haut :
+la médiante... le voisinage chromatique comme seul événement)
+CE QUI REMPLACE LA CIRCULATION :
+  le VAMP : la basse en ostinato de deux mesures (la pédale marchée
+  de l05, devenue la forme entière), les voicings QUARTAUX qui
+  répondent (m03-l13 §2 : le quartal modal était annoncé "LE son
+  du jazz moderne" — le voici en résidence principale : les piles
+  de quartes doriennes en call-and-response avec la basse)
+```
+
+### 2. Jouer le lieu (le problème du soliste modal)
+
+Seize mesures de Dm7 dorien : la carte de l06 dit « dorien de ré » — et puis ? Les réponses du métier, qui sont toutes des acquis relus :
+
+| Ressource | Mécanique | Origine |
+|---|---|---|
+| **La note caractéristique dramatisée** | le B (la 6 dorienne) exposé, quitté, retrouvé — la SEULE note qui « raconte » dans le mode devient le personnage du solo | m03-l08 §1 (les piliers, version ligne) |
+| **Le développement motivique pur** | sans changements à suivre, le motif est TOUT (l10 §1 : la boîte de m02 à son emploi maximal — le jazz modal est l'école du motif) | m02-l02–l04 |
+| **Les couleurs d'emprunt passagères** | sortir du mode 2 temps (la phrase phrygienne, le triton exposé) et RENTRER — la dissonance-altitude de m03-l17 (elle se gravit, elle ne se rembourse pas) | m03-l17 |
+| **L'espace** | les trous géants, la note tenue sur le vamp — le lieu s'habite aussi en silence (le soliste modal qui se tait deux mesures est chez lui) | m09-l03, l04 §3 |
+| **Le pentatonique déplacé** | la pentatonique jouée depuis d'autres degrés du mode (sur Dm7 dorien : penta de mi = les tensions 9-11-13 en système) — le « in-out » contrôlé | la version systémique du chord-scale |
+
+### 3. Modal jazz et modal de film (la frontière utile)
+
+Les deux modals (m03-l08 et cette leçon) partagent la grammaire (piliers, boucle, pas de V7) — leur différence est le **temps** : le modal de film installe un lieu pour une scène (la couleur au service de l'image) ; le jazz modal installe un lieu pour le *discours* (le vide au service du soliste). Pour le compositeur à l'image, la conséquence est un outil : le vamp modal + solo est LE dispositif de la scène qui dure (la filature, le trajet en voiture, la ville — le temps réel filmé appelle le temps-lieu du modal) : une grille tonale y sonnerait pressée.
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Combler le vide | seize mesures remplies de notes : la peur du lieu | le modal s'habite — l'espace est une ressource, pas un manque |
+| Le dorien sans son B | de l'éolien qui s'ignore (m03-l08, récidive en solo) | la caractéristique se dramatise : c'est elle, le récit |
+| Le in-out sans retour | la sortie de mode qui devient une noyade | on sort 2 temps, on rentre — l'altitude se redescend |
+| Le vamp qui varie | le lieu qui bouge : plus de lieu | le vamp est un sol (m09-l04 : le pattern parfait) — la vie est au-dessus |
+
+### La mission (m08-e11, MELODY_COMPOSE + LAYERING léger)
+
+Le lieu complet : 16 mesures sur vamp fourni (basse ostinato + voicings quartaux, ▶) en ré dorien — le solo modal : la 6 dorienne dramatisée (≥ 3 expositions dont une tenue), UN motif développé (≥ 4 occurrences, ≥ 2 transformations), une sortie in-out taguée (≤ 2 temps hors mode, retour vérifié), trous ≥ 35 %, `chordScaleCheck` en mode collection (le `requireCollection: "dorian"` de m03 recyclé). Variante compositeur : ajoute la couche texture (le vamp habillé pour la filature — le pont M6/M9 en deux couches déclarées).
+
+- [ ] L'anti-grille : un accord-lieu, un vamp, des quartes qui répondent
+- [ ] Le soliste modal : la caractéristique, le motif, l'in-out, l'espace
+- [ ] Le jazz modal est l'école du motif — m02 à son emploi maximal
+- [ ] Le vamp modal est le dispositif de la scène qui dure
+
+<QuizBlock id="m08-l11-quiz" questions={5} />
+<LessonFooter exercises={["m08-e11-the-place"]} />

@@ -1,0 +1,12 @@
+{ "id": "m03-e10-white-light", "lessonId": "m03-l10-pandiatonisme",
+  "title": "La lumière blanche", "kind": "HARMONY_PROGRESSION",
+  "difficulty": 6, "xpReward": 110, "skills": { "HARMONY": 1.0 },
+  "spec": { "prompt": "12 mesures, tout en SOL DIATONIQUE, la fonction dissoute : ton pôle s'établit par INSISTANCE (basses, première et dernière verticalité — jamais par cadence), tes verticalités s'empilent LIBREMENT (secondes, quartes, quintes — au moins 4 empilements non tertiens, tagués), la sensible ne cadence jamais. Compose au moins UN événement d'ESPACEMENT : le resserré qui éclate (ou l'inverse) — l'ambitus vertical est ton paramètre dramatique, mesuré. Et la fin : pas de cadence — la DISSOLUTION : les voix se retirent une à une jusqu'au pôle resté seul. Le trajet de matière remplace le trajet de fonctions : c'est la porte du système 3.",
+    "given": { "key": { "tonic": 7, "mode": "major" } },
+    "constraints": { "lengthBars": [12,12], "minVoices": 2, "maxVoices": 7,
+      "requireCollection": { "collection": "diatonic" },
+      "forbidFunctionalCadence": true, "poleByInsistence": 7,
+      "minNonTertianStacks": 4, "spacingEvent": { "minDeltaSemitones": 12 },
+      "endByDissolution": true },
+    "styleProfile": { "id": "impressionist", "targetMood": "white-light" },
+    "rubric": { "correctness": 25, "constraints": 45, "craft": 30 } } }

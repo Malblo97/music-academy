@@ -1,0 +1,68 @@
+---
+id: m01-l04-degres
+module: module-01-fondamentaux
+title: "Degrés et fonctions des notes : qui fait quoi dans la gamme"
+estMinutes: 20
+skills: { melody: 0.5, harmony: 0.5 }
+---
+
+### Pourquoi nommer les degrés
+
+Tu sais construire la gamme ; il faut maintenant savoir que ses sept notes ont des **métiers différents**. Dire « la mélodie finit sur E » ne dit rien ; dire « elle finit sur 3̂ » dit tout — dans n'importe quelle tonalité. Les degrés sont le langage *transposable* : celui de l'analyseur, celui des musiciens de studio (« monte à la quinte »), celui de tous les modules suivants.
+
+### 1. Les sept degrés, leurs noms, leurs métiers
+
+| Degré | Nom classique | Métier dans la phrase | Stabilité |
+|---|---|---|---|
+| 1̂ | Tonique | la maison — départ et arrivée | ●●●● |
+| 2̂ | Sus-tonique | le pas — relie 1̂ et 3̂ | ●● |
+| 3̂ | Médiante | l'identité — c'est elle qui dit majeur ou mineur | ●●● |
+| 4̂ | Sous-dominante | l'appel — tirée vers 3̂ | ● |
+| 5̂ | Dominante | le pilier — stable mais « en l'air », appelle 1̂ à distance | ●●● |
+| 6̂ | Sus-dominante | la couleur — adoucit, relie 5̂ au haut de la gamme | ●● |
+| 7̂ | Sensible | la flèche — tirée irrésistiblement vers 1̂ | ○ |
+
+Tu reconnais la hiérarchie de stabilité : la leçon 14 la développera comme moteur de tension. Ici, retiens la lecture *mélodique* : **1̂–3̂–5̂ sont les notes charpentes** (elles forment l'accord de tonique, leçon 11) ; **2̂–4̂–6̂–7̂ sont les notes de passage et de tension** qui donnent vie au squelette.
+
+<MusicExample id="charpente-et-chair" title="Charpente, puis chair">
+  A) C4:q E4:q G4:q E4:q C4:h          — que des notes charpentes : solide, un peu raide
+  B) C4:q D4:e E4:e G4:q F4:e E4:e D4:q C4:h — mêmes piliers + notes de passage : ça respire
+  La mélodie B « habille » la mélodie A. Composer, c'est très souvent ça :
+  poser la charpente 1̂-3̂-5̂, puis l'habiller avec 2̂, 4̂, 6̂, 7̂.
+</MusicExample>
+
+### 2. La méthode charpente/habillage (ton premier outil de composition)
+
+C'est la première **méthode de composition** du cours, et l'exercice m01-e07 la met en pratique :
+
+```
+1. Choisis 3–4 notes charpentes parmi 1̂ 3̂ 5̂ (une par mesure, temps forts)
+2. Relie-les par mouvement conjoint (2̂, 4̂, 6̂ en passage)
+3. Place 7̂ juste avant la dernière 1̂ (l'aimant fait le travail de conclusion)
+4. Joue — puis déplace UNE note charpente et compare
+```
+
+Modeste ? Oui. Mais des thèmes célèbres entiers tiennent sur ce principe — la sophistication viendra du rythme (leçons 8–9) et de la variation (Module 2), pas de l'abandon de la charpente.
+
+### 3. Entendre les degrés : le jeu du « où suis-je ? »
+
+Exercice d'oreille quotidien (2 min) : joue la gamme pour installer la tonalité, puis joue une note au hasard et nomme son degré *avant* de vérifier. Astuce des débuts : toute note se situe par rapport à 1̂ — si elle « veut monter d'un cran », c'est 7̂ ; si elle « veut descendre d'un cran », c'est souvent 4̂ ou 2̂ ; si elle est « chez elle », c'est 1̂, 3̂ ou 5̂. Tu entraînes exactement ce que `tensionCurve()` calcule — l'oreille et l'analyseur parlent la même langue.
+
+### 4. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Penser en notes absolues | tout s'effondre en changeant de tonalité | traduis systématiquement en degrés (« c'est quoi, ce E, en sol majeur ? → 6̂ ») |
+| Mélodie 100 % charpente | raideur, « exercice de solfège » | habille : notes de passage sur les temps faibles |
+| Mélodie 100 % habillage | flottement, aucune assise | ancre les temps forts sur 1̂ 3̂ 5̂ |
+| 7̂ posée sans aller à 1̂ | sensation d'inachevé | la sensible est une flèche : décoche-la |
+
+### Récapitulatif
+
+- [ ] Je connais les sept noms et les sept métiers
+- [ ] 1̂–3̂–5̂ = charpente ; 2̂–4̂–6̂–7̂ = habillage et tension
+- [ ] Je sais composer une phrase par la méthode charpente/habillage
+- [ ] Je m'entraîne à nommer les degrés à l'oreille
+
+<QuizBlock id="m01-l04-quiz" questions={5} />
+<LessonFooter exercises={["m01-e07-skeleton-melody", "m01-e08-degree-ear"]} />

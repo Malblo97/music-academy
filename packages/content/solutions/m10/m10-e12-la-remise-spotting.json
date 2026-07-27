@@ -1,0 +1,148 @@
+{
+    "exerciseId": "m10-e12-la-remise-spotting",
+    "payload": {
+      "mode": "guided",
+      "assets": [
+        "assets/video-la-remise-v1.mp4",
+        "assets/la-remise/manifest.json"
+      ],
+      "checklist": [
+        {
+          "id": "e12-s1",
+          "expect": "Video Track + fichier importé"
+        },
+        {
+          "id": "e12-s2",
+          "expect": "frame rate projet = frame rate fichier — 24 fps (manifeste)"
+        },
+        {
+          "id": "e12-s3",
+          "expect": "Project Start Time = timecode du fichier — 00:00:00:00 (manifeste, F-57)"
+        },
+        {
+          "id": "e12-s4",
+          "expect": "version archivée dans Refs/ : Cut_v1"
+        },
+        {
+          "id": "e12-s5",
+          "expect": "DEUX visionnages muets, sans rien faire"
+        },
+        {
+          "id": "e12-s6",
+          "expect": "markers IN et OUT"
+        },
+        {
+          "id": "e12-s7",
+          "expect": "markers des 2 HITS — H1 la porte, H2 le regard"
+        },
+        {
+          "id": "e12-s8",
+          "expect": "markers des 3 BASCULES — B1 lieu, B2 ponctuation, B3 compréhension"
+        },
+        {
+          "id": "e12-s9",
+          "expect": "une ligne de description par marker : ce qui se passe + ce que la musique y fait"
+        },
+        {
+          "id": "e12-s10",
+          "expect": "cycle marker sur le cue + Locate 1–9"
+        },
+        {
+          "id": "e12-s11",
+          "expect": "méthode manuelle sur le HIT n°1 (H1)"
+        },
+        {
+          "id": "e12-s12",
+          "expect": "verrou : marker « HIT — porte », la section suivante repart de là"
+        }
+      ],
+      "markerTable": [
+        {
+          "id": "IN",
+          "tc": "00:00:00:00",
+          "sec": 0,
+          "bar": 1,
+          "beat": 1,
+          "desc": "le cue entre AVEC l'image — origine imposée par l'identité B2 = mes. 26 t1 à ♩=96,8"
+        },
+        {
+          "id": "B1",
+          "tc": "00:00:31:00",
+          "sec": 31,
+          "bar": 13,
+          "beat": 3,
+          "desc": "bascule de lieu, entrée dans la remise — la couleur se voile, le tempo ne bouge pas"
+        },
+        {
+          "id": "B2",
+          "tc": "00:01:02:00",
+          "sec": 61.98,
+          "bar": 26,
+          "beat": 1,
+          "desc": "bascule de ponctuation, l'objet trouvé — l'extension 5/4 commence ici"
+        },
+        {
+          "id": "H1",
+          "tc": "00:01:08:00",
+          "sec": 68,
+          "bar": 28,
+          "beat": 1,
+          "desc": "HIT n°1 — la porte claque"
+        },
+        {
+          "id": "B3",
+          "tc": "00:01:22:00",
+          "sec": 82,
+          "bar": 33,
+          "beat": 3,
+          "desc": "bascule finale — la compréhension"
+        },
+        {
+          "id": "H2",
+          "tc": "00:01:26:00",
+          "sec": 86,
+          "bar": 35,
+          "beat": 1,
+          "desc": "HIT n°2 — le regard caméra final (corrigé de 1'34\" par F-57)"
+        },
+        {
+          "id": "OUT",
+          "tc": "00:01:29:05",
+          "sec": 89.22,
+          "bar": 36,
+          "beat": 2,
+          "desc": "la musique meurt ; queue de réverbération jusqu'à ≈1'32\" — locators d'export à 1'32\"0"
+        }
+      ],
+      "tempoSections": [
+        {
+          "bars": [
+            1,
+            25
+          ],
+          "meter": "4/4",
+          "bpm": 96.8,
+          "anchor": "B2 = mes. 26 t1 → 61,98 s"
+        },
+        {
+          "bars": [
+            26,
+            27
+          ],
+          "meter": "5/4",
+          "bpm": 99.7,
+          "anchor": "H1 = mes. 28 t1 → 68,002 s"
+        },
+        {
+          "bars": [
+            28,
+            36
+          ],
+          "meter": "4/4",
+          "bpm": 93.3,
+          "anchor": "H2 = mes. 35 t1 → 86,008 s"
+        }
+      ]
+    },
+    "authorNotes": "« Personne n'entend la différence de tempo ; tout le monde entend le hit qui tombe. » La découverte du lot est arithmétique : ♩=96,8 cale B2 (identité du manifeste : 25 × 2,4793 s = 61,98 s) mais laisse H1 (68,0 s) à 27,4 mesures — nulle part. Un tempo constant ne peut pas tenir les DEUX ancrages : il faut un second geste, et le plus musical est métrique — deux mesures à 5/4 à ♩=99,7 posent la porte sur mes. 28 t.1 à 2 ms près (1 tick à 480 PPQ). C'est la « méthode manuelle » de l12 conduite jusqu'à son terme, +2,9 BPM inaudibles, et l'argument dramaturgique tombe juste : la mesure s'allonge au moment où le personnage trouve l'objet. Chiffres vérifiés : 7 markers, écart maximal 0,149 s (B3) ≤ 1,0 ✓, descriptions non vides ✓, 12 étapes couverture 1,00. B1 se cale sur un temps (mes. 13 t.3, écart 8 ms) et non sur une barre — un hit est un rendez-vous, une bascule est une zone. Finding F-57 : le manifeste place H2 à 1'34\" sur un asset de 90 s (94 > 90) et ne porte ni `frameRate`, ni `startTimecode`, ni `durationSec` — rien ne permettait de trancher entre « l'image ne commence pas à zéro » et « la valeur est fausse ». L'identité B2 ↔ mes. 26 impose l'origine zéro : H2 est donc un erratum, corrigé à 1'26\". Rappel exécutoire de F-36 : le JSON d'exercice publié en §23.3 porte ENCORE le timecode brut 1'02\"0 pour la porte (c'est celui de B2) — la réindexation par IDs de markers n'y a jamais été appliquée."
+  }

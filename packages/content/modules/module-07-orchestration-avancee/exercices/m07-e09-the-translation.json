@@ -1,0 +1,42 @@
+{
+  "id": "m07-e09-the-translation",
+  "lessonId": "m07-l09-esquisse-partition",
+  "title": "La traduction",
+  "kind": "ORCHESTRATE",
+  "difficulty": 7,
+  "xpReward": 150,
+  "skills": { "ORCHESTRATION": 0.8, "DAW_WORKFLOW": 0.2 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "pool": "medium",
+  "styleProfile": { "id": "romantic-film", "targetMood": "default", "ruleWeights": {} },
+  "rubric": { "correctness": 25, "constraints": 45, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "Le protocole complet sur l'esquisse fournie (piano 2 mains, 16 mesures, riche — avec DEUX rôles fondus dans la main gauche et un arpège de pédale piège). Les sept passes, dans l'ordre, avec leurs livrables déclarés : (1) l'inventaire des rôles — et le rôle caché SÉPARÉ : c'est la plus-value de la passe ; (2) la carte des sections : qui entre quand, avant une seule note orchestrée ; (3) les étages — et c'est ICI que les mensonges du piano se corrigent : l'accord serré main gauche s'ÉCLATE, les « tenues » de pédale trouvent un teneur réel ; (4) le casting, quatrième et pas premier ; (5) la vie — les arches de tenue, les articulations : la passe qui sépare la maquette du MIDI de démo, et celle qui fuit le plus souvent ; (6) l'épreuve — mono, mute, fiches : la passe que le moteur automatise. L'arpège de pédale se TRADUIT en rôle (tapis OU moteur), jamais en notes recopiées aux cordes : on traduit des rôles, la réduction EST la traduction.",
+    "given": {
+      "key": { "tonic": 3, "mode": "major" },
+      "sketch": "asset:m07-e09-piano-sketch-rich",
+      "traps": { "fusedRolesInLeftHand": ["bass", "rhythm"], "pedalArpeggio": true }
+    },
+    "constraints": {
+      "lengthBars": [16, 16],
+      "format": "Part[]",
+      "pool": "medium",
+      "passDeliverables": {
+        "pass1_roles": { "rolePlanDeclared": true, "hiddenRoleRequired": true },
+        "pass2_sections": { "sectionMapDeclared": true, "crescendoPlanDeclared": true },
+        "pass3_stages": { "stagePlanDeclared": true, "explodeLowChords": true, "pedalBecomesRealSustain": true },
+        "pass4_casting": { "coloursDeclared": true, "alloysDeclared": true },
+        "pass5_life": { "dynamicArchRequired": true, "articulationsDeclared": true },
+        "pass6_trial": { "automatedByEngine": true }
+      },
+      "hiddenRoleDetection": { "expected": "rhythm", "creditsCraft": true },
+      "arpeggioTranslation": { "required": true, "allowed": ["harmony-sustained", "rhythm-engine"], "forbidLiteralCopy": true },
+      "noThirdBelowPitch": 48,
+      "dynamicArchRequired": { "onNotesLongerThanBeats": 2, "checker": "ccCoverage" },
+      "rolePlan": { "declared": true, "perSection": true, "verifiedAgainstDetected": true },
+      "checkers": ["orch.range-violation", "orch.low-interval-limit", "orch.balance", "orch.masking", "orch.endurance", "orch.register-color", "densityMap", "effectivePower"]
+    }
+  }
+}

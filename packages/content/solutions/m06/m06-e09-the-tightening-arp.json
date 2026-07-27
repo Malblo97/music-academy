@@ -1,0 +1,17 @@
+{
+  "exerciseId": "m06-e09-the-tightening-arp",
+  "payload": {
+    "lengthBars": 16,
+    "tempoBpm": 110,
+    "layers": [
+      { "id": "arp", "role": "movement", "hasNotes": true, "pattern": { "notes": ["E4", "G4", "B4"], "grid": "1/16", "invariant": true }, "velocities": [98, 70, 58] },
+      { "id": "pluck", "role": "top", "hasNotes": true, "releaseCalculation": "un pas 1/16 = 60000/110/4 ≈ 136 ms → release 140 ms (±30 % ✓)" },
+      { "id": "sub", "role": "sub", "band": [30, 90], "mono": true, "levelDb": -14 }
+    ],
+    "drift": { "layer": "arp", "type": "automation", "dst": "cutoff", "curve": "480 → 2300 Hz", "monotonic": true, "note": "au moins un cran mesuré toutes les 4 mesures" },
+    "silence": { "layer": "arp", "bar": 13, "beats": 1 },
+    "performanceOnly": ["velocityMetricCorrelation"],
+    "humanize": { "seed": 7, "offsetTicks": 12 }
+  },
+  "authorNotes": "« L'arpégiateur explore, le Key Editor possède. » Pattern de 3 notes sur grille 1/16 : le **3-contre-4** retombe sur ses pieds tous les 3 temps — l'asymétrie qui boite, écrite à la main (`motifType: rhythmic` recyclé). Velocities 98/70/58 corrélées au poids métrique : **0,74 ≥ 0,40** ✓ (`prosodyPlan` recyclé — la boîte à rythme triste est interdite). La dérive est `requireChromaticDrift` porté au paramètre : la vis, version filtre. Le release du pluck est déclaré AVEC son calcul, comme la table de l09 l'exige. Et l'apnée : **mesure 13, temps 1 muet** — le silence de la bombe, détecté."
+}

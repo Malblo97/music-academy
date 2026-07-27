@@ -1,0 +1,72 @@
+---
+id: m03-l10-pandiatonisme
+module: module-03-harmonie-avancee
+title: "Le pandiatonisme : la fonction dissoute"
+estMinutes: 20
+skills: { harmony: 1.0 }
+---
+
+### Pourquoi la porte du système 3 est en notes blanches
+
+Le non-fonctionnel n'exige pas des notes exotiques — la preuve par le pandiatonisme : **les sept notes de la gamme majeure, sans aucune hiérarchie fonctionnelle**. Pas de dominante, pas de sensible active, pas de trajet : la collection diatonique traitée comme une *matière* — on y puise des accords pour leur sonorité, on les enchaîne pour leur geste. C'est le système 3 dans sa version la plus douce : la lumière sans la grammaire. Et c'est la leçon-charnière : après elle, tu sais ce que « non-fonctionnel » veut dire *de l'intérieur* — les gammes symétriques (l11–l12) ne feront que changer la matière.
+
+### 1. La mécanique : la collection sans le récit
+
+```
+CE QU'ON GARDE :   les 7 notes blanches (ou toute transposition) —
+                   la consonance, la lumière diatonique
+CE QU'ON JETTE :   les FONCTIONS. Le sol-si-ré n'est plus "V qui veut
+                   aller à I" : c'est un accord blanc parmi d'autres.
+                   La question "où ça va ?" (l01) n'a plus de réponse —
+                   et c'est le but.
+CE QUI ORGANISE À LA PLACE :
+  - le REGISTRE et l'ESPACEMENT (les mêmes 7 notes, serrées au médium
+    ou éclatées sur 4 octaves : deux mondes)
+  - les EMPILEMENTS LIBRES : secondes ajoutées, quartes, clusters
+    blancs — tout empilement diatonique est légal (add9, sus, 6/9,
+    quintes à vide... les étiquettes de M1 deviennent optionnelles)
+  - le GESTE : l'ostinato, la vague, le carillon — la répétition et
+    la texture remplacent le trajet (le paysage de l01, radicalisé)
+```
+
+<MusicExample id="blanc-sans-fonction" title="Sept notes blanches, zéro fonction">
+  [C3+G3+D4+A4]:h [D3+A3+E4+B4]:h | [E3+B3+F4+C5]:h [G3+D4+A4+E5]:h |
+  [F3+C4+G4+D5]:h [E3+B3+F4+C5]:h | [D3+A3+E4+B4]:h [C3+G3+D4+A4]:w
+  Des empilements en quintes/secondes qui GLISSENT — aucun n'est "le V
+  de", aucun ne résout : ils se succèdent comme des reflets. Joue-le,
+  puis essaie d'entendre une dominante quelque part : il n'y en a pas,
+  et rien ne manque.
+</MusicExample>
+
+### 2. Le territoire : la lumière, l'eau, l'enfance
+
+Le pandiatonisme est LA couleur de : l'aube et l'eau (les ostinatos diatoniques éclatés — le carillon minimaliste), l'enfance et l'innocence (la lumière sans intention), le merveilleux domestique (la magie du quotidien — là où le lydien de l08 fait la magie *cosmique*), et le néo-classicisme espiègle. Sa force dramatique est sa **neutralité bienveillante** : il n'attend rien, ne menace rien — d'où son emploi en contrepoint d'image : la scène tendue sur musique pandiatonique = l'ironie douce ou l'innocence qui ne voit pas le danger.
+
+### 3. Les trois disciplines du blanc
+
+1. **La tonique existe encore — comme lieu** (l'héritage modal de l08) : un pôle par insistance (la note-pédale, le retour du même accord) évite le flottement gris ; le pandiatonisme sans pôle du tout est une file d'attente de jolis accords ;
+2. **la friction se dose au registre** : les secondes diatoniques (do-ré, mi-fa) sont la vie du style — belles éclatées ou au médium-aigu, boueuses au grave (le low-interval-limit encore : les lois physiques survivent à toutes les grammaires) ;
+3. **le geste remplace la phrase** : pense en textures qui durent (l'arpège-carillon, la vague d'accords parallèles — l14 arrive) et en événements d'espacement (le resserré qui s'éclate = le crescendo pandiatonique).
+
+Le moteur : profil `impressionist` (première activation) — `harmony.retrogression` et `unresolved-seventh` à 0 (§40.1), `detectCollection: "diatonic"` comme boussole (la collection est vérifiée, la tonalité fonctionnelle ne l'est plus), et `forbidFunctionalCadence` en garde-fou : le V7→I qui se glisse par réflexe est signalé — « ta machine tonale vient de rallumer le récit dans ton paysage ».
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Le V–I réflexe | le récit rallumé, la neutralité perdue | `forbidFunctionalCadence` — le pôle s'affirme par insistance |
+| Le blanc sans pôle | la file d'attente d'accords | un lieu (pédale, retour) — l'héritage de l07/l08 |
+| Les secondes au grave | la boue blanche | la friction vit au médium-aigu ou éclatée |
+| Le pandiatonisme "en passant" dans une pièce tonale | trois mesures de flou perçues comme une erreur | le système s'assume (l01) : une section entière, ou rien |
+
+### La mission (m03-e10, HARMONY_PROGRESSION)
+
+12 mesures pandiatoniques en sol (collection vérifiée, `forbidFunctionalCadence`) : un pôle par insistance (déclare-le), ≥ 4 empilements non-tertiens (secondes/quartes/quintes — le moteur les tague), un événement d'espacement (le resserré→éclaté, mesuré par l'ambitus des verticalités), et la fin par dissolution (l'accord-pôle qui reste seul) plutôt que cadence. Craft : la friction bien registrée.
+
+- [ ] Les 7 notes, zéro fonction : la collection comme matière
+- [ ] Registre, empilements libres, geste — les organisateurs de rechange
+- [ ] Un pôle par insistance : le lieu sans l'aimant
+- [ ] Territoire : la lumière, l'eau, l'innocence — la neutralité bienveillante
+
+<QuizBlock id="m03-l10-quiz" questions={5} />
+<LessonFooter exercises={["m03-e10-white-light"]} />

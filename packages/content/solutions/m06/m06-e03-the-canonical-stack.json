@@ -1,0 +1,16 @@
+{
+  "exerciseId": "m06-e03-the-canonical-stack",
+  "payload": {
+    "lengthBars": 8,
+    "harmony": "la boucle néo-noir fournie (Cm9 · Abmaj7#11 · Dm7b5 · G7b9), deux tours",
+    "layers": [
+      { "id": "body", "role": "body", "source": "saw-detuned", "band": [100, 2500], "notes": "les voicings de la boucle, dont le G2 grave (98 Hz) à fondamentale coupée par le high-pass" },
+      { "id": "sub", "role": "sub", "source": "sine", "band": [30, 90], "mono": true, "notes": "les fondamentales seules (C1 · Ab1 · D1 · G1)" },
+      { "id": "top", "role": "top", "source": "pluck d'octave filtré", "band": [2000, 8000] },
+      { "id": "texture", "role": "texture", "source": "souffle granulaire", "band": [3000, 10000], "levelDb": -16 }
+    ],
+    "motion": { "layer": "body", "type": "lfo", "rateHz": 0.12, "dst": "cutoff" },
+    "removed": "un pad choir doublant le body : muté — au test du mute, rien ne manquait et le 300–800 respirait ; le body suffisait"
+  },
+  "authorNotes": "**Témoin F-34.** Le body high-passé joue un sol grave dont la fondamentale (98 Hz) tombe SOUS sa bande déclarée : c'est exactement ce qu'un high-pass fait — la fondamentale coupée, les harmoniques portent. Le checker naïf notes↔bande refusait le geste le plus normal du sound design ; la cohérence dépend désormais de la **source** (sinus/rôle sub : la fondamentale EST le contenu, hors bande = erreur ; saw/wavetable : légal, affiché en information). Les six règles `sd.*` muettes ✓. Et le `removed` est livré tel quel : le rapport le cite mot pour mot — **la soustraction devient une donnée**, c'est ce qui sépare le pro de l'empileur."
+}

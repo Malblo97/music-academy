@@ -1,0 +1,62 @@
+---
+id: m08-l01-swing
+module: module-08-jazz
+title: "Le swing : le temps qui roule"
+estMinutes: 25
+skills: { rhythm: 0.7, ear_training: 0.3 }
+---
+
+### Pourquoi commencer par le temps
+
+On peut jouer les bons accords, les bonnes gammes, les bonnes substitutions — sans swing, ce n'est pas du jazz ; avec le swing, trois notes en sont. Le swing est la **signature temporelle** de l'idiome : il se comprend en une leçon et s'incorpore en des mois — raison de plus pour l'installer en premier : tout le reste du module se jouera *dedans*.
+
+### 1. La croche inégale (la mécanique)
+
+Le swing divise le temps en deux croches **inégales** : la première longue, la seconde courte — le ratio glisse entre ~3:2 (léger, rapide) et ~2:1 (le ternaire franc, medium) :
+
+```
+ÉCRIT :    ♪ ♪        (deux croches égales sur la partition)
+JOUÉ :     ♩ ♪        (pensé en triolet : noire + croche de triolet)
+           └─2─┘└1┘
+LA LOI DU TEMPO : le ratio DÉPEND du tempo — ballade lente : presque
+  ternaire assumé (2:1 et plus) ; medium : le 2:1 classique ; up-tempo
+  (200+) : le swing s'APLATIT vers 1:1 (les croches redeviennent
+  presque égales — c'est l'accentuation qui porte alors le swing)
+```
+
+Le second pilier, aussi important que l'inégalité : **l'accentuation inversée** — le jazz accentue la *seconde* croche (le « et »), pas la première : la hiérarchie métrique de m01-l08 se renverse (le temps fort s'allège, le contretemps porte l'élan). C'est le couple inégalité+accent qui fait rouler le temps ; l'un sans l'autre boite.
+
+### 2. Les strates du temps jazz
+
+| Strate | Rôle | Le mot du métier |
+|---|---|---|
+| **La pulsation** (walking bass, ride) | le tapis roulant : imperturbable, noires égales — LE paradoxe fondateur : le swing roule sur une pulsation qui ne swingue pas (elle est droite ; ce sont les subdivisions qui penchent) | le *time* |
+| **Le placement** | jouer devant / sur / derrière le temps — le laid-back (la mélodie de ballade traîne de 20-40ms derrière la pulsation : la nonchalance composée) | le *feel* |
+| **Les anticipations** | l'accord ou la note qui arrive une croche AVANT le temps (m02-l14 §3 l'annonçait) — la syncope structurelle du jazz : la moitié des attaques harmoniques tombent sur le « et de 4 » | le *push* |
+
+### 3. Écrire le swing (la traduction studio)
+
+En notation et en MIDI, le swing s'écrit en croches égales + la mention *swing* — et se **joue** inégal. Dans Cubase : le paramètre swing du Quantize Preset (m10-l03 §2 : la fenêtre en un curseur — te voilà à son usage natal) règle le ratio ; mais la vérité de m10-l03 tient : **le swing joué à la main bat le swing quantisé** (le ratio vivant fluctue légèrement — c'est cette fluctuation qui respire). Le protocole : joue en écoutant un ride pattern, quantise en Iterative léger, ne touche pas aux accents.
+
+Le moteur t'accompagne : `swingRatio` mesure ton inégalité réelle, et les exercices du module portent `swingTarget` (ex. [1.6, 2.4] en medium) — le rapport dit « ton swing est à 1.9 : le ternaire medium ✓ » ou « 1.1 : tu joues droit — pense triolet ».
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Le swing mathématique exact | le ternaire mécanique — la valse boiteuse | joué à la main, ratio vivant ; la machine s'humanise (m10-l09 : jamais de Random ici — le swing n'est pas du bruit, c'est un penchant) |
+| L'accent sur le temps | le swing qui marche au pas | le « et » porte l'élan : accentuation inversée |
+| Tout swinguer (la basse aussi) | le temps qui se noie | la pulsation est droite ; les subdivisions penchent |
+| Le même ratio à tous les tempos | la ballade raide, l'up-tempo pataud | le ratio suit le tempo : la loi §1 |
+
+### La mission (m08-e01, MELODY_COMPOSE + rythme)
+
+8 mesures sur la pulsation fournie (walking + ride en `given`, ▶ actif) : une ligne simple (pentatonique de fa, ≤ 6 hauteurs — l'harmonie attendra) entièrement au service du temps : `swingTarget: [1.6, 2.4]`, accents sur les « et » (corrélation vélocité×contretemps — le checker de prosodie inversé), ≥ 3 anticipations (l'attaque sur le « et de 4 » taguée), et une note laid-back déclarée (le retard de placement en champ dédié). Le rapport te rend tes trois strates mesurées.
+
+- [ ] Croche inégale (le ratio suit le tempo) + accent sur le « et » : le couple qui roule
+- [ ] La pulsation est droite, les subdivisions penchent — le paradoxe fondateur
+- [ ] Devant/sur/derrière : le placement est un paramètre expressif
+- [ ] Joué puis à peine quantisé — le swing vivant bat le swing exact
+
+<QuizBlock id="m08-l01-quiz" questions={5} />
+<LessonFooter exercises={["m08-e01-the-rolling-time"]} />

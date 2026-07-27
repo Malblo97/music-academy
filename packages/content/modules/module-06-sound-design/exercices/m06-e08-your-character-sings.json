@@ -1,0 +1,33 @@
+{
+  "id": "m06-e08-your-character-sings",
+  "lessonId": "m06-l08-leads",
+  "title": "Ton personnage a une voix électrique",
+  "kind": "LAYERING",
+  "difficulty": 5,
+  "xpReward": 110,
+  "skills": { "SOUND_DESIGN": 0.6, "MELODY": 0.4 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "hybrid-score", "ruleWeights": {} },
+  "rubric": { "correctness": 30, "constraints": 40, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "Ton thème de m02-e30 part 2 — TON personnage — porté au LEAD. Choisis la morphologie et argumente au brief : mono (le soliste — glide sélectif 30–80 ms sur les liées, vibrato RETARDÉ), poly (le chœur — pas de glide, jamais), supersaw (le stade — high-pass sévère 200–300 Hz, et il faut que la scène soit un sommet). Déclare glide/vibrato/filtre en motion et champs dédiés. Le stack minimal dessous : un body high-passé, un sub. La ligne, elle, ne change PAS d'une note : ton capstone M2 sera re-reconnu par findMotifs — la continuité du curriculum en un checker. Un lead ne rachète jamais une mélodie faible ; la tienne a déjà fait ses preuves.",
+    "given": {
+      "theme": "asset:m02-e30-part2-theme",
+      "sourceSubmission": "m02-e30-character-capstone"
+    },
+    "constraints": {
+      "requiredLayers": [
+        { "id": "lead", "role": "melodic", "hasNotes": true, "band": { "lowMin": 500, "highMax": 5000 }, "freeFields": ["morphology", "briefArgument", "glide", "vibrato", "filterMapping"] },
+        { "id": "body", "role": "body", "band": { "lowMin": 100 } },
+        { "id": "sub", "role": "sub", "band": { "low": 30, "highMax": 90 } }
+      ],
+      "themeImmutable": { "engine": "findMotifs", "reference": "m02-e30-part2-theme" },
+      "reservedBand": { "layer": "lead", "band": [500, 5000], "othersMaxPresence": 0.3 },
+      "vibratoDelayMin": { "ifMorphology": "mono", "ms": 200 },
+      "subMonoRequired": true,
+      "checkers": ["sd.band-pileup", "sd.sub-conflict", "sd.static-stack"]
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{ 
+    "exerciseId": "m01-e42-line-cliche", 
+    "notation": "[A2+E4+A4+C5]:w | [A2+E4+G#4+C5]:w | [A2+E4+G4+C5]:w | [A2+E4+F#4+C5]:w | [D3+F4+A4+D5]:w | [E3+E4+G#4+B4]:w | [A2+E4+A4+C5]:w", 
+    "authorNotes": "Ligne A4→G♯4→G4→F♯4 dans la MÊME voix (ténor du voicing), consécutive ✓ (`innerChromaticLine [0,11,10,9]`) ; **toutes les autres voix immobiles** (A2, E4, C5 tiennent 4 mesures : smoothness ×1.8 maximale) ✓ ; suite : le F♯ devient la tierce de **Dm/D?… F♯∈Dm ?** non — mes. 5 = **D majeur ?** en la mineur : IV dorien… Décision musicale : `[D3+F#4+A4+D5]` = **IV de la dorien** (la 6̂ majeure héritée de la ligne : le F♯ atterrit comme tierce de D — la ligne cliché DÉBOUCHE sur la couleur dorienne, geste noble) puis E7→Am. Résolutions : G♯4 (mes. 6) → A4 ✓." 
+}

@@ -1,0 +1,40 @@
+{
+  "id": "m06-e13-flesh-glue-breath",
+  "lessonId": "m06-l13-tenue",
+  "title": "La chair, le liant, la respiration",
+  "kind": "LAYERING",
+  "difficulty": 5,
+  "xpReward": 110,
+  "skills": { "SOUND_DESIGN": 0.8, "RHYTHM": 0.2 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "hybrid-score", "ruleWeights": {} },
+  "rubric": { "correctness": 30, "constraints": 45, "craft": 25 },
+  "spec": {
+    "version": 1,
+    "prompt": "Reprends ton stack de basse hybride (m06-e06) + un pad body. Trois gestes : (1) LA CHAIR — la saturation du growl déclarée : la dose, ET la bande résultante élargie HONNÊTEMENT (saturer crée des harmoniques : ta déclaration de bande doit le dire — et le growl saturé ne redescend pas sous 90 : sd.sub-conflict veille) ; (2) LE LIANT — le glue de bus (2:1, 1–2 dB, attaque lente 30 ms : cimenter sans écraser — champ dédié du stack) ; (3) LA RESPIRATION — DEUX sidechains : le nettoyage (sub → pad, 2–4 dB, release rapide) et le pompage rythmique (le kick FANTÔME — une piste muette qui bat la pulsation — → body, release CALÉ au tempo : déclare ton calcul, la table de l09 §3 sert une troisième fois). Le rapport lira tes liens comme des relations : « ton pad respire sur ton sub » est une phrase d'analyse.",
+    "given": {
+      "sourceSubmission": "m06-e06-the-law-of-the-low",
+      "tempoBpm": 100
+    },
+    "constraints": {
+      "requiredLayers": [
+        { "id": "sub", "role": "sub", "band": { "low": 30, "highMax": 90 } },
+        { "id": "growl", "role": "body", "saturation": { "declared": true }, "band": { "lowMin": 90 } },
+        { "id": "pad", "role": "body" },
+        { "id": "ghost-kick", "role": "movement", "muted": true }
+      ],
+      "saturationBandCoherence": { "layer": "growl", "ifSaturated": { "bandHighMin": 800 } },
+      "busGlue": { "declared": true, "ratioMax": 2, "reductionDbRange": [1, 2], "attackMsMin": 20 },
+      "sidechainPlan": {
+        "links": [
+          { "source": "sub", "target": "pad", "depthDbRange": [2, 4] },
+          { "source": "ghost-kick", "target": "growl-and-pad", "releaseCalibrated": true }
+        ],
+        "nonCircular": true
+      },
+      "releaseCalibration": { "context": "sidechain", "referenceStep": "1/4", "tolerancePct": 30 },
+      "checkers": ["sd.sub-conflict", "sd.sub-width"]
+    }
+  }
+}

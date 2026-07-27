@@ -1,0 +1,71 @@
+---
+id: m10-l06-mediabay
+module: module-10-cubase
+title: "Instruments et MediaBay : la bibliothèque domestiquée"
+estMinutes: 20
+skills: { daw_workflow: 1.0 }
+---
+
+### Pourquoi une leçon sur « chercher un son »
+
+Parce que c'est le deuxième plus grand tueur de flux après le template absent : la demi-heure perdue à écouter quarante pads pour en garder un. Le compositeur qui livre a une bibliothèque **domestiquée** — indexée, taguée, présélectionnée. Cette leçon couvre les deux outils : l'instrument VST (le contenant) et le MediaBay (le catalogue).
+
+### 1. Pistes Instrument vs Rack : la décision par défaut
+
+Cubase offre deux façons d'héberger un VSTi : la **piste Instrument** (l'instrument ET sa piste MIDI fusionnés — simple, autonome, duplicable) et le **Rack** (l'instrument séparé, plusieurs pistes MIDI pointent vers lui — l'architecture des templates lourds multi-timbraux, type un Kontakt hébergeant seize instruments).
+
+**Décision par défaut, assumée** : pistes Instrument, partout, jusqu'au template Full. Le Rack économise de la RAM sur les gros setups mais complique tout le reste (routing, export, lisibilité). Ton Sketch et ton Medium (l02) vivent très bien en pistes Instrument — et l'option **Import Track Archive / Track Presets** te permet de rapatrier une piste toute faite (instrument + réglages + couleur + Notepad-fiche) dans n'importe quel projet : c'est ta vraie unité de réutilisation, plus souple que le Rack.
+
+### 2. MediaBay : les cinq minutes de réglage qui changent tout
+
+Le MediaBay (F5) indexe tout ce que tu lui montres. Le réglage initial, une fois :
+
+```
+1. Panneau gauche : coche UNIQUEMENT tes dossiers de contenu réel
+   (samples, presets) — pas le disque entier : l'index reste vif
+2. Lance le scan complet une fois (la nuit s'il le faut)
+3. Apprends DEUX gestes :
+   - la recherche par attributs (Category: Strings, Character: Dark…)
+   - la PRÉ-ÉCOUTE alignée : le preset s'écoute dans le tempo et la
+     tonalité du projet — le pad s'auditionne DANS ta musique, pas à vide
+```
+
+### 3. La discipline du tagging : ta mémoire externe
+
+Le MediaBay permet de noter (★) et de taguer tes presets. Le système minimal qui marche :
+
+| Geste | Règle |
+|---|---|
+| ★★★★★ | réservé : ≤ 20 sons par catégorie (la présélection d'urgence — quand l'inspiration est là, on ne cherche que dans les 5 étoiles) |
+| Tag par usage produit | tes moods : `epic`, `neo-noir`, `tension`, `romance`… — les vocabulaires du Module 9 deviennent tes clés de recherche : « pad + neo-noir » sort TES sons du genre |
+| La règle du rejet | un son écouté et rejeté deux fois prend ★ (une étoile = « vu, non ») — on ne réécoute jamais deux fois le même déchet |
+
+C'est le même principe que le Notepad-fiche de l02 : **infuser le savoir du produit dans l'outil**. Ta bibliothèque finit par être organisée par ta propre esthétique — c'est elle, la vraie « banque signature ».
+
+### 4. L'hygiène des VST : trois règles de survie
+
+- **Un projet qui doit durer n'utilise que des instruments que tu possèdes vraiment** (les démos qui expirent tuent les projets à la réouverture — six mois plus tard, le cue est muet) ;
+- **note le patch dans le nom de piste ou le Notepad** (`STR Violins — [Banque] Sordino Legato`) : le jour où l'instrument ne charge pas, tu sais quoi rétablir ;
+- la parade ultime vit en l10 (**Render in Place** : imprimer l'audio) — retiens dès maintenant que l'audio rendu est la seule immortalité d'un son.
+
+### 5. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Le Rack « parce que les pros » | routing spaghetti pour économiser une RAM que tu as | pistes Instrument jusqu'au Full |
+| MediaBay qui indexe le disque entier | scan sans fin, index mou | les dossiers de contenu, rien d'autre |
+| Auditionner à vide | le pad superbe seul, terne dans le projet | pré-écoute alignée tempo/tonalité, toujours |
+| Zéro tagging | la demi-heure des quarante pads, à chaque fois | ★ discipline + tags-moods du Module 9 |
+| Le son de démo dans un vrai projet | le cue muet à la réouverture | possédé ou rendu — pas d'entre-deux |
+
+### La mission (m10-e06, déclarative)
+
+Domestication initiale : index MediaBay propre, 5 Track Presets créés depuis ton template (les pistes avec Notepad-fiches deviennent réutilisables partout), et la première passe de tagging : 10 sons ★★★★★ répartis sur 3 tags-moods minimum. Checklist 8 étapes, `verifyHint` inclus (« nouvelle recherche 'pad + tension' : ton son sort-il ? »).
+
+- [ ] Pistes Instrument par défaut ; Track Presets = mon unité de réutilisation
+- [ ] MediaBay : index ciblé, pré-écoute alignée, deux gestes de recherche
+- [ ] ★★★★★ ≤ 20 par catégorie ; tags = les moods du Module 9
+- [ ] Possédé ou rendu : pas de son mortel dans un projet qui doit durer
+
+<QuizBlock id="m10-l06-quiz" questions={4} />
+<LessonFooter exercises={["m10-e06-tame-the-library"]} />

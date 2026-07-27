@@ -1,0 +1,5 @@
+{ 
+    "exerciseId": "m01-e46-mediant-voyage", 
+    "notation": "[C3+G3+E4+C5]:w | [E2+B3+E4+B4]:w | [C3+G3+E4+C5]:w | [C3+Ab3+Eb4+C5]:w | [C3+G3+E4+C5]:w | [E2+B3+E4+B4]:w | [C3+Ab3+Eb4+C5]:w | [C3+G3+E4+C5]:w", 
+    "authorNotes": "C→E (fil E4, ténor ✓) · E→C (fil E4 ✓) · C→A♭ (fil C5 soprano ✓ — et la basse C3 tient : double fil) · A♭→C (fil C5 ✓) · ×2. **Toutes les coutures sont C↔X : chaque bascule a son fil strict** ✓ ; 2 médiantes distinctes (E, A♭), toutes majeures ✓ ; la boucle d'apesanteur (retour au départ, aucune cadence fonctionnelle) ✓ ; `harmony.retrogression` et `overchromatic` à 0 : rien à taire ✓." 
+}

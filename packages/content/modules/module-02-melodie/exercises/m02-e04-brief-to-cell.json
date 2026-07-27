@@ -1,0 +1,11 @@
+{ "id": "m02-e04-brief-to-cell", "lessonId": "m02-l02-motif",
+  "title": "Du brief à la cellule", "kind": "MELODY_COMPOSE",
+  "difficulty": 4, "xpReward": 90, "skills": { "MELODY": 1.0 },
+  "spec": { "prompt": "Brief : « thème du mentor — chaleureux, un peu triste ». Protocole l02 §4 : intervalle-signature imposé = SIXTE MINEURE ASCENDANTE (8 demi-tons). Compose la cellule (1–2 mesures), puis prouve sa développabilité DANS la même soumission : une répétition exacte + une transposition (4 mesures au total, silences libres).",
+    "given": { "key": { "tonic": 2, "mode": "dorian" } },
+    "constraints": { "key": { "tonic": 2, "mode": "dorian" }, "lengthBars": [4,4],
+      "mustContainInterval": [8], "intervalDirection": "up",
+      "minMotifOccurrences": 3, "requireMotifVariation": true,
+      "requiredVariationTypes": ["transposed"] },
+    "styleProfile": { "id": "romantic-film", "targetMood": "bittersweet" },
+    "rubric": { "correctness": 20, "constraints": 45, "craft": 35 } } }

@@ -1,0 +1,11 @@
+{ "id": "m01-e38-tritone-swap", "lessonId": "m01-l20-substitutions",
+  "title": "La porte devient couloir", "kind": "HARMONY_PROGRESSION",
+  "difficulty": 6, "xpReward": 110, "skills": { "HARMONY": 1.0 },
+  "spec": { "prompt": "Voici une grille de 8 mesures en ré mineur contenant trois dominantes (V7 et V/x). Remplace AU MOINS DEUX d'entre elles par leur substitution tritonique (subV7, ♯11 bienvenue). Règle d'or vérifiée sans pitié : la basse du substitut descend d'un DEMI-TON vers sa cible. Garde une dominante normale quelque part — le contraste porte-couloir fait la couleur.",
+    "given": { "key": { "tonic": 2, "mode": "minor" },
+      "chords": [ { "root": 2, "quality": "m7" }, { "root": 7, "quality": "m7" }, { "root": 9, "quality": "7" }, { "root": 2, "quality": "m7" }, { "root": 2, "quality": "7" }, { "root": 7, "quality": "m7" }, { "root": 9, "quality": "7" }, { "root": 2, "quality": "min" } ] },
+    "constraints": { "lengthBars": [8,8], "minVoices": 4,
+      "mustInclude": ["tritoneSub>=2"], "mustKeepOneNaturalDominant": true },
+    "styleProfile": { "id": "neo-noir",
+      "ruleWeights": { "harmony.tritone-sub-resolution": 1.5 } },
+    "rubric": { "correctness": 35, "constraints": 35, "craft": 30 } } }

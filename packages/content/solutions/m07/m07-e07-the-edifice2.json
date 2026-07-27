@@ -1,0 +1,16 @@
+{
+  "exerciseId": "m07-e07-the-edifice",
+  "variantId": "stratified",
+  "payload": {
+    "lengthBars": 8,
+    "basis": "l'hymne, + le moteur au corps",
+    "rhythmPlans": 4,
+    "planArticulations": [
+      { "plan": "ciel + chant", "articulation": "legato" },
+      { "plan": "coeur", "articulation": "tenu" },
+      { "plan": "corps (altos au pattern de croches)", "articulation": "détaché" },
+      { "plan": "socle", "articulation": "rondes" }
+    ]
+  },
+  "authorNotes": "La masse qui bout en restant lisible : quatre plans à rythmes distincts, **chacun avec SON articulation unifiée** — c'est la condition de lisibilité, et elle est mesurée par plan, pas globalement. Les altos quittent les murs pour le pattern de croches : le moteur entre au corps, l'étage prévu pour lui. `rolePlan` croisé à la `densityMap` : chaque bande garde son emploi unique ✓. « Préparé (par s06), tenu, quitté » — le budget dépensé en conscience, ce que le rapport nomme en toutes lettres."
+}

@@ -1,0 +1,72 @@
+---
+id: m11-l04-analyser-orchestration
+module: module-11-analyse
+title: "Analyser l'orchestration : lire les effectifs"
+estMinutes: 25
+skills: { orchestration: 0.7, ear_training: 0.3 }
+---
+
+### Pourquoi l'orchestration s'analyse sans partition
+
+Le paradoxe de l'analyse orchestrale : c'est la famille de questions pour laquelle on a le moins souvent la partition (les conducteurs de films ne se publient guère) — et c'est celle qui s'entend le mieux : **l'orchestration est la surface même du son**. On l'analyse donc à l'oreille, avec les outils de M7 retournés : les cinq lignes (m07-l01 §3), la lecture d'effectifs, le diagnostic des mondes. Bonne nouvelle : c'est un muscle, et il se travaille en machine (le corpus interne a ses `rolePlan` — la vérité existe).
+
+### 1. La coupe à l'oreille (les cinq lignes en lecture)
+
+```
+LE PROTOCOLE DE COUPE (sur un instant donné — on fige et on descend) :
+CIEL     y a-t-il de l'air au-dessus ? (piccolo, violons aigus,
+         cymbale, shimmer) — ou le plafond est-il bas ?
+CHANT    QUI porte la ligne ? (le timbre : cordes ? bois ? cuivre ?
+         alliage ? — le kit de m07-l02 : l'alliage s'entend à ce
+         qu'aucun instrument seul ne sonne ainsi)
+CŒUR     qu'est-ce qui REMPLIT ? (les murs : tenues de cors ?
+         d'altos ? pad ?) — la zone la plus difficile à entendre :
+         elle est FAITE pour se fondre
+CORPS    y a-t-il un ténor ? (le contrechant, la doublure grave
+         de la ligne — LE détail qui sépare les orchestrations
+         riches des plates)
+SOCLE    qui fonde, et COMMENT ? (arco tenu ? pizz ? sub synthé ?
+         octaves ?) — et jusqu'où ça descend
+LA DISCIPLINE : cinq écoutes du même instant, UNE ligne par écoute
+(l'oreille ne lit pas cinq étages d'un coup — elle les visite)
+— et le socle se lit EN PREMIER (le grave conditionne tout le reste,
+et c'est le plus facile à isoler : commence par le bas)
+```
+
+### 2. La lecture dynamique : les entrées, les sorties, la garde-robe
+
+L'orchestration ne se lit pas en coupe seulement — elle se lit **dans le temps** : le film de l'effectif. Les événements à traquer (tout m07 en détecteurs) :
+
+| Événement | Ce que l'oreille attrape | La lecture |
+|---|---|---|
+| **L'entrée** | un timbre nouveau (net) ou un épaississement (l'entrée fondue : plus difficile — le son « grossit » sans qu'on sache pourquoi : c'est une doublure qui vient d'arriver, m07-l02) | qui recrute-t-on, et à quelle frontière (palier ou vague, m07-l06 §2) |
+| **La sortie** | l'éclaircie, l'air qui revient | la décrue par le haut ? la coupure (tutti→solo : impossible à rater — et toujours signifiante) |
+| **La garde-robe du thème** | le porteur change à chaque exposition (m07-l05 §3) | la colonne « porteur » de la biographie (l02) — les deux analyses se croisent |
+| **Le changement de manière** | même effectif, autre articulation (les cordes tenues qui passent en spiccato : l'énergie sans recrutement) | le moteur qui s'allume (m07-l04) |
+
+L'outil de notation : la **timeline d'effectif** — une ligne par famille, des blocs quand elle joue (le dessin de cinq minutes qui révèle l'architecture entière d'un cue : où est le tutti, où est le creux, comment on monte). C'est le format de soumission de l'exercice (`role-map` par section) — et c'est un outil de travail que tu garderas pour tes propres cues.
+
+### 3. Le diagnostic des mondes (M6/M7 croisés)
+
+Sur toute musique moderne, la question de m06-l14 se pose en sens inverse : **qu'est-ce qui est acoustique, synthétique, hybride ?** Les indices : la respiration (l'orchestre fluctue, la machine tient — m06-l14 §3 : l'écart de quantisation s'entend), l'espace (la salle commune vs le sec impossible, m06-l12), le sub (des fondamentales sous E1 = un monde synthétique est là, m06-l06), et l'attaque (le transitoire parfait trahit l'échantillon ou le synthé). Le verdict d'hybridation honnête : souvent *« je ne peux pas trancher »* — et c'est la réponse juste : l'hybride réussi est invisible (m06-l14 §4) ; noter OÙ on ne peut pas trancher, c'est cartographier le savoir-faire du mixeur.
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Lire les cinq lignes d'un coup | tout entendre, rien noter | une ligne par écoute — et le socle d'abord |
+| Ne traquer que les entrées nettes | la moitié du recrutement manqué | l'épaississement EST une entrée (la doublure fondue) |
+| Le cœur déclaré « vide » | les murs sont faits pour se fondre : ils sont là | le test : coupe mentalement le chant — ce qui reste, c'est le cœur |
+| Trancher tous les mondes | la fausse assurance | « indécidable » est un verdict — et une information |
+
+### La mission (m11-e04, ANALYSIS — la lecture d'effectifs)
+
+Le cue « La Remise » orchestral (m10-e15 — la solution de référence, 3 minutes) : la timeline d'effectif complète (`role-map` par section : familles × blocs, vérifiée contre le `rolePlan` de la solution), les cinq lignes sur DEUX instants imposés (le creux et le sommet — la coupe vérifiée contre la `densityMap`), ≥ 3 événements pointés (entrées/coupure/changement de manière, ±1 mesure), et le diagnostic de garde-robe (le porteur du thème par exposition). Puis le jumeau : 60 secondes de « La Remise » hybride (m06-e15) — le diagnostic des mondes par couche (acoustique/synthé/indécidable — le champ « indécidable » crédité quand la solution le justifie). *Le diptyque du portfolio devient le corpus d'analyse : la boucle du produit se referme.*
+
+- [ ] La coupe : cinq lignes, une par écoute, le socle d'abord
+- [ ] La timeline d'effectif : le dessin qui révèle l'architecture
+- [ ] L'épaississement est une entrée ; la coupure est toujours signifiante
+- [ ] Les mondes se diagnostiquent — et « indécidable » est un verdict
+
+<QuizBlock id="m11-l04-quiz" questions={5} />
+<LessonFooter exercises={["m11-e04-reading-the-forces"]} />

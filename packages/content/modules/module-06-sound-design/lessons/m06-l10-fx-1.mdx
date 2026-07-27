@@ -1,0 +1,80 @@
+---
+id: m06-l10-fx-1
+module: module-06-sound-design
+title: "FX cinéma I : risers, impacts, braams — la ponctuation"
+estMinutes: 30
+skills: { sound_design: 0.8, rhythm: 0.2 }
+---
+
+### Pourquoi le film moderne parle en FX
+
+Regarde n'importe quelle bande-annonce : monte-coupe-BOUM. Le trio riser/impact/braam est devenu la **ponctuation** du cinéma contemporain — la virgule qui monte, le point qui frappe, le point d'exclamation qui gronde. Ce vocabulaire est si codifié qu'il en est ridiculisé (le « braam de bande-annonce ») : raison de plus pour le maîtriser *et* savoir quand s'en passer. Ces sons sont le rôle `fx` du modèle (l03) : événementiels, pas continus — ils ne vivent pas dans le stack, ils le **traversent**.
+
+### 1. Le riser : la virgule qui monte
+
+Le riser est un crescendo-objet : un son dont TOUT monte (hauteur, brillance, niveau, largeur) vers un point d'arrivée. C'est le profil « geste » de l01 §3, poussé à sa destination.
+
+| Rubrique | Contenu |
+|---|---|
+| Recette | bruit blanc filtré OU saw désaccordée : automation simultanée de pitch (+1 octave lente), cutoff (fermé→ouvert), volume (crescendo), width (mono→large) — quatre rampes vers LA cible |
+| La loi absolue | **le riser a une cible en ticks** : il finit SUR le temps 1 de la bascule (ou le hit de m10-l12) — un riser qui atterrit à côté est pire que pas de riser. La durée standard : 2, 4 ou 8 mesures, alignées |
+| Le geste fin | le **silence d'un temps entre le sommet du riser et l'impact** (l'apnée de m09-l04 §2, devenue codifiée) : la montée, RIEN, le choc — le vide amplifie |
+| Jumeau orchestral | le crescendo ciblé de m10-l04 (forme 3) + le roulement de timbales : le riser est un tutti-crescendo en un sample |
+| Anti-cliché | le riser inversé : tout DESCEND vers la bascule (la chute d'ascenseur) — même grammaire, direction opposée, deux fois moins entendu |
+
+### 2. L'impact : le point
+
+| Rubrique | Contenu |
+|---|---|
+| Recette | trois couches en un événement — **le sub-drop** (sinus qui chute de hauteur en 100–300 ms : le coup dans la poitrine), **le corps** (percussion grave, coup traité), **le débris** (l'aigu : verre, métal, bruit filtré — la définition du choc) : le layering de l03 appliqué à 500 millisecondes |
+| Placement | SUR le temps de la coupe/bascule — ou la micro-anticipation/le retard délibéré de m10-l12 §4 (l'impact respire aussi) |
+| La queue | l'impact se prolonge : reverb longue ou drone qui naît DU choc (l'impact qui accouche de la scène suivante — la transition la plus propre du métier) |
+| Dosage | UN impact majeur par scène (le coup toutes les 8 mesures de m09-l04 : l'événement devenu pattern ne surprend plus) |
+
+### 3. Le braam : le point d'exclamation qui gronde
+
+| Rubrique | Contenu |
+|---|---|
+| Recette | l'accord de cuivres grave (souvent une quinte ou une note seule, C1–C2), **rendu puis maltraité** (m10-l10 : Render in Place — saturation lourde, l13 ; pitch down ; layering avec sa copie détunée) ; attaque franche, tenue qui gronde, release long |
+| Caractère | l'énormité, la menace institutionnelle, le monolithe |
+| La vérité d'usage | le braam est un cliché ASSUMÉ : il dit « bande-annonce » ou « l'écrasant » — dans un score, il s'emploie premier degré uniquement si la scène a la taille (le vaisseau-mère, la révélation d'échelle), sinon il parodie |
+| Jumeau orchestral | littéral : c'est UN accord de trombones/tuba ff, saturé — le pont vers l14 (l'hybride) est déjà construit : écris le braam pour tes cuivres, rends, maltraite |
+
+### 4. La grammaire d'assemblage : la phrase de bascule
+
+Les trois se combinent en une **phrase de ponctuation** codifiée — apprends-la comme une formule cadentielle (l16 M1 : c'est exactement ça, une cadence de production) :
+
+```
+        riser (4 mes.)        ¦silence¦   IMPACT        la suite
+────────────────────────────▌─ 1 temps ─▌──●━━━━━━━━━▶  (le nouveau
+  tout monte vers la cible               sub-drop +      monde : le
+                                         corps + débris  stack de la
+                                         + queue         scène B)
+Variantes : riser SANS impact (la montée escamotée : l'attente trahie,
+m02-l07 DÉVIER) ; impact SANS riser (le choc non préparé : le jump) ;
+braam EN GUISE d'impact (l'échelle écrasante).
+```
+
+Et la règle d'économie qui gouverne tout : **la ponctuation souligne les bascules du spotting (m10-l12), jamais le pouls** — un riser par bascule réelle, pas un par section de 8 mesures. Le mickey-mousing a son équivalent synthétique : le *trailer-mousing*.
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Le riser qui atterrit à côté | l'élan pour rien — pire que rien | la cible en ticks, alignée mesure/hit |
+| Pas de silence avant l'impact | le choc noyé dans sa préparation | l'apnée d'un temps : le vide amplifie |
+| L'impact mono-couche | le « pok » maigre | sub-drop + corps + débris : trois couches, 500 ms |
+| Le braam ironique involontaire | la scène moyenne écrasée par son effet | premier degré = échelle réelle ; sinon s'abstenir |
+| Un riser toutes les 8 mesures | le trailer-mousing : plus aucune bascule ne compte | la ponctuation suit le spotting, pas la grille |
+
+### La mission (m06-e10, LAYERING événementiel)
+
+La phrase de bascule complète sur « La Remise » (la bascule 2, 1'08" — le spotting de m10-e12 resservi) : un riser 4 mesures (les quatre automations déclarées en `motion`), l'apnée, l'impact tri-couche (trois `Layer` role `fx`, bandes étagées sub/corps/débris), et la queue qui accouche du drone de la scène suivante. Le moteur vérifie : la cible du riser sur le temps de bascule (±1 temps — le croisement tempo×timecode de m10-l15 recyclé), le silence, les trois bandes de l'impact étagées sans chevauchement de plus de 30 %, la queue déclarée. *La cadence de production, prouvée.*
+
+- [ ] Riser = la virgule (une CIBLE en ticks), impact = le point (trois couches), braam = l'exclamation (premier degré seulement)
+- [ ] L'apnée avant l'impact : le vide amplifie
+- [ ] La phrase de bascule est une cadence de production — et ses variantes sont des déviations d'attente
+- [ ] La ponctuation suit le spotting, jamais la grille
+
+<QuizBlock id="m06-l10-quiz" questions={5} />
+<LessonFooter exercises={["m06-e10-the-punctuation"]} />

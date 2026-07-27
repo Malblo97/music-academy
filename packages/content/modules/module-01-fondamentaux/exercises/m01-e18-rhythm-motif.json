@@ -1,0 +1,10 @@
+{ "id": "m01-e18-rhythm-motif", "lessonId": "m01-l09-rythme-2",
+  "title": "Le rythme d'abord", "kind": "MELODY_COMPOSE",
+  "difficulty": 4, "xpReward": 80, "skills": { "RHYTHM": 0.6, "MELODY": 0.4 },
+  "spec": { "prompt": "Méthode l09 §3 : compose d'abord un motif RYTHMIQUE d'une mesure (enregistre-le sur une seule note si tu veux), puis bâtis 8 mesures dessus : le motif au moins 4 fois, dont au moins une variation (fin modifiée, ou augmentation). Les hauteurs viennent en dernier — charpente/habillage.",
+    "given": { "key": { "tonic": 9, "mode": "minor" } },
+    "constraints": { "key": { "tonic": 9, "mode": "minor" }, "lengthBars": [8,8],
+      "mustUseMotif": true, "motifType": "rhythmic", "minMotifOccurrences": 4,
+      "requireMotifVariation": true, "mustEndOnDegrees": [1] },
+    "styleProfile": { "id": "thriller-tension", "targetMood": "tension" },
+    "rubric": { "correctness": 25, "constraints": 35, "craft": 40 } } }

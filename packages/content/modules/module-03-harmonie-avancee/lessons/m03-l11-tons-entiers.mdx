@@ -1,0 +1,60 @@
+---
+id: m03-l11-tons-entiers
+module: module-03-harmonie-avancee
+title: "La gamme par tons : l'apesanteur"
+estMinutes: 25
+skills: { harmony: 1.0 }
+---
+
+### Pourquoi cette gamme n'a pas de sol
+
+Six notes, toutes à un ton d'écart : do–ré–mi–fa♯–sol♯–la♯ — la **symétrie parfaite** (2+2+2+2+2+2). Conséquence radicale, que tu sais lire depuis le dim7 (l04) : quand rien ne distingue les notes, rien ne désigne la tonique. Mais la gamme par tons va plus loin que le dim7 : elle n'a **ni demi-ton, ni quarte juste, ni quinte juste** — les trois intervalles qui fabriquent la gravité tonale (la sensible, le cadre 1̂–4̂–5̂) ont physiquement disparu. Ce n'est pas une gamme qui refuse de retomber : c'est une gamme où *le bas n'existe pas*. L'apesanteur, littéralement — celle que m02-l13 (la SF) obtenait par les silences et les intervalles creux a ici sa version harmonique totale.
+
+### 1. L'inventaire du monde flottant
+
+```
+DEUX GAMMES SEULEMENT : {C D E F# G# A#} et {C# D# F G A B} —
+  la symétrie réduit tout à deux objets (le dim7 en avait 3, l04 §1 :
+  plus la symétrie est serrée, moins il y a d'objets)
+CE QU'ON Y TROUVE : des tons, des tierces majeures, des tritons —
+  et donc UN SEUL TYPE de triade : l'AUGMENTÉE (la 3e clé de l05 :
+  la famille est réunie — Fr⁶ (l03, ses deux tritons), l'augmenté,
+  les tons entiers : trois visages du même monde symétrique)
+CE QU'ON N'Y TROUVE PAS : aucune triade majeure ou mineure, aucune
+  quinte juste — l'harmonie y est PAR NATURE instable-planante
+```
+
+L'harmonisation type : des accords augmentés qui glissent, des empilements 7♯5 / 9♯5 (les « dominantes » sans destination — le lydien ♭7 avait UNE altération flottante, en voici deux), et le **planing** de la gamme sur elle-même (le bloc qui glisse de ton en ton — l14 systématisera le geste).
+
+### 2. Le territoire : le rêve, jamais le cauchemar
+
+La gamme par tons est câblée « irréel » — mais un irréel **sans menace** : le rêve, l'hypnose, la brume, le souvenir qui se dissout, l'ivresse douce. (Le cauchemar, c'est l'octatonique — l12 : la distinction des deux symétries est LE choix dramatique de ce bloc.) Ses emplois canoniques : la bascule de réalité (trois accords augmentés glissés = « nous quittons le réel » — le cliché du flash-back, à doser en conséquence), la suspension du temps, l'eau profonde. Sa limite structurelle, qui est aussi son mode d'emploi : **six notes, zéro contraste interne** — la gamme s'épuise vite (8–12 mesures de séjour maximum) ; elle est un *état* qu'on traverse, pas un pays qu'on habite (le locrien de l08 avait le même statut de seuil, pour la raison inverse : trop instable ; les tons entiers, trop *également* stables).
+
+### 3. Composer dans l'apesanteur (les trois gestes)
+
+| Geste | Recette |
+|---|---|
+| **Le glissement** | les augmentés en planing par tons — la vague sans rivage ; le fil de note commune (l06) marche entre augmentés voisins (ils partagent... vérifions : C-E-G♯ et D-F♯-A♯ ne partagent rien ; MAIS C-E-G♯ et E-G♯-C sont le même accord — les DEUX gammes n'ont que deux augmentés distincts chacune... précisément : dans une gamme, les augmentés sur ses 6 degrés se réduisent à 2 objets. Le glissement alterne donc deux accords : le balancement hypnotique est structurel) |
+| **La mélodie-arabesque** | conjoint par tons, sans appui (aucun demi-ton pour « poser ») : la ligne qui monte sans effort et ne culmine jamais — le contraire exact de l'arche (m02-l05 : le plateau flottant, ou l'ascension sans gravité de m02-l13, harmonisée) |
+| **L'entrée et la sortie** | l'apesanteur se REMARQUE aux frontières : on y entre par un accord-passerelle (l'augmenté partagé avec le monde tonal — la clé de l05 ; ou le V7♯5 : la dominante qui décolle au lieu de retomber) et on en sort par LE demi-ton retrouvé — la première sensible après douze mesures de tons entiers est un événement physique : le sol qui revient |
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Le séjour interminable | l'hypnose devenue engourdissement | 8–12 mesures : un état, pas un pays |
+| Chercher une cadence interne | il n'y en a pas — par construction | la sortie EST la cadence : le demi-ton retrouvé |
+| L'employer pour la menace | le rêve là où il fallait le danger | la menace symétrique, c'est l'octatonique (l12) |
+| Mélanger les deux gammes sans le savoir | le chromatisme total involontaire | une gamme à la fois ; le changement de gamme est un événement (le seul contraste interne disponible : utilise-le) |
+
+### La mission (m03-e11, HARMONY_PROGRESSION + mélodie)
+
+La bascule de réalité : 4 mesures tonales (do majeur, simple), l'accord-passerelle (V7♯5 ou l'augmenté pivot), **8 mesures en tons entiers** (`requireCollection: "whole-tone"`, le balancement des deux augmentés, l'arabesque au-dessus), puis la sortie : le demi-ton retrouvé, la cadence du retour au réel. Le moteur vérifie la collection sur la fenêtre centrale, la passerelle taguée, et l'événement de sortie (le premier mouvement de demi-ton après la fenêtre — un checker de trois lignes sur `leapProfile`).
+
+- [ ] 2+2+2+2+2+2 : deux gammes, un seul type de triade (l'augmentée), zéro gravité
+- [ ] Le rêve, pas le cauchemar — et un état, pas un pays (8–12 mesures)
+- [ ] Le balancement des deux augmentés est structurel ; la sortie par le demi-ton est l'événement
+- [ ] La famille symétrique au complet : Fr⁶, augmenté, tons entiers
+
+<QuizBlock id="m03-l11-quiz" questions={5} />
+<LessonFooter exercises={["m03-e11-weightless"]} />

@@ -1,0 +1,103 @@
+---
+id: m01-l15-fonctions
+module: module-01-fondamentaux
+title: "Fonctions harmoniques : T, S, D — les trois forces"
+estMinutes: 25
+skills: { harmony: 1.0 }
+---
+
+### Pourquoi réduire sept accords à trois lettres
+
+Tu connais les sept accords diatoniques (l11, l13). Bonne nouvelle : tu n'as pas sept comportements à apprendre, mais **trois**. Chaque accord exerce une *fonction* — un rôle dans le récit harmonique — et il n'existe que trois rôles : le repos, l'éloignement, la tension qui ramène. C'est la grammaire qui transforme ta liste d'accords en langage : avec elle, tu sauras *pourquoi* une progression avance, piétine ou conclut.
+
+### 1. Les trois forces
+
+| Fonction | Lettre | Rôle dramatique | Sensation |
+|---|---|---|---|
+| **Tonique** | T | la maison | repos, arrivée, identité |
+| **Sous-dominante** | S | le départ | éloignement, ouverture, « il se passe quelque chose » |
+| **Dominante** | D | le retour sous tension | instabilité dirigée : « ça va conclure » |
+
+Le cycle narratif fondamental de la musique tonale :
+
+```
+        T ────────► S ────────► D ────────► T
+      maison      départ      tension     retour
+                              maximale
+   « Il était    « un jour   « le péril   « et ils
+     une fois »    il partit »  culmina »    rentrèrent »
+```
+
+Ce cycle est à l'harmonie ce que l'arche est à la mélodie (l14) : le gabarit de base, à connaître pour le suivre — et pour le trahir en conscience.
+
+### 2. Qui fait quoi : la carte des sept accords
+
+Chaque accord diatonique rejoint une famille, selon les notes qu'il contient :
+
+```
+   TONIQUE (T)          SOUS-DOMINANTE (S)      DOMINANTE (D)
+   I  ─ le chef         IV ─ le chef            V, V7 ─ le chef
+   vi ─ le doublure     ii ─ le doublure        vii° ─ l'ombre de V7 (l13)
+   iii ─ le cousin ambigu*
+```
+
+La logique n'est pas arbitraire : **la fonction vient des notes partagées**. vi (A–C–E en do) partage C et E avec I (C–E–G) : deux tiers de la maison — il *sonne* maison, en plus sombre. ii (D–F–A) partage F et A avec IV : même métier de départ. vii° (B–D–F) contient le triton de V7 : même métier de tension. *iii est le cas ambigu du système : il partage E–G avec I et G–B avec V — l'analyseur du produit le classe « T faible », et en pratique de film on l'emploie surtout comme couleur de passage.
+
+Conséquence pratique énorme : **tu peux substituer à l'intérieur d'une famille**. I–IV–V–I devient vi–ii–V–I : même récit, éclairage assombri. C'est le principe de la règle générative `sub.relative` (§7.3), et le début de tout l'art de la réharmonisation (l20).
+
+<MusicExample id="meme-recit-deux-eclairages" title="Même voyage, deux lumières">
+  A) [C3+E4+G4]:h [F3+F4+A4]:h | [G3+F4+G4+B4]:h [C3+E4+G4]:h     — I  IV V7 I
+  B) [A2+E4+A4]:h [D3+F4+A4]:h | [G3+F4+G4+B4]:h [C3+E4+G4]:h     — vi ii V7 I
+  T → S → D → T dans les deux cas. B raconte la même histoire dans la pénombre —
+  et débouche sur la même lumière. La fonction est le récit ; l'accord, le costume.
+</MusicExample>
+
+### 3. Le sens de circulation (et ses exceptions célèbres)
+
+Le cycle T→S→D→T a un sens : **on avance vers la tension, on ne recule pas**. D→S (V→IV, V→ii) est une *rétrogression* — la promesse de conclure, trahie mollement. C'est la règle `harmony.retrogression` (§7.3), et tu connais déjà ses deux grandes zones de dérogation, rencontrées en chemin :
+
+- **le blues** : V→IV→I est sa cadence signature — un autre monde harmonique, assumé ;
+- **le modal épique** : ♭VII→IV→I (la « cadence Mario », omniprésente dans l'aventure moderne) — mais tu as appris en l07 que le mixolydien n'a pas de dominante fonctionnelle : ce n'est pas une rétrogression tonale, c'est une *autre grammaire*, celle du mouvement de basse. D'où le poids 0.2 du profil `epic-film` : le produit sait dans quel monde tu écris.
+
+Le principe général, qui gouverne toute la suite : **une « faute » dans une grammaire est la norme d'une autre. Ce qui compte est de savoir laquelle tu parles.**
+
+### 4. Méthode : composer par fonctions
+
+Le grand déblocage des débutants : cesser de chercher « le bon accord » et chercher **la bonne fonction**, puis choisir le costume.
+
+```
+1. Écris ton récit en lettres, une par mesure : T T S D | T S D T ...
+   (règles de base : commence et finis sur T ; D précède T ;
+    varie la vitesse — deux mesures de T = installation, T-S-D-T en
+    une mesure = précipitation)
+2. Habille chaque lettre : T → I ou vi ; S → IV ou ii ; D → V7 ou vii°
+3. Choisis les renversements pour la ligne de basse (l12)
+4. Joue, écoute, échange un costume, réécoute
+```
+
+L'exercice m01-e27 applique exactement ce protocole — et le Harmony Coach affiche la lettre de fonction sous chaque accord que tu joues (`functionOf`) : compose avec les lettres visibles, puis cache-les.
+
+### 5. Les fonctions en mineur : le retour du dilemme
+
+En mineur naturel, le tableau donne : i, ♭III, ♭VI côté T ; iv, ii° côté S ; **v mineur** côté D — et un v mineur, sans sensible, est une dominante sans dents (l06, l11 : la boucle). D'où la pratique quasi universelle : **en mineur, on emprunte le V majeur (et V7) au mineur harmonique** pour conclure. Le mineur « réel » utilise donc les deux mondes : couleur naturelle (♭VII, ♭VI — trésors du film) pour voyager, V7 haussé pour rentrer. Note ♭VII et ♭VI dans un coin : la leçon 21 en fera tes emprunts favoris *en majeur aussi*.
+
+### 6. Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Chercher des accords au lieu de fonctions | progressions au hasard, « ça sonne bien mais je ne sais pas pourquoi » | récit en lettres d'abord, costumes ensuite |
+| V→IV par inadvertance en style tonal | conclusion dégonflée | inverse : IV→V, ou assume le monde modal/blues |
+| Tout conclure par V7→I | prévisibilité mécanique | garde la parfaite pour les vraies fins ; ailleurs, vi, demi-cadences (l16 arrive) |
+| Oublier le v mineur du mineur | dominantes molles en mineur sans comprendre pourquoi | hausse la sensible pour conclure ; garde v mineur comme couleur modale |
+| Traiter iii comme un T fiable | flottements inexpliqués | iii est le cousin ambigu : couleur de passage, pas pilier |
+
+### Récapitulatif
+
+- [ ] Trois forces : T (maison), S (départ), D (tension qui ramène)
+- [ ] La fonction vient des notes partagées : vi double I, ii double IV, vii° double V7
+- [ ] Sens de circulation T→S→D→T ; les « exceptions » sont d'autres grammaires (blues, modal)
+- [ ] Je compose par récit de fonctions, puis costumes, puis basse
+- [ ] En mineur : V majeur emprunté pour conclure, couleurs naturelles pour voyager
+
+<QuizBlock id="m01-l15-quiz" questions={7} />
+<LessonFooter exercises={["m01-e27-function-story", "m01-e28-family-substitution"]} />

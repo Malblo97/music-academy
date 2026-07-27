@@ -1,0 +1,11 @@
+{
+  "exerciseId": "m04-e09-imitation-machine",
+  "partId": "free-imitation",
+  "payload": {
+    "voices": [
+      { "id": "V1", "notation": "C4:e D4:e E4:q G4:h | A4:q G4:q E4:h | E4:q F4:q G4:h | A4:h G4:q F4:q | E4:q D4:q E4:h | F4:q E4:q E4:h | E4:q C4:q D4:h | C4:w" },
+      { "id": "V2", "notation": "r:w | r:w | G4:e A4:e B4:q D5:h | E5:q C5:q B4:h | C5:q B4:q G4:h | A4:h G4:h~ | G4:q A4:q B4:h | C5:w" }
+    ]
+  },
+  "authorNotes": "Tête T = C:e D:e E:q G:q (erratum : le motifHead de la spec §50 diffère — §68 fait foi). Entrée V2 = **T +7 exact (réponse réelle) au délai 2**, émancipation dès m4 (on imite l'identité, on répond librement ensuite). Tritons de passage (m3.2, m4.4) conduits par degré — légaux en libre. Clausule contraire D4→C4 / B4→C5."
+}

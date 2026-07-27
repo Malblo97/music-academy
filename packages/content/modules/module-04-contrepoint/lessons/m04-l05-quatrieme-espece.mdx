@@ -1,0 +1,81 @@
+---
+id: m04-l05-quatrieme-espece
+module: module-04-contrepoint
+title: "La quatrième espèce : la syncope et le retard — la tension liée"
+estMinutes: 30
+skills: { counterpoint: 1.0 }
+---
+
+### Pourquoi c'est l'espèce-reine
+
+Jusqu'ici, une loi paraissait absolue : *la dissonance ne touche jamais le temps fort*. La quatrième espèce la renverse — et ce renversement est le geste expressif le plus important de toute la musique occidentale : la **dissonance au temps fort, légale parce que LIÉE**. Le mécanisme s'appelle le retard (la suspension), et tu en descends de partout : le sus4 de m01-l17, le retard de la table m02-l08, l'appoggiature préparée du romantisme — tout naît ici. Si tu ne devais garder qu'une espèce, ce serait celle-ci.
+
+### 1. Le mécanisme : préparation — suspension — résolution
+
+L'espèce écrit des blanches **syncopées** : chaque note attaque au temps faible et se LIE à travers la barre. Trois temps, trois rôles :
+
+```
+     temps faible          temps fort              temps faible
+     PRÉPARATION           SUSPENSION              RÉSOLUTION
+     la note arrive        le CF bouge SOUS        la note descend
+     en CONSONANCE         la note tenue : elle    d'un degré vers
+     (elle s'installe      devient DISSONANTE      la consonance
+     légitimement)         sans avoir bougé        (la dette payée)
+CP :  ────C5══════════════════C5─────────────────────B4────
+CF :  ────E4──────────────────D4 (7e ! le choc)──────D4 (6te ✓)
+```
+
+La beauté du mécanisme : **la dissonance n'est pas une agression, c'est une inertie** — la note avait le droit d'être là, le monde a bougé sous elle, elle cède avec grâce. C'est LE modèle de toute tension expressive : la dette (l14 M1) sous sa forme la plus pure — contractée par immobilité, remboursée par un seul pas descendant.
+
+### 2. Les retards du catalogue (au-dessus du CF)
+
+| Retard | Le choc → la résolution | Caractère |
+|---|---|---|
+| **7–6** | septième → sixte | le retard-roi : chaînable (voir §3) |
+| **4–3** | quarte → tierce | LE sus4 : m01-l17 remonté à sa source — cinq siècles avant les grilles pop |
+| **9–8** | neuvième → octave | le plus lumineux (et le plus délicat : il résout sur une parfaite) |
+| *interdit* : 2–1 au-dessus | la seconde qui s'écrase sur l'unisson | — (au-dessous du CF, le catalogue s'inverse : 2–3 devient le retard-roi de la basse) |
+
+Trois lois absolues : la résolution descend **toujours** (le retard qui monte n'existe pas au laboratoire — la rare « résolution ascendante » est un objet libre, hors espèce) ; la préparation est **au moins aussi longue** que la suspension (la légitimité s'acquiert) ; quand aucune dissonance n'est disponible, la syncope continue en consonances liées (l'espèce est un *rythme* avant d'être un catalogue — et si la chaîne casse, une mesure de deuxième espèce répare la couture, l'école l'admet).
+
+### 3. La chaîne de retards : la première machine expressive
+
+Le 7–6 a une propriété magique : sa résolution (la sixte) peut devenir la *préparation* du retard suivant — la chaîne :
+
+<MusicExample id="chaine-7-6" title="La chaîne de retards 7–6 (le CF descend, la voix s'accroche)">
+  CF : F4:w              E4:w              D4:w              C4:w
+  CP : r:h E5:h~ | E5:h D5:h~ | D5:h C5:h~ | C5:h B4:h | …
+  Chaque blanche tenue devient dissonante quand le CF descend (7e),
+  puis cède d'un pas (6te)… qui se lie et redevient 7e. La voix
+  DESCEND L'ESCALIER EN RETARDANT CHAQUE MARCHE — l'expressivité
+  mécanisée : joue-la lentement, c'est déjà de la musique (le lamento
+  baroque entier vit dans cette chaîne ; et la line cliché de
+  m01-l42… de l22 M1 est sa petite-fille chromatique).
+</MusicExample>
+
+### 4. Ce que l'espèce enseigne (au-delà du laboratoire)
+
+1. **La syncope est une tension STRUCTURELLE** : m01-l09 la donnait rythmique (l'attaque déplacée), la 4e espèce la révèle harmonique (la note déplacée contre le monde) — les deux faces d'un même geste, et `melody.tension-placement` mesure leur produit ;
+2. **le retard est le rubato de l'harmonie** : la voix qui cède « en retard » sur le mouvement du monde — c'est l'expressivité de l'inertie, celle du CC1 qui traîne (m10-l04) et de la note d'anticipation inversée ;
+3. **la préparation est la moitié de l'effet** : une dissonance préparée émeut, la même surgie agresse — la loi vaut pour tout le métier (le cluster cumulatif de m03-l15, le riser de m06-l10 : préparer, c'est légitimer).
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| La résolution qui monte | le retard dénaturé | elle descend — toujours, au laboratoire |
+| La préparation dissonante | la dette contractée sans légitimité | la préparation est consonante et installée |
+| La liaison oubliée (deux attaques) | ce n'est plus un retard, c'est une appoggiature (autre objet — libre, l07) | la note se LIE : l'inertie est le mécanisme |
+| La chaîne sans fin | l'escalier qui épuise (3–4 marches, l'oreille sature) | la chaîne se cadre, puis la 2e espèce recoud |
+
+### La mission (m04-e05, COUNTERPOINT — species 4)
+
+Deux volets : **(1)** le CF dorien, quatrième espèce au-dessus — ≥ 4 retards dont ≥ 2 types différents (7–6, 4–3, 9–8), chaque cellule préparation-suspension-résolution vérifiée par le checker `species4` (le plus précis du module : trois positions, trois tests par retard) ; **(2)** la chaîne : le CF descendant fourni (4 marches), la chaîne 7–6 complète — et le rapport la nomme : « ton lamento est réglementaire ». Profil strict, LiveFeedback (la suspension se colore À l'instant où le CF bouge dessous : la pédagogie en une animation).
+
+- [ ] Préparation (consonante, installée) — suspension (le monde bouge sous la note) — résolution (un pas descendant)
+- [ ] Le catalogue : 7–6 (le roi chaînable), 4–3 (le sus4 remonté à sa source), 9–8
+- [ ] La dissonance par inertie : la dette la plus pure du système
+- [ ] Préparer, c'est légitimer — la loi vaut pour tout le métier
+
+<QuizBlock id="m04-l05-quiz" questions={6} />
+<LessonFooter exercises={["m04-e05-fourth-species"]} />

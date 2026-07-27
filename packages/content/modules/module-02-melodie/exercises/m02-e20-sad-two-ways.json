@@ -1,0 +1,18 @@
+{ "id": "m02-e20-sad-two-ways", "lessonId": "m02-l10-ambiances-1",
+  "title": "Deux tristesses — choisis la tienne", "kind": "MELODY_COMPOSE",
+  "difficulty": 6, "xpReward": 110, "skills": { "MELODY": 1.0 },
+  "spec": { "prompt": "Décide AVANT d'écrire (l10 §2) : la tristesse RETENUE ou la tristesse LYRIQUE. Les deux se composent en la mineur, 8 mesures — mais pas avec les mêmes contraintes. Leur mélange donne du mélodrame flou : le choix EST l'exercice.",
+    "given": { "key": { "tonic": 9, "mode": "minor" } },
+    "variants": [
+      { "id": "retenue", "label": "Retenue — la douleur qui ne s'autorise pas",
+        "constraints": { "key": { "tonic": 9, "mode": "minor" }, "lengthBars": [8,8],
+          "ambitusMax": 9, "maxLeap": 5, "requireRestAtBar": [2,4,6],
+          "climaxWindow": [0.4, 0.7], "mustEndOnDegrees": [1,5],
+          "minConjunctRatio": 0.75 } },
+      { "id": "lyrique", "label": "Lyrique — la douleur qui déborde",
+        "constraints": { "key": { "tonic": 9, "mode": "minor" }, "lengthBars": [8,8],
+          "ambitusMax": 17, "mustContainInterval": [8], "intervalDirection": "up",
+          "minChromaticFigures": 1, "climaxWindow": [0.55, 0.75],
+          "mustEndOnDegrees": [1] } } ],
+    "styleProfile": { "id": "romantic-film", "targetMood": "sad" },
+    "rubric": { "correctness": 20, "constraints": 40, "craft": 40 } } }

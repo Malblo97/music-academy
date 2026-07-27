@@ -1,0 +1,81 @@
+---
+id: m06-l07-keys
+module: module-06-sound-design
+title: "Keys : Rhodes, FM, lo-fi — l'intimité électrique"
+estMinutes: 20
+skills: { sound_design: 0.7, harmony: 0.3 }
+---
+
+### Pourquoi les keys sont l'humain de l'hybride
+
+Entre le pad (le monde) et le lead (la voix), il manque quelqu'un : **l'instrument qu'une personne joue** — attaque au doigt, accords qui respirent, imperfection assumée. C'est le rôle des keys : le piano électrique et ses descendants. Au cinéma, les keys signent l'*intimité contemporaine* — la scène d'appartement, la confidence, le souvenir récent (là où le piano acoustique dit le souvenir ancien, l10 M5 : la goutte). Trois fiches, un métier.
+
+### 1. La famille RHODES : le velours électrique
+
+| Rubrique | Contenu |
+|---|---|
+| Recette | samples de piano électrique OU synthèse : sinus + un partiel cloché (la « tine »), ADSR percussif-long (A 0, D long, S bas, R moyen), la velocity → brillance (frappe douce = rond, frappe forte = le « bark » qui mord) |
+| Vie (l02) | trémolo/auto-pan LENT (le vibrato stéréo du Rhodes historique : LFO 0.5–3 Hz → pan) — sa signature |
+| Caractère | chaud, rond, nocturne — le velours qui a vécu |
+| Bande utile | 100 Hz–5k : un habitant du bas-médium (l03 : il NÉGOCIE avec le pad et le growl — dans un stack dense, high-pass à 150 et le Rhodes garde son âme) |
+| Écriture | accords enrichis de M1 l17–l18 : le Rhodes est FAIT pour les 7es et les 9es (Cmaj9, m11 — les tensions y sonnent crémeuses là où le piano les durcit) ; voicings resserrés main droite, la basse laissée au sub |
+| Territoire | le jazz urbain, le néo-noir moderne (m09-l03 : le remplaçant contemporain du piano-goutte), l'amour discret |
+| Mariage | + contrebasse pizz + texture vinyl = le trio noir contemporain ; + cordes sourdines = la ballade de générique |
+
+### 2. La famille FM : le cristal électrique
+
+| Rubrique | Contenu |
+|---|---|
+| Recette | synthèse FM (un oscillateur module la *fréquence* d'un autre — pas besoin de la théorie complète : les presets « E.Piano FM » des synthés modernes) ; attaque cliquante, corps vitreux, velocity → l'éclat |
+| Caractère | brillant, précis, un peu froid — les années 80 au sens noble, redevenues contemporaines |
+| Bande utile | 200 Hz–8k, présence marquée : il perce naturellement là où le Rhodes se fond |
+| Territoire | la nostalgie synthétique, la mélancolie néon, le drame rétro-moderne |
+| Mariage | + pad analog (le chaud sous le froid : le contraste de l04 §3 en duo standard) ; + sub simple |
+| Le choix Rhodes/FM | même partition, deux époques : le Rhodes dit « la nuit chaude », le FM dit « la nuit froide » — c'est un choix de température, donc de scène |
+
+### 3. La famille LO-FI : la mémoire dégradée
+
+| Rubrique | Contenu |
+|---|---|
+| Recette | n'importe quelles keys (Rhodes, FM, piano) **passées à la dégradation** : wow/flutter (le pitch qui ondule comme une bande usée — LFO lent irrégulier → pitch, ± 5–20 cents), filtrage passe-bas prononcé, bruit de bande/vinyl intégré, parfois bitcrush léger |
+| Caractère | voilé, instable, aimé-mais-abîmé — le souvenir qui se dégrade en direct |
+| Vie | la dégradation EST la vie : le wow compte comme motion (`sd.static-stack` créditée d'office) |
+| Territoire | la mémoire, le deuil doux, l'enfance perdue — LE son du drame indé contemporain |
+| Mariage | + texture vinyl assortie (l05 : la texture et l'instrument racontent la même bande) ; attention au **pléonasme** : keys lo-fi + texture + atmosphère toutes dégradées = le pathos de brocante — UNE couche porte la dégradation, les autres restent propres |
+
+### 4. Écrire pour les keys (le pont M1)
+
+Les keys sont l'instrument-harmonie de l'hybride : c'est par elles que tes acquis M1 entrent dans le monde synthétique. Trois réflexes :
+
+```
+1. Les voicings de l17-l18 s'appliquent tels quels — et MIEUX :
+   les tensions crémeuses du Rhodes tolèrent des empilements que
+   le piano durcit (la 9 et la 11 côte à côte : oui)
+2. La basse aux autres : main gauche minimale ou absente — le sub
+   (l06) et le Rhodes se partagent le travail que le pianiste
+   faisait seul (deux Layers, deux rôles : la leçon l03 en acte)
+3. La respiration du joueur : les keys se JOUENT (m10-l03 :
+   Iterative 60 %, jamais de quantize dur) — un Rhodes quantisé
+   dur est un FM qui s'ignore
+```
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Le Rhodes plein registre, basse comprise | la guerre du bas-médium (l03) | main droite resserrée, la basse au sub |
+| Le pléonasme lo-fi | tout est abîmé, rien n'est touchant | UNE couche dégradée, le reste propre |
+| Quantize dur sur les keys | l'humain retiré de l'instrument-humain | Iterative 60 % — les keys sont un JEU |
+| FM et Rhodes empilés | deux époques qui se disputent | un choix de température par scène |
+
+### La mission (m06-e07, LAYERING + notes)
+
+La progression de m09-l01 §1 (la romance : `Cmaj7 | Am7 | Fadd9 | G7sus4-G7` puis le iv) réalisée aux keys : choisis la famille selon le brief tiré (« la confidence tard le soir » / « le souvenir qui s'efface »), voicings enrichis main droite (≥ 3 accords à tensions), sub séparé en couche dédiée, motion signature déclarée (trémolo Rhodes ou wow lo-fi). Le moteur vérifie : les voicings (tensions présentes, `guideToneVoicing` assoupli F-4), la séparation des rôles (keys sans notes < C3, sub monophonique), la famille cohérente au brief, le jeu non quantisé dur (`quantizeInfo`).
+
+- [ ] Rhodes = la nuit chaude, FM = la nuit froide, lo-fi = la mémoire qui se dégrade
+- [ ] Les tensions de M1 sonnent crémeuses ici : les keys sont l'harmonie de l'hybride
+- [ ] La basse au sub, la main droite resserrée — deux couches, deux rôles
+- [ ] Une seule couche dégradée par stack ; les keys se jouent, ne se quantisent pas
+
+<QuizBlock id="m06-l07-quiz" questions={5} />
+<LessonFooter exercises={["m06-e07-electric-intimacy"]} />

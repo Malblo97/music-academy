@@ -1,0 +1,10 @@
+{ "id": "m01-e39-borrow-the-cloud", "lessonId": "m01-l21-emprunts",
+  "title": "Le nuage", "kind": "HARMONY_PROGRESSION",
+  "difficulty": 5, "xpReward": 90, "skills": { "HARMONY": 1.0 },
+  "spec": { "prompt": "8 mesures en mi♭ majeur avec le geste canonique IV→iv→I placé où TU veux (milieu = nuage passager ; fin = plagale mineure voilée ; avant V = poing serré — trois sens, choisis-en un et assume-le). La ligne interne 6̂→♭6̂→5̂ doit être audible dans UNE voix suivie. Une seule occurrence : la rareté fait la valeur.",
+    "given": { "key": { "tonic": 3, "mode": "major" } },
+    "constraints": { "lengthBars": [8,8], "minVoices": 4,
+      "mustInclude": ["borrowed-iv"], "maxBorrowedChords": 2,
+      "innerChromaticLine": [9,8,7] },
+    "styleProfile": { "id": "romantic-film", "targetMood": "bittersweet" },
+    "rubric": { "correctness": 30, "constraints": 35, "craft": 35 } } }

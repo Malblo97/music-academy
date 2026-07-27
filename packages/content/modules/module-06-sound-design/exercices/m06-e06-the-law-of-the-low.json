@@ -1,0 +1,37 @@
+{
+  "id": "m06-e06-the-law-of-the-low",
+  "lessonId": "m06-l06-basses",
+  "title": "La loi du grave",
+  "kind": "LAYERING",
+  "difficulty": 4,
+  "xpReward": 100,
+  "skills": { "SOUND_DESIGN": 0.7, "HARMONY": 0.3 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "epic-film", "targetMood": "heroic", "ruleWeights": {} },
+  "rubric": { "correctness": 30, "constraints": 45, "craft": 25 },
+  "spec": {
+    "version": 1,
+    "prompt": "La ligne de basse fournie (8 mesures — l'ostinato de m09-e03, « le mur éolien ») réalisée en basse HYBRIDE : deux couches solidaires — le SUB (sinus, mono, zéro detune : l'épaisseur vit ailleurs) et le GROWL (la même ligne, matière déclarée — saw filtrée, FM ou rendu — avec son réglage de filtre : fermé = poli, ouvert = la menace). Les notes IDENTIQUES sur les deux : deux haut-parleurs d'un seul instrument. Une automation d'ouverture du growl vers les mesures 7–8 : la charge. Variante-piège incluse : la version où les contrebasses sont ACTIVES dans le given — high-passe ou tacet : la cohabitation s'arbitre en acte, un seul roi sous 90 Hz.",
+    "given": {
+      "key": { "tonic": 2, "mode": "minor" },
+      "bassLine": "asset:m09-e03-eolian-wall-ostinato",
+      "variants": [
+        { "id": "solo", "contrabassesActive": false },
+        { "id": "cohabitation", "contrabassesActive": true }
+      ]
+    },
+    "constraints": {
+      "lengthBars": [8, 8],
+      "requiredLayers": [
+        { "id": "sub", "role": "sub", "source": "sine", "band": { "low": 30, "highMax": 90 }, "detune": 0 },
+        { "id": "growl", "role": "body", "band": { "lowMin": 90, "highMax": 800 }, "freeFields": ["material", "filterSetting"] }
+      ],
+      "subMonoRequired": true,
+      "monophonicNotesRequired": ["sub"],
+      "layerSolidarity": { "layers": ["sub", "growl"], "sameNotes": true, "attackToleranceTicks": 10 },
+      "motionPlan": { "requiredMotion": { "layer": "growl", "type": "automation", "target": "cutoff", "window": [0.75, 1.0] } },
+      "checkers": ["sd.sub-conflict", "sd.sub-width"]
+    }
+  }
+}

@@ -1,0 +1,80 @@
+---
+id: m06-l08-leads
+module: module-06-sound-design
+title: "Leads : mono, poly, supersaw — la voix synthétique"
+estMinutes: 25
+skills: { sound_design: 0.6, melody: 0.4 }
+---
+
+### Pourquoi le lead est un chanteur
+
+Le lead est la couche `melodic` du modèle (l03) : celle qui porte LA ligne. Et tout ce que le Module 2 t'a appris s'applique à lui *sans remise* — motif, contour, prosodie, ambiances : un lead ne rachète jamais une mélodie faible. Ce que cette leçon ajoute : les trois morphologies du chanteur synthétique, et les gestes qui font qu'une ligne de synthé *chante* au lieu de biper.
+
+### 1. La famille MONO : le soliste
+
+| Rubrique | Contenu |
+|---|---|
+| Recette | 1–2 oscillateurs (saw ou carré), **mode monophonique** + legato + **glide** (l06 §3 : 30–80 ms sur les notes liées) ; filtre expressif (velocity ou molette → cutoff) |
+| Le geste-clé | le glide sélectif : lié = glisse, détaché = attaque nette — la ligne acquiert un *phrasé* (le legato/staccato de m10-l05, version synthèse) |
+| Vie | vibrato RETARDÉ (LFO 5–6 Hz → pitch, delay 300–600 ms : la note se pose PUIS vibre — la règle du corniste, l02 §5, ici vitale) |
+| Caractère | incarné, vocal, un individu — le seul lead qui « respire » |
+| Territoire | la mélodie exposée, le thème de personnage électronique, la SF intime |
+| Écriture | tout m02 : le mono-lead est un chanteur — ambitus raisonnable, respirations écrites (des silences ! le legato perpétuel épuise, l06 M2), le climax tenu qui vibre |
+
+### 2. La famille POLY : le chœur de synthé
+
+| Rubrique | Contenu |
+|---|---|
+| Recette | le même type de son en polyphonie, attaque un peu plus douce, PAS de glide (le glide polyphonique = la bouillie de sirènes) |
+| Métier | les lignes harmonisées (la mélodie en tierces/sixtes — les II sous les I, l02 M5 version synthé) et les accords-mélodies (le hook d'accords) |
+| Frontière avec le pad | l'ADSR : le poly-lead attaque et articule (profil soutenu), le pad se lève (profil nappe) — même matière parfois, deux existences (l01 §3 : l'ADSR EST le rôle) |
+| Territoire | le rétro assumé, l'élan pop, l'action lumineuse |
+
+### 3. La famille SUPERSAW : la voix massifiée
+
+| Rubrique | Contenu |
+|---|---|
+| Recette | 5–7 saws désaccordées largement (± 15–40 cents) + spread stéréo — l'unisson géant |
+| Caractère | énorme, brillant, euphorique — un stade qui chante |
+| Le danger structurel | le supersaw mange TOUT : large (il occupe la stéréo), dense (il occupe 200 Hz–15k), désaccordé (il floute la hauteur). C'est un tutti à lui seul |
+| Les trois disciplines | **high-pass sévère** (200–300 Hz : le bas au sub, sinon `sd.band-pileup` immédiat) ; **la largeur se paie** : s'il est large, le reste se resserre (l12 formalisera le budget stéréo) ; **réservé aux sommets** — le supersaw permanent est un ff permanent (l10 M1 : plus de crescendo possible) |
+| Territoire | le climax épique-électronique, la libération, le générique qui décolle |
+| Jumeau orchestral | le tutti cuivres+cordes de m09-l02 palier 4 — même fonction, même règle d'économie |
+
+### 4. Faire chanter (les gestes transversaux)
+
+```
+1. LA COURBE AVANT LE SON : joue ta ligne au piano d'abord (m10-l02 :
+   le Sketch) — si elle ne chante pas nue, aucun supersaw ne la sauvera
+2. LE PITCH EST EXPRESSIF : le vibrato retardé, le glide sélectif,
+   et le BEND d'approche (la note prise 1/2 ton dessous, glissée —
+   l'appoggiature du synthé, l22 M1 en molette)
+3. LE FILTRE SUIT LA PHRASE : cutoff mappé sur la molette et JOUÉ
+   (m10-l04 §2 : la deuxième passe, en dirigeant) — l'arche de phrase
+   au timbre : ta tensionCurve rendue audible
+4. LA PLACE : le lead vit dans le médium-présence (500 Hz–5k dégagés
+   pour lui — l03 : le registre se RÉSERVE, comme pour toute mélodie,
+   orch.masking version Hz)
+```
+
+### Erreurs fréquentes
+
+| Erreur | Symptôme | Correction |
+|---|---|---|
+| Vibrato dès l'attaque | le synthé-chèvre (l02 — récidive fréquente ici) | delay de LFO : pose, puis vibre |
+| Glide en polyphonie | les sirènes | le glide est mono, sélectif, dosé |
+| Supersaw du début à la fin | le climax permanent, donc aucun | réservé aux sommets ; le mono porte les couplets |
+| Le lead qui bipe | mélodie faible maquillée en gros son | m02 d'abord : la ligne nue au piano, le test des trois écoutes |
+| Le lead noyé | `sd.band-pileup` dans le médium | 500 Hz–5k réservés : les pads se poussent |
+
+### La mission (m06-e08, LAYERING + notes — la plus mélodique du module)
+
+Ton thème de m02-e30 part 2 (TON personnage) porté au lead : choisis la morphologie (mono/poly/supersaw — argumente au brief), déclare glide/vibrato/filtre en `motion` et champs dédiés, pose le stack minimal dessous (un body high-passé, un sub). Le moteur vérifie : la ligne inchangée (ton capstone M2 re-reconnu par `findMotifs` — la continuité du curriculum en un checker), le lead en bande réservée et les autres couches hors de sa bande (le dégagement mesuré), vibrato déclaré avec delay > 200 ms si mono, et les règles `sd.*` muettes. *Ton personnage a maintenant une voix électrique — la version orchestrale attendra M7.*
+
+- [ ] Mono = le soliste (glide sélectif, vibrato retardé), poly = le chœur, supersaw = le stade
+- [ ] Le supersaw est un tutti : high-pass sévère, largeur payée, sommets seulement
+- [ ] Un lead ne rachète jamais une mélodie faible — m02 d'abord, le son ensuite
+- [ ] 500 Hz–5k dégagés : le registre du chanteur se réserve
+
+<QuizBlock id="m06-l08-quiz" questions={5} />
+<LessonFooter exercises={["m06-e08-your-character-sings"]} />

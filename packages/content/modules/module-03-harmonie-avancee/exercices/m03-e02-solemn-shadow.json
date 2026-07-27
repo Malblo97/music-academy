@@ -1,0 +1,12 @@
+{ "id": "m03-e02-solemn-shadow", "lessonId": "m03-l02-napolitain",
+  "title": "L'ombre solennelle", "kind": "HARMONY_PROGRESSION",
+  "difficulty": 5, "xpReward": 90, "skills": { "HARMONY": 1.0 },
+  "spec": { "prompt": "8 mesures en ré mineur, 4 voix, une ronde par accord : la phrase-norme i–iv–V–i (mes. 1–4), puis SA REPRISE où le ♭II⁶ prend la place du iv (mes. 5–8). L'écart entre les deux passages EST la leçon : une seule case change, et la lumière change. Conduite vérifiée sans pitié : basse sur 4̂, doublure de la BASSE (jamais la ♭2̂), la couleur en voix de tête bienvenue, et le trajet ♭2̂→7̂ (la tierce diminuée — en degrés : l'orthographe est hors sujet, F-6) avant la parfaite finale.",
+    "given": { "key": { "tonic": 2, "mode": "minor" } },
+    "constraints": { "key": { "tonic": 2, "mode": "minor" }, "lengthBars": [8,8],
+      "minVoices": 4, "maxVoices": 4,
+      "requiredProgressionPattern": "i-iv-V-i | i-bII6-V-i",
+      "requireIdiom": ["neapolitan"], "requiredCadence": "perfect" },
+    "styleProfile": { "id": "classical-common",
+      "ruleWeights": { "vl.parallel-perfects": 1.0, "vl.leading-tone-resolution": 1.2 } },
+    "rubric": { "correctness": 35, "constraints": 35, "craft": 30 } } }

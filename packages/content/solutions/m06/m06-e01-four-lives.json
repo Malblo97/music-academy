@@ -1,0 +1,13 @@
+{
+  "exerciseId": "m06-e01-four-lives",
+  "payload": {
+    "layers": [
+      { "id": "percussive", "source": "saw, cutoff 2200 Hz, résonance ponctuelle", "envelope": { "a": 2, "d": 180, "s": 0, "r": 120 }, "band": [200, 6000] },
+      { "id": "sustained", "source": "carré, cutoff 900 Hz", "envelope": { "a": 40, "d": 0, "s": 0.9, "r": 300 }, "band": [150, 2000] },
+      { "id": "pad", "source": "saw détuné, cutoff 1400 Hz", "envelope": { "a": 1200, "d": 0, "s": 0.8, "r": 2500 }, "band": [120, 4000] },
+      { "id": "gesture", "source": "saw, cutoff en montée", "envelope": { "a": 3500, "d": 0, "s": 1.0, "r": 400 }, "band": [300, 8000] }
+    ],
+    "controlsUsed": ["waveform", "cutoff", "envelope"]
+  },
+  "authorNotes": "« La matière et le sculpteur d'abord » : aucun effet, trois contrôles. Les quatre gabarits d'`envelopeProfile` validés avec les tolérances larges de la spec — l'esprit compte plus que les millisecondes. Le point pédagogique documenté pour le feedback : **la nappe et le geste ne se distinguent QUE par le couple attack/release** (1200/2500 contre 3500/400) — même sustain, même forme d'onde, deux existences opposées. La frontière est là, et nulle part ailleurs."
+}

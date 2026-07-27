@@ -1,0 +1,18 @@
+{ "id": "m03-e07-the-stubborn-ground", "lessonId": "m03-l07-pedale",
+  "title": "Le sol qui refuse de bouger", "kind": "HARMONY_PROGRESSION",
+  "difficulty": 6, "xpReward": 110, "skills": { "HARMONY": 1.0 },
+  "spec": { "prompt": "12 mesures sur pédale de SOL, la gradation en trois états — compatible (la pédale appartient à l'accord), frottée (elle y est étrangère mais consonante : 7e, 9e, 11e), CONTREDITE (l'accord la nie) — puis ta sortie, selon la nature de ta pédale. Tu DÉCLARES ton plan avec ta soumission (états et fenêtres) : l'analyseur juge les verticalités HORS pédale (F-18) et vérifie que la friction mesurée suit la friction déclarée. Deux pédales, deux destins — choisis.",
+    "variants": [
+      { "id": "pedale-gagne", "label": "a — La pédale GAGNE (pédale de tonique)",
+        "constraints": { "key": { "tonic": 7, "mode": "major" }, "lengthBars": [12,12],
+          "minVoices": 4, "declaredPedalPlan": true, "pedalDegree": 1,
+          "requiredPedalStates": ["compatible","frottee","contredite","frottee","resolution"],
+          "pedalResolution": "harmony-returns" } },
+      { "id": "pedale-cede", "label": "b — La pédale CÈDE (pédale de dominante)",
+        "constraints": { "key": { "tonic": 0, "mode": "major" }, "lengthBars": [12,12],
+          "minVoices": 4, "declaredPedalPlan": true, "pedalDegree": 5,
+          "requiredPedalStates": ["compatible","frottee","contredite","compatible"],
+          "pedalResolution": "bass-yields", "requiredCadence": "perfect" } } ],
+    "spec_notes": "(a) la pédale est TONIQUE : l'harmonie s'égare puis revient cadencer SUR elle — elle gagne. (b) la pédale est DOMINANTE : la tension fonctionnelle s'accumule sur son propre sol (l'état « compatible » final, c'est V7 pur — la pédale devenue l'accord), et le PREMIER mouvement de basse EST la cadence — son abdication est la résolution. La différence est de nature, pas de technique.",
+    "styleProfile": { "id": "romantic-film" },
+    "rubric": { "correctness": 30, "constraints": 40, "craft": 30 } } }
