@@ -1,0 +1,19 @@
+{
+  "exerciseId": "m08-e08-the-ballad",
+  "payload": {
+    "tempoBpm": 60,
+    "swingTarget": [1.3, 2.6],
+    "swingMeasured": 1.5,
+    "interpolatedChords": [
+      { "bar": 2, "type": "passing-dim7", "chord": "C#dim7" },
+      { "bar": 6, "type": "one-bar-ii-V", "chord": "F#m7b5-B7" },
+      { "bar": 13, "type": "back-door", "chord": "Ab7" }
+    ],
+    "spreadVoicings": { "meanVerticalSpan": "2,3 octaves", "layout": "MG dixièmes C2–E3, MD tensions E4–D5" },
+    "lineCliche": { "section": "bridge", "chord": "Am tenu", "innerVoice": "A – G♯ – G – F♯" },
+    "delayedCadence": { "avoidance": "V→vi (m14)", "resolution": "m16" },
+    "dyn": "arches sur les tenues (F-39)",
+    "fills": [{ "bar": 8 }, { "bar": 15 }]
+  },
+  "authorNotes": "Rien ne se cache à ♩=60. Trois intercalations taguées — au tempo lent, la demi-mesure devient assez longue pour un accord entier. Les voicings s'ouvrent : **ambitus vertical moyen 2,3 octaves** ≥ 2 (le tapis-cathédrale de m07-l03, version piano). La line cliché trouve sa maison sur l'accord tenu du pont : une voix descend chromatiquement pendant que les autres tiennent — la promesse de l22 M1, au ralenti. Et la cadence est **retardée** : le I approché, évité par le vi, ré-approché — *« ta cadence a mis 6 mesures à arriver. »* Troisième service du checker CC via `dyn[]` : chaque tenue est un aveu."
+}

@@ -1,0 +1,13 @@
+{
+  "exerciseId": "m08-e04-twelve-bars",
+  "variantId": "minor-blues",
+  "payload": {
+    "swing": { "ratio": 2.0 },
+    "form": "AAB",
+    "grid": "grille de fa mineur canonique",
+    "line": "sur la blues mineure",
+    "cadence": { "chord": "C7alt", "alteredExposed": 2, "resolved": true },
+    "bendedBlueNotes": 2
+  },
+  "authorNotes": "L'autre blues, l'autre scène : la plainte devenue gravité. La ligne vit sur la blues mineure et la cadence passe par **C7alt** — l'altéré vérifié : au moins deux altérations exposées puis résolues (le clair-obscur d'e06, en avant-première). Le choix entre les deux blues n'est pas un choix de gamme, c'est un choix de scène — et c'est pour ça que la variante existe."
+}

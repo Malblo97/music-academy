@@ -1,0 +1,11 @@
+{
+  "exerciseId": "m08-e02-the-pianist-hand",
+  "partId": "shells",
+  "payload": {
+    "grid": "Dm7 · G7 · Cmaj7 ×2 | Gm7 · C7 · Fmaj7 | Em7b5 · A7alt · Dm",
+    "voicings": "[D2+F3+C4] · [G2+F3+B3] · [C3+E3+B3] …",
+    "tag": "shell-voicing",
+    "permutation": "3-7 / 7-3 alternées d'un accord au suivant"
+  },
+  "authorNotes": "Trois notes, tout l'accord : la fondamentale nomme, la tierce dit le mode, la septième dit la fonction — et **la quinte reste dehors partout** ✓ (elle ne dit rien, sauf altérée). Les guide tones permutent d'un accord au suivant : Dm7 en 3-7 puis G7 en 7-3, donc la main **ne se déplace pas** — le toboggan de m01-e36 devenu geste pianistique. Tag `shell-voicing` détecté sur les 12 accords."
+}

@@ -1,0 +1,18 @@
+{
+  "exerciseId": "m08-e10-two-chorus-story",
+  "payload": {
+    "lengthBars": 24,
+    "swing": { "ratio": 2.0 },
+    "chorus1": { "density": 0.36, "holesRatio": 0.33, "motif": "M posé m3 — F4:e Ab4:s A4:e. C5:q (le pli en tête)", "note": "la paraphrase du thème" },
+    "chorus2": {
+      "transformations": [
+        { "bar": 15, "type": "transposition tonale sur le IV" },
+        { "bar": 19, "type": "fragmentation — le pli seul, martelé ×3" }
+      ],
+      "climax": { "bars": [19, 20], "note": "Bb5 sur l'altéré ; fenêtre [0.75,0.9] = m18–21.6" },
+      "relay": { "bars": [22, 24], "note": "la citation du thème en passage de témoin" }
+    },
+    "figures": { "enclosure": 2, "bebop-scale": 1, "blue-note": 3 }
+  },
+  "authorNotes": "La forme-mère refermée : le blues d'e04 porte son propre solo. Chorus 1 = le territoire (paraphrase, densité 36 % ≤ 40, trous 33 %) — le solo commence en variation du chant, un début noble. Chorus 2 = le développement : le motif transposé puis **fragmenté**, le climax dans la fenêtre, et la redescente-relais qui lance ce qui suit. La loi la plus violée du jazz est tenue : le solo laisse des trous. Le verdict du rapport dit tout : *« ton motif de m.3 revient fragmenté en m.19 — le solo se souvient. »* Le solo est une forme, pas un catalogue de licks."
+}

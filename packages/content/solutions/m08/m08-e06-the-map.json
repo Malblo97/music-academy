@@ -1,0 +1,14 @@
+{
+  "exerciseId": "m08-e06-the-map",
+  "payload": {
+    "grid": "Dm7-G7 | C | Bm7b5-E7alt | Am | Bb7(subV) | C-C#dim7 | Dm7-G7alt | C",
+    "thinking": [
+      { "bars": [1, 2, 4], "mode": "horizontal", "note": "do majeur qui coule — dorien/mixolydien/ionien sont LES MÊMES sept notes" },
+      { "chords": ["E7alt", "Bb7", "C#dim7", "G7alt"], "mode": "vertical", "note": "là, la gamme change vraiment" }
+    ],
+    "chiaroscuro": { "chord": "E7alt", "alteredExposed": ["F♮", "C♮"], "diatonicReturn": "A, au temps suivant" },
+    "guideTones": "aux 6 changements",
+    "avoidNotes": "le fa sur Cmaj7 : passant uniquement (F-45)"
+  },
+  "authorNotes": "**Témoin F-45 — « se poser », chiffré.** La leçon disait « les avoid notes passent et ne se posent pas » ; le checker ne savait pas mesurer *posée*. Définition actée : **posée = temps fort OU durée ≥ noire OU quittée par saut** ; passante = temps faible, brève, quittée par degré. Le fa sur Cmaj7 vit ici ses quatre vies, et seule la passante est écrite. Le reste est la carte en acte : horizontal sur le diatonique (celui qui « change de gamme » à chaque accord travaille pour rien), vertical sur les spéciaux — et le clair-obscur vérifié : deux altérations exposées sur l'altéré, puis la retombée diatonique au temps suivant. **L'altéré se traverse, la lumière fait la phrase.**"
+}

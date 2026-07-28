@@ -1,0 +1,15 @@
+{
+  "exerciseId": "m08-e12-the-talking-sections",
+  "payload": {
+    "lengthBars": 16,
+    "swingTarget": "par part (F-44)",
+    "structure": [
+      { "bars": [1, 4], "content": "l'unisson de saxes — le riff fourni, 5 parts, tag unison" },
+      { "bars": [5, 8], "content": "le thickened line", "voicing": "drop 2", "example": "m5.1 : lead Bb4 → close {Bb4,G4,F4,D4} → drop 2 : [G3+D4+F4+Bb4]", "passingHarmonization": "bloc diatonique, tag planing" },
+      { "bars": [9, 12], "content": "call-and-response saxes/cuivres", "exchanges": 2, "note": "la réponse des trompettes sur le « et de 4 »" },
+      { "bars": [13, 16], "content": "le shout — sections superposées en 3 plans, tutti du dernier système" }
+    ],
+    "kicks": ["m9.4&", "m11.4&", "m13.1", "m15.2&"]
+  },
+  "authorNotes": "M7 en costume de swing. **La voix de lead EST le thème**, vérifiée note à note, et le bloc se déduit en drop 2 — le bloc qui ignore son lead tord la mélodie. Tout s'harmonise, y compris les notes de passage : le tag `planing` de m03-l14 réemployé en détection, parce que la « boue » chromatique est légale exactement quand elle bouge EN BLOC. Les sections parlent, donc se taisent : l'alternance d'activité est mesurée par section. Et la rythmique ne s'écrit pas note à note, elle se **chiffre** : quatre kicks notés, trois sur des « et ». *« La machine parle. »*"
+}

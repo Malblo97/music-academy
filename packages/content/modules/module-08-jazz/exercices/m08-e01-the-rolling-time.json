@@ -1,0 +1,34 @@
+{
+  "id": "m08-e01-the-rolling-time",
+  "lessonId": "m08-l01-swing",
+  "title": "Le temps qui roule",
+  "kind": "MELODY_COMPOSE",
+  "difficulty": 3,
+  "xpReward": 60,
+  "skills": { "RHYTHM": 0.7, "EAR_TRAINING": 0.3 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "jazz", "targetMood": "playful", "ruleWeights": {} },
+  "rubric": { "correctness": 25, "constraints": 45, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "Le temps avant les notes. 8 mesures sur la pulsation fournie (walking + ride, ▶ actif) : une ligne SIMPLE — pentatonique de fa, 6 hauteurs maximum, l'harmonie attendra — entièrement au service du temps. Les trois strates, mesurées : la croche INÉGALE (vise le ternaire medium — joue-la, ne la calcule pas : le swing exact est une valse boiteuse), l'accent sur le « ET » (la hiérarchie métrique de m01-l08 se RENVERSE : le contretemps porte l'élan), au moins 3 ANTICIPATIONS (l'attaque sur le « et de 4 » : la syncope structurelle du jazz), et une note LAID-BACK déclarée (le retard de placement, 20–40 ms derrière la pulsation : la nonchalance composée). Souviens-toi du paradoxe : la pulsation ne swingue pas — elle est droite, ce sont tes subdivisions qui penchent.",
+    "given": {
+      "key": { "tonic": 5, "mode": "major" },
+      "collection": "pentatonic-minor",
+      "backingTrack": "asset:m08-e01-walking-ride-F",
+      "tempoBpm": 132
+    },
+    "constraints": {
+      "lengthBars": [8, 8],
+      "key": { "tonic": 5, "mode": "major" },
+      "maxDistinctPitches": 6,
+      "requireCollection": "blues-pentatonic-F",
+      "swingTarget": [1.6, 2.4],
+      "accentOnOffbeats": { "velocityCorrelationMin": 0.4, "invertedProsody": true },
+      "anticipations": { "min": 3, "preferredPositions": ["and-of-4"], "tagged": true },
+      "laidBackDeclared": { "min": 1, "delayMsRange": [20, 40] },
+      "checkers": ["swingRatio", "rhythm.meter-integrity"]
+    }
+  }
+}

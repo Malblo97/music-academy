@@ -1,0 +1,50 @@
+{
+  "id": "m08-e06-the-map",
+  "lessonId": "m08-l06-chord-scale",
+  "title": "La carte en acte",
+  "kind": "MELODY_COMPOSE",
+  "difficulty": 5,
+  "xpReward": 110,
+  "skills": { "HARMONY": 0.6, "MELODY": 0.4 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "jazz", "targetMood": "default", "ruleWeights": { "melody.out-of-key": 0.2 } },
+  "rubric": { "correctness": 30, "constraints": 45, "craft": 25 },
+  "spec": {
+    "version": 1,
+    "prompt": "La première sortie du checker reine. La grille fournie (8 mesures : ii-V-I majeur, ii-V-i mineur, un subV, un dim7 passant — le parcours des deux lectures) : compose la ligne qui pense HORIZONTAL sur le diatonique (sur un ii-V-I, dorien + mixolydien + ionien sont LES MÊMES sept notes : celui qui « change de gamme » à chaque accord travaille pour rien — on pense la tonalité, on vise les guide tones) et VERTICAL sur les spéciaux (le V7alt, le subV, le dim7 : là, la gamme change vraiment — l'altérée sur G7alt n'est pas do majeur). Le clair-obscur est vérifié : au moins 2 notes altérées EXPOSÉES sur le V7alt, puis la retombée diatonique dans le temps suivant — l'altéré se TRAVERSE, la lumière fait la phrase. Et les avoid notes passent, elles ne se posent pas : temps faibles, notes de passage — la nuance d'origine, pas un interdit.",
+    "given": {
+      "key": { "tonic": 0, "mode": "major" },
+      "chords": [
+        { "root": 2, "quality": "m7" },
+        { "root": 7, "quality": "7" },
+        { "root": 0, "quality": "maj7" },
+        { "root": 1, "quality": "dim7" },
+        { "root": 2, "quality": "m7b5" },
+        { "root": 7, "quality": "7alt" },
+        { "root": 1, "quality": "7#11" },
+        { "root": 0, "quality": "maj7" }
+      ]
+    },
+    "constraints": {
+      "lengthBars": [8, 8],
+      "key": { "tonic": 0, "mode": "major" },
+      "noteRange": [55, 84],
+      "chordScaleCheck": {
+        "enabled": true,
+        "mode": "mixed",
+        "horizontalOnDiatonic": true,
+        "verticalOnSpecials": ["7alt", "dim7", "7#11", "m7b5"],
+        "avoidNotesPassingOnly": true
+      },
+      "guideToneTargets": { "onChordChanges": true, "minRatio": 0.6 },
+      "chiaroscuro": {
+        "onChord": "7alt",
+        "minAlteredNotesExposed": 2,
+        "requireDiatonicReturnNextBeat": true
+      },
+      "swingTarget": [1.6, 2.4],
+      "checkers": ["chordScaleCheck", "swingRatio", "melody.tension-placement"]
+    }
+  }
+}

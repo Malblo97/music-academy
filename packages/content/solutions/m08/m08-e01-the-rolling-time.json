@@ -1,0 +1,11 @@
+{
+  "exerciseId": "m08-e01-the-rolling-time",
+  "notation": "r:e F4:e A4:e G4:e F4:q r:e C4:e~ | C4:e D4:e F4:q~ F4:e G4:e r:e A4:e~ | A4:e G4:e F4:q r:q D4:e C4:e | F4:q. G4:e A4:q r:e C5:e~ | C5:e A4:e G4:q F4:q r:e D4:e | F4:q~ F4:e D4:e C4:q r:e F4:e~ | F4:e G4:e A4:q G4:e F4:e D4:e C4:e | F4:h. r:q",
+  "payload": {
+    "swing": { "ratio": 2.0 },
+    "anticipations": [{ "bar": 1 }, { "bar": 2 }, { "bar": 4 }, { "bar": 6 }],
+    "accents": { "offbeatVelocity": 92, "onbeatVelocity": 68 },
+    "laidBack": { "bar": 5, "beat": 1, "offsetTicks": 22 }
+  },
+  "authorNotes": "**Témoin F-43.** La notation compile sur la grille droite : `swingRatio` mesuré = 1,0, et toute solution jazz échouait `swingTarget` par construction — le frère systématique de F-35. Le patch : la solution déclare `swing: {ratio}` et le compilateur décale déterministiquement les croches de contretemps (ratio 2,0 → le « et » au triolet) ; le parseur reconnaît l'offset au ré-import, le round-trip tient. Les trois strates rendues : 6 hauteurs seulement ✓, **4 anticipations** taguées sur le « et de 4 » lié au temps 1 suivant ≥ 3 ✓, prosodie **inversée** (92 sur les « et » contre 68 sur les temps — corrélation 0,71) ✓, laid-back déclaré à +22 ticks ∈ [20,40] ms ✓. Le paradoxe de la leçon est dans la donnée : la pulsation est droite, ce sont les subdivisions qui penchent."
+}

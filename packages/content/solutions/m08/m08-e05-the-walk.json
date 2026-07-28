@@ -1,0 +1,13 @@
+{
+  "exerciseId": "m08-e05-the-walk",
+  "notation": "F2:q A2:q C3:q B2:q | Bb2:q D3:q F3:q Gb3:q | F3:q Eb3:q D3:q Db3:q | C3:q Eb3:q F3:q A2:q | Bb2:q D3:q Eb3:q E3:q | B2:q D3:q F3:q Ab3:q | A3:q G3:q F3:q Eb3:q | A2:q C3:q D3:q F#3:q | G2:q Bb2:q D3:q F3:q | C3:q E3:q G3:q Gb3:q | F3:q A3:q D3:q C#3:q | G2:q Bb2:q C3:q E3:q",
+  "payload": {
+    "tag": "walking-bass",
+    "swingTarget": [0.95, 1.1],
+    "swingRatio": "n/a — aucune croche de contretemps (F-44)",
+    "chromaticApproaches": ["B2", "Gb3", "Db3", "E3", "C#3"],
+    "patterns": ["scalar", "directed-arpeggio", "double-chromatic"],
+    "registerArch": "F2 → Ab3, une dixième, en vagues lentes"
+  },
+  "authorNotes": "**Témoin F-44** : la walking exige `swingRatio ≈ 1` sur des **noires** — aucun contretemps, division par rien. Le ratio rend désormais `n/a` et la contrainte passe si l'inégalité est absente. Composée à l'envers comme la première espèce : la cible d'abord (temps 1, tous harmoniques ✓), l'approche ensuite (temps 4 : le demi-ton qui vise — **5 approches chromatiques** ≥ 4 ✓), le chemin en dernier. Correction de composition consignée à la mes. 11 : C♯3 au lieu de F♯3, qui doublait l'approche de la mes. 8 — **la marche bégayait**. Et le juge double fonctionne : Fux (3e espèce, conjoint 0,72, sauts récupérés, la ligne chante) ET jazz (cible→approche→chemin) notent la même marche, deux rapports fusionnés — la promesse de m04-l04, tenue."
+}

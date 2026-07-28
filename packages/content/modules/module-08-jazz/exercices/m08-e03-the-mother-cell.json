@@ -1,0 +1,40 @@
+{
+  "id": "m08-e03-the-mother-cell",
+  "lessonId": "m08-l03-ii-v-i",
+  "title": "La cellule-mère",
+  "kind": "HARMONY_PROGRESSION",
+  "difficulty": 5,
+  "xpReward": 110,
+  "skills": { "HARMONY": 1.0 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "jazz", "targetMood": "default", "ruleWeights": { "harmony.unresolved-seventh": 0.2 } },
+  "craftMultipliersOverride": { "vl.smoothness": 1.6 },
+  "rubric": { "correctness": 30, "constraints": 40, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "La tournée des formes : 16 mesures qui enchaînent tout le catalogue, tags à l'appui. UN ii-V-I majeur (en rootless — la main de l02). UN ii-V-i mineur (le V altéré vérifié : le mineur TOMBE, chaque accord plus sombre que le précédent — c'est la cadence du film noir). UNE chaîne de ii-V TRONQUÉS descendante, 2 maillons minimum (la résolution escamotée : la dette jamais soldée, toujours refinancée — la circulation perpétuelle des standards). UN back-door (♭VII7 → I : la résolution douce-nostalgique, sans sensible — l'emprunt de m01-l21 devenu cadence). Et un TURNAROUND final (I–vi–ii–V : la boucle qui relance le début — la cheville des formes AABA). Voicings en zone, smoothness surveillée. Le rapport nommera chaque cellule : la grille lue comme le jazzman la lit — en unités, pas en accords.",
+    "given": {
+      "key": { "tonic": 5, "mode": "major" }
+    },
+    "constraints": {
+      "lengthBars": [16, 16],
+      "key": { "tonic": 5, "mode": "major" },
+      "minVoices": 3,
+      "maxVoices": 5,
+      "voicingZone": [48, 72],
+      "requiredCells": {
+        "ii-V-I-major": 1,
+        "ii-V-i-minor": 1,
+        "truncated-ii-V-chain": { "minLinks": 2, "direction": "descending" },
+        "back-door": 1,
+        "turnaround": { "count": 1, "position": "final" }
+      },
+      "cellTagging": { "required": true },
+      "alteredOnMinorV": true,
+      "smoothnessMaxPerVoice": 2,
+      "maxSubstitutionsPerPassage": 1,
+      "checkers": ["harmony.loop-coherence", "harmony.tritone-sub-resolution", "vl.smoothness", "orch.low-interval-limit"]
+    }
+  }
+}

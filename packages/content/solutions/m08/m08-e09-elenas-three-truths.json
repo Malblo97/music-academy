@@ -1,0 +1,27 @@
+{
+  "exerciseId": "m08-e09-elenas-three-truths",
+  "partId": "version-hope",
+  "payload": {
+    "lengthBars": 14,
+    "melody": "s30-elena intégral, INCHANGÉ (vérifié note à note)",
+    "intention": "hope-confirmed",
+    "chords": [
+      { "bar": 1, "chord": "Dm7", "role": "pilier 1" },
+      { "bar": 2, "chord": "Em7b5 A7", "technique": "inserted-ii-V" },
+      { "bar": 3, "chord": "Fmaj7", "technique": "médiante lumineuse" },
+      { "bar": 4, "chord": "Gm7 C7", "technique": "inserted-ii-V" },
+      { "bar": 5, "chord": "Fmaj7" },
+      { "bar": 6, "chord": "Bbmaj7#11", "technique": "lydien — l'air" },
+      { "bar": 7, "chord": "Gm7 C7" },
+      { "bar": 8, "chord": "Fmaj7", "note": "le Bb du thème = 11 posée" },
+      { "bar": 9, "chord": "Dm7", "role": "pilier 2" },
+      { "bar": 10, "chord": "Bm7b5 E7", "technique": "dominante secondaire" },
+      { "bar": 11, "chord": "Am7" },
+      { "bar": 12, "chord": "Gm7 C7" },
+      { "bar": 13, "chord": "F/A Bb", "technique": "marche plagale" },
+      { "bar": 14, "chord": "C7sus C7 → Fmaj7", "note": "parfaite CONFIRMÉE" }
+    ],
+    "changedChordsRatio": 0.71
+  },
+  "authorNotes": "**Témoin F-46** : la spec annonce 16 mesures, le thème en fait **14** (sentence 4+4 + l'extension 6) — troisième erratum de comptage du projet, et la règle du manuel s'enrichit : *tout donné chiffré cite l'ID de sa source, le chiffre se déduit.* Quatre techniques taguées ≥ 3 ✓, 71 % d'accords changés ≥ 40 % ✓, piliers m1 et m9 (basse ré) communs aux deux versions ✓. Toutes les notes structurelles qualifiées — et le rapport cite le cas d'école : **le si♭ de la mes. 8 est une 11e posée ici, une tierce dans l'autre version. La même note, deux vérités.**"
+}

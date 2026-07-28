@@ -1,0 +1,48 @@
+{
+  "id": "m08-e07-the-language",
+  "lessonId": "m08-l07-bebop",
+  "title": "Le langage",
+  "kind": "MELODY_COMPOSE",
+  "difficulty": 6,
+  "xpReward": 120,
+  "skills": { "MELODY": 0.7, "HARMONY": 0.3 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "jazz", "targetMood": "playful", "ruleWeights": { "melody.out-of-key": 0.2 } },
+  "rubric": { "correctness": 25, "constraints": 45, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "8 mesures sur le ii-V-I enchaîné fourni — la grammaire de ligne. Au moins 3 ENCLOSURES taguées, dont une chromatique, atterrissant sur des guide tones : le chromatisme en l'air, la justesse à l'appui — la cible au temps fort, l'encerclement en levée. C'est la cambiata de m04-l04 devenue civilisation, et c'est LA même loi métrique, syncopée. Au moins 1 passage de GAMME DOMINANTE BEBOP (la ♮7 de passage entre ♭7 et 1 : le F♯ entre F et G sur G7 — l'ajout qui refait tomber chaque note d'accord sur un temps ; le « passant » de m03-l04 en horizontal). Les phrases RESPIRENT EN LEVÉE (départ hors temps 1 vérifié : la phrase flotte sur la grille au lieu de la scander). Et le contraste des densités : la rafale de croches PUIS la note tenue — le solo en croches perpétuelles est un robinet, pas un discours.",
+    "given": {
+      "key": { "tonic": 0, "mode": "major" },
+      "chords": [
+        { "root": 4, "quality": "m7" },
+        { "root": 9, "quality": "7" },
+        { "root": 2, "quality": "m7" },
+        { "root": 7, "quality": "7" },
+        { "root": 0, "quality": "maj7" },
+        { "root": 5, "quality": "m7" },
+        { "root": 7, "quality": "7alt" },
+        { "root": 0, "quality": "maj7" }
+      ]
+    },
+    "constraints": {
+      "lengthBars": [8, 8],
+      "key": { "tonic": 0, "mode": "major" },
+      "noteRange": [55, 86],
+      "requiredFigures": { "enclosure": 3 },
+      "enclosureRules": {
+        "minChromatic": 1,
+        "targetOnStrongBeat": true,
+        "targetIsGuideTone": true,
+        "tagged": true
+      },
+      "bebopScalePassage": { "min": 1, "type": "dominant-bebop", "chordTonesOnBeats": true, "tagged": true },
+      "phraseStartsOffBeatOne": { "minRatio": 0.75 },
+      "densityContrast": { "stdDevPerBarMin": 1.5 },
+      "chordScaleCheck": { "enabled": true, "mode": "mixed", "avoidNotesPassingOnly": true },
+      "swingTarget": [1.6, 2.4],
+      "checkers": ["chordScaleCheck", "swingRatio", "findMotifs"]
+    }
+  }
+}

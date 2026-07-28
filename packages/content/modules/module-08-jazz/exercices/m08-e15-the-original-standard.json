@@ -1,0 +1,83 @@
+{
+  "id": "m08-e15-the-original-standard",
+  "lessonId": "m08-l15-synthese",
+  "title": "Le standard original",
+  "kind": "HARMONY_PROGRESSION",
+  "difficulty": 8,
+  "xpReward": 400,
+  "skills": { "HARMONY": 0.4, "MELODY": 0.4, "ORCHESTRATION": 0.2 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "pool": "combo",
+  "badge": "module-08-jazz",
+  "styleProfile": { "id": "jazz", "targetMood": "bittersweet", "ruleWeights": { "harmony.unresolved-seventh": 0.2 } },
+  "rubric": { "correctness": 25, "constraints": 35, "craft": 40 },
+  "spec": {
+    "version": 1,
+    "prompt": "Le capstone — la preuve d'idiome. Le brief : « Le thème-titre — un standard original pour un film noir contemporain. AABA, 32 mesures, medium-slow (♩=88). Il doit pouvoir passer pour un classique ET porter ta signature. » Tu ne cites plus le jazz : tu en écris.",
+    "given": {
+      "key": { "tonic": 0, "mode": "minor" },
+      "tempoBpm": 88,
+      "brief": "le thème-titre d'un film noir contemporain"
+    },
+    "parts": [
+      {
+        "id": "part1-grid-and-theme",
+        "prompt": "LA GRILLE ET LE THÈME. La grille AABA complète : le A porte ≥ 2 cellules ii-V dont une MINEURE, et un turnaround de relance ; le B est LE PONT — l'ailleurs : déclare ton départ tonal (la médiante ou le IV), voyage en ii-V enchaînés, et REVIENS par la dominante de A (un pont réussi fait DÉSIRER le retour). Au moins 1 substitution personnelle taguée (subV, back-door ou emprunt) : la signature. Le thème au-dessus : CHANTABLE (ambitus ≤ une 10e — le test de sifflabilité, version jazz), les guide tones aux changements, ≥ 2 blue notes ou tensions posées en signature, et le A' varié À LA MARGE (exact puis varié : la fin cadence différemment).",
+        "constraints": {
+          "lengthBars": [32, 32],
+          "aabaForm": { "sections": ["A", "A'", "B", "A"], "barsPerSection": 8 },
+          "requiredCells": { "ii-V-cells-in-A": 2, "minor-ii-V": 1, "turnaround": 1 },
+          "bridgeDeparture": { "declared": true, "allowed": ["chromatic-mediant", "IV", "III"], "returnViaDominantOfA": true },
+          "personalSubstitution": { "min": 1, "allowed": ["tritone-sub", "back-door", "borrowed"], "tagged": true },
+          "melodyAmbitusMaxSemitones": 16,
+          "guideToneTargets": { "onChordChanges": true, "minRatio": 0.6 },
+          "signatureNotes": { "min": 2, "allowed": ["blue-note", "posed-tension"] },
+          "restatementVariedAtMargin": { "engine": "findMotifs", "exactThenVaried": true },
+          "cellTagging": { "required": true },
+          "chordScaleCheck": { "enabled": true, "mode": "mixed" },
+          "swingTarget": [1.5, 2.4]
+        }
+      },
+      {
+        "id": "part2-chorus",
+        "prompt": "LE CHORUS — le crash-test de ta grille. Un chorus écrit complet sur TA grille, 32 mesures : territoire → développement → sommet → relais, le motif tracé de bout en bout, le vocabulaire exigé (enclosures, phrase bebop, l'in-out sur le B). Le standard qui ne porte pas de chorus n'en est pas un.",
+        "constraints": {
+          "lengthBars": [32, 32],
+          "onOwnGrid": { "sourcePart": "part1-grid-and-theme" },
+          "chorusArc": { "declared": true, "shape": "territory-development-summit-relay" },
+          "motifTraced": { "engine": "findMotifs", "minOccurrences": 4, "minTransformations": 2 },
+          "requiredFigures": { "enclosure": 2, "bebop-scale": 1 },
+          "inOutExcursion": { "min": 1, "onSection": "B", "requireReturn": true },
+          "holesRatioMin": 0.25,
+          "climaxWindow": [0.7, 0.9],
+          "chordScaleCheck": { "enabled": true, "mode": "mixed", "avoidNotesPassingOnly": true },
+          "swingTarget": [1.5, 2.4]
+        },
+        "rubric": { "correctness": 30, "constraints": 35, "craft": 35 }
+      },
+      {
+        "id": "part3-arrangement",
+        "prompt": "L'ARRANGEMENT ET LA LECTURE. L'exposition du thème arrangée en Part[] : le combo (souffleur + comping + walking + une interaction composée) OU la variante stylisée (cordes + rythmique feutrée) si ton film le demande — la distance se DÉCLARE et se vérifie au compteur de marqueurs. Puis la lecture guidée : ta grille commentée cellule par cellule. Le produit ne juge pas la prose — il vérifie la concordance déclaré↔détecté.",
+        "constraints": {
+          "format": "Part[]",
+          "variants": [
+            { "id": "combo", "pool": "combo", "distanceDeclared": "cite", "compingRules": { "offBeatOneRatioMin": 0.6 }, "composedInteraction": { "min": 1 } },
+            { "id": "stylised", "pool": "medium", "distanceDeclared": "stylise", "markerCount": { "strongMax": 1 } }
+          ],
+          "distanceDeclared": { "required": true, "verifiedByMarkerCount": true },
+          "commentary": {
+            "fields": 5,
+            "cellByCell": true,
+            "concordanceChecks": ["cells-declared-vs-tagged", "bridge-departure-vs-detected", "distance-vs-marker-count"]
+          }
+        }
+      }
+    ],
+    "constraints": {
+      "key": { "tonic": 0, "mode": "minor" },
+      "voicingZone": [48, 76],
+      "checkers": ["chordScaleCheck", "swingRatio", "findMotifs", "harmony.loop-coherence", "vl.smoothness", "orch.range-violation", "orch.balance", "melody.climax"]
+    }
+  }
+}

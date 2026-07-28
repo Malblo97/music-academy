@@ -1,0 +1,17 @@
+{
+  "exerciseId": "m08-e02-the-pianist-hand",
+  "partId": "rootless",
+  "payload": {
+    "voicings": [
+      { "chord": "Dm7", "form": "A", "notes": "[F3+A3+C4+E4]" },
+      { "chord": "G7", "form": "B", "notes": "[F3+A3+B3+E4]" },
+      { "chord": "Cmaj7", "form": "A", "notes": "[E3+G3+B3+D4]" },
+      { "chord": "Em7b5", "form": "A", "notes": "[G3+Bb3+D4+F4]" },
+      { "chord": "A7alt", "form": "B", "notes": "[G3+Bb3+C#4+F4]" },
+      { "chord": "Dm69", "form": "A", "notes": "[F3+A3+B3+E4]" }
+    ],
+    "tag": "rootless-voicing",
+    "zone": [48, 72]
+  },
+  "authorNotes": "La basse nomme, la main colore : tensions à la place de la fondamentale, formes A/B alternées par cellule. Résultat mesuré : **smoothness 0,9 demi-ton par voix et par transition ≤ 1,5** — chaque voix bouge d'un demi-ton ou tient, sur douze mesures. Le rapport le dit tel quel : *« ta main n'a pas bougé de plus d'un ton sur 12 mesures. »* Le V du ii-V mineur est altéré (A7alt), le naturel réservé au majeur — la règle par défaut de la leçon, vérifiée. Zone C3–C5 : la boue jazz est la même boue."
+}

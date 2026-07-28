@@ -1,0 +1,16 @@
+{
+  "exerciseId": "m08-e15-the-original-standard",
+  "partId": "part2-chorus",
+  "payload": {
+    "lengthBars": 32,
+    "onOwnGrid": true,
+    "chorusArc": [
+      { "section": "A", "phase": "territoire", "density": 0.34 },
+      { "section": "A'", "phase": "développement", "note": "le motif à travers" },
+      { "section": "B", "phase": "in-out", "content": "l'Ebmaj7#11 visité puis quitté, tagué" },
+      { "section": "A''", "phase": "sommet", "bars": [27, 28], "note": "sur le subV — fenêtre [0.7,0.9] ✓" }
+    ],
+    "figures": { "enclosure": 3, "bebop-scale": "sur le C7 du pont" }
+  },
+  "authorNotes": "Le crash-test qu'aucun autre module n'avait : un chorus écrit **sur sa propre grille**. Le standard qui ne porte pas de chorus n'en est pas un — et celui-ci porte : territoire, développement, in-out sur le pont, sommet sur le subV de la mes. 26–28, le motif tracé de bout en bout. **La grille porte.** C'est la seule vérification qui compte à ce stade : une grille se juge à ce qu'on peut jouer dessus, pas à sa beauté sur le papier."
+}

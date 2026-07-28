@@ -1,0 +1,50 @@
+{
+  "id": "m08-e12-the-talking-sections",
+  "lessonId": "m08-l12-big-band",
+  "title": "Les sections qui parlent",
+  "kind": "ORCHESTRATE",
+  "difficulty": 7,
+  "xpReward": 140,
+  "skills": { "ORCHESTRATION": 0.6, "HARMONY": 0.4 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "pool": "big-band",
+  "styleProfile": { "id": "jazz", "targetMood": "playful", "ruleWeights": { "vl.parallel-fifths": 0.2, "vl.parallel-octaves": 0.2 } },
+  "rubric": { "correctness": 25, "constraints": 45, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "Le chart condensé, 16 mesures sur le riff de swing medium fourni — M7 en costume de swing. L'ÉNONCÉ en unisson de saxes (le punch, la clarté). Le THICKENED LINE du thème en DROP 2 : la voix de lead EST le thème (on écrit la mélodie d'abord, le bloc se déduit — le bloc qui ignore son lead tord la mélodie), et TOUT s'harmonise, y compris les notes de passage (en dim7 passant ou en approche chromatique parallèle : le planing de m03-l14 au service du chant — la « boue » chromatique est légale parce qu'elle bouge EN BLOC). Un échange CALL-AND-RESPONSE saxes/cuivres : ≥ 2 allers-retours — les sections PARLENT, donc se taisent. 4 KICKS notés à la rythmique (elle ne s'écrit pas note à note : elle se CHIFFRE — la grille + les accents que la batterie marque). Et le mini SHOUT final : 4 mesures, sections superposées en plans — le tutti stratifié de m07-l07, en swing.",
+    "given": {
+      "key": { "tonic": 10, "mode": "major" },
+      "theme": "asset:m08-e12-swing-riff",
+      "themeImmutable": true,
+      "tempoBpm": 152,
+      "sections": {
+        "saxes": ["alto-1", "alto-2", "tenor-1", "tenor-2", "baritone"],
+        "trumpets": ["tpt-1", "tpt-2", "tpt-3", "tpt-4"],
+        "trombones": ["tbn-1", "tbn-2", "tbn-3", "tbn-4"],
+        "rhythm": ["piano", "bass", "drums", "guitar"]
+      }
+    },
+    "constraints": {
+      "lengthBars": [16, 16],
+      "format": "Part[]",
+      "pool": "big-band",
+      "structure": "unison-statement / thickened-line / call-response / shout",
+      "unisonStatement": { "section": "saxes", "lengthBars": [2, 4] },
+      "thickenedLine": {
+        "required": true,
+        "voicing": "drop2",
+        "leadVoiceIsTheme": true,
+        "harmonizeAllNotes": true,
+        "passingHarmonization": ["passing-dim7", "parallel-chromatic-approach"],
+        "detectedByTag": "planing"
+      },
+      "sectionCallResponse": { "minExchanges": 2, "sections": ["saxes", "trumpets"], "activityAlternationMeasured": true },
+      "kicks": { "count": 4, "notatedOnRhythmSection": true, "preferredPositions": ["and-of-4", "and-of-2"] },
+      "shoutChorus": { "lengthBars": 4, "position": "final", "sectionsSuperposed": true, "distinctRhythmPlans": 3 },
+      "swingTarget": [1.5, 2.2],
+      "checkers": ["orch.range-violation", "orch.balance", "orch.endurance", "swingRatio", "densityMap"]
+    }
+  }
+}

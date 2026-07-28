@@ -1,0 +1,18 @@
+{
+  "exerciseId": "m08-e04-twelve-bars",
+  "variantId": "major-blues",
+  "notation": "r:e F4:e Ab4:s A4:e. C5:q r:q Eb4:e F4:e~ | F4:q r:h r:e C4:e | r:e Bb3:e Db4:s D4:e. F4:q r:q Ab4:e Bb4:e~ | Bb4:q r:h r:e F4:e | C5:e Bb4:e A4:e F4:e Ab4:s A4:e. F4:e~ | F4:e Eb4:e C4:q F4:h",
+  "payload": {
+    "swing": { "ratio": 2.0 },
+    "form": "AAB",
+    "sections": [
+      { "id": "A", "bars": [1, 4], "note": "l'appel — puis le TROU" },
+      { "id": "A'", "bars": [5, 8], "note": "la re-dite sur le IV : la même phrase, l'harmonie a bougé dessous" },
+      { "id": "B", "bars": [9, 12], "note": "la réponse cadentielle + les ponts m11–12" }
+    ],
+    "bendedBlueNotes": [{ "bar": 1, "figure": "grace-b3-to-3" }, { "bar": 9, "figure": "grace-b3-to-3" }],
+    "scaleApproach": "follow-changes",
+    "holesRatio": 0.38
+  },
+  "authorNotes": "Le blues compose ses silences : **trous mesurés 38 %** ✓ — les trous sont les réponses instrumentales, pas des vides. La re-dite est une variation **tonale** du motif (`findMotifs` avec F-12) : la même phrase, éclairée autrement par le IV — le principe de m09-l01 à ses origines exactes. Deux blue notes **pliées** en acciaccature A♭→A ✓ : la blue note est un geste vocal avant d'être une hauteur, et c'est le pli qui s'écrit. Approche déclarée : le suivi des changements — *« le dialogue respire. »*"
+}

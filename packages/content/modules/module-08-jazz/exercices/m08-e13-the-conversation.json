@@ -1,0 +1,52 @@
+{
+  "id": "m08-e13-the-conversation",
+  "lessonId": "m08-l13-combo",
+  "title": "La conversation",
+  "kind": "ORCHESTRATE",
+  "difficulty": 6,
+  "xpReward": 120,
+  "skills": { "ORCHESTRATION": 0.5, "HARMONY": 0.5 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "pool": "combo",
+  "styleProfile": { "id": "jazz", "targetMood": "tender", "ruleWeights": { "harmony.unresolved-seventh": 0.2 } },
+  "rubric": { "correctness": 25, "constraints": 45, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "Le quartet complet sur 12 mesures (la grille de ballade d'e08) : sax ténor, piano, contrebasse, batterie. Le SOUFFLEUR expose le thème fourni. Le COMPING écrit selon ses quatre lois : le rythme d'abord (≥ 60 % des accords HORS temps 1 — anticipations, « et », réponses : le pianiste qui tient des rondes ne compe pas, il dort), les trous du soliste (≥ 3 réponses dans les silences du thème), la densité qui suit l'arche, et le registre qui ESQUIVE l'octave du souffleur. La WALKING en half-time (deux cibles par mesure — la ballade feutrée). Et UNE interaction COMPOSÉE : le piano cite une cellule du souffleur deux temps après — l'écoute mutuelle s'écrit (l'imitation de m04-l09, en micro). La spontanéité se fabrique : le laid-back différencié (le soliste traîne, la rythmique est droite — l'écart EST le son du club), et le presque-ensemble des kicks (±15 ms choisis, jamais du Random).",
+    "given": {
+      "key": { "tonic": 8, "mode": "major" },
+      "theme": "asset:m08-e08-ballad-theme",
+      "themeImmutable": true,
+      "tempoBpm": 66,
+      "chords": "sourceSubmission:m08-e08-the-ballad",
+      "instrumentation": ["tenor-sax", "piano", "double-bass", "drums"]
+    },
+    "constraints": {
+      "lengthBars": [12, 12],
+      "format": "Part[]",
+      "pool": "combo",
+      "maxActiveParts": 4,
+      "compingRules": {
+        "offBeatOneRatioMin": 0.6,
+        "responsesInHoles": { "min": 3 },
+        "densityFollowsArc": true,
+        "registerAvoidance": { "vsPart": "tenor-sax", "minSemitonesApart": 5 }
+      },
+      "walkingHalfTime": { "part": "double-bass", "targetsPerBar": 2, "swingTarget": [0.95, 1.1] },
+      "composedInteraction": {
+        "min": 1,
+        "citingPart": "piano",
+        "citedPart": "tenor-sax",
+        "delayBeats": 2,
+        "engine": "findMotifs",
+        "acrossParts": true
+      },
+      "laidBackDifferentiated": { "soloistDelayMs": [20, 40], "rhythmSectionStraight": true },
+      "almostTogether": { "onKicks": true, "offsetMsRange": [10, 20], "forbidRandom": true },
+      "voicingZone": [48, 76],
+      "swingTarget": [1.3, 2.6],
+      "checkers": ["swingRatio", "findMotifs", "orch.masking", "orch.balance", "densityMap"]
+    }
+  }
+}

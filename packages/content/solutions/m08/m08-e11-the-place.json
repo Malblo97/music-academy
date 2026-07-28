@@ -1,0 +1,14 @@
+{
+  "exerciseId": "m08-e11-the-place",
+  "payload": {
+    "lengthBars": 16,
+    "mode": "ré dorien",
+    "swing": { "ratio": 2.0 },
+    "motif": { "content": "D4:e G4:e A4:q — l'appel quartal, la maçonnerie du vamp chantée", "occurrences": 5, "transformations": ["transposé", "augmenté", "inversé"] },
+    "modalDramatization": { "degree": 6, "note": "B4 exposé ×4, dont la ronde de m11 — le mode en un son" },
+    "inOutExcursion": { "bar": 13, "beats": 2, "content": "en Eb (la pile voisine, hors mode)", "return": "par degré" },
+    "holesRatio": 0.39,
+    "variant": "composer-layers : + une couche texture déclarée (le pont M6/M9)"
+  },
+  "authorNotes": "Que dire quand rien ne bouge ? Trois réponses, toutes des acquis relus. **La 6 dorienne dramatisée** : le si est la seule note qui raconte dans ce mode — exposée quatre fois dont une tenue au sommet ; le dorien sans son si est de l'éolien qui s'ignore. **Le motif est TOUT** (5 occurrences, 3 transformations) : sans changements à suivre, le jazz modal devient l'école du motif, m02 à son emploi maximal. **L'in-out** : deux temps hors du mode et le retour vérifié — l'altitude se redescend, la dissonance modale se gravit. Et l'espace : trous 39 % ≥ 35 % — le soliste modal qui se tait deux mesures est chez lui."
+}

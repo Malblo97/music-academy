@@ -1,0 +1,18 @@
+{
+  "exerciseId": "m08-e15-the-original-standard",
+  "partId": "part3-arrangement",
+  "payload": {
+    "variantId": "combo",
+    "format": "Part[]",
+    "pool": "combo",
+    "distanceDeclared": "cite",
+    "arrangement": {
+      "theme": "trompette bouchée",
+      "comping": { "offBeatOneRatio": 0.63, "responsesInHoles": 3 },
+      "bass": "walking",
+      "composedInteraction": { "bar": 18, "cites": "m2", "citingPart": "piano" }
+    },
+    "commentary": { "fields": 5, "cellByCell": true, "concordance": "9/9" }
+  },
+  "authorNotes": "L'exposition arrangée au combo de l13, distance **citer** assumée (le compteur F-47 le confirme : le film la demande). La lecture guidée commente la grille cellule par cellule, et la concordance déclaré↔détecté est **9/9**. XP 400, badge de module. **Le portfolio est complet : 4/4** — « La Remise » (une scène, deux mondes), « Trois palettes » (une émotion, trois grammaires), « Elena » (un personnage, un cue), et « le standard » : la preuve d'idiome."
+}

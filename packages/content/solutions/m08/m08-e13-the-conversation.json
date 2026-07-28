@@ -1,0 +1,13 @@
+{
+  "exerciseId": "m08-e13-the-conversation",
+  "payload": {
+    "lengthBars": 12,
+    "instrumentation": ["tenor-sax", "piano", "double-bass", "drums"],
+    "comping": { "offBeatOneRatio": 0.68, "responsesInHoles": [2, 6, 10] },
+    "walking": { "mode": "half-time", "note": "blanches — la marche de l05 au ralenti ; swingRatio n/a (F-44)" },
+    "composedInteraction": { "bar": 9, "citingPart": "piano", "citedPart": "tenor-sax", "citedBar": 6, "transposition": 4 },
+    "laidBackDifferentiated": { "soloist": "20–40 ms derrière", "rhythmSection": "droite" },
+    "almostTogether": { "onKicks": true, "offsetMs": "10–20 choisis, jamais du Random" }
+  },
+  "authorNotes": "Le comping écrit selon ses quatre lois, la première étant mesurée : **68 % des accords hors temps 1** ≥ 60 % — le pianiste qui tient des rondes ne compe pas, il dort. Trois réponses dans les trous du thème (activité complémentaire mesurée), densité qui suit l'arche, registre qui esquive l'octave du souffleur. Et **l'écoute mutuelle s'écrit** : à la mes. 9 le piano cite la cellule du sax de la mes. 6, transposée d'une tierce majeure — le checker d'imitation de m04-e09 recyclé en interaction, `findMotifs` inter-parts. La spontanéité se fabrique : le laid-back différencié (le soliste traîne, la rythmique est droite — l'écart EST le son du club) et le presque-ensemble des kicks, **choisi et non aléatoire**. *« Ton piano répond m.6 et cite le sax m.9 — le combo s'écoute. »*"
+}

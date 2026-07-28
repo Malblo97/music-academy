@@ -1,0 +1,63 @@
+{
+  "id": "m08-e04-twelve-bars",
+  "lessonId": "m08-l04-blues",
+  "title": "Douze mesures",
+  "kind": "MELODY_COMPOSE",
+  "difficulty": 4,
+  "xpReward": 100,
+  "skills": { "HARMONY": 0.6, "MELODY": 0.4 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "jazz", "targetMood": "bittersweet", "ruleWeights": {} },
+  "rubric": { "correctness": 25, "constraints": 45, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "Le blues complet en fa sur la grille jazz-blues fournie (▶ walking + ride). Compose le chorus en AAB : L'APPEL (≤ 2,5 mesures de musique, puis le TROU — le blues compose ses silences, les trous sont les réponses instrumentales), L'APPEL REDIT sur le IV (la même phrase, l'harmonie a bougé dessous : la re-dite éclairée autrement — le principe de m09-l01 à ses origines), LA RÉPONSE cadentielle. Au moins 2 blue notes PLIÉES : la blue note est un geste vocal avant d'être une hauteur — écris le pli (l'acciaccature ♭3→♮3, le lick de base). Et déclare ton approche : la gamme blues en passe-partout (six notes qui ignorent les changements) OU le suivi des changements — l'avant-goût de l06. Variante disponible : le blues MINEUR (grille canonique, l'altéré en cadence — la plainte devenue gravité, le choix entre les deux blues est un choix de scène).",
+    "given": {
+      "key": { "tonic": 5, "mode": "major" },
+      "backingTrack": "asset:m08-e04-jazz-blues-F",
+      "tempoBpm": 126,
+      "chords": [
+        { "root": 5, "quality": "7" },
+        { "root": 10, "quality": "7" },
+        { "root": 5, "quality": "7" },
+        { "root": 0, "quality": "m7" },
+        { "root": 10, "quality": "7" },
+        { "root": 11, "quality": "dim7" },
+        { "root": 5, "quality": "7" },
+        { "root": 9, "quality": "m7b5" },
+        { "root": 7, "quality": "m7" },
+        { "root": 0, "quality": "7" },
+        { "root": 5, "quality": "7" },
+        { "root": 0, "quality": "7" }
+      ],
+      "variants": [
+        { "id": "major-blues", "form": "jazz-blues-F" },
+        { "id": "minor-blues", "form": "minor-blues-Cm", "chords": [
+          { "root": 0, "quality": "m7" }, { "root": 0, "quality": "m7" },
+          { "root": 0, "quality": "m7" }, { "root": 0, "quality": "m7" },
+          { "root": 5, "quality": "m7" }, { "root": 5, "quality": "m7" },
+          { "root": 0, "quality": "m7" }, { "root": 0, "quality": "m7" },
+          { "root": 8, "quality": "7" }, { "root": 7, "quality": "7alt" },
+          { "root": 0, "quality": "m7" }, { "root": 7, "quality": "7alt" }
+        ] }
+      ]
+    },
+    "constraints": {
+      "lengthBars": [12, 12],
+      "key": { "tonic": 5, "mode": "major" },
+      "bluesForm": { "bars": 12, "lines": 3 },
+      "callResponseAAB": {
+        "phraseMaxBars": 2.5,
+        "restatementOnIV": true,
+        "variationEngine": "findMotifs",
+        "responseCadential": true
+      },
+      "holesRatioMin": 0.3,
+      "bendedBlueNotes": { "min": 2, "figure": "grace-b3-to-3", "tagged": true },
+      "scaleApproachDeclared": { "allowed": ["blues-scale-throughout", "follow-changes"] },
+      "swingTarget": [1.6, 2.4],
+      "checkers": ["swingRatio", "findMotifs", "melody.tension-placement"]
+    }
+  }
+}

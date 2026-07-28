@@ -1,0 +1,21 @@
+{
+  "exerciseId": "m08-e15-the-original-standard",
+  "partId": "part1-grid-and-theme",
+  "notation": "r:q A4:e F4:e E4:q D4:q | r:e E4:e Bb4:q~ Bb4:e A4:e G4:e F4:e | Ab4:s A4:e. F4:q D4:q r:q | E4:h~ E4:q r:q | r:q D5:e C5:e Bb4:q A4:q | G4:e F4:e E4:q C4:q r:e A4:e~ | A4:e F4:e E4:q D4:q. E4:e | D4:h. r:q",
+  "payload": {
+    "key": "ré mineur",
+    "tempoBpm": 88,
+    "swing": { "ratio": 2.0 },
+    "grid": {
+      "A": "Dm69 | Em7b5 A7alt | Dm69 | Cm7 F7 | Bbmaj7 | Em7b5 A7alt | Dm69 | A7alt",
+      "A'": "idem, turnaround varié : … | Dm69 | C#dim7 →",
+      "B": "Gm7 | C7 | Fmaj7 | Fm7 Bb7 | Ebmaj7#11 | Em7b5 | A7alt | A7alt",
+      "A''": "Dm69 | Em7b5 Eb7 | Dm69 | Bbmaj7 A7alt | Dm69 | Gm6 | Dm69 | A7alt"
+    },
+    "bridgeDeparture": { "declared": "IV", "returnViaDominantOfA": "Em7b5 → A7alt" },
+    "personalSubstitution": [{ "bar": 26, "chord": "Eb7", "type": "tritone-sub", "note": "le couloir noir" }],
+    "signatureNotes": [{ "bar": 3, "type": "blue-note", "content": "Ab→A plié" }, { "bar": 4, "type": "posed-tension", "content": "le E sur Dm69 — la 9 posée" }],
+    "ambitus": "D4–D5, une neuvième"
+  },
+  "authorNotes": "« Tu ne cites plus le jazz : tu en écris. » La grille : deux ii-V au A dont la mineure ✓, le pont déclaré au **IV** (Gm→C7→F : il respire majeur) et le retour par la dominante de A — un pont réussi fait DÉSIRER le retour. La signature est taguée : l'E♭7 subV de la mes. 26 et la médiante E♭maj7♯11 du pont. Le thème est **sifflable** (ambitus une neuvième ≤ une dixième — le test de m02-e27 en version jazz), guide tones aux changements, et deux notes-signature : la blue note pliée et la 9 posée sur le Dm69. A' varié à la marge : exact puis variant sa cadence ✓."
+}

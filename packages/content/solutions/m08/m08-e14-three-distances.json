@@ -1,0 +1,13 @@
+{
+  "exerciseId": "m08-e14-three-distances",
+  "partId": "cite",
+  "payload": {
+    "lengthBars": 12,
+    "pool": "combo",
+    "distanceDeclared": "cite",
+    "casting": "le quartet exact — walking, ride, comping, trompette bouchée",
+    "markerCount": { "strong": 4, "medium": null, "weak": null },
+    "subgenreDated": { "era": "hard bop tardif", "instrumentation": "quartet trompette", "voicings": "rootless", "drumming": "ride + comping" }
+  },
+  "authorNotes": "Distance zéro, assumée : **4 marqueurs forts** que le compteur affiche et que la distance déclarée autorise. Le sous-genre se date — instrumentation, voicings, drumming datent une scène aussi sûrement qu'un costume, et c'est le point de la leçon : citer n'est pas un défaut, c'est une décision qui doit être consciente."
+}

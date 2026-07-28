@@ -1,0 +1,76 @@
+{
+  "id": "m08-e02-the-pianist-hand",
+  "lessonId": "m08-l02-voicings",
+  "title": "La main du pianiste",
+  "kind": "HARMONY_PROGRESSION",
+  "difficulty": 4,
+  "xpReward": 100,
+  "skills": { "HARMONY": 1.0 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "jazz", "targetMood": "default", "ruleWeights": { "harmony.unresolved-seventh": 0.2 } },
+  "craftMultipliersOverride": { "vl.smoothness": 1.8 },
+  "rubric": { "correctness": 30, "constraints": 40, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "La grille fournie (ii–V–I majeur ×2, ii–V–i mineur ×1, 12 mesures) réalisée DEUX fois. (1) EN SHELLS : basse + 3-7 — trois notes, tout l'accord, et la quinte reste dehors (elle ne dit rien, sauf altérée). Les permutations sont vérifiées : les guide tones PERMUTENT d'un accord au suivant (3-7 devient 7-3 : le toboggan de m01-e36, devenu main). (2) EN ROOTLESS A/B ALTERNÉS : la basse nomme, la main colore — tensions à la place de la fondamentale, et l'alternance des formes donne la conduite QUASI IMMOBILE : chaque voix bouge d'un demi-ton ou tient. Le V7 du ii-V mineur est altéré (l'altéré vers le mineur, le naturel vers le majeur — par défaut). Partout : la zone C3–C5, la boue jazz est la même boue. Un drill de shells dans les 12 tons t'attend en amont.",
+    "given": {
+      "key": { "tonic": 0, "mode": "major" },
+      "chords": [
+        { "root": 2, "quality": "m7" },
+        { "root": 7, "quality": "7" },
+        { "root": 0, "quality": "maj7" },
+        { "root": 0, "quality": "maj7" },
+        { "root": 9, "quality": "m7" },
+        { "root": 2, "quality": "7" },
+        { "root": 7, "quality": "maj7" },
+        { "root": 7, "quality": "maj7" },
+        { "root": 2, "quality": "m7b5" },
+        { "root": 7, "quality": "7alt" },
+        { "root": 0, "quality": "m6" },
+        { "root": 0, "quality": "m6" }
+      ]
+    },
+    "quiz": {
+      "interaction": "keyboard-pick",
+      "generator": { "roots": "all12", "forms": ["shell-3-7", "shell-7-3"], "rounds": 8 },
+      "items": [
+        { "q": "Le shell de Dm7 (forme 3-7) depuis D2", "answer": ["D2", "F3", "C4"], "why": "1 + 3 + 7 : la fondamentale nomme, la tierce dit mineur, la septième dit la fonction. La quinte ne dit rien." },
+        { "q": "Le shell de G7 (forme 7-3)", "answer": ["G2", "F3", "B3"], "why": "Les guide tones ont permuté : après Dm7 en 3-7, G7 vient en 7-3 — la main ne se déplace pas." }
+      ]
+    },
+    "parts": [
+      {
+        "id": "shells",
+        "prompt": "Basse + guide tones : le squelette qui suffit.",
+        "constraints": {
+          "voicingType": "shell",
+          "requiredTag": "shell-voicing",
+          "notesPerChord": [3, 3],
+          "forbidFifthUnlessAltered": true,
+          "guideTonePermutationRequired": true
+        }
+      },
+      {
+        "id": "rootless",
+        "prompt": "A/B alternés : la conduite immobile.",
+        "constraints": {
+          "voicingType": "rootless",
+          "requiredTag": "rootless-voicing",
+          "forbidRootInHand": true,
+          "voicingFormAlternation": { "forms": ["A", "B"], "alternateOnCells": true },
+          "smoothnessMaxPerVoice": 1.5,
+          "alteredOnMinorV": true
+        }
+      }
+    ],
+    "constraints": {
+      "lengthBars": [12, 12],
+      "minVoices": 3,
+      "maxVoices": 5,
+      "voicingZone": [48, 72],
+      "cellTagging": { "required": true, "cells": ["ii-V-I-major", "ii-V-i-minor"] },
+      "checkers": ["harmony.loop-coherence", "vl.smoothness", "orch.low-interval-limit"]
+    }
+  }
+}

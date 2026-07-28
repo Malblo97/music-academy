@@ -1,0 +1,43 @@
+{
+  "id": "m08-e11-the-place",
+  "lessonId": "m08-l11-jazz-modal",
+  "title": "Le lieu",
+  "kind": "MELODY_COMPOSE",
+  "difficulty": 5,
+  "xpReward": 110,
+  "skills": { "HARMONY": 0.6, "MELODY": 0.4 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "jazz", "targetMood": "noble-melancholy", "ruleWeights": { "melody.monotony": 0.3 } },
+  "rubric": { "correctness": 25, "constraints": 45, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "Seize mesures de ré dorien sur le vamp fourni (basse ostinato + voicings quartaux, ▶). Le problème du soliste modal : que dire quand rien ne bouge ? Les réponses, toutes des acquis relus. La 6 DORIENNE DRAMATISÉE : le B est la SEULE note qui raconte dans ce mode — expose-la, quitte-la, retrouve-la (≥ 3 expositions dont une tenue) : elle est le personnage du solo, et le dorien sans son B est de l'éolien qui s'ignore. UN MOTIF développé (≥ 4 occurrences, ≥ 2 transformations) : sans changements à suivre, le motif est TOUT — le jazz modal est l'école du motif, m02 à son emploi maximal. UNE sortie IN-OUT taguée : ≤ 2 temps hors du mode, et le RETOUR vérifié (l'altitude se redescend, la dissonance modale se gravit). Et l'ESPACE : trous ≥ 35 % — le lieu s'habite aussi en silence, le soliste modal qui se tait deux mesures est chez lui. Variante compositeur : habille le vamp de deux couches déclarées (le pont M6/M9 — le vamp modal est LE dispositif de la scène qui dure).",
+    "given": {
+      "key": { "tonic": 2, "mode": "dorian" },
+      "vamp": "asset:m08-e11-so-what-vamp-Dm",
+      "tempoBpm": 132,
+      "chords": [
+        { "root": 2, "quality": "m7" }
+      ],
+      "variants": [
+        { "id": "solo-only" },
+        { "id": "composer-layers", "addLayers": { "count": 2, "roles": ["texture", "body"] } }
+      ]
+    },
+    "constraints": {
+      "lengthBars": [16, 16],
+      "key": { "tonic": 2, "mode": "dorian" },
+      "requireCollection": "dorian",
+      "noteRange": [57, 84],
+      "modalDramatization": { "degree": 6, "minExpositions": 3, "requireOneSustained": true },
+      "motifDeveloped": { "engine": "findMotifs", "minOccurrences": 4, "minTransformations": 2 },
+      "inOutExcursion": { "min": 1, "maxBeatsOutside": 2, "requireReturn": true, "tagged": true },
+      "holesRatioMin": 0.35,
+      "vampInvariant": true,
+      "chordScaleCheck": { "enabled": true, "mode": "collection", "requireCollection": "dorian" },
+      "swingTarget": [1.6, 2.4],
+      "checkers": ["chordScaleCheck", "detectCollection", "findMotifs", "swingRatio"]
+    }
+  }
+}

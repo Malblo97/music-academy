@@ -1,0 +1,84 @@
+{
+  "id": "m08-e14-three-distances",
+  "lessonId": "m08-l14-jazz-image",
+  "title": "Les trois distances",
+  "kind": "ORCHESTRATE",
+  "difficulty": 6,
+  "xpReward": 130,
+  "skills": { "HARMONY": 0.4, "ORCHESTRATION": 0.4, "MELODY": 0.2 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "pool": "medium",
+  "styleProfile": { "id": "neo-noir", "ruleWeights": {} },
+  "rubric": { "correctness": 25, "constraints": 45, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "La même scène, trois distances — brief fixe : « minuit, elle attend dans la voiture », 12 mesures. La distance est tirée, et elle DICTE l'étage de marqueurs. (a) CITER : le combo exact (quartet — comping, walking, thème à la trompette bouchée : les marqueurs forts assumés, et le sous-genre se date — instrumentation, voicings, drumming datent une scène aussi sûrement qu'un costume). (b) STYLISER : cordes + rythmique feutrée, l'harmonie rootless, le swing léger, et PAS de solo-performance — le tri vérifié : au maximum UN signal fort (styliser avec tous les marqueurs, c'est citer sans le vouloir : la scène bascule dans le clin d'œil). (c) HYBRIDER : le stack M6 (pad, sub, texture) + exactement DEUX marqueurs FAIBLES déclarés (le m6, le laid-back) et ZÉRO signal fort — l'hybridation réussie est subliminale : le ride sous l'orchestre dramatique fait brusquement « polar » quand la scène ne le voulait pas. Le jazz est un signe CHARGÉ : vérifie que ce qu'il dit est ce que dit ta scène.",
+    "given": {
+      "key": { "tonic": 0, "mode": "minor" },
+      "brief": "minuit, elle attend dans la voiture",
+      "tempoBpm": 72,
+      "chords": [
+        { "root": 0, "quality": "m9" },
+        { "root": 8, "quality": "maj7#11" },
+        { "root": 2, "quality": "m7b5" },
+        { "root": 7, "quality": "7b9" },
+        { "root": 0, "quality": "m9" },
+        { "root": 5, "quality": "m11" },
+        { "root": 1, "quality": "7#11" },
+        { "root": 0, "quality": "m6" },
+        { "root": 8, "quality": "maj7" },
+        { "root": 7, "quality": "7alt" },
+        { "root": 0, "quality": "m9" },
+        { "root": 0, "quality": "m9" }
+      ],
+      "markerTable": {
+        "strong": ["affirmed-ternary-swing", "walking-bass", "ride-pattern", "muted-trumpet-solo", "tenor-sax-solo", "scat"],
+        "medium": ["rootless-voicings", "exposed-ii-V", "syncopated-comping", "bended-blue-notes", "rhodes"],
+        "weak": ["m-maj7-and-m6", "ninths-thirteenths-in-sustains", "light-laid-back", "chromatic-bass-approaches", "quartal"]
+      }
+    },
+    "parts": [
+      {
+        "id": "cite",
+        "prompt": "Distance zéro : le combo exact, daté.",
+        "constraints": {
+          "distanceDeclared": "cite",
+          "pool": "combo",
+          "markerCount": { "strongMin": 2, "allTiersAllowed": true },
+          "subgenreDated": { "declared": true, "fields": ["era", "instrumentation", "voicings", "drumming"] }
+        }
+      },
+      {
+        "id": "stylise",
+        "prompt": "Distance moyenne : le langage sans la forme-chorus.",
+        "constraints": {
+          "distanceDeclared": "stylise",
+          "pool": "medium",
+          "markerCount": { "strongMax": 1, "mediumMin": 2 },
+          "forbidSoloPerformance": true
+        }
+      },
+      {
+        "id": "hybrid",
+        "prompt": "Distance libre : deux marqueurs faibles, zéro fort.",
+        "constraints": {
+          "distanceDeclared": "hybrid",
+          "layersRequired": [
+            { "role": "body", "source": "pad" },
+            { "role": "sub" },
+            { "role": "texture" }
+          ],
+          "markerCount": { "strongMax": 0, "weakExact": 2, "declared": true }
+        }
+      }
+    ],
+    "constraints": {
+      "lengthBars": [12, 12],
+      "format": "Part[]",
+      "key": { "tonic": 0, "mode": "minor" },
+      "markerCount": { "measured": true, "reportedByTier": true },
+      "checkers": ["orch.range-violation", "orch.balance", "swingRatio", "sd.sub-conflict", "sd.sub-width", "densityMap"]
+    }
+  }
+}

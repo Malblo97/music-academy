@@ -1,0 +1,50 @@
+{
+  "id": "m08-e05-the-walk",
+  "lessonId": "m08-l05-walking-bass",
+  "title": "La marche",
+  "kind": "HARMONIZE_MELODY",
+  "difficulty": 5,
+  "xpReward": 110,
+  "skills": { "HARMONY": 0.5, "COUNTERPOINT": 0.3, "RHYTHM": 0.2 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "jazz", "targetMood": "default", "ruleWeights": { "melody.out-of-key": 0.3 } },
+  "rubric": { "correctness": 30, "constraints": 45, "craft": 25 },
+  "spec": {
+    "version": 1,
+    "prompt": "La grille du blues d'e04 (le pont entre leçons) : compose la walking complète des 12 mesures. Compose-la À L'ENVERS, comme la première espèce : la CIBLE d'abord (temps 1 : la fondamentale, ou tierce/quinte pour la variété), l'APPROCHE ensuite (temps 4 : le demi-ton qui vise la cible suivante — LE geste walking), le CHEMIN en dernier (temps 2-3 : notes d'accord, de gamme, ou chromatiques de liaison — les figures de m04-l04 en noires swing). Au moins 4 approches chromatiques, au moins 3 patterns différents identifiés parmi les cinq (arpège dirigé, gamme, chromatique double, pédale marchée, saut-récupération). Et l'arche de registre : 12 mesures dans une quinte ennuient — le registre voyage en vagues lentes sur E1–G3. Les noires sont DROITES : la walking EST la pulsation, elle ne swingue pas. Le rapport te jugera deux fois — le juge jazz (tag walking, approches) et le juge Fux (la 3e espèce : conjoint, figures, ligne).",
+    "given": {
+      "key": { "tonic": 5, "mode": "major" },
+      "chords": [
+        { "root": 5, "quality": "7" },
+        { "root": 10, "quality": "7" },
+        { "root": 5, "quality": "7" },
+        { "root": 0, "quality": "m7" },
+        { "root": 10, "quality": "7" },
+        { "root": 11, "quality": "dim7" },
+        { "root": 5, "quality": "7" },
+        { "root": 9, "quality": "m7b5" },
+        { "root": 7, "quality": "m7" },
+        { "root": 0, "quality": "7" },
+        { "root": 5, "quality": "7" },
+        { "root": 0, "quality": "7" }
+      ]
+    },
+    "constraints": {
+      "lengthBars": [12, 12],
+      "requiredTag": "walking-bass",
+      "quarterNotesContinuous": true,
+      "beatTargets": {
+        "beat1HarmonicRatioMin": 0.75,
+        "beat1Allowed": ["root", "third", "fifth"],
+        "beat4IsApproach": true
+      },
+      "chromaticApproaches": { "min": 4, "tagged": true },
+      "patternVariety": { "minDistinct": 3, "catalog": ["directed-arpeggio", "scalar", "double-chromatic", "walked-pedal", "leap-recovery"] },
+      "registerArch": { "range": [28, 55], "minSpanSemitones": 16, "shape": "slow-waves" },
+      "swingTarget": [0.95, 1.1],
+      "noteRange": [28, 55],
+      "checkers": ["swingRatio", "species3.cambiata", "melody.leap-recovery", "cpt.contrary-preference", "orch.range-violation"]
+    }
+  }
+}

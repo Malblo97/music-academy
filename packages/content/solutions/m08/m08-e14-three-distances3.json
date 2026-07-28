@@ -1,0 +1,16 @@
+{
+  "exerciseId": "m08-e14-three-distances",
+  "partId": "hybrid",
+  "payload": {
+    "lengthBars": 12,
+    "distanceDeclared": "hybrid",
+    "layers": [
+      { "role": "body", "source": "pad nuit" },
+      { "role": "sub" },
+      { "role": "texture", "source": "pluie" }
+    ],
+    "markerCount": { "strong": 0, "medium": 0, "weak": 2 },
+    "weakMarkersDeclared": ["l'accord m6 (Gm6 dans le pad)", "le laid-back (le lead traîne)"]
+  },
+  "authorNotes": "**Témoin F-47.** Le compteur de marqueurs supposait une table détectable et pondérée qui n'existait qu'en prose : `jazzMarkers.ts` la met en données, chaque marqueur avec son détecteur et sa puissance. Ici : **zéro fort, zéro moyen, exactement deux faibles** — l'hybridation réussie est subliminale. Le contre-exemple de la leçon est explicite : le ride sous l'orchestre dramatique fait brusquement « polar » quand la scène ne le voulait pas. Le triptyque des trois distances est l'étalon du registre : trois soumissions, trois comptes, la table de l14 prouvée. **Le jazz est un signe chargé — vérifie que ce qu'il dit est ce que dit ta scène.**"
+}

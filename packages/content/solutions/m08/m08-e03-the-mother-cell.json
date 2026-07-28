@@ -1,0 +1,16 @@
+{
+  "exerciseId": "m08-e03-the-mother-cell",
+  "payload": {
+    "cells": [
+      { "bars": [1, 3], "cell": "ii-V-I-major" },
+      { "bars": [4, 6], "cell": "ii-V-i-minor", "note": "A7alt — le mineur tombe" },
+      { "bars": [7, 8], "cell": "truncated-ii-V-chain", "content": "Em7-A7 → Dm7-G7", "links": 2, "direction": "descending" },
+      { "bars": [9, 10], "cell": "back-door", "content": "Fm7-Bb7 → Cmaj7" },
+      { "bars": [11, 12], "content": "respiration (I–vi)" },
+      { "bars": [13, 16], "cell": "turnaround", "content": "C-A7 | Dm7-G7 → C" }
+    ],
+    "voicingType": "rootless",
+    "zone": [48, 72]
+  },
+  "authorNotes": "La grille lue **en unités, pas en accords** — chaque cellule taguée et nommée par le rapport. Les cinq formes du catalogue y sont : la cadence majeure, la mineure qui tombe (chaque accord plus sombre que le précédent — la cadence du film noir), la chaîne tronquée descendante (la résolution escamotée : la dette jamais soldée, toujours refinancée — la circulation perpétuelle des standards), le back-door (♭VII7 → I : l'emprunt de m01-l21 devenu cadence, sans sensible), et le turnaround qui relance. La cible d'or — la tierce du I — est tenue aux trois arrivées ✓, smoothness ✓."
+}

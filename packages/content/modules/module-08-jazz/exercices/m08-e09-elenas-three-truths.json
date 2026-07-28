@@ -1,0 +1,46 @@
+{
+  "id": "m08-e09-elenas-three-truths",
+  "lessonId": "m08-l09-reharmonisation",
+  "title": "Les trois vérités d'Elena",
+  "kind": "HARMONIZE_MELODY",
+  "difficulty": 7,
+  "xpReward": 140,
+  "skills": { "HARMONY": 1.0 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "jazz", "targetMood": "default", "ruleWeights": { "harmony.overchromatic": 0.6 } },
+  "rubric": { "correctness": 25, "constraints": 40, "craft": 35 },
+  "spec": {
+    "version": 1,
+    "prompt": "Le thème d'Elena, une dernière fois — l'apothéose harmonique du fil. Sa mélodie de 16 mesures (m02-e30 part 1) reste INCHANGÉE, vérifiée note à note ; tu réécris les accords dessous, DEUX fois, selon deux intentions opposées : « l'espoir confirmé » et « l'exil sans retour ». Le protocole : réduis la mélodie à ses notes STRUCTURELLES (temps forts, longues, sommets), choisis l'intention (sombre→emprunts, ouvert→couleur/quartal, étrange→médiantes, riche→ii-V, coulant→basse chromatique), pose les PILIERS non négociables, relie par la technique, et VÉRIFIE chaque structurelle contre son nouvel accord — la contrainte unique. Au moins 3 techniques taguées par version, au moins 40 % d'accords changés, et 2 accords communs aux deux versions minimum : les repères, sans quoi l'auditeur perd le fil ET le thème. Le test final n'est pas dans le moteur, il est dans ta bouche : la mélodie se chante-t-elle ENCORE naturellement dessus ? Sinon, recule — le trône appartient à la ligne.",
+    "given": {
+      "key": { "tonic": 9, "mode": "minor" },
+      "melody": "asset:m02-e30-elena-theme",
+      "melodyImmutable": true,
+      "originalChords": "asset:m02-e30-elena-chords",
+      "intentions": [
+        { "id": "hope-confirmed", "expectedTechniques": ["diatonic-substitution", "inserted-ii-V", "colour-reharm"] },
+        { "id": "exile-no-return", "expectedTechniques": ["borrowed", "chromatic-mediant", "chromatic-bass"] }
+      ]
+    },
+    "parts": [
+      { "id": "version-hope", "prompt": "L'espoir confirmé.", "constraints": { "intention": "hope-confirmed" } },
+      { "id": "version-exile", "prompt": "L'exil sans retour.", "constraints": { "intention": "exile-no-return" } }
+    ],
+    "constraints": {
+      "lengthBars": [16, 16],
+      "minVoices": 4,
+      "samePitchSequenceAsGiven": true,
+      "reharmMethod": {
+        "structuralReductionDeclared": true,
+        "intentionDeclared": true,
+        "pillarsDeclared": { "min": 2 }
+      },
+      "structuralNotesCovered": { "allQualified": true, "allowed": ["chord-tone", "legal-tension", "behaving-non-chord-tone"] },
+      "techniquesPerVersion": { "min": 3, "tagged": true, "catalog": ["diatonic-substitution", "inserted-ii-V", "chromatic-bass", "borrowed", "chromatic-mediant", "colour-reharm", "tritone-sub"] },
+      "changedChordsRatio": { "min": 0.4 },
+      "pillarsCommon": { "minBetweenVersions": 2 },
+      "checkers": ["structuralNotesCovered", "harmony.overchromatic", "harmony.tritone-sub-resolution", "vl.smoothness"]
+    }
+  }
+}

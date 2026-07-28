@@ -1,0 +1,47 @@
+{
+  "id": "m08-e10-two-chorus-story",
+  "lessonId": "m08-l10-solo-ecrit",
+  "title": "Deux chorus, un récit",
+  "kind": "MELODY_COMPOSE",
+  "difficulty": 6,
+  "xpReward": 130,
+  "skills": { "MELODY": 0.7, "HARMONY": 0.3 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "jazz", "targetMood": "default", "ruleWeights": { "melody.out-of-key": 0.2 } },
+  "rubric": { "correctness": 25, "constraints": 40, "craft": 35 },
+  "spec": {
+    "version": 1,
+    "prompt": "La boucle du module se referme sur sa forme-mère : le blues d'e04, deux chorus écrits (24 mesures) sur la grille jouée (▶). CHORUS 1 — LE TERRITOIRE : la paraphrase du thème fourni (le solo commence en variation du chant — c'est un début noble), densité ≤ 40 %, trous ≥ 30 %, registre médium. CHORUS 2 — LE DÉVELOPPEMENT VERS LE SOMMET : le motif du chorus 1 travaillé (transposition, fragmentation — le motivic development EST l'échelle de m02-l04, en conscience), le climax en fenêtre [0.75, 0.9] du total, puis la redescente-RELAIS : le dernier « et de 4 » qui lance ce qui suit. Vocabulaire exigé : ≥ 2 enclosures, ≥ 1 phrase bebop, ≥ 2 blue notes. Et la loi la plus violée : LE SOLO LAISSE DES TROUS — phrases de 2 mesures, 1 mesure de silence : c'est dans les trous que la section répond et que l'auditeur digère. Le solo est une forme, pas un catalogue de licks.",
+    "given": {
+      "key": { "tonic": 5, "mode": "major" },
+      "theme": "sourceSubmission:m08-e04-twelve-bars",
+      "backingTrack": "asset:m08-e04-jazz-blues-F",
+      "tempoBpm": 126,
+      "chords": "asset:m08-e04-jazz-blues-chords"
+    },
+    "parts": [
+      {
+        "id": "chorus-1",
+        "prompt": "Le territoire : la paraphrase.",
+        "constraints": { "densityMax": 0.4, "holesRatioMin": 0.3, "registerBand": [60, 79], "paraphraseOfTheme": { "engine": "findMotifs", "minSimilarity": 0.5 } }
+      },
+      {
+        "id": "chorus-2",
+        "prompt": "Le développement vers le sommet, puis le relais.",
+        "constraints": { "densityMax": 0.8, "motifTransformations": { "min": 2 }, "climaxWindow": [0.75, 0.9], "endsOnRelay": { "position": "and-of-4" } }
+      }
+    ],
+    "constraints": {
+      "lengthBars": [24, 24],
+      "key": { "tonic": 5, "mode": "major" },
+      "chorusArc": { "declared": true, "shape": "territory-development-summit-descent" },
+      "motifTracedAcrossChorus": { "engine": "findMotifs", "minOccurrences": 4, "acrossParts": true },
+      "requiredFigures": { "enclosure": 2, "bebop-scale": 1, "blue-note": 2 },
+      "holesRatioMin": 0.25,
+      "chordScaleCheck": { "enabled": true, "mode": "mixed", "avoidNotesPassingOnly": true },
+      "swingTarget": [1.6, 2.4],
+      "checkers": ["findMotifs", "chordScaleCheck", "swingRatio", "melody.climax"]
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "exerciseId": "m08-e07-the-language",
+  "payload": {
+    "swing": { "ratio": 2.0 },
+    "enclosures": [
+      { "bar": 2, "type": "diatonique", "target": "la 3 de C" },
+      { "bar": 4, "type": "chromatique double", "content": "Db-B → C", "target": "guide tone de G7→C" },
+      { "bar": 7, "type": "diatonique" }
+    ],
+    "bebopScalePassage": { "bars": [5, 6], "type": "dominant-bebop", "content": "le F♯ de passage entre F et G sur G7", "chordTonesOnBeats": true },
+    "phraseStarts": "toutes en levée (« et de 1 » ou « et de 4 »)",
+    "densityContrast": { "stdDev": 2.8, "example": "m5 : 8 attaques ; m6 : 2" }
+  },
+  "authorNotes": "« Le chromatisme en l'air, la justesse à l'appui » : trois enclosures taguées dont une chromatique double, chacune atterrissant sur un guide tone au temps fort, l'encerclement en levée — **la cambiata de m04-l04 devenue civilisation**, et c'est la même loi métrique, syncopée. La gamme bebop dominante fait son office : la ♮7 de passage entre ♭7 et 1 refait tomber chaque note d'accord sur un temps, vérifié tick à tick. Et le contraste des densités est mesuré (écart-type 2,8) : le solo en croches perpétuelles est un robinet, pas un discours. *« Enclosure double sur la 3 de C, m.4 ✓ — le langage est parlé. »*"
+}

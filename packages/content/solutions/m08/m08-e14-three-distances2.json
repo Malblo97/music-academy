@@ -1,0 +1,14 @@
+{
+  "exerciseId": "m08-e14-three-distances",
+  "partId": "stylise",
+  "payload": {
+    "lengthBars": 12,
+    "pool": "medium",
+    "distanceDeclared": "stylise",
+    "casting": "cordes feutrées + rythmique aux brosses, harmonie rootless",
+    "swingMeasured": 1.4,
+    "markerCount": { "strong": 1, "medium": 4 },
+    "forbidSoloPerformance": true
+  },
+  "authorNotes": "Le tri, vérifié : **au maximum UN signal fort** — styliser avec tous les marqueurs, c'est citer sans le vouloir, et la scène bascule dans le clin d'œil. Le swing léger (1,4) compte comme moyen, pas comme fort ; quatre moyens portent le langage sans la forme-chorus, et le solo-performance est banni. *« Stylisation propre : la scène reste à toi. »*"
+}

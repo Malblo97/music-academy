@@ -1,0 +1,27 @@
+{
+  "exerciseId": "m08-e09-elenas-three-truths",
+  "partId": "version-exile",
+  "payload": {
+    "lengthBars": 14,
+    "melody": "s30-elena intégral, INCHANGÉ",
+    "intention": "exile-no-return",
+    "chords": [
+      { "bar": 1, "chord": "Dm(maj7)", "role": "pilier 1", "note": "même basse, l'ombre" },
+      { "bar": 2, "chord": "Dm(maj7)/C#", "technique": "line cliché de basse" },
+      { "bar": 3, "chord": "Bb7#11", "technique": "le couloir subV" },
+      { "bar": 4, "chord": "A7sus4", "note": "la dominante qui ne mord pas" },
+      { "bar": 5, "chord": "Dm7/A" },
+      { "bar": 6, "chord": "Bbm(maj7)", "technique": "l'emprunt noirci" },
+      { "bar": 7, "chord": "Ebmaj7#11", "technique": "médiante sombre" },
+      { "bar": 8, "chord": "F7#11", "note": "le Bb du thème = 3 : requalifié" },
+      { "bar": 9, "chord": "Dm(maj7)", "role": "pilier 2" },
+      { "bar": 10, "chord": "Bb7#11" },
+      { "bar": 11, "chord": "Abmaj7#11", "technique": "glissement chromatique" },
+      { "bar": 12, "chord": "Gm(maj7)" },
+      { "bar": 13, "chord": "Bb7#11 A7alt", "note": "le couloir qui se referme" },
+      { "bar": 14, "chord": "Dm(maj7)", "note": "aucune cadence : la porte reste ouverte" }
+    ],
+    "changedChordsRatio": 0.79
+  },
+  "authorNotes": "La même ligne, l'autre vérité : line cliché de basse, subV-couloir, m(maj7) partout, médiantes sombres — quatre techniques taguées ✓, 79 % d'accords changés ✓. Le geste décisif est la mes. 14 : **aucune cadence**, le Dm(maj7) tenu — l'exil n'a pas de résolution, et le checker le vérifie plutôt que de le pénaliser. Les deux versions alignées accord par accord soldent la promesse de m02-l15 §2 : *le trône appartient à la ligne*, et deux mondes peuvent la porter."
+}
