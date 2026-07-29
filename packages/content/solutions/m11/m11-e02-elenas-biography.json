@@ -1,0 +1,24 @@
+{
+  "exerciseId": "m11-e02-elenas-biography",
+  "payload": {
+    "corpus": "m07-s10 — le cue Elena, 48 mesures, solution de référence",
+    "identity": {
+      "cell": "la tête du thème (3 notes survivantes au fredon)",
+      "layers": {
+        "intervallic-signature": "la quarte (l'appel) et la sixte mineure (l'élan douloureux)",
+        "rhythmic-archetype": "l'anacrouse iambique",
+        "anchoring": "la tonique atteinte par le bas"
+      }
+    },
+    "occurrences": {
+      "count": 11,
+      "byType": { "exact": 3, "transposé": 2, "fragmenté": 3, "augmenté": "S3", "voilé": 2 }
+    },
+    "biographyTable": {
+      "columns": ["occurrence", "transformation", "harmonie", "porteur", "scène"],
+      "keyRow": "S5 — le fleuve devenu thème, celli"
+    },
+    "regimeDiagnosis": { "verdict": "theme-narrative", "argued": true }
+  },
+  "authorNotes": "« Tu analyses une œuvre dont le produit possède l'intention » — et c'est ce qui fait de cet exercice **l'analyse la plus vérifiable jamais construite** : les onze vies sont créditées par type contre `findMotifs`, les harmonies contre les tags, les porteurs contre le `rolePlan` de la solution. Les deux colonnes que les débutants oublient sont les deux transformations reines du cinéma, et l'étalon les met en évidence : la réharmonisation (même mélodie, autre monde — le détecteur d'état dramatique le plus fin) et le changement de porteur (**qui porte le thème = où en est le personnage**). La ligne-clé du tableau est le retournement du cue : en S5, le contrechant né en M4 comme accompagnement est devenu le thème, aux celli."
+}

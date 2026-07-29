@@ -1,0 +1,99 @@
+{
+  "id": "m11-e08-the-inquiry",
+  "lessonId": "m11-l08-synthese",
+  "title": "L'enquête en autonomie",
+  "kind": "ANALYSIS",
+  "difficulty": 8,
+  "xpReward": 350,
+  "skills": { "EAR_TRAINING": 0.3, "HARMONY": 0.2, "MELODY": 0.2, "ORCHESTRATION": 0.2, "RHYTHM": 0.1 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "badge": "module-11-analyse",
+  "styleProfile": { "id": "romantic-film", "targetMood": "default", "ruleWeights": {} },
+  "rubric": { "correctness": 30, "constraints": 35, "craft": 35 },
+  "spec": {
+    "version": 1,
+    "prompt": "Le capstone. Le brief : « La pièce inconnue — une œuvre complète du corpus : 3 minutes, forme en 4 sections, un système qui bascule, un thème à trois vies, un crescendo à moteurs multiples. Analyse-la entièrement, EN AUTONOMIE : c'est toi qui choisis quoi regarder. » La liberté est le test — le choix de tes zooms est noté : zoomer sur LE moment et les charnières, c'est la méthode ; zoomer au hasard, c'est la leçon 1 à revoir.",
+    "corpus": {
+      "pieces": [
+        {
+          "id": "unknown-piece",
+          "source": "generated",
+          "durationSec": 180,
+          "calibration": {
+            "form": "4-sections",
+            "systemSwitch": true,
+            "themeLives": 3,
+            "tensionPlan": { "multipleEngines": true, "count": 3 }
+          }
+        }
+      ],
+      "playback": true,
+      "slowdown": true,
+      "rollVisible": true
+    },
+    "hypothesisBeforeReveal": true,
+    "reportDeltas": true,
+    "parts": [
+      {
+        "id": "part1-free-inquiry",
+        "prompt": "L'ENQUÊTE LIBRE : le protocole sans guide. Les livrables minimaux — les trois passes documentées (trois adjectifs + LE moment ; les segments + la courbe ; deux zooms d'artisan), et pour chaque famille que tu mobilises, les annotations idoines. Tout le kit est disponible : à toi de choisir lesquelles servent CETTE pièce.",
+        "constraints": {
+          "passes": {
+            "pass1": { "required": true, "deliverables": { "emotionAdjectives": { "count": 3 }, "theMoment": { "type": "timeline-point" } } },
+            "pass2": { "required": true, "deliverables": ["label-segments", "draw-tension"] },
+            "pass3": { "required": true, "zoomsCount": 2, "freeChoice": true }
+          },
+          "annotationsFreeChoice": {
+            "availableTypes": ["mark-occurrences", "label-segments", "name-chords", "name-functions", "identify-idioms", "draw-tension", "role-map"],
+            "minAnnotations": 6,
+            "verifyAgainst": "generationTruth",
+            "partialCredit": true
+          },
+          "zoomChoiceScored": { "rewardOn": ["theMoment", "hinges", "system-switch"], "penalizeRandom": true },
+          "archFitMin": 0.5
+        }
+      },
+      {
+        "id": "part2-one-page",
+        "prompt": "LA SYNTHÈSE D'UNE PAGE : le format professionnel — celui qu'on rend à un réalisateur ou qu'on garde en cahier. Sept champs : l'œuvre en 3 phrases · la forme · le système et ses bascules · le thème et ses vies · la fabrication du sommet · 2 procédés à voler · 1 absence signifiante. Dire beaucoup en peu.",
+        "constraints": {
+          "onePageReport": {
+            "required": true,
+            "fields": ["three-sentences", "form", "system-and-switches", "theme-and-lives", "summit-fabrication", "two-procedures-to-steal", "one-significant-absence"],
+            "concordanceChecks": [
+              "form-vs-phraseAnalysis",
+              "system-switches-vs-generationTruth",
+              "theme-lives-vs-findMotifs",
+              "summit-vs-tensionPlan",
+              "absence-vs-solutionTruth"
+            ]
+          }
+        },
+        "rubric": { "correctness": 35, "constraints": 35, "craft": 30 }
+      },
+      {
+        "id": "part3-legal-theft",
+        "prompt": "LE VOL LÉGAL — la preuve que l'analyse nourrit. 8 mesures composées : UN procédé identifié en part 2 (un moteur de tension, un alliage, un geste de forme — PAS le thème), transplanté dans un contexte NEUF : ta tonalité, ton tempo, ton effectif. Le moteur vérifie les deux faces : le procédé PRÉSENT (par les tags) et le matériau original ABSENT (findMotifs contre la source : zéro occurrence). La leçon du module en un exercice : on vole des procédés, jamais des notes.",
+        "kind": "ORCHESTRATE",
+        "constraints": {
+          "lengthBars": [8, 8],
+          "legalTheft": {
+            "procedureDeclared": { "fromPart": "part2-one-page", "allowed": ["tension-engine", "alloy", "form-gesture", "orchestration-device"] },
+            "procedurePresent": { "verifyAgainst": "tags" },
+            "sourceMaterialAbsent": { "engine": "findMotifs", "maxOccurrences": 0 },
+            "contextDelta": { "keyChanged": true, "tempoChanged": true, "instrumentationChanged": true }
+          }
+        },
+        "rubric": { "correctness": 25, "constraints": 40, "craft": 35 }
+      }
+    ],
+    "constraints": {
+      "exitDiagnosis": {
+        "required": true,
+        "consolidatesFrom": ["m11-e01-first-inquiry", "m11-e02-elenas-biography", "m11-e03-the-diagnosis", "m11-e04-reading-the-forces", "m11-e05-time-autopsy", "m11-e06-the-western-file", "m11-e07-the-reconstruction"],
+        "outputs": ["strong-families", "recurrent-gaps", "modules-to-revisit"]
+      }
+    }
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "id": "m11-e05-time-autopsy",
+  "lessonId": "m11-l05-analyser-temps",
+  "title": "L'autopsie du temps",
+  "kind": "ANALYSIS",
+  "difficulty": 6,
+  "xpReward": 120,
+  "skills": { "EAR_TRAINING": 0.4, "RHYTHM": 0.3, "HARMONY": 0.3 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "epic-film", "targetMood": "heroic", "ruleWeights": {} },
+  "rubric": { "correctness": 40, "constraints": 35, "craft": 25 },
+  "spec": {
+    "version": 1,
+    "prompt": "Deux volets. (1) LA FORME ET LA TENSION sur une pièce générée longue (2'30\", calibrée avec un crescendo à trois moteurs et une frontière de forme volontairement FLOUE) : pose les frontières là où PLUSIEURS indices coïncident (la cadence d'abord, puis le changement d'effectif, de matériau, de système) — et note la frontière floue COMME floue : l'ambiguïté de couture est un choix de compositeur, donc une information d'analyse. Dessine ta courbe. Puis L'AUTOPSIE — la compétence-signature de l'analyste-compositeur : le spectateur sent que ça monte, toi tu sais AVEC QUOI. Coche, moteur par moteur, ce qui bouge dans la montée : densité ? registre ? dissonance ? rythme harmonique ? effectif (et par paliers ou en vague) ? activité ? la strette ? le volume seul (le crescendo pauvre — ça s'entend, et ça se note : l'indulgence d'oreille est l'ennemie) ? Le verdict tient en une phrase, et après cette phrase tu sais refaire. (2) LE SPOTTING INVERSÉ sur « La Remise » (la vidéo + le cue) : chaque bascule est-elle SERVIE par un geste, TRAVERSÉE par la musique (le legato d'image : unir ce que le montage sépare), ou REFUSÉE ? Y a-t-il du mickey-mousing, assumé ou fui ? Et la question reine, la plus dramaturgique et la moins analysée : OÙ la musique commence-t-elle, et où s'arrête-t-elle ?",
+    "corpus": {
+      "pieces": [
+        {
+          "id": "long-piece",
+          "source": "generated",
+          "durationSec": 150,
+          "calibration": {
+            "form": "4-sections",
+            "blurredBoundaryAt": 3,
+            "tensionPlan": { "engines": ["effectif-paliers", "harmonic-rhythm", "register-opening"], "count": 3 }
+          }
+        },
+        {
+          "id": "la-remise",
+          "pieceId": "m10-e15-la-remise-solution",
+          "video": "asset:video-la-remise-v1",
+          "spottingTruth": "sourceSubmission:m10-e12-la-remise-spotting"
+        }
+      ],
+      "playback": true,
+      "slowdown": true,
+      "rollVisible": true
+    },
+    "hypothesisBeforeReveal": true,
+    "reportDeltas": true,
+    "annotations": [
+      {
+        "type": "label-segments",
+        "required": true,
+        "onPiece": "long-piece",
+        "verifyAgainst": ["phraseAnalysis", "solutionTruth"],
+        "boundaryQualification": { "required": true, "options": ["franche", "floue"] },
+        "boundaryToleranceBars": 2,
+        "partialCredit": true
+      },
+      {
+        "type": "draw-tension",
+        "required": true,
+        "onPiece": "long-piece",
+        "verifyAgainst": "tensionCurve",
+        "archFitMin": 0.5,
+        "overlayInReport": true
+      },
+      {
+        "type": "identify-idioms",
+        "required": true,
+        "onPiece": "long-piece",
+        "scope": "tension-engines-per-rise",
+        "verifyAgainst": "tensionPlan",
+        "partialCredit": true
+      },
+      {
+        "type": "label-segments",
+        "required": true,
+        "onPiece": "la-remise",
+        "scope": "music-in-out",
+        "verifyAgainst": "spottingTruth",
+        "boundaryToleranceSec": 1.5
+      }
+    ],
+    "constraints": {
+      "engineChecklist": {
+        "required": true,
+        "perRiseSegment": true,
+        "engines": ["density", "register", "dissonance", "harmonic-rhythm", "effectif", "activity", "stretto", "volume-only"],
+        "effectifSubtype": ["paliers", "vague"],
+        "verdictSentenceRequired": true,
+        "verifyAgainst": "tensionPlan"
+      },
+      "spottingInverse": {
+        "required": true,
+        "perBascule": true,
+        "options": ["servie", "traversee", "refusee"],
+        "mickeyMousingQualified": { "options": ["absent", "assume", "fui"] },
+        "musicInOutMandatory": true
+      },
+      "poorCrescendoMustBeNamed": true
+    }
+  }
+}

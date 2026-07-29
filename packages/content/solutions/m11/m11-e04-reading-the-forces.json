@@ -1,0 +1,25 @@
+{
+  "exerciseId": "m11-e04-reading-the-forces",
+  "payload": {
+    "orchestral": {
+      "corpus": "m10-e15 — solution de référence, 3 min",
+      "timeline": "role-map des 5 sections = le rolePlan de la solution",
+      "cuts": [
+        { "atTimecode": "0:47.0", "note": "le creux — S4" },
+        { "atTimecode": "2:12.0", "note": "le sommet — S3" }
+      ],
+      "cutDiscipline": { "socleFirst": true, "oneLinePerListen": true },
+      "events": { "count": 4, "deviation": "±0", "types": ["net-entry", "thickening", "exit", "cut"] },
+      "themeCarrierPerExposition": "vérifié contre le rolePlan"
+    },
+    "hybrid": {
+      "corpus": "m06-e15 — solution de référence, 60 s",
+      "worldDiagnosis": {
+        "perLayer": true,
+        "undecidable": ["le pad-fantôme", "le top granulaire"],
+        "note": "2 « indécidable » CRÉDITÉS — la recette les justifie (F-50)"
+      }
+    }
+  },
+  "authorNotes": "Les cinq lignes se visitent, elles ne se lisent pas d'un coup : cinq écoutes du même instant, une ligne par écoute, **le socle en premier** (le grave conditionne tout et s'isole le plus facilement). Le cœur n'est jamais oublié dans l'étalon — les murs sont FAITS pour se fondre, donc ils sont là : le test est de couper mentalement le chant et d'écouter ce qui reste. L'épaississement compte comme un événement au même titre qu'une entrée (`thickeningCountsAsEntry`) : le son qui grossit sans qu'on sache pourquoi, c'est une doublure qui vient d'arriver. Et le volet hybride pose le principe que F-50 a rendu mesurable : **« indécidable » est un verdict, pas un échec** — l'hybride réussi est invisible, et noter où l'on ne peut pas trancher, c'est cartographier le savoir-faire du mixeur."
+}

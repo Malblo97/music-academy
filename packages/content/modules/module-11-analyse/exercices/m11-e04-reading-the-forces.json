@@ -1,0 +1,87 @@
+{
+  "id": "m11-e04-reading-the-forces",
+  "lessonId": "m11-l04-analyser-orchestration",
+  "title": "La lecture d'effectifs",
+  "kind": "ANALYSIS",
+  "difficulty": 6,
+  "xpReward": 110,
+  "skills": { "ORCHESTRATION": 0.7, "EAR_TRAINING": 0.3 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "romantic-film", "targetMood": "default", "ruleWeights": {} },
+  "rubric": { "correctness": 40, "constraints": 35, "craft": 25 },
+  "spec": {
+    "version": 1,
+    "prompt": "Le cue « La Remise » orchestral (la solution de référence de m10-e15, 3 minutes) — et son jumeau hybride en second volet. La TIMELINE D'EFFECTIF d'abord : une ligne par famille, des blocs quand elle joue — le dessin de cinq minutes qui révèle l'architecture entière d'un cue. Puis LA COUPE sur deux instants imposés (le creux et le sommet), avec la discipline qui la rend possible : cinq écoutes du même instant, UNE ligne par écoute — l'oreille ne lit pas cinq étages d'un coup, elle les visite — et le SOCLE EN PREMIER (le grave conditionne tout, et c'est le plus facile à isoler). N'oublie pas le cœur : les murs sont FAITS pour se fondre, donc ils sont là — le test est de couper mentalement le chant et d'écouter ce qui reste. Pointe ≥ 3 événements : l'entrée nette, mais aussi l'ÉPAISSISSEMENT (le son qui grossit sans qu'on sache pourquoi : c'est une doublure qui vient d'arriver), et la coupure — toujours signifiante. Volet 2, 60 secondes de la version hybride : le diagnostic des mondes, couche par couche — et « INDÉCIDABLE » est un verdict, pas un échec : l'hybride réussi est invisible, et noter où tu ne peux pas trancher, c'est cartographier le savoir-faire du mixeur.",
+    "corpus": {
+      "pieces": [
+        { "id": "orchestral", "pieceId": "m10-e15-la-remise-solution", "durationSec": 180, "partsVisible": false },
+        { "id": "hybrid", "pieceId": "m06-e15-la-remise-hybrid-solution", "durationSec": 60, "partsVisible": false }
+      ],
+      "playback": true,
+      "slowdown": true,
+      "rollVisible": false
+    },
+    "hypothesisBeforeReveal": true,
+    "reportDeltas": true,
+    "annotations": [
+      {
+        "type": "role-map",
+        "required": true,
+        "onPiece": "orchestral",
+        "scope": "timeline-per-section",
+        "format": "family-blocks",
+        "verifyAgainst": "rolePlan",
+        "partialCredit": true
+      },
+      {
+        "type": "role-map",
+        "required": true,
+        "onPiece": "orchestral",
+        "scope": "five-lines-cut",
+        "atTimecodes": ["0:47.0", "2:12.0"],
+        "lines": ["ciel", "chant", "coeur", "corps", "socle"],
+        "verifyAgainst": ["densityMap", "rolePlan"],
+        "partialCredit": true
+      },
+      {
+        "type": "label-segments",
+        "required": true,
+        "onPiece": "orchestral",
+        "scope": "orchestration-events",
+        "minEvents": 3,
+        "eventTypes": ["net-entry", "thickening", "exit", "cut", "manner-change"],
+        "verifyAgainst": "solutionTruth",
+        "boundaryToleranceBars": 1
+      },
+      {
+        "type": "role-map",
+        "required": true,
+        "onPiece": "orchestral",
+        "scope": "theme-carrier-per-exposition",
+        "verifyAgainst": "rolePlan",
+        "partialCredit": true
+      },
+      {
+        "type": "identify-idioms",
+        "required": true,
+        "onPiece": "hybrid",
+        "scope": "world-per-layer",
+        "options": ["acoustic", "synthetic", "undecidable"],
+        "verifyAgainst": "solutionTruth",
+        "partialCredit": true
+      }
+    ],
+    "constraints": {
+      "cutDiscipline": { "socleFirst": true, "oneLinePerListen": true, "declared": true },
+      "worldDiagnosis": {
+        "required": true,
+        "perLayer": true,
+        "indices": ["breathing", "space", "sub-below-E1", "attack-transient"],
+        "undecidableCredited": true,
+        "creditWhenSolutionJustifies": true
+      },
+      "thickeningCountsAsEntry": true
+    }
+  }
+}

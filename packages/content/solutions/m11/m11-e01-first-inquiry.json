@@ -1,0 +1,19 @@
+{
+  "exerciseId": "m11-e01-first-inquiry",
+  "payload": {
+    "corpus": "G-M48 (la pièce-mystère de m01-e48, devenue recette à seed figé)",
+    "pass1": {
+      "emotionAdjectives": ["suspendu", "voilé", "patient"],
+      "theMoment": { "bar": 19, "why": "la bascule d'ambiguïté — la zone `ambiguous` de la recette" }
+    },
+    "pass2": {
+      "labelSegments": "la forme plantée, frontières à ±0",
+      "drawTension": { "correlation": 1.0, "note": "l'étalon EST la courbe machine ; seuil élève ≥ 0,5" }
+    },
+    "pass3": {
+      "zooms": ["name-chords sur le moment", "mark-occurrences"],
+      "occurrences": { "planted": 5, "emergent": 2, "note": "F-50" }
+    }
+  },
+  "authorNotes": "**Témoin F-50 — la concordance se juge contre l'union vérité ∪ détection.** La recette plante 5 occurrences du motif, `findMotifs` en trouve 7 : deux répétitions **émergentes**, que la musique produit toujours. L'élève qui les marque serait « faux » contre la vérité plantée et pourtant juste musicalement — désormais une annotation est correcte si elle appartient à la vérité **ou** à la détection, seul le vrai faux-positif pénalise, et le rapport distingue « planté » de « émergent — bien vu ». Le choix du moment tombe sur la zone ambiguë de la recette : c'est ce que l'exercice récompense (`zoomChoiceScored`), parce que l'analyse commence toujours par ce qui marche. Le rapport ne dit jamais « faux » : il dit *« ta courbe monte deux mesures avant la machine — tu entends la tension ARRIVER, c'est une qualité d'oreille. »*"
+}

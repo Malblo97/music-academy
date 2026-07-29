@@ -1,0 +1,67 @@
+{
+  "id": "m11-e01-first-inquiry",
+  "lessonId": "m11-l01-protocole",
+  "title": "La première enquête",
+  "kind": "ANALYSIS",
+  "difficulty": 4,
+  "xpReward": 80,
+  "skills": { "EAR_TRAINING": 0.5, "HARMONY": 0.2, "MELODY": 0.2, "ORCHESTRATION": 0.1 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "romantic-film", "targetMood": "default", "ruleWeights": {} },
+  "rubric": { "correctness": 40, "constraints": 30, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "La pièce-mystère (m01-e48 — elle attendait ce module) en TROIS PASSES, dans l'ordre, et la première est la plus violée : PASSE 1, L'AUDITEUR — écoute entier, ne note rien, reçois. Deux livrables seulement : l'émotion dominante en trois adjectifs, et LE MOMENT (l'instant qui t'a pris, pointé sur la timeline) — c'est lui qu'on analysera en priorité, car l'analyse commence toujours par ce qui marche. PASSE 2, LE CARTOGRAPHE — les sections, et ta COURBE DE TENSION DESSINÉE AU DOIGT : elle sera superposée à celle de la machine. PASSE 3, L'ARTISAN — deux zooms sur TON moment, au choix. Et la règle d'or : l'hypothèse AVANT la vérification. Tu annotes, puis on révèle. L'hypothèse fausse vaut plus que la bonne réponse copiée : l'écart entre ce que tu croyais et ce qui est, c'est exactement l'apprentissage.",
+    "corpus": { "pieceId": "m01-e48-piece", "playback": true, "slowdown": true, "rollVisible": true },
+    "hypothesisBeforeReveal": true,
+    "reportDeltas": true,
+    "passes": {
+      "pass1": {
+        "required": true,
+        "deliverables": {
+          "emotionAdjectives": { "count": 3 },
+          "theMoment": { "type": "timeline-point", "tolerance": "1 bar" }
+        },
+        "forbidAnnotationsDuringPass": true
+      },
+      "pass2": { "required": true, "deliverables": ["label-segments", "draw-tension"] },
+      "pass3": { "required": true, "zoomsCount": 2, "anchoredOn": "theMoment", "allowedTypes": ["name-chords", "mark-occurrences"] }
+    },
+    "annotations": [
+      {
+        "type": "label-segments",
+        "required": true,
+        "verifyAgainst": ["phraseAnalysis", "solutionTruth"],
+        "partialCredit": true,
+        "boundaryToleranceBars": 1
+      },
+      {
+        "type": "draw-tension",
+        "required": true,
+        "verifyAgainst": "tensionCurve",
+        "archFitMin": 0.5,
+        "overlayInReport": true
+      },
+      {
+        "type": "name-chords",
+        "required": false,
+        "onZoom": true,
+        "verifyAgainst": "detectProgression",
+        "partialCredit": true,
+        "allowAmbiguousFlag": true
+      },
+      {
+        "type": "mark-occurrences",
+        "required": false,
+        "onZoom": true,
+        "verifyAgainst": "findMotifs",
+        "partialCredit": true
+      }
+    ],
+    "constraints": {
+      "minAnnotations": 4,
+      "zoomChoiceScored": { "rewardOn": ["theMoment", "hinges"], "penalizeRandom": true }
+    }
+  }
+}

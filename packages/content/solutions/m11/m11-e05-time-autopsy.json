@@ -1,0 +1,27 @@
+{
+  "exerciseId": "m11-e05-time-autopsy",
+  "payload": {
+    "volet1": {
+      "corpus": "G-05 — 2'30\", 3 moteurs, une frontière floue plantée",
+      "labelSegments": { "note": "la frontière floue QUALIFIÉE comme floue, pas tranchée" },
+      "drawTension": { "correlation": 1.0 },
+      "engineChecklist": {
+        "S2": ["effectif", "activité"],
+        "S3": ["effectif", "activité", "dynamique"],
+        "note": "= le tensionPlan de la recette",
+        "verdictSentence": "requise"
+      }
+    },
+    "volet2": {
+      "corpus": "m10-e15 + la vidéo « La Remise »",
+      "spottingInverse": {
+        "servie": ["B1", "B2"],
+        "traversee": ["B3 — le cue la traverse exprès (legato d'image)"],
+        "refusee": [],
+        "mickeyMousing": "absent",
+        "musicInOut": "vérifié contre le spotting F-36"
+      }
+    }
+  },
+  "authorNotes": "La compétence-signature de l'analyste-compositeur : **le spectateur sent que ça monte, toi tu sais avec quoi.** La check-list des moteurs par segment se compare au `tensionPlan` de la recette, moteur par moteur — et le crescendo pauvre (le volume seul) doit être nommé quand il apparaît : `poorCrescendoMustBeNamed`, parce que l'indulgence d'oreille est l'ennemie. La frontière floue est l'autre leçon : **l'ambiguïté de couture est un choix de compositeur, donc une information d'analyse** — la qualifier vaut mieux que la trancher. Et le spotting inversé pose la question reine, la plus dramaturgique et la moins analysée : où la musique commence-t-elle, et où s'arrête-t-elle ?"
+}

@@ -1,0 +1,27 @@
+{
+  "exerciseId": "m11-e06-the-western-file",
+  "payload": {
+    "part1-distillation": {
+      "shortGrids": 5,
+      "recurrenceTable": {
+        "keyVerdict": "la pièce 4 viole le trot et reste western",
+        "counterExample": { "piece": "w4", "violatedTrait": "dotted-trot" },
+        "note": "le trait « trot » descend à 4/5, reste ≥ 4 avec pondération"
+      }
+    },
+    "part2-file": {
+      "traits": 8,
+      "compiled": [
+        { "trait": "mixolydien", "key": "requireCollection" },
+        { "trait": "quintes à vide", "key": "mustContainInterval [P5, P4]" },
+        { "trait": "trot pointé", "key": "prosodyPlan + syncopationTarget" },
+        { "trait": "espace", "key": "contraintes d'ambitus / registre" },
+        { "trait": "sommet modeste", "key": "climaxWindow" }
+      ],
+      "freeText": "la prose de la fiche — non compilée",
+      "template": "le gabarit western de l'annexe D"
+    },
+    "part3-test": { "lengthBars": 8, "judgedAgainstOwnFile": true, "score": 91 }
+  },
+  "authorNotes": "**Témoin F-51.** « Le moteur compile tes traits en contraintes » était impossible sur du texte libre : la fiche devient un **formulaire à champs mappés** sur le registre de l'annexe C, plus un champ libre non compilé. Les 8 mesures ne sont alors jugées que par les clés compilées — l'exercice le plus méta du produit devient mécanique. Le contre-exemple est le cœur pédagogique : **il viole un trait présumé et reste western**, ce qui sépare le trait du cliché. Et la distillation vit de la LARGEUR : 20 minutes par pièce, pas deux heures — une fiche de 30 lignes est un inventaire, pas un outil. *La fiche que personne n'a écrite, testée en composant.*"
+}

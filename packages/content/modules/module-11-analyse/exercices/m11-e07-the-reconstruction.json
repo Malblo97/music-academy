@@ -1,0 +1,76 @@
+{
+  "id": "m11-e07-the-reconstruction",
+  "lessonId": "m11-l07-reverse-engineering",
+  "title": "La reconstruction",
+  "kind": "ANALYSIS",
+  "difficulty": 7,
+  "xpReward": 150,
+  "skills": { "EAR_TRAINING": 0.4, "ORCHESTRATION": 0.2, "HARMONY": 0.2, "DAW_WORKFLOW": 0.2 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "pool": "medium",
+  "styleProfile": { "id": "romantic-film", "targetMood": "default", "ruleWeights": {} },
+  "rubric": { "correctness": 40, "constraints": 35, "craft": 25 },
+  "spec": {
+    "version": 1,
+    "prompt": "L'exercice-roi de la formation des compositeurs de film, celui que tous les professionnels ont pratiqué, souvent en secret : reconstruire à l'oreille. L'analyse écrite peut mentir — on croit avoir compris, on a décrit. La reconstruction ne mente pas. L'extrait : 16 mesures d'une pièce générée riche (4 couches — thème, contrechant, tapis, basse), niveau MAQUETTE. Le protocole : (1) L'ANALYSE PRÉALABLE soumise AVANT d'ouvrir l'éditeur — grille + role-map : l'hypothèse d'abord, on ne reconstruit pas à l'aveugle, la reconstruction EXÉCUTE une analyse, elle ne la remplace pas. (2) LE SOCLE : tempo, grille, puis LA BASSE (le grave se lit en premier, il se reconstruit en premier). (3) LES COUCHES une à une, en boucle courte : écoute 4 mesures / joue / compare / corrige — le ralenti est légal et recommandé, l'oreille lente apprend vite. (4) LA MANIÈRE : articulations, dynamiques, espace — la passe qui sépare « les bonnes notes » de « le même son », et c'est souvent 50 % de l'écart restant. (5) LE VERDICT A/B en alternance courte : l'oreille en comparaison directe entend ce qu'elle pardonne en écoute séparée. Le trésor n'est pas la réussite — c'est la CARTE DE TES ÉCARTS, et son diagnostic : tes erreurs récurrentes désignent le module à revisiter. Rappel éthique, pour la vie : le reverse-engineering est un outil d'apprentissage PRIVÉ — on reconstruit pour comprendre, jamais pour livrer. C'est pourquoi on ne reconstruit ici que le corpus interne.",
+    "corpus": {
+      "pieces": [
+        {
+          "id": "target",
+          "source": "generated",
+          "lengthBars": 16,
+          "calibration": { "layers": 4, "roles": ["melody", "countermelody", "harmony", "bass"], "fidelityLevel": "maquette" }
+        }
+      ],
+      "playback": true,
+      "loopPlayback": true,
+      "slowdown": true,
+      "rollVisible": false
+    },
+    "hypothesisBeforeReveal": true,
+    "reportDeltas": true,
+    "parts": [
+      {
+        "id": "part1-preliminary-analysis",
+        "prompt": "L'analyse AVANT l'éditeur : la grille et la carte des rôles.",
+        "lockEditorUntilSubmitted": true,
+        "annotations": [
+          { "type": "name-chords", "required": true, "verifyAgainst": "detectProgression", "partialCredit": true },
+          { "type": "role-map", "required": true, "verifyAgainst": "rolePlan", "partialCredit": true }
+        ]
+      },
+      {
+        "id": "part2-reconstruction",
+        "prompt": "La maquette en Part[] : le socle d'abord, les couches une à une, puis la manière.",
+        "kind": "ORCHESTRATE",
+        "constraints": {
+          "lengthBars": [16, 16],
+          "format": "Part[]",
+          "pool": "medium",
+          "fidelityLevel": "maquette",
+          "buildOrderAdvised": ["tempo", "grid", "bass", "harmony", "melody", "countermelody", "manner"],
+          "reconstructionDelta": {
+            "perLayer": true,
+            "melodyMinMatch": 0.9,
+            "bassMinMatch": 0.8,
+            "innerVoicesCreditedByProximity": true,
+            "compareRegisters": true,
+            "compareDurations": true
+          },
+          "mannerCompared": { "articulations": true, "dynamics": true, "space": true }
+        },
+        "rubric": { "correctness": 45, "constraints": 35, "craft": 20 }
+      }
+    ],
+    "constraints": {
+      "abVerdictRequired": { "alternationBars": 4, "declared": true },
+      "errorMap": {
+        "required": true,
+        "families": ["harmonic-inner-voices", "registers", "manner", "rhythm"],
+        "producesDiagnosis": true,
+        "suggestModulesToRevisit": true
+      }
+    }
+  }
+}

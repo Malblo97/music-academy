@@ -1,0 +1,27 @@
+{
+  "exerciseId": "m11-e03-the-diagnosis",
+  "payload": {
+    "extract-1": {
+      "system": "fonctionnel à emprunts",
+      "annotations": ["QCM système", "name-functions aux charnières", "iv emprunté pointé", "subV pointé"],
+      "notationLanguage": "roman-degrees"
+    },
+    "extract-2": {
+      "system": "modal",
+      "annotations": ["piliers", "cadence dorienne"],
+      "notationLanguage": "pillars-and-mode"
+    },
+    "extract-3": {
+      "system": "non-fonctionnel",
+      "annotation": "collection : octatonique ; geste : rotation",
+      "notationLanguage": "collection-and-gesture",
+      "note": "requireCollection employé en sens inverse — le checker devenu détecteur"
+    },
+    "extract-4": {
+      "system": "switching",
+      "boundary": "pointée à ±0 mesure",
+      "note": "la couture est dans la recette"
+    }
+  },
+  "authorNotes": "L'erreur universelle est évitée par construction : **le système d'abord, le chiffrage ensuite** — chiffrer accord par accord produit une liste juste qui ne comprend rien. Les trois questions à l'oreille tranchent (la sensible tire-t-elle ? un centre sans aimant ? ni l'un ni l'autre ?), et le système dicte le LANGAGE : chiffrer du planing en degrés fonctionnels est un contresens, et `notationLanguageMatchesSystem` le pénalise — le respect d'objet vaut à l'analyse comme à la composition. L'extrait 4 est le vrai test : les frontières de système sont des **événements dramatiques**, et celle-ci est plantée dans la recette, donc vérifiable à la mesure près."
+}

@@ -1,0 +1,24 @@
+{
+  "exerciseId": "m11-e08-the-inquiry",
+  "payload": {
+    "corpus": "G-08 — 3 min, 4 sections, bascule de système, thème à 3 vies, crescendo multi-moteurs",
+    "part1-free-inquiry": {
+      "zooms": ["LE moment", "charnière 1", "charnière 2"],
+      "note": "le choix des zooms est noté — ils tombent sur le moment et les deux charnières",
+      "annotations": "≥ 6, choix libre dans le kit, vérifiées contre generationTruth"
+    },
+    "part2-one-page": {
+      "fields": ["l'œuvre en 3 phrases", "la forme", "le système et ses bascules", "le thème et ses vies", "la fabrication du sommet", "2 procédés à voler", "1 absence signifiante"],
+      "concordance": "champ par champ ✓"
+    },
+    "part3-legal-theft": {
+      "procedure": "la fausse décrue (identifiée en part 2)",
+      "lengthBars": 8,
+      "contextDelta": { "keyChanged": true, "tempoChanged": true, "instrumentationChanged": true },
+      "procedurePresent": "tagué ✓",
+      "sourceMaterialAbsent": "findMotifs contre la source : zéro occurrence ✓"
+    },
+    "exitDiagnosis": { "consolidatesFrom": "e01 → e08", "outputs": ["strong-families", "recurrent-gaps", "modules-to-revisit"] }
+  },
+  "authorNotes": "La liberté est le test : tout le kit est disponible, et **le choix des zooms est noté** — zoomer sur LE moment et les charnières, c'est la méthode ; zoomer au hasard, c'est la leçon 1 à revoir. La synthèse d'une page est le format professionnel, celui qu'on rend à un réalisateur ou qu'on garde en cahier : sept champs, dont le plus révélateur est **l'absence signifiante** — ce qui n'est pas là et qui compte. Et le vol légal clôt le module en une vérification double : le procédé PRÉSENT par les tags, le matériau original ABSENT par `findMotifs` à zéro occurrence. **On vole des procédés, jamais des notes.** XP 350, badge, et le diagnostic de sortie consolide les sept exercices précédents en trois sorties : ce qui est solide, ce qui manque, ce qu'il faut revisiter."
+}

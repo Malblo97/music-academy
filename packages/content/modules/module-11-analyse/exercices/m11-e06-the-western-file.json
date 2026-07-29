@@ -1,0 +1,92 @@
+{
+  "id": "m11-e06-the-western-file",
+  "lessonId": "m11-l06-fiche-genre",
+  "title": "La fiche western",
+  "kind": "ANALYSIS",
+  "difficulty": 7,
+  "xpReward": 140,
+  "skills": { "EAR_TRAINING": 0.3, "HARMONY": 0.3, "ORCHESTRATION": 0.2, "MELODY": 0.2 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "epic-film", "targetMood": "wonder", "ruleWeights": {} },
+  "rubric": { "correctness": 30, "constraints": 40, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "Le genre absent de M9, exprès : le WESTERN. Personne ne t'a écrit cette fiche — écris-la. Le corpus fourni : 5 pièces contrastées du genre, dont UN contre-exemple glissé (il viole un trait présumé et reste pourtant western : les contre-exemples sont les meilleurs professeurs — ils séparent le trait du cliché). Le protocole : (1) L'ANALYSE EN SÉRIE, en mode RAPIDE — la grille courte (système harmonique, 3 détecteurs entendus, l'instrumentation en cinq lignes, 2 gestes de temps) : 20 minutes par pièce, pas 2 heures. La distillation vit de la LARGEUR, pas de la profondeur. (2) LA TABLE DES RÉCURRENCES : ce qui revient dans ≥ 4 pièces sur 5 est un trait du genre ; dans 2, un choix d'auteur ; une seule fois, une idée (à voler pour toi, pas à mettre dans la fiche). (3) LA FICHE au gabarit de M9 — désormais TON gabarit — et ≤ 10 traits : pour chaque candidat, la question « si je l'enlève, le genre tient-il ? ». Une fiche de 30 lignes est un inventaire, pas un outil. (4) LE TEST, et c'est ici que le produit fait quelque chose d'inédit : le moteur COMPILE tes traits déclarés en contraintes, et juge tes 8 mesures contre TA PROPRE FICHE. Si elles sonnent western, la fiche opère. Sinon, retourne à la table : le trait décisif manque — souvent un détail de production ou de tempo que l'analyse « notes » a raté.",
+    "corpus": {
+      "pieces": [
+        { "id": "w1", "source": "generated", "calibration": { "genre": "western", "variant": "epic-wide" } },
+        { "id": "w2", "source": "generated", "calibration": { "genre": "western", "variant": "melancholic-harmonica" } },
+        { "id": "w3", "source": "generated", "calibration": { "genre": "western", "variant": "trot-driven" } },
+        { "id": "w4", "source": "generated", "calibration": { "genre": "western", "variant": "counter-example", "violatedTrait": "dotted-trot" } },
+        { "id": "w5", "source": "generated", "calibration": { "genre": "western", "variant": "modal-mixolydian" } }
+      ],
+      "genreTruth": {
+        "traits": ["open-fifths", "mixolydian-modality", "dotted-trot-rhythm", "harmonica-flute-timbre", "wide-voicings-space", "slow-harmonic-rhythm", "pentatonic-melody", "solo-exposed-timbre"]
+      },
+      "playback": true,
+      "slowdown": true,
+      "rollVisible": true
+    },
+    "hypothesisBeforeReveal": true,
+    "reportDeltas": true,
+    "annotations": [
+      {
+        "type": "identify-idioms",
+        "required": true,
+        "onAllPieces": true,
+        "mode": "short-grid",
+        "fields": ["harmonic-system", "three-detectors", "five-lines-instrumentation", "two-time-gestures"],
+        "verifyAgainst": ["tags", "solutionTruth"],
+        "partialCredit": true,
+        "lightweight": true
+      }
+    ],
+    "parts": [
+      {
+        "id": "part1-distillation",
+        "prompt": "L'analyse en série et la table des récurrences.",
+        "constraints": {
+          "seriesAnalysis": { "piecesCount": 5, "shortGridRequired": true, "maxMinutesPerPieceAdvised": 20 },
+          "recurrenceTable": {
+            "required": true,
+            "columns": ["trait", "piecesPresentIn", "verdict"],
+            "verdicts": ["genre-trait", "author-choice", "single-idea"],
+            "thresholdGenreTrait": 4
+          },
+          "counterExampleIdentified": { "expectedPiece": "w4", "violatedTraitNamed": true }
+        }
+      },
+      {
+        "id": "part2-file",
+        "prompt": "La fiche : le gabarit M9, ≤ 10 traits, chacun passé au test du retrait.",
+        "constraints": {
+          "genreFile": {
+            "required": true,
+            "template": "m09-genre-sheet",
+            "sections": ["core-emotion", "harmonic-grammar", "instrumentation-cut", "time-gestures", "traps"],
+            "maxTraits": 10,
+            "removalTestPerTrait": true
+          }
+        }
+      },
+      {
+        "id": "part3-test",
+        "prompt": "8 mesures composées AVEC ta fiche — jugées par les contraintes que ta fiche déclare.",
+        "kind": "MELODY_COMPOSE",
+        "constraints": {
+          "lengthBars": [8, 8],
+          "genreFileCompiled": {
+            "source": "part2-file",
+            "compileTraitsToConstraints": true,
+            "judgedAgainstOwnFile": true
+          }
+        },
+        "rubric": { "correctness": 30, "constraints": 40, "craft": 30 }
+      }
+    ],
+    "constraints": {
+      "finalConfrontation": { "againstGenreTruth": true, "reportMissedTraits": true }
+    }
+  }
+}

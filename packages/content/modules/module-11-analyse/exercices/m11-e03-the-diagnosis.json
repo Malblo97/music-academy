@@ -1,0 +1,90 @@
+{
+  "id": "m11-e03-the-diagnosis",
+  "lessonId": "m11-l03-analyser-harmonie",
+  "title": "Le diagnostic",
+  "kind": "ANALYSIS",
+  "difficulty": 5,
+  "xpReward": 100,
+  "skills": { "HARMONY": 0.7, "EAR_TRAINING": 0.3 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "classical-common", "ruleWeights": {} },
+  "rubric": { "correctness": 45, "constraints": 35, "craft": 20 },
+  "spec": {
+    "version": 1,
+    "prompt": "Quatre extraits, et l'erreur universelle à ne pas commettre : ne chiffre PAS accord par accord — tu produirais une liste juste qui ne comprend rien. Le SYSTÈME d'abord, par les trois questions à l'oreille : la sensible tire-t-elle (les fins de phrases, l'aimant V→I qui ferme) ? un centre sans aimant (la musique qui revient sans y être forcée) ? ni centre ni aimant (les accords qui valent par leur sonorité et leur geste) ? Le système dicte ensuite QUELLES questions poser — et dans quel langage chiffrer : chiffrer du planing en degrés fonctionnels est un contresens (le respect d'objet vaut à l'analyse). Extrait 1 : fonctionnel à emprunts (le iv et le subV à pointer — le détecteur n° 1 du film, ce sourire qui se voile). Extrait 2 : modal (les piliers, la cadence de remplacement). Extrait 3 : non-fonctionnel (nomme la collection, nomme le geste). Extrait 4, le vrai test : un cue qui CHANGE de système à mi-course — la frontière à pointer, car les frontières de système sont des événements dramatiques. Et le doute se note comme doute : l'honnêteté du diagnostic vaut mieux que la fausse précision.",
+    "corpus": {
+      "pieces": [
+        { "id": "extract-1", "source": "generated", "calibration": { "system": "functional", "idioms": ["borrowed-iv", "tritone-sub"] } },
+        { "id": "extract-2", "source": "generated", "calibration": { "system": "modal", "mode": "dorian", "pillars": true } },
+        { "id": "extract-3", "source": "generated", "calibration": { "system": "non-functional", "gesture": "planing", "collection": "whole-tone" } },
+        { "id": "extract-4", "source": "generated", "calibration": { "system": "switching", "from": "modal", "to": "functional", "switchBar": 9 } }
+      ],
+      "playback": true,
+      "slowdown": true,
+      "rollVisible": true
+    },
+    "hypothesisBeforeReveal": true,
+    "reportDeltas": true,
+    "annotations": [
+      {
+        "type": "name-functions",
+        "required": true,
+        "onPiece": "extract-1",
+        "verifyAgainst": "functionOf",
+        "partialCredit": true,
+        "hingesOnly": true
+      },
+      {
+        "type": "identify-idioms",
+        "required": true,
+        "onPiece": "extract-1",
+        "expectedTags": ["borrowed-iv", "tritone-sub"],
+        "verifyAgainst": "tags",
+        "partialCredit": true
+      },
+      {
+        "type": "identify-idioms",
+        "required": true,
+        "onPiece": "extract-2",
+        "expectedTags": ["modal-pillars", "modal-cadence"],
+        "verifyAgainst": "tags",
+        "partialCredit": true
+      },
+      {
+        "type": "identify-idioms",
+        "required": true,
+        "onPiece": "extract-3",
+        "expectedTags": ["planing", "whole-tone"],
+        "verifyAgainst": ["tags", "detectCollection"],
+        "partialCredit": true
+      },
+      {
+        "type": "label-segments",
+        "required": true,
+        "onPiece": "extract-4",
+        "scope": "system-boundary",
+        "verifyAgainst": "solutionTruth",
+        "boundaryToleranceBars": 1
+      }
+    ],
+    "constraints": {
+      "systemDiagnosis": {
+        "required": true,
+        "perPiece": true,
+        "questions": ["leading-tone-pulls", "center-without-magnet", "neither"],
+        "argued": true,
+        "interaction": "mc"
+      },
+      "notationLanguageMatchesSystem": {
+        "functional": "roman-degrees",
+        "modal": "pillars-and-mode",
+        "non-functional": "collection-and-gesture",
+        "penalizeMismatch": true
+      },
+      "chiffrageEconomy": { "hingesOnly": true, "descriptionForTheRest": true },
+      "allowAmbiguousFlag": true,
+      "doubtCredited": true
+    }
+  }
+}

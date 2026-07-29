@@ -1,0 +1,18 @@
+{
+  "exerciseId": "m11-e07-the-reconstruction",
+  "payload": {
+    "corpus": "G-07 — 16 mesures, 4 couches (thème, contrechant, tapis, basse), niveau maquette",
+    "part1-preliminary-analysis": {
+      "submittedBeforeEditor": true,
+      "annotations": ["name-chords", "role-map"],
+      "note": "lockEditorUntilSubmitted — l'hypothèse verrouillée"
+    },
+    "part2-reconstruction": {
+      "reference": "le MIDI de référence lui-même",
+      "reconstructionDelta": { "global": 1.0, "note": "le plafond ; seuils élève : mélodie ≥ 0,9, basse ≥ 0,8, voix internes par proximité" },
+      "buildOrder": ["tempo", "grid", "bass", "harmony", "melody", "countermelody", "manner"]
+    },
+    "errorMap": { "content": "vide — le gabarit de rapport calibré sur les deux bornes (0 % et 100 %)" }
+  },
+  "authorNotes": "« L'analyse écrite peut mentir — on croit avoir compris, on a décrit. **La reconstruction ne mente pas.** » L'étalon est ici tautologique et c'est voulu : la maquette de référence EST la cible, différentiel 100 % — sa fonction n'est pas de montrer une bonne réponse mais de **calibrer le gabarit de rapport sur ses deux bornes**, la carte des écarts vide d'un côté, saturée de l'autre. Deux mécaniques méritent leur mention : l'éditeur verrouillé jusqu'à soumission de l'hypothèse (la reconstruction EXÉCUTE une analyse, elle ne la remplace pas) et la passe « manière » — articulations, dynamiques, espace : souvent 50 % de l'écart restant, et ce qui sépare « les bonnes notes » de « le même son ». Rappel éthique porté par la spec : le reverse-engineering est un outil d'apprentissage **privé** — c'est pourquoi on ne reconstruit que le corpus interne."
+}

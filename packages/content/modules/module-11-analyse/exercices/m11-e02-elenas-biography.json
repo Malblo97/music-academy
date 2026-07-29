@@ -1,0 +1,65 @@
+{
+  "id": "m11-e02-elenas-biography",
+  "lessonId": "m11-l02-analyser-theme",
+  "title": "La biographie d'Elena",
+  "kind": "ANALYSIS",
+  "difficulty": 5,
+  "xpReward": 100,
+  "skills": { "MELODY": 0.7, "EAR_TRAINING": 0.3 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "romantic-film", "targetMood": "noble-melancholy", "ruleWeights": {} },
+  "rubric": { "correctness": 40, "constraints": 35, "craft": 25 },
+  "spec": {
+    "version": 1,
+    "prompt": "Le cue « Elena » complet (la solution de référence de m07-e10 : 48 mesures, le thème et toutes ses vies composés en M7) — écris sa BIOGRAPHIE. D'abord l'IDENTITÉ : isole la cellule (fredonne le thème, garde ce qui survit), sépare les trois couches (l'intervalle-signature — la quarte dit l'appel, la sixte mineure l'élan douloureux ; l'archétype rythmique ; l'ancrage). Puis les VIES : pointe chaque occurrence, et pour chacune remplis les cinq colonnes — transformation / harmonie DESSOUS / porteur / ce que dit la scène. Les deux colonnes que les débutants oublient sont les deux transformations REINES du cinéma : la réharmonisation (même mélodie, autre monde — le détecteur d'état dramatique le plus fin) et le changement de porteur (qui porte le thème = où en est le personnage : le tutti puis le violon seul, c'est la chute). Enfin le RÉGIME : étiquette, récit ou tissu de motifs ? — argumente. Tu analyses une œuvre dont le produit possède l'intention.",
+    "corpus": { "pieceId": "m07-e10-elena-solution", "playback": true, "slowdown": true, "rollVisible": true, "partsVisible": true },
+    "hypothesisBeforeReveal": true,
+    "reportDeltas": true,
+    "annotations": [
+      {
+        "type": "mark-occurrences",
+        "required": true,
+        "verifyAgainst": "findMotifs",
+        "partialCredit": true,
+        "creditByTransformationType": true,
+        "transformationTypes": ["exact", "transposition", "rhythmic-variation", "augmentation", "diminution", "fragmentation", "inversion"]
+      },
+      {
+        "type": "name-chords",
+        "required": true,
+        "scope": "under-each-occurrence",
+        "verifyAgainst": "detectProgression",
+        "partialCredit": true
+      },
+      {
+        "type": "role-map",
+        "required": true,
+        "scope": "carrier-per-occurrence",
+        "verifyAgainst": "rolePlan",
+        "partialCredit": true
+      }
+    ],
+    "constraints": {
+      "identityAnalysis": {
+        "cellDeclared": true,
+        "cellSizeExpected": [2, 5],
+        "threeLayersDeclared": ["intervallic-signature", "rhythmic-archetype", "anchoring"],
+        "verifyAgainst": "solutionTruth"
+      },
+      "biographyTable": {
+        "required": true,
+        "columns": ["occurrence", "timecode", "transformation", "harmony", "carrier", "scene"],
+        "minRows": 5,
+        "sceneColumnMandatory": true
+      },
+      "regimeDiagnosis": {
+        "required": true,
+        "options": ["theme-label", "theme-narrative", "motif-fabric"],
+        "expected": "theme-narrative",
+        "argued": true
+      },
+      "developabilityTest": { "required": true }
+    }
+  }
+}
