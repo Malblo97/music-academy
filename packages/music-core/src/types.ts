@@ -4,6 +4,13 @@ export const TICKS: Record<string, number> = { w: 1920, h: 960, q: 480, e: 240, 
 /** Représentation unique du mètre côté moteur : [numérateur, dénominateur] (F-52 §5). */
 export type Meter = [number, number];
 
+/**
+ * Ionien = major, éolien = minor (les deux noms usuels du cursus, l07 M1) —
+ * pas de doublon 'ionian'/'aeolian' : `estimateKey` ne les produit jamais,
+ * seuls les 5 modes exotiques sont ré-étiquetés par F-19 (§S2.J1).
+ */
+export type Mode = 'major' | 'minor' | 'dorian' | 'phrygian' | 'lydian' | 'mixolydian' | 'locrian';
+
 export interface Note {
   pitch: number; start: number; duration: number; velocity?: number;
   /**

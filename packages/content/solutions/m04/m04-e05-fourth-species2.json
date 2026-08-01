@@ -1,7 +1,0 @@
-{
-  "exerciseId": "m04-e05-fourth-species",
-  "partId": "chain",
-  "notation": "r:h F4:h~ | F4:h E4:h~ | E4:h D4:h~ | D4:h C#4:h~ | D4:w",
-  "payload": { "cf": "m04-cf-marches (A3:w G3:w F3:w E3:w D3:w)", "cfPosition": "above", "chainPattern": "7-6" },
-  "authorNotes": "**7-6 · 7-6 · 7-6** sur les marches descendantes, ficta au dernier maillon — la voix descend l'escalier en retardant chaque marche. « Ton lamento est réglementaire » : la phrase de la spec, générée. Le rapport nomme la filiation : la chaîne = le moteur du lament (m02-l05, silhouette « chute »). Erratum consigné : le CF de la spec §50 porte 4 notes (F4 E4 D4 C4) ; la solution et la banque §67 en portent 5 — 3 maillons exigent 5 marches."
-}

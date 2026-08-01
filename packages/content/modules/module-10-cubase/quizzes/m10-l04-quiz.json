@@ -6,7 +6,7 @@
   { "q": "Les cinq formes de CC1 :",
     "options": ["montée, descente, plateau, dents de scie, carré", "l'arche de note, l'arche de phrase, le crescendo ciblé, le sfz-creux, le niente", "il n'y a pas de formes : on joue"],
     "answer": "l'arche de note, l'arche de phrase, le crescendo ciblé, le sfz-creux, le niente",
-    "why": "Le vocabulaire de la molette (§3) : AUCUNE tenue plate — l'arche de note partout, et le niente offre à tout le monde l'entrée invisible de la clarinette (m05-l08)." },
+    "why": "Le vocabulaire de la molette (§3) : AUCUNE tenue plate — l'arche de note partout, et le niente offre à tout le monde l'entrée invisible de la clarinette (m05-l12)." },
   { "q": "▶ Deux fois la même phrase de cor. Le premier rendu :",
     "playAsset": "asset:m10-l04-ab-horn-cc (A : CC1 constant · B : arches de note + arche de phrase)",
     "options": ["est plus puissant", "est un ORGUE — la note longue sans vie (le mensonge n° 1 du piano, m07-l09)", "est identique au second"],

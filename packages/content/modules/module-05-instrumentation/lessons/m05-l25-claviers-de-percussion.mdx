@@ -1,0 +1,66 @@
+---
+id: m05-l25-claviers-de-percussion
+module: module-05-instrumentation
+title: "Les claviers de percussion : le glockenspiel, le xylophone, le vibraphone et le marimba"
+estimatedMinutes: 30
+skills: { orchestration: 1.0 }
+---
+
+### Carte d'identité comparée
+
+| | Glockenspiel | Xylophone | Vibraphone | Marimba |
+|---|---|---|---|---|
+| Matière | acier | bois | aluminium + moteur | bois + résonateurs longs |
+| Tessiture réelle | `G5`–`C8` | `C5`–`C8` | `F3`–`F6` | `C2`–`C7` |
+| Transposition | écrit 2 octaves plus bas | écrit 1 octave plus bas | sons réels | sons réels |
+| Résonance | longue, non contrôlable | **nulle** (sec) | longue, **pédale** | moyenne, chaude |
+| Puissance | ff 8/10 (perce) | ff 7/10 (claque) | ff 5/10 | ff 4/10 (grave : 2/10) |
+| Archétype | l'éclat, la magie dure | le squelette, le mécanique | le jazz, le rêve froid | le bois, l'organique, l'Afrique |
+
+Tous se jouent à 2 mailloches (lignes, octaves) ou 4 (accords, roulements) — au-delà de 4 sons simultanés, c'est deux instrumentistes.
+
+### Comment choisir : la question de la résonance
+
+C'est le seul critère qui compte vraiment.
+
+```
+SEC ──────────────────────────────────► RÉSONANT
+xylophone   glockenspiel   marimba   vibraphone
+(rien)      (longue, non   (moyenne, (longue, ET
+            contrôlable)   chaude)   contrôlable)
+```
+
+Le **xylophone** ne laisse rien derrière lui : c'est de l'articulation pure, du rythme à hauteur définie. Le **glockenspiel** sonne longtemps et tu n'y peux rien : chaque note s'empile sur la précédente, donc écris peu de notes. Le **marimba** a la chaleur du bois avec de la résonance : c'est le seul des quatre qui puisse faire un tapis. Le **vibraphone** est le seul avec une pédale d'étouffoir : il phrase, il lie, il respire — c'est le plus « musical » des quatre, et le seul avec un moteur (les ailettes qui tournent créent le vibrato ; **moteur off** est un choix légitime et souvent meilleur).
+
+### Rôles par instrument
+
+| Instrument | Rôle n° 1 | Autres emplois |
+|---|---|---|
+| Glockenspiel | doubler la mélodie aiguë au sommet d'un tutti : l'éclat ajouté | ponctuation magique, motif d'enfance, le carillon militaire |
+| Xylophone | l'articulation rythmique : doubler un trait de bois ou de cordes pour le rendre net | le macabre (os qui s'entrechoquent), le mécanique, le comique |
+| Vibraphone | la couleur jazz/noir : accords tenus, mélodie liée, pédale | le rêve, le flou hybride (M6), le liant froid |
+| Marimba | l'ostinato chaud : cellules répétées médium, roulements | le tapis organique, la basse boisée, le solo lyrique |
+
+### Associations
+
+Glockenspiel + célesta (l22) = la magie doublée, mais dose le glock (il écrase le célesta) ; glockenspiel + piccolo + triangle = le sommet scintillant du tutti ; xylophone + pizzicati de cordes + bassons staccato = l'attelage grotesque classique ; vibraphone + piano feutré + cordes en sourdine = le néo-noir (m09-l03) ; marimba + clarinette basse = l'ostinato sombre et organique ; marimba + harpe = deux résonances qui se marient bien, contre toute attente.
+
+### Erreurs fréquentes (détectées)
+
+| Erreur | Règle |
+|---|---|
+| Confondre les quatre | `orch.mallet-choice` — la résonance décide, pas la brillance |
+| Écriture dense au glockenspiel | pas d'étouffoir : dix notes rapides = une bouillie métallique. Écris peu, écris haut, écris fort |
+| Attendre du legato au xylophone | il n'a aucune résonance : le legato n'existe pas, seul le trémolo simule une tenue |
+| Ignorer la pédale du vibraphone | c'est son outil unique : indique `ped.` / `senza ped.` comme tu indiques un archet |
+| Moteur du vibraphone par défaut | `orch.mallet-choice` — précise la vitesse ou demande le moteur arrêté |
+| Attendre de la puissance du marimba grave | `orch.balance` — 2/10 dans le bas : superbe et fragile, il faut du silence autour |
+| Accords de plus de 4 sons | quatre mailloches maximum par instrumentiste |
+| Oublier de compter les joueurs | un percussionniste = un instrument à la fois (voir l26) |
+
+- [ ] La résonance décide : xylophone (rien) → vibraphone (tout, contrôlable)
+- [ ] Glockenspiel : peu de notes, haut, fort — il n'a pas d'étouffoir
+- [ ] Vibraphone = pédale + moteur : deux paramètres à écrire
+- [ ] Marimba = le seul qui fasse un tapis chaud, et il est fragile dans le grave
+
+<QuizBlock id="m05-l25-quiz" questions={5} />

@@ -6,7 +6,7 @@
   { "q": "La checklist anti-mensonges du piano couvre :",
     "options": ["les tenues, la densité, le grave, la dynamique-timbre et les arpèges de pédale", "le tempo, la tonalité et l'armure", "les erreurs de doigté"],
     "answer": "les tenues, la densité, le grave, la dynamique-timbre et les arpèges de pédale",
-    "why": "Elle solde m05-l10 (§2) : dix notes pianistiques deviennent quatre voix étagées plus des doublures choisies — la RÉDUCTION est la traduction, pas l'inverse." },
+    "why": "Elle solde m05-l21 (§2) : dix notes pianistiques deviennent quatre voix étagées plus des doublures choisies — la RÉDUCTION est la traduction, pas l'inverse." },
   { "q": "▶ L'arpège de pédale de l'esquisse, traduit en tapis tenu. Verdict ?",
     "playAsset": "asset:m07-l09-ab-arpeggio (A : arpège recopié aux cordes · B : traduit en tapis tenu)",
     "options": ["c'est une erreur : il fallait garder l'arpège", "CHOIX VALIDE — l'arpège se traduit en rôle (tapis ou moteur), jamais en notes recopiées", "les deux versions sont équivalentes"],

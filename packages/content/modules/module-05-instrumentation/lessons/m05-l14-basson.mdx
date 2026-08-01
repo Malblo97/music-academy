@@ -1,0 +1,69 @@
+---
+id: m05-l14-basson
+module: module-05-instrumentation
+title: "Le basson"
+estMinutes: 30
+skills: { orchestration: 1.0 }
+---
+
+### Carte d'identité
+
+| Propriété | Valeur |
+|---|---|
+| Tessiture | `Bb1`–`Eb5` (praticable serein `Bb1`–`C5`) |
+| Sweet spot | `G2`–`G4` |
+| Agilité | 7/10 — remarquable en staccato, plus lourd en legato rapide |
+| Tenue | bonne ; il consomme beaucoup d'air dans le grave |
+| Puissance | pp 2/10 → ff 6/10 |
+
+### Pourquoi irremplaçable
+
+Le basson est le **ténor et la basse des bois en une seule personne**, et il a deux visages qu'aucun autre instrument ne réunit. En notes liées, médium, c'est la voix la plus humaine des bois après le hautbois : grave, un peu voilée, poignante — la voix du vieil homme, de la dignité fatiguée, de la confidence. En staccato, c'est le pitre officiel de l'orchestre : sec, rebondissant, comique, et à un cheveu du macabre (le même détaché qui fait rire fait peur si on baisse la lumière).
+
+Il est aussi le **liant du grave** : il colle aux cors, aux violoncelles, aux clarinettes. Sans bassons, la famille des bois n'a pas de fondations.
+
+### Couleur par registre
+
+```
+Bb1 ─────── G2 ─────────── G4 ────── C5 ── Eb5
+│  GRAVE    │    MÉDIUM     │  AIGU   │EXTRÊME│
+│ râpeux,   │ voilé, humain,│ pincé,  │ étran-│
+│ sombre,   │ chantant —    │ étranglé,│ glé, │
+│ puissant, │ LE basson     │ intense │ effet │
+│ un peu    │ (90 % du rôle)│ (voulu) │ pur   │
+│ « grognon »│              │         │       │
+```
+
+L'aigu du basson n'est pas un défaut à éviter : c'est la tension incarnée — une voix qui force. L'ouverture la plus célèbre du XXe siècle est un basson en haut de sa tessiture, et elle sonne exactement comme quelque chose qui ne devrait pas parler.
+
+### Rôles
+
+| Rôle | Écriture |
+|---|---|
+| Basse des bois (n° 1) | fondamentales et lignes graves, p–mf : le socle de la famille |
+| Chant ténor | mélodie `G2`–`G4` liée, exposée : la confidence, la dignité |
+| Le détaché comique/macabre | staccato rapide, sauts d'octave : le pitre ou le squelette |
+| Contrechant grave | réponse sombre sous les violons, souvent doublé aux violoncelles |
+| Liant harmonique | tenues médium sous les cors : le fondu total (voir l17) |
+| L'aigu de tension | mélodie au-dessus de `A4`, exposée : le cri contenu |
+
+### Associations
+
+Bassons + cors = fondu total du médium-grave (la doublure discrète par excellence) ; + violoncelles = le grave boisé et charnu ; + clarinettes = la famille complète, choral doux ; + contrebasson à l'octave (l15) = la basse des bois définitive ; deux bassons en tierces = le duo pastoral-grotesque, un classique.
+
+### Erreurs fréquentes (détectées)
+
+| Erreur | Règle |
+|---|---|
+| Le cantonner à la basse | `orch.role-coverage` — c'est un soliste que tu utilises comme un tuyau |
+| Legato rapide et chromatique | `orch.agility` — le doigté du basson est le plus tordu de l'orchestre : le staccato passe, le legato virtuose non |
+| Accords serrés dans le grave | `orch.low-interval-limit` — même règle que partout : écarte sous `C3` |
+| Attendre de la puissance en ff exposé | `orch.balance` — 6/10 : il perd contre les cuivres, toujours |
+| Phrases graves interminables | `orch.endurance` — le grave vide un bassoniste vite |
+| Sous `Bb1` | `orch.range-violation` — c'est le territoire du contrebasson |
+
+- [ ] Deux visages : la voix humaine liée, le pitre détaché
+- [ ] `G2`–`G4` = 90 % ; l'aigu est une tension choisie
+- [ ] Basse des bois **et** soliste : ne le réduis pas à un rôle
+
+<QuizBlock id="m05-l14-quiz" questions={5} />

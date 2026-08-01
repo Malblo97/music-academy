@@ -1,0 +1,11 @@
+{ "id": "m10-e10-budget-machine", "lessonId": "m10-l10-render-freeze",
+  "title": "Le budget machine", "kind": "DAW_MISSION", "difficulty": 2, "xpReward": 40,
+  "spec": { "prompt": "Sur ta maquette de e08 : convertis de la flexibilité en ressources — le Freeze pour la pause, le Render pour l'immortalité. La doctrine en acte : MIDI pour composer et prouver, audio pour livrer et durer.",
+    "mission": { "mode": "declarative",
+      "checklist": [
+        { "step": "Jauge CPU/disque relevée AVANT (note le chiffre)", "verifyHint": "Tu ne peux pas mesurer un gain sans point de départ." },
+        { "step": "Identifie les 2 pistes les plus gourmandes (banques à grosses articulations, synthés lourds)", "verifyHint": "Les gourmands d'abord — pas les innocents." },
+        { "step": "Freeze Instrument + Channel sur les deux", "verifyHint": "Jauge APRÈS : combien de % rendus ?" },
+        { "step": "Vérifie la réversibilité : dé-gèle UNE piste, re-gèle", "verifyHint": "Tout revient ? C'est une pause, pas un adieu." },
+        { "step": "Render in Place de la piste cor : mode DRY, option « garder la source » cochée", "verifyHint": "La piste MIDI est-elle mutée (pas supprimée) sous l'audio rendu ?" },
+        { "step": "Écoute A/B : le rendu remplace-t-il l'original à l'identique ?", "verifyHint": "L'audio rendu est la seule immortalité d'un son — le voilà immortel." } ] } } }

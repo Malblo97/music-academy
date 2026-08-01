@@ -1,0 +1,69 @@
+---
+id: m05-l06-harpe
+module: module-05-instrumentation
+title: "La harpe"
+estMinutes: 30
+skills: { orchestration: 1.0 }
+---
+
+### Carte d'identité
+
+| Propriété | Valeur |
+|---|---|
+| Tessiture | `Cb1`–`G#7` (47 cordes ; en pratique raisonne `C1`–`G7`, sons réels) |
+| Sweet spot | `C2`–`C6` |
+| Agilité | 9/10 **dans un accordage donné** — 3/10 dès qu'il faut changer de pédale |
+| Tenue | AUCUNE : la corde décroît (même mensonge que le piano, l21) |
+| Puissance | pp 1/10 → ff 4/10 — le pupitre le plus fragile de l'orchestre |
+
+### Pourquoi irremplaçable
+
+La harpe n'est ni une grosse guitare ni un piano à cordes pincées : c'est une **machine diatonique** qui produit trois choses qu'aucun autre instrument ne fait. Le *glissando* — quarante notes lancées en une seconde puis plus rien. La *résonance arpégée* — l'accord qui se dépose au lieu de sonner. L'*harmonique* — ce son de verre soufflé, une octave au-dessus, qui ne ressemble à rien d'autre. Elle est l'instrument du halo : l'eau, le rêve, la magie, et surtout **la transition** (le geste de harpe qui fait basculer une scène d'un état à un autre coûte une mesure et remplace un montage).
+
+### Le piège des pédales — la section qui compte
+
+```
+  pied gauche        pied droit
+  D   C   B    |    E   F   G   A
+  ↑   ↑   ↑         ↑   ↑   ↑   ↑
+  chaque pédale = 3 positions : ♭  ♮  ♯
+  et elle s'applique à TOUTES les octaves à la fois
+```
+
+Conséquences non négociables : pas de gamme chromatique, pas de `F4` et `F#4` simultanés, pas de modulation instantanée. Un changement de pédale prend du temps (compte une croche à tempo modéré) et **fait du bruit** (le clac de la tringlerie s'entend en pp exposé). Un pied ne bouge qu'une pédale à la fois : deux changements simultanés maximum, un par pied.
+
+En échange, l'enharmonie est ton outil : `C♭` = si, `E♯` = fa. Deux cordes voisines accordées sur la même hauteur permettent la **note répétée rapide** (impossible autrement : une corde qui vibre encore ne se repince pas proprement) et le **bisbigliando**, ce frémissement chuchoté sur deux doigts.
+
+**Glissando** : le réglage des pédales *est* la gamme. Le diatonique (7 sons) est le tout-venant ; la vraie signature, c'est le pentatonique et surtout la **septième diminuée** (4 sons doublés) — le glissando de vertige, celui du basculement narratif. Écris toujours la gamme voulue en toutes lettres au-dessus du trait.
+
+### Rôles
+
+| Rôle | Écriture |
+|---|---|
+| Le geste de bascule (n° 1) | glissando ou arpège montant sur un changement d'harmonie |
+| Arpèges d'accompagnement | figures larges, main gauche/main droite alternées — le tapis liquide |
+| Ponctuation-résonance | accord plaqué p, laissé vibrer sous une tenue de cordes |
+| Basse pincée | notes graves espacées : la marche sombre, la goutte (parenté avec le piano, l21) |
+| Harmoniques | sons de verre, exposés, orchestre quasi muet |
+| Doublure de contour | double la mélodie en notes pincées : donne de l'attaque sans donner du timbre |
+
+### Associations
+
+Harpe + flûte = l'archétype pastoral/aquatique ; + célesta (l22) = la magie au carré (attention : ils se doublent mal, ils se répondent bien) ; + cordes en harmoniques ou sourdines = le halo suspendu ; + pizzicati de cordes = la ponctuation amplifiée ; + piano = méfiance, deux décroissances qui s'annulent, choisis.
+
+### Erreurs fréquentes (détectées)
+
+| Erreur | Règle |
+|---|---|
+| Écriture chromatique ou altération contradictoire dans la même mesure | `orch.harp-pedal` — physiquement injouable, pas « difficile » |
+| Glissando sans gamme spécifiée | `orch.harp-pedal` — le produit ne peut pas deviner l'accordage |
+| Accords de 5 sons et plus par main | `orch.harp-hand` — 4 doigts par main, pas d'auriculaire : 8 sons maximum |
+| Note répétée vite sur la même corde | l'étouffement parasite : passe par l'enharmonie (deux cordes) |
+| ff attendu sous un tutti | `orch.balance` — 4/10 : la harpe se protège, elle ne s'impose jamais |
+| Traiter la résonance comme une tenue | même piège que le piano : elle décroît |
+
+- [ ] Machine diatonique : 7 pédales, 3 positions, toutes les octaves à la fois
+- [ ] L'enharmonie donne la note répétée, le bisbigliando et le glissando pentatonique/dim7
+- [ ] Elle ne force jamais : geste, halo, bascule — jamais volume
+
+<QuizBlock id="m05-l06-quiz" questions={5} />

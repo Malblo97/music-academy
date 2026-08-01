@@ -1,0 +1,64 @@
+{
+  "id": "G-08",
+  "status": "draft-placeholder",
+  "usedBy": ["m11-e08-the-inquiry"],
+  "seed": 800888,
+  "lengthBars": 72,
+  "tempo": 96,
+  "durationSec": 180,
+  "system": { "type": "functional-to-modal-switch", "switchBar": 19, "note": "PLACEHOLDER — tonalité/collection exactes de part et d'autre de la bascule non spécifiées en source" },
+  "form": [
+    { "bars": [1, 18], "label": "S1 — exposition du thème (vie 1)" },
+    { "bars": [19, 36], "label": "S2 — bascule de système", "fuzzyBoundary": false },
+    { "bars": [37, 54], "label": "S3 — thème vie 2 (transformé) + montée à moteurs multiples" },
+    { "bars": [55, 72], "label": "S4 — thème vie 3 + résolution" }
+  ],
+  "motif": {
+    "cell": "PLACEHOLDER — cellule mélodique du thème non spécifiée en source",
+    "plan": [
+      { "bar": 1, "transform": "original (vie 1)" },
+      { "bar": 37, "transform": "transformed (vie 2)" },
+      { "bar": 60, "transform": "augmented (vie 3)" }
+    ]
+  },
+  "tensionPlan": {
+    "engines": ["PLACEHOLDER — non détaillés en source, seul le compte (3) est connu"],
+    "count": 3,
+    "notableDevice": { "id": "false-decrease", "bar": 45, "note": "\"la fausse décrue\" — procédé identifié en part2, transplanté en part3 (vol légal). Position de mesure inventée." }
+  },
+  "rolePlan": "PLACEHOLDER — non spécifié en source",
+  "instrumentation": "PLACEHOLDER — non spécifié en source",
+  "idioms": [
+    { "id": "hinge-1", "bar": 19 },
+    { "id": "hinge-2", "bar": 55 }
+  ],
+  "ambiguousZones": [],
+  "_provenance": {
+    "sources": [
+      "docs/production/s77-generateurEtalonsm11.md §77.2 (m11-s08)",
+      "modules/module-11-analyse/exercises/m11-e08-the-inquiry.json"
+    ],
+    "extracted": [
+      "durationSec : 180 (3 min, spec corpus.pieces[0].durationSec)",
+      "form : 4-sections (spec calibration.form)",
+      "systemSwitch : true (spec calibration.systemSwitch)",
+      "themeLives : 3 (spec calibration.themeLives)",
+      "tensionPlan.multipleEngines/count : 3 (spec calibration.tensionPlan)",
+      "\"la fausse décrue\" comme procédé volable identifié dans l'étalon (§77.2, m11-s08) — un moteur de tension nommé, sans position de mesure donnée",
+      "les 2 charnières (\"les deux charnières\", zooms de l'étalon) + \"LE moment\" comme points de zoom récompensés (§77.2 + spec zoomChoiceScored)"
+    ],
+    "invented": [
+      "seed",
+      "tempo (96, arbitraire ; lengthBars en dérive : 180s à 96 bpm en 4/4 = 72 mesures)",
+      "lengthBars (72, dérivé du tempo inventé ci-dessus)",
+      "system (nature exacte de la bascule, bar de bascule)",
+      "form (bornes exactes des 4 sections)",
+      "motif.cell et motif.plan (positions de mesure)",
+      "tensionPlan.engines (nature des 3 moteurs)",
+      "notableDevice.bar (position de \"la fausse décrue\")",
+      "idioms.bar (position exacte des 2 charnières — le nombre 2 est connu, la position non)",
+      "rolePlan",
+      "instrumentation"
+    ]
+  }
+}

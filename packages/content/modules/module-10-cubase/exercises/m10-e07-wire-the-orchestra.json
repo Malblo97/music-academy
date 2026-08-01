@@ -1,0 +1,16 @@
+{ "id": "m10-e07-wire-the-orchestra", "lessonId": "m10-l07-routing",
+  "title": "L'orchestre câblé", "kind": "DAW_MISSION", "difficulty": 3, "xpReward": 60,
+  "skills": { "DAW_WORKFLOW": 0.8, "ORCHESTRATION": 0.2 },
+  "spec": { "prompt": "Câble ton template Medium selon le schéma de la leçon. Ordre de construction : groupes d'abord, FX ensuite, sends en dernier — la plomberie avant les robinets. Le test de câblage tient en un clic : mute un groupe, TOUTE la famille doit se taire.",
+    "mission": { "mode": "guided",
+      "checklist": [
+        { "step": "GRP Strings : sélection des pistes cordes → Add Group Channel to Selected Channels", "verifyHint": "Mute GRP Strings : TOUTES les cordes se taisent-elles ?" },
+        { "step": "GRP Winds (même geste)", "verifyHint": "Mute : les bois se taisent ?" },
+        { "step": "GRP Brass", "verifyHint": "Mute : cors ET trompettes se taisent ?" },
+        { "step": "GRP Perc", "verifyHint": "Mute : la percussion se tait ?" },
+        { "step": "GRP Orchestra : les 4 groupes-familles routés dedans", "verifyHint": "UN fader baisse tout l'orchestre — et pas les synthés ?" },
+        { "step": "GRP Synths : les synthés routés dedans, HORS d'Orchestra", "verifyHint": "Deux mondes, deux faders — le brief hybride l'exige." },
+        { "step": "FX Reverb Hall (channel partagé) — sends depuis toutes les pistes", "verifyHint": "Solo une piste : la salle s'entend derrière ?" },
+        { "step": "FX Reverb Room (la deuxième profondeur — l08 s'en servira)", "verifyHint": "Deux départs distincts par piste ?" },
+        { "step": "FX Delay — sends ponctuels, synthés surtout", "verifyHint": "Dosé à zéro partout sauf où tu décides ?" },
+        { "step": "Nommage GRP <Famille> + couleurs de famille partout", "verifyHint": "La console se lit-elle comme le rack — comme un conducteur ?" } ] } } }

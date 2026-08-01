@@ -1,0 +1,12 @@
+{ "id": "m10-e08-honest-balance", "lessonId": "m10-l08-mix",
+  "title": "La balance honnête", "kind": "DAW_MISSION", "difficulty": 3, "xpReward": 70,
+  "skills": { "DAW_WORKFLOW": 0.6, "ORCHESTRATION": 0.4 },
+  "spec": { "prompt": "La passe d'équilibrage complète sur ta maquette de e04 (le cor vivant) enrichie de 3 pistes : cordes tenues, sub, percussion. Les 6 étapes de la méthode, dans l'ordre — et la règle d'or au centre : quand la maquette sonne mal, la réponse est presque toujours dans l'ÉCRITURE. Le produit ne peut pas entendre ton mix ; il t'a appris à l'entendre toi-même.",
+    "mission": { "mode": "declarative",
+      "checklist": [
+        { "step": "Tous faders à 0, le tutti le plus dense en boucle", "verifyHint": "Tu juges l'écriture nue, pas un mix hérité." },
+        { "step": "Gain staging : chaque VSTi ramené à des crêtes ~−10 dB piste (le VSTi qu'on baisse, pas le fader)", "verifyHint": "Aucune piste dans le rouge ? Faders proches de 0 ?" },
+        { "step": "Le seating : pans (V1 gauche… Cb fond-droite, cors fond-gauche) + ratios Room/Hall + coupe-haut −2/3 dB > 8 kHz sur le fond", "verifyHint": "Ferme les yeux : l'orchestre a-t-il une géographie ? Les cors ont-ils RECULÉ ?" },
+        { "step": "DEUX MINUTES D'ÉCOUTE EN MONO", "verifyHint": "En mono : le cor reste-t-il lisible sous les cordes ? Sinon, quel registre encombre ?" },
+        { "step": "Correction À L'ÉCRITURE de ce que le mono a révélé ; EQ soustractif SEULEMENT si l'écriture a raison et le timbre a tort (−2/3 dB chirurgicaux ; coupe-bas ~80 Hz sauf celli/Cb/sub)", "verifyHint": "As-tu touché des notes avant de toucher des faders ?" },
+        { "step": "Le limiteur de contrôle sur le master (−1 dB, transparent) — le tutti fff culmine vers −6 dB", "verifyHint": "Le limiteur travaille-t-il à peine ? S'il travaille fort, remonte en amont." } ] } } }

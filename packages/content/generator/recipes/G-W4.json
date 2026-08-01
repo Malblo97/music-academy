@@ -1,0 +1,54 @@
+{
+  "id": "G-W4",
+  "status": "draft-placeholder",
+  "usedBy": ["m11-e06-the-western-file"],
+  "variant": "counter-example",
+  "violatedTrait": "dotted-trot-rhythm",
+  "seed": 900104,
+  "lengthBars": 16,
+  "tempo": 108,
+  "system": { "type": "modal", "collection": "mixolydian" },
+  "form": [
+    { "bars": [1, 16], "label": "grille courte" }
+  ],
+  "motif": {
+    "cell": "PLACEHOLDER — PAS de trot pointé (rythme plat/égal délibéré, c'est le trait violé) ; non noté littéralement en source",
+    "plan": [ { "bar": 1, "transform": "original" } ]
+  },
+  "tensionPlan": { "engines": [], "note": "non exercé — l'étalon m11-e06 juge des grilles courtes, pas une courbe de tension" },
+  "rolePlan": "PLACEHOLDER — non spécifié en source",
+  "instrumentation": "PLACEHOLDER — non spécifié en source",
+  "idioms": [],
+  "ambiguousZones": [],
+  "genreTraits": {
+    "note": "les 8 traits du genreTruth (spec m11-e06). w4 est LE contre-exemple : il viole \"dotted-trot-rhythm\" et reste pourtant western (§77.2, m11-s06 — \"la pièce 4 viole le trot et reste western\", trait descendu à 4/5 sur l'ensemble du corpus).",
+    "traits": {
+      "open-fifths": { "planted": true, "compiledKey": "mustContainInterval [P5, P4]" },
+      "mixolydian-modality": { "planted": true, "compiledKey": "requireCollection" },
+      "dotted-trot-rhythm": { "planted": false, "compiledKey": "prosodyPlan + syncopationTarget", "note": "VIOLÉ EXPRÈS — c'est le contre-exemple pédagogique (F-51)" },
+      "harmonica-flute-timbre": { "planted": true, "compiledKey": null },
+      "wide-voicings-space": { "planted": true, "compiledKey": "contraintes d'ambitus / registre" },
+      "slow-harmonic-rhythm": { "planted": true, "compiledKey": null },
+      "pentatonic-melody": { "planted": true, "compiledKey": null },
+      "solo-exposed-timbre": { "planted": true, "compiledKey": null }
+    }
+  },
+  "_provenance": {
+    "sources": [
+      "docs/production/s77-generateurEtalonsm11.md §77.1 (F-51), §77.2 (m11-s06)",
+      "modules/module-11-analyse/exercises/m11-e06-the-western-file.json",
+      "solutions/m11/m11-e06-the-western-file.json"
+    ],
+    "extracted": [
+      "variant : counter-example, violatedTrait : dotted-trot (spec corpus.pieces[3].calibration)",
+      "verdict-clé : \"la pièce 4 viole le trot et reste western\" (solution part1-distillation.recurrenceTable.keyVerdict)",
+      "genreTraits.traits (liste des 8, spec corpus.genreTruth.traits), dotted-trot-rhythm=false pour w4 uniquement",
+      "compiledKey pour open-fifths / mixolydian-modality / dotted-trot-rhythm / wide-voicings-space (solution part2-file.compiled)"
+    ],
+    "invented": [
+      "seed", "tempo", "lengthBars (16, \"grille courte\")",
+      "motif.cell et motif.plan",
+      "rolePlan", "instrumentation"
+    ]
+  }
+}

@@ -1,0 +1,68 @@
+---
+id: m05-l24-timbales
+module: module-05-instrumentation
+title: "Les timbales"
+estMinutes: 30
+skills: { orchestration: 1.0 }
+---
+
+### Carte d'identité
+
+| Propriété | Valeur |
+|---|---|
+| Tessiture | `D2`–`A3` sur un jeu standard de 4 fûts (voir tableau ci-dessous) |
+| Sweet spot | `F2`–`D3` |
+| Agilité | 7/10 — deux mailloches, donc deux notes maximum simultanées et une vitesse limitée |
+| Tenue | résonance longue, contrôlable (étouffement à la main) |
+| Puissance | pp 1/10 → ff 9/10 — et un impact physique unique |
+
+### Pourquoi irremplaçable
+
+Les timbales sont **les seules percussions à hauteur déterminée du noyau orchestral** — c'est-à-dire le seul instrument qui frappe *et* participe à l'harmonie. Elles font trois choses irremplaçables : elles **fondent** (une tonique de timbale sous un accord donne à tout l'orchestre une assise que la contrebasse seule ne donne pas), elles **ponctuent** (l'accent qui fait sursauter), et elles **construisent** (le roulement avec crescendo est le mécanisme de tension le plus fiable jamais inventé).
+
+Elles sont aussi le pouls dramatique : le cœur qui bat, la marche, l'orage, l'exécution.
+
+### Le jeu de fûts — la contrainte concrète
+
+| Fût | Diamètre | Tessiture |
+|---|---|---|
+| Grave | 32″ | `D2`–`A2` |
+| Médium-grave | 29″ | `F2`–`C3` |
+| Médium-aigu | 26″ | `Bb2`–`F3` |
+| Aigu | 23″ | `D3`–`A3` |
+
+**Un fût = une note à la fois.** Un jeu de 4 fûts donne donc quatre hauteurs disponibles simultanément, pas plus. Toute note supplémentaire exige un **changement d'accord** : le timbalier appuie sur une pédale et vérifie la hauteur à l'oreille. Cela demande du temps (compte deux mesures de silence à tempo modéré, davantage si la salle est bruyante) et un endroit où le glissando de peau ne s'entendra pas.
+
+### Rôles
+
+| Rôle | Écriture |
+|---|---|
+| Assise harmonique (n° 1) | tonique et dominante sur les temps forts : le fondement classique |
+| Le roulement de tension | trémolo avec crescendo vers un point d'arrivée : le mécanisme universel |
+| Ponctuation / accent | note isolée ff : le coup de tonnerre |
+| Le pouls | rythme répété p : le cœur, la marche, la menace qui approche |
+| Le solo rythmique | motif exposé — rare, spectaculaire |
+| Le glissando de pédale | montée ou descente de hauteur pendant un roulement : l'effet moderne (le vertige) |
+
+**Les mailloches changent tout** : feutre dur = attaque nette et sèche ; feutre doux = tonnerre lointain ; bois = claquement brutal. Un changement de mailloches demande aussi quelques mesures. Indique-le.
+
+### Associations
+
+Timbales + contrebasses/violoncelles = l'assise complète (l'impact plus la hauteur) ; + cuivres graves = la puissance solennelle ; + grosse caisse (l26) = attention, deux graves qui se brouillent — décale ou choisis ; + cordes en trémolo = le suspense classique ; timbales seules, pp, sous un silence = un des plus grands effets de l'orchestre.
+
+### Erreurs fréquentes (détectées)
+
+| Erreur | Règle |
+|---|---|
+| Plus de notes que de fûts | `orch.timp-tuning` — quatre hauteurs simultanées maximum |
+| Changement d'accord sans temps | `orch.timp-tuning` — deux mesures minimum, et pas pendant un pp exposé |
+| Écriture chromatique | ce n'est pas un instrument mélodique : tonique, dominante, quelques degrés forts |
+| Oublier l'étouffement | la peau résonne longtemps : écris `étouffez` ou des silences réels, sinon tout se superpose |
+| Roulement permanent | `orch.balance` — le roulement est un mécanisme de tension : utilisé partout, il ne tend plus rien |
+| Frappe ff sous une texture délicate | 9/10 : elles couvrent tout ce qui n'est pas un tutti |
+
+- [ ] Un fût = une note ; quatre fûts = quatre hauteurs ; le reste coûte du temps
+- [ ] Assise, ponctuation, roulement de tension : les trois métiers
+- [ ] Les mailloches sont une orchestration à elles seules
+
+<QuizBlock id="m05-l24-quiz" questions={5} />

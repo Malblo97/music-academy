@@ -1,0 +1,67 @@
+---
+id: m05-l20-tuba
+module: module-05-instrumentation
+title: "Le tuba"
+estMinutes: 30
+skills: { orchestration: 1.0 }
+---
+
+### Carte d'identité
+
+| Propriété | Valeur |
+|---|---|
+| Tessiture | `D1`–`F4` (praticable serein `E1`–`F3`) |
+| Sweet spot | `F1`–`F3` |
+| Agilité | 6/10 — plus leste qu'on ne croit, mais chaque note pèse |
+| Tenue | bonne, MAIS c'est le plus gros consommateur d'air de l'orchestre : respirations obligatoires |
+| Puissance | pp 2/10 → ff 8/10 — une masse, pas un tranchant |
+
+### Pourquoi irremplaçable
+
+Le tuba est le **fondement rond**. Sa fonction première n'est pas d'être entendu : c'est de donner une assise au choral de cuivres, comme la contrebasse en donne une aux cordes. Il enveloppe, il remplit, il légitime tout ce qui est au-dessus. Et — détail que les débutants ignorent — **il n'y en a qu'un** dans l'orchestre. Un seul homme pour porter l'ensemble des cuivres : ménage-le.
+
+Son second visage est un des plus attachants de l'orchestre : le **soliste improbable**. Dans le `F2`–`F3`, exposé, il est étonnamment doux, presque tendre, et un peu pathétique — la lourdeur qui essaie de chanter. C'est le personnage : le géant gentil, le charretier, le monstre triste.
+
+### Couleur par registre
+
+```
+D1 ──────── F1 ─────── F3 ─────── F4
+│  ABYSSAL  │  PROFOND/ │  MÉDIUM-  │
+│ vague,    │  MÉDIUM   │  AIGU     │
+│ lent à    │ rond,     │ chantant, │
+│ parler,   │ plein,    │ tendu,    │
+│ effet     │ LE socle  │ le soliste│
+│           │ (90 %)    │ improbable│
+```
+
+### Rôles
+
+| Rôle | Écriture |
+|---|---|
+| Basse du choral de cuivres (n° 1) | fondamentales sous les trombones, p–ff : l'assise ronde |
+| Doublure des contrebasses / du contrebasson | ajoute du corps sans ajouter d'attaque |
+| Pédale grave | tenue longue : la gravité, souvent avec crescendo |
+| Ostinato lourd | valeurs simples, notes détachées : le pas du géant |
+| Solo caractériel | `F2`–`F3` exposé : le personnage lourd, comique ou touchant |
+| Ponctuation | note grave marcato : le point final |
+
+### Associations
+
+Tuba + trombone basse (l19) = la basse cuivrée complète, tranchant + masse ; + contrebasses à l'unisson = la basse orchestrale la plus dense qui existe ; + cors = fondu chaud (le tuba est le meilleur ami du cor pour asseoir un accord) ; + contrebasson = grain et souffle ; + timbales (l24) = l'assise avec impact.
+
+### Erreurs fréquentes (détectées)
+
+| Erreur | Règle |
+|---|---|
+| L'écrire en continu | `orch.endurance` — un seul instrumentiste, une consommation d'air énorme : écris de vrais silences, pas des soupirs de politesse |
+| Attendre une attaque nette | l'attaque du tuba est ronde et légèrement lente : pour la précision, double-le au trombone basse ou aux timbales |
+| Traits rapides dans le grave | `orch.agility` — sous `F1`, tout devient indistinct |
+| Accords tuba + trombone basse serrés | `orch.low-interval-limit` |
+| Le traiter comme la basse de tout l'orchestre | c'est la basse des **cuivres** ; la basse de l'orchestre, ce sont les contrebasses (l05) |
+| L'oublier dans un tutti de cuivres | `orch.role-coverage` — un choral de cuivres sans fondement flotte |
+
+- [ ] Un seul tuba : chaque mesure écrite est une mesure d'air dépensée
+- [ ] Il enveloppe (le trombone basse tranche) — les deux sont complémentaires
+- [ ] Basse des cuivres, pas basse de l'orchestre ; et un soliste caché en `F2`–`F3`
+
+<QuizBlock id="m05-l20-quiz" questions={5} />

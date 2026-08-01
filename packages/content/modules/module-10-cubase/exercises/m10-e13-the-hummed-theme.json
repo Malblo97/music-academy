@@ -1,0 +1,14 @@
+{ "id": "m10-e13-the-hummed-theme", "lessonId": "m10-l13-audio",
+  "title": "Le fredon du réal", "kind": "DAW_MISSION", "difficulty": 5, "xpReward": 110,
+  "spec": { "prompt": "Le produit fournit un audio : un thème FREDONNÉ (voix, 8 mesures, volontairement approximatif — le classique absolu du métier). Mission : Musical Mode, VariAudio, Extract MIDI, puis RELECTURE ET CORRECTION de l'extraction — les octaves fausses, les segments doublés. Soumets le MIDI corrigé : le moteur le compare à la mélodie-cible qu'il connaît. Tu es noté sur ta relecture d'extraction — la compétence réelle du métier, pas le clic sur le bouton.",
+    "mission": { "mode": "proof", "assets": ["assets/audio-fredon-du-real-v1.wav"],
+      "checklist": [
+        { "step": "Sample Editor : tempo DÉTECTÉ vérifié et corrigé si faux (fréquent sur les extraits courts)", "verifyHint": "AVANT de cocher Musical Mode — sinon l'audio « suit » n'importe quoi." },
+        { "step": "Musical Mode coché ; le test : change le tempo du projet", "verifyHint": "L'audio suit ? C'est bon. (Reste sous ±10 % : l'élastique n'est pas gratuit.)" },
+        { "step": "VariAudio : l'analyse en segments (monophonique — c'est une voix seule, ça tombe bien)", "verifyHint": "Chaque note fredonnée a-t-elle son bloc ?" },
+        { "step": "Extract MIDI : le fredon devient une piste MIDI", "verifyHint": "Le thème du réal est dans TON Key Editor." },
+        { "step": "RELECTURE note à note : octaves fausses recalées, segments doublés fusionnés, miettes supprimées", "verifyHint": "Chante l'audio en lisant ton MIDI : chaque note correspond ?" },
+        { "step": "Durées et positions rationalisées (le fredon est approximatif — Iterative léger bienvenu)", "verifyHint": "Un brouillon fidèle, pas une transcription du bruit." } ],
+      "proofSubmission": { "target": "melody-practice",
+        "checks": { "pitchSequenceTolerance": { "reference": "m10-e13-target-melody", "minMatchRatio": 0.9 } } } },
+    "rubric": { "correctness": 50, "constraints": 25, "craft": 25 } } }

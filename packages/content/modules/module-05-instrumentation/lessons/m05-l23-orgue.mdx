@@ -1,0 +1,70 @@
+---
+id: m05-l23-orgue
+module: module-05-instrumentation
+title: "L'orgue"
+estMinutes: 30
+skills: { orchestration: 1.0 }
+---
+
+### Carte d'identité
+
+| Propriété | Valeur |
+|---|---|
+| Tessiture | claviers `C2`–`C7` ; pédalier `C2`–`G4` écrit — mais les jeux de 16′ et 32′ descendent réellement à `C1` et `C0` |
+| Sweet spot | tout, selon la registration |
+| Agilité | élevée aux mains, faible au pédalier |
+| Tenue | **infinie et parfaitement stable** — le seul instrument sans aucune décroissance ni respiration |
+| Puissance | 1/10 (une flûte 8′ seule) → 11/10 (le plein-jeu : il couvre l'orchestre entier) |
+
+### Pourquoi irremplaçable
+
+L'orgue n'est pas un instrument, c'est **un orchestre concurrent** que tu invites dans le tien. Deux propriétés uniques justifient sa présence.
+
+**1) La tenue absolue.** Aucun archet ne change, aucun souffle ne s'épuise : un accord d'orgue peut durer trois minutes exactement identique. C'est un son *inhumain* — et cette inhumanité est précisément son effet dramatique. Ce qui ne respire pas ne peut pas être vivant.
+
+**2) Le 32′.** En dessous de `C1`, l'orgue produit des fréquences que le corps perçoit avant l'oreille. Le sol qui tremble. Rien d'autre dans l'orchestre ne fait ça (le contrebasson et la grosse caisse s'en approchent, sans y arriver).
+
+Son archétype : le sacré — et son revers, le sacré dévoyé (l'orgue est le raccourci le plus court vers le gothique, le monstrueux, le fanatique).
+
+### Le piège : la dynamique n'existe pas
+
+Une touche d'orgue est un robinet : ouverte ou fermée. **Le toucher n'a aucun effet sur le volume.** Conséquences :
+
+| Le piano/orchestre fait croire que… | La vérité de l'orgue |
+|---|---|
+| on peut faire un crescendo sur un accord tenu | non — sauf dans la boîte expressive (récit), et c'est un changement de *timbre* autant que de volume |
+| on nuance note à note | non : la nuance est un **changement de registration** (on ajoute ou retire des jeux), donc par paliers, et cela demande un geste et parfois un assistant |
+| une ligne se phrase par l'attaque | non : le phrasé d'orgue se fait par **l'articulation** — la durée des silences entre les notes est ton seul outil expressif |
+
+**Registration = orchestration.** Un même accord peut être une flûte lointaine, un hautbois pincé, un mur de cuivres ou un tremblement de terre. Indique une intention (« fonds 8′ doux », « anches, plein-jeu », « 32′ seul en pédale ») plutôt que d'espérer un rendu par défaut.
+
+### Rôles
+
+| Rôle | Écriture |
+|---|---|
+| La pédale immobile (n° 1) | tenue de 16′/32′ sous tout l'orchestre : le sol qui ne bouge pas |
+| Le choral | accords tenus, écriture à 4 voix, tempo lent : le sacré |
+| Le tutti écrasant | plein-jeu avec l'orchestre : le sommet absolu de puissance (rare, et une fois par pièce) |
+| La couleur exotique | un seul jeu solo (flûte, hautbois d'orgue) : une voix venue d'ailleurs |
+| Le hors-temps | accord infini pendant que l'orchestre bouge : la suspension du temps |
+
+### Associations
+
+Orgue + cuivres = redondance dangereuse (les deux font des murs) ; + cordes = superbe, l'orgue tient, les cordes vibrent — le contraste est l'effet ; + chœur = la fusion naturelle ; + percussions graves (l26) = l'apocalypse ; + tout l'orchestre = attention à l'accord (l'orgue d'un lieu donné a sa propre justesse et son propre tempérament : c'est un problème réel, pas théorique).
+
+### Erreurs fréquentes (détectées)
+
+| Erreur | Règle |
+|---|---|
+| Crescendo écrit sur une tenue | `orch.organ-dynamics` — impossible hors boîte expressive : écris un ajout de jeux ou renonce |
+| Écriture pianistique (arpèges de pédale, textures floues) | l'orgue ne pardonne rien : chaque voix s'entend jusqu'au bout |
+| Harmonie rapide dans un lieu réverbérant | `orch.organ-acoustics` — 4 à 8 secondes de réverbération : ralentis le rythme harmonique ou tout se superpose |
+| Pédalier virtuose | ce sont des pieds : lignes simples, pas de doubles croches |
+| L'employer longtemps | son immobilité fascine deux minutes puis écrase tout le reste |
+| Oublier qu'il couvre l'orchestre | `orch.balance` — au plein-jeu, personne n'existe : n'écris rien d'important dessous |
+
+- [ ] Tenue absolue = son inhumain : c'est l'effet, pas un défaut
+- [ ] Pas de dynamique au toucher — registration et articulation à la place
+- [ ] Le 32′ se sent ; la réverbération dicte le rythme harmonique
+
+<QuizBlock id="m05-l23-quiz" questions={5} />

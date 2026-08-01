@@ -1,0 +1,57 @@
+{
+  "id": "G-05",
+  "status": "draft-placeholder",
+  "usedBy": ["m11-e05-time-autopsy"],
+  "seed": 502530,
+  "lengthBars": 60,
+  "tempo": 96,
+  "durationSec": 150,
+  "system": { "type": "functional", "note": "PLACEHOLDER — tonalité/collection non spécifiée en source" },
+  "form": [
+    { "bars": [1, 15], "label": "S1 — exposition" },
+    { "bars": [16, 30], "label": "S2 — montée (effectif, activité)" },
+    { "bars": [31, 45], "label": "S3 — montée (effectif, activité, dynamique)" },
+    { "bars": [46, 60], "label": "S4", "fuzzyBoundary": true }
+  ],
+  "motif": {
+    "cell": "PLACEHOLDER — non applicable / non exercé par m11-e05 (l'exercice porte sur la forme et la tension, pas sur la détection de motif)",
+    "plan": []
+  },
+  "tensionPlan": {
+    "engines": ["effectif-paliers", "harmonic-rhythm", "register-opening"],
+    "perSection": {
+      "S2": ["effectif", "activite"],
+      "S3": ["effectif", "activite", "dynamique"]
+    },
+    "note": "L'étalon (m11-s05) obtient une corrélation de 1.0 à la tensionCurve calculée."
+  },
+  "rolePlan": "PLACEHOLDER — non spécifié en source",
+  "instrumentation": "PLACEHOLDER — non spécifié en source",
+  "idioms": [],
+  "ambiguousZones": [
+    { "bars": [45, 46], "why": "frontière de forme volontairement floue entre S3 et S4 — plusieurs indices (cadence, effectif, matériau, système) coïncident partiellement mais pas simultanément ; à qualifier \"floue\", pas trancher (§77.2, m11-s05)." }
+  ],
+  "_provenance": {
+    "sources": [
+      "docs/production/s77-generateurEtalonsm11.md §77.2 (m11-s05)",
+      "modules/module-11-analyse/exercises/m11-e05-time-autopsy.json",
+      "solutions/m11/m11-e05-time-autopsy.json"
+    ],
+    "extracted": [
+      "durationSec : 150 (2'30\", spec corpus.pieces[0].durationSec)",
+      "form : 4 sections, blurredBoundaryAt: 3 (spec calibration.form / calibration.blurredBoundaryAt)",
+      "tensionPlan.engines : [\"effectif-paliers\",\"harmonic-rhythm\",\"register-opening\"], count 3 (spec calibration.tensionPlan)",
+      "tensionPlan.perSection : S2=[effectif,activité], S3=[effectif,activité,dynamique] (solution engineChecklist)",
+      "corrélation à l'étalon = 1.0 (solution drawTension)"
+    ],
+    "invented": [
+      "seed",
+      "tempo (96 — arbitraire ; lengthBars en dérive : 150s à 96 bpm en 4/4 = 60 mesures, calcul cohérent mais la valeur de tempo elle-même n'est pas donnée en source)",
+      "lengthBars (60, dérivé du tempo inventé ci-dessus)",
+      "system (tonalité/collection non donnée)",
+      "form (bornes exactes des 4 sections — seule la position de la frontière floue, \"3\", est connue ; interprétée ici comme la frontière S3/S4)",
+      "rolePlan",
+      "instrumentation"
+    ]
+  }
+}

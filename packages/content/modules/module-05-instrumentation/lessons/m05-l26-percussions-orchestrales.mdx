@@ -1,0 +1,82 @@
+---
+id: m05-l26-percussions-orchestrales
+module: module-05-instrumentation
+title: "Les percussions orchestrales"
+estMinutes: 30
+skills: { orchestration: 1.0 }
+---
+
+### De quoi on parle
+
+Cette fiche couvre les percussions **à hauteur indéterminée** (plus les cloches tubulaires, qui font exception) : tout ce qui frappe, siffle, gratte ou résonne sans jouer une note d'harmonie. Les timbales ont leur fiche (l24), les claviers la leur (l25).
+
+Le principe directeur tient en une phrase : **une percussion n'est pas une couleur, c'est un geste.** Une cymbale suspendue ne « s'ajoute » pas à une texture — elle dit quelque chose, une fois, et ce qu'elle dit occupe tout l'espace. Écrire des percussions, c'est écrire des ponctuations.
+
+### La contrainte que tout le monde oublie : combien de percussionnistes ?
+
+**Un percussionniste = un instrument à la fois.** Un orchestre de film standard en compte 2 à 4 (plus le timbalier, qui ne joue que ses timbales). Si ta mesure demande simultanément grosse caisse, cymbales frappées, tam-tam et tambourin, il te faut **quatre personnes** — et chacune doit avoir eu le temps physique de rejoindre son instrument.
+
+Avant de valider une page de percussions, fais le compte par mesure. C'est exactement ce que vérifie `orch.perc-player-count`.
+
+### Le catalogue
+
+**Peaux**
+
+| Instrument | Couleur | Emploi typique |
+|---|---|---|
+| Grosse caisse | grave profond, sans hauteur, physique | l'impact, le tonnerre lointain (roulement pp), le pas du colosse |
+| Caisse claire | sèche, mordante, timbre métallique du timbre | la marche militaire, la tension (roulement pp), la frappe nerveuse de l'action |
+| Tambourin (basque) | grelots + peau | la danse, le folklore, l'ivresse — **le cliché n° 1 des percussions** |
+
+**Métaux**
+
+| Instrument | Couleur | Emploi typique |
+|---|---|---|
+| Cymbales frappées (paire) | éclat court et large | l'accent du tutti, le point d'exclamation |
+| Cymbale suspendue | roulement à mailloches : montée continue ; frappée : le crash | le crescendo de tension, l'arrivée, le scintillement (mailloches douces, pp) |
+| Tam-tam | grondement immense, sans hauteur, très lent à s'installer | le destin, la mort, l'irréversible — **il met plusieurs secondes à donner tout son son** |
+| Gong (à hauteur) | métallique, focalisé, exotique | la couleur rituelle, l'Asie imaginaire |
+| Triangle | scintillement aigu, perce tout | la lumière ponctuelle, le merveilleux, le roulement de tension aiguë |
+| Cloches tubulaires | **à hauteur déterminée**, `C4`–`F5` | l'église, le glas, l'annonce solennelle |
+| Agogo | deux cloches métalliques claires | le motif latin, la couleur rythmique brillante |
+| Vibraslap | grésillement de dents qui claquent | le comique grinçant, le frisson — une fois par film, maximum |
+
+**Bois et petites percussions**
+
+| Instrument | Couleur | Emploi typique |
+|---|---|---|
+| Woodblock / jam block | claquement sec, aigu | le mécanique, l'horloge, le comique ; le jam block est sa version moderne et plus dure |
+| Claves | claquement très net, projette énormément | la clave latine, l'accent sec |
+| Castagnettes | crépitement bref | l'Espagne, la danse |
+| Guiro | raclement rythmique | la couleur latine, le grincement (aussi : la texture inquiétante, joué lentement) |
+| Maracas | bruissement continu | le tapis rythmique léger |
+| Cabasa | bruissement métallique granuleux | la texture rythmique moderne, le tapis discret |
+
+### Les trois mécanismes à connaître
+
+1. **Le roulement-crescendo** — cymbale suspendue, caisse claire, grosse caisse, triangle : n'importe lequel monte une tension et amène un point d'arrivée. C'est le mécanisme le plus fiable de la musique de film ; c'est aussi le plus usé.
+2. **L'impact** — grosse caisse + cymbale + timbales ensemble sur un temps : le coup. Superposer plusieurs graves et plusieurs aigus dans le même impact le rend « gros » ; utiliser toujours la même combinaison le rend prévisible.
+3. **L'étouffement** — presque tous ces instruments résonnent longtemps. Écrire `laissez vibrer` (l.v.) ou `étouffez` **change complètement** le résultat. C'est un paramètre, pas un détail.
+
+### Associations
+
+Grosse caisse + contrebasses/contrebasson = l'impact avec fondation ; cymbale suspendue (roulement) + cordes en trémolo + cuivres crescendo = la montée standard ; triangle + glockenspiel + piccolo = le sommet scintillant ; caisse claire + trompettes = la marche ; tam-tam seul, dans le silence, après un tutti = un des rares effets qui n'a pas besoin d'aide.
+
+### Erreurs fréquentes (détectées)
+
+| Erreur | Règle |
+|---|---|
+| Plus d'instruments simultanés que d'instrumentistes | `orch.perc-player-count` — compte par mesure, et laisse le temps de se déplacer |
+| Percussion continue | `orch.balance` — un geste répété n'est plus un geste : le silence des percussions est ce qui rend leur entrée efficace |
+| Tam-tam traité comme une cymbale | il monte lentement et dure très longtemps : réserve-lui de l'espace avant ET après |
+| Oublier `l.v.` / `étouffez` | la résonance non gérée transforme une ponctuation en flaque |
+| Le tambourin par réflexe folklorique | le cliché le plus repéré : demande-toi ce qu'il dit, pas ce qu'il évoque |
+| Impact toujours identique | varie la recette (grave seul, aigu seul, avec ou sans cymbale) : sinon le troisième impact ne fait plus rien |
+| Percussions sous un tutti déjà saturé | `orch.masking` — au-dessus d'un certain seuil, seuls le triangle, les claves et les cymbales passent encore |
+
+- [ ] Une percussion est un geste, pas une couleur de fond
+- [ ] Compte tes percussionnistes, mesure par mesure — un joueur, un instrument
+- [ ] Roulement-crescendo, impact, étouffement : les trois mécanismes
+- [ ] Le silence des percussions est la moitié de leur écriture
+
+<QuizBlock id="m05-l26-quiz" questions={5} />

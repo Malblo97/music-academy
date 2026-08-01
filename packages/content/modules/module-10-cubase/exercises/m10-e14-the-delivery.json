@@ -1,0 +1,16 @@
+{ "id": "m10-e14-the-delivery", "lessonId": "m10-l14-export",
+  "title": "Le colis de livraison", "kind": "DAW_MISSION", "difficulty": 4, "xpReward": 80,
+  "spec": { "prompt": "Le colis complet sur ta maquette de e08. C'est ici que trois investissements paient d'un coup : les groupes de l07 (les stems), le headroom de l08 (le −1 dB), l'hygiène de l01 (le nommage). Chaque étape porte son auto-contrôle — et le test de la somme ne pardonne rien.",
+    "mission": { "mode": "guided",
+      "checklist": [
+        { "step": "Locators (ou cycle marker) sur le cue EXACT — la queue de reverb finit DANS la plage", "verifyHint": "Écoute la fin de l'export : la salle meurt-elle naturellement ?" },
+        { "step": "Export mix : WAV, 24 bits, 48 kHz, Stereo Out interleaved", "verifyHint": "Le MP3 est une courtoisie d'écoute, jamais un master." },
+        { "step": "Crêtes du fichier ≤ −1 dB, sans limiteur qui écrase", "verifyHint": "Le headroom de l08 rend ça naturel — sinon, remonte au gain staging." },
+        { "step": "Nommage : Projet_Cue_v2_MIX.wav dans Exports/Livraison_.../", "verifyHint": "La prod reçoit dix cues de dix compositeurs : le tien se reconnaît ?" },
+        { "step": "MASTER NU pour les stems (aucun traitement — le limiteur s'appliquerait N fois)", "verifyHint": "Bypass vérifié AVANT l'export multiple ?" },
+        { "step": "Channel Selection : les 3 groupes cochés → « Multiple » : un export, N fichiers, mêmes locators", "verifyHint": "Trois fichiers, même durée à l'échantillon près ?" },
+        { "step": "Les reverbs incluses : « GRP + ses sends » ou stem FX dédié", "verifyHint": "Solo un stem : a-t-il son espace, ou est-il sec et orphelin ?" },
+        { "step": "LE TEST DE LA SOMME : réimporte les stems dans un projet vide, aligne, somme, compare au mix", "verifyHint": "Null test à l'oreille : identique ? livrable. Différent ? cherche le send orphelin ou le master sale." },
+        { "step": "Le MIDI complet nettoyé par la macro PREP (l09) → Cue_v2_MIDI.mid", "verifyHint": "Ta CI locale a tourné ?" },
+        { "step": "notes.txt : tempo(s), tonalité, timecode IN/OUT, frame rate, version de montage", "verifyHint": "Le mixeur du film peut-il travailler sans t'appeler ?" },
+        { "step": "Back up Project (l'archive chez toi — pas dans le colis)", "verifyHint": "Le projet rouvrira-t-il sur une autre machine dans deux ans ?" } ] } } }

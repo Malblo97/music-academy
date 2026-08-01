@@ -1,0 +1,68 @@
+---
+id: m05-l13-clarinette-basse
+module: module-05-instrumentation
+title: "La clarinette basse"
+estMinutes: 30
+skills: { orchestration: 1.0 }
+---
+
+### Carte d'identité
+
+| Propriété | Valeur |
+|---|---|
+| Tessiture | `Bb1`–`G5` en sons réels (en si♭ : écrite une neuvième au-dessus — le produit gère) |
+| Sweet spot | `Bb1`–`F3` (le chalumeau prolongé) |
+| Agilité | 8/10 — étonnamment leste pour sa taille |
+| Tenue | excellente ; le ppp le plus grave et le plus doux de l'orchestre |
+| Puissance | ppp 1/10 → ff 6/10 |
+
+### Pourquoi irremplaçable
+
+C'est le **chalumeau prolongé vers l'abîme** (voir l12). La clarinette basse descend une octave sous la clarinette avec la même douceur, la même absence d'attaque agressive — et c'est exactement ce qui la rend unique : elle est le **seul grave feutré** de l'orchestre. Le basson grogne, le contrebasson gronde, les contrebasses pèsent, le trombone basse menace ouvertement. La clarinette basse, elle, *rôde* : un grave sans poids, sans grain, qui glisse sous une texture et l'assombrit sans qu'on sache d'où ça vient.
+
+C'est l'instrument du danger poli. Le pas dans le couloir. Le monstre avant qu'on le voie.
+
+### Couleur par registre
+
+```
+Bb1 ─────────── F3 ──── C4 ────── G4 ─────── G5
+│  CHALUMEAU GRAVE│GORGE │ CLAIRON  │ AIGU     │
+│ velouté, noir,  │ pâle,│ chantant,│ nasillard,│
+│ menaçant,       │ terne│ proche de│ étrange   │
+│ sans poids —    │ (tra-│ la clari-│ (effet,   │
+│ LA raison       │ verse│ nette    │ pas chant)│
+│ d'exister       │  vite)│ normale │           │
+```
+
+Même architecture que la clarinette : trois instruments, une gorge à traverser. Mais ici, la proportion s'inverse — le chalumeau représente **90 % de son emploi utile**. Dans le clairon, elle fait ce qu'une clarinette ordinaire fait mieux.
+
+### Rôles
+
+| Rôle | Écriture |
+|---|---|
+| La menace feutrée (n° 1) | ligne ou tenue grave pp, sous une texture calme : l'inquiétude sans cause |
+| Basse des bois | fondamentales p–mf, plus souple et moins boisée que le basson |
+| Ostinato sombre | croches détachées `Bb1`–`C3` : le moteur du suspense (le pouls qui approche) |
+| Doublure des violoncelles / bassons | ajoute du velours à la ligne grave sans ajouter de grain |
+| Solo grave exposé | rare et saisissant : la confession noire, le jazz-noir (m09-l03) |
+| Entrée invisible | tenue ppp démarrée dans un accord déjà sonnant — le tour de la famille |
+
+### Associations
+
+Clarinette basse + violoncelles = la ligne grave chantante et feutrée ; + contrebasses pizz = le pouls noir ; + cor bouché = la couleur trouble ; + clarinettes (famille complète en accord) = le choral de velours, un des plus beaux tutti de bois ; + synthé/pad grave (M6) = le pont naturel vers l'hybride.
+
+### Erreurs fréquentes (détectées)
+
+| Erreur | Règle |
+|---|---|
+| La réduire à « doubler le basson » | `orch.role-coverage` — tu paies un timbre unique pour un renfort : donne-lui une ligne |
+| L'écrire dans le clairon/aigu | `orch.register-color` — une clarinette ordinaire y est meilleure et moins chère |
+| Exposer la gorge | `orch.register-color` — même règle que la clarinette : traverse, n'habite pas |
+| Compter sur elle pour la puissance grave | `orch.balance` — 6/10 : elle colore le grave, elle ne le soutient pas seule |
+| Sous `Bb1` | `orch.range-violation` (et attention : certains instruments s'arrêtent à `C2` — reste à `C2` si tu écris pour n'importe quel orchestre) |
+
+- [ ] Le seul grave feutré : sans poids, sans grain, sans attaque
+- [ ] 90 % chalumeau ; le clairon ne la justifie pas
+- [ ] Menace, ostinato noir, entrée invisible — pas un doubleur de basson
+
+<QuizBlock id="m05-l13-quiz" questions={5} />

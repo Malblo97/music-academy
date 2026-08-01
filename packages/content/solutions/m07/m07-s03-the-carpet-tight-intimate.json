@@ -1,0 +1,17 @@
+{
+  "exerciseId": "m07-e03-the-carpet",
+  "variantId": "tight-intimate",
+  "payload": {
+    "lengthBars": 8,
+    "harmony": "Cmaj7 · Am7 · Fadd9 · G7sus4→G7 · Cmaj7 · Fm · Cmaj7/G→G7 · Cmaj7",
+    "parts": [
+      { "instrumentId": "violins-2", "mute": "con-sord", "notation": "[E4~+G4]:w | [E4+G4~]:w | [F4~+G4~]:w | [F4+G4]:h [F4+G4]:h | [E4+G4]:w | [F4+Ab4]:w | [E4+G4]:h [F4+G4]:h | [E4+G4]:w" },
+      { "instrumentId": "violas", "mute": "con-sord", "notation": "[B3+C4]:w | [A3+C4~]:w | [A3+C4]:w | [B3+D4]:h [B3+D4]:h | [B3+C4]:w | [C4+F4]:w | [B3+D4]:h [B3+D4]:h | [C4+E4]:w" },
+      { "instrumentId": "cellos", "notation": "C3:w | A2:w | F2:w | G2:w | C3:w | F2:w | G2:w | C3:w" }
+    ],
+    "dyn": "arches déclarées sur chaque ronde (F-39)",
+    "materials": 1,
+    "carpetLife": ["breathing"]
+  },
+  "authorNotes": "**Témoin F-40** : le cœur est en sourdines, et la sourdine est enfin une donnée — cordes con sord, puissance ×0,65, blend +1 cran, transcrit des fiches. Sans elle, `effectivePower` et la chimie jugeaient ce tapis comme un tapis ouvert. **Témoin F-39** : les arches de tenue sont déclarées en `dyn[]`, l'équivalent déclaratif du CC1 — une solution compilée n'a pas de contrôleur, la spec en exigeait pourtant. Cinq fils tenus entre accords (liaisons par note, F-21) — corrigé le 2026-07-31 : 6 liaisons portées par erreur sur des accords sans note commune (Fadd9→G7sus4 aux altos, Cmaj7→Fm aux 2èmes violons) ont été retirées, l'ancien compte de « onze fils » était erroné (F-21 sans cible, verrou n°3). Le tapis coule quand l'harmonie le permet (Cmaj7→Am7, Am7→Fadd9), il change net sinon. Voicings au cœur C3–A4, socle sans tierce ✓, une seule matière ✓."
+}

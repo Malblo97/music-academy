@@ -1,0 +1,49 @@
+{
+  "id": "G-07",
+  "status": "draft-placeholder",
+  "usedBy": ["m11-e07-the-reconstruction"],
+  "seed": 701674,
+  "lengthBars": 16,
+  "tempo": 100,
+  "system": { "type": "functional", "note": "PLACEHOLDER — styleProfile de l'exercice = romantic-film ; tonalité exacte non spécifiée en source" },
+  "form": [
+    { "bars": [1, 16], "label": "cue continu (maquette)" }
+  ],
+  "motif": {
+    "cell": "PLACEHOLDER — non applicable / non exercé par m11-e07 (l'exercice porte sur la reconstruction par rôles, pas sur la détection de motif)",
+    "plan": []
+  },
+  "tensionPlan": {
+    "engines": [],
+    "note": "non exercé par m11-e07 (pas de tensionCurve à dessiner dans cet étalon)"
+  },
+  "rolePlan": {
+    "roles": ["melody", "countermelody", "harmony", "bass"],
+    "fidelityLevel": "maquette",
+    "buildOrderAdvised": ["tempo", "grid", "bass", "harmony", "melody", "countermelody", "manner"]
+  },
+  "instrumentation": "PLACEHOLDER — non spécifié en source (4 couches déclarées par rôle, pas par instrument)",
+  "idioms": [],
+  "ambiguousZones": [],
+  "_provenance": {
+    "sources": [
+      "docs/production/s77-generateurEtalonsm11.md §77.2 (m11-s07)",
+      "modules/module-11-analyse/exercises/m11-e07-the-reconstruction.json",
+      "solutions/m11/m11-e07-the-reconstruction.json"
+    ],
+    "extracted": [
+      "lengthBars : 16 (spec corpus.pieces[0].lengthBars)",
+      "rolePlan.roles : [melody, countermelody, harmony, bass], 4 couches (spec calibration.layers/roles)",
+      "fidelityLevel : maquette (spec)",
+      "buildOrderAdvised (spec constraints.buildOrderAdvised)",
+      "l'étalon de référence EST le MIDI cible (différentiel 100% = le plafond ; seuils élève : mélodie ≥90%, basse ≥80%) — §77.2, m11-s07"
+    ],
+    "invented": [
+      "seed",
+      "tempo",
+      "system (tonalité exacte)",
+      "form (traitée comme un cue continu de 16 mesures, aucune sous-section décrite en source)",
+      "instrumentation (instruments précis non donnés — seuls les rôles fonctionnels le sont)"
+    ]
+  }
+}

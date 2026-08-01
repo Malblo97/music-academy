@@ -1,0 +1,67 @@
+---
+id: m05-l15-contrebasson
+module: module-05-instrumentation
+title: "Le contrebasson"
+estMinutes: 30
+skills: { orchestration: 1.0 }
+---
+
+### Carte d'identité
+
+| Propriété | Valeur |
+|---|---|
+| Tessiture | `Bb0`–`Bb3` en sons réels (écrit une octave au-dessus — le produit gère) |
+| Sweet spot | `C1`–`G2` |
+| Agilité | 2/10 — l'instrument le plus lent de l'orchestre à parler |
+| Tenue | bonne, mais il consomme un volume d'air considérable |
+| Puissance | pp 2/10 → ff 5/10 — mais une présence *physique* : on le sent dans le ventre |
+
+### Pourquoi irremplaçable
+
+Le contrebasson est le **sol sous le sol**. Là où les contrebasses définissent le plancher harmonique (l05), lui définit ce qu'il y a en dessous : une vibration plus qu'une note, un grondement qui donne du corps et de la définition à tout le grave orchestral. Son grain d'anche double ajoute quelque chose que les cordes et les cuivres n'ont pas — une **rugosité organique**, un souffle de créature.
+
+Deux emplois canoniques : la fondation invisible (il double la basse à l'octave inférieure et personne ne l'entend consciemment — mais retire-le et l'orchestre rétrécit), et le monstre exposé (une ligne seule, lente, dans le `C1`–`C2` : le grotesque, la bête, la lourdeur comique ou terrifiante).
+
+### Couleur par registre
+
+```
+Bb0 ──────── C1 ─────── G2 ─────── Bb3
+│  ABYSSAL   │  PROFOND  │  MÉDIUM   │
+│ grondement,│ le grain, │ un basson │
+│ hauteur    │ la bête,  │ épais et  │
+│ floue,     │ LE registre│ terne —  │
+│ physique   │  utile    │ sans intérêt│
+```
+
+Au-dessus de `G2`, il redevient un basson médiocre : si tu montes là, écris pour un basson. En dessous de `C1`, la hauteur cesse d'être perceptible — c'est un effet de matière, pas une note d'harmonie.
+
+### Rôles
+
+| Rôle | Écriture |
+|---|---|
+| Doublure de la basse à l'octave inf. (n° 1) | avec bassons/contrebasses/tuba : le corps ajouté au grave |
+| Pédale abyssale | tenue longue `C1`–`G1` sous une harmonie mouvante : la gravité qui attend |
+| La bête | ligne lente exposée, notes longues, valeurs simples : le grotesque ou la menace |
+| Ponctuation grave | notes isolées ff : le coup de pied dans le plancher |
+| Le silence | comme la contrebasse : son entrée et sa sortie sont des événements |
+
+### Associations
+
+Contrebasson + contrebasses = le plancher doublé (le grain d'anche donne de la lisibilité à la corde) ; + tuba = la fondation cuivrée-boisée ; + bassons à l'octave = la basse des bois complète ; + grosse caisse / timbales graves (l24, l26) = le tremblement de terre composite ; + clarinette basse = deux graves feutrés/rugueux qui se complètent parfaitement.
+
+### Erreurs fréquentes (détectées)
+
+| Erreur | Règle |
+|---|---|
+| Traits rapides, doubles croches | `orch.agility` — 2/10 : l'attaque met un temps réel à s'installer, tout devient de la boue |
+| Écriture chromatique rapide | même règle : il ne suit pas |
+| Accords ou tierces dans le grave | `orch.low-interval-limit` — des lignes, des octaves, des quintes, jamais des positions serrées |
+| L'employer en permanence | il perd tout : l'oreille s'habitue au plancher et ne l'entend plus disparaître |
+| L'écrire au-dessus de `G2` | `orch.register-color` — c'est un basson, et un moins bon |
+| Sous `Bb0` | `orch.range-violation` |
+
+- [ ] Le sol sous le sol : matière et grain, pas mélodie
+- [ ] `C1`–`G2` ; au-dessus c'est un basson, en dessous c'est une vibration
+- [ ] Lent, rare, événementiel
+
+<QuizBlock id="m05-l15-quiz" questions={5} />

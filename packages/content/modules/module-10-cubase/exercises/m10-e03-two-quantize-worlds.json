@@ -1,0 +1,16 @@
+{ "id": "m10-e03-two-quantize-worlds", "lessonId": "m10-l03-key-editor-1",
+  "title": "Deux mondes de quantisation", "kind": "DAW_MISSION", "difficulty": 3, "xpReward": 80,
+  "skills": { "DAW_WORKFLOW": 0.8, "RHYTHM": 0.2 },
+  "spec": { "prompt": "Deux pistes, deux esthétiques du temps. Piste 1 : programme l'ostinato de m01-s18 (PDF-mission fourni avec sa notation) au crayon, QUANTIZE DUR assumé — le tic-tac le veut. Piste 2 : JOUE la mélodie de m02-s21 au clavier, puis Iterative Quantize ~60 % — discipliné, pas collé. Exporte les deux pistes et soumets : le moteur vérifie les hauteurs, les durées, ET le profil de quantisation de chacune — l'ostinato doit être mécanique, la mélodie doit garder de la vie.",
+    "mission": { "mode": "proof",
+      "checklist": [
+        { "step": "Grille lue dans la barre d'état AVANT d'écrire (le piège du 1/8T)", "verifyHint": "Quel est ton Quantize Preset, là, maintenant ?" },
+        { "step": "Ostinato programmé au crayon, Ctrl+D pour doubler, Q dur", "verifyHint": "Zoome : chaque attaque est-elle EXACTEMENT sur la grille ?" },
+        { "step": "Mélodie JOUÉE (pas dessinée), puis Iterative 60 %", "verifyHint": "Zoome : les attaques sont-elles PROCHES de la grille sans y coller ?" },
+        { "step": "Delete Overlaps sur les deux pistes avant export", "verifyHint": "Aucun chevauchement résiduel du jeu ?" } ],
+      "proofSubmission": { "assets": ["assets/m10-e03-mission.pdf"],
+        "checks": {
+          "track1": { "pitchSequenceMatch": "m01-s18", "quantizeProfilePlan": { "gridDeviationMax": 5 } },
+          "track2": { "pitchSequenceMatch": "m02-s21", "quantizeProfilePlan": { "gridDeviationWindow": [8, 60] } },
+          "noOverlaps": true } } },
+    "rubric": { "correctness": 40, "constraints": 40, "craft": 20 } } }

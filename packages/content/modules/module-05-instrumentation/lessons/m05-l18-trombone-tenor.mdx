@@ -1,0 +1,74 @@
+---
+id: m05-l18-trombone-tenor
+module: module-05-instrumentation
+title: "Le trombone ténor"
+estMinutes: 30
+skills: { orchestration: 1.0 }
+---
+
+### Carte d'identité
+
+| Propriété | Valeur |
+|---|---|
+| Tessiture | `E2`–`Bb4` (praticable serein `F2`–`F4` ; pédales `Bb1` et voisines : effet) |
+| Sweet spot | `Bb2`–`D4` |
+| Agilité | 5/10 — la coulisse impose un temps de déplacement réel |
+| Tenue | excellente ; endurance meilleure que la trompette, à surveiller dans l'aigu |
+| Puissance | pp 2/10 → **ff 9/10** — le mur |
+
+### Pourquoi irremplaçable
+
+Le trombone est le seul cuivre à **hauteur continue** : pas de pistons, une coulisse, donc tous les micro-intervalles du monde et le vrai glissando. Il est aussi le timbre du **choral** — deux ténors et une basse (l19) forment le bloc le plus noble et le plus solennel de l'orchestre, celui qui a signifié « sacré » pendant quatre siècles avant de signifier « le mal arrive » pendant un siècle de cinéma.
+
+Sa signature émotionnelle est double : **la noblesse grave** (choral tenu, p–mf, la cathédrale) et **la puissance qui écrase** (ff, accents, la masse qui s'abat). Entre les deux, il n'y a pas grand-chose : le trombone n'est pas un instrument de nuances tièdes.
+
+### Couleur par registre
+
+```
+E2 ────── Bb2 ─────────── D4 ────── F4 ── Bb4
+│ GRAVE   │    MÉDIUM     │  AIGU   │EXTRÊME│
+│ large,  │ noble, plein, │ éclatant,│ tendu,│
+│ sombre, │ chantant —    │ tranchant│ coûteux│
+│ un peu  │ LE trombone   │ (attention│(solistes)│
+│ mou     │ (90 % du rôle)│ endurance)│      │
+```
+
+### La coulisse : ce qu'elle autorise et interdit
+
+Sept positions, un demi-ton d'écart chacune. Conséquences concrètes :
+
+- **Legato** : un vrai legato n'existe qu'entre notes de la même série d'harmoniques. Ailleurs, le tromboniste articule légèrement (« legato de coulisse »). Une ligne conjointe rapide et parfaitement liée n'est pas réaliste.
+- **Glissando** : uniquement à l'intérieur d'une même position d'harmonique, donc **un triton maximum** (7 positions), et sans changer d'harmonique. Un « glissando » d'une octave n'est pas un glissando, c'est un portamento simulé — écris-le autrement.
+- **Vitesse** : les grands écarts de position (I → VII) prennent du temps. Un trait rapide qui saute d'un bout à l'autre de la coulisse s'empâte.
+
+### Rôles
+
+| Rôle | Écriture |
+|---|---|
+| Le choral (n° 1) | 2 ténors + 1 basse, accords tenus, position ouverte, p–ff : la solennité |
+| Le mur | accords ff, valeurs longues ou accents : la puissance brute (l'archétype du danger) |
+| Ponctuation / accents | notes courtes marcato : la frappe de cuivre |
+| Doublure de basse mélodique | à l'unisson des violoncelles ou du cor : le poids ajouté |
+| Le glissando | bref, dans le triton : le grotesque, le dérapage, le cartoon ou l'effondrement |
+| Contrechant noble | ligne médium mf, conjointe : la voix grave qui répond |
+
+### Associations
+
+Trombones + cors = mur de cuivres nobles (le cor arrondit, le trombone structure) ; + tuba (l20) = le choral complet de cuivres graves ; + trompettes = la fanfare pleine, mais attention à l'équilibre : la trompette domine, écris les trombones plus fournis ; + violoncelles/contrebasses = la basse pesante ; + orgue (l23) = redondance, choisis.
+
+### Erreurs fréquentes (détectées)
+
+| Erreur | Règle |
+|---|---|
+| Traits rapides et conjoints | `orch.agility` / `orch.trombone-slide` — la coulisse a une inertie physique |
+| Glissando de plus d'un triton | `orch.trombone-slide` — impossible : au-delà, ce n'est plus un glissando |
+| Accords de trombones serrés dans le grave | `orch.low-interval-limit` — ouvre l'accord, sinon c'est un grondement indistinct |
+| Écriture continue en ff | `orch.endurance` — et l'oreille sature : le mur ne fonctionne que s'il est rare |
+| L'employer comme remplissage d'harmonie | `orch.balance` — 9/10 : une tenue de trombones s'entend toujours, comme la trompette |
+| Aigu prolongé | `orch.endurance` — moins coûteux que la trompette, mais réel |
+
+- [ ] Hauteur continue : vrai glissando, mais **un triton maximum**
+- [ ] Le choral et le mur : deux régimes, pas de tiède entre les deux
+- [ ] La coulisse a une inertie — pas de virtuosité conjointe rapide
+
+<QuizBlock id="m05-l18-quiz" questions={5} />

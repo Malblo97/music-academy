@@ -3,10 +3,17 @@ import { join } from 'path';
 
 const ROOT = join(import.meta.dirname, '..');
 const TARGETS: Record<string, { lessons: number; specs: number; solutions: number; quizzes: number }> = {
-  'module-01-fondamentaux':  { lessons: 25, specs: 49, solutions: 27, quizzes: 25 },
-  'module-02-melodie':       { lessons: 15, specs: 30, solutions: 28, quizzes: 15 },
-  'module-05-instrumentation': { lessons: 11, specs: 0, solutions: 0, quizzes: 11 },
-  'module-09-genres':        { lessons: 4,  specs: 8,  solutions: 0, quizzes: 4 },
+  'module-01-fondamentaux':         { lessons: 25, specs: 49, solutions: 27, quizzes: 25 },
+  'module-02-melodie':               { lessons: 15, specs: 30, solutions: 28, quizzes: 15 },
+  'module-03-harmonie-avancee':      { lessons: 18, specs: 18, solutions: 31, quizzes: 18 },
+  'module-04-contrepoint':           { lessons: 12, specs: 12, solutions: 25, quizzes: 12 },
+  'module-05-instrumentation':       { lessons: 26, specs: 2,  solutions: 6,  quizzes: 26 },
+  'module-06-sound-design':          { lessons: 15, specs: 15, solutions: 19, quizzes: 15 },
+  'module-07-orchestration-avancee': { lessons: 10, specs: 10, solutions: 15, quizzes: 10 },
+  'module-08-jazz':                  { lessons: 15, specs: 15, solutions: 22, quizzes: 15 },
+  'module-09-genres':                { lessons: 4,  specs: 8,  solutions: 8,  quizzes: 4 },
+  'module-10-cubase':                { lessons: 15, specs: 15, solutions: 15, quizzes: 15 },
+  'module-11-analyse':               { lessons: 8,  specs: 8,  solutions: 8,  quizzes: 8 },
 };
 const ID_RE = /^m\d{2}-(l|e)\d{2}[a-z0-9-]*$/;
 let errors = 0;

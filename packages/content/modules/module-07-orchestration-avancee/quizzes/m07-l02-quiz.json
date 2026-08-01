@@ -6,7 +6,7 @@
   { "q": "Dans un alliage d'unisson :",
     "options": ["les deux timbres se moyennent", "le timbre le plus CARACTÉRISÉ domine — hautbois + clarinette sonne hautbois adouci", "le plus grave domine toujours"],
     "answer": "le timbre le plus CARACTÉRISÉ domine — hautbois + clarinette sonne hautbois adouci",
-    "why": "La loi d'alliage (§1) : le focalisant gagne sur le fondu (m05-l07/l08), et les `avoidWith` des fiches sont les alliages où l'un AVALE l'autre — la table §25.1 est ta table de chimie." },
+    "why": "La loi d'alliage (§1) : le focalisant gagne sur le fondu (m05-l10/l12), et les `avoidWith` des fiches sont les alliages où l'un AVALE l'autre — la table §25.1 est ta table de chimie." },
   { "q": "▶ Le cor seul, puis celli + cor à l'unisson. Qu'ajoute l'alliage ?",
     "playAsset": "asset:m07-l02-ab-alloy (A : cor seul · B : celli + cor unisson)",
     "options": ["du volume", "un TROISIÈME timbre : ni cor ni celli — la chaleur cuivrée-charnue", "de la réverbération"],

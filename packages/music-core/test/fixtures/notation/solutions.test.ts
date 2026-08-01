@@ -97,11 +97,20 @@ describe('notation fixtures (S1.J4) : contenu réel', () => {
     }
   });
 
-  // solution-m03-s02 : BLOQUÉ. `packages/content/modules/module-03-*` et
-  // `packages/content/solutions/m03` n'existent pas dans le monorepo à ce jour
-  // (seuls M1, M2, M5, M9 existent). Impossible de lire "la notation de
-  // solutions/m03/m03-e02*.json" sans l'inventer — voir le rapport de tâche.
-  it.skip('solution-m03-s02 : 32 notes (8 accords × 4), aller-retour — BLOQUÉ (M3 inexistant)', () => {
-    // Intentionnellement vide : décision à prendre (voir rapport) avant d'écrire ce cas.
+  it('solution-m03-s02 : 32 notes (8 accords × 4), aller-retour', () => {
+    // Nom de fixture hérité du tutoriel (`m03-e02*`) ; le fichier réel porte le
+    // nom post-renommage (décision n°20, DECISIONS_LOCALES) : `sXX` = numéro
+    // d'exercice, pas un compteur positionnel — m03-e02-solemn-shadow reste
+    // donc bien `m03-s02-*`.
+    const raw = JSON.parse(
+      readFileSync(join(CONTENT_SOLUTIONS, 'm03', 'm03-s02-solemn-shadow.json'), 'utf8'),
+    ) as Record<string, unknown>;
+    if (typeof raw.notation !== 'string') throw new Error('solutions/m03/m03-s02-solemn-shadow.json : champ "notation" absent ou invalide');
+
+    const notes = parseNotation(raw.notation);
+    expect(notes).toHaveLength(32); // 8 accords de 4 notes
+
+    const meter: Meter = [4, 4]; // aucune solution M1-M3 ne déclare de mètre : fallback [4,4] (cf. roundtrip-batch)
+    assertRoundtrip(raw.notation, meter);
   });
 });

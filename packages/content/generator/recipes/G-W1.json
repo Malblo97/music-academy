@@ -1,0 +1,52 @@
+{
+  "id": "G-W1",
+  "status": "draft-placeholder",
+  "usedBy": ["m11-e06-the-western-file"],
+  "variant": "epic-wide",
+  "seed": 900101,
+  "lengthBars": 16,
+  "tempo": 100,
+  "system": { "type": "modal", "collection": "mixolydian" },
+  "form": [
+    { "bars": [1, 16], "label": "grille courte" }
+  ],
+  "motif": {
+    "cell": "PLACEHOLDER — cellule de trot pointé (croche pointée + double), non notée littéralement en source",
+    "plan": [ { "bar": 1, "transform": "original" }, { "bar": 9, "transform": "transposed" } ]
+  },
+  "tensionPlan": { "engines": [], "note": "non exercé — l'étalon m11-e06 juge des grilles courtes, pas une courbe de tension" },
+  "rolePlan": "PLACEHOLDER — non spécifié en source",
+  "instrumentation": "PLACEHOLDER — solo exposé (harmonica/flûte évoqué au niveau du genre) sur pupitre large ; détail non spécifié pour cette pièce précise",
+  "idioms": [],
+  "ambiguousZones": [],
+  "genreTraits": {
+    "note": "les 8 traits du genreTruth (spec m11-e06) ; \"planted\" = ce trait est effectivement présent dans CETTE pièce. Seul w4 (contre-exemple) viole un trait.",
+    "traits": {
+      "open-fifths": { "planted": true, "compiledKey": "mustContainInterval [P5, P4]" },
+      "mixolydian-modality": { "planted": true, "compiledKey": "requireCollection" },
+      "dotted-trot-rhythm": { "planted": true, "compiledKey": "prosodyPlan + syncopationTarget" },
+      "harmonica-flute-timbre": { "planted": true, "compiledKey": null },
+      "wide-voicings-space": { "planted": true, "compiledKey": "contraintes d'ambitus / registre" },
+      "slow-harmonic-rhythm": { "planted": true, "compiledKey": null },
+      "pentatonic-melody": { "planted": true, "compiledKey": null },
+      "solo-exposed-timbre": { "planted": true, "compiledKey": null }
+    }
+  },
+  "_provenance": {
+    "sources": [
+      "docs/production/s77-generateurEtalonsm11.md §77.1 (F-51), §77.2 (m11-s06)",
+      "modules/module-11-analyse/exercises/m11-e06-the-western-file.json",
+      "solutions/m11/m11-e06-the-western-file.json"
+    ],
+    "extracted": [
+      "variant : epic-wide (spec corpus.pieces[0].calibration.variant)",
+      "genreTraits.traits (liste des 8, spec corpus.genreTruth.traits) et leur statut planté=true pour w1 (déduit : seul w4 viole un trait, note solution \"le trait trot descend à 4/5\")",
+      "compiledKey pour open-fifths / mixolydian-modality / dotted-trot-rhythm / wide-voicings-space (solution part2-file.compiled)"
+    ],
+    "invented": [
+      "seed", "tempo", "lengthBars (16, \"grille courte\")",
+      "motif.cell et motif.plan (positions de mesure)",
+      "rolePlan", "instrumentation (détail précis)"
+    ]
+  }
+}

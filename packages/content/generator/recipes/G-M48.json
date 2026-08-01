@@ -1,0 +1,64 @@
+{
+  "id": "G-M48",
+  "status": "draft-placeholder",
+  "usedBy": ["m11-e01-first-inquiry"],
+  "seed": 480148,
+  "lengthBars": 24,
+  "tempo": 88,
+  "system": { "type": "functional", "key": "Em", "modulatesTo": "G", "modulationBar": 9 },
+  "form": [
+    { "bars": [1, 8], "label": "exposition (Em)" },
+    { "bars": [9, 12], "label": "tonicisation vers G / cadence confirmante" },
+    { "bars": [13, 17], "label": "développement (extension post-cadence)" },
+    { "bars": [18, 24], "label": "coda", "fuzzyBoundary": true }
+  ],
+  "motif": {
+    "cell": "PLACEHOLDER — cellule mélodique non spécifiée en source (aucune notation littérale trouvée dans s77 ni ailleurs)",
+    "plan": [
+      { "bar": 1, "transform": "original" },
+      { "bar": 5, "transform": "transposed" },
+      { "bar": 9, "transform": "inverted" },
+      { "bar": 14, "transform": "fragmented" },
+      { "bar": 21, "transform": "augmented" }
+    ]
+  },
+  "tensionPlan": {
+    "engines": ["harmonic-rhythm", "register"],
+    "note": "PLACEHOLDER — non détaillé en source ; seule contrainte connue : l'étalon (m11-s01) obtient une corrélation de 1.0 à la tensionCurve calculée, donc la courbe machine EST l'étalon."
+  },
+  "rolePlan": "PLACEHOLDER — non spécifié en source",
+  "instrumentation": "PLACEHOLDER — non spécifié en source",
+  "idioms": [
+    { "id": "V-of-iii-tonicization", "bar": 9 },
+    { "id": "borrowed-iv", "bar": 12 }
+  ],
+  "ambiguousZones": [
+    { "bars": [18, 20], "why": "la bascule d'ambiguïté — LE moment de la passe 1 (m11-s01, §77.2) ; zone créditant \"indécidable\" comme bonne réponse (F-50)." }
+  ],
+  "_provenance": {
+    "sources": [
+      "docs/production/s77-generateurEtalonsm11.md §77.0, §77.2 (m11-s01)",
+      "modules/module-11-analyse/exercises/m11-e01-first-inquiry.json",
+      "solutions/m11/m11-e01-first-inquiry.json",
+      "modules/module-01-fondamentaux/exercises/m01-e48-solo-analysis.json (texte pré-décision D-P15)"
+    ],
+    "extracted": [
+      "ambiguousZones : \"la bascule d'ambiguïté, mes. 19\" (§77.2, m11-s01)",
+      "motif.plan.length : 5 occurrences plantées + 2 émergentes détectées par findMotifs (F-50, m11-e01 solution)",
+      "idioms (nature) : \"V/x\" (tonicisation) + \"emprunt\" (iv) cochés dans le quiz m01-e48-solo-analysis.json",
+      "adjectifs-émotion de l'étalon (suspendu · voilé · patient) et corrélation de tension 1.0 (m11-e01 solution) — non repris dans le schéma recette mais cohérents avec la forme ci-dessus"
+    ],
+    "invented": [
+      "seed",
+      "tempo",
+      "lengthBars (24 — étendu pour accueillir la mes. 19 ; la source pré-D-P15 ne décrivait qu'une pièce de 16 mesures)",
+      "form (bornes exactes des sections)",
+      "motif.cell (aucune notation littérale en source)",
+      "motif.plan (positions de mesure exactes, hors le compte total de 5)",
+      "idioms (positions de mesure exactes)",
+      "rolePlan",
+      "instrumentation"
+    ],
+    "openQuestion": "modules/module-01-fondamentaux/exercises/m01-e48-solo-analysis.json décrit encore une pièce STATIQUE de 16 mesures et référence un asset assets/m01-e48-piece.json qui n'existe pas dans le dépôt. Ce texte est antérieur à la décision D-P15 (\"l'asset manuel supprimé du backlog\", §77) et n'a jamais été mis à jour pour pointer vers G-M48. À corriger en Phase 1 : soit le quiz m01-e48 est réécrit pour consommer G-M48 (et donc pour être cohérent avec les 24 mesures et la mes. 19 ci-dessus), soit une décision explicite tranche que m01-e48 et le corpus de m11-e01 sont deux pièces distinctes malgré le nom partagé — à consigner dans DECISIONS_LOCALES.md le cas échéant."
+  }
+}
