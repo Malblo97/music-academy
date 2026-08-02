@@ -1,0 +1,243 @@
+import type { Issue } from '../types.js';
+import type { Rule, RuleCtx } from './types.js';
+import { judgedNotes, ruleIssue } from './types.js';
+
+/** Un saut vaut au moins une quarte : en deçà, la ligne marche, elle ne saute pas. */
+const LEAP = 5;
+/** Fenêtre de climax par défaut, quand la spec n'en déclare pas. */
+const CLIMAX_WINDOW: [number, number] = [0.55, 0.85];
+/** Part maximale de notes hors gamme avant que l'amortisseur ne cède. */
+const OUT_OF_KEY_TOLERANCE = 0.12;
+/** Répétitions exactes d'affilée à partir desquelles on parle de monotonie. */
+const MONOTONY_REPEATS = 4;
+/** Une phrase qui dépasse cette durée sans respirer étouffe l'auditeur. */
+const MAX_PHRASE_TICKS = 1920 * 8;
+
+function pc(n: number): number {
+  return ((n % 12) + 12) % 12;
+}
+
+export const MELODY_RULES: Rule[] = [
+  {
+    id: 'melody.no-motif',
+    severity: 'warning',
+    weight: 1,
+    appliesTo: ['mono', 'voices', 'parts', 'midi'],
+    lessonRef: 'm02-l03',
+    detect: (ctx: RuleCtx): Issue[] => {
+      const report = ctx.analysis.motifs;
+      if (!report) return [];
+      if (report.bestMotif && report.bestMotif.occurrences.length >= 2) return [];
+      return [ruleIssue({ id: 'melody.no-motif', severity: 'warning', lessonRef: 'm02-l03' }, undefined,
+        'aucune cellule ne revient : il n\'y a rien à retenir dans cette mélodie')];
+    },
+    pedagogy: {
+      why: "On ne retient pas une suite de notes, on retient une CELLULE qui revient. Sans elle, ta mélodie est jolie à la première écoute et oubliée à la seconde.",
+      how: "Prends trois à cinq notes de ton début — celles que tu chanterais si on te demandait ton thème — et fais-les revenir au moins une fois, même transposées, même au rythme changé.",
+      when: "Partout où l'on te demande de composer un thème. La règle se tait sur un exercice de conduite pure (harmonisation, contrepoint sur cantus donné), où la matière vient d'ailleurs.",
+      commonMistake: "Écrire huit mesures de belles notes toutes différentes, en croyant que la variété est une qualité. La variété sans retour est du bavardage.",
+      alternative: "Si tu veux vraiment éviter la répétition littérale : varie la cellule (transpose-la, augmente-la, inverse-la). Le lien reste audible, la surprise aussi.",
+    },
+  },
+  {
+    id: 'melody.monotony',
+    severity: 'suggestion',
+    weight: 1,
+    appliesTo: ['mono', 'voices', 'parts', 'midi'],
+    lessonRef: 'm02-l07',
+    detect: (ctx: RuleCtx): Issue[] => {
+      const report = ctx.analysis.motifs;
+      if (!report) return [];
+      if (report.maxExactRepetitions < MONOTONY_REPEATS) return [];
+      if (report.hasVariedRepetition) return [];
+      return [ruleIssue({ id: 'melody.monotony', severity: 'suggestion', lessonRef: 'm02-l07' },
+        report.bestMotif?.anchor,
+        `${report.maxExactRepetitions} énoncés EXACTEMENT identiques et aucune variation : la cellule se répète sans jamais se transformer`)];
+    },
+    pedagogy: {
+      why: "Répéter installe ; répéter sans jamais bouger endort. La troisième fois, l'oreille a compris et attend autre chose.",
+      how: "Garde les deux premiers énoncés identiques — c'est ce qui installe — puis change quelque chose au troisième : une note du sommet, une durée, la direction de la fin.",
+      when: "Dans la plupart des styles. **Pas en thriller** : le profil `thriller-tension` met cette règle à zéro, parce que la répétition obstinée y EST le moyen (l'étau qui se resserre).",
+      commonMistake: "Croire qu'on a fait une variation en changeant l'harmonie sous une mélodie identique. C'est une variation d'accompagnement — la ligne, elle, n'a pas bougé.",
+      alternative: "La séquence : le même dessin, un degré plus haut. Tu répètes ET tu avances, dans le même geste.",
+    },
+  },
+  {
+    id: 'melody.climax',
+    severity: 'warning',
+    weight: 1,
+    appliesTo: ['mono', 'voices', 'parts', 'midi'],
+    lessonRef: 'm02-l06',
+    detect: (ctx: RuleCtx): Issue[] => {
+      const contour = ctx.analysis.contour;
+      const notes = judgedNotes(ctx);
+      if (!contour || notes.length < 4) return [];
+      const total = notes.reduce((m, n) => Math.max(m, n.start + n.duration), 0);
+      if (total === 0) return [];
+
+      const globals = contour.peaks.filter(p => p.isGlobal);
+      const declared = ctx.spec.constraints?.climaxWindow;
+      const [lo, hi] = Array.isArray(declared) && declared.length === 2
+        ? (declared as [number, number])
+        : CLIMAX_WINDOW;
+
+      const issues: Issue[] = [];
+      const self = { id: 'melody.climax', severity: 'warning' as const, lessonRef: 'm02-l06' };
+      if (globals.length > 1) {
+        issues.push(ruleIssue(self, globals[1]!.at,
+          `le sommet est atteint ${globals.length} fois : un climax qui revient n'est plus un climax`));
+      }
+      const top = globals[0];
+      if (top) {
+        const position = top.at / total;
+        if (position < lo || position > hi) {
+          issues.push(ruleIssue(self, top.at,
+            `sommet à ${Math.round(position * 100)} % de la pièce — la fenêtre attendue est ${Math.round(lo * 100)}–${Math.round(hi * 100)} %`));
+        }
+      }
+      return issues;
+    },
+    pedagogy: {
+      why: "Une mélodie raconte une montée vers un point et une retombée. Si le point le plus haut arrive trop tôt, tout ce qui suit est une redescente ; s'il arrive à la toute fin, il n'y a pas de retombée du tout.",
+      how: "Place ta note la plus aiguë vers les deux tiers de la pièce, tiens-la, et ne la rejoue plus après. Les sommets intermédiaires doivent être plus BAS qu'elle, et de préférence croissants.",
+      when: "Dès qu'une ligne a une forme à défendre. Un ostinato, un tapis, une pédale n'ont pas de climax — la règle ne les concerne pas.",
+      commonMistake: "Toucher le sommet trois fois en croyant l'affirmer. Chaque rappel lui enlève de la valeur : le sommet vaut par sa rareté.",
+      alternative: "Si ton matériau exige l'aigu tôt, redescends franchement et construis un SECOND sommet, plus haut, à sa place — l'échelle des sommets (m02-l06) est faite pour ça.",
+    },
+  },
+  {
+    id: 'melody.leap-recovery',
+    severity: 'suggestion',
+    weight: 1,
+    appliesTo: ['mono', 'voices', 'parts', 'midi'],
+    lessonRef: 'm01-l07',
+    detect: (ctx: RuleCtx): Issue[] => {
+      const notes = judgedNotes(ctx);
+      const issues: Issue[] = [];
+      const self = { id: 'melody.leap-recovery', severity: 'suggestion' as const, lessonRef: 'm01-l07' };
+      for (let i = 0; i < notes.length - 2; i++) {
+        const leap = notes[i + 1]!.pitch - notes[i]!.pitch;
+        if (Math.abs(leap) < LEAP) continue;
+        const after = notes[i + 2]!.pitch - notes[i + 1]!.pitch;
+        const contrary = Math.sign(after) === -Math.sign(leap);
+        const conjunct = Math.abs(after) >= 1 && Math.abs(after) <= 2;
+        if (contrary && conjunct) continue;
+        issues.push(ruleIssue(self, notes[i + 1]!.start,
+          `saut de ${Math.abs(leap)} demi-tons non remboursé : la note d'après repart ${contrary ? 'par saut' : 'dans la même direction'}`));
+      }
+      return issues;
+    },
+    pedagogy: {
+      why: "Un saut est une dette : l'oreille est projetée quelque part et veut être ramenée. Un degré conjoint en sens contraire suffit à solder — c'est le geste le plus économique de toute la mélodie.",
+      how: "Après un saut d'une quarte ou plus, redescends (ou remonte) d'un degré dans l'autre sens. Deux notes, et la ligne respire de nouveau.",
+      when: "Partout, et **renforcé ×1.3 en `romantic-film`** : là, le geste saut-puis-récupération n'est pas une précaution, c'est la signature du style.",
+      commonMistake: "Enchaîner deux sauts dans la même direction en croyant faire un élan. On fait surtout un arpège — et un arpège n'est pas une mélodie.",
+      alternative: "Si tu veux vraiment enchaîner les sauts : reste dans un seul accord (l'oreille les entend alors comme une harmonie déployée) et solde la dette à la sortie.",
+    },
+  },
+  {
+    id: 'melody.out-of-key',
+    severity: 'warning',
+    weight: 1,
+    appliesTo: ['mono', 'voices', 'parts', 'midi'],
+    lessonRef: 'm01-l22',
+    detect: (ctx: RuleCtx): Issue[] => {
+      const collection = ctx.analysis.collection;
+      const notes = judgedNotes(ctx);
+      if (!collection || notes.length === 0) return [];
+      const key = ctx.analysis.key;
+      const scale = new Set([0, 2, 4, 5, 7, 9, 11].map(d => pc(d + key.tonic)));
+      if (key.mode === 'minor') { scale.delete(pc(key.tonic + 4)); scale.add(pc(key.tonic + 3)); scale.add(pc(key.tonic + 8)); }
+
+      const idioms = ctx.analysis.idioms ?? [];
+      const strangers = notes.filter(n =>
+        !scale.has(pc(n.pitch)) && !idioms.some(t => n.start >= t.from && n.start < t.to));
+      const ratio = strangers.length / notes.length;
+      // L'amortisseur : quelques notes étrangères sont de la couleur, pas une faute.
+      if (ratio <= OUT_OF_KEY_TOLERANCE) return [];
+      return [ruleIssue({ id: 'melody.out-of-key', severity: 'warning', lessonRef: 'm01-l22' },
+        strangers[0]!.start,
+        `${Math.round(ratio * 100)} % de notes étrangères non expliquées : la tonalité ne tient plus`)];
+    },
+    pedagogy: {
+      why: "Une note étrangère est un événement : elle attire l'oreille parce qu'elle sort du cadre. Quand il y en a partout, il n'y a plus de cadre, donc plus d'événement — juste du flou.",
+      how: "Garde tes altérations pour les moments qui comptent, et RÉSOUS-LES : une note chromatique qui monte d'un demi-ton vers une note de l'accord s'explique toute seule.",
+      when: "En musique tonale et modale. La règle s'amortit d'elle-même sous les tags d'idiomes (un napolitain, une sixte augmentée ne comptent pas), et l'étau du thriller assume sa dérive.",
+      commonMistake: "Ajouter des altérations pour « faire savant ». Une altération non résolue ne fait pas savant, elle fait accident.",
+      alternative: "Si tu veux ce son-là durablement, change de collection et déclare-le : un mode, une gamme par tons, une octatonique — le moteur juge alors chez toi, pas chez le voisin.",
+    },
+  },
+  {
+    id: 'melody.ending-weak',
+    severity: 'warning',
+    weight: 1,
+    appliesTo: ['mono', 'voices', 'parts', 'midi'],
+    lessonRef: 'm01-l16',
+    detect: (ctx: RuleCtx): Issue[] => {
+      const notes = judgedNotes(ctx);
+      const last = notes[notes.length - 1];
+      if (!last) return [];
+      const degree = pc(last.pitch - ctx.analysis.key.tonic);
+      const restful = degree === 0 || degree === 7;
+      const long = last.duration >= 960;
+      if (restful && long) return [];
+      return [ruleIssue({ id: 'melody.ending-weak', severity: 'warning', lessonRef: 'm01-l16' }, last.start,
+        !restful
+          ? `la dernière note tombe sur le degré ${degree} : rien ne se referme`
+          : 'la dernière note est trop brève pour qu\'on s\'y pose')];
+    },
+    pedagogy: {
+      why: "La dernière note est celle qu'on garde. Si elle ne se pose pas, l'auditeur reste suspendu — ce qui est un choix magnifique quand c'est voulu, et une maladresse quand ça ne l'est pas.",
+      how: "Termine sur la tonique (ou la dominante si tu veux laisser ouvert), et donne-lui de la durée : au moins une blanche, sur un temps fort.",
+      when: "Dès qu'une pièce doit CONCLURE. Un fragment, un ostinato bouclé, une question laissée ouverte échappent à la règle — mais dis-le dans ta consigne.",
+      commonMistake: "Finir sur la tierce en croyant que c'est plus doux. C'est plus doux, et c'est aussi moins fini : sache lequel des deux tu veux.",
+      alternative: "Pour une fin ouverte assumée : arrête-toi sur la dominante, longue, et laisse le silence. C'est une suspension, pas une erreur — et le rapport la nommera comme telle.",
+    },
+  },
+  {
+    id: 'melody.phrase-breathing',
+    severity: 'suggestion',
+    weight: 1,
+    appliesTo: ['mono', 'voices', 'parts', 'midi'],
+    lessonRef: 'm02-l06',
+    detect: (ctx: RuleCtx): Issue[] => {
+      const phrases = ctx.analysis.phrases;
+      if (!phrases) return [];
+      const self = { id: 'melody.phrase-breathing', severity: 'suggestion' as const, lessonRef: 'm02-l06' };
+      return phrases.phrases
+        .filter(p => p.to - p.from > MAX_PHRASE_TICKS)
+        .map(p => ruleIssue(self, p.from,
+          `${Math.round((p.to - p.from) / 1920)} mesures sans respiration : la phrase ne reprend jamais son souffle`));
+    },
+    pedagogy: {
+      why: "On écoute comme on respire. Une ligne qui ne s'arrête jamais épuise l'auditeur avant de l'émouvoir — et elle empêche d'entendre où commencent et finissent les idées.",
+      how: "Place un silence, ou une note longue qui boucle la mesure, toutes les quatre à huit mesures. C'est là que l'auditeur range ce qu'il vient d'entendre.",
+      when: "Sur les lignes chantées ou soufflées surtout, où la respiration est physique. Un tapis de cordes ou un arpège de harpe peuvent couler sans fin.",
+      commonMistake: "Confondre respiration et arrêt. Une respiration peut être une croche de silence : il ne s'agit pas de casser l'élan, mais de le ponctuer.",
+      alternative: "L'élision : la note qui conclut une phrase ET lance la suivante. Tu ne respires pas, mais la frontière reste audible — c'est le geste avancé de m02-l06.",
+    },
+  },
+  {
+    id: 'melody.tension-placement',
+    severity: 'suggestion',
+    weight: 1,
+    appliesTo: ['mono', 'voices', 'parts', 'midi'],
+    lessonRef: 'm02-l10',
+    detect: (ctx: RuleCtx): Issue[] => {
+      const curve = ctx.analysis.tension;
+      if (!curve || curve.length < 4) return [];
+      const peak = curve.indexOf(Math.max(...curve));
+      const position = peak / (curve.length - 1);
+      if (position >= 0.5 && position <= 0.9) return [];
+      return [ruleIssue({ id: 'melody.tension-placement', severity: 'suggestion', lessonRef: 'm02-l10' }, undefined,
+        `la tension culmine à ${Math.round(position * 100)} % : ${position < 0.5 ? 'trop tôt, tout ce qui suit retombe' : 'si tard que la retombée n\'a plus de place'}`)];
+    },
+    pedagogy: {
+      why: "La tension est une dette qu'on contracte puis qu'on rembourse. Le moment où elle culmine décide de la forme entière de la pièce.",
+      how: "Fais monter jusqu'aux deux tiers environ, puis redescends. Registre, densité, dissonance et surprise sont tes quatre leviers — ils n'ont pas besoin de monter ensemble.",
+      when: "Dès qu'une ambiance est visée. **Poids zéro en `thriller-tension`** : là, la non-résolution EST le but, et une tension qui ne retombe jamais est la réussite, pas la faute.",
+      commonMistake: "Tout mettre au même endroit — l'aigu, le fort, le dense et le dissonant sur la même mesure. Le climax gagne à être préparé par un seul moteur à la fois.",
+      alternative: "L'arche en paliers : monter, tenir, monter encore. C'est le gabarit `epic`, et il place son sommet très tard sans jamais paraître en retard.",
+    },
+  },
+];
