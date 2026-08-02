@@ -25,6 +25,7 @@ export default tseslint.config(
       'test/solutions.ts',
       'test/locks/roundtrip.test.ts',
       'test/locks/templates.test.ts',
+      'test/locks/completeness.test.ts',
     ],
     rules: { 'no-restricted-imports': 'off' }
   }
