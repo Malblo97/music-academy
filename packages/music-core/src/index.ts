@@ -4,5 +4,8 @@ export * from './types.js';
 export * from './analyzers/key.js';
 export * from './analyzers/chord.js';
 export * from './analyzers/cadence.js';
+export * from './analyzers/collection.js';
+export * from './analyzers/idioms.js';
 export * from './data/krumhansl.js';
 export * from './data/chordForms.js';
+export * from './data/idioms.js';
