@@ -24,6 +24,7 @@ export default tseslint.config(
       'test/fixtures/notation/solutions.test.ts',
       'test/solutions.ts',
       'test/locks/roundtrip.test.ts',
+      'test/locks/templates.test.ts',
     ],
     rules: { 'no-restricted-imports': 'off' }
   }
