@@ -62,9 +62,12 @@ export const fixtures: Fixture[] = [
     { notation: 'C4:q A4:q E5:q C5:q' },
     { notation: 'C4:q A4:q G4:q F4:q' }),
 
+  // La tonalité est DÉCLARÉE : sans elle, `estimateKey` lit une montée
+  // chromatique intégrale dans une tonalité arbitraire, et la fixture ne teste
+  // plus la règle qu'elle vise.
   ...triad('melody.out-of-key',
-    { notation: 'C4:q C#4:q D4:q D#4:q | E4:q F#4:q G#4:q A#4:q' },
-    { notation: 'C4:q D4:q E4:q F4:q | G4:q A4:q B4:q C5:q' }),
+    { notation: 'C4:q C#4:q D4:q D#4:q | E4:q F#4:q G#4:q A#4:q', given: { key: { tonic: 0, mode: 'major' } } },
+    { notation: 'C4:q D4:q E4:q F4:q | G4:q A4:q B4:q C5:q', given: { key: { tonic: 0, mode: 'major' } } }),
 
   ...triad('melody.ending-weak',
     { notation: 'C4:q D4:q E4:q F4:q | G4:q A4:q B4:q E4:e' },
@@ -278,6 +281,44 @@ export const fixtures: Fixture[] = [
         voices: ['C5:w | C5:w | B4:w | G4:w', 'E4:w | F4:w | D4:w | E4:w', 'G3:w | A3:w | F3:w | E3:w', 'C3:w | F3:w | G2:w | C3:w'],
       };
       expect(fires('vl.leading-tone-resolution', broken), 'descendue au lieu de résolue : faute').toBe(true);
+    },
+  },
+  {
+    name: 'melody.out-of-key — la FIGURE chromatique qui retombe est expliquée',
+    run: () => {
+      const key = { key: { tonic: 0, mode: 'major' } };
+      // do–do♯–ré : la chromatique passe et RETOMBE dans la gamme (m01-l22).
+      const figure: CaseInput = { notation: 'C4:q C#4:q D4:q E4:q | F4:q F#4:q G4:q C5:q', given: key };
+      expect(fires('melody.out-of-key', figure), 'les notes de passage résolvent').toBe(false);
+      // La même densité de chromatismes, mais qui ne retombent nulle part.
+      const saturated: CaseInput = { notation: 'C4:q C#4:q D#4:q F#4:q | G#4:q A#4:q C#5:q D#5:q', given: key };
+      expect(fires('melody.out-of-key', saturated), 'saturation : plus de cadre').toBe(true);
+    },
+  },
+  {
+    name: 'melody.out-of-key — le mode est lu, pas le majeur de la tonique',
+    run: () => {
+      // Ré dorien : le fa et le do naturels SONT la tonalité, pas des écarts.
+      const dorian: CaseInput = {
+        notation: 'D4:q E4:q F4:q G4:q | A4:q B4:q C5:q D5:q',
+        given: { key: { tonic: 2, mode: 'dorian' } },
+      };
+      expect(fires('melody.out-of-key', dorian), 'ré dorien est dans sa gamme').toBe(false);
+      // Les mêmes notes annoncées en ré MAJEUR : là, fa et do sont étrangers.
+      const major: CaseInput = { ...dorian, given: { key: { tonic: 2, mode: 'major' } } };
+      expect(fires('melody.out-of-key', major), 'annoncé majeur : deux degrés abaissés').toBe(true);
+    },
+  },
+  {
+    name: "melody.out-of-key — une note d'un accord chiffré est expliquée",
+    run: () => {
+      const key = { key: { tonic: 0, mode: 'major' } };
+      // V/V : le fa♯ est la TIERCE de ré majeur, pas un accident.
+      const secondary: CaseInput = {
+        voices: ['A4:w | B4:w | C5:w', 'F#4:w | G4:w | E4:w', 'D3:w | G2:w | C3:w'],
+        given: key,
+      };
+      expect(fires('melody.out-of-key', secondary), "tierce d'une dominante secondaire").toBe(false);
     },
   },
 ];

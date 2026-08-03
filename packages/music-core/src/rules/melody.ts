@@ -1,6 +1,12 @@
-import type { Issue } from '../types.js';
+import type { Issue, Note } from '../types.js';
 import type { Rule, RuleCtx } from './types.js';
 import { judgedLine, judgedNotes, ruleIssue } from './types.js';
+import { scalePcs } from '../analyzers/key.js';
+import { STRICT_COVERAGE } from '../analyzers/collection.js';
+import type { CollectionFamily } from '../analyzers/collection.js';
+
+/** Les collections qui constituent une grammaire de rechange assumée. */
+const ALTERNATIVE_COLLECTIONS = new Set<CollectionFamily>(['whole-tone', 'octatonic', 'pentatonic', 'melodic-minor']);
 
 /** Un saut vaut au moins une quarte : en deçà, la ligne marche, elle ne saute pas. */
 const LEAP = 5;
@@ -60,6 +66,34 @@ function hasShapeIntent(ctx: RuleCtx): boolean {
     || c.minArchFit !== undefined
     || c.ascendingPhrasePeaks !== undefined
     || ctx.spec.styleProfile?.targetMood !== undefined;
+}
+
+
+/**
+ * Les notes chromatiques qui SE RÉSOLVENT : celles dont la voisine immédiate,
+ * dans leur propre ligne, est un degré de la gamme à un demi-ton.
+ *
+ * Le calcul se fait voix par voix quand la soumission en a — sur une texture
+ * aplatie, la « note suivante » serait celle d'une autre voix, et n'importe
+ * quel chromatisme paraîtrait résolu par accident.
+ */
+function resolvesBySemitone(ctx: RuleCtx, scale: ReadonlySet<number>): Set<Note> {
+  const lines: readonly (readonly Note[])[] = ctx.analysis.voices ?? [ctx.analysis.notes];
+  const out = new Set<Note>();
+  for (const raw of lines) {
+    const line = [...raw].sort((a, b) => a.start - b.start);
+    for (let i = 0; i < line.length; i++) {
+      const n = line[i]!;
+      if (scale.has(pc(n.pitch))) continue;
+      const next = line[i + 1];
+      // Une figure RETOMBE dans la gamme : c'est ce qui la distingue de la
+      // saturation chromatique. Excuser aussi les notes seulement ATTEINTES par
+      // demi-ton depuis un degré reviendrait à absoudre n'importe quelle montée
+      // chromatique intégrale — chaque note y est approchée d'un demi-ton.
+      if (next && Math.abs(next.pitch - n.pitch) === 1 && scale.has(pc(next.pitch))) out.add(n);
+    }
+  }
+  return out;
 }
 
 export const MELODY_RULES: Rule[] = [
@@ -205,13 +239,49 @@ export const MELODY_RULES: Rule[] = [
       const collection = ctx.analysis.collection;
       const notes = judgedNotes(ctx);
       if (!collection || notes.length === 0) return [];
+
+      // La pièce vit dans une AUTRE collection DÉFINIE, et le dit clairement :
+      // c'est exactement ce que propose l'`alternative` de cette règle — « change
+      // de collection et déclare-le, le moteur juge alors chez toi ». Une pièce
+      // octatonique n'a pas 24 % de notes fautives : elle a une autre grille.
+      //
+      // `chromatic` est explicitement EXCLUE de cette porte de sortie : elle
+      // contient les douze notes, donc sa couverture vaut toujours 1, et
+      // l'accepter reviendrait à éteindre la règle sur exactement la musique
+      // qu'elle doit juger — « quand il y en a partout, il n'y a plus de cadre ».
+      if (ALTERNATIVE_COLLECTIONS.has(collection.family) && collection.coverage >= STRICT_COVERAGE) return [];
+
       const key = ctx.analysis.key;
-      const scale = new Set([0, 2, 4, 5, 7, 9, 11].map(d => pc(d + key.tonic)));
-      if (key.mode === 'minor') { scale.delete(pc(key.tonic + 4)); scale.add(pc(key.tonic + 3)); scale.add(pc(key.tonic + 8)); }
+      // La gamme du MODE, pas le majeur supposé : une pièce en dorien était
+      // jugée contre le majeur de sa tonique, sa tierce et sa septième mineures
+      // comptées comme étrangères. Définition unique, partagée avec le checker
+      // `key` (`analyzers/key.ts`).
+      const scale = scalePcs(key.tonic, key.mode);
 
       const idioms = ctx.analysis.idioms ?? [];
+      // Une note chromatique qui appartient à un ACCORD CHIFFRÉ est expliquée :
+      // c'est la tierce d'une dominante secondaire, la fondamentale d'un accord
+      // emprunté, une note de médiante chromatique. Le message de la règle dit
+      // « non expliquées » — encore faut-il regarder l'explication. Sans cela,
+      // elle parlait sur les exercices qui ENSEIGNENT le chromatisme :
+      // `m01-e41-chromatic-figures`, `m01-e46-mediant-voyage`,
+      // `m01-e36-dominant-chain`, `m03-e05-secret-passage`.
+      const chords = ctx.analysis.chords ?? [];
+      const inSomeChord = (n: { pitch: number; start: number }): boolean =>
+        chords.some(c => c.from <= n.start && n.start < c.to && c.chord.pcs.includes(pc(n.pitch)));
+
+      // La FIGURE CHROMATIQUE, telle que la règle la décrit elle-même dans son
+      // `how` : « une note chromatique qui monte d'un demi-ton vers une note de
+      // l'accord s'explique toute seule ». Le critère était énoncé et jamais
+      // appliqué — d'où les alertes sur `m01-e41-chromatic-figures` et
+      // `m02-e29-talk-to-changes`, dont les notes de passage résolvent toutes.
+      const resolves = resolvesBySemitone(ctx, scale);
+
       const strangers = notes.filter(n =>
-        !scale.has(pc(n.pitch)) && !idioms.some(t => n.start >= t.from && n.start < t.to));
+        !scale.has(pc(n.pitch))
+        && !idioms.some(t => n.start >= t.from && n.start < t.to)
+        && !inSomeChord(n)
+        && !resolves.has(n));
       const ratio = strangers.length / notes.length;
       // L'amortisseur : quelques notes étrangères sont de la couleur, pas une faute.
       if (ratio <= OUT_OF_KEY_TOLERANCE) return [];

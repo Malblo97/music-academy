@@ -20,6 +20,7 @@ manque de CONTENU, pas de moteur — voir « Reste à faire ».
 | Première exécution du verrou | 2/27 | 5/28 | 0/31 | **9/86** |
 | Passe 1 — A-1 à A-10 | 13/27 | 9/28 | 17/31 | **39 à la note, 33 pleinement verts** |
 | Passe 2 — B-1 à B-5 (cadences et tonalité) | 15/27 | 9/28 | 17/31 | **41 à la note, 36 pleinement verts** |
+| Passe 3 — C-1 à C-3 (`melody.out-of-key`) | 15/27 | 10/28 | 18/31 | **43 à la note, 38 pleinement verts** |
 
 Le verrou pose DEUX conditions par solution : la note ≥ 85 **et** aucune
 contrainte non tenue hors performance. Le second chiffre est le seul qui compte
@@ -223,14 +224,67 @@ cet endroit = pas de contexte fonctionnel, donc pas de sensible.
 
 ---
 
+## Passe 3 — `melody.out-of-key`, de 26 solutions à une seule
+
+La règle parlait sur 26 solutions. Trois causes distinctes, chacune encadrée par
+une fixture positive et une négative.
+
+### C-1 — la gamme était câblée en majeur/mineur
+Le mode exotique n'était pas lu : `[0,2,4,5,7,9,11]` transposé sur la tonique,
+avec un correctif pour le mineur seulement. Une pièce en dorien était donc jugée
+contre le MAJEUR de sa tonique, sa tierce et sa septième mineures comptées comme
+étrangères. Le problème est devenu visible en passe 2, quand la tonalité de
+travail est devenue celle de la consigne — souvent modale en M3.
+**Correctif** : `scalePcs(tonic, mode)` exporté depuis `analyzers/key.ts`, une
+seule définition partagée par la règle et par le checker `key`. Les avoir
+écrites deux fois, c'était garantir qu'elles divergent. **26 → 17.**
+
+### C-2 — une note d'accord chiffré n'est pas « inexpliquée »
+Le message de la règle dit « notes étrangères NON EXPLIQUÉES » — encore
+faut-il regarder l'explication. La tierce d'une dominante secondaire, la
+fondamentale d'un accord emprunté, une note de médiante chromatique
+appartiennent à un accord parfaitement chiffré. Sans ce regard, la règle parlait
+sur les exercices qui ENSEIGNENT le chromatisme : `m01-e36-dominant-chain`,
+`m01-e46-mediant-voyage`, `m03-e05-secret-passage`, `m03-e06-eight-worlds`.
+**Correctif** : une note étrangère appartenant aux pitch-classes d'un accord
+chiffré au même moment est excusée. Ajouté au passage : une pièce dont la
+collection détectée est une grammaire de rechange assumée (par tons, octatonique,
+pentatonique, mineur mélodique) avec une couverture stricte sort du champ — c'est
+littéralement ce que propose l'`alternative` de la règle. **`chromatic` en est
+exclue** : elle contient les douze notes, sa couverture vaut toujours 1, et
+l'accepter éteindrait la règle sur exactement la musique qu'elle doit juger.
+**17 → 4.**
+
+### C-3 — la FIGURE chromatique n'était pas implémentée
+Le `how` de la règle l'énonce pourtant : « une note chromatique qui monte d'un
+demi-ton vers une note de l'accord s'explique toute seule ». Le critère était
+écrit et jamais appliqué — d'où les alertes sur `m01-e41-chromatic-figures` et
+`m02-e29-talk-to-changes`, dont toutes les notes de passage résolvent.
+**Correctif** : `resolvesBySemitone` — une chromatique est excusée si sa voisine
+immédiate, DANS SA PROPRE LIGNE, est un degré de la gamme à un demi-ton. Deux
+précisions qui font toute la différence : le calcul se fait voix par voix (sur
+une texture aplatie, la « note suivante » serait celle d'une autre voix et
+n'importe quel chromatisme paraîtrait résolu par accident) ; et la figure doit
+RETOMBER dans la gamme — excuser aussi les notes seulement approchées par
+demi-ton absoudrait n'importe quelle montée chromatique intégrale, où chaque note
+est approchée d'un demi-ton. **4 → 1.**
+
+**Effet collatéral** : le harnais de fixtures honore désormais la tonalité
+déclarée, comme le pipeline. Sans cela, une fixture chromatique se faisait lire
+par `estimateKey` dans une tonalité arbitraire (la♭ mixolydien pour une montée
+chromatique en do) et ne testait plus la règle qu'elle visait.
+
+**Reste une seule occurrence** : `m03-e11-weightless`, 14 % — le do♯ et le mi♭ de
+la section en apesanteur, dont les agrégats ne se chiffrent pas. À instruire avec
+le reste de cette pièce.
+
 ## Reste à faire
 
-**45 solutions** encore rouges (50 n'atteignent pas les deux clauses). Les
+**43 solutions** encore rouges (48 n'atteignent pas les deux clauses). Les
 blocages sont désormais concentrés : quatre règles pèsent l'essentiel.
 
 | Occurrences | Règle | À instruire |
 |---|---|---|
-| 26 sol. | `melody.out-of-key` | maintenant que la tonalité vient de la consigne, ces notes sont réellement hors collection : emprunts, chromatismes et polytonalité de M3. Vérifier que les idiomes tagués (napolitain, sixte augmentée, emprunt modal) amortissent bien le compte. |
 | 23 sol. | `melody.climax` | sur les seuls exercices qui déclarent une forme. Soit le seuil, soit la mesure du sommet sur une ligne à voix multiples. |
 | 21 sol. | `melody.leap-recovery` | 91 occurrences : un thème d'aventure ou d'épique enchaîne des sauts par contrat. La règle a peut-être besoin d'une fourchette par `targetMood`, comme `step-leap-balance` côté craft. |
 | 17 sol. | `vl.parallel-perfects` | vérifié par sondage sur m01-s40 : les quintes parallèles composées y sont RÉELLES entre basse et voix interne. Reste à trancher si l'écriture de clavier des solutions justifie une exception, ou si les solutions sont à corriger (diagnostic B). |

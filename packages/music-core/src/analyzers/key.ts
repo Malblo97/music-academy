@@ -17,6 +17,35 @@ const AMBIGUITY_THRESHOLD = 0.08;
 const DEFAULT_BAR_TICKS = 1920;
 
 const MAJOR_SCALE_STEPS = [0, 2, 4, 5, 7, 9, 11];
+
+/** Le rang de chaque mode dans la rotation de la gamme majeure (l07 M1). */
+const MODE_ROTATION: Record<string, number> = {
+  major: 0, dorian: 1, phrygian: 2, lydian: 3, mixolydian: 4, minor: 5, locrian: 6,
+};
+
+/**
+ * **Les pitch-classes d'une tonalité**, mode compris.
+ *
+ * Une seule définition pour tout le moteur : la règle `melody.out-of-key`, le
+ * checker `key` et tout ce qui demandera « cette note appartient-elle à la
+ * tonalité ? » doivent répondre la même chose. Les avoir écrites deux fois,
+ * c'était garantir qu'elles divergent — et la version câblée en majeur jugeait
+ * une pièce en dorien contre le MAJEUR de sa tonique, comptant sa tierce et sa
+ * septième mineures comme des notes étrangères.
+ *
+ * En mineur, la sensible et la 6e haussées font partie de la tonalité : le
+ * mineur harmonique et le mélodique ne sont pas des écarts (m01-l11).
+ */
+export function scalePcs(tonic: number, mode: Mode | string): Set<number> {
+  const rot = MODE_ROTATION[mode] ?? 0;
+  const base = MAJOR_SCALE_STEPS[rot]!;
+  const out = new Set(MAJOR_SCALE_STEPS.map((_, i) => pc(tonic + MAJOR_SCALE_STEPS[(i + rot) % 7]! - base)));
+  if (rot === 5) {
+    out.add(pc(tonic + 11)); // sensible du mineur harmonique
+    out.add(pc(tonic + 9)); // 6e du mineur mélodique
+  }
+  return out;
+}
 /** Le mode de chaque degré de la gamme majeure, dans l'ordre des degrés (l07 M1). */
 const MODE_BY_DEGREE: Mode[] = ['major', 'dorian', 'phrygian', 'lydian', 'mixolydian', 'minor', 'locrian'];
 /** Intervalle (demi-tons depuis la tonique) de la note caractéristique de chaque mode modal (garde-fou F-19). */

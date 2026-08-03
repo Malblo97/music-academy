@@ -73,7 +73,14 @@ export function buildCtx(input: CaseInput): RuleCtx {
     ? [...melody, ...input.harmony.flatMap(v => parseNotation(v))]
     : melody;
 
-  const key = estimateKey(notes);
+  // Comme le pipeline (S5–S6) : la tonalité vient de la consigne quand elle la
+  // déclare. Sans cela, une fixture chromatique se fait lire dans une tonalité
+  // arbitraire et ne teste plus la règle qu'elle vise.
+  const estimated = estimateKey(notes);
+  const declaredKey = input.given?.key as { tonic?: number; mode?: string } | undefined;
+  const key = typeof declaredKey?.tonic === 'number'
+    ? { ...estimated, tonic: declaredKey.tonic, mode: (declaredKey.mode ?? 'major') as typeof estimated.mode }
+    : estimated;
   const harmonyNotes = input.harmony ? input.harmony.flatMap(v => parseNotation(v)) : notes;
   const verticals = verticalsOf(harmonyNotes);
   const idioms = tagIdioms(verticals, key);
@@ -96,6 +103,7 @@ export function buildCtx(input: CaseInput): RuleCtx {
     rhythm: rhythmProfile(notes, METER),
     tension: tensionCurve(notes),
   };
+  analysis.estimatedKey = estimated;
   if (voices) analysis.voices = voices;
   if (parts) analysis.parts = parts;
 

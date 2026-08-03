@@ -4,6 +4,7 @@ import { allJudged, asNumber, asNumbers, asRange, asStrings, degreeOf, fail, lin
 import { climaxPosition, contour } from '../../analyzers/contour.js';
 import { metricWeight } from '../../analyzers/rhythm.js';
 import { barCount, meterOfSpec } from '../../meter.js';
+import { scalePcs } from '../../analyzers/key.js';
 
 /** Le seuil d'ambiguïté de `estimateKey` — F-11 s'évalue sur les profils BRUTS. */
 const AMBIGUITY_THRESHOLD = 0.08;
@@ -16,22 +17,6 @@ const AMBIGUITY_THRESHOLD = 0.08;
  */
 const OUT_OF_KEY_TOLERANCE = 0.12;
 
-/** Les degrés du mode, en demi-tons depuis la tonique (l07 M1). */
-const MODE_ROTATION: Record<string, number> = {
-  major: 0, ionian: 0, dorian: 1, phrygian: 2, lydian: 3,
-  mixolydian: 4, minor: 5, aeolian: 5, locrian: 6,
-};
-const MAJOR_STEPS = [0, 2, 4, 5, 7, 9, 11];
-
-function scalePcs(tonic: number, mode: string): Set<number> {
-  const rot = MODE_ROTATION[mode] ?? 0;
-  const base = MAJOR_STEPS[rot]!;
-  const out = new Set(MAJOR_STEPS.map((_, i) => pc(tonic + MAJOR_STEPS[(i + rot) % 7]! - base)));
-  // En mineur, la sensible et la 6e haussées appartiennent à la tonalité :
-  // le mineur harmonique et mélodique ne sont pas des écarts (m01-l11).
-  if (rot === 5) { out.add(pc(tonic + 11)); out.add(pc(tonic + 9)); }
-  return out;
-}
 
 /**
  * `checkers/melody.ts` — les clés qui se mesurent sur la LIGNE.
