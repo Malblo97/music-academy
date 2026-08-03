@@ -22,7 +22,17 @@ export type SubmissionKind = Submission['kind'];
 /** Tout ce que les analyseurs ont su dire de la soumission. Les champs absents sont ceux qui ne s'appliquent pas. */
 export interface AnalysisBundle {
   notes: readonly Note[];
+  /**
+   * La tonalité de TRAVAIL : celle que la consigne déclare, ou l'estimation à
+   * défaut. Tout ce qui raisonne en degrés lit celle-ci.
+   */
   key: KeyEstimate;
+  /**
+   * Ce que `estimateKey` a lu dans les notes SEULES, sans la consigne. Sert au
+   * checker `key` : c'est en comparant les deux qu'on sait si l'élève a écrit
+   * dans la tonalité demandée.
+   */
+  estimatedKey?: KeyEstimate;
   voices?: readonly (readonly Note[])[];
   parts?: readonly Part[];
   verticals?: readonly Vertical[];

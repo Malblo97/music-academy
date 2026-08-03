@@ -14,16 +14,64 @@ function chords(ctx: RuleCtx) {
   return (ctx.analysis.chords ?? []).filter(c => ctx.window.judges(c.from));
 }
 
+/**
+ * Les degrés en chiffres romains, tels que les specs modales les écrivent :
+ * `modal:♭VII-I`, `modal:IV-i`, `modal:bII-i`. La casse ne porte que la
+ * qualité (majeur/mineur), pas le degré — `IV` et `iv` sont le même degré.
+ */
+const ROMAN_DEGREE: Record<string, number> = {
+  i: 0, bii: 1, ii: 2, biii: 3, iii: 4, iv: 5, bv: 6, v: 7, bvi: 8, vi: 9, bvii: 10, vii: 11,
+};
+
+function romanToDegree(raw: string): number | null {
+  const key = raw.trim().toLowerCase().replace(/♭/g, 'b').replace(/♯/g, '#');
+  return ROMAN_DEGREE[key] ?? null;
+}
+
+/** `modal:♭VII-I` → [10, 0]. Rend `null` si l'étiquette n'est pas de cette famille. */
+function parseModalLabel(label: string): [number, number] | null {
+  const match = /^modal\s*:\s*([#b♭♯]?[ivIV]+)\s*-\s*([#b♭♯]?[ivIV]+)$/.exec(label);
+  if (!match) return null;
+  const from = romanToDegree(match[1]!);
+  const to = romanToDegree(match[2]!);
+  return from === null || to === null ? null : [from, to];
+}
+
 export const HARMONY_CHECKERS: Record<string, Checker> = {
+  /**
+   * **La cadence EXIGÉE — présente, pas forcément finale.**
+   *
+   * Le checker comparait la dernière cadence de la pièce, ce qui faisait
+   * doublon avec `finalCadence` (qui existe, et qui est employée par quatre
+   * specs). Les deux clés doivent dire deux choses différentes, sinon l'auteur
+   * de specs n'a aucun moyen d'exprimer « la pièce contient une cadence
+   * parfaite » — ce que demande exactement `m03-e11-weightless`, dont la
+   * parfaite ANCRE les quatre premières mesures (« l'auditeur doit avoir un
+   * monde à perdre ») avant que la pièce ne parte en apesanteur.
+   *
+   * Deux vocabulaires cohabitent : les catégories fonctionnelles (`perfect`,
+   * `half`…) et les formules MODALES (`modal:IV-i`), que M3 nomme par leur
+   * chemin exact — en modal il n'y a pas de dominante pour porter la fonction,
+   * donc c'est le chemin QUI EST la cadence.
+   */
   requiredCadence: (_k, value, ctx) => {
     const wanted = typeof value === 'string' ? value : null;
     if (!wanted) return ok('rien à mesurer');
     const found = cadences(ctx);
-    const last = found[found.length - 1];
-    if (!last) return fail(`aucune cadence détectée, « ${wanted} » attendue`);
-    return last.kind === wanted
-      ? ok(`cadence finale « ${wanted} »`)
-      : fail(`cadence finale « ${last.kind} », attendue « ${wanted} »`);
+    if (found.length === 0) return fail(`aucune cadence détectée, « ${wanted} » attendue`);
+
+    const modal = parseModalLabel(wanted);
+    if (modal) {
+      const hit = found.find(c => c.degrees && c.degrees[0] === modal[0] && c.degrees[1] === modal[1]);
+      return hit
+        ? ok(`cadence modale « ${wanted} » à la mesure ${Math.floor(hit.at / 1920) + 1}`)
+        : fail(`aucune cadence modale ${modal[0]}→${modal[1]} (demi-tons) ; trouvé : ${found.map(c => c.degrees ? `${c.degrees[0]}→${c.degrees[1]}` : c.kind).join(', ')}`);
+    }
+
+    const hit = found.find(c => c.kind === wanted);
+    return hit
+      ? ok(`cadence « ${wanted} » à la mesure ${Math.floor(hit.at / 1920) + 1}`)
+      : fail(`aucune cadence « ${wanted} » ; trouvé : ${found.map(c => c.kind).join(', ')}`);
   },
 
   /** **F-14** : plusieurs cadences peuvent conclure légitimement. */

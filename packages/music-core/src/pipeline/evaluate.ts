@@ -1,8 +1,9 @@
 import { ENGINE_VER } from '../version.js';
-import type { Meter, Note, Part, Submission } from '../types.js';
+import type { Meter, Mode, Note, Part, Submission } from '../types.js';
 import type { AnalysisBundle, EvalWindow, ExerciseSpec, RuleCtx } from '../rules/types.js';
 import { melodicLine } from '../rules/types.js';
 import { estimateKey } from '../analyzers/key.js';
+import type { KeyEstimate } from '../analyzers/key.js';
 import { detectCollection } from '../analyzers/collection.js';
 import { detectChord } from '../analyzers/chord.js';
 import { tagIdioms } from '../analyzers/idioms.js';
@@ -12,7 +13,7 @@ import type { TimedChord } from '../analyzers/cadence.js';
 import { findMotifs } from '../analyzers/motifs.js';
 import { contour } from '../analyzers/contour.js';
 import { phraseAnalysis } from '../analyzers/phrase.js';
-import { rhythmProfile } from '../analyzers/rhythm.js';
+import { rhythmProfile, barTicks } from '../analyzers/rhythm.js';
 import { tensionCurve } from '../analyzers/tension.js';
 import { markGivenTicks } from '../constraints/window.js';
 import { checkConstraints } from '../constraints/checkers/index.js';
@@ -154,6 +155,50 @@ function verticalsOf(notes: readonly Note[]): Vertical[] {
 }
 
 /**
+ * **La tonalité DÉCLARÉE par la consigne**, si elle en déclare une.
+ *
+ * 91 des 97 specs de M1–M3 fixent la tonalité, dans `given.key` ou dans
+ * `constraints.key`. C'est un fait de la consigne, pas une inconnue à
+ * retrouver : `estimateKey` n'a aucune raison de la redécouvrir, et il s'y
+ * trompe précisément là où c'est le plus coûteux — six solutions du corpus,
+ * toutes à confiance faible (0,01 à 0,17), dont trois confusions de relatif
+ * (ré dorien lu la mineur, do majeur lu la mineur : la bonne collection, le
+ * mauvais centre).
+ *
+ * L'enjeu dépasse la clé elle-même : tonique fausse, TOUT ce qui raisonne en
+ * degrés devient faux — les notes hors gamme, la finale attendue, les degrés
+ * exposés, la fonction des accords, donc les cadences. Une seule erreur en
+ * amont en produisait cinq en aval.
+ */
+export function declaredKeyOf(spec: ExerciseSpec): { tonic: number; mode: Mode } | null {
+  const raw = (spec.given?.key ?? spec.constraints?.key) as { tonic?: unknown; mode?: unknown } | undefined;
+  if (!raw || typeof raw.tonic !== 'number') return null;
+  const mode = typeof raw.mode === 'string' ? raw.mode as Mode : 'major';
+  return { tonic: ((raw.tonic % 12) + 12) % 12, mode };
+}
+
+/**
+ * **Les frontières de segment**, en ticks — ce que F-5 appelle « la fin d'un
+ * segment ».
+ *
+ * Une cadence ponctue une forme : elle a besoin d'un poids structurel, soit une
+ * mesure tenue, soit une frontière. Quand la consigne découpe la pièce
+ * (`segmentBars`), chaque frontière est un point de ponctuation légitime — et
+ * l'ignorer rend invisibles toutes les cadences internes. Sans découpage
+ * déclaré, la seule frontière est la fin de la pièce.
+ */
+export function segmentEndsOf(spec: ExerciseSpec, meter: Meter, total: number): number[] {
+  const declared = spec.constraints?.segmentBars;
+  const bars = typeof declared === 'number' && declared > 0 ? declared : null;
+  if (bars === null || total === 0) return [total];
+  const step = bars * barTicks(meter);
+  const ends: number[] = [];
+  for (let t = step; t <= total; t += step) ends.push(t);
+  if (!ends.includes(total)) ends.push(total);
+  return ends;
+}
+
+/**
  * L'ORDRE OBLIGATOIRE, et la raison de chaque flèche :
  *
  *   key → collection → verticalités → **idiomes** → accords → cadences → le reste
@@ -168,8 +213,16 @@ export function runAnalyzers(submission: Submission, spec: ExerciseSpec, window:
   const meter = meterOf(spec);
   const notes = notesOf(submission);
 
-  // 1. La tonalité — tout le reste en dépend.
-  const key = estimateKey(notes);
+  // 1. La tonalité — tout le reste en dépend, alors on la prend où elle est
+  //    SÛRE : dans la consigne quand elle la déclare, dans l'estimation sinon.
+  //    L'estimation reste calculée et conservée dans `estimatedKey` : c'est
+  //    elle que le checker `key` compare au déclaré pour dire si l'élève a
+  //    réellement écrit dans la tonalité demandée.
+  const estimated = estimateKey(notes);
+  const declared = declaredKeyOf(spec);
+  const key: KeyEstimate = declared
+    ? { ...estimated, tonic: declared.tonic, mode: declared.mode }
+    : estimated;
 
   // 2. La collection — la grille de lecture quand la tonalité ne suffit pas.
   const collection = detectCollection(notes);
@@ -183,17 +236,26 @@ export function runAnalyzers(submission: Submission, spec: ExerciseSpec, window:
     .filter((v): v is Vertical & { chord: NonNullable<Vertical['chord']> } => v.chord != null)
     .map(v => ({ chord: v.chord, from: v.from, to: v.to, notes: v.notes }));
   const total = notes.reduce((m, n) => Math.max(m, n.start + n.duration), 0);
-  const cadences = detectCadences(chords, key, { segmentEnd: total });
+  const line = melodicLine(notes);
+  // **F-2** — le repli monophonique. Une mélodie seule n'a pas de verticalités
+  // à chiffrer : sans lui, `detectCadences` reçoit une liste d'accords vide et
+  // ne trouve JAMAIS de cadence, si bien que `requiredCadence: "perfect"`
+  // échouait sur toutes les mélodies du corpus. Le repli lit la conclusion dans
+  // la ligne : sensible ou sus-tonique menant à la tonique, longue, sur un
+  // appui. Il était écrit dans `cadence.ts` et n'était appelé par personne.
+  const cadences = chords.length === 0 && line.length >= 2
+    ? detectCadences([], key, { melodyOnly: line, meter })
+    : detectCadences(chords, key, { segmentEnds: segmentEndsOf(spec, meter, total) });
 
   // 7. Le reste. Les analyses MÉLODIQUES — motif, contour, phrase — lisent la
   //    LIGNE, pas la texture : sur un choral, le contour de toutes les voix
   //    entremêlées ne décrit aucune mélodie. La tension, elle, se mesure sur la
   //    texture entière : sa dissonance et sa densité SONT le tout.
-  const line = melodicLine(notes);
   const inverted = profileFlag('invertedProsody', spec.styleProfile);
   const analysis: AnalysisBundle = {
     notes,
     key,
+    estimatedKey: estimated,
     verticals,
     chords,
     idioms,

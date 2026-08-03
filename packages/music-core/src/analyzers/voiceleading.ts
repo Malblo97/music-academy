@@ -266,9 +266,16 @@ function leadingToneIssues(
  */
 function underDominant(ctx: VoiceLeadingCtx, key: KeyEstimate, tick: number): boolean {
   const chords = ctx.chords;
-  if (!chords || chords.length === 0) return true;
+  // L'appelant ne fournit aucune analyse harmonique : on ne peut pas trancher,
+  // et désactiver la règle en silence serait pire. Ancien comportement.
+  if (!chords) return true;
   const sounding = chords.filter(c => c.from <= tick && tick < c.to);
-  if (sounding.length === 0) return true;
+  // Un chiffrage EXISTE mais rien ne se chiffre ici : la verticalité n'est pas
+  // un accord (agrégat par tons entiers, quinte à vide, cluster). Il n'y a donc
+  // aucune dominante — et pas de sensible non plus. C'est le cas de toute la
+  // section « apesanteur » de m03-s11, où chaque 7e degré était pris pour une
+  // sensible d'un accord qui n'existe pas.
+  if (sounding.length === 0) return false;
   return sounding.some(c => functionOf(c.chord, key) === 'D');
 }
 

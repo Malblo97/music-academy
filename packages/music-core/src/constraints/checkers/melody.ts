@@ -9,6 +9,31 @@ import { barCount, meterOfSpec } from '../../meter.js';
 const AMBIGUITY_THRESHOLD = 0.08;
 
 /**
+ * Part de notes hors collection tolérée avant de dire qu'une pièce n'est pas
+ * dans la tonalité demandée. Même valeur que `melody.out-of-key` : emprunts,
+ * chromatismes de passage et notes étrangères ont leur place dans une pièce
+ * parfaitement tonale.
+ */
+const OUT_OF_KEY_TOLERANCE = 0.12;
+
+/** Les degrés du mode, en demi-tons depuis la tonique (l07 M1). */
+const MODE_ROTATION: Record<string, number> = {
+  major: 0, ionian: 0, dorian: 1, phrygian: 2, lydian: 3,
+  mixolydian: 4, minor: 5, aeolian: 5, locrian: 6,
+};
+const MAJOR_STEPS = [0, 2, 4, 5, 7, 9, 11];
+
+function scalePcs(tonic: number, mode: string): Set<number> {
+  const rot = MODE_ROTATION[mode] ?? 0;
+  const base = MAJOR_STEPS[rot]!;
+  const out = new Set(MAJOR_STEPS.map((_, i) => pc(tonic + MAJOR_STEPS[(i + rot) % 7]! - base)));
+  // En mineur, la sensible et la 6e haussées appartiennent à la tonalité :
+  // le mineur harmonique et mélodique ne sont pas des écarts (m01-l11).
+  if (rot === 5) { out.add(pc(tonic + 11)); out.add(pc(tonic + 9)); }
+  return out;
+}
+
+/**
  * `checkers/melody.ts` — les clés qui se mesurent sur la LIGNE.
  * Toutes appliquent la fenêtre F-41 : le matériau donné n'est jamais compté.
  */
@@ -237,13 +262,37 @@ export const MELODY_CHECKERS: Record<string, Checker> = {
       : fail(`${bars} mesures, attendu ${range[0]}–${range[1]}`);
   },
 
+  /**
+   * **La pièce est-elle ÉCRITE dans la tonalité demandée ?**
+   *
+   * Le checker comparait la tonique déclarée à celle qu'`estimateKey` avait
+   * devinée. Deux choses le rendaient faux. D'abord il ne mesurait rien de la
+   * musique : il opposait la consigne à une SECONDE lecture de la consigne.
+   * Ensuite l'estimation se trompe justement là où l'exercice est modal — ré
+   * dorien et la mineur ont la même collection, do majeur et la mineur aussi :
+   * six solutions du corpus étaient recalées pour une confusion de relatif,
+   * alors qu'elles employaient exactement les notes demandées.
+   *
+   * Ce qui se mesure vraiment : la part des notes qui APPARTIENNENT à la
+   * collection déclarée. Les emprunts et les chromatismes restent permis — la
+   * tolérance est la même que celle de `melody.out-of-key` — mais une pièce
+   * écrite ailleurs les dépasse largement.
+   */
   key: (_k, value, ctx) => {
     const declared = value as { tonic?: number; mode?: string } | null;
     if (!declared || typeof declared.tonic !== 'number') return ok('tonalité non contraignante');
-    const found = ctx.analysis.key;
-    return found.tonic === declared.tonic
-      ? ok(`tonique ${found.tonic} conforme (mode analysé : ${found.mode})`)
-      : fail(`tonique analysée ${found.tonic}, attendue ${declared.tonic}`);
+    const notes = allJudged(ctx);
+    if (notes.length === 0) return ok('aucune note à mesurer');
+
+    const scale = scalePcs(declared.tonic, declared.mode ?? 'major');
+    const strays = notes.filter(n => !scale.has(pc(n.pitch)));
+    const ratio = strays.length / notes.length;
+    const estimated = ctx.analysis.estimatedKey;
+    const heard = estimated ? ` (lecture indépendante : ${estimated.tonic}/${estimated.mode}, confiance ${estimated.confidence.toFixed(2)})` : '';
+
+    return ratio <= OUT_OF_KEY_TOLERANCE
+      ? ok(`${Math.round((1 - ratio) * 100)} % des notes dans la collection déclarée${heard}`)
+      : fail(`${strays.length} note(s) sur ${notes.length} hors de la collection déclarée (${Math.round(ratio * 100)} %)${heard}`);
   },
 
   syncopationTarget: (_k, value, ctx) => {

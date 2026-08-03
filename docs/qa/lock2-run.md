@@ -18,15 +18,18 @@ manque de CONTENU, pas de moteur — voir « Reste à faire ».
 | Passe | m01 | m02 | m03 | total |
 |---|---|---|---|---|
 | Première exécution du verrou | 2/27 | 5/28 | 0/31 | **9/86** |
-| Après la remontée décrite ci-dessous | 13/27 | 9/28 | 17/31 | **39/86** |
+| Passe 1 — A-1 à A-10 | 13/27 | 9/28 | 17/31 | **39 à la note, 33 pleinement verts** |
+| Passe 2 — B-1 à B-5 (cadences et tonalité) | 15/27 | 9/28 | 17/31 | **41 à la note, 36 pleinement verts** |
 
 Le verrou pose DEUX conditions par solution : la note ≥ 85 **et** aucune
-contrainte non tenue hors performance. **39 atteignent la note**, dont **33
-passent aussi la seconde clause** — les 6 restantes sont notées assez haut
-malgré une contrainte en échec, et figurent dans « Reste à faire ».
+contrainte non tenue hors performance. Le second chiffre est le seul qui compte
+pour le jalon.
 
-Points perdus en moyenne, par terme de la rubric : correctness 6,6 (départ 8,5) ·
-contraintes 3,8 · craft 7,7 (départ 12,9).
+La passe 2 a surtout changé la NATURE de ce qui reste : quatre familles de
+contraintes ont entièrement disparu de la liste des échecs (`requiredCadence`,
+`requiredCadences`, `key`, `mustEndOnDegrees` — 20 échecs cumulés), et les
+blocages restants sont désormais concentrés sur quatre règles de conduite et de
+mélodie plutôt que dispersés.
 
 **Le verrou n'est pas vert.** Il n'a pas vocation à l'être avant la fin de la
 remontée, et le laisser rouge est la seule attitude honnête : un verrou qu'on
@@ -62,7 +65,7 @@ pièce de quatre mesures.
 **Correctif** : `src/meter.ts` — `meterOfSpec` + `barCount`, qui compte **au plus
 proche**. Tolérance d'une demi-mesure ; en dessous, la pièce est réellement plus
 courte que demandé, et le verrou doit le dire. 9 des 12 résolues ; les 3 autres
-sont des manques de contenu (voir B-1).
+sont des manques de contenu (voir « Reste à faire »).
 
 ### A-3 — le craft notait 0 ce qui ne s'applique pas
 *Premier poste de perte : 12,9 points par solution en moyenne.*
@@ -154,19 +157,95 @@ texte où une voix interne se tait puis rentre, elle peut décaler d'un rang.
 
 ---
 
+## Passe 2 — les cadences, puis la tonalité
+
+### B-1 — F-5 ne connaissait qu'une seule frontière de segment
+*4 cadences manquantes sur `m01-s30`, le laboratoire de cadences lui-même.*
+F-5 n'enregistre une cadence que si l'accord d'arrivée tient une mesure OU
+termine un segment. Le pipeline ne passait qu'un `segmentEnd` : la fin de la
+pièce. Or `m01-e30` demande quatre cadences en quatre segments de deux mesures
+(`segmentBars: 2`), chacune arrivant sur une blanche — trois étaient invisibles,
+dont la parfaite, sur l'exercice qui l'enseigne.
+**Correctif** : `detectCadences` accepte `segmentEnds[]` ; `segmentEndsOf()`
+les dérive de `segmentBars` et de la métrique. `cadence.ts`, `evaluate.ts`.
+
+### B-2 — le repli monophonique F-2 n'était appelé par personne
+*4 mélodies sans aucune cadence détectée.*
+`monophonicCadence` était écrit dans `cadence.ts` et le pipeline appelait
+toujours la voie harmonique — avec une liste d'accords VIDE sur une monodie.
+Résultat : `requiredCadence: "perfect"` échouait sur toutes les mélodies.
+**Correctif** : le pipeline bascule sur `melodyOnly` quand aucun accord ne se
+chiffre. Et le critère d'accent du repli exigeait `start % mesure === 0`,
+c'est-à-dire le PREMIER TEMPS — or les quatre mélodies concluent sensible →
+tonique au temps 3 ou après une levée. Ce qui fait la conclusion n'est pas la
+position absolue mais que l'arrivée soit plus accentuée et au moins aussi longue
+que sa préparation (`metricWeight`, m01-l16).
+
+### B-3 — la famille des cadences MODALES n'existait pas
+*`modal:♭VII-I`, `modal:II-I`, `modal:♭II-i`, `modal:IV-i` : quatre formules
+employées par cinq specs de M3, aucune branche pour les classer.*
+`classifyPair` ne connaît que la grammaire fonctionnelle ; en modal il n'y a pas
+de dominante pour porter la fonction, donc c'est le CHEMIN qui fait la cadence.
+Trois des quatre formules sortaient nulles, la quatrième était lue « plagale ».
+**Correctif** : un `CadenceKind` `modal` portant ses `degrees: [pénultième,
+arrivée]`, émis quand le mode est exotique et que l'arrivée sur la tonique vient
+de ♭II, II, IV ou ♭VII. Le checker sait lire les chiffres romains.
+
+### B-4 — `requiredCadence` faisait doublon avec `finalCadence`
+Le checker comparait la DERNIÈRE cadence, alors qu'une clé `finalCadence` existe
+séparément et est employée par quatre specs. Les deux doivent dire deux choses
+différentes, sinon l'auteur de specs n'a aucun moyen d'écrire « la pièce contient
+une cadence parfaite » — ce que demande exactement `m03-e11-weightless`, dont la
+parfaite ancre les quatre premières mesures avant l'apesanteur.
+**Correctif** : `requiredCadence` vérifie la PRÉSENCE. Les 8 échecs sont soldés.
+
+### B-5 — la tonalité était devinée alors que la consigne la déclare
+*6 échecs `key`, et tout ce qui en dépend.*
+91 des 97 specs de M1–M3 fixent la tonalité (`given.key` ou `constraints.key`).
+`estimateKey` la redécouvrait, et se trompait précisément là où c'est le plus
+coûteux : trois confusions de relatif (ré dorien lu la mineur, do majeur lu la
+mineur — la bonne collection, le mauvais centre) et trois estimations à
+confiance ≤ 0,02. Tonique fausse, tout ce qui raisonne en degrés devient faux :
+notes hors gamme, finale attendue, degrés exposés, fonction des accords, donc
+cadences.
+**Correctif** : la tonalité de travail vient de la consigne quand elle la
+déclare ; l'estimation est conservée dans `analysis.estimatedKey`. Le checker
+`key` ne compare plus deux lectures de la consigne — il MESURE la part de notes
+appartenant à la collection déclarée, avec la même tolérance que
+`melody.out-of-key`.
+**Effet de bord instructif** : le changement a d'abord fait REGRESSER M3 de 16 à
+13, en révélant que `underDominant` (F-66, cf. A-5) traitait « aucun accord
+chiffré ici » comme « on ne sait pas, donc on juge ». Sur toute la section en
+apesanteur de `m03-s11` — agrégats par tons entiers, rien de chiffrable — chaque
+7e degré passait pour une sensible d'un accord inexistant. Distinction posée :
+aucun chiffrage transmis = ancien comportement ; chiffrage transmis mais rien à
+cet endroit = pas de contexte fonctionnel, donc pas de sensible.
+
+---
+
 ## Reste à faire
 
-47 solutions encore rouges. Les postes de coût, par ordre :
+**45 solutions** encore rouges (50 n'atteignent pas les deux clauses). Les
+blocages sont désormais concentrés : quatre règles pèsent l'essentiel.
 
-| Coût | Règle / clé | À instruire |
+| Occurrences | Règle | À instruire |
 |---|---|---|
-| 124 pts | `vl.parallel-perfects` (17 sol.) | vérifiées par sondage sur m01-s40 : les quintes parallèles composées y sont RÉELLES entre basse et voix interne. Reste à trancher si l'écriture de clavier des solutions justifie une exception, ou si les solutions sont à corriger (diagnostic B). |
-| 116 pts | `vl.leading-tone-resolution` (16 sol.) | résiduel après A-4/A-5, à instruire pièce par pièce |
-| 63 pts | `melody.climax` (24 sol.) | sur les exercices qui déclarent bien une forme : le seuil ou la mesure du sommet |
-| 56 pts | `vl.spacing` (10 sol.) | l'écart > 12 demi-tons entre voix supérieures est-il pertinent sur une écriture de clavier ? |
-| 8 sol. | `requiredCadence` | `detectCadences` ne trouve que 2 des 4 cadences de m01-s30, qui est LE laboratoire de cadences. À instruire en premier : c'est le crash-test annoncé de M3. |
-| 6 sol. | `key` | `estimateKey` sur des pièces modales ou à modulations |
-| 3 sol. | `lengthBars` | m01-s42 (7 mesures pour 8), m02-s03 (6,75 pour 8), m02-s25 (4 mesures pour 16 — boucle à répéter ?) : diagnostic **B**, contenu à vérifier |
+| 26 sol. | `melody.out-of-key` | maintenant que la tonalité vient de la consigne, ces notes sont réellement hors collection : emprunts, chromatismes et polytonalité de M3. Vérifier que les idiomes tagués (napolitain, sixte augmentée, emprunt modal) amortissent bien le compte. |
+| 23 sol. | `melody.climax` | sur les seuls exercices qui déclarent une forme. Soit le seuil, soit la mesure du sommet sur une ligne à voix multiples. |
+| 21 sol. | `melody.leap-recovery` | 91 occurrences : un thème d'aventure ou d'épique enchaîne des sauts par contrat. La règle a peut-être besoin d'une fourchette par `targetMood`, comme `step-leap-balance` côté craft. |
+| 17 sol. | `vl.parallel-perfects` | vérifié par sondage sur m01-s40 : les quintes parallèles composées y sont RÉELLES entre basse et voix interne. Reste à trancher si l'écriture de clavier des solutions justifie une exception, ou si les solutions sont à corriger (diagnostic B). |
+| 13 sol. | `harmony.unresolved-seventh` | les septièmes de M3 (couleur, pas tension) — probablement une affaire de profil. |
+| 12 sol. | `vl.leading-tone-resolution` | résiduel après A-4, A-5 et B-5, à instruire pièce par pièce. |
+
+Contraintes encore en échec, toutes à faible occurrence : `minMotifOccurrences`
+(4), `contourShape` (3), `climaxWindow` (3), `lengthBars` (3), `minEnrichedChords`
+(2), `phraseStructure` (2), `ascendingPhrasePeaks` (2), `syncopationTarget` (2),
+`flatTension` (2), plus neuf clés à une occurrence.
+
+**Trois `lengthBars` sont des manques de contenu, pas de moteur** (diagnostic B) :
+m01-s42 mesure 7 mesures pour 8 demandées, m02-s03 en mesure 6,75 pour 8, et
+m02-s25 en mesure 4 pour 16 — cette dernière étant vraisemblablement une boucle
+à répéter quatre fois, ce que la solution ne dit pas.
 
 **Aucun seuil de `scoring.ts` n'a été touché.** Les constantes de calibrage
 (`SEVERITY_PENALTY`, `MAX_ISSUES_SHOWN`, `IMPROVED_VERSION_MAX_CHANGE`,

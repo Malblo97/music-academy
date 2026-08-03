@@ -4,7 +4,7 @@ exports[`contrat FeedbackReport — snapshot de m03-e02 > fige le rapport de la 
 {
   "constraintResults": [
     {
-      "detail": "tonique 2 conforme (mode analysé : minor)",
+      "detail": "97 % des notes dans la collection déclarée (lecture indépendante : 2/minor, confiance 0.15)",
       "key": "key",
       "mode": "measured",
       "pass": true,
@@ -40,7 +40,7 @@ exports[`contrat FeedbackReport — snapshot de m03-e02 > fige le rapport de la 
       "pass": true,
     },
     {
-      "detail": "cadence finale « perfect »",
+      "detail": "cadence « perfect » à la mesure 8",
       "key": "requiredCadence",
       "mode": "measured",
       "pass": true,
