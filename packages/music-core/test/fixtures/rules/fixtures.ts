@@ -321,4 +321,50 @@ export const fixtures: Fixture[] = [
       expect(fires('melody.out-of-key', secondary), "tierce d'une dominante secondaire").toBe(false);
     },
   },
+  {
+    name: "melody.climax — la fenêtre vient du GABARIT de l'ambiance",
+    run: () => {
+      // Sommet unique à 50 % de la pièce : DANS la fenêtre que le gabarit
+      // « triste » promet (47–87 %), HORS de celle de l'épique, qui culmine
+      // beaucoup plus tard (67–100 %). Une même ligne, deux verdicts, parce que
+      // les deux ambiances ne promettent pas la même chose.
+      const line: CaseInput = { notation: 'C4:q D4:q E4:q F4:q | G4:q A4:q B4:q C5:q | E5:h C5:h | G4:q E4:q C4:h' };
+      expect(fires('melody.climax', { ...line, styleProfile: { id: 'classical-common', targetMood: 'sad' } }),
+        'le sommet est dans la fenêtre du gabarit triste').toBe(false);
+      expect(fires('melody.climax', { ...line, styleProfile: { id: 'epic-film', targetMood: 'epic' } }),
+        "le même sommet est trop tôt pour l'épique, qui culmine très tard").toBe(true);
+    },
+  },
+  {
+    name: 'melody.climax — une ambiance sans arche promise ne réclame pas de sommet',
+    run: () => {
+      const early: CaseInput = { notation: 'C5:h. C4:q | B4:q A4:q G4:q F4:q | E4:q D4:q C4:h' };
+      // `scifi` est un gabarit PLAT : aucune arche promise.
+      expect(fires('melody.climax', { ...early, styleProfile: { id: 'classical-common', targetMood: 'scifi' } }),
+        'gabarit plat : pas de sommet à placer').toBe(false);
+      // `weightless` n'est pas un gabarit du tout — c'est une étiquette d'atmosphère.
+      expect(fires('melody.climax', { ...early, styleProfile: { id: 'classical-common', targetMood: 'weightless' } }),
+        'étiquette inconnue du registre : aucune promesse').toBe(false);
+      // `sad` en est un, non plat : là, un sommet au tout début se voit.
+      expect(fires('melody.climax', { ...early, styleProfile: { id: 'classical-common', targetMood: 'sad' } }),
+        'gabarit connu et non plat : le sommet est jugé').toBe(true);
+    },
+  },
+  {
+    name: 'melody.climax — une consigne à alternatives laisse le choix de la forme',
+    run: () => {
+      // Contour réalisé : une descente. La consigne admettait descent OU arch —
+      // la pièce a choisi, et on ne lui réclame pas le sommet de l'autre.
+      const descent: CaseInput = {
+        notation: 'C5:q B4:q A4:q G4:q | F4:q E4:q D4:q C4:h',
+        constraints: { contourShape: ['descent', 'arch'] },
+        styleProfile: { id: 'classical-common', targetMood: 'sad' },
+      };
+      expect(fires('melody.climax', descent), 'la descente était admise').toBe(false);
+      // La même ligne quand SEULE l'arche est admise : le checker `contourShape`
+      // dira la faute, la règle de climax se tait — une faute, un message.
+      const archOnly: CaseInput = { ...descent, constraints: { contourShape: ['arch'] } };
+      expect(fires('melody.climax', archOnly), "silhouette hors consigne : c'est `contourShape` qui parle").toBe(false);
+    },
+  },
 ];

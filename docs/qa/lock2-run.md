@@ -21,6 +21,7 @@ manque de CONTENU, pas de moteur — voir « Reste à faire ».
 | Passe 1 — A-1 à A-10 | 13/27 | 9/28 | 17/31 | **39 à la note, 33 pleinement verts** |
 | Passe 2 — B-1 à B-5 (cadences et tonalité) | 15/27 | 9/28 | 17/31 | **41 à la note, 36 pleinement verts** |
 | Passe 3 — C-1 à C-3 (`melody.out-of-key`) | 15/27 | 10/28 | 18/31 | **43 à la note, 38 pleinement verts** |
+| Passe 4 — D-1 à D-3 (`melody.climax`) | 17/27 | 10/28 | 20/31 | **47 à la note, 42 pleinement verts** |
 
 Le verrou pose DEUX conditions par solution : la note ≥ 85 **et** aucune
 contrainte non tenue hors performance. Le second chiffre est le seul qui compte
@@ -278,14 +279,57 @@ chromatique en do) et ne testait plus la règle qu'elle visait.
 la section en apesanteur, dont les agrégats ne se chiffrent pas. À instruire avec
 le reste de cette pièce.
 
+## Passe 4 — `melody.climax`, de 23 solutions à quatre
+
+La règle parlait sur 23 solutions, et sa jumelle `melody.tension-placement` sur
+21. Aucune des deux n'apparaît plus dans les postes de coût.
+
+### D-1 — la fenêtre était universelle, les ambiances ne le sont pas
+Le point de départ : **aucune** des 23 solutions ne déclarait de `climaxWindow`.
+Toutes passaient par la porte posée en passe 1 — « une ambiance est visée » — et
+recevaient la même fenêtre [55–85 %]. Or les gabarits de l'annexe D placent leur
+sommet où ils veulent : la berceuse au milieu (47 %), le triste aux deux tiers
+(67 %), l'épique très tard (87–93 %). Imposer une fenêtre unique, c'est juger
+chaque ambiance contre une autre.
+**Correctif** : `expectedClimaxWindow(moodId)` dans `analyzers/tension.ts`
+dérive la fenêtre du gabarit lui-même, autour de son propre sommet.
+
+### D-2 — `targetMood` n'est pas toujours une clé de gabarit
+La vraie cause de l'ampleur du problème, et un défaut de ma porte de passe 1 :
+les specs de M3 emploient `targetMood` comme une **étiquette d'atmosphère** —
+`weightless`, `dread`, `modal-world`, `the-roller`, `menace`,
+`suspended-then-released` — qui ne figure dans aucun gabarit. Rien là n'annonce
+une montée, et `moodTemplate` rendait le gabarit `default` par défaut,
+c'est-à-dire une promesse que personne n'avait faite.
+**Correctif** : `expectedClimaxWindow` rend `null` sur une ambiance absente du
+registre, et aussi sur un gabarit PLAT (mysterious, scifi, lullaby, joyful,
+ambiguous_dark) — une courbe volontairement sans relief n'a pas de sommet à
+placer. Le seuil de platitude est celui qui fait déjà basculer `archFit` en
+régime de platitude : une seule notion de « plat » dans le moteur.
+
+### D-3 — une consigne à alternatives laisse le choix de la forme
+`m02-e28-ruins-of-melody` déclare `contourShape: ["descent", "plateau"]`, et on
+lui réclamait un sommet aux deux tiers : sa note la plus aiguë est au début par
+construction. Et `m02-e19-joyful` déclare `["wave", "arch"]` — une alternative,
+pas une obligation d'arche.
+**Correctif** : si le contour déclaré ne contient pas `arch`, silence. S'il
+offre des alternatives et que la pièce a réalisé l'une des autres formes
+admises, elle a obéi : silence. Et si la silhouette réalisée n'est admise par
+aucune, c'est au checker `contourShape` de le dire — **une faute, un message**,
+plutôt que deux plaintes pour le même défaut.
+
+**Restent quatre occurrences**, toutes des signaux légitimes : deux pièces ne
+tiennent pas la `climaxWindow` qu'elles déclarent elles-mêmes (m03-e14,
+m03-e17), et deux manquent la fenêtre de leur gabarit (m01-e18 à 59 % pour une
+fenêtre de 67–100 %, m02-e29 dont le sommet est la première note).
+
 ## Reste à faire
 
-**43 solutions** encore rouges (48 n'atteignent pas les deux clauses). Les
+**39 solutions** encore rouges (44 n'atteignent pas les deux clauses). Les
 blocages sont désormais concentrés : quatre règles pèsent l'essentiel.
 
 | Occurrences | Règle | À instruire |
 |---|---|---|
-| 23 sol. | `melody.climax` | sur les seuls exercices qui déclarent une forme. Soit le seuil, soit la mesure du sommet sur une ligne à voix multiples. |
 | 21 sol. | `melody.leap-recovery` | 91 occurrences : un thème d'aventure ou d'épique enchaîne des sauts par contrat. La règle a peut-être besoin d'une fourchette par `targetMood`, comme `step-leap-balance` côté craft. |
 | 17 sol. | `vl.parallel-perfects` | vérifié par sondage sur m01-s40 : les quintes parallèles composées y sont RÉELLES entre basse et voix interne. Reste à trancher si l'écriture de clavier des solutions justifie une exception, ou si les solutions sont à corriger (diagnostic B). |
 | 13 sol. | `harmony.unresolved-seventh` | les septièmes de M3 (couleur, pas tension) — probablement une affaire de profil. |

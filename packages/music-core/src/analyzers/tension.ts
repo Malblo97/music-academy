@@ -1,5 +1,5 @@
 import type { Meter, Note, Part } from '../types.js';
-import { moodTemplate } from '../data/moods.js';
+import { MOOD_TEMPLATES, moodTemplate } from '../data/moods.js';
 import { barTicks } from './rhythm.js';
 import { detectCollection, collectionPcs } from './collection.js';
 import type { Vertical } from './idioms.js';
@@ -255,6 +255,32 @@ export function archFit(curve: readonly number[], moodId: string): ArchFitResult
     return { fit, regime: 'flatness' };
   }
   return { fit: pearson(sampled, template), regime: 'pearson' };
+}
+
+/**
+ * **La fenêtre de climax PROMISE par une ambiance**, dérivée de son propre
+ * gabarit — ou `null` quand l'ambiance ne promet aucune arche.
+ *
+ * Chaque gabarit place son sommet où il veut : la berceuse au milieu (47 %),
+ * le triste aux deux tiers (67 %), l'épique très tard (87–93 %). Leur imposer à
+ * tous la même fenêtre [55–85 %] revient à juger chaque ambiance contre une
+ * autre. Et deux cas rendent `null` :
+ *
+ *  - **l'ambiance est inconnue du registre** — les specs de M3 emploient
+ *    `targetMood` comme une étiquette d'atmosphère (`weightless`, `dread`,
+ *    `modal-world`, `the-roller`), pas comme une clé de gabarit : rien n'y
+ *    promet une arche, et `moodTemplate` rendrait le gabarit `default` par
+ *    défaut, c'est-à-dire une promesse que personne n'a faite ;
+ *  - **le gabarit est PLAT** (mysterious, scifi) — une courbe volontairement
+ *    sans relief n'a pas de sommet à placer. C'est le même seuil de variance
+ *    que celui qui fait basculer `archFit` en régime de platitude.
+ */
+export function expectedClimaxWindow(moodId: string, tolerance = 0.2): [number, number] | null {
+  if (!(moodId in MOOD_TEMPLATES)) return null;
+  const template = moodTemplate(moodId);
+  if (variance(template) < FLATNESS_VARIANCE) return null;
+  const peak = template.indexOf(Math.max(...template)) / (template.length - 1);
+  return [Math.max(0, peak - tolerance), Math.min(1, peak + tolerance)];
 }
 
 /**

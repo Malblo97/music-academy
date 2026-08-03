@@ -3,6 +3,7 @@ import type { Rule, RuleCtx } from './types.js';
 import { judgedLine, judgedNotes, ruleIssue } from './types.js';
 import { scalePcs } from '../analyzers/key.js';
 import { STRICT_COVERAGE } from '../analyzers/collection.js';
+import { expectedClimaxWindow } from '../analyzers/tension.js';
 import type { CollectionFamily } from '../analyzers/collection.js';
 
 /** Les collections qui constituent une grammaire de rechange assumée. */
@@ -53,19 +54,51 @@ function judgesMelody(ctx: RuleCtx): boolean {
 }
 
 /**
- * La consigne demande-t-elle une FORME ? Les règles d'arche (climax, placement
- * de la tension) ne parlent que là — juger le sommet d'une grille d'accords ou
- * d'une boucle modale, c'est reprocher à l'élève une intention qu'on ne lui a
- * pas demandée.
+ * **La fenêtre de climax ATTENDUE par cette consigne**, ou `null` quand aucune
+ * arche n'est promise.
+ *
+ * Trois sources, de la plus explicite à la plus implicite :
+ *
+ *  1. `climaxWindow` déclarée — la consigne a tranché, on la suit ;
+ *  2. `contourShape` déclarée — si elle ne contient pas `arch`, la forme
+ *     demandée n'est PAS une arche et la règle n'a rien à dire. Demander un
+ *     sommet aux deux tiers d'une ligne dont le contour déclaré est
+ *     « descent, plateau » (m02-e28) est une contradiction : sa note la plus
+ *     aiguë est au début par construction ;
+ *  3. l'ambiance visée — mais seulement si c'est un GABARIT connu, et non plat.
+ *     La fenêtre vient alors du gabarit lui-même (`expectedClimaxWindow`).
+ *
+ * Le point 3 corrige la porte posée en passe 1, qui traitait tout `targetMood`
+ * déclaré comme une promesse d'arche. Les specs de M3 s'en servent comme d'une
+ * étiquette d'atmosphère — `weightless`, `dread`, `modal-world`, `the-roller`,
+ * `menace` — qui ne figure dans aucun gabarit et ne promet aucune montée.
  */
-function hasShapeIntent(ctx: RuleCtx): boolean {
+function climaxExpectation(ctx: RuleCtx): [number, number] | null {
   const c = ctx.spec.constraints ?? {};
-  return c.climaxWindow !== undefined
-    || c.contourShape !== undefined
-    || c.tensionPlan !== undefined
-    || c.minArchFit !== undefined
-    || c.ascendingPhrasePeaks !== undefined
-    || ctx.spec.styleProfile?.targetMood !== undefined;
+
+  const declared = c.climaxWindow;
+  if (Array.isArray(declared) && declared.length === 2) return declared as [number, number];
+
+  const shapes = c.contourShape;
+  const declaresArch = Array.isArray(shapes) && shapes.includes('arch');
+  if (Array.isArray(shapes) && !declaresArch) return null;
+  // Une consigne qui propose des ALTERNATIVES (`["wave", "arch"]`) laisse le
+  // choix : si la pièce a réalisé l'une des autres formes admises, elle a
+  // obéi, et lui réclamer le sommet d'une arche qu'elle n'a pas choisie n'a
+  // pas de sens. Et si la silhouette réalisée n'est admise par aucune, c'est
+  // au checker `contourShape` de le dire — une faute, un message.
+  if (Array.isArray(shapes)) {
+    const realised = ctx.analysis.contour?.silhouette;
+    if (realised && realised !== 'arch' && shapes.includes(realised)) return null;
+    if (realised && !shapes.includes(realised)) return null;
+  }
+
+  const mood = ctx.spec.styleProfile?.targetMood;
+  const fromMood = mood ? expectedClimaxWindow(mood) : null;
+  // Un contour « arch » explicitement demandé vaut promesse, même si son
+  // ambiance ne porte pas de gabarit : on retombe alors sur la norme du cursus.
+  if (fromMood) return fromMood;
+  return declaresArch ? CLIMAX_WINDOW : null;
 }
 
 
@@ -157,20 +190,12 @@ export const MELODY_RULES: Rule[] = [
       if (total === 0) return [];
 
       // Sa propre `when` fixe le périmètre : « dès qu'une LIGNE A UNE FORME À
-      // DÉFENDRE ; un ostinato, un tapis, une pédale n'ont pas de climax ». Une
-      // suite d'accords chiffrés, une boucle modale, un laboratoire de
-      // transformation n'en ont pas davantage — sur le corpus de référence, la
-      // règle parlait sur 43 solutions vérifiées, dont des chorals en rondes et
-      // des grilles harmoniques. On exige donc que la consigne DÉCLARE une
-      // intention de forme : une fenêtre, un contour, un plan de tension, ou
-      // une ambiance visée.
-      if (!hasShapeIntent(ctx)) return [];
+      // DÉFENDRE ; un ostinato, un tapis, une pédale n'ont pas de climax ».
+      const window = climaxExpectation(ctx);
+      if (!window) return [];
+      const [lo, hi] = window;
 
       const globals = contour.peaks.filter(p => p.isGlobal);
-      const declared = ctx.spec.constraints?.climaxWindow;
-      const [lo, hi] = Array.isArray(declared) && declared.length === 2
-        ? (declared as [number, number])
-        : CLIMAX_WINDOW;
 
       const issues: Issue[] = [];
       const self = { id: 'melody.climax', severity: 'warning' as const, lessonRef: 'm02-l06' };
@@ -360,8 +385,8 @@ export const MELODY_RULES: Rule[] = [
       const curve = ctx.analysis.tension;
       if (!curve || curve.length < 4) return [];
       // Même périmètre que `melody.climax` : sa `when` dit « dès qu'une AMBIANCE
-      // EST VISÉE ». Sans ambiance ni plan déclarés, il n'y a pas d'arche promise.
-      if (!hasShapeIntent(ctx)) return [];
+      // EST VISÉE ». Sans arche promise, il n'y a rien à placer.
+      if (!climaxExpectation(ctx)) return [];
       const peak = curve.indexOf(Math.max(...curve));
       const position = peak / (curve.length - 1);
       if (position >= 0.5 && position <= 0.9) return [];
