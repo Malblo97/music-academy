@@ -82,7 +82,12 @@ export function runRules(ctx: RuleCtx, opts: { only?: readonly string[] } = {}):
       continue;
     }
     weights[r.id] = effectiveWeight(r.id, r.weight, profile);
-    issues.push(...r.detect(ctx));
+    // Une règle peut produire un diagnostic plus fin que son propre
+    // identifiant (`vl.direct-perfect` sous `vl.parallel-perfects`) : on note
+    // qui l'a produit, sinon le rapport ne saurait plus où prendre la pedagogy.
+    for (const issue of r.detect(ctx)) {
+      issues.push(issue.ruleId === r.id ? issue : { ...issue, ownerRuleId: r.id });
+    }
   }
 
   return {

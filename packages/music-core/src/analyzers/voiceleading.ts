@@ -1,6 +1,7 @@
 import type { Issue, Note } from '../types.js';
 import type { KeyEstimate } from './key.js';
-import type { CadenceEvent } from './cadence.js';
+import type { CadenceEvent, TimedChord } from './cadence.js';
+import { functionOf } from './cadence.js';
 import type { IdiomTag } from './idioms.js';
 
 /**
@@ -17,6 +18,13 @@ export interface VoiceLeadingCtx {
   cadences?: readonly CadenceEvent[];
   /** Ticks où un échange de voix est déclaré : la 7e peut y monter. */
   voiceExchanges?: readonly number[];
+  /**
+   * Les accords chiffrés. **F-66** : la sensible ne se juge qu'en CONTEXTE
+   * FONCTIONNEL. Sans eux, tout 7e degré de la tonalité globale est pris pour
+   * une sensible — y compris la septième d'un Fmaj7 dans une grille jazz qui
+   * module toutes les deux mesures.
+   */
+  chords?: readonly TimedChord[];
 }
 
 /** Écart maximal entre deux voix supérieures adjacentes (la basse est libre). */
@@ -187,12 +195,28 @@ function leadingToneIssues(
     const line = [...voice].sort((a, b) => a.start - b.start);
     for (let i = 0; i < line.length - 1; i++) {
       const note = line[i]!;
-      const next = line[i + 1]!;
-      if (pc(note.pitch - key.tonic) !== 11) continue; // pas une sensible
+      if (pc(note.pitch - key.tonic) !== 11) continue; // pas le 7e degré
+      // **F-66** : le 7e degré n'est une SENSIBLE que sous une fonction de
+      // dominante. Ailleurs c'est la septième d'un accord, la tierce d'un III,
+      // une note de passage — et rien n'oblige une septième à monter. Sur
+      // m01-s26 (guide-tones jazz, trois tonalités en six mesures), la
+      // tonalité globale faisait passer chaque septième majeure pour une
+      // sensible non résolue.
+      if (!underDominant(ctx, key, note.start)) continue;
+
+      // Une sensible RÉÉNONCÉE est la même sensible. Elle se juge sur son
+      // DÉPART, pas sur chacune de ses répétitions : le si tenu sous quatre
+      // voicings de dominante puis résolu sur do est résolu une fois, pas
+      // fautif trois fois (m01-s34 : « B3→C4, sensible ✓ » — le moteur y
+      // voyait deux erreurs).
+      let j = i + 1;
+      while (j < line.length && line[j]!.pitch === note.pitch) j++;
+      const next = line[j];
+      if (!next) break;
       if (next.pitch - note.pitch === 1) continue; // résolue : 7̂ → 1̂
 
       const prev = line[i - 1];
-      const after = line[i + 2];
+      const after = line[j + 1];
       const isInner = vi !== highest && vi !== lowest;
 
       // Sensible FRUSTRÉE en voix interne : elle descend chercher la quinte.
@@ -230,6 +254,22 @@ function leadingToneIssues(
     }
   });
   return issues;
+}
+
+/**
+ * Le tick sonne-t-il sous une fonction de DOMINANTE ? **F-66**.
+ *
+ * Sans chiffrage transmis, on ne peut pas trancher : on garde alors l'ancien
+ * comportement (tout 7e degré est traité comme sensible), pour ne pas
+ * silencieusement désactiver la règle chez les appelants qui ne fournissent pas
+ * les accords.
+ */
+function underDominant(ctx: VoiceLeadingCtx, key: KeyEstimate, tick: number): boolean {
+  const chords = ctx.chords;
+  if (!chords || chords.length === 0) return true;
+  const sounding = chords.filter(c => c.from <= tick && tick < c.to);
+  if (sounding.length === 0) return true;
+  return sounding.some(c => functionOf(c.chord, key) === 'D');
 }
 
 /** Zone cadentielle stricte : sans information, on considère qu'on n'y est PAS. */

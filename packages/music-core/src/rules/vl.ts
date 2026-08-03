@@ -15,6 +15,8 @@ function analyse(ctx: RuleCtx, ruleId: string): Issue[] {
   const context: Parameters<typeof voiceLeadingIssues>[2] = {};
   if (ctx.analysis.idioms) context.idioms = ctx.analysis.idioms;
   if (ctx.analysis.cadences) context.cadences = ctx.analysis.cadences;
+  // F-66 : sans le chiffrage, la sensible se juge hors contexte fonctionnel.
+  if (ctx.analysis.chords) context.chords = ctx.analysis.chords;
 
   return voiceLeadingIssues(voices, ctx.analysis.key, context)
     .filter(i => i.ruleId === ruleId || (ruleId === 'vl.parallel-perfects' && i.ruleId === 'vl.mozart-fifths'))

@@ -2,8 +2,6 @@ import type { Issue } from '../types.js';
 import type { Rule, RuleCtx } from './types.js';
 import { ruleIssue } from './types.js';
 
-/** Fenêtre de syncope par défaut : ni raide, ni flottant. */
-const SYNCOPATION_WINDOW: [number, number] = [0.05, 0.5];
 /** En deçà, la déclamation contredit le mètre au point de le dissoudre. */
 const PROSODY_FLOOR = -0.3;
 
@@ -18,9 +16,15 @@ export const RHYTHM_RULES: Rule[] = [
       const profile = ctx.analysis.rhythm;
       if (!profile) return [];
       const declared = ctx.spec.constraints?.syncopationTarget;
-      const [lo, hi] = Array.isArray(declared) && declared.length === 2
-        ? (declared as [number, number])
-        : SYNCOPATION_WINDOW;
+      // Sans cible DÉCLARÉE, la règle se tait — sa propre `when` le dit : « la
+      // consigne peut la déclarer ». Une fenêtre par défaut universelle
+      // reprocherait sa raideur à un choral en rondes et sa souplesse à un
+      // thème de jazz : sur le corpus de référence, elle parlait à tort sur 28
+      // solutions vérifiées, toutes correctement écrites. Il n'existe pas de
+      // taux de syncope juste dans l'absolu — seulement un taux juste POUR une
+      // consigne, et c'est la consigne qui le porte.
+      if (!Array.isArray(declared) || declared.length !== 2) return [];
+      const [lo, hi] = declared as [number, number];
       const value = profile.offBeatRatio;
       if (value >= lo && value <= hi) return [];
       return [ruleIssue({ id: 'rhythm.syncopation-target', severity: 'suggestion', lessonRef: 'm01-l09' }, undefined,

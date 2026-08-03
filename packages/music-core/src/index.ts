@@ -1,5 +1,5 @@
 /** music-core — moteur musical isomorphe. Manuel §3, Consolidation §3. */
-export const ENGINE_VER = '0.1.0';
+export * from './version.js';
 export * from './types.js';
 export * from './analyzers/key.js';
 export * from './analyzers/chord.js';
@@ -30,11 +30,7 @@ export * from './rules/profiles.js';
 export * from './constraints/window.js';
 export * from './constraints/schema.js';
 export * from './constraints/checkers/index.js';
-export * from './data/instruments.js';
-export * from './rules/types.js';
-export * from './rules/registry.js';
-export * from './rules/profiles.js';
-export * from './constraints/window.js';
-export * from './constraints/schema.js';
-export * from './constraints/checkers/index.js';
-export * from './constraints/checkers/index.js';
+export * from './pipeline/scoring.js';
+export * from './pipeline/craft.js';
+export * from './pipeline/feedback.js';
+export * from './pipeline/evaluate.js';

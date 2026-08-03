@@ -214,6 +214,55 @@ export const CONSTRAINT_SCHEMA: Record<string, ConstraintSpec> = {
   bassMaxLeap: s('melody', 'number', 'saut maximal de la basse'),
   bassIntervalPreference: s('melody', 'numbers', 'intervalles préférés à la basse'),
   minBassConjunctRatio: s('melody', 'number', 'part minimale de conjoint à la basse'),
+
+  // ------------------------------------------------ M3 — harmonie avancée
+  // Ouvertes par le verrou n°2 (semaines 5–6), qui étend le périmètre à M3.
+  // Toutes déclaratives pour l'instant : elles décrivent des PLANS harmoniques
+  // (pôles, pédales, rotations, collections) dont la mesure viendra avec les
+  // checkers de plan. Le mode « declared » le dit à chaque exécution — une clé
+  // silencieusement approuvée serait pire qu'une clé absente.
+  allowedChordRoots: s('harmony', 'numbers', 'fondamentales autorisées, en pitch-classes'),
+  amphibiousBridge: s('harmony', 'object', 'mesure-pont appartenant à deux collections à la fois'),
+  arrowWindow: s('harmony', 'object', 'fenêtre où la flèche (dominante, subV) est attendue'),
+  cellSpec: s('harmony', 'object', 'cellule génératrice imposée : taille et intervalle obligatoire'),
+  clusterPlan: s('harmony', 'array', 'plan des agrégats : fenêtre, brique, registre, enveloppe'),
+  cumulativeEnvelope: s('harmony', 'object', 'enveloppe cumulative : attaques par temps, notes tenues'),
+  declaredMode: s('harmony', 'boolean', 'le mode doit être DÉCLARÉ par la soumission'),
+  declaredPedalPlan: s('harmony', 'any', 'plan de pédale déclaré (F-18) — booléen ou plan complet'),
+  declaredTensionPlan: s('plans', 'object', 'plan de tension déclaré : segments et moteurs'),
+  eachPlanInItsKey: s('harmony', 'object', 'chaque plan simultané reste dans SA tonalité'),
+  endByDissolution: s('structure', 'boolean', 'la fin se dissout au lieu de cadencer'),
+  endOnCommonToneAlone: s('structure', 'boolean', 'terminer sur la seule note commune'),
+  endOnUnison: s('structure', 'boolean', 'terminer à l\'unisson'),
+  endingCheck: s('structure', 'string', 'nature de la fin à vérifier (convergence, dissolution…)'),
+  endingWindow: s('structure', 'range', 'fenêtre de mesures où la fin doit se jouer'),
+  exitSemitoneEvent: s('harmony', 'object', 'sortie par demi-ton, dans une fenêtre de mesures'),
+  finalAwayFromTonic: s('structure', 'boolean', 'la fin ne se pose PAS sur la tonique'),
+  finalVerticalBite: s('harmony', 'object', 'morsure verticale finale : demi-ton exposé, tenu'),
+  forbidChords: s('harmony', 'strings', 'accords proscrits, par nom'),
+  forbidFunctionalCadence: s('harmony', 'any', 'aucune cadence fonctionnelle — booléen ou détail'),
+  givenInTopVoice: s('general', 'object', 'le matériau donné est à la voix supérieure (F-41)'),
+  mediantContrast: s('harmony', 'boolean', 'contraste de médiante exigé'),
+  minArchFit: s('plans', 'number', 'accord minimal entre la courbe et son gabarit'),
+  minNonTertianStacks: s('harmony', 'number', 'nombre minimal d\'empilements non tertiens'),
+  modulation: s('harmony', 'object', 'modulation imposée : cible et pivot'),
+  pedalDegree: s('harmony', 'number', 'degré sur lequel la pédale s\'installe'),
+  pedalResolution: s('harmony', 'string', 'manière dont la pédale se résout'),
+  pillarExposure: s('harmony', 'any', 'exposition d\'un degré-pilier : part minimale'),
+  pivotSharesPitchClassSet: s('harmony', 'boolean', 'le pivot partage son ensemble de pitch-classes'),
+  planingPlan: s('harmony', 'strings', 'types de planing autorisés (diatonique, réel, quartal)'),
+  poleByInsistence: s('harmony', 'number', 'pôle établi par INSISTANCE, pas par cadence'),
+  registerSeparation: s('orchestration', 'boolean', 'les plans simultanés se dégagent en registre'),
+  requireCollection: s('harmony', 'object', 'collection imposée sur une fenêtre de mesures'),
+  requireIdiom: s('harmony', 'strings', 'idiomes dont le tag est exigé (F-16)'),
+  requiredPedalStates: s('harmony', 'strings', 'suite des états de la pédale (F-18)'),
+  rotationPlan: s('harmony', 'object', 'plan de rotation : nœuds parcourus, accélération'),
+  sameTopLineAcrossSegments: s('melody', 'numbers', 'segments devant partager la même voix supérieure'),
+  spacingEvent: s('orchestration', 'object', 'événement d\'espacement : écart minimal exigé'),
+  strictCommonTone: s('harmony', 'boolean', 'le fil de note commune est STRICT (F-7)'),
+  tertianRelease: s('harmony', 'object', 'retour au tertien : fenêtre et glissement maximal'),
+  triadsOnly: s('harmony', 'boolean', 'triades seules — aucun enrichissement'),
+  visitAllNodes: s('harmony', 'boolean', 'tous les nœuds du plan doivent être visités'),
 };
 
 export interface SchemaError {

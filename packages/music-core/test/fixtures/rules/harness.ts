@@ -35,6 +35,8 @@ export interface CaseInput {
    */
   harmony?: string[];
   parts?: Part[];
+  /** Le kind de l'exercice simulé — défaut MELODY_COMPOSE (cf. `buildCtx`). */
+  kind?: string;
   submission?: Submission;
   constraints?: Record<string, unknown>;
   styleProfile?: StyleProfileRef;
@@ -102,9 +104,20 @@ export function buildCtx(input: CaseInput): RuleCtx {
       : voices ? { kind: 'voices', voices }
         : { kind: 'mono', notes });
 
-  const spec: ExerciseSpec = { id: 'fixture' };
+  /**
+   * Le contexte par défaut d'une fixture est un exercice de COMPOSITION
+   * MÉLODIQUE avec une ambiance visée. Sans cela, les règles de mélodie ne
+   * s'appliquent pas (`judgesMelody` / `hasShapeIntent`, S5–S6) et les fixtures
+   * de détection ne testeraient plus rien. Le champ `kind` permet de choisir un
+   * autre contexte — et les fixtures d'applicabilité s'en servent pour vérifier
+   * que la règle se TAIT sur une grille d'accords.
+   */
+  const spec: ExerciseSpec = {
+    id: 'fixture',
+    kind: input.kind ?? 'MELODY_COMPOSE',
+    styleProfile: input.styleProfile ?? { id: 'classical-common', targetMood: 'default' },
+  };
   if (input.constraints) spec.constraints = input.constraints;
-  if (input.styleProfile) spec.styleProfile = input.styleProfile;
   if (input.given) spec.given = input.given;
 
   return { submission, analysis, spec, window: markGivenTicks(spec, { meter: METER, totalTicks: total }) };

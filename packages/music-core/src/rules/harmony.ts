@@ -145,6 +145,11 @@ export const HARMONY_RULES: Rule[] = [
       const issues: Issue[] = [];
       for (const tag of idioms) {
         const at = chords.findIndex(c => c.from === tag.from);
+        // `findIndex` rend -1 quand le tag ne coïncide avec aucun début
+        // d'accord chiffré — et `chords[-1]` est `undefined`. Sans ce garde, la
+        // règle plantait sur m01-s38, qui est pourtant l'exercice de la
+        // substitution : le moteur mourait sur le cas qu'il devait juger.
+        if (at < 0) continue;
         const target = chords[at + 1];
         if (!target) continue;
         const bassA = Math.min(...chords[at]!.notes.map(n => n.pitch));

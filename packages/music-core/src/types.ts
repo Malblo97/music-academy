@@ -54,5 +54,18 @@ export type Submission =
 
 export interface TempoEvent { tick: number; bpm: number; ramp?: boolean }
 export type Severity = 'error' | 'warning' | 'suggestion' | 'info';
-export interface Issue { ruleId: string; severity: Severity; atTick?: number;
+export interface Issue {
+  /**
+   * Le diagnostic PRÉCIS. Les analyseurs en produisent de plus fins que les
+   * règles enregistrées : `vl.direct-perfect` et `vl.mozart-fifths` sont des
+   * cas de `vl.parallel-perfects`. On garde le détail, parce que « octave
+   * directe » et « quintes parallèles » ne se corrigent pas pareil.
+   */
+  ruleId: string;
+  /**
+   * La règle du registre qui PORTE ce diagnostic — celle dont on tire le poids
+   * et la `pedagogy`. Absent quand `ruleId` est lui-même enregistré.
+   */
+  ownerRuleId?: string;
+  severity: Severity; atTick?: number;
   message: string; lessonRef?: string }

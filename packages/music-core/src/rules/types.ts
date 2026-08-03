@@ -115,3 +115,33 @@ export function ruleIssue(rule: Pick<Rule, 'id' | 'severity' | 'lessonRef'>, atT
 export function judgedNotes(ctx: RuleCtx): Note[] {
   return [...ctx.analysis.notes].filter(n => ctx.window.judges(n.start)).sort((a, b) => a.start - b.start);
 }
+
+/**
+ * **La LIGNE jugée** — une note par attaque, la plus aiguë.
+ *
+ * C'est ce que les règles de mélodie doivent lire, et la distinction n'est pas
+ * cosmétique : sur un choral à quatre voix, `judgedNotes` rend les quatre voix
+ * entremêlées par ordre d'attaque. Un « saut de septième non récupéré » y
+ * apparaît à chaque accord — entre le soprano d'un temps et la basse du
+ * suivant — alors qu'aucune ligne ne saute. Juger cette soupe, c'est reprocher
+ * à l'élève une mélodie qu'il n'a pas écrite.
+ */
+export function judgedLine(ctx: RuleCtx): Note[] {
+  const top = new Map<number, Note>();
+  for (const n of ctx.analysis.notes) {
+    if (!ctx.window.judges(n.start)) continue;
+    const cur = top.get(n.start);
+    if (!cur || n.pitch > cur.pitch) top.set(n.start, n);
+  }
+  return [...top.values()].sort((a, b) => a.start - b.start);
+}
+
+/** La même ligne, hors contexte de règle : le chant d'une texture. */
+export function melodicLine(notes: readonly Note[]): Note[] {
+  const top = new Map<number, Note>();
+  for (const n of notes) {
+    const cur = top.get(n.start);
+    if (!cur || n.pitch > cur.pitch) top.set(n.start, n);
+  }
+  return [...top.values()].sort((a, b) => a.start - b.start);
+}

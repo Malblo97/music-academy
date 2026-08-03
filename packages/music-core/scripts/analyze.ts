@@ -196,8 +196,71 @@ function analyzeFile(rawPath: string): void {
   }
 }
 
+/**
+ * Mode `--spec` (S5–S6) : le stéthoscope du verrou n°2.
+ *
+ * `pnpm analyze <solution.json> --spec` compile la solution, la passe au
+ * pipeline complet et imprime le rapport : score, sous-scores, contraintes en
+ * échec, issues avec leur poids. C'est l'étape 1 de la procédure de remontée —
+ * on ne patche rien avant d'avoir lu ça.
+ *
+ * Sans chemin, `--spec` passe TOUT le corpus M1+M2+M3 et rend le tableau de
+ * bord : verts par module, coût par règle, contraintes les plus fautives.
+ */
+async function analyzeSpec(rawPath?: string): Promise<void> {
+  const { evaluateDetailed } = await import('../src/pipeline/evaluate.js');
+  const { compileSolution, labelOf, loadSolutions, specOf } = await import('../test/solutions.js');
+
+  const solutions = loadSolutions(['m01', 'm02', 'm03']);
+  const wanted = rawPath
+    ? solutions.filter(s => resolve(process.cwd(), rawPath).replace(/\\/g, '/').endsWith(`${s.module}/${s.file}`))
+    : solutions;
+
+  if (rawPath && wanted.length === 0) {
+    console.error(`analyze --spec : ${rawPath} n'est pas une solution de M1–M3`);
+    process.exitCode = 1;
+    return;
+  }
+
+  const scores: { module: string; label: string; score: number }[] = [];
+  for (const s of wanted) {
+    let spec, report;
+    try {
+      spec = specOf(s.exerciseId);
+      report = evaluateDetailed(compileSolution(s, spec), spec, { skipPerformance: true }).report;
+    } catch (e) {
+      console.log(`\n=== ${labelOf(s)} — EXCEPTION : ${errMsg(e)}`);
+      scores.push({ module: s.module, label: labelOf(s), score: -1 });
+      continue;
+    }
+    scores.push({ module: s.module, label: labelOf(s), score: report.score });
+    if (!rawPath && report.score >= 85) continue;
+
+    console.log(`\n=== ${labelOf(s)} — ${String(spec.kind)} — score ${report.score}`);
+    console.log(`    correctness ${report.subscores.correctness} · contraintes ${report.subscores.constraints} · craft ${report.subscores.craft}`);
+    for (const c of report.constraintResults.filter(x => !x.pass && !x.performanceOnly)) {
+      console.log(`    KO  ${c.key} (${c.mode}) : ${c.detail}`);
+    }
+    for (const i of report.issues) {
+      console.log(`    [${i.severity} ×${i.weight}] ${i.ruleId} @${i.atTick ?? '—'} : ${i.message}`);
+    }
+    if (report.hiddenIssueCount > 0) console.log(`    (+${report.hiddenIssueCount} masquées)`);
+    for (const st of report.strengths) console.log(`    + ${st}`);
+  }
+
+  if (rawPath) return;
+  console.log('\n--- verrou n°2 ---');
+  for (const mod of ['m01', 'm02', 'm03']) {
+    const sub = scores.filter(x => x.module === mod);
+    console.log(`  ${mod} : ${sub.filter(x => x.score >= 85).length}/${sub.length} verts`);
+  }
+}
+
 const target = process.argv[2];
-if (target) {
+const wantsSpec = process.argv.includes('--spec');
+if (wantsSpec) {
+  void analyzeSpec(target && target !== '--spec' ? target : undefined);
+} else if (target) {
   analyzeFile(target);
 } else {
   scanCorpus();

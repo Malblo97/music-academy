@@ -226,4 +226,58 @@ export const fixtures: Fixture[] = [
       expect(withGiven.window.judges(1920)).toBe(true);
     },
   },
+
+  // -------------------------------------------------------------------------
+  // APPLICABILITÉ (S5–S6) — les périmètres resserrés pendant le verrou n°2.
+  //
+  // Chaque écart trouvé sur le corpus est encadré ici par une fixture positive
+  // (la règle parle où elle doit) ET une négative (elle se tait où elle n'a
+  // rien à dire). Sans la négative, rien n'empêcherait de rouvrir le périmètre
+  // par inadvertance à la prochaine relecture.
+  // -------------------------------------------------------------------------
+  {
+    name: 'melody.no-motif — se tait sur une progression harmonique',
+    run: () => {
+      const grid: CaseInput = { notation: '[C3+E4+G4+C5]:w | [F3+F4+A4+C5]:w | [G3+D4+G4+B4]:w | [C3+E4+G4+C5]:w' };
+      expect(fires('melody.no-motif', { ...grid, kind: 'MELODY_COMPOSE' }), 'parle sur un exercice de thème').toBe(true);
+      expect(fires('melody.no-motif', { ...grid, kind: 'HARMONY_PROGRESSION' }), 'se tait sur une grille').toBe(false);
+    },
+  },
+  {
+    name: 'melody.climax — se tait sans intention de forme déclarée',
+    run: () => {
+      const early: CaseInput = { notation: 'C4:q C5:h. | B4:q A4:q G4:q F4:q | E4:q D4:q C4:h' };
+      expect(fires('melody.climax', { ...early, styleProfile: { id: 'classical-common', targetMood: 'sad' } }),
+        'parle quand une ambiance est visée').toBe(true);
+      expect(fires('melody.climax', { ...early, styleProfile: { id: 'classical-common' } }),
+        'se tait sans forme demandée').toBe(false);
+      expect(fires('melody.climax', { ...early, styleProfile: { id: 'classical-common' }, constraints: { climaxWindow: [0.55, 0.85] } }),
+        'parle dès que la fenêtre est déclarée').toBe(true);
+    },
+  },
+  {
+    name: 'rhythm.syncopation-target — n\'exige rien sans cible déclarée',
+    run: () => {
+      const straight: CaseInput = { notation: 'C4:q D4:q E4:q F4:q | G4:q A4:q B4:q C5:q' };
+      expect(fires('rhythm.syncopation-target', straight), 'aucune cible : silence').toBe(false);
+      expect(fires('rhythm.syncopation-target', { ...straight, constraints: { syncopationTarget: [0.2, 0.5] } }),
+        'cible déclarée et non tenue : parle').toBe(true);
+    },
+  },
+  {
+    name: 'vl.leading-tone-resolution — une sensible réénoncée se juge sur son DÉPART',
+    run: () => {
+      // Si tenu sous deux dominantes puis résolu sur do : résolu UNE fois, pas
+      // fautif deux fois. C'est l'écriture de m01-s34, que le moteur punissait.
+      const held: CaseInput = { voices: ['A4:h E5:h | D5:w', 'B3:h B3:h | C4:w', 'G2:h G2:h | C3:w'] };
+      expect(fires('vl.leading-tone-resolution', held), 'la répétition n\'est pas une non-résolution').toBe(false);
+      // La même sensible, au SOPRANO (voix extrême) et sous une dominante
+      // franche (I–IV–V7–I, do majeur sans ambiguïté), qui redescend au lieu de
+      // monter : la faute reste une faute.
+      const broken: CaseInput = {
+        voices: ['C5:w | C5:w | B4:w | G4:w', 'E4:w | F4:w | D4:w | E4:w', 'G3:w | A3:w | F3:w | E3:w', 'C3:w | F3:w | G2:w | C3:w'],
+      };
+      expect(fires('vl.leading-tone-resolution', broken), 'descendue au lieu de résolue : faute').toBe(true);
+    },
+  },
 ];

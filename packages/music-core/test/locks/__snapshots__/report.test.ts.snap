@@ -1,0 +1,67 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`contrat FeedbackReport — snapshot de m03-e02 > fige le rapport de la pièce témoin 1`] = `
+{
+  "constraintResults": [
+    {
+      "detail": "tonique 2 conforme (mode analysé : minor)",
+      "key": "key",
+      "mode": "measured",
+      "pass": true,
+    },
+    {
+      "detail": "8 mesures, dans 8–8",
+      "key": "lengthBars",
+      "mode": "measured",
+      "pass": true,
+    },
+    {
+      "detail": "au moins 4 voix partout ≥ 4",
+      "key": "minVoices",
+      "mode": "measured",
+      "pass": true,
+    },
+    {
+      "detail": "au plus 4 voix ≤ 4",
+      "key": "maxVoices",
+      "mode": "measured",
+      "pass": true,
+    },
+    {
+      "detail": "motif de progression imposé — vérifiée sur la déclaration, pas encore mesurée sur le rendu",
+      "key": "requiredProgressionPattern",
+      "mode": "declared",
+      "pass": true,
+    },
+    {
+      "detail": "idiomes dont le tag est exigé (F-16) — vérifiée sur la déclaration, pas encore mesurée sur le rendu",
+      "key": "requireIdiom",
+      "mode": "declared",
+      "pass": true,
+    },
+    {
+      "detail": "cadence finale « perfect »",
+      "key": "requiredCadence",
+      "mode": "measured",
+      "pass": true,
+    },
+  ],
+  "engineVer": "0.2.0",
+  "hiddenIssueCount": 0,
+  "improvedVersion": null,
+  "issues": [],
+  "score": 100,
+  "silencedRules": [],
+  "strengths": [
+    "La conduite est propre de bout en bout — aucun parallélisme de quinte ou d'octave.",
+    "Les renversements font respirer la basse — 2 position(s) distincte(s) employée(s) sur 8 accords.",
+    "Le vocabulaire idiomatique est exploité — 1 idiome(s) : neapolitan.",
+    "La basse est une ligne, pas une suite de fondamentales — 43 % de mouvements conjoints à la basse.",
+  ],
+  "subscores": {
+    "constraints": 35,
+    "correctness": 35,
+    "craft": 30,
+  },
+}
+`;

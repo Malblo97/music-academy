@@ -1,6 +1,6 @@
 import type { Issue } from '../types.js';
 import type { Rule, RuleCtx } from './types.js';
-import { judgedNotes, ruleIssue } from './types.js';
+import { judgedLine, judgedNotes, ruleIssue } from './types.js';
 
 /** Un saut vaut au moins une quarte : en deçà, la ligne marche, elle ne saute pas. */
 const LEAP = 5;
@@ -17,6 +17,51 @@ function pc(n: number): number {
   return ((n % 12) + 12) % 12;
 }
 
+/**
+ * **L'exercice demande-t-il d'ÉCRIRE UNE MÉLODIE ?**
+ *
+ * Sur une progression harmonique, la voix supérieure n'est pas un thème : c'est
+ * le produit des accords. Lui réclamer une cellule qui revient, une dette de
+ * saut remboursée ou une conclusion sur 1̂ longue, c'est juger un exercice qui
+ * n'a pas été donné — et `melody.no-motif` le dit elle-même : « la règle se
+ * tait sur un exercice de conduite pure (harmonisation, contrepoint sur cantus
+ * donné), où la matière vient d'ailleurs ».
+ *
+ * Le kind ne suffit pas seul : une spec d'harmonie qui déclare des contraintes
+ * mélodiques (motif, contour, ambitus) demande bien une ligne, et la règle doit
+ * alors parler.
+ */
+const MELODIC_KINDS = new Set(['MELODY_COMPOSE', 'HARMONIZE_MELODY', 'COUNTERPOINT']);
+
+function judgesMelody(ctx: RuleCtx): boolean {
+  const kind = typeof ctx.spec.kind === 'string' ? ctx.spec.kind : undefined;
+  if (kind !== undefined && MELODIC_KINDS.has(kind)) return true;
+  const c = ctx.spec.constraints ?? {};
+  return c.mustUseMotif !== undefined
+    || c.minMotifOccurrences !== undefined
+    || c.requireMotifVariation !== undefined
+    || c.contourShape !== undefined
+    || c.maxLeap !== undefined
+    || c.minConjunctRatio !== undefined
+    || c.phraseStructure !== undefined;
+}
+
+/**
+ * La consigne demande-t-elle une FORME ? Les règles d'arche (climax, placement
+ * de la tension) ne parlent que là — juger le sommet d'une grille d'accords ou
+ * d'une boucle modale, c'est reprocher à l'élève une intention qu'on ne lui a
+ * pas demandée.
+ */
+function hasShapeIntent(ctx: RuleCtx): boolean {
+  const c = ctx.spec.constraints ?? {};
+  return c.climaxWindow !== undefined
+    || c.contourShape !== undefined
+    || c.tensionPlan !== undefined
+    || c.minArchFit !== undefined
+    || c.ascendingPhrasePeaks !== undefined
+    || ctx.spec.styleProfile?.targetMood !== undefined;
+}
+
 export const MELODY_RULES: Rule[] = [
   {
     id: 'melody.no-motif',
@@ -27,6 +72,7 @@ export const MELODY_RULES: Rule[] = [
     detect: (ctx: RuleCtx): Issue[] => {
       const report = ctx.analysis.motifs;
       if (!report) return [];
+      if (!judgesMelody(ctx)) return [];
       if (report.bestMotif && report.bestMotif.occurrences.length >= 2) return [];
       return [ruleIssue({ id: 'melody.no-motif', severity: 'warning', lessonRef: 'm02-l03' }, undefined,
         'aucune cellule ne revient : il n\'y a rien à retenir dans cette mélodie')];
@@ -70,10 +116,21 @@ export const MELODY_RULES: Rule[] = [
     lessonRef: 'm02-l06',
     detect: (ctx: RuleCtx): Issue[] => {
       const contour = ctx.analysis.contour;
-      const notes = judgedNotes(ctx);
+      // La LIGNE, pas la texture : le sommet d'un choral est celui du soprano.
+      const notes = judgedLine(ctx);
       if (!contour || notes.length < 4) return [];
       const total = notes.reduce((m, n) => Math.max(m, n.start + n.duration), 0);
       if (total === 0) return [];
+
+      // Sa propre `when` fixe le périmètre : « dès qu'une LIGNE A UNE FORME À
+      // DÉFENDRE ; un ostinato, un tapis, une pédale n'ont pas de climax ». Une
+      // suite d'accords chiffrés, une boucle modale, un laboratoire de
+      // transformation n'en ont pas davantage — sur le corpus de référence, la
+      // règle parlait sur 43 solutions vérifiées, dont des chorals en rondes et
+      // des grilles harmoniques. On exige donc que la consigne DÉCLARE une
+      // intention de forme : une fenêtre, un contour, un plan de tension, ou
+      // une ambiance visée.
+      if (!hasShapeIntent(ctx)) return [];
 
       const globals = contour.peaks.filter(p => p.isGlobal);
       const declared = ctx.spec.constraints?.climaxWindow;
@@ -112,7 +169,10 @@ export const MELODY_RULES: Rule[] = [
     appliesTo: ['mono', 'voices', 'parts', 'midi'],
     lessonRef: 'm01-l07',
     detect: (ctx: RuleCtx): Issue[] => {
-      const notes = judgedNotes(ctx);
+      // Un saut se juge DANS une ligne. Entre le soprano d'un temps et la
+      // basse du suivant, il n'y a pas de saut : il y a deux voix.
+      if (!judgesMelody(ctx)) return [];
+      const notes = judgedLine(ctx);
       const issues: Issue[] = [];
       const self = { id: 'melody.leap-recovery', severity: 'suggestion' as const, lessonRef: 'm01-l07' };
       for (let i = 0; i < notes.length - 2; i++) {
@@ -174,7 +234,10 @@ export const MELODY_RULES: Rule[] = [
     appliesTo: ['mono', 'voices', 'parts', 'midi'],
     lessonRef: 'm01-l16',
     detect: (ctx: RuleCtx): Issue[] => {
-      const notes = judgedNotes(ctx);
+      // La note qu'on garde est la dernière du CHANT, pas la dernière basse.
+      // Sur une grille, c'est la CADENCE qui conclut, et `requiredCadence` la juge.
+      if (!judgesMelody(ctx)) return [];
+      const notes = judgedLine(ctx);
       const last = notes[notes.length - 1];
       if (!last) return [];
       const degree = pc(last.pitch - ctx.analysis.key.tonic);
@@ -202,7 +265,7 @@ export const MELODY_RULES: Rule[] = [
     lessonRef: 'm02-l06',
     detect: (ctx: RuleCtx): Issue[] => {
       const phrases = ctx.analysis.phrases;
-      if (!phrases) return [];
+      if (!phrases || !judgesMelody(ctx)) return [];
       const self = { id: 'melody.phrase-breathing', severity: 'suggestion' as const, lessonRef: 'm02-l06' };
       return phrases.phrases
         .filter(p => p.to - p.from > MAX_PHRASE_TICKS)
@@ -226,6 +289,9 @@ export const MELODY_RULES: Rule[] = [
     detect: (ctx: RuleCtx): Issue[] => {
       const curve = ctx.analysis.tension;
       if (!curve || curve.length < 4) return [];
+      // Même périmètre que `melody.climax` : sa `when` dit « dès qu'une AMBIANCE
+      // EST VISÉE ». Sans ambiance ni plan déclarés, il n'y a pas d'arche promise.
+      if (!hasShapeIntent(ctx)) return [];
       const peak = curve.indexOf(Math.max(...curve));
       const position = peak / (curve.length - 1);
       if (position >= 0.5 && position <= 0.9) return [];

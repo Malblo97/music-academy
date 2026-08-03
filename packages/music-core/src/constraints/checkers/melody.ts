@@ -3,6 +3,7 @@ import type { Checker } from './types.js';
 import { allJudged, asNumber, asNumbers, asRange, asStrings, degreeOf, fail, line, matchesDegree, ok, pc } from './types.js';
 import { climaxPosition, contour } from '../../analyzers/contour.js';
 import { metricWeight } from '../../analyzers/rhythm.js';
+import { barCount, meterOfSpec } from '../../meter.js';
 
 /** Le seuil d'ambiguïté de `estimateKey` — F-11 s'évalue sur les profils BRUTS. */
 const AMBIGUITY_THRESHOLD = 0.08;
@@ -228,7 +229,9 @@ export const MELODY_CHECKERS: Record<string, Checker> = {
     const range = asRange(value);
     const notes = allJudged(ctx);
     if (!range || notes.length === 0) return ok('rien à mesurer');
-    const bars = notes.reduce((m, n) => Math.max(m, n.start + n.duration), 0) / (TICKS.w ?? 1920);
+    // La métrique de la spec, pas 4/4 supposé : une pièce en 6/8 n'a pas des
+    // mesures de 1920 ticks. Et le compte se fait AU PLUS PROCHE (cf. meter.ts).
+    const bars = barCount(notes, meterOfSpec(ctx.spec));
     return bars >= range[0] && bars <= range[1]
       ? ok(`${bars} mesures, dans ${range[0]}–${range[1]}`)
       : fail(`${bars} mesures, attendu ${range[0]}–${range[1]}`);
