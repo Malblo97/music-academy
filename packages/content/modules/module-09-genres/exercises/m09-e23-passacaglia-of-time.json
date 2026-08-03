@@ -1,0 +1,41 @@
+{
+  "id": "m09-e23-passacaglia-of-time",
+  "lessonId": "m09-l12-film-historique",
+  "title": "La passacaille du temps",
+  "kind": "HARMONY_PROGRESSION",
+  "difficulty": 7,
+  "xpReward": 140,
+  "skills": { "COUNTERPOINT": 0.4, "HARMONY": 0.35, "ORCHESTRATION": 0.25 },
+  "meter": "3/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "period", "targetMood": "noble-melancholy", "ruleWeights": { "vl.parallel-fifths": 1.0, "vl.parallel-octaves": 1.0 } },
+  "rubric": { "correctness": 30, "constraints": 40, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "La marche vers l'échafaud, 2 minutes — et le meilleur gabarit formel du genre, toutes époques confondues : LA PASSACAILLE. Une basse obstinée de 8 mesures, et des variations qui s'accumulent au-dessus. Elle dit exactement ce qu'un film historique veut dire : le temps passe, la structure demeure, les gens changent. Cinq tours : (1) la basse seule + tambour, (2) + une voix (le cantus), (3) + les cordes, (4) + les cuivres, (5) le tutti — le thème modal au chœur, la basse obstinée INTACTE. Puis la signature du genre, dans la dernière image : LA BASSE CONTINUE APRÈS TOUT LE MONDE. Ce qui reste n'est pas le personnage, c'est la structure — l'Histoire. Contraintes : la basse ne varie JAMAIS (ni rythme ni hauteurs — c'est le sol de la pièce), l'accumulation est monotone croissante, et le contrepoint au-dessus est réel (les checkers de M4 s'appliquent : c'est du contrepoint, pas de l'accompagnement). Le contrepoint, contrairement au clavecin, ne se démode pas : il évoque l'ancien sans citer une décoration.",
+    "given": {
+      "key": { "tonic": 2, "mode": "minor" },
+      "tempoBpm": 60,
+      "groundBass": "D3:h. A3:h. | Bb3:h. F3:h. | G3:h. D3:h. | Eb3:h. A2:h."
+    },
+    "constraints": {
+      "lengthBars": [40, 40],
+      "key": { "tonic": 2, "mode": "minor" },
+      "passacagliaGround": {
+        "barsPerCycle": 8,
+        "cycles": 5,
+        "groundInvariant": { "pitches": true, "rhythm": true },
+        "groundContinuesAfterAll": { "finalBars": [2, 4] }
+      },
+      "accumulationPlan": {
+        "declared": true,
+        "monotonicIncreasing": true,
+        "perCycle": ["ground+drum", "+cantus", "+strings", "+brass", "tutti+choir"]
+      },
+      "minVoices": 4,
+      "counterpointJudged": { "checkers": ["cpt.contrary-preference", "vl.parallel-fifths", "vl.parallel-octaves", "species4"] },
+      "suspensionsRequired": { "min": 3, "slowResolution": true },
+      "checkers": ["cpt.contrary-preference", "vl.parallel-fifths", "vl.smoothness", "harmony.loop-coherence"]
+    }
+  }
+}

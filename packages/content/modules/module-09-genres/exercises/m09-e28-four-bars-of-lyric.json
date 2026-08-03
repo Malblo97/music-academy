@@ -1,0 +1,41 @@
+{
+  "id": "m09-e28-four-bars-of-lyric",
+  "lessonId": "m09-l14-aventure",
+  "title": "Quatre mesures de lyrisme",
+  "kind": "ORCHESTRATE",
+  "difficulty": 7,
+  "xpReward": 140,
+  "skills": { "ORCHESTRATION": 0.4, "MELODY": 0.3, "COUNTERPOINT": 0.3 },
+  "meter": "6/8",
+  "isGenerated": false,
+  "pool": "medium",
+  "styleProfile": { "id": "adventure", "targetMood": "heroic", "ruleWeights": { "vl.leading-tone-resolution": 1.2 } },
+  "rubric": { "correctness": 25, "constraints": 40, "craft": 35 },
+  "spec": {
+    "version": 1,
+    "prompt": "L'évasion sur les toits, 2 minutes, en 6/8 — et LE GESTE DISTINCTIF DU GENRE : au milieu d'une scène d'action, l'aventure trouve toujours quatre secondes pour être LYRIQUE. C'est exactement ce qui la sépare de l'action, qui ne s'arrête jamais. La forme ABA élargi : ton thème A (d'e27) aux cors, les séquences montantes, puis QUATRE MESURES de B lyrique aux cordes (le regard), la pédale de dominante (la préparation triomphale), et le retour de A EN TUTTI, une octave plus haut, cadence parfaite + cymbale. Et la signature d'écriture du genre, obligatoire ici : LE CONTRECHANT — une seconde ligne mélodique, aux cors ou aux violoncelles, sous le thème principal. La texture de l'aventure est CONTRAPUNTIQUE, pas verticale : des accords sans lignes, et le score devient plat. Deux interdits d'instrumentation : rien de synthétique (l'aventure est acoustique par définition — la virtuosité de l'orchestre fait partie du plaisir offert au spectateur), et pas de tutti permanent : les traits de bois et les cordes seules font la légèreté.",
+    "given": {
+      "key": { "tonic": 10, "mode": "major" },
+      "sourceSubmission": "m09-e27-whistleable-theme",
+      "durationSec": 120,
+      "tempoBpm": 126
+    },
+    "constraints": {
+      "durationSec": [112, 130],
+      "format": "Part[]",
+      "pool": "medium",
+      "formABA": { "sections": ["A", "B", "A-tutti"], "finalATransposition": 12 },
+      "fourBarsOfLyric": { "required": true, "lengthBars": 4, "midScene": true, "strings": true },
+      "counterMelodyRequired": {
+        "instruments": ["french-horn", "cello", "viola"],
+        "separationAxes": { "registerSemitonesMin": 12, "rhythmicComplement": { "simultaneousStrongAttacksMax": 0.4 } },
+        "engine": "findMotifs"
+      },
+      "dominantPedalBeforeReturn": { "required": true, "minBars": 2 },
+      "finalCadence": "perfect",
+      "forbidSynthetic": true,
+      "forbidPermanentTutti": { "tuttiMaxRatio": 0.35 },
+      "checkers": ["orch.range-violation", "orch.balance", "cpt.contrary-preference", "vl.leading-tone-resolution", "densityMap"]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "exerciseId": "m09-e22-the-call",
+  "payload": {
+    "durationSec": 180,
+    "scene": "le duel",
+    "callMotif": { "notation": "E4:h. A4:h. B4:w", "intervals": [5, 2], "direction": "ascending", "instrument": "trompette lointaine" },
+    "plan": [
+      { "sec": [0, 45], "content": "quinte tenue + la trompette lointaine" },
+      { "sec": [45, 95], "adds": ["guitare tremolo"] },
+      { "sec": [95, 150], "adds": ["cordes", "percussion sèche"] },
+      { "sec": [150, 153], "content": "SILENCE TOTAL — 3 secondes : la détonation est le seul événement" },
+      { "sec": [153, 180], "content": "la plagale aux cordes seules" }
+    ],
+    "reverb": { "dry": ["guitare", "percussion"], "space": ["trompette"] },
+    "groundElements": { "maxSimultaneous": 3 }
+  },
+  "authorNotes": "Le mécanisme d'un thriller avec l'esthétique **inverse** : là où le thriller assèche et mécanise, le western étire et laisse résonner. Même courbe, autre acoustique — et la solution le déclare au réglage : guitare et percussions **sèches** (le western moderne n'est pas du néo-noir), seule la voix nue reçoit de l'espace. L'appel est l'archétype « signal » dans son emploi le plus pur : trois notes de quarte et de seconde montantes, un timbre nu, et **ça porte à un kilomètre**. Trois secondes de silence total avant la fin : la musique laisse la place à la détonation, qui est le seul événement de la scène."
+}

@@ -1,0 +1,14 @@
+{
+  "exerciseId": "m09-e16-one-peak-per-film",
+  "payload": {
+    "sharedCell": "l'empreinte E4–D4–E4 de e15",
+    "cues": [
+      { "id": "cue-1", "act": "le début", "layers": 2, "parameter": "la cellule quasi nue — piano + une tenue d'alto", "dynamicsMax": "p" },
+      { "id": "cue-2", "act": "le milieu", "layers": 3, "parameter": "+ le violoncelle — UN paramètre de plus, toujours retenu", "dynamicsMax": "mp" },
+      { "id": "cue-3", "act": "le sommet", "layers": 4, "parameter": "+ les cordes en unisson et UN cor", "peak": { "bars": [9, 11], "unaccompanied": true, "maxBars": 3 }, "note": "puis plus rien" }
+    ],
+    "musicSceneOffset": { "cue": "cue-2", "type": "stops-before-scene-end" },
+    "forbidden": ["trumpet", "percussion", "brass-tutti"]
+  },
+  "authorNotes": "« Le budget émotionnel du drame se gère à l'échelle du FILM, pas de la scène. » Un paramètre par cue, et un seul — **c'est la vis du thriller désarmée** : la même mécanique de transformation graduelle, employée pour dire l'usure au lieu de la peur. Le sommet unique tombe dans le cue 3, dure trois mesures, et il est **sans accompagnement** : la seule fois du film où ça déborde. Puis plus rien. Le geste caractéristique est placé au cue 2 : la musique s'arrête avant la fin de la scène — **le décalage musique/scène indique au spectateur que ce qu'il voit n'est pas ce qui compte.**"
+}

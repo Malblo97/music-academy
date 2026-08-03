@@ -1,0 +1,17 @@
+{
+  "exerciseId": "m09-e27-whistleable-theme",
+  "partId": "theme-a",
+  "notation": "r:h. F4:e G4:e | Bb4:q. Bb4:e D5:q Bb4:q | F5:q. Eb5:e D5:q C5:q | D5:h. Bb4:q | Eb5:q. Eb5:e G5:q Eb5:q | F5:q. F5:e A5:q F5:q | G5:q F5:q Eb5:q D5:q | Bb4:h. r:q",
+  "payload": {
+    "key": "si♭ majeur",
+    "anacrusis": true,
+    "openingLeap": { "notes": [2, 3], "interval": 7, "direction": "up", "note": "sol4 → si♭4… puis la quinte si♭4 → fa5 à la mes. 3" },
+    "rhythmCell": "q. e q q — reconnaissable frappée sur une table",
+    "climax": { "bar": 6, "note": "A5, unique" },
+    "cadence": "parfaite, avec panache",
+    "ambitus": "F4–A5, 16 demi-tons",
+    "secondaryDominants": 2,
+    "ascendingSequences": { "count": 1, "transpositions": 2, "bars": [5, 6] }
+  },
+  "authorNotes": "Le cahier des charges coché intégralement : anacrouse (le thème pousse avant de commencer — l'élan est écrit dans la levée), saut ascendant dans les trois premières notes, cellule rythmique pointée reconnaissable **sans les hauteurs**, arche large à sommet unique, conclusion franche. Ambitus 16 demi-tons ≤ 17 : **sifflable**, et c'est le test absolu — si on ne peut pas le siffler en sortant, ce n'est pas un thème d'aventure ; s'il faut l'harmonie pour qu'il fonctionne, on recommence. Ici l'harmonie fonctionnelle est le STYLE, pas une naïveté : deux dominantes secondaires, une séquence montante à deux transpositions. **Ne pas fuir la dominante par réflexe moderne** — le score perdrait son élan."
+}

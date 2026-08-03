@@ -1,0 +1,53 @@
+{
+  "id": "m09-e27-whistleable-theme",
+  "lessonId": "m09-l14-aventure",
+  "title": "Le thème sifflable",
+  "kind": "MELODY_COMPOSE",
+  "difficulty": 6,
+  "xpReward": 130,
+  "skills": { "MELODY": 0.6, "HARMONY": 0.4 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "adventure", "targetMood": "heroic", "ruleWeights": { "vl.leading-tone-resolution": 1.2, "melody.climax": 1.2 } },
+  "rubric": { "correctness": 25, "constraints": 40, "craft": 35 },
+  "spec": {
+    "version": 1,
+    "prompt": "16 mesures : le thème EST le sujet du genre. Le cahier des charges, à cocher intégralement — UNE ANACROUSE (le thème pousse avant de commencer : l'élan est écrit dans la levée), UN SAUT ASCENDANT de quarte ou de quinte dans les TROIS PREMIÈRES NOTES, un RYTHME POINTÉ ou une cellule rythmique nette reconnaissable SANS les hauteurs (teste-la frappée sur une table), une ARCHE LARGE (montée par séquence, sommet unique, redescente cadentielle), une CONCLUSION FRANCHE (la cadence parfaite, assumée, avec panache), et le test absolu : SIFFLABLE. Si on ne peut pas le siffler en sortant, ce n'est pas un thème d'aventure ; s'il faut l'harmonie pour qu'il fonctionne, recommence. Et l'exigence structurelle : il faut un SECOND THÈME. Le thème A (l'élan, le héros) doit avoir un pendant B lyrique — l'amour, le rêve, l'objet de la quête : un score d'aventure monothématique s'épuise en vingt minutes. Ici l'harmonie fonctionnelle est le STYLE, pas une naïveté : V7→I, dominantes secondaires en cascade, séquences montantes — chaque accord tire vers le suivant. Ne fuis pas la dominante par réflexe moderne : le score perdrait son élan.",
+    "given": {
+      "key": { "tonic": 10, "mode": "major" }
+    },
+    "parts": [
+      {
+        "id": "theme-a",
+        "prompt": "Le thème A : l'élan, le héros.",
+        "constraints": {
+          "lengthBars": [8, 8],
+          "requireAnacrusis": true,
+          "openingLeap": { "withinFirstNotes": 3, "intervals": [5, 7], "direction": "up" },
+          "dottedOrDistinctRhythmCell": true,
+          "singleClimax": true,
+          "requiredCadence": "perfect"
+        }
+      },
+      {
+        "id": "theme-b",
+        "prompt": "Le thème B : le lyrique, le rêve.",
+        "constraints": {
+          "lengthBars": [8, 8],
+          "lyrical": true,
+          "contrastWithA": { "prosody": true, "contour": true, "rhythm": true },
+          "minConjunctRatio": 0.7
+        }
+      }
+    ],
+    "constraints": {
+      "key": { "tonic": 10, "mode": "major" },
+      "noteRange": [55, 84],
+      "whistleTest": { "required": true, "ambitusMaxSemitones": 17, "rhythmRecognizableWithoutPitches": true, "unaccompaniedViable": true },
+      "secondThemeRequired": true,
+      "functionalHarmonyAssumed": { "requireSecondaryDominants": 2, "allowV7toI": true },
+      "ascendingSequences": { "min": 1, "transpositions": 2 },
+      "checkers": ["melody.climax", "melody.tension-placement", "findMotifs", "vl.leading-tone-resolution"]
+    }
+  }
+}

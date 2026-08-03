@@ -1,0 +1,13 @@
+{
+  "exerciseId": "m09-e26-the-breath",
+  "variantId": "espionnage",
+  "payload": {
+    "durationSec": 165,
+    "vein": "spy",
+    "instrumentation": ["walking-bass", "brosses", "cuivres bouchés en stabs", "vibraphone", "guitare twang"],
+    "chaseForm": "identique — les six étapes, mêmes proportions",
+    "breath": { "bars": 6, "content": "walking seule + vibraphone", "densityDrop": 0.6 },
+    "veinPurity": { "swingInActionVein": false, "declared": "spy" }
+  },
+  "authorNotes": "La même forme, l'autre vocabulaire : **l'énergie y est une posture, pas une urgence.** La walking remplace le riff comme moteur, les stabs de cuivres bouchés remplacent les accents tutti, et la respiration devient un moment de nonchalance plutôt qu'un allègement. La contrainte de pureté est le point pédagogique : `veinPurity` interdit le swing dans la veine action et exige la déclaration — **le groove et la force ne se cumulent pas bien**, et le score qui tente les deux n'a ni l'un ni l'autre."
+}

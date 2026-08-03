@@ -1,0 +1,47 @@
+{
+  "id": "m09-e26-the-breath",
+  "lessonId": "m09-l13-action-espionnage",
+  "title": "La respiration",
+  "kind": "ARRANGEMENT",
+  "difficulty": 7,
+  "xpReward": 140,
+  "skills": { "RHYTHM": 0.4, "ORCHESTRATION": 0.35, "HARMONY": 0.25 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "action", "targetMood": "tension", "ruleWeights": { "melody.monotony": 0.2 } },
+  "rubric": { "correctness": 20, "constraints": 50, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "La séquence de poursuite complète, 2 min 45 — la forme la plus codifiée du corpus, qu'il faut connaître pour pouvoir la casser. Les six étapes : (1) le départ — le riff seul, une couche, tempo établi ; (2) le recrutement — les couches entrent tous les 8 ou 16 temps ; (3) le hit — un point de synchro majeur, souvent avec coupure d'un temps ; (4) le palier — modulation ascendante, double-time ou nouvelle couche ; (5) LA RESPIRATION — 4 à 8 mesures allégées ; (6) la reprise et la conclusion — le riff en tutti, accelerando, cadence de frappe sur l'impact final. L'étape 5 est ce qui distingue un professionnel d'un amateur, et c'est l'objet de cet exercice : UNE INTENSITÉ CONSTANTE EST PERÇUE COMME UNE INTENSITÉ FAIBLE. L'auditeur ne peut pas rester au maximum pendant trois minutes. Ta respiration est obligatoire, mesurée (l'effectif et la densité chutent d'au moins 50 % pendant 4 à 8 mesures), et elle est ce qui rend la reprise puissante. Variante espionnage disponible : la même forme, l'autre vocabulaire — walking, brosses, blocs de cuivres bouchés, vibraphone : l'énergie y est une posture, pas une urgence. Mais choisis ta veine : le groove et la force ne se cumulent pas bien.",
+    "given": {
+      "key": { "tonic": 4, "mode": "minor" },
+      "sourceSubmission": "m09-e25-riff-and-relaunch",
+      "tempoBpm": 148,
+      "durationSec": 165,
+      "variants": [
+        { "id": "action", "vein": "action" },
+        { "id": "espionnage", "vein": "spy", "instrumentation": ["walking-bass", "brushes", "muted-brass-stabs", "vibraphone", "twang-guitar"] }
+      ]
+    },
+    "constraints": {
+      "durationSec": [155, 175],
+      "chaseForm": {
+        "declared": true,
+        "steps": ["depart", "recruitment", "hit", "palier", "breath", "reprise-conclusion"],
+        "orderEnforced": true
+      },
+      "breathRequired": {
+        "lengthBars": [4, 8],
+        "densityDropMin": 0.5,
+        "activePartsDropMin": 0.5,
+        "positionWindow": [0.55, 0.75]
+      },
+      "recruitmentInterval": { "everyBeats": [8, 16] },
+      "hitWithCut": { "min": 1, "cutBeats": 1 },
+      "finalStrikeCadence": { "required": true, "allowed": ["bVII-i", "V-i"], "onImpact": true },
+      "accelerandoFinal": { "required": true, "bpmDeltaMin": 8 },
+      "veinPurity": { "forbidSwingInActionVein": true, "declared": true },
+      "checkers": ["orch.density-overload", "orch.masking", "findMotifs", "densityMap"]
+    }
+  }
+}

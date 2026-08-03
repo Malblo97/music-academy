@@ -1,0 +1,39 @@
+{
+  "id": "m09-e09-consonance-investment",
+  "lessonId": "m09-l05-horreur",
+  "title": "L'investissement consonant",
+  "kind": "LAYERING",
+  "difficulty": 6,
+  "xpReward": 120,
+  "skills": { "SOUND_DESIGN": 0.4, "HARMONY": 0.3, "ORCHESTRATION": 0.3 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "horror", "targetMood": "dread", "ruleWeights": { "harmony.overchromatic": 0, "melody.monotony": 0 } },
+  "rubric": { "correctness": 25, "constraints": 45, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "La loi centrale du genre, en acte : la dissonance permanente ne fait pas peur — l'oreille s'adapte à tout en trente secondes. C'est le PASSAGE du consonant au dissonant qui mord. 24 mesures, ♩=52 : tu dois écrire de la berceuse pour que le cluster existe. Le plan : une boîte à musique consonante (diatonique, naïve, DIX mesures au moins — c'est l'investissement, pas l'ornement), la rupture (le cluster, l'aléatoire contrôlé, le glissando de masse — au choix, déclaré), puis le retour à un état PLUS VIDE qu'avant. Sous tout cela, le gouffre : un drone sub sous 40 Hz — on ne l'entend pas, on le subit, et son retrait est un soulagement physique. Deux couches actives suffisent presque toujours : si ta densityMap s'allume dans une scène d'horreur, tu as écrit de l'action.",
+    "given": {
+      "key": { "tonic": 9, "mode": "minor" },
+      "tempoBpm": 52
+    },
+    "constraints": {
+      "lengthBars": [24, 24],
+      "requiredLayers": [
+        { "id": "gouffre", "role": "sub", "band": { "low": 25, "highMax": 45 }, "sustainedThroughout": true },
+        { "id": "berceuse", "role": "melodic", "hasNotes": true, "consonantDiatonic": true },
+        { "id": "rupture", "role": "fx", "eventBased": true, "declaredType": ["cluster", "controlled-aleatory", "mass-glissando"] }
+      ],
+      "consonanceInvestment": {
+        "minConsonantBars": 10,
+        "consonantBeforeRupture": true,
+        "dissonanceMaxContinuousBars": 4,
+        "contrastRatioMin": 0.5
+      },
+      "endEmptierThanStart": { "layersDelta": -1, "levelDelta": -6 },
+      "maxActiveLayers": 2,
+      "subMonoRequired": true,
+      "checkers": ["sd.sub-conflict", "sd.sub-width", "orch.density-overload", "densityMap"]
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "id": "m09-e12-hameau-to-world",
+  "lessonId": "m09-l06-fantasy",
+  "title": "Du hameau au monde",
+  "kind": "ORCHESTRATE",
+  "difficulty": 7,
+  "xpReward": 140,
+  "skills": { "ORCHESTRATION": 0.5, "MELODY": 0.3, "HARMONY": 0.2 },
+  "meter": "6/8",
+  "isGenerated": false,
+  "pool": "medium",
+  "styleProfile": { "id": "fantasy", "targetMood": "wonder", "ruleWeights": { "vl.leading-tone-resolution": 0 } },
+  "rubric": { "correctness": 25, "constraints": 40, "craft": 35 },
+  "spec": {
+    "version": 1,
+    "prompt": "La découverte de la vallée, 1 min 45 — et l'ordre compte plus que tout : ON PART DE L'ÉCHELLE HUMAINE. C'est la petite flûte du début qui donne sa taille au tutti ; sans elle, le grand orchestre n'est pas grand, il est juste fort. Le plan des quatre plans : le HAMEAU d'abord (flûte solo, le motif des habitants — le plan que tout le monde oublie), puis la FÉERIE en gestes ponctuels (harpe, célesta : trois gestes maximum par scène — le célesta partout devient un papier peint), le SEUIL (la médiante, précédée d'une seconde de silence), et le MONDE (cors ×4, cordes chaudes en unisson large, chœur — le thème du monde, ♭VII→IV→I). Puis le retrait : la flûte, seule, à nouveau. Et ton thème doit passer le test des TROIS VERSIONS : flûte solo (le hameau), cors + cordes (le monde), chœur (le mythe) — un thème de fantasy qui ne survit pas aux trois n'en est pas un. Il est diatonique, chantable, un seul grand saut : un habitant du monde doit pouvoir le fredonner.",
+    "given": {
+      "key": { "tonic": 5, "mode": "major" },
+      "durationSec": 105,
+      "theme": "asset:m09-e12-world-theme"
+    },
+    "constraints": {
+      "durationSec": [100, 115],
+      "format": "Part[]",
+      "pool": "medium",
+      "humanScaleFirst": { "openingSoloOnly": true, "openingBars": [4, 8], "maxPartsAtOpening": 1 },
+      "planPlan": {
+        "declared": true,
+        "order": ["hameau", "feerie", "seuil", "monde", "retrait"],
+        "plans": ["hameau", "feerie", "monde", "ancien"]
+      },
+      "feerieBudget": { "maxGestures": 3, "punctualOnly": true, "forbidContinuous": true },
+      "thresholdMediant": { "count": 1, "precededBySilenceSec": 1, "tagged": true },
+      "threeVersionsTest": {
+        "required": true,
+        "versions": ["solo-flute", "horns-strings", "choir"],
+        "sameThemeVerified": { "engine": "findMotifs" }
+      },
+      "themeDiatonic": true,
+      "themeMaxLeaps": { "largeLeapCount": 1, "minConjunctRatio": 0.7 },
+      "finalCadence": "plagal",
+      "endsWithSoloRetreat": true,
+      "checkers": ["orch.range-violation", "orch.balance", "orch.register-color", "findMotifs", "densityMap"]
+    }
+  }
+}

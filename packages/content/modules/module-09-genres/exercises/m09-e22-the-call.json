@@ -1,0 +1,45 @@
+{
+  "id": "m09-e22-the-call",
+  "lessonId": "m09-l11-western",
+  "title": "L'appel",
+  "kind": "ARRANGEMENT",
+  "difficulty": 6,
+  "xpReward": 120,
+  "skills": { "MELODY": 0.4, "ORCHESTRATION": 0.35, "RHYTHM": 0.25 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "western", "targetMood": "noble-melancholy", "ruleWeights": { "vl.leading-tone-resolution": 0 } },
+  "rubric": { "correctness": 25, "constraints": 45, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "Le duel, 3 minutes — le cas d'école du genre. Le mécanisme est celui d'un thriller (accumulation) avec une esthétique INVERSE : là où le thriller assèche et mécanise, le western ÉTIRE et laisse résonner. Même courbe, autre acoustique. Deux formes mélodiques, et elles suffisent à tout : L'APPEL (un motif court de quartes et quintes ascendantes, joué par UN timbre nu — trompette, sifflement, harmonica, ocarina : trois notes qui portent à un kilomètre, l'archétype « signal » dans son emploi le plus pur), et la BALLADE (strophique, pentatonique, phrases longues et régulières — elle doit avoir l'air d'une chanson traditionnelle qu'on aurait citée : une ballade de western trop savante rate son seul objectif, qui est de sembler ANTÉRIEURE au film). Le plan : un accord de quinte tenu + la trompette lointaine, puis la guitare tremolo, puis les cordes et la percussion sèche, puis LE SILENCE TOTAL — la détonation est le seul événement, la musique lui laisse la place — puis la plagale aux cordes seules. Deux réglages d'acoustique : la guitare et les percussions restent SÈCHES (le western moderne n'est pas du néo-noir) ; seule la voix nue reçoit de l'espace.",
+    "given": {
+      "key": { "tonic": 4, "mode": "mixolydian" },
+      "tempoBpm": 58,
+      "durationSec": 180,
+      "scene": "le duel"
+    },
+    "constraints": {
+      "durationSec": [170, 195],
+      "callMotif": {
+        "required": true,
+        "sizeNotes": [3, 5],
+        "intervals": [5, 7],
+        "direction": "ascending",
+        "soloTimbre": true,
+        "allowedInstruments": ["trumpet", "whistle", "harmonica", "ocarina"]
+      },
+      "balladOptional": { "strophic": true, "pentatonic": true, "longPhrases": true },
+      "groundElements": { "maxSimultaneous": 3 },
+      "totalSilenceBeforeEnd": { "durationSec": [2, 4], "required": true },
+      "reverbPolicy": {
+        "dry": ["guitar", "percussion"],
+        "spaceAllowed": ["solo-call-timbre"],
+        "rule": "sd.wash-out"
+      },
+      "finalCadence": "plagal",
+      "singleStrongMarkerPerCue": true,
+      "checkers": ["orch.range-violation", "orch.balance", "sd.wash-out", "densityMap"]
+    }
+  }
+}

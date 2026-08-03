@@ -1,0 +1,19 @@
+{
+  "exerciseId": "m09-e21-open-fifth-landscape",
+  "payload": {
+    "key": "mi mixolydien",
+    "tempoBpm": 58,
+    "lengthBars": 16,
+    "progression": [
+      { "bars": [1, 4], "chord": "E5", "voicing": "[E2+E3+B3+E4]" },
+      { "bars": [5, 8], "chord": "D", "voicing": "[D2+D3+A3+D4]", "note": "♭VII" },
+      { "bars": [9, 12], "chord": "A", "voicing": "[A2+A3+E4+A4]", "note": "IV" },
+      { "bars": [13, 16], "chord": "E5", "voicing": "[E2+E3+B3+E4]" }
+    ],
+    "openFifthRatio": 1.0,
+    "tonicPedal": { "bars": [1, 16], "note": "mi, très longue" },
+    "groundElements": ["quinte de cordes", "guitare", "trompette lointaine"],
+    "parallels": "15 quintes et octaves — la grammaire du genre, créditées"
+  },
+  "authorNotes": "Le vide organisé : trois accords, aucun demi-ton conducteur, aucune dominante — **le western n'attire pas vers la tonique, il y reste et laisse le paysage passer devant.** Les quatre verticalités sont sans tierce (ratio 1,00 ≥ 0,60) : l'espace littéral, aucune émotion assignée, l'auditeur remplit. Les quinze parallèles parfaites mesurées sont **la grammaire, pas la faute** (`vl.parallel-fifths` à 0,1 dans le profil western) — le planing de quintes à vide est le genre lui-même. Trois éléments simultanés : avec l'horreur, le western est le genre où l'on écrit le moins de notes, et **chaque instrument ajouté RÉDUIT le paysage.** Cadence plagale : un V7→I, et c'est une chanson de variété."
+}

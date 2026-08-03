@@ -1,0 +1,12 @@
+{
+  "exerciseId": "m09-e27-whistleable-theme",
+  "partId": "theme-b",
+  "notation": "r:q D5:q | C5:h. Bb4:q | A4:h G4:h | Bb4:q A4:q G4:h | F4:h. D5:q | C5:h Bb4:q A4:q | G4:q A4:q Bb4:h | F4:w",
+  "payload": {
+    "key": "si♭ majeur",
+    "character": "lyrique — l'amour, le rêve, l'objet de la quête",
+    "conjunctRatio": 0.79,
+    "contrast": { "prosody": "trochaïque contre l'iambique de A", "contour": "descente contre l'arche de A", "rhythm": "valeurs longues contre le pointé de A" }
+  },
+  "authorNotes": "L'exigence structurelle du genre : **il faut un second thème.** Le thème A porte l'élan et le héros ; sans son pendant lyrique, un score d'aventure monothématique s'épuise en vingt minutes. Les trois contrastes sont vérifiés séparément — prosodie, contour, rythme — parce qu'un « second thème » qui ne diffère que de hauteur est une variante, pas un personnage. Conjoint à 79 % : B chante là où A bondit."
+}

@@ -1,0 +1,17 @@
+{
+  "exerciseId": "m09-e14-one-human-voice",
+  "payload": {
+    "durationSec": 180,
+    "states": [
+      { "id": "le vide", "sec": [0, 26], "layers": ["drone"], "note": "le drone SEUL 26 s — le genre installe son échelle de temps" },
+      { "id": "l'humain", "sec": [26, 62], "adds": ["cor solo"], "unaccompaniedBars": 6, "note": "UNE couche solo, jamais deux" },
+      { "id": "la mécanique", "sec": [62, 118], "adds": ["séquenceur 1/8 régulier"], "note": "pulsation INHUMAINE — aucun backbeat, aucun swing : dès qu'on peut hocher la tête, on est dans l'action" },
+      { "id": "l'immense", "sec": [118, 166], "adds": ["nappes", "chœur"], "note": "la seule couche autorisée à enfler" },
+      { "id": "la coupure", "sec": [166, 180], "content": "tout tacet, le drone seul" }
+    ],
+    "transitions": "par transformation continue — un filtre qui s'ouvre, une nappe qui se substitue ; jamais par cadence",
+    "drift": "chaque couche dérive : cutoff, détune, densité de grains",
+    "braams": 0
+  },
+  "authorNotes": "« Cent pistes de synthé produisent du froid, et le froid n'émeut pas : il ennuie. » **Il faut un humain dans le cadre** — le cor solo est l'unité de mesure qui rend l'immensité perceptible, même principe que la petite flûte de la fantasy et le piano de e32. Les 26 secondes de drone seul ne sont pas du remplissage : un score de SF pressé n'est pas de la SF. La forme est **par états**, pas par sections : on y entre par transformation continue, jamais par cadence — et tout état dérive imperceptiblement, parce que le pad qui dure trois minutes sans bouger fait décrocher. Zéro braam : le cliché est refusé par contrat."
+}

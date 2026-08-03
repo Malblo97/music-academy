@@ -1,0 +1,20 @@
+{
+  "exerciseId": "m09-e23-passacaglia-of-time",
+  "payload": {
+    "key": "ré mineur",
+    "meter": "3/4",
+    "tempoBpm": 60,
+    "ground": "D3:h. A3:h. | Bb3:h. F3:h. | G3:h. D3:h. | Eb3:h. A2:h.",
+    "arithmetic": "4 groupes × 6 temps = 24 temps = 8 mesures de 3/4 par cycle ; 5 cycles = 40 mesures ✓",
+    "cycles": [
+      { "n": 1, "bars": [1, 8], "layers": ["basse obstinée", "tambour"] },
+      { "n": 2, "bars": [9, 16], "adds": ["le cantus — une voix"] },
+      { "n": 3, "bars": [17, 24], "adds": ["cordes à 3 voix"] },
+      { "n": 4, "bars": [25, 32], "adds": ["cuivres"] },
+      { "n": 5, "bars": [33, 40], "adds": ["chœur — le thème modal"], "note": "tutti, la basse INTACTE" }
+    ],
+    "groundContinuesAfterAll": { "bars": [41, 43], "note": "la basse seule, après tout le monde" },
+    "suspensions": 4
+  },
+  "authorNotes": "« Le temps passe, la structure demeure, les gens changent » — le meilleur gabarit formel du genre dit exactement ce qu'un film historique veut dire. La basse **ne varie jamais**, ni rythme ni hauteurs : c'est le sol de la pièce, et l'accumulation au-dessus est monotone croissante. Le contrepoint est réel — les checkers de M4 s'appliquent, quatre suspensions à résolution lente : **c'est du contrepoint, pas de l'accompagnement.** Et la signature du genre est dans la dernière image : la basse continue après tout le monde. Ce qui reste n'est pas le personnage, c'est la structure — l'Histoire. Le contrepoint, contrairement au clavecin, ne se démode pas : il évoque l'ancien sans citer une décoration."
+}

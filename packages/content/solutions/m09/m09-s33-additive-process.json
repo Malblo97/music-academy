@@ -1,0 +1,26 @@
+{
+  "exerciseId": "m09-e33-additive-process",
+  "payload": {
+    "key": "fa majeur",
+    "tempoBpm": 88,
+    "lengthBars": 32,
+    "cell": { "notation": "F4:e A4:e C5:e A4:e", "notes": 4, "invariantPitches": true },
+    "additiveProcess": [
+      { "cycle": 1, "bars": [1, 4], "content": "la cellule à 4 notes" },
+      { "cycle": 2, "bars": [5, 8], "content": "+ une note (G4)" },
+      { "cycle": 3, "bars": [9, 12], "content": "+ une valeur (la dernière allongée)" },
+      { "cycle": 4, "bars": [13, 16], "content": "+ une note (D5)" },
+      { "note": "un ajout tous les 4 cycles jusqu'à la mes. 32 — monotone, jamais soustractif" }
+    ],
+    "chords": [
+      { "bars": [1, 4], "chord": "Fmaj7/A" },
+      { "bars": [5, 8], "chord": "Gsus2/A" },
+      { "bars": [9, 12], "chord": "Am7" },
+      { "bars": [13, 16], "chord": "Fmaj7/C" }
+    ],
+    "rootPositionRatio": 0.25,
+    "chordsWithoutAssertedThird": 2,
+    "climax": null
+  },
+  "authorNotes": "Écrire **un processus, pas des événements** — le contrepoids pédagogique de tout le module. La ligne de crête est étroite et c'est tout l'exercice : la boucle strictement immobile fait décrocher en 40 secondes, la boucle qui bouge trop attire l'attention sur elle-même. **Le changement doit être audible sans être remarquable** — un ajout par cycle, perceptibilité mesurée dans la fenêtre [0,15 ; 0,50]. L'harmonie est faite de renversements plutôt que de fondamentales (25 % en position fondamentale) : la basse mobile sous des accords stables évite toute sensation de cadence, et deux accords sans tierce affirmée ne disent pas si la scène est heureuse ou triste — **ce qui est exactement le cahier des charges : ne juge pas le sujet.** Une musique triste sur un témoignage transforme le témoin en victime. Et le paramètre expressif principal n'est pas la mélodie, c'est le rythme harmonique : un accord toutes les quatre mesures ici ; accélère-le et le film devient tendu, ralentis-le et il devient contemplatif."
+}

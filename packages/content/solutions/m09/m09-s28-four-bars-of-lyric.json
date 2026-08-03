@@ -1,0 +1,18 @@
+{
+  "exerciseId": "m09-e28-four-bars-of-lyric",
+  "payload": {
+    "durationSec": 120,
+    "meter": "6/8",
+    "tempoBpm": 126,
+    "form": [
+      { "section": "A", "sec": [0, 48], "content": "le thème A aux cors, séquences montantes" },
+      { "section": "B", "sec": [48, 60], "bars": 4, "content": "LE LYRISME — B aux cordes : le regard" },
+      { "section": "pédale", "sec": [60, 72], "content": "pédale de dominante — la préparation triomphale" },
+      { "section": "A-tutti", "sec": [72, 120], "content": "A en tutti, une octave plus haut, cadence parfaite + cymbale" }
+    ],
+    "counterMelody": { "instrument": "violoncelles", "registerSeparation": 14, "simultaneousStrongAttacks": 0.33 },
+    "tuttiRatio": 0.34,
+    "synthetic": false
+  },
+  "authorNotes": "**Le geste distinctif du genre** : au milieu d'une scène d'action, l'aventure trouve toujours quatre secondes pour être lyrique — c'est exactement ce qui la sépare de l'action, qui ne s'arrête jamais. Quatre mesures de B aux cordes, en plein milieu de la poursuite. La signature d'écriture est obligatoire ici : **le contrechant** aux violoncelles, séparé de 14 demi-tons et complémentaire à 0,33 — la texture de l'aventure est contrapuntique, pas verticale, et des accords sans lignes rendent le score plat. Deux interdits tenus : rien de synthétique (l'aventure est acoustique par définition — la virtuosité de l'orchestre fait partie du plaisir offert au spectateur) et pas de tutti permanent, 34 % : les traits de bois et les cordes seules font la légèreté."
+}

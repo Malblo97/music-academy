@@ -1,0 +1,41 @@
+{
+  "id": "m09-e20-three-gestures",
+  "lessonId": "m09-l10-animation",
+  "title": "Trois gestes, pas quinze",
+  "kind": "ORCHESTRATE",
+  "difficulty": 6,
+  "xpReward": 120,
+  "skills": { "RHYTHM": 0.45, "ORCHESTRATION": 0.3, "HARMONY": 0.25 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "pool": "medium",
+  "styleProfile": { "id": "animation", "targetMood": "playful", "ruleWeights": {} },
+  "rubric": { "correctness": 25, "constraints": 45, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "Sur ta tempo map d'e19 : compose la cue de 30 secondes. La règle d'usage du lexique geste→musique : IL N'A DE VALEUR QUE PAR SA RARETÉ RELATIVE — trois gestes par séquence de trente secondes se lisent, quinze deviennent un bruit. Choisis donc TROIS hits parmi les huit et donne-leur leur geste du dictionnaire (chute → glissando descendant + impact ; montée → gamme chromatique ascendante ; course → ostinato de croches staccato ; surprise → dim7 sec + accent ; rebond → pizzicato/xylophone ; vol → harpe ou célesta montant ; mécanique → woodblock régulier). Les cinq autres hits : le score COULE par-dessus, sans les souligner. La pratique réelle du métier est là : score dramatique par défaut, mickey-mousing par salves. Deux exigences de plus : un LEITMOTIV (dans le chaos formel, seul le thème donne de la continuité — l'animation est un des derniers bastions du système de thèmes récurrents), et le dégagement de bandes pour le bruitage, qui est dense et souvent musical lui-même : c'est une conversation avec le monteur son, pas une orchestration solitaire.",
+    "given": {
+      "key": { "tonic": 0, "mode": "major" },
+      "sourceSubmission": "m09-e19-hit-map",
+      "durationSec": 30,
+      "hitsCount": 8
+    },
+    "constraints": {
+      "durationSec": [28, 32],
+      "format": "Part[]",
+      "pool": "medium",
+      "gestureLexicon": {
+        "syncedHitsCount": 3,
+        "maxSyncedHits": 3,
+        "declaredPerHit": true,
+        "catalog": ["fall-glissando", "chromatic-rise", "run-ostinato", "comic-step", "surprise-dim7", "bounce-pizz", "flight-harp", "mechanism-woodblock", "sleep-slowdown", "effort-crescendo"],
+        "remainingHitsUnmarked": true
+      },
+      "leitmotivRequired": { "engine": "findMotifs", "minOccurrences": 2 },
+      "articulationLayer": { "required": true, "instruments": ["xylophone", "woodblock", "pizzicato", "staccato-winds", "claves"], "shortAttacksNoResonance": true },
+      "sfxBandClearance": { "declaredBands": true, "conversationWithSoundEditor": true },
+      "sectionWelding": { "minTechniques": 1, "allowed": ["pivot-chord", "abrupt-modulation", "hit-as-hinge"] },
+      "checkers": ["orch.range-violation", "orch.balance", "orch.masking", "findMotifs", "densityMap"]
+    }
+  }
+}

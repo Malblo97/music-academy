@@ -1,0 +1,44 @@
+{
+  "id": "m09-e19-hit-map",
+  "lessonId": "m09-l10-animation",
+  "title": "La carte des hits",
+  "kind": "DAW_MISSION",
+  "difficulty": 6,
+  "xpReward": 130,
+  "skills": { "DAW_WORKFLOW": 0.5, "RHYTHM": 0.5 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "animation", "targetMood": "playful", "ruleWeights": {} },
+  "rubric": { "checklist": 40, "correctness": 30, "constraints": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "Le vrai contenu du genre est TECHNIQUE — et c'est le seul cas où musique et image partagent la même grille temporelle. L'animatique fournie (30 secondes, 8 hits listés avec leurs timecodes exacts) : construis la TEMPO MAP qui les rend jouables. Le métier consiste à trouver le tempo — ou la suite de tempos — pour lequel les hits tombent sur des temps forts ou des contretemps UTILISABLES : un hit qui tombe sur la double-croche 3 du temps 2 n'est pas jouable naturellement. Entre deux points fixes, on accélère ou ralentit progressivement de quelques BPM : c'est l'outil quotidien du genre, invisible à l'oreille. Puis la session au CLIC avec ses repères, et les points de flexibilité placés là où le montage peut encore bouger (en animation il bouge moins qu'ailleurs — mais il bouge). Enfin, la vérification signature : le croisement tempo×timecode, exactement comme dans la mission « La Remise ».",
+    "mission": {
+      "mode": "guided+proof",
+      "assets": ["asset:m09-e19-animatic-30s"],
+      "checklist": [
+        { "step": "Import de l'animatique, frame rate et timecode de départ vérifiés", "verifyHint": "Les trois vérifications de naissance : sinon TOUS les hits mentent." },
+        { "step": "Les 8 hits posés en markers, timecodes exacts", "verifyHint": "La liste de l'animatique est-elle intégralement reportée ?" },
+        { "step": "Tempo de base choisi ; où tombent les hits dans ta grille ?", "verifyHint": "Note ceux qui tombent sur des positions injouables." },
+        { "step": "Tempo map construite : rampes de quelques BPM entre les points d'ancrage", "verifyHint": "Chaque hit tombe-t-il sur un temps fort ou un contretemps utilisable ?" },
+        { "step": "Aucune variation supérieure à 6 BPM sur une transition", "verifyHint": "Invisible à l'oreille : joue la piste, entends-tu le tempo bouger ?" },
+        { "step": "Click activé, repères posés pour le chef", "verifyHint": "Sans grille rigide, la synchro fine ne tient pas." },
+        { "step": "Points de flexibilité identifiés (les respirations où le montage peut bouger)", "verifyHint": "Si le monteur décale un plan de 6 images, quelle respiration absorbe ?" }
+      ],
+      "proofSubmission": {
+        "includeTempoEvents": true,
+        "checks": {
+          "hitMap": {
+            "hitsCount": 8,
+            "eachHitOnUsablePosition": ["beat", "off-beat-8th"],
+            "toleranceTicks": 20,
+            "checker": "tempoEvents",
+            "crossedWithTimecode": true
+          },
+          "tempoDeltaMaxPerTransition": 6,
+          "clickTrackPresent": true
+        }
+      }
+    }
+  }
+}

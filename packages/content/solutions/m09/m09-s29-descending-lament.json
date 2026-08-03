@@ -1,0 +1,22 @@
+{
+  "exerciseId": "m09-e29-descending-lament",
+  "payload": {
+    "key": "ré éolien",
+    "tempoBpm": 54,
+    "lengthBars": 16,
+    "lamentBass": { "notes": "D – C – Bb – A", "motion": "stepwise descending", "cycles": 4, "barsPerCycle": 4 },
+    "chorale": [
+      { "bass": "D2", "voicing": "[D2+A3+D4+F4]" },
+      { "bass": "C3", "voicing": "[C3+G3+C4+F4]" },
+      { "bass": "Bb2", "voicing": "[Bb2+G3+D4+F4]", "note": "le fa tenu au soprano trois accords durant" },
+      { "bass": "A2", "voicing": "[A2+A3+C4+F4]", "note": "aucune sensible : le do reste naturel" }
+    ],
+    "suspensions": 4,
+    "picardy": { "cycle": 3, "note": "un ré MAJEUR incongru — la beauté au mauvais endroit" },
+    "immobilePedal": { "cycle": 4, "bars": 4 },
+    "end": "sur le ♭VII, sans cadence",
+    "dynamicsMax": "mf",
+    "verified": { "parallels": 0, "crossings": 0 }
+  },
+  "authorNotes": "La plainte codifiée depuis quatre siècles, et elle fonctionne encore. Le choral tient à quatre voix sans une seule parallèle — la version initiale en portait une (si♭–fa → la–mi, quinte parallèle entre basse et soprano) : **corrigée en tenant le fa au soprano**, ce qui donne au passage la suspension la plus longue de la pièce. Deux couleurs placées : la tierce picarde incongrue (l'ironie douloureuse) et la pédale immobile (l'enlisement — rien n'avance, personne ne gagne). Et les deux interdits qui définissent **le contrat moral du genre** : pas de cadence finale, parce qu'on ne clôt pas ce qui n'est pas réglé ; pas de fanfare, parce que **la musique de guerre ne vainc pas, elle témoigne** — une musique qui glorifie ce que l'image dénonce commet une faute morale autant qu'esthétique. Le choral de cuivres est autorisé, tenu, plafonné à mf."
+}

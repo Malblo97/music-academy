@@ -1,0 +1,38 @@
+{
+  "id": "m09-e16-one-peak-per-film",
+  "lessonId": "m09-l08-drame",
+  "title": "Un seul sommet par film",
+  "kind": "ARRANGEMENT",
+  "difficulty": 7,
+  "xpReward": 130,
+  "skills": { "ORCHESTRATION": 0.4, "MELODY": 0.3, "HARMONY": 0.3 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "drama", "targetMood": "bittersweet", "ruleWeights": { "melody.monotony": 0.2 } },
+  "rubric": { "correctness": 20, "constraints": 45, "craft": 35 },
+  "spec": {
+    "version": 1,
+    "prompt": "Trois cues du même film, à écrire ensemble — parce que le budget émotionnel du drame se gère à l'échelle du FILM, pas de la scène. Le matériau est le même partout : ta cellule d'e15, une boucle de 4 à 8 mesures. La forme du genre est la variation lente d'un même matériau : UN paramètre qui bouge par cue (une couche, une note du mode, un renversement) — c'est la vis du thriller DÉSARMÉE : la même mécanique de transformation graduelle, employée pour dire l'usure au lieu de la peur. CUE 1 (le début du film) : la cellule quasi nue. CUE 2 (le milieu) : un paramètre de plus, toujours retenu. CUE 3 : LE SOMMET UNIQUE — la seule fois du film où ça déborde : cordes en unisson, UN cor, jamais de trompette — et il est atteint UNE fois, brièvement, souvent sans accompagnement. Puis plus rien. Enfin, le geste caractéristique du genre, à placer dans un cue au moins : la musique s'ARRÊTE avant la fin de la scène (ou continue après sa coupe) — le décalage musique/scène indique au spectateur que ce qu'il voit n'est pas ce qui compte.",
+    "given": {
+      "key": { "tonic": 9, "mode": "minor" },
+      "sourceSubmission": "m09-e15-subtext-not-emotion",
+      "tempoBpm": 62
+    },
+    "parts": [
+      { "id": "cue-1", "prompt": "Le début : la cellule quasi nue.", "constraints": { "maxActiveLayers": 2, "dynamicsMax": "p" } },
+      { "id": "cue-2", "prompt": "Le milieu : un paramètre de plus.", "constraints": { "maxActiveLayers": 3, "parameterDelta": 1, "dynamicsMax": "mp" } },
+      { "id": "cue-3", "prompt": "Le sommet unique — et ensuite plus rien.", "constraints": { "maxActiveLayers": 4, "peakAllowed": true, "forbidTrumpet": true, "peakMaxBars": 4 } }
+    ],
+    "constraints": {
+      "lengthBarsPerCue": [16, 16],
+      "sharedCellRequired": { "engine": "findMotifs", "acrossCues": true },
+      "oneParameterChangePerCue": { "required": true, "declared": true },
+      "singlePeakPerFilm": { "count": 1, "inCue": "cue-3", "maxBars": 4, "preferUnaccompanied": true },
+      "forbidCrescendoSpectacular": true,
+      "forbiddenInstruments": ["trumpet", "percussion", "brass-tutti"],
+      "musicSceneOffset": { "requiredInAtLeastCues": 1, "type": ["stops-before-scene-end", "continues-after-cut"], "declared": true },
+      "notesPerMinuteMax": 60,
+      "checkers": ["findMotifs", "orch.balance", "orch.density-overload", "densityMap"]
+    }
+  }
+}

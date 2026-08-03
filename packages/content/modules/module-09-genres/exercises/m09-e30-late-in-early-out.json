@@ -1,0 +1,42 @@
+{
+  "id": "m09-e30-late-in-early-out",
+  "lessonId": "m09-l15-guerre",
+  "title": "Entrer tard, sortir tôt",
+  "kind": "ARRANGEMENT",
+  "difficulty": 7,
+  "xpReward": 140,
+  "skills": { "ORCHESTRATION": 0.4, "HARMONY": 0.3, "MELODY": 0.3 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "war", "targetMood": "noble-melancholy", "ruleWeights": { "melody.climax": 0.3 } },
+  "rubric": { "correctness": 20, "constraints": 50, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "Après l'assaut, 2 min 30 — et la règle de spotting propre au genre : ENTRER TARD, SORTIR TÔT. La musique de guerre arrive APRÈS l'événement, sur les visages. Ta cue commence par SOIXANTE SECONDES sans harmonie : la caisse claire seule. Ce n'est pas de la timidité — c'est le genre qui refuse d'interpréter avant que le spectateur ait vu. (Et comprends pourquoi la caisse claire : c'est un timbre militaire, mécanique et INDIFFÉRENT — elle ne prend pas parti, elle scande. Un roulement sous une image de morts dit exactement ce que le genre veut dire : la machine continue. Deux emplois par film : c'est un symbole puissant, pas un réflexe.) Puis le lamento des celli, les cordes, et le tutti — le choral de cuivres + chœur — mais LE SOMMET EST UNE PERTE, PAS UNE VICTOIRE : il tombe sur le moment où quelque chose est détruit. Puis tout se retire : un violon seul, la basse du lamento, puis rien. La montée SANS TRIOMPHE. Et une décision explicite à déclarer, cue par cue : de quel côté est la musique ? C'est le vrai travail du genre, et personne ne le prend jamais.",
+    "given": {
+      "key": { "tonic": 2, "mode": "aeolian" },
+      "sourceSubmission": "m09-e29-descending-lament",
+      "durationSec": 150,
+      "scene": "après l'assaut"
+    },
+    "constraints": {
+      "durationSec": [140, 165],
+      "lateInEarlyOut": {
+        "openingWithoutHarmonySec": [55, 70],
+        "openingLayer": "snare-drum-only",
+        "earlyOutRequired": true
+      },
+      "riseWithoutTriumph": {
+        "summitIsLoss": true,
+        "forbidTriumphantBrass": true,
+        "choraleOnly": true,
+        "dynamicsMaxAtSummit": "f"
+      },
+      "withdrawalEnding": { "required": true, "order": ["tutti", "strings", "solo-violin", "lament-bass", "silence"] },
+      "pointOfViewDeclared": { "required": true, "options": ["with-the-victims", "with-the-machine", "with-the-witness", "neutral"] },
+      "snareUsagePolicy": { "maxDistinctUses": 2 },
+      "forbiddenCadences": ["perfect"],
+      "checkers": ["orch.balance", "orch.density-overload", "densityMap", "harmony.loop-coherence"]
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "exerciseId": "m09-e26-the-breath",
+  "variantId": "action",
+  "payload": {
+    "durationSec": 165,
+    "tempoBpm": 148,
+    "chaseForm": [
+      { "step": "depart", "sec": [0, 20], "content": "le riff seul, une couche" },
+      { "step": "recruitment", "sec": [20, 60], "content": "une couche tous les 8 à 16 temps" },
+      { "step": "hit", "atSec": 62, "cutBeats": 1 },
+      { "step": "palier", "sec": [63, 100], "content": "modulation ascendante + double-time" },
+      { "step": "breath", "sec": [100, 118], "bars": 6, "densityDrop": 0.62, "partsDrop": 0.57, "position": 0.66 },
+      { "step": "reprise-conclusion", "sec": [118, 165], "content": "le riff en tutti, accelerando +12 BPM, cadence de frappe ♭VII→i sur l'impact" }
+    ]
+  },
+  "authorNotes": "L'étape 5 est ce qui distingue un professionnel d'un amateur, et c'est l'objet de l'exercice : **une intensité constante est perçue comme une intensité faible.** L'auditeur ne peut pas rester au maximum trois minutes. La respiration mesure six mesures, chute de 62 % en densité et de 57 % en effectif, et se place à 66 % de la cue — dans la fenêtre exigée. **C'est elle qui rend la reprise puissante** : sans elle, la conclusion n'est pas un sommet, c'est la suite. La forme est la plus codifiée du corpus, et il faut la connaître pour pouvoir la casser."
+}

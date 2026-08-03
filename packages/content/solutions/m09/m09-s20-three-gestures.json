@@ -1,0 +1,18 @@
+{
+  "exerciseId": "m09-e20-three-gestures",
+  "payload": {
+    "durationSec": 30,
+    "sourceSubmission": "m09-e19-hit-map",
+    "syncedHits": [
+      { "hit": 2, "gesture": "fall-glissando", "instruments": ["harpe", "trombone"] },
+      { "hit": 5, "gesture": "surprise-dim7", "instruments": ["tutti sec", "cymbale étouffée"] },
+      { "hit": 7, "gesture": "bounce-pizz", "instruments": ["pizz", "xylophone"] }
+    ],
+    "unmarkedHits": [1, 3, 4, 6, 8],
+    "leitmotiv": { "occurrences": 3, "note": "dans le chaos formel, seul le thème donne de la continuité" },
+    "articulationLayer": ["xylophone", "woodblock", "pizzicato"],
+    "sfxBands": "3–8 kHz dégagés pour le bruitage",
+    "welding": { "type": "hit-as-hinge", "atHit": 5 }
+  },
+  "authorNotes": "« Le lexique n'a de valeur que par sa rareté relative : trois gestes par séquence de trente secondes se lisent, quinze deviennent un bruit. » Trois hits sur huit reçoivent leur geste ; sur les cinq autres, **le score coule par-dessus sans les souligner** — c'est la pratique réelle du métier : score dramatique par défaut, mickey-mousing par salves. Le leitmotiv est obligatoire parce que l'animation est un des derniers bastions du système de thèmes récurrents. Et le dégagement de bandes n'est pas de l'orchestration solitaire : le bruitage d'animation est dense et souvent musical lui-même — **c'est une conversation avec le monteur son.**"
+}

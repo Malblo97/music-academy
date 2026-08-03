@@ -1,0 +1,37 @@
+{
+  "id": "m09-e13-weightless-mediants",
+  "lessonId": "m09-l07-science-fiction",
+  "title": "Les médiantes en apesanteur",
+  "kind": "HARMONY_PROGRESSION",
+  "difficulty": 6,
+  "xpReward": 120,
+  "skills": { "HARMONY": 0.6, "SOUND_DESIGN": 0.4 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "sci-fi", "targetMood": "wonder", "ruleWeights": { "harmony.retrogression": 0, "harmony.overchromatic": 0, "vl.leading-tone-resolution": 0 } },
+  "rubric": { "correctness": 30, "constraints": 40, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "Le tour de magie central du genre : faire perdre la tonique à l'auditeur en ne lui donnant QUE des consonances. 16 mesures sur pédale de do : trois triades MAJEURES PURES à distance de tierce majeure (C → E → A♭ → C), sur la MÊME basse — aucune n'est plus légitime que l'autre, le cycle se referme sur lui-même, il n'y a plus de hiérarchie. Le mot « progression » est déjà un contresens : on n'avance pas, on flotte. Ajoute-y au choix les autres outils de l'apesanteur : la gamme par tons (six sons, aucun demi-ton, aucune attraction — rien ne veut aller nulle part), les quartes empilées (la neutralité monumentale), la polytonalité douce (deux triades éloignées superposées pp). Interdits absolus : aucune cadence (on entre et on sort d'un état — il n'y a pas d'histoire humaine à résoudre), aucune sensible. Et le tempo n'est pas dans la partition : écris tes durées en SECONDES, comme le fait le métier.",
+    "given": {
+      "key": { "tonic": 0, "mode": "major" },
+      "pedalPitchClass": 0,
+      "durationSec": 90
+    },
+    "constraints": {
+      "lengthBars": [16, 16],
+      "durationNotationSeconds": true,
+      "minVoices": 4,
+      "staticBassPc": 0,
+      "staticBassBars": [1, 16],
+      "mustInclude": ["chromaticMediant>=2"],
+      "allMediantsMajor": true,
+      "mediantCycle": { "pattern": ["C", "E", "Ab", "C"], "majorThirdDistance": true },
+      "commonToneThread": true,
+      "forbiddenCadences": ["perfect", "plagal", "half", "imperfect"],
+      "forbidLeadingTone": true,
+      "optionalTools": ["whole-tone", "quartal", "soft-polytonality"],
+      "checkers": ["harmony.retrogression", "harmony.overchromatic", "detectCollection", "vl.smoothness"]
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "exerciseId": "m09-e15-subtext-not-emotion",
+  "payload": {
+    "tempoBpm": 62,
+    "lengthBars": 16,
+    "harmonicRhythm": "un accord toutes les 2 mesures",
+    "chordBars": [
+      { "bars": [1, 2], "chord": "Am7", "pedal": "la" },
+      { "bars": [3, 4], "chord": "Fmaj7/A" },
+      { "bars": [5, 6], "chord": "C/A", "note": "sans tierce affirmée" },
+      { "bars": [7, 8], "chord": "G7sus4/A", "note": "le iv approché" },
+      { "bars": [9, 10], "chord": "Am7" },
+      { "bars": [11, 12], "chord": "Fm(add9)/A", "note": "LE iv EMPRUNTÉ — non récompensé" },
+      { "bars": [13, 14], "chord": "C/A", "note": "la phrase retombe : le nuage ne se dissipe pas" },
+      { "bars": [15, 16], "chord": "C(5)", "note": "sans tierce — on refuse de dire si c'est triste" }
+    ],
+    "imprint": { "notes": "E4 – D4 – E4", "occurrences": 5, "note": "une empreinte, pas une phrase" },
+    "tonicPedal": { "bars": [1, 16], "note": "la, immobile" },
+    "minimalVoiceMovement": { "maxChangedNotes": 2, "ratio": 0.63 },
+    "dynamicsMax": "mp",
+    "climax": null
+  },
+  "authorNotes": "**Témoin F-68.** Le plafond `notesPerMinuteMax: 60` compté sur la texture entière rend l'exercice insoluble : 16 mesures à ♩=62 font 1,03 minute, donc 61 notes autorisées — et un choral de cinq voix en rondes en compte 80. Le patch scope le compte à la couche mélodique. Le reste est la loi du genre : **la musique ne dit pas ce que le personnage ressent, elle dit ce qu'il NE DIT PAS.** Si l'acteur pleure et que la musique pleure, les deux s'annulent — le pléonasme émotionnel est l'erreur la plus coûteuse du drame, et on compose un cran en dessous. Le iv arrive mes. 11 et **n'est pas récompensé** : la phrase suivante retombe. Deux accords sans tierce, une pédale de tonique sur seize mesures, deux notes changées par transition au maximum, et **aucun climax** — l'arche de M2 est délibérément refusée. La mélodie n'est pas une phrase : c'est une empreinte de trois notes, répétée cinq fois. Ici la répétition est l'usure du quotidien, pas la tension du thriller."
+}

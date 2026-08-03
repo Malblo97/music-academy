@@ -1,0 +1,24 @@
+{
+  "exerciseId": "m09-e19-hit-map",
+  "payload": {
+    "mode": "guided+proof",
+    "asset": "m09-e19-animatic-30s — 8 hits (F-70 : timecodes à chiffrer avec l'asset)",
+    "checklist": [
+      { "id": "e19-s1", "expect": "animatique importée · frame rate et timecode de départ vérifiés" },
+      { "id": "e19-s2", "expect": "les 8 hits en markers, timecodes exacts" },
+      { "id": "e19-s3", "expect": "tempo de base posé ; les positions injouables notées" },
+      { "id": "e19-s4", "expect": "tempo map : rampes entre points d'ancrage" },
+      { "id": "e19-s5", "expect": "aucune transition > 6 BPM" },
+      { "id": "e19-s6", "expect": "click activé, repères posés pour le chef" },
+      { "id": "e19-s7", "expect": "points de flexibilité identifiés" }
+    ],
+    "tempoPlan": [
+      { "bar": 1, "bpm": 120 },
+      { "bar": 5, "bpm": 124, "delta": 4 },
+      { "bar": 9, "bpm": 119, "delta": -5 },
+      { "bar": 13, "bpm": 123, "delta": 4 }
+    ],
+    "hitPositions": "8/8 sur temps fort ou croche de contretemps, écart ≤ 20 ticks"
+  },
+  "authorNotes": "**Témoin F-70** : `hitMap` compare à huit timecodes qui n'existent nulle part — l'asset doit être chiffré avant la solution, et e20 en dépend par `sourceSubmission`. Le métier tient en une phrase : trouver le tempo — ou la suite de tempos — pour lequel les hits tombent sur des positions **jouables naturellement** ; un hit sur la double-croche 3 du temps 2 ne l'est pas. Entre deux points fixes on rampe de quelques BPM : aucune transition ne dépasse 6, donc rien ne s'entend. C'est le seul genre du corpus où musique et image partagent la même grille temporelle, et la vérification signature est celle de « La Remise » : le croisement tempo×timecode."
+}

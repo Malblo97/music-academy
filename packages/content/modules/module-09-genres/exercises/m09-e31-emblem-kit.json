@@ -1,0 +1,45 @@
+{
+  "id": "m09-e31-emblem-kit",
+  "lessonId": "m09-l16-super-heros",
+  "title": "Le kit d'emblème",
+  "kind": "MELODY_COMPOSE",
+  "difficulty": 7,
+  "xpReward": 150,
+  "skills": { "MELODY": 0.45, "ORCHESTRATION": 0.3, "HARMONY": 0.25 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "superhero", "targetMood": "heroic", "ruleWeights": {} },
+  "rubric": { "correctness": 25, "constraints": 45, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "Ce que le genre a en propre : LE THÈME D'IDENTITÉ. Un thème de super-héros n'est pas une mélodie, c'est un OBJET TRANSFORMABLE — et toute la difficulté est là : simple au point d'être un logo, riche au point de supporter dix variations. Écris d'abord la SIGNATURE : 3 à 5 notes mémorisables en une écoute, un intervalle caractéristique (quarte, quinte, sixte ascendante) plutôt qu'un contour compliqué, une cellule rythmique qui survit SANS les hauteurs (teste-la frappée sur une table), et harmonisable de plusieurs façons. Puis LE JEU COMPLET DE VARIANTES — et c'est l'exercice : écris-le AVANT de commencer les cues, parce qu'un emblème qui ne survit ni au mineur ni au piano seul n'est pas un emblème. Les sept : la fanfare (cuivres ff, rythme pointé — l'apparition), le fragment (3 notes seules — les 60 premières minutes du film), le mineur lent (le doute, la perte), la berceuse (célesta ou piano — l'origine, l'enfance), la marche funèbre (cuivres graves, caisse claire — le sacrifice), le distordu (intervalles altérés, timbres sales — le méchant ou le héros corrompu), et le NU (une voix, un instrument, sans accompagnement — quand le masque tombe). Le moteur vérifie que la signature est reconnaissable dans les sept.",
+    "given": {
+      "key": { "tonic": 3, "mode": "major" }
+    },
+    "constraints": {
+      "signature": {
+        "sizeNotes": [3, 5],
+        "characteristicInterval": [5, 7, 8, 9],
+        "rhythmCellSurvivesWithoutPitches": true,
+        "harmonizableMultipleWays": { "minHarmonizations": 3 }
+      },
+      "emblemKit": {
+        "required": true,
+        "variants": ["fanfare", "fragment", "minor-slow", "lullaby", "funeral-march", "distorted", "naked"],
+        "allSevenRequired": true,
+        "signatureRecognizableInAll": { "engine": "findMotifs", "minSimilarity": 0.6 },
+        "barsPerVariant": [4, 8]
+      },
+      "variantConstraints": {
+        "fanfare": { "instruments": ["horns", "trumpets"], "dynamics": "ff", "dottedRhythm": true },
+        "fragment": { "maxNotes": 3 },
+        "minor-slow": { "mode": "aeolian", "tempoRatio": 0.5 },
+        "lullaby": { "instruments": ["celesta", "piano"], "gentleHarmonization": true },
+        "funeral-march": { "instruments": ["low-brass", "snare"] },
+        "distorted": { "alteredIntervals": true, "dirtyTimbres": true },
+        "naked": { "unaccompanied": true, "singleVoice": true }
+      },
+      "checkers": ["findMotifs", "melody.tension-placement", "orch.range-violation"]
+    }
+  }
+}

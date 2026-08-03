@@ -1,0 +1,20 @@
+{
+  "exerciseId": "m09-e25-riff-and-relaunch",
+  "notation": "E2:e E2:e G2:e E2:q Bb2:e A2:q | E2:e E2:e G2:e E2:q D3:e B2:q",
+  "payload": {
+    "key": "mi mineur",
+    "tempoBpm": 148,
+    "lengthBars": 24,
+    "riff": { "bars": 2, "notes": 7, "occurrences": 8, "invariantPitches": true, "whistleTest": true },
+    "relaunchLadder": [
+      { "step": 1, "bar": 7, "type": "new-layer", "content": "+ cuivres en accents" },
+      { "step": 2, "bar": 13, "type": "double-time", "content": "la même harmonie, valeurs deux fois plus rapides" },
+      { "step": 3, "bar": 17, "type": "ascending-modulation", "content": "mi → sol mineur" },
+      { "step": 4, "bar": 21, "type": "dim7-transition", "content": "le virage — on change de rue sans ralentir" }
+    ],
+    "cutBeforePalier": { "bar": 16, "beat": 4 },
+    "percussionLayers": ["pouls", "impact"],
+    "voiceBandClear": { "band": [300, 3000], "energyRatio": 0.31 }
+  },
+  "authorNotes": "**L'action est l'inverse exact du thriller** : là-bas la vis se serre et ne libère jamais ; ici on délivre — le pouls est corporel (on doit pouvoir le suivre), la résolution est permise et fréquente parce qu'elle relance. Et l'action est **horizontale** quand l'épique est vertical : on enchaîne des blocs pour produire de la vitesse, on n'empile pas des étages pour produire de la masse — un score d'action qui s'empile devient un épique lourd et lent. Le riff est le cœur : sept notes, mémorisable, invariant sur huit occurrences — **l'action est le seul genre rapide qui exige un thème sifflable**, et sans riff on a de l'énergie sans identité, donc une scène qu'on oublie. Deux couches de percussion, pas six, et le médium tenu à 0,31 : l'action se mixe avec le son, pas contre lui."
+}

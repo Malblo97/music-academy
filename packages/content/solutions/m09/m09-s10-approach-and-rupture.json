@@ -1,0 +1,20 @@
+{
+  "exerciseId": "m09-e10-approach-and-rupture",
+  "payload": {
+    "durationSec": 120,
+    "scene": "le grenier",
+    "entries": [
+      { "atSec": 0, "layer": "gouffre", "note": "orgue 32′ + sub, seuls" },
+      { "atSec": 7, "layer": "peau", "technique": "divisi con sord ppp, sul ponticello" },
+      { "atSec": 11, "layer": "le-faux", "note": "deux pupitres désaccordés d'un quart de ton, micro-glissandi" },
+      { "atSec": 30, "layer": "l-objet", "note": "piano préparé — trois notes en 40 secondes" },
+      { "atSec": 74, "layer": "l-humain-devoye", "note": "chœur chuchoté — le pire timbre du genre : le nôtre" }
+    ],
+    "entryIntervals": [7, 4, 19, 44],
+    "stinger": { "atSec": 96, "silenceBeforeSec": 2, "count": 1 },
+    "silenceAfterStinger": { "sec": 4, "total": true },
+    "end": { "content": "le gouffre seul, une octave plus bas qu'au début, puis le retrait", "layersDelta": -1 },
+    "pulse": "aucun — aucune attaque périodique détectable"
+  },
+  "authorNotes": "L'horreur **ne culmine pas, elle creuse**. Trois interdits vérifiés. Pas de pouls : le tempo est l'ennemi n°1, un pouls perceptible donne une prise à l'auditeur, il anticipe, il se protège. Les entrées à intervalles inégaux — 7 s, 4 s, 19 s, 44 s : l'irrégularité est la règle, et la variance mesurée le prouve. Un seul stinger, précédé de deux secondes de vide, jamais à intervalle prévisible : **le troisième stinger d'un film fait rire**. Et la couche la plus efficace du tableau est employée à plein : quatre secondes de rien après le coup — la peur n'est pas dans le coup, elle est dans ce qui le suit."
+}

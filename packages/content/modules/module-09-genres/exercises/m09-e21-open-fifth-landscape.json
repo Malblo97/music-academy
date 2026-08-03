@@ -1,0 +1,35 @@
+{
+  "id": "m09-e21-open-fifth-landscape",
+  "lessonId": "m09-l11-western",
+  "title": "Le paysage en quintes à vide",
+  "kind": "HARMONY_PROGRESSION",
+  "difficulty": 5,
+  "xpReward": 110,
+  "skills": { "HARMONY": 0.4, "ORCHESTRATION": 0.35, "MELODY": 0.25 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "western", "targetMood": "noble-melancholy", "ruleWeights": { "vl.parallel-fifths": 0.1, "vl.leading-tone-resolution": 0 } },
+  "rubric": { "correctness": 25, "constraints": 45, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "16 mesures très lentes (♩=58) : le vide organisé. La progression-type — I(5) | ♭VII | IV | I(5) — trois accords, aucun demi-ton conducteur, aucune dominante : le western n'ATTIRE pas vers la tonique, il y RESTE et laisse le paysage passer devant. Deux contraintes qui font tout le genre. LA QUINTE À VIDE : accords sans tierce, redoublés à l'octave — l'espace littéral, aucune émotion assignée, l'auditeur remplit. La tierce partout, et le vide disparaît : au moins 60 % de tes verticalités sont sans tierce. TROIS ÉLÉMENTS MAXIMUM : le western est, avec l'horreur, le genre où l'on écrit le moins de notes simultanées — une quinte de cordes, une guitare, une trompette, et la scène est pleine ; chaque instrument ajouté RÉDUIT le paysage. Ajoute une pédale de tonique très longue (le désert : rien ne change, et c'est le sujet), et conclus en plagale. Pas de V7→I : le western deviendrait une chanson de variété.",
+    "given": {
+      "key": { "tonic": 4, "mode": "mixolydian" },
+      "tempoBpm": 58
+    },
+    "constraints": {
+      "lengthBars": [16, 16],
+      "key": { "tonic": 4, "mode": "mixolydian" },
+      "requiredProgressionPattern": "I(5)-bVII-IV-I(5)",
+      "openFifthRatio": { "min": 0.6, "chordsWithoutThird": true },
+      "groundElements": { "maxSimultaneous": 3 },
+      "tonicPedalRequired": { "minBars": 8 },
+      "requiredCadence": "plagal",
+      "forbiddenCadences": ["perfect"],
+      "forbidDominantSeventh": true,
+      "forbidLeadingTone": true,
+      "voicingSpread": "wide",
+      "checkers": ["harmony.retrogression", "orch.low-interval-limit", "vl.parallel-fifths"]
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "exerciseId": "m09-e18-silence-as-punchline",
+  "payload": {
+    "durationSec": 60,
+    "tempoBpm": 126,
+    "pool": "chamber",
+    "gestures": [
+      { "step": 1, "sec": [0, 22], "content": "l'attente — sol majeur sérieux et compétent, qui PROMET quelque chose", "bars": 12 },
+      { "step": 2, "sec": [22, 38], "content": "l'accelerando de panique", "bpm": "126 → 152", "overBars": 6 },
+      { "step": 3, "atSec": 38, "content": "LE SILENCE — 2 secondes, écrites, sur la chute", "total": true },
+      { "step": 4, "atSec": 40, "content": "LA REMISE", "placement": "too-late", "offsetBeats": 2, "note": "la gêne — le décalage EST la blague" }
+    ],
+    "gagCadence": { "atSec": 21, "type": "V-silence", "note": "la porte qu'on n'ouvre pas" },
+    "voiceBandClear": { "energyRatio": 0.22 }
+  },
+  "authorNotes": "Le plus grand outil comique de l'orchestre est **le silence** : couper la musique net crée un vide dans lequel le rire peut tomber — une musique continue ne laisse pas de place, parce que le public n'ose pas couvrir le score. Les quatre gestes sont chiffrés : l'attente sérieuse (douze mesures de promesse), l'accelerando de panique (+26 BPM sur six mesures — le seul procédé du corpus qui produit du rire par accumulation pure), les deux secondes de rien, et la remise **trop tard** : la gêne plutôt que l'insolence, déclarée comme telle. La cadence-gag est un V→silence : on prépare la porte et on ne l'ouvre pas."
+}

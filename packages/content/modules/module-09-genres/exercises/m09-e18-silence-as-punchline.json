@@ -1,0 +1,37 @@
+{
+  "id": "m09-e18-silence-as-punchline",
+  "lessonId": "m09-l09-comedie",
+  "title": "Le silence comme chute",
+  "kind": "ARRANGEMENT",
+  "difficulty": 5,
+  "xpReward": 110,
+  "skills": { "RHYTHM": 0.5, "ORCHESTRATION": 0.25, "HARMONY": 0.25 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "pool": "chamber",
+  "styleProfile": { "id": "comedy", "targetMood": "playful", "ruleWeights": {} },
+  "rubric": { "correctness": 25, "constraints": 45, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "Les quatre gestes de timing, en une cue de 60 secondes — et le premier est LE plus grand outil comique de l'orchestre : LE SILENCE. Couper la musique net crée un vide dans lequel le rire peut tomber ; une musique continue ne laisse pas de place au rire, parce que le public n'ose pas couvrir le score. Ton plan : (1) installer une attente — une musique sérieuse et compétente qui PROMET quelque chose ; (2) l'accelerando de panique (la mécanique qui s'emballe : le seul procédé du corpus qui produit du rire par accumulation pure) ; (3) LE SILENCE — deux secondes, écrites, sur la chute ; (4) LA REMISE — reprendre à contretemps de ce qu'on attend : trop tôt (l'insolence) ou trop tard (la gêne). Le décalage EST la blague : déclare lequel tu choisis. Et un point d'orgue quelque part (tout s'arrête sur un accord suspendu : le vide avant la chute), ou une cadence interrompue en gag (V→♭VI, ou V→silence : la porte qu'on n'ouvre pas).",
+    "given": {
+      "key": { "tonic": 7, "mode": "major" },
+      "tempoBpm": 126,
+      "durationSec": 60
+    },
+    "constraints": {
+      "durationSec": [55, 65],
+      "format": "Part[]",
+      "pool": "chamber",
+      "maxParts": 6,
+      "expectationSetup": { "requiredBars": [8, 16], "seriousFirstDegree": true },
+      "accelerandoOfPanic": { "required": true, "bpmDeltaMin": 20, "overBars": [4, 8] },
+      "silenceAsPunchline": { "required": true, "durationSec": [1.5, 2.5], "totalSilence": true },
+      "reprisePlacement": { "declared": true, "options": ["too-early", "too-late"], "offsetBeatsMin": 1 },
+      "gagCadence": { "min": 1, "allowed": ["V-bVI", "V-silence", "fermata"] },
+      "voiceBandClear": { "band": [200, 2000], "maxEnergyRatio": 0.25 },
+      "tempoStabilityOutsideAccel": 0.9,
+      "checkers": ["rhythm.meter-integrity", "orch.masking", "harmony.loop-coherence"]
+    }
+  }
+}

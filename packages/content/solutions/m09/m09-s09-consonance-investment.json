@@ -1,0 +1,15 @@
+{
+  "exerciseId": "m09-e09-consonance-investment",
+  "notation": "A4:h E5:h | C5:q B4:q A4:h | E4:h A4:h | C5:q B4:q A4:h | A4:h E5:h | C5:q D5:q E5:h | D5:q C5:q B4:h | A4:w | A4:h E5:h | C5:q B4:q A4:h | E4:h A4:h | A4:w",
+  "payload": {
+    "tempoBpm": 52,
+    "layers": [
+      { "id": "gouffre", "role": "sub", "band": [25, 45], "note": "sinus 31 Hz, mono, présent mes. 1–20 puis RETIRÉ" },
+      { "id": "berceuse", "role": "melodic", "source": "boîte à musique", "bars": [1, 12], "note": "la mineur diatonique, naïve" },
+      { "id": "rupture", "role": "fx", "type": "cluster", "bars": [13, 16], "note": "cordes divisi ppp → ff, seconde mineure qui enfle" }
+    ],
+    "consonanceInvestment": { "consonantBars": 12, "dissonanceContinuousBars": 4, "contrastRatio": 0.67 },
+    "end": { "bars": [17, 24], "content": "la boîte à musique SEULE, deux phrases tronquées, puis le silence", "layersDelta": -1, "levelDelta": -8 }
+  },
+  "authorNotes": "« Tu dois écrire de la berceuse pour que le cluster existe. » Douze mesures d'investissement consonant ≥ 10 — c'est l'exercice, pas l'ornement : la dissonance permanente ne fait pas peur, l'oreille s'adapte à tout en trente secondes, et c'est le PASSAGE qui mord. La rupture ne dure que 4 mesures (le plafond) et le retour est plus vide que le début : la boîte à musique perd son gouffre, et **le retrait du sub sous 40 Hz est un soulagement physique** — on ne l'entendait pas, on le subissait. Deux couches actives au maximum : si la `densityMap` s'allume dans une scène d'horreur, on a écrit de l'action."
+}

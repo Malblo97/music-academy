@@ -1,0 +1,17 @@
+{
+  "exerciseId": "m09-e13-weightless-mediants",
+  "payload": {
+    "durationSec": 90,
+    "durationNotation": "secondes",
+    "staticBass": "do, tenu 90 secondes",
+    "cycle": [
+      { "sec": [0, 22], "chord": "C", "voicing": "[C2+C3+G3+E4]" },
+      { "sec": [22, 45], "chord": "E/C", "voicing": "[C2+B2+G#3+E4]", "commonTone": "mi tenu au soprano" },
+      { "sec": [45, 68], "chord": "Ab/C", "voicing": "[C2+C3+Ab3+Eb4]", "commonTone": "sol♯ ≡ la♭ tenu à l'alto" },
+      { "sec": [68, 90], "chord": "C", "voicing": "[C2+C3+G3+E4]", "commonTone": "do tenu à la basse et au ténor" }
+    ],
+    "optionalTools": ["quartal — deux quartes empilées au ciel, sec. 45–68"],
+    "verified": { "parallels": 0, "crossings": 0, "cadences": 0 }
+  },
+  "authorNotes": "**Témoin F-66.** Le tour de magie central du genre — faire perdre la tonique en ne donnant QUE des consonances — est arithmétiquement incompatible avec `forbidLeadingTone` : **mi majeur contient un si**. Le patch requalifie le drapeau (un si non préparé et non résolu n'est pas une sensible, c'est une tierce), et c'est exactement le propos de la leçon : trois triades majeures pures à distance de tierce majeure, sur la même basse, **aucune plus légitime que l'autre** — le cycle se referme, il n'y a plus de hiérarchie. Le mot « progression » est déjà un contresens : on n'avance pas, on flotte. Zéro parallèle, zéro croisement, un fil de note commune à chaque bascule, aucune cadence. Et les durées sont écrites en **secondes**, comme le fait le métier."
+}

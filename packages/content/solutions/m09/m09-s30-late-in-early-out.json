@@ -1,0 +1,18 @@
+{
+  "exerciseId": "m09-e30-late-in-early-out",
+  "payload": {
+    "durationSec": 150,
+    "scene": "après l'assaut",
+    "plan": [
+      { "sec": [0, 62], "content": "LA CAISSE CLAIRE SEULE — aucune harmonie" },
+      { "sec": [62, 92], "adds": ["le lamento aux celli"] },
+      { "sec": [92, 118], "adds": ["les cordes"] },
+      { "sec": [118, 131], "content": "le tutti — choral de cuivres + chœur, f maximum", "summit": "une PERTE : il tombe sur le moment où quelque chose est détruit" },
+      { "sec": [131, 150], "content": "le retrait : cordes → violon seul → basse du lamento → rien" }
+    ],
+    "pointOfView": { "declared": "with-the-victims" },
+    "snareUses": 2,
+    "cadence": null
+  },
+  "authorNotes": "**Entrer tard, sortir tôt** : la musique de guerre arrive APRÈS l'événement, sur les visages. Soixante-deux secondes sans harmonie — ce n'est pas de la timidité, c'est le genre qui refuse d'interpréter avant que le spectateur ait vu. Et le choix de la caisse claire est raisonné : timbre militaire, mécanique et **indifférent** — elle ne prend pas parti, elle scande ; un roulement sous une image de morts dit exactement ce que le genre veut dire, que la machine continue. Deux emplois par film, pas davantage : c'est un symbole puissant, pas un réflexe. Le sommet est une perte, pas une victoire, et le retrait va jusqu'au rien. Enfin la décision que personne ne prend jamais est prise et déclarée : **de quel côté est la musique** — ici, avec les victimes."
+}

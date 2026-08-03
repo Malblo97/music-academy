@@ -1,0 +1,17 @@
+{
+  "exerciseId": "m09-e12-hameau-to-world",
+  "payload": {
+    "durationSec": 105,
+    "meter": "6/8",
+    "planPlan": [
+      { "plan": "hameau", "sec": [0, 18], "parts": ["flûte solo"], "note": "6 mesures, UNE part — le motif des habitants, le plan que tout le monde oublie" },
+      { "plan": "feerie", "sec": [18, 40], "gestures": [{ "atSec": 21, "harpe": "arpège montant" }, { "atSec": 29, "célesta": "trois notes" }, { "atSec": 37, "harpe": "glissando" }], "count": 3 },
+      { "plan": "seuil", "atSec": 47, "silenceBeforeSec": 1, "content": "la médiante chromatique" },
+      { "plan": "monde", "sec": [48, 92], "parts": ["cors ×4", "cordes chaudes en unisson large", "chœur"], "cadence": "♭VII→IV→I" },
+      { "plan": "retrait", "sec": [92, 105], "parts": ["flûte solo"], "note": "seule, à nouveau" }
+    ],
+    "threeVersionsTest": ["flûte solo (le hameau)", "cors + cordes (le monde)", "chœur (le mythe)"],
+    "theme": { "diatonic": true, "largeLeaps": 1, "conjunctRatio": 0.74 }
+  },
+  "authorNotes": "**L'ordre compte plus que tout : on part de l'échelle humaine.** C'est la petite flûte du début qui donne sa taille au tutti — sans elle, le grand orchestre n'est pas grand, il est juste fort. Le budget de féerie est tenu à trois gestes ponctuels : le célesta partout devient un papier peint. Le seuil est précédé d'une seconde de silence exacte, et le test des trois versions passe (`findMotifs` reconnaît le même thème dans les trois habits) — un thème de fantasy qui ne survit pas aux trois n'en est pas un. Il est diatonique, conjoint à 74 %, un seul grand saut : **un habitant du monde doit pouvoir le fredonner.** Et le retrait rend la flûte au silence : le monde continue sans nous."
+}

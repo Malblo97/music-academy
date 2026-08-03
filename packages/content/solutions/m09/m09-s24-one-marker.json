@@ -1,0 +1,16 @@
+{
+  "exerciseId": "m09-e24-one-marker",
+  "payload": {
+    "scene": "l'arrivée au château",
+    "lengthBars": 12,
+    "variants": [
+      { "era": "medieval", "marker": "vielle (1)", "gesture": "monodie modale sur bourdon de quinte", "grammar": "cordes contemporaines senza vibrato" },
+      { "era": "baroque", "marker": "clavecin (1)", "gesture": "basse obstinée de 4 mesures", "grammar": "cordes contemporaines, harmonie modale non fonctionnelle" },
+      { "era": "xix", "marker": "harpe (1)", "gesture": "une valse à trois temps", "grammar": "cordes contemporaines, chromatisme retenu" }
+    ],
+    "periodInstrumentsRatio": 0.17,
+    "choir": "absent — le réflexe sacré évité",
+    "diegeticVariant": { "declared": true, "note": "la vielle seule, en source : ici l'authenticité rigoureuse est permise, le contexte l'explique" }
+  },
+  "authorNotes": "« Le film historique ne demande pas de la musique d'époque, il demande une musique qui ÉVOQUE l'époque pour une oreille de 2026. » L'authenticité stricte produit un effet de documentaire : juste, savant, émotionnellement inerte. **Le marqueur est un adjectif, pas la phrase** — un clavecin dans un score de cordes modernes dit « XVIIIᵉ » en trois secondes ; un score entièrement baroque dit « musicologie ». Un seul marqueur par variante, ratio d'instruments d'époque à 0,17. Les cordes portent la scène **sans vibrato** : le pont le plus discret entre les époques — elles sonnent anciennes sans être pittoresques. Deux pièges évités : le chœur sacré réflexe (tout ce qui est ancien n'est pas religieux — le peuple, la danse, le tambour existent aussi) et l'équivalence pays=instrument. La variante diégétique est le seul endroit où l'on peut enfin être rigoureux."
+}

@@ -1,0 +1,39 @@
+{
+  "id": "m09-e34-cut-points",
+  "lessonId": "m09-l17-documentaire-minimalisme",
+  "title": "Les points de sortie",
+  "kind": "ARRANGEMENT",
+  "difficulty": 6,
+  "xpReward": 130,
+  "skills": { "ORCHESTRATION": 0.4, "RHYTHM": 0.3, "DAW_WORKFLOW": 0.3 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "minimalism", "targetMood": "default", "ruleWeights": { "melody.monotony": 0, "melody.climax": 0 } },
+  "rubric": { "correctness": 20, "constraints": 50, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "La partie que personne n'enseigne — et le genre que tu écriras le plus souvent. Une cue de séquence d'archives, 4 MINUTES (écris LONG : une cue de 4 minutes qui tourne bien vaut mieux que trois cues de 90 secondes), sur ta boucle d'e33. Quatre exigences professionnelles, toutes vérifiées. (1) LES POINTS DE SORTIE : le monteur va couper ta cue, sans toi, et probablement pas là où tu l'imaginais — compose donc une sortie PROPRE toutes les 8 mesures (une note tenue, un accord qui peut conclure). Une cue qui ne peut être coupée qu'à la fin sera coupée n'importe où. (2) LE MIXAGE SOUS LA VOIX : la voix off occupe le médium — dégage 200 Hz–2 kHz et compose en grave et en aigu. C'est la première cause de rejet d'une musique de documentaire. (3) LA MODULARITÉ : livre des STEMS (cellule / lit / ligne / pouls) — le monteur ajustera l'intensité sans te rappeler, et c'est le service qui fait qu'on te rappelle, justement. (4) LA COURBE : symétrique, sans sommet — le documentaire n'a pas de climax, il a une présence continue et modulable. Et varie ta couche fondatrice : le piano mélancolique par défaut est un cliché — marimba, guitare, harpe, pizz existent.",
+    "given": {
+      "key": { "tonic": 5, "mode": "major" },
+      "sourceSubmission": "m09-e33-additive-process",
+      "tempoBpm": 88,
+      "durationSec": 240
+    },
+    "constraints": {
+      "durationSec": [225, 255],
+      "cutPoints": {
+        "everyBars": 8,
+        "cleanExitRequired": true,
+        "types": ["held-note", "concludable-chord"],
+        "minCount": 6
+      },
+      "voiceBandClear": { "band": [200, 2000], "maxEnergyRatio": 0.2, "rule": "orch.masking" },
+      "stemsRequired": { "stems": ["cellule", "lit", "ligne", "pouls"], "declared": true },
+      "symmetricCurveNoPeak": { "required": true, "peakForbidden": true, "densityShape": "arch-symmetric-flat-top" },
+      "foundationLayerVariety": { "forbidDefaultMelancholicPiano": true, "allowed": ["marimba", "guitar", "harp", "pizzicato", "vibraphone", "piano-if-justified"] },
+      "additiveProcessContinues": { "required": true, "perceptibilityWindow": [0.15, 0.5] },
+      "smallEnsemble": { "maxParts": 6 },
+      "checkers": ["orch.masking", "orch.balance", "findMotifs", "densityMap"]
+    }
+  }
+}

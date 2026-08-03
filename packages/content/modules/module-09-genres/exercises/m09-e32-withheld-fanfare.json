@@ -1,0 +1,47 @@
+{
+  "id": "m09-e32-withheld-fanfare",
+  "lessonId": "m09-l16-super-heros",
+  "title": "La fanfare retenue",
+  "kind": "ARRANGEMENT",
+  "difficulty": 7,
+  "xpReward": 150,
+  "skills": { "ORCHESTRATION": 0.4, "MELODY": 0.3, "RHYTHM": 0.3 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "superhero", "targetMood": "heroic", "ruleWeights": {} },
+  "rubric": { "correctness": 20, "constraints": 45, "craft": 35 },
+  "spec": {
+    "version": 1,
+    "prompt": "Trois cues d'un même film — parce que l'économie de l'apparition se joue à l'échelle du film. La mécanique de la romance appliquée à l'héroïsme : LE THÈME COMPLET, EN FANFARE, NE DOIT PAS ARRIVER AU DÉBUT. On le retient — fragments, allusions, versions mineures — et on le donne entier au moment où le personnage devient ce qu'il est. Un emblème donné à la scène 3 n'a plus rien à offrir à la scène 90. CUE 1 (acte I) : le fragment seulement — 3 notes, jamais la phrase complète. CUE 2 (acte II) : la version mineure lente, le doute, le coût — le héros paie, c'est indispensable au genre actuel. CUE 3 : « il enfile le costume », 1 min 15 — l'apparition, préparée et payée : la pédale et presque rien, LE FRAGMENT AU PIANO SEUL (la version nue), l'ostinato et les percussions qui montent, UN TEMPS DE SILENCE, puis LE THÈME aux cuivres, ♭VI–♭VII–I en majeur, tutti + chœur. Le fragment au piano du début est ce qui rend la fanfare finale ÉMOUVANTE plutôt que bruyante : il faut une échelle humaine pour que le surhumain se mesure — le même principe que la flûte de la fantasy et le cor solo de la SF. La couche « l'homme » est obligatoire dans les trois cues : c'est celle que les mauvais scores oublient.",
+    "given": {
+      "key": { "tonic": 3, "mode": "major" },
+      "sourceSubmission": "m09-e31-emblem-kit",
+      "cues": [
+        { "id": "cue-1", "act": 1, "scene": "l'ordinaire" },
+        { "id": "cue-2", "act": 2, "scene": "le doute" },
+        { "id": "cue-3", "act": 3, "scene": "il enfile le costume", "durationSec": 75 }
+      ]
+    },
+    "parts": [
+      { "id": "cue-1", "prompt": "Le fragment seul.", "constraints": { "allowedVariants": ["fragment"], "forbidFullTheme": true, "lengthBars": [8, 8] } },
+      { "id": "cue-2", "prompt": "Le mineur du coût.", "constraints": { "allowedVariants": ["minor-slow", "fragment", "naked"], "forbidFullTheme": true, "lengthBars": [8, 8] } },
+      { "id": "cue-3", "prompt": "L'apparition : préparée, payée.", "constraints": { "durationSec": [70, 85], "fullThemeAllowed": true, "requireTutti": true } }
+    ],
+    "constraints": {
+      "withheldTheme": {
+        "fullStatementsMax": 1,
+        "onlyInCue": "cue-3",
+        "fragmentsBeforeMin": 3
+      },
+      "apparitionPreparation": {
+        "required": true,
+        "elements": ["pedal", "naked-fragment", "ostinato-build", "one-beat-silence"],
+        "orderEnforced": true
+      },
+      "apparitionPayment": { "elements": ["bVI-bVII-I-major", "tutti", "hit-on-image"], "required": true },
+      "humanLayerInEveryCue": { "required": true, "instruments": ["piano", "cello", "clarinet", "solo-voice"] },
+      "silenceBeforeTheme": { "beats": 1, "required": true },
+      "checkers": ["findMotifs", "orch.balance", "orch.density-overload", "densityMap"]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "exerciseId": "m09-e11-threshold-mediant",
+  "payload": {
+    "key": "fa majeur",
+    "meter": "6/8",
+    "lengthBars": 16,
+    "chordBars": [
+      { "bars": [1, 2], "chord": "F(5)" },
+      { "bars": [3, 4], "chord": "G(add9)", "note": "le II majeur — le lydien qui s'ouvre, le si♮ = ♯4̂" },
+      { "bars": [5, 6], "chord": "F/A" },
+      { "bars": [7, 8], "chord": "Eb", "note": "♭VII" },
+      { "bars": [9, 10], "chord": "Db", "note": "LA MÉDIANTE DE SEUIL — fenêtre libre (F-67)" },
+      { "bars": [11, 12], "chord": "Bb" },
+      { "bars": [13, 13], "chord": "F/C" },
+      { "bars": [14, 14], "chord": "Eb" },
+      { "bars": [15, 16], "chord": "F" }
+    ],
+    "thresholdMediant": { "bar": 9, "from": "Eb", "to": "Db", "commonTone": "le fil : la♭ ≡ sol♯ tenu au ténor", "unprepared": true },
+    "lydianArrival": { "bars": [3, 4], "consecutiveMax": 2 }
+  },
+  "authorNotes": "« Rien ne la prépare, rien ne l'explique. On était là, on est ailleurs. C'est tout le métier. » La médiante occupe la fenêtre libérée par F-67, aux mes. 9–10 — précédée du ♭VII, reliée par un seul fil de note commune, et **unique** : la rareté fait le seuil. Deux interdits tenus : aucun V7→I (la fantasy évite la dominante non par gravité comme l'épique, mais parce que V→I raconte une histoire humaine qui se RÉSOUT — un monde ne se résout pas, il continue) et **on n'habite pas le lydien** : deux mesures d'arrivée sur le II majeur, pas davantage, parce que l'émerveillement sans repos est écœurant. Conclusion plagale ♭VII→IV→I : le rituel, l'amen."
+}

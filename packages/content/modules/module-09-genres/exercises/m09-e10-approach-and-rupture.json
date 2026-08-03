@@ -1,0 +1,37 @@
+{
+  "id": "m09-e10-approach-and-rupture",
+  "lessonId": "m09-l05-horreur",
+  "title": "L'approche et la rupture",
+  "kind": "LAYERING",
+  "difficulty": 7,
+  "xpReward": 130,
+  "skills": { "SOUND_DESIGN": 0.5, "ORCHESTRATION": 0.3, "HARMONY": 0.2 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "horror", "targetMood": "dread", "ruleWeights": { "melody.monotony": 0, "harmony.overchromatic": 0 } },
+  "rubric": { "correctness": 20, "constraints": 50, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "La scène du grenier, 2 minutes — et la forme du genre : l'horreur ne culmine pas, elle CREUSE. Long segment de matière quasi immobile qui s'épaissit imperceptiblement (l'approche), la rupture, le retour à un état plus vide. Trois interdits vérifiés. PAS DE POULS : le tempo est l'ennemi n° 1 — un pouls perceptible donne à l'auditeur une prise, il anticipe, il se protège. Les entrées de couches à intervalles INÉGAUX (7 secondes, puis 4, puis 19 : l'irrégularité est la règle). UN SEUL stinger, précédé de vide, et jamais à intervalle prévisible — le troisième stinger d'un film fait rire. Les couches à ta disposition : le gouffre (sub, orgue 32′), la peau (cordes divisi con sordino ppp, sul ponticello, col legno — ce qui grouille, 30 % de la peur), le faux (deux pupitres désaccordés, micro-glissandi : l'anomalie non nommable), l'objet (piano préparé, waterphone, cymbale à l'archet), l'humain dévoyé (chœur chuchoté, voix d'enfant — le pire timbre du genre : le nôtre). Et le silence, la couche la plus efficace du tableau : après le coup, QUATRE secondes de rien.",
+    "given": {
+      "durationSec": 120,
+      "scene": "le grenier"
+    },
+    "constraints": {
+      "durationSec": [110, 130],
+      "pulseForbidden": { "detectedTempoStabilityMax": 0.3 },
+      "unevenEntryIntervals": { "minEntries": 4, "intervalVarianceMin": 0.5, "forbidRegularSpacing": true },
+      "stingerPolicy": { "count": 1, "requireSilenceBefore": { "sec": 2 }, "forbidPeriodic": true },
+      "silenceAfterStinger": { "sec": 4, "totalSilence": true },
+      "requiredLayers": [
+        { "id": "gouffre", "role": "sub", "band": { "low": 25, "highMax": 45 } },
+        { "id": "peau", "role": "texture", "techniques": ["divisi-sordino-ppp", "sul-ponticello", "col-legno", "controlled-aleatory"] }
+      ],
+      "optionalLayers": ["le-faux", "l-objet", "l-humain-devoye"],
+      "maxActiveLayers": 2,
+      "formShape": "approach-rupture-emptier",
+      "endEmptierThanStart": { "layersDelta": -1, "registerLower": true },
+      "checkers": ["orch.density-overload", "sd.sub-conflict", "sd.static-stack", "densityMap"]
+    }
+  }
+}

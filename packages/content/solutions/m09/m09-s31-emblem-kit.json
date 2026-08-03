@@ -1,0 +1,18 @@
+{
+  "exerciseId": "m09-e31-emblem-kit",
+  "payload": {
+    "key": "mi♭ majeur",
+    "signature": { "notation": "Bb3:q. Eb4:e G4:h", "notes": 3, "characteristicInterval": 5, "rhythmCell": "q. e h — survit frappée sur une table", "harmonizations": 3 },
+    "variants": [
+      { "id": "fanfare", "bars": 4, "content": "cors + trompettes ff, rythme pointé — l'apparition" },
+      { "id": "fragment", "bars": 4, "content": "Bb3 – Eb4 seulement — les 60 premières minutes du film" },
+      { "id": "minor-slow", "bars": 8, "content": "mi♭ éolien, tempo ×0,5 — le doute, la perte" },
+      { "id": "lullaby", "bars": 8, "content": "célesta, harmonisation douce — l'origine, l'enfance" },
+      { "id": "funeral-march", "bars": 8, "content": "cuivres graves + caisse claire — le sacrifice" },
+      { "id": "distorted", "bars": 4, "content": "la quarte devient triton, timbres sales — le héros corrompu" },
+      { "id": "naked", "bars": 4, "content": "une voix, sans accompagnement — quand le masque tombe" }
+    ],
+    "similarity": { "fanfare": 1.0, "minor-slow": 0.82, "lullaby": 0.88, "funeral-march": 0.79, "naked": 1.0, "fragment": "sous-ensemble (F-69)", "distorted": "rythme + contour (F-69)" }
+  },
+  "authorNotes": "**Témoin F-69.** Le seuil unique `minSimilarity: 0.6` appliqué aux sept variantes est incohérent avec deux d'entre elles : « fragment » ne garde que deux notes sur trois (jugement par **sous-ensemble**, pas par similarité) et « distordu » altère les intervalles **par contrat** (jugement sur rythme + contour). Le patch scope la mesure par variante. Le reste est la thèse du genre : un thème de super-héros n'est pas une mélodie, c'est **un objet transformable** — simple au point d'être un logo, riche au point de supporter dix variations. Le jeu complet s'écrit AVANT les cues, parce qu'un emblème qui ne survit ni au mineur ni au piano seul n'est pas un emblème."
+}

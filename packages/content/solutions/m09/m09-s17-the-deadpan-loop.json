@@ -1,0 +1,18 @@
+{
+  "exerciseId": "m09-e17-the-deadpan-loop",
+  "payload": {
+    "durationSec": 90,
+    "tempoBpm": 132,
+    "tempoStability": 0.96,
+    "pool": "chamber",
+    "parts": ["cordes pizz", "basson staccato", "clarinette", "woodblock"],
+    "structure": [
+      { "sec": [0, 34], "content": "le trot pizzicato — ré majeur franc, cadences nettes, un accord par mesure" },
+      { "sec": [34, 42], "content": "LA CATASTROPHE — la musique continue à l'identique, aucun commentaire" },
+      { "sec": [42, 90], "content": "reprise de la boucle, similarité 0,97" }
+    ],
+    "voiceBandClear": { "band": [200, 2000], "energyRatio": 0.19 },
+    "syncPoints": 0
+  },
+  "authorNotes": "La troisième manœuvre du genre, souvent la plus efficace : **refuser de commenter**. Le trot s'installe, élégant et parfaitement sérieux, la catastrophe arrive, et la musique continue comme si de rien n'était — similarité mesurée 0,97 après l'événement. La loi qui gouverne tout : **ne ris pas à la place du spectateur** — une musique qui souligne la blague la tue, parce qu'elle révèle que quelqu'un a écrit la blague. Deux contraintes structurelles : la régularité (le contre-pied n'existe que sur fond de métronome) et le petit effectif, qui est un principe et non un budget — un grand orchestre n'est pas drôle, il est imposant, et on doit entendre chaque instrument comme un personnage. Le médium reste libre à 0,19 : **la comédie repose sur le dialogue, et un score qui masque une réplique a détruit la scène.**"
+}

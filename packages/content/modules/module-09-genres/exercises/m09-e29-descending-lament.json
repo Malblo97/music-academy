@@ -1,0 +1,42 @@
+{
+  "id": "m09-e29-descending-lament",
+  "lessonId": "m09-l15-guerre",
+  "title": "Le lamento",
+  "kind": "HARMONY_PROGRESSION",
+  "difficulty": 6,
+  "xpReward": 130,
+  "skills": { "HARMONY": 0.4, "COUNTERPOINT": 0.3, "ORCHESTRATION": 0.3 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "war", "targetMood": "noble-melancholy", "ruleWeights": { "melody.climax": 0.3 } },
+  "rubric": { "correctness": 30, "constraints": 40, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "16 mesures à ♩=54 : la plainte codifiée depuis quatre siècles, et elle fonctionne encore. Le LAMENTO — une basse descendante par degrés conjoints ou chromatiques, en ostinato — et au-dessus, l'écriture de choral : des suspensions résolues TRÈS LENTEMENT, à quatre voix. C'est la dignité, le recueillement, le monument. Deux couleurs à placer : l'accord majeur dans un contexte mineur (la tierce picarde, ou un I majeur incongru — l'ironie douloureuse : la beauté au mauvais endroit) et la pédale immobile (l'enlisement : rien n'avance, personne ne gagne). Et les deux interdits qui définissent le contrat moral du genre : PAS DE CADENCE FINALE — on ne clôt pas ce qui n'est pas réglé : la cue s'arrête sans se poser ; et pas de fanfare, pas de cuivres éclatants — la musique de guerre NE VAINC PAS, ELLE TÉMOIGNE. Une musique qui glorifie ce que l'image dénonce commet une faute morale autant qu'esthétique. Le choral de cuivres est autorisé, mais tenu, de p à mf : jamais une fanfare.",
+    "given": {
+      "key": { "tonic": 2, "mode": "aeolian" },
+      "tempoBpm": 54
+    },
+    "constraints": {
+      "lengthBars": [16, 16],
+      "key": { "tonic": 2, "mode": "aeolian" },
+      "minVoices": 4,
+      "lamentBass": {
+        "required": true,
+        "direction": "descending",
+        "motion": ["stepwise", "chromatic"],
+        "ostinato": true,
+        "minCycles": 3
+      },
+      "choraleSuspensions": { "min": 4, "slowResolution": true, "checker": "species4" },
+      "picardyOrIncongruousMajor": { "min": 1, "tagged": true },
+      "immobilePedal": { "minBars": 4 },
+      "forbiddenCadences": ["perfect", "plagal", "half", "imperfect"],
+      "endsUnresolved": true,
+      "dynamicsMax": "mf",
+      "forbidFanfare": true,
+      "forbiddenInstruments": ["clashing-cymbals", "trumpet-fanfare"],
+      "checkers": ["species4", "vl.smoothness", "cpt.contrary-preference", "harmony.loop-coherence"]
+    }
+  }
+}

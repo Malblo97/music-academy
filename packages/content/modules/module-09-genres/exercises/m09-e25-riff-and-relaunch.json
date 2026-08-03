@@ -1,0 +1,45 @@
+{
+  "id": "m09-e25-riff-and-relaunch",
+  "lessonId": "m09-l13-action-espionnage",
+  "title": "Le riff et la relance",
+  "kind": "ARRANGEMENT",
+  "difficulty": 6,
+  "xpReward": 130,
+  "skills": { "RHYTHM": 0.45, "ORCHESTRATION": 0.3, "HARMONY": 0.25 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "action", "targetMood": "tension", "ruleWeights": { "melody.monotony": 0.2 } },
+  "rubric": { "correctness": 25, "constraints": 45, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "24 mesures à ♩=148 : la propulsion. L'action est l'inverse exact du thriller — là-bas la vis se serre et ne libère jamais ; ici on DÉLIVRE : le pouls est CORPOREL (on doit pouvoir le suivre), la résolution est permise et fréquente (elle relance). Et l'action est HORIZONTALE quand l'épique est vertical : on enchaîne des blocs pour produire de la vitesse, on n'empile pas des étages pour produire de la masse — un score d'action qui s'empile devient un épique lourd et lent. Le cœur de l'exercice : LE RIFF. Un motif de basse court, chromatique ou modal, MÉMORISABLE — l'action est le seul genre rapide qui exige un thème sifflable ; sans riff, tu as de l'énergie sans identité, et on oublie la scène. Puis l'échelle des relances, trois crans minimum parmi : la modulation ascendante (l'outil de forme n° 1 du genre), le double-time (la même harmonie à valeurs deux fois plus rapides : la relance la moins chère et la plus efficace), une couche nouvelle, le dim7 de transition (le virage : on change de rue sans ralentir). Et la coupure d'un temps avant un palier. Interdits : la surcharge de percussions (une couche de pouls, une couche d'impact — pas six) et le médium saturé (l'action se mixe AVEC le son, pas contre lui).",
+    "given": {
+      "key": { "tonic": 4, "mode": "minor" },
+      "tempoBpm": 148
+    },
+    "constraints": {
+      "lengthBars": [24, 24],
+      "key": { "tonic": 4, "mode": "minor" },
+      "riffRequired": {
+        "sizeBars": [1, 2],
+        "sizeNotes": [4, 8],
+        "memorable": true,
+        "whistleTest": true,
+        "engine": "findMotifs",
+        "minOccurrences": 6,
+        "invariantPitches": true
+      },
+      "relaunchLadder": {
+        "minSteps": 3,
+        "declared": true,
+        "catalog": ["ascending-modulation", "double-time", "new-layer", "dim7-transition"]
+      },
+      "corporealPulse": { "required": true, "accentOnBeats": true, "forbidInhumanTicking": true },
+      "horizontalNotVertical": { "maxSimultaneousPlans": 4, "blocksNotTiers": true },
+      "cutBeforePalier": { "min": 1, "beats": 1 },
+      "percussionLayers": { "maxLayers": 2, "roles": ["pulse", "impact"] },
+      "voiceBandClear": { "band": [300, 3000], "maxEnergyRatio": 0.35 },
+      "checkers": ["findMotifs", "orch.masking", "orch.density-overload", "densityMap"]
+    }
+  }
+}

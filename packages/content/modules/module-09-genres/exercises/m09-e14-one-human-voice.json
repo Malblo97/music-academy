@@ -1,0 +1,40 @@
+{
+  "id": "m09-e14-one-human-voice",
+  "lessonId": "m09-l07-science-fiction",
+  "title": "Une seule voix humaine",
+  "kind": "LAYERING",
+  "difficulty": 7,
+  "xpReward": 140,
+  "skills": { "SOUND_DESIGN": 0.4, "ORCHESTRATION": 0.35, "HARMONY": 0.25 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "sci-fi", "targetMood": "wonder", "ruleWeights": { "melody.monotony": 0.2 } },
+  "rubric": { "correctness": 20, "constraints": 45, "craft": 35 },
+  "spec": {
+    "version": 1,
+    "prompt": "L'approche de la structure, 3 minutes — et la règle qui sauve les scores de SF : IL FAUT UN HUMAIN DANS LE CADRE. Cent pistes de synthé produisent du froid, et le froid n'émeut pas : il ennuie. Le cor solo, la voix seule, le piano nu sont l'unité de mesure qui rend l'immensité perceptible — même principe que la petite flûte de la fantasy. Le plan : le drone SEUL pendant 25 secondes (ce n'est pas du remplissage : c'est le genre qui installe son échelle de temps — un score de SF pressé n'est pas de la SF), puis l'humain (UNE couche solo, déclarée), puis la mécanique (arpégiateur, séquenceur — et attention à la frontière : cette pulsation ne doit PAS faire bouger le corps ; dès qu'on peut hocher la tête, on est dans l'action), puis l'immense (nappes, chœur — la seule couche qui ait le droit d'enfler), puis la coupure et le drone seul. Forme PAR ÉTATS, pas par sections : on entre dans chaque état par transformation continue — un filtre qui s'ouvre, une nappe qui se substitue — jamais par cadence. Et tout état doit DÉRIVER imperceptiblement : le pad qui dure trois minutes sans bouger fait décrocher.",
+    "given": {
+      "key": { "tonic": 0, "mode": "major" },
+      "durationSec": 180,
+      "scene": "l'approche de la structure"
+    },
+    "constraints": {
+      "durationSec": [170, 195],
+      "openingDroneAloneSec": [22, 30],
+      "requiredLayers": [
+        { "id": "vide", "role": "sub", "band": { "low": 25, "highMax": 60 }, "presentThroughout": true },
+        { "id": "humain", "role": "melodic", "soloOnly": true, "declaredInstrument": ["french-horn", "cello", "piano", "solo-voice"] },
+        { "id": "mecanique", "role": "movement", "sequenced": true },
+        { "id": "immense", "role": "body", "allowedToSwell": true }
+      ],
+      "oneHumanLayer": { "required": true, "exactlyOne": true, "unaccompaniedBars": [4, 8] },
+      "stateTransitions": { "byContinuousTransformation": true, "forbidCadentialTransitions": true, "minStates": 4 },
+      "motionPlan": { "everyLayerDrifts": true, "minMotionsPerLayer": 1 },
+      "mechanicalPulse": { "forbidBackbeat": true, "forbidSwing": true, "inhumanRegularity": true },
+      "forbiddenCadences": ["perfect", "plagal", "half"],
+      "braamPolicy": { "maxCount": 0 },
+      "endsWithCutThenDroneAlone": true,
+      "checkers": ["sd.static-stack", "sd.sub-conflict", "sd.wash-out", "densityMap"]
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "exerciseId": "m09-e34-cut-points",
+  "payload": {
+    "durationSec": 240,
+    "tempoBpm": 88,
+    "lengthBars": 88,
+    "cutPoints": { "everyBars": 8, "count": 11, "types": ["note tenue", "accord concluable"], "note": "mesure = 2,73 s ; 240 s = 88 mesures" },
+    "foundationLayer": "marimba",
+    "stems": ["cellule", "lit", "ligne", "pouls"],
+    "voiceBandClear": { "band": [200, 2000], "energyRatio": 0.16 },
+    "curve": "symétrique, plateau plat, aucun sommet",
+    "parts": 5,
+    "additiveProcessContinues": true
+  },
+  "authorNotes": "« La partie que personne n'enseigne — et le genre que tu écriras le plus souvent. » Quatre exigences professionnelles, toutes chiffrées. **Les points de sortie** : onze sorties propres, une toutes les huit mesures — le monteur va couper la cue, sans toi, et probablement pas là où tu l'imaginais ; *une cue qui ne peut être coupée qu'à la fin sera coupée n'importe où.* **Le médium** : 0,16 sur la bande de la voix off — c'est la première cause de rejet d'une musique de documentaire. **La modularité** : quatre stems livrés, le monteur ajuste l'intensité sans rappeler — et c'est le service qui fait qu'on te rappelle, justement. **La courbe** : symétrique, sans sommet ; le documentaire n'a pas de climax, il a une présence continue et modulable. Enfin la couche fondatrice évite le cliché : marimba, pas le piano mélancolique par défaut. Et on écrit LONG — une cue de quatre minutes qui tourne bien vaut mieux que trois cues de 90 secondes."
+}

@@ -1,0 +1,49 @@
+{
+  "id": "m09-e15-subtext-not-emotion",
+  "lessonId": "m09-l08-drame",
+  "title": "Le sous-texte, pas l'émotion",
+  "kind": "HARMONY_PROGRESSION",
+  "difficulty": 6,
+  "xpReward": 120,
+  "skills": { "HARMONY": 0.4, "MELODY": 0.3, "ORCHESTRATION": 0.3 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "styleProfile": { "id": "drama", "targetMood": "bittersweet", "ruleWeights": { "melody.climax": 0, "melody.monotony": 0.2 } },
+  "rubric": { "correctness": 25, "constraints": 45, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "La conversation qui n'a pas lieu, 2 minutes, ♩=62. Le drame est la romance sans le don : même vocabulaire — le iv emprunté, la pédale, le solo nu — mais LA DIGUE NE CÈDE PAS. Et la loi centrale : la musique ne dit pas ce que le personnage ressent, elle dit ce qu'il NE DIT PAS. Si l'acteur pleure et que la musique pleure, les deux s'annulent : le pléonasme émotionnel est l'erreur la plus coûteuse du genre. Compose UN CRAN EN DESSOUS. Techniquement : le iv NON RÉCOMPENSÉ (la phrase suivante retombe — le nuage qui ne se dissipe pas), la pédale de tonique (on n'avance pas : l'immobilité intérieure), l'ambivalence assumée (des accords SANS TIERCE, ou l'oscillation I↔i : on refuse de dire si c'est triste), le mouvement de voix minimal (une seule note qui change entre deux accords), et la cadence évitée en douceur — pas de conclusion, pas de verdict. Le rythme harmonique est LENT : un accord par mesure au maximum, souvent un toutes les deux à quatre mesures. Chaque changement doit compter. Et la mélodie n'est pas une phrase : c'est une EMPREINTE de trois à cinq notes, répétée plutôt que développée — la répétition ici est l'usure du quotidien, pas la tension du thriller. Aucun climax : l'arche de M2 est délibérément refusée.",
+    "given": {
+      "key": { "tonic": 9, "mode": "minor" },
+      "tempoBpm": 62,
+      "chords": [
+        { "root": 9, "quality": "m7" },
+        { "root": 5, "quality": "maj7" },
+        { "root": 0, "quality": "maj" },
+        { "root": 7, "quality": "7sus4" },
+        { "root": 9, "quality": "m7" },
+        { "root": 5, "quality": "m-add9" },
+        { "root": 0, "quality": "maj" },
+        { "root": 0, "quality": "maj" }
+      ]
+    },
+    "constraints": {
+      "lengthBars": [16, 16],
+      "minVoices": 3,
+      "maxVoices": 5,
+      "harmonicRhythmMaxChordsPerBar": 1,
+      "minBarsPerChordAverage": 2,
+      "borrowedIvNotRewarded": { "required": true, "nextPhraseFallsBack": true },
+      "tonicPedalRequired": { "minBars": 8 },
+      "ambivalence": { "chordsWithoutThirdMin": 2, "orMajorMinorOscillation": true },
+      "minimalVoiceMovement": { "maxChangedNotesPerTransition": 2, "targetRatio": 0.6 },
+      "motifImprint": { "sizeNotes": [3, 5], "repeatedNotDeveloped": true, "minOccurrences": 4 },
+      "forbidClimax": true,
+      "notesPerMinuteMax": 60,
+      "forbiddenCadences": ["perfect"],
+      "finalCadence": "plagal-soft",
+      "subtextLevel": { "oneStepBelowScene": true, "dynamicsMax": "mp" },
+      "checkers": ["harmony.loop-coherence", "vl.smoothness", "melody.monotony"]
+    }
+  }
+}

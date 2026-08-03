@@ -1,0 +1,40 @@
+{
+  "id": "m09-e24-one-marker",
+  "lessonId": "m09-l12-film-historique",
+  "title": "Un seul marqueur",
+  "kind": "ORCHESTRATE",
+  "difficulty": 6,
+  "xpReward": 120,
+  "skills": { "ORCHESTRATION": 0.45, "HARMONY": 0.35, "COUNTERPOINT": 0.2 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "pool": "medium",
+  "styleProfile": { "id": "period", "targetMood": "default", "ruleWeights": {} },
+  "rubric": { "correctness": 25, "constraints": 45, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "Le piège du genre, en exercice : le film historique ne demande pas de la musique d'époque, il demande une musique qui ÉVOQUE l'époque pour une oreille de 2026. L'authenticité stricte produit un effet de documentaire — juste, savant, émotionnellement inerte. La règle professionnelle : UN OU DEUX MARQUEURS D'ÉPOQUE, UNE GRAMMAIRE CONTEMPORAINE. Un clavecin dans un score de cordes modernes dit « XVIIIe » en trois secondes ; un score entièrement baroque dit « musicologie ». Le marqueur est un adjectif, pas la phrase. La même scène (12 mesures), trois époques tirées — médiéval, baroque, XIXe : pour chacune, UN marqueur maximum (le compteur vérifie), la grammaire portée par les cordes contemporaines (souvent SANS VIBRATO : le pont le plus discret entre les époques — elles sonnent anciennes sans être pittoresques), et le geste qui suffit, déclaré. Deux pièges surveillés : le chœur sacré réflexe (tout ce qui est ancien n'est pas religieux — le peuple, la danse, le tambour existent aussi) et l'équivalence pays=instrument (le raccourci touristique tue la crédibilité). Bonus : ta variante diégétique, où l'on peut ENFIN être rigoureux, parce que le contexte l'explique.",
+    "given": {
+      "key": { "tonic": 9, "mode": "aeolian" },
+      "scene": "l'arrivée au château",
+      "eras": ["medieval", "baroque", "xix"]
+    },
+    "parts": [
+      { "id": "medieval", "prompt": "Le geste qui suffit : une monodie modale sur un bourdon.", "constraints": { "era": "medieval", "allowedMarkers": ["organum", "bourdon", "modal-monody", "frame-drum", "vielle"] } },
+      { "id": "baroque", "prompt": "Le geste qui suffit : une basse obstinée au clavecin.", "constraints": { "era": "baroque", "allowedMarkers": ["harpsichord", "ground-bass", "continuo", "terraced-dynamics"] } },
+      { "id": "xix", "prompt": "Le geste qui suffit : une valse.", "constraints": { "era": "xix", "allowedMarkers": ["waltz", "piano", "harp", "romantic-chromaticism"] } }
+    ],
+    "constraints": {
+      "lengthBars": [12, 12],
+      "format": "Part[]",
+      "pool": "medium",
+      "periodMarkerCount": { "maxPerVariant": 2, "declared": true, "counted": true },
+      "contemporaryGrammarLayer": { "required": true, "carriesTheScene": true, "stringsNoVibratoEncouraged": true },
+      "definingGestureDeclared": true,
+      "forbidFullPastiche": { "maxPeriodInstrumentsRatio": 0.3 },
+      "sacredChoirReflexWarning": { "flagIfChoirWithoutJustification": true },
+      "diegeticVariant": { "optional": true, "rigorousAuthenticityAllowed": true, "declared": true },
+      "checkers": ["orch.range-violation", "orch.balance", "orch.register-color", "densityMap"]
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": "m09-e17-the-deadpan-loop",
+  "lessonId": "m09-l09-comedie",
+  "title": "Le pince-sans-rire",
+  "kind": "ARRANGEMENT",
+  "difficulty": 5,
+  "xpReward": 110,
+  "skills": { "RHYTHM": 0.4, "MELODY": 0.3, "ORCHESTRATION": 0.3 },
+  "meter": "4/4",
+  "isGenerated": false,
+  "pool": "chamber",
+  "styleProfile": { "id": "comedy", "targetMood": "playful", "ruleWeights": {} },
+  "rubric": { "correctness": 25, "constraints": 45, "craft": 30 },
+  "spec": {
+    "version": 1,
+    "prompt": "Le dîner qui tourne mal, 1 min 30 — et la troisième manœuvre du genre, souvent la plus efficace : REFUSER DE COMMENTER. Le trot pizzicato s'installe (élégant, parfaitement sérieux, parfaitement compétent — majeur franc, cadences nettes, rythme harmonique rapide), la catastrophe arrive... et la musique continue comme si de rien n'était, puis reprend À L'IDENTIQUE après. La loi qui gouverne tout : NE RIS PAS À LA PLACE DU SPECTATEUR — une musique qui souligne la blague la tue, parce qu'elle révèle que quelqu'un a écrit la blague. Joue la scène au premier degré. Contraintes : la régularité est obligatoire (le contre-pied n'existe que sur fond de métronome — un tempo instable, et il n'y a plus de pied) ; petit effectif OBLIGATOIRE, c'est un principe et non une contrainte budgétaire : un grand orchestre n'est pas drôle, il est imposant — on doit entendre chaque instrument comme un personnage ; et le MÉDIUM RESTE LIBRE : la comédie repose sur le dialogue, et un score qui masque une réplique a détruit la scène.",
+    "given": {
+      "key": { "tonic": 2, "mode": "major" },
+      "tempoBpm": 132,
+      "durationSec": 90,
+      "scene": "le dîner qui tourne mal"
+    },
+    "constraints": {
+      "durationSec": [85, 95],
+      "format": "Part[]",
+      "pool": "chamber",
+      "maxParts": 6,
+      "tempoStabilityMin": 0.9,
+      "harmonicLanguage": { "franklyMajor": true, "clearCadences": true, "fastHarmonicRhythm": true },
+      "deadpanReturn": {
+        "required": true,
+        "loopIdenticalAfterEvent": { "engine": "findMotifs", "minSimilarity": 0.95 },
+        "forbidCommentaryOnEvent": true
+      },
+      "voiceBandClear": { "band": [200, 2000], "maxEnergyRatio": 0.25, "rule": "orch.masking" },
+      "forbidMickeyMousing": { "maxSyncPoints": 1 },
+      "trotLayerRequired": { "instruments": ["pizzicato-strings", "bassoon-staccato", "clarinet", "woodblock"] },
+      "checkers": ["orch.masking", "orch.balance", "rhythm.meter-integrity", "findMotifs"]
+    }
+  }
+}

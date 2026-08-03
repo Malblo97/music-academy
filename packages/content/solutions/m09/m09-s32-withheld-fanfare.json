@@ -1,0 +1,20 @@
+{
+  "exerciseId": "m09-e32-withheld-fanfare",
+  "payload": {
+    "cues": [
+      { "id": "cue-1", "act": 1, "scene": "l'ordinaire", "bars": 8, "variants": ["fragment"], "humanLayer": "piano", "fullTheme": false },
+      { "id": "cue-2", "act": 2, "scene": "le doute", "bars": 8, "variants": ["minor-slow", "naked"], "humanLayer": "violoncelle", "fullTheme": false },
+      { "id": "cue-3", "act": 3, "scene": "il enfile le costume", "durationSec": 75, "fullTheme": true }
+    ],
+    "cue3Plan": [
+      { "sec": [0, 18], "content": "la pédale et presque rien" },
+      { "sec": [18, 34], "content": "LE FRAGMENT AU PIANO SEUL — la version nue" },
+      { "sec": [34, 58], "content": "l'ostinato et les percussions montent" },
+      { "atSec": 58, "content": "UN TEMPS DE SILENCE" },
+      { "sec": [59, 75], "content": "LE THÈME aux cuivres, ♭VI–♭VII–I majeur, tutti + chœur, hit sur l'image" }
+    ],
+    "fragmentsBefore": 5,
+    "fullStatements": 1
+  },
+  "authorNotes": "La mécanique de la romance appliquée à l'héroïsme : **le thème complet, en fanfare, ne doit pas arriver au début.** On le retient — fragments, allusions, versions mineures — et on le donne entier au moment où le personnage devient ce qu'il est ; un emblème donné à la scène 3 n'a plus rien à offrir à la scène 90. Cinq fragments avant, un seul énoncé complet, dans le cue 3. La préparation est ordonnée et vérifiée : pédale → fragment nu → ostinato → **un temps de silence** → le thème. Et le fragment au piano du début est précisément ce qui rend la fanfare finale émouvante plutôt que bruyante : **il faut une échelle humaine pour que le surhumain se mesure** — le même principe que la flûte de la fantasy et le cor de la SF. La couche « l'homme » est présente dans les trois cues : c'est celle que les mauvais scores oublient."
+}
