@@ -9,8 +9,22 @@ import type { CollectionFamily } from '../analyzers/collection.js';
 /** Les collections qui constituent une grammaire de rechange assumée. */
 const ALTERNATIVE_COLLECTIONS = new Set<CollectionFamily>(['whole-tone', 'octatonic', 'pentatonic', 'melodic-minor']);
 
-/** Un saut vaut au moins une quarte : en deçà, la ligne marche, elle ne saute pas. */
-const LEAP = 5;
+/**
+ * **Le saut qui contracte une DETTE : la sixte mineure et au-delà.**
+ *
+ * Deux seuils à ne pas confondre. Une quarte est déjà un saut — en deçà, la
+ * ligne marche — mais toute la théorie mélodique du cursus réserve le
+ * remboursement conjoint aux GRANDS intervalles. `m01-l02-intervalles` le dit
+ * mot pour mot : « la règle `melody.leap-recovery` que tu rencontreras dès tes
+ * premiers exercices parle d'intervalles mélodiques **≥ 6te** ». Et
+ * `m02-l12-ambiances-3` nomme le geste canonique : « le couple grand saut +
+ * résolution conjointe — l'élan (LA SIXTE) suivi du retour tendre ».
+ *
+ * Le code exigeait le remboursement dès la quarte : 83 des 91 alertes du corpus
+ * portaient sur des quartes et des quintes justes — des intervalles consonants,
+ * chantables, qui structurent tout arpège sans rien devoir à personne.
+ */
+const LEAP = 8;
 /** Fenêtre de climax par défaut, quand la spec n'en déclare pas. */
 const CLIMAX_WINDOW: [number, number] = [0.55, 0.85];
 /** Part maximale de notes hors gamme avant que l'amortisseur ne cède. */

@@ -367,4 +367,19 @@ export const fixtures: Fixture[] = [
       expect(fires('melody.climax', archOnly), "silhouette hors consigne : c'est `contourShape` qui parle").toBe(false);
     },
   },
+  {
+    name: 'melody.leap-recovery — la dette commence à la SIXTE, pas à la quarte',
+    run: () => {
+      // Quartes et quintes justes enchaînées : un arpège, pas une dette.
+      // `m01-l02-intervalles` : « la règle parle d'intervalles mélodiques >= 6te ».
+      const arpege: CaseInput = { notation: 'C4:q F4:q C5:q G4:q | C4:h C4:h' };
+      expect(fires('melody.leap-recovery', arpege), 'quartes et quintes : aucune dette').toBe(false);
+      // Une sixte mineure non remboursée, elle, reste une dette.
+      const sixte: CaseInput = { notation: 'C4:q Ab4:q C5:q G4:q | C4:h C4:h' };
+      expect(fires('melody.leap-recovery', sixte), 'sixte repartant par saut : dette').toBe(true);
+      // La même sixte, soldée par un degré conjoint en sens contraire.
+      const soldee: CaseInput = { notation: 'C4:q Ab4:q G4:q F4:q | E4:h C4:h' };
+      expect(fires('melody.leap-recovery', soldee), 'sixte puis seconde descendante : soldée').toBe(false);
+    },
+  },
 ];

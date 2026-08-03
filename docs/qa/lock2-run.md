@@ -22,6 +22,7 @@ manque de CONTENU, pas de moteur — voir « Reste à faire ».
 | Passe 2 — B-1 à B-5 (cadences et tonalité) | 15/27 | 9/28 | 17/31 | **41 à la note, 36 pleinement verts** |
 | Passe 3 — C-1 à C-3 (`melody.out-of-key`) | 15/27 | 10/28 | 18/31 | **43 à la note, 38 pleinement verts** |
 | Passe 4 — D-1 à D-3 (`melody.climax`) | 17/27 | 10/28 | 20/31 | **47 à la note, 42 pleinement verts** |
+| Passe 5 — E-1 (`melody.leap-recovery`) | 17/27 | 11/28 | 20/31 | **48 à la note, 42 pleinement verts** |
 
 Le verrou pose DEUX conditions par solution : la note ≥ 85 **et** aucune
 contrainte non tenue hors performance. Le second chiffre est le seul qui compte
@@ -323,6 +324,33 @@ tiennent pas la `climaxWindow` qu'elles déclarent elles-mêmes (m03-e14,
 m03-e17), et deux manquent la fenêtre de leur gabarit (m01-e18 à 59 % pour une
 fenêtre de 67–100 %, m02-e29 dont le sommet est la première note).
 
+## Passe 5 — `melody.leap-recovery`, de 91 occurrences à 7
+
+**Le compte de solutions vertes ne bouge presque pas, et c'est normal** : la
+règle est une `suggestion`, elle coûte 2 points de correctness par occurrence.
+La valeur du correctif est ailleurs — **91 remarques parasites de moins dans les
+rapports rendus à l'élève**, sur 22 solutions de référence. Une suggestion qui
+se déclenche à tort quatre fois par pièce n'est pas une petite gêne : c'est ce
+qui apprend à l'élève à ne plus lire le rapport.
+
+### E-1 — la dette commençait à la quarte, le cursus la fait commencer à la sixte
+La distribution était sans appel : **58 des 91 alertes portaient sur des quartes
+justes, 25 sur des quintes** — des intervalles consonants, chantables, qui
+structurent tout arpège sans rien devoir à personne.
+
+Le contenu du cursus tranche, et il est explicite. `m01-l02-intervalles` :
+« la règle `melody.leap-recovery` que tu rencontreras dès tes premiers exercices
+parle d'intervalles mélodiques **≥ 6te** ». Et `m02-l12-ambiances-3` nomme le
+geste canonique : « le couple grand saut + résolution conjointe — l'élan (LA
+SIXTE) suivi du retour tendre ».
+
+Le code posait `LEAP = 5`, soit une quarte. Deux seuils avaient été confondus :
+celui qui distingue le SAUT du degré conjoint (une quarte, ce que dit le
+commentaire d'origine) et celui qui déclenche le REMBOURSEMENT (une sixte, ce
+que dit la leçon).
+**Correctif** : `LEAP = 8`. **91 → 7 occurrences**, et les sept restantes sont
+des sixtes et au-delà réellement non soldées.
+
 ## Reste à faire
 
 **39 solutions** encore rouges (44 n'atteignent pas les deux clauses). Les
@@ -330,7 +358,6 @@ blocages sont désormais concentrés : quatre règles pèsent l'essentiel.
 
 | Occurrences | Règle | À instruire |
 |---|---|---|
-| 21 sol. | `melody.leap-recovery` | 91 occurrences : un thème d'aventure ou d'épique enchaîne des sauts par contrat. La règle a peut-être besoin d'une fourchette par `targetMood`, comme `step-leap-balance` côté craft. |
 | 17 sol. | `vl.parallel-perfects` | vérifié par sondage sur m01-s40 : les quintes parallèles composées y sont RÉELLES entre basse et voix interne. Reste à trancher si l'écriture de clavier des solutions justifie une exception, ou si les solutions sont à corriger (diagnostic B). |
 | 13 sol. | `harmony.unresolved-seventh` | les septièmes de M3 (couleur, pas tension) — probablement une affaire de profil. |
 | 12 sol. | `vl.leading-tone-resolution` | résiduel après A-4, A-5 et B-5, à instruire pièce par pièce. |
