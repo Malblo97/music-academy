@@ -489,8 +489,10 @@ de la passe précédente sur `m01-s40` s'est confirmé pièce par pièce.
 | 4 sol. | `vl.direct-perfect` | même famille. Les sopranos concernés arrivent par SAUT, donc l'exception « soprano par degré » — celle que `m03-s02` revendique — ne les couvre pas. |
 | 7 occ. | `vl.spacing` | concentrées sur deux textures larges revendiquées : le tapis+arabesque de `m03-s11` et `m03-s04`. Le `when` de la règle s'exclut lui-même des « textures orchestrales larges » sans que le code l'implémente — mais le faire proprement demande un critère, pas une exception ; à instruire avec les profils. |
 
-Le gros du rouge restant n'est plus harmonique : **16 des 31** sont les mélodies
-de M2 (`melody.*`, `rhythm.prosody`, contraintes de motif), un chantier distinct.
+Le gros du rouge restant n'est plus harmonique. Aux deux clauses du verrou :
+m01 **15/26**, m02 **9/27**, m03 **18/20**. Les **18 rouges de M2** (`melody.*`,
+`rhythm.prosody`, contraintes de motif) sont un chantier distinct de celui-ci,
+et M3 — le crash-test harmonique — est à deux pièces de la fin.
 
 **Aucun seuil de `scoring.ts` n'a été touché dans cette passe non plus**, et
 aucun poids de profil.
