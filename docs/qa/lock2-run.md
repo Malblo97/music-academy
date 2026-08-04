@@ -386,10 +386,13 @@ composition — « l'atterrissage EST le fil resté seul », m03-s06 boucle).
 **Lot A : 73 solutions**, jugées par les familles `harmony.*`/`vl.*`.
 **Lot B : 13 solutions** hors périmètre, qui ÉCHOUENT BRUYAMMENT
 (`UnrepresentableTexture`) et sont nommées à chaque exécution du verrou. Elles ne
-sont pas repliées en `mono` : compilées ainsi, **16 des 17 candidates passaient
-la barre sans qu'une seule règle d'harmonie ne leur soit posée** — vert et creux,
-exactement ce que la décision n°29(2) refusait. Aucun `Submission['kind']` ne
-décrit une texture à densité variable ; c'est ce qui manque, et c'est écrit.
+sont PAS repliées en `mono` : compilées ainsi, **aucune des 13 ne reçoit une
+seule règle d'harmonie** (`harmony.*` et `vl.*` ont `appliesTo: ['voices',
+'parts', 'midi']`), et **8 des 13 passeraient le verrou entier** — les cinq
+autres ne butant que sur une contrainte, jamais sur une règle. C'est du vert
+creux, exactement ce que la décision n°29(2) refusait. Aucun
+`Submission['kind']` ne décrit une texture à densité variable ; c'est ce qui
+manque, et c'est écrit.
 
 | Lot B | Motif |
 |---|---|
