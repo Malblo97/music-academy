@@ -6,12 +6,37 @@ import { functionOf } from '../analyzers/cadence.js';
 /** Part maximale d'accords chromatiques non expliqués. */
 const CHROMATIC_TOLERANCE = 0.25;
 
+/**
+ * **Les septièmes qui OBLIGENT : celles qui portent un triton.**
+ *
+ * `/7/` attrapait aussi `maj7`, `m7` et `mMaj7` — or la septième majeure d'un
+ * Imaj7 ou d'un IVmaj7 est une COULEUR de repos, pas une question : elle ne
+ * demande rien. C'est bien ce que dit la `pedagogy` de la règle (« la quarte
+ * au-dessus, ou le demi-ton en dessous ») : elle décrit la septième de
+ * dominante. Le triton est le critère exact — `7`, `m7♭5` et `dim7` le portent,
+ * `maj7`, `m7`, `mMaj7`, `6` et `m6` non.
+ */
+const TENSION_SEVENTHS = new Set(['7', 'm7b5', 'dim7']);
+
+/** Les septièmes de SENSIBLE, qui résolvent en montant d'un demi-ton (vii°7 → I). */
+const LEADING_SEVENTHS = new Set(['m7b5', 'dim7']);
+
 function pc(n: number): number {
   return ((n % 12) + 12) % 12;
 }
 
 function tagged(ctx: RuleCtx, tick: number): boolean {
   return (ctx.analysis.idioms ?? []).some(t => tick >= t.from && tick < t.to);
+}
+
+/**
+ * La consigne déclare-t-elle une BOUCLE ? Le corpus la nomme toujours par une
+ * contrainte dédiée — `loopTours`, `maxLoopChords`, `loopReturnChord`,
+ * `loopBarsLength`… On teste donc le nom de la clé plutôt qu'une liste fermée,
+ * qui rouillerait au premier ajout du contenu.
+ */
+function declaresLoop(spec: RuleCtx['spec']): boolean {
+  return Object.keys(spec.constraints ?? {}).some(k => /loop/i.test(k));
 }
 
 export const HARMONY_RULES: Rule[] = [
@@ -22,6 +47,13 @@ export const HARMONY_RULES: Rule[] = [
     appliesTo: ['voices', 'parts', 'midi'],
     lessonRef: 'm09-l02',
     detect: (ctx: RuleCtx): Issue[] => {
+      // Une couture n'existe que sur une grille qui BOUCLE — c'est ce que dit
+      // le `when` de cette règle, et la lettre du code disait autre chose : la
+      // distance du dernier accord au premier était mesurée sur TOUTE
+      // progression. Une période classique qui finit sur sa parfaite ne
+      // repasse jamais par son premier accord ; lui reprocher l'écart entre son
+      // do final et son sol initial, c'est juger un raccord qui n'existe pas.
+      if (!declaresLoop(ctx.spec)) return [];
       const chords = ctx.analysis.chords ?? [];
       if (chords.length < 3) return [];
       const first = chords[0]!;
@@ -55,12 +87,33 @@ export const HARMONY_RULES: Rule[] = [
       const issues: Issue[] = [];
       for (let i = 0; i < chords.length - 1; i++) {
         const chord = chords[i]!;
-        if (!/7/.test(chord.chord.form)) continue;
+        if (!TENSION_SEVENTHS.has(chord.chord.form)) continue;
         if (tagged(ctx, chord.from)) continue;
-        const next = chords[i + 1]!;
+
+        // La CIBLE, c'est le prochain accord qui change de fondamentale. Un G7
+        // qui se reverse en G7, un D7sus4 qui devient D7 : l'harmonie n'a pas
+        // bougé, la septième n'est pas abandonnée — elle TIENT. Sur
+        // m03-s09 (« le monde et la flèche », pédale de G7), le moteur voyait
+        // quatre abandons dans un seul accord tenu.
+        let j = i + 1;
+        while (j < chords.length && pc(chords[j]!.chord.root) === pc(chord.chord.root)) j++;
+        const next = chords[j];
+        if (!next) continue; // la pièce s'arrête sur la tension : ce n'est plus un enchaînement
+
+        // Le chiffrage doit être CONTINU jusqu'à la cible. Un trou veut dire
+        // qu'une verticalité n'a pas pu se chiffrer (add9, quinte à vide,
+        // agrégat) — et non qu'elle est absente. La même doctrine que F-66 :
+        // sans chiffrage, on ne tranche pas. Sur m01-s26, le G7 de la mesure 1
+        // résout sur un Cmaj9 illisible, et la règle lisait le Em7 deux mesures
+        // plus loin comme sa « suite ».
+        if (chords.slice(i, j + 1).some((c, k, arr) => k > 0 && c.from !== arr[k - 1]!.to)) continue;
+
         const down = pc(chord.chord.root + 5) === pc(next.chord.root); // quinte descendante
         const semitone = pc(chord.chord.root - 1) === pc(next.chord.root); // subV
-        if (down || semitone) continue;
+        // La septième diminuée et la demi-diminuée sont des accords de SENSIBLE :
+        // leur fondamentale monte d'un demi-ton sur la tonique (vii°7 → I).
+        const leading = LEADING_SEVENTHS.has(chord.chord.form) && pc(chord.chord.root + 1) === pc(next.chord.root);
+        if (down || semitone || leading) continue;
         issues.push(ruleIssue(self, chord.from,
           'accord de septième laissé sans suite : la tension est posée puis abandonnée'));
       }

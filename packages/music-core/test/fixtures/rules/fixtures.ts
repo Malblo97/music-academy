@@ -100,8 +100,11 @@ export const fixtures: Fixture[] = [
     { voices: ['E4:w | D4:w', 'Bb2:w | D3:w'] },
     'impressionist'),
 
+  // La quinte du V est là exprès : sans elle, la verticalité ne se chiffre pas,
+  // et le garde F-66 (« le 7e degré n'est une sensible que sous une dominante »)
+  // n'a aucune dominante à reconnaître. Une fixture doit poser le cas EN ENTIER.
   ...triad('vl.doubled-leading-tone',
-    { voices: ['G2:w | C3:w', 'B3:w | C4:w', 'B4:w | C5:w'] },
+    { voices: ['G2:w | C3:w', 'D4:w | E4:w', 'B3:w | C4:w', 'B4:w | C5:w'] },
     { voices: ['G2:w | C3:w', 'D4:w | E4:w', 'B4:w | C5:w'] }),
 
   ...triad('vl.spacing',

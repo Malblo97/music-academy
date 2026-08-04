@@ -144,6 +144,134 @@ function hasStacks(notation: string): boolean {
 
 const HARMONIC_KINDS = new Set(['HARMONY_PROGRESSION', 'CHORD_PROGRESSION', 'HARMONIZE_MELODY', 'COUNTERPOINT']);
 
+// ---------------------------------------------------------------------------
+// L'EFFECTIF : quelles pièces se lisent en voix (décision n°31)
+// ---------------------------------------------------------------------------
+
+/**
+ * Un effectif CONSTANT l'est — au milieu de la pièce, une verticalité plus
+ * mince décale d'un rang toutes les voix sous la manquante, et les quatre
+ * lignes deviennent fausses ensemble. La DERNIÈRE fait exception : finir à
+ * moins de voix qu'on n'en tenait est un geste de composition, pas une
+ * instabilité, et rien ne vient après qu'elle puisse décaler. Le corpus en
+ * porte deux, revendiqués en `authorNotes` — « l'atterrissage EST le fil resté
+ * seul » (m03-s06 boucle), « le pôle resté seul » (m03-s10).
+ */
+const MAX_THIN_ONSETS = 0;
+
+/** Ce que la pièce TIENT verticalement, indépendamment de ce que la spec déclare. */
+interface StackProfile {
+  /** La largeur de la verticalité dominante — l'effectif présumé. */
+  width: number;
+  /** La plus épaisse rencontrée. Au-dessus de `width`, une voix apparaît de nulle part. */
+  maxWidth: number;
+  /** Combien de verticalités NON FINALES sont plus minces que l'effectif. */
+  thinOnsets: number;
+  onsets: number;
+}
+
+/**
+ * La largeur d'une verticalité se compte en sons qui SONNENT, pas en sons qui
+ * attaquent : une ronde liée par-dessus la barre tient sa voix sans réattaquer.
+ * Compter les attaques faisait passer `m01-s34` (dont la 9e est liée dans
+ * l'accord final) pour une pièce à largeur variable — et pire, décalait la
+ * répartition sur cet accord-là.
+ */
+function soundingWidths(notes: readonly Note[]): number[] {
+  const onsets = [...new Set(notes.map(n => n.start))].sort((a, b) => a - b);
+  return onsets.map(at => notes.filter(n => n.start <= at && n.start + n.duration > at).length);
+}
+
+function profileOf(notes: readonly Note[]): StackProfile {
+  const observed = soundingWidths(notes);
+  const tally = new Map<number, number>();
+  for (const w of observed) tally.set(w, (tally.get(w) ?? 0) + 1);
+  // La largeur dominante ; à égalité, la plus épaisse — on ne suppose pas
+  // qu'une pièce est plus mince qu'elle n'est.
+  let width = 0, best = -1;
+  for (const [w, count] of tally) if (count > best || (count === best && w > width)) { width = w; best = count; }
+  return {
+    width,
+    maxWidth: observed.length > 0 ? Math.max(...observed) : 0,
+    thinOnsets: observed.slice(0, -1).filter(w => w < width).length,
+    onsets: observed.length,
+  };
+}
+
+export type VoiceTexture =
+  | { kind: 'constant-choir'; width: number }
+  | { kind: 'variable-density'; reason: string };
+
+function declaredVoices(spec: ExerciseSpec): { min?: number; max?: number } {
+  const c = (spec.constraints ?? {}) as Record<string, unknown>;
+  const out: { min?: number; max?: number } = {};
+  if (typeof c.minVoices === 'number') out.min = c.minVoices;
+  if (typeof c.maxVoices === 'number') out.max = c.maxVoices;
+  return out;
+}
+
+/**
+ * **Le déclencheur de `unstackVoices` (décision n°31).**
+ *
+ * La décision n°29(2) reste entière : un choral écrit en accords EST à quatre
+ * voix, et le compiler ainsi c'est le LIRE. Ce qui manquait, c'est de vérifier
+ * que la pièce est bien un choral avant de le faire — le déclencheur d'origine
+ * était « la notation empile des hauteurs », ce qui embarquait aussi les
+ * textures à densité ouverte. `m03-e15` déclare `minVoices: 1, maxVoices: 8`,
+ * `styleProfile: impressionist`, et sa leçon porte sur le cluster : ses neuf
+ * attaques à une note et ses grappes à huit étaient jugées par des règles
+ * écrites pour quatre voix indépendantes.
+ *
+ * Deux témoins, et il faut les deux. La spec parle EN PREMIER : c'est elle qui
+ * dit de quoi l'exercice traite, et une plage ouverte (1–8, 2–7) annonce un
+ * travail de densité même si cette solution-là s'avère stable.
+ */
+export function voiceTextureOf(notes: readonly Note[], spec: ExerciseSpec): VoiceTexture {
+  const p = profileOf(notes);
+  const { min, max } = declaredVoices(spec);
+
+  // Ce que la spec DÉCLARE.
+  if (min !== undefined && min <= 1) {
+    return { kind: 'variable-density', reason: `la spec déclare minVoices ${min} : l'exercice porte sur la densité, pas sur un effectif` };
+  }
+  if (min !== undefined && max !== undefined && max - min >= 2) {
+    return { kind: 'variable-density', reason: `la spec déclare une plage ouverte (${min}–${max}) : l'exercice porte sur la densité, pas sur un effectif` };
+  }
+  if ((min !== undefined && p.width < min) || (max !== undefined && p.width > max)) {
+    return { kind: 'variable-density', reason: `la pièce tient ${p.width} voix, la spec en déclare ${min ?? '—'}–${max ?? '—'}` };
+  }
+
+  // Ce que la pièce TIENT.
+  if (p.width < 2) {
+    return { kind: 'variable-density', reason: `la verticalité dominante n'a qu'une note (${p.onsets} verticalités, jusqu'à ${p.maxWidth}) — c'est une ligne, pas un effectif` };
+  }
+  if (p.maxWidth > p.width) {
+    return { kind: 'variable-density', reason: `l'effectif dominant est de ${p.width} voix mais des verticalités montent à ${p.maxWidth} — une voix apparaîtrait de nulle part` };
+  }
+  if (p.thinOnsets > MAX_THIN_ONSETS) {
+    return { kind: 'variable-density', reason: `${p.thinOnsets} verticalités sur ${p.onsets} sont plus minces que l'effectif de ${p.width}, ailleurs qu'à la fin — l'attribution registrale décalerait les voix` };
+  }
+  return { kind: 'constant-choir', width: p.width };
+}
+
+/**
+ * **Ce que le moteur ne sait pas encore REPRÉSENTER** — pas une solution fausse.
+ *
+ * Aucun `Submission['kind']` ne décrit une texture à densité variable :
+ * `voices` suppose un effectif, `mono` une ligne, `layers` un empilement de
+ * sound design. Compiler ces pièces en `mono` les ferait passer sans qu'aucune
+ * règle d'harmonie ne leur soit posée — vert et creux, exactement ce que la
+ * décision n°29(2) refusait. On échoue donc BRUYAMMENT, en attendant qu'une
+ * forme de soumission adaptée existe. Le lot est nommé au registre (n°31) et
+ * détaillé dans `docs/qa/lock2-run.md`.
+ */
+export class UnrepresentableTexture extends Error {
+  constructor(readonly label: string, readonly reason: string) {
+    super(`${label} : texture à densité variable, hors périmètre des familles vl.*/harmony.* — ${reason}. Aucune forme de soumission ne la représente (décision n°31) ; voir docs/qa/lock2-run.md.`);
+    this.name = 'UnrepresentableTexture';
+  }
+}
+
 /**
  * Défait un empilement vertical en VOIX, par registre : la plus aiguë de chaque
  * attaque va au soprano, et ainsi de suite.
@@ -156,23 +284,24 @@ const HARMONIC_KINDS = new Set(['HARMONY_PROGRESSION', 'CHORD_PROGRESSION', 'HAR
  * quatre voix — le compiler ainsi, c'est lire la solution, pas la contourner.
  *
  * Limite assumée : l'attribution est registrale, pas contrapuntique. Sur un
- * texte où une voix interne se tait puis rentre, la répartition peut décaler
- * d'un rang ; les solutions du corpus M1/M3 sont des chorals à effectif
- * constant, où l'attribution est exacte.
+ * texte où une voix interne se tait puis rentre, la répartition décale d'un
+ * rang — la basse d'une attaque à trois notes atterrit au rang 3 quand celle
+ * des attaques à quatre est au rang 4, et les quatre lignes deviennent fausses
+ * ensemble. C'est `voiceTextureOf` qui garantit la précondition : on n'appelle
+ * cette fonction que sur des chorals à effectif constant.
  */
 export function unstackVoices(notes: readonly Note[]): Note[][] {
-  const byOnset = new Map<number, Note[]>();
-  for (const n of notes) {
-    const at = byOnset.get(n.start) ?? [];
-    at.push(n);
-    byOnset.set(n.start, at);
-  }
-  const onsets = [...byOnset.keys()].sort((a, b) => a - b);
-  const width = Math.max(1, ...onsets.map(o => byOnset.get(o)!.length));
-  const voices: Note[][] = Array.from({ length: width }, () => []);
+  const onsets = [...new Set(notes.map(n => n.start))].sort((a, b) => a - b);
+  const widths = soundingWidths(notes);
+  const voices: Note[][] = Array.from({ length: Math.max(1, ...widths) }, () => []);
   for (const onset of onsets) {
-    const stack = byOnset.get(onset)!.slice().sort((a, b) => b.pitch - a.pitch);
-    stack.forEach((n, i) => voices[i]!.push(n));
+    // Le rang se calcule sur la verticalité qui SONNE — liaisons comprises —
+    // sinon la note tenue laisse un trou et tout ce qui est en dessous d'elle
+    // remonte d'un rang le temps d'un accord. Seules les notes qui ATTAQUENT
+    // ici sont poussées : une tenue appartient déjà à sa voix.
+    const sounding = notes.filter(n => n.start <= onset && n.start + n.duration > onset)
+      .sort((a, b) => b.pitch - a.pitch);
+    sounding.forEach((n, i) => { if (n.start === onset) voices[i]!.push(n); });
   }
   return voices.filter(v => v.length > 0);
 }
@@ -237,9 +366,17 @@ export function compileSolution(s: Solution, spec: ExerciseSpec): Submission {
 
   const notes = render(parseNotation(s.notation), s);
   const kind = typeof spec.kind === 'string' ? spec.kind : undefined;
-  if ((kind && HARMONIC_KINDS.has(kind)) || hasStacks(s.notation)) {
-    const voices = unstackVoices(notes);
-    if (voices.length >= 2) return { kind: 'voices', voices };
+  const harmonic = kind !== undefined && HARMONIC_KINDS.has(kind);
+  if (harmonic || hasStacks(s.notation)) {
+    const texture = voiceTextureOf(notes, spec);
+    if (texture.kind === 'constant-choir') {
+      const voices = unstackVoices(notes);
+      if (voices.length >= 2) return { kind: 'voices', voices };
+    } else if (harmonic) {
+      // Une pièce HARMONIQUE dont on ne sait pas lire l'effectif ne doit pas
+      // retomber en `mono` : elle serait notée sans une seule règle d'harmonie.
+      throw new UnrepresentableTexture(labelOf(s), texture.reason);
+    }
   }
   return { kind: 'mono', notes };
 }

@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { evaluateDetailed } from '../../src/pipeline/evaluate.js';
 import type { FeedbackReport } from '../../src/pipeline/feedback.js';
-import { compileSolution, labelOf, loadSolutions, lockKindOf, specOf } from '../solutions.js';
+import { UnrepresentableTexture, compileSolution, labelOf, loadSolutions, lockKindOf, specOf } from '../solutions.js';
 import type { Solution } from '../solutions.js';
 
 /**
@@ -92,6 +92,7 @@ for (const mod of SCOPE) {
 describe('verrou n°2 : couverture', () => {
   it('rapporte la note de chaque module', () => {
     const rows: string[] = [];
+    const outOfScope: string[] = [];
     for (const mod of SCOPE) {
       const scores: number[] = [];
       for (const s of solutions.filter(x => x.module === mod)) {
@@ -99,7 +100,8 @@ describe('verrou n°2 : couverture', () => {
         if (lockKindOf(typeof spec.kind === 'string' ? spec.kind : undefined) !== 'score') continue;
         try {
           scores.push(evaluateDetailed(compileSolution(s as Solution, spec), spec, { skipPerformance: true }).report.score);
-        } catch {
+        } catch (e) {
+          if (e instanceof UnrepresentableTexture) { outOfScope.push(`${labelOf(s)} — ${e.reason}`); continue; }
           scores.push(-1);
         }
       }
@@ -109,6 +111,10 @@ describe('verrou n°2 : couverture', () => {
       rows.push(`${mod} : ${green}/${scores.length} verts · moyenne ${mean} · minimum ${min}`);
     }
     for (const r of rows) console.warn(`verrou n°2 — ${r}`);
+    // Le LOT B, nommé à chaque exécution : un trou qu'on voit est un trou qu'on
+    // rebouche. Le taire ferait passer le verrou pour complet (décision n°31).
+    console.warn(`verrou n°2 — lot B (densité variable, hors familles vl.*/harmony.*) : ${outOfScope.length} pièces`);
+    for (const o of outOfScope) console.warn(`  · ${o}`);
     expect(rows.length).toBe(SCOPE.length);
   });
 });

@@ -197,18 +197,18 @@ function leadingToneIssues(
       const note = line[i]!;
       if (pc(note.pitch - key.tonic) !== 11) continue; // pas le 7e degré
       // **F-66** : le 7e degré n'est une SENSIBLE que sous une fonction de
-      // dominante. Ailleurs c'est la septième d'un accord, la tierce d'un III,
-      // une note de passage — et rien n'oblige une septième à monter. Sur
-      // m01-s26 (guide-tones jazz, trois tonalités en six mesures), la
-      // tonalité globale faisait passer chaque septième majeure pour une
-      // sensible non résolue.
-      if (!underDominant(ctx, key, note.start)) continue;
+      // dominante, ET qu'à la place de la sensible dans cet accord. Ailleurs
+      // c'est la septième d'un accord, la tierce d'un III, la fondamentale
+      // d'un emprunt, une note de passage — et rien ne l'oblige à monter.
+      if (!actsAsLeadingTone(ctx, key, note.pitch, note.start)) continue;
 
-      // Une sensible RÉÉNONCÉE est la même sensible. Elle se juge sur son
-      // DÉPART, pas sur chacune de ses répétitions : le si tenu sous quatre
-      // voicings de dominante puis résolu sur do est résolu une fois, pas
-      // fautif trois fois (m01-s34 : « B3→C4, sensible ✓ » — le moteur y
-      // voyait deux erreurs).
+      // Une sensible RÉÉNONCÉE est la même sensible : on la juge sur son
+      // DÉPART. Le si tenu sous trois voicings de dominante est une sensible,
+      // pas trois — qu'il résolve ou non. Le saut en avant ci-dessous cherchait
+      // bien sa cible par-delà les répétitions, mais chaque répétition rouvrait
+      // le procès : m03-s18 récoltait trois erreurs pour un seul sol♯.
+      if (i > 0 && line[i - 1]!.pitch === note.pitch) continue;
+
       let j = i + 1;
       while (j < line.length && line[j]!.pitch === note.pitch) j++;
       const next = line[j];
@@ -256,15 +256,31 @@ function leadingToneIssues(
   return issues;
 }
 
+/** Les accords DE SENSIBLE, où la sensible est la fondamentale : vii°, vii°7, viiø7. */
+const LEADING_TONE_CHORDS = new Set(['dim', 'dim7', 'm7b5']);
+
 /**
- * Le tick sonne-t-il sous une fonction de DOMINANTE ? **F-66**.
+ * Le 7e degré joue-t-il vraiment le RÔLE de sensible ici ? **F-66, resserré.**
+ *
+ * Deux conditions, et la seconde manquait. L'accord doit être de fonction
+ * dominante — c'était déjà là. Mais il faut aussi que la note y TIENNE la place
+ * de la sensible : la tierce majeure d'une dominante (V, V7), ou la
+ * fondamentale d'un accord de sensible (vii°, vii°7, viiø7).
+ *
+ * Sans cette seconde condition, toute note qui tombe sur le 7e degré de la
+ * tonalité GLOBALE devenait une sensible dès que son accord était rangé en « D »
+ * — et `functionOf` range en « D » tout accord fondé sur le 7e degré, quelle que
+ * soit sa qualité. La basse mi du Em7 de m01-s26 (ii d'un ii–V–I en ré, dans une
+ * pièce dont la tonalité globale est fa), la fondamentale du Mi majeur V/vi de
+ * m01-s35, celle du si mineur de m03-s05 : trois FONDAMENTALES prises pour des
+ * sensibles, dans trois pièces dont les `authorNotes` déclarent la conduite
+ * vérifiée.
  *
  * Sans chiffrage transmis, on ne peut pas trancher : on garde alors l'ancien
- * comportement (tout 7e degré est traité comme sensible), pour ne pas
- * silencieusement désactiver la règle chez les appelants qui ne fournissent pas
- * les accords.
+ * comportement, pour ne pas silencieusement désactiver la règle chez les
+ * appelants qui ne fournissent pas les accords.
  */
-function underDominant(ctx: VoiceLeadingCtx, key: KeyEstimate, tick: number): boolean {
+function actsAsLeadingTone(ctx: VoiceLeadingCtx, key: KeyEstimate, pitch: number, tick: number): boolean {
   const chords = ctx.chords;
   // L'appelant ne fournit aucune analyse harmonique : on ne peut pas trancher,
   // et désactiver la règle en silence serait pire. Ancien comportement.
@@ -276,7 +292,12 @@ function underDominant(ctx: VoiceLeadingCtx, key: KeyEstimate, tick: number): bo
   // section « apesanteur » de m03-s11, où chaque 7e degré était pris pour une
   // sensible d'un accord qui n'existe pas.
   if (sounding.length === 0) return false;
-  return sounding.some(c => functionOf(c.chord, key) === 'D');
+  return sounding.some(c => {
+    if (functionOf(c.chord, key) !== 'D') return false;
+    const role = pc(pitch - c.chord.root);
+    if (role === 4) return true; // la tierce majeure de la dominante
+    return role === 0 && LEADING_TONE_CHORDS.has(c.chord.form);
+  });
 }
 
 /** Zone cadentielle stricte : sans information, on considère qu'on n'y est PAS. */
@@ -321,7 +342,7 @@ function seventhIssues(slices: readonly Slice[], voices: readonly (readonly Note
   return issues;
 }
 
-function spacingAndDoublingIssues(slices: readonly Slice[], key: KeyEstimate): Issue[] {
+function spacingAndDoublingIssues(slices: readonly Slice[], key: KeyEstimate, ctx: VoiceLeadingCtx): Issue[] {
   const issues: Issue[] = [];
   for (const slice of slices) {
     const present = slice.pitches.filter((p): p is number => p !== null).sort((a, b) => a - b);
@@ -338,8 +359,12 @@ function spacingAndDoublingIssues(slices: readonly Slice[], key: KeyEstimate): I
         });
       }
     }
-    // Doublure de sensible.
-    const leadingTones = present.filter(p => pc(p - key.tonic) === 11);
+    // Doublure de sensible. Même garde F-66 que la non-résolution : deux notes
+    // sur le 7e degré ne sont deux SENSIBLES que si elles en jouent le rôle.
+    // Dans l'apesanteur de m03-s11, le si du tapis E♭+ et celui de l'arabesque
+    // appartiennent à un agrégat par tons entiers — aucune dominante, donc
+    // aucune sensible, donc rien à doubler.
+    const leadingTones = present.filter(p => pc(p - key.tonic) === 11 && actsAsLeadingTone(ctx, key, p, slice.at));
     if (leadingTones.length > 1) {
       issues.push({
         ruleId: 'vl.doubled-leading-tone',
@@ -370,6 +395,6 @@ export function voiceLeadingIssues(
     ...parallelIssues(slices, key, ctx, voices.length),
     ...leadingToneIssues(voices, key, ctx),
     ...seventhIssues(slices, voices, ctx),
-    ...spacingAndDoublingIssues(slices, key),
+    ...spacingAndDoublingIssues(slices, key, ctx),
   ].sort((a, b) => (a.atTick ?? 0) - (b.atTick ?? 0));
 }

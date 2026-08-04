@@ -23,6 +23,14 @@ manque de CONTENU, pas de moteur — voir « Reste à faire ».
 | Passe 3 — C-1 à C-3 (`melody.out-of-key`) | 15/27 | 10/28 | 18/31 | **43 à la note, 38 pleinement verts** |
 | Passe 4 — D-1 à D-3 (`melody.climax`) | 17/27 | 10/28 | 20/31 | **47 à la note, 42 pleinement verts** |
 | Passe 5 — E-1 (`melody.leap-recovery`) | 17/27 | 11/28 | 20/31 | **48 à la note, 42 pleinement verts** |
+| Passe 6 — F-0 à F-5 (périmètre, puis `harmony.*`/`vl.*`) | 19/26 | 11/27 | 19/20 | **42 pleinement verts sur 73 — et 13 pièces sorties du périmètre** |
+
+À la passe 6, les dénominateurs changent : le verrou ne compte plus que le
+**lot A**, les pièces dont l'effectif se lit (voir F-0). Le total vert ne bouge
+pas — 42 avant, 42 après — mais sa composition, si : quatre pièces qui passaient
+sans qu'aucune règle d'harmonie ne leur soit posée sont sorties, quatre pièces
+réellement jugées sont entrées. On ne peut pas atteindre 86/86 tant que le lot B
+n'a pas de forme de soumission ; le plafond honnête est **73**.
 
 Le verrou pose DEUX conditions par solution : la note ≥ 85 **et** aucune
 contrainte non tenue hors performance. Le second chiffre est le seul qui compte
@@ -351,10 +359,138 @@ que dit la leçon).
 **Correctif** : `LEAP = 8`. **91 → 7 occurrences**, et les sept restantes sont
 des sixtes et au-delà réellement non soldées.
 
+## Passe 6 — le périmètre d'abord, puis `harmony.*` et `vl.*`
+
+Cette passe fait deux choses, et il fallait les faire dans cet ordre : d'abord
+dire QUELLES pièces se lisent en voix, ensuite seulement corriger les règles qui
+jugent des voix. Le contraire — calibrer `vl.*` sur un lot qui contient des
+clusters à huit notes jugés par des règles à quatre voix — aurait produit des
+exceptions taillées pour du bruit.
+
+### F-0 — le périmètre : le lot A et le lot B (décision n°31)
+
+La décision n°29(2) tenait : un choral écrit en accords EST à quatre voix, et le
+compiler ainsi c'est le LIRE. Ce qui manquait, c'est de vérifier que la pièce est
+un choral avant de le faire. Le déclencheur d'origine était « la notation empile
+des hauteurs » — il embarquait donc aussi `m03-e15-the-veil-the-blade-the-mass`,
+dont la spec déclare `minVoices: 1, maxVoices: 8`, `styleProfile: impressionist`,
+et dont la leçon porte sur le cluster.
+
+`voiceTextureOf(notes, spec)` demande deux témoins concordants. Ce que la spec
+DÉCLARE : `minVoices`/`maxVoices` compatibles et fermés — une plage ouverte
+(1–8, 2–7) annonce un travail de densité, pas un effectif. Ce que la pièce
+TIENT : effectif ≥ 2, aucune verticalité plus épaisse que la norme, aucune plus
+mince sauf la dernière (finir à moins de voix qu'on n'en tenait est un geste de
+composition — « l'atterrissage EST le fil resté seul », m03-s06 boucle).
+
+**Lot A : 73 solutions**, jugées par les familles `harmony.*`/`vl.*`.
+**Lot B : 13 solutions** hors périmètre, qui ÉCHOUENT BRUYAMMENT
+(`UnrepresentableTexture`) et sont nommées à chaque exécution du verrou. Elles ne
+sont pas repliées en `mono` : compilées ainsi, **16 des 17 candidates passaient
+la barre sans qu'une seule règle d'harmonie ne leur soit posée** — vert et creux,
+exactement ce que la décision n°29(2) refusait. Aucun `Submission['kind']` ne
+décrit une texture à densité variable ; c'est ce qui manque, et c'est écrit.
+
+| Lot B | Motif |
+|---|---|
+| m01-e45-gear-change-done-right, m03-e12 [creature] | la verticalité dominante n'a qu'une note — une ligne, pas un effectif |
+| m03-e10-white-light, m03-e15-the-veil-the-blade-the-mass | la spec déclare une plage ouverte (2–7, 1–8) : l'exercice porte sur la densité |
+| m02-e15-three-lights, m03-e12 [corruption], m03-e13, m03-e14, m03-e17 ×3, m03-e18 [modal] et [non-fonctionnel] | des verticalités plus épaisses que l'effectif dominant : une voix apparaîtrait de nulle part |
+
+### F-1 — `unstackVoices` répartissait sur les ATTAQUES, pas sur ce qui SONNE
+Une ronde liée par-dessus la barre tient sa voix sans réattaquer. En groupant par
+`note.start`, la répartition la voyait absente : tout ce qui était sous elle
+remontait d'un rang le temps d'un accord, et les quatre lignes devenaient fausses
+ensemble. Sur `m01-s34`, l'accord final `[C3+C4+E4+D5]` porte une 9e liée depuis
+la mesure précédente ; le si de l'alto se retrouvait suivi du do de la BASSE, et
+le moteur signalait une sensible non résolue — quand les `authorNotes` écrivent
+« B3→C4 (sensible ✓) ».
+**Correctif** : la répartition et la mesure de largeur lisent la verticalité
+SONNANTE (`start ≤ t < start+duration`), seules les notes qui attaquent étant
+poussées. `m01-s34` et `m03-s11` rentrent au lot A, et `m01-s34` passe de 88 à 94.
+
+### F-2 — `harmony.unresolved-seventh` : 18 signalements, 17 faux, quatre causes
+Le relevé exhaustif sur le lot A donnait 18 occurrences. Aucune n'a demandé de
+seuil ; chacune tombait sous une cause nommable.
+
+- **La septième majeure n'est pas une tension.** `/7/.test(form)` attrapait
+  `maj7`, `m7` et `mMaj7`. Or la `pedagogy` de la règle décrit la septième de
+  DOMINANTE (« la quarte au-dessus, ou le demi-ton en dessous »). Le critère
+  exact est le triton : `7`, `m7b5` et `dim7` le portent, `maj7`, `m7`, `6` et
+  `m6` non. Un Cmaj7 en IV ne demande rien.
+- **La même fondamentale n'est pas un abandon.** Un G7 qui se reverse en G7, un
+  D7sus4 qui devient D7 : l'harmonie n'a pas bougé, la septième TIENT. Sur
+  `m03-s09` (pédale de G7), le moteur voyait quatre abandons dans un seul accord.
+  La cible est désormais le prochain accord qui CHANGE de fondamentale.
+- **Un trou de chiffrage n'est pas une résolution manquée.** Le G7 de la mesure 1
+  de `m01-s26` résout sur un Cmaj9 que l'analyseur ne sait pas chiffrer ; la
+  règle lisait le Em7 deux mesures plus loin comme sa « suite ». Même doctrine
+  que F-66 : sans chiffrage, pas de verdict.
+- **La septième diminuée résout en MONTANT.** vii°7 → I : la fondamentale monte
+  d'un demi-ton. Seules la quinte descendante et le subV étaient acceptés, si
+  bien que le B°7 → C de `m03-s04` était compté pour un abandon.
+
+**Résultat : 12,4 points de coût pondéré → 0.**
+
+### F-3 — `vl.leading-tone-resolution` : une FONDAMENTALE n'est pas une sensible
+Le garde F-66 exigeait que l'accord soit de fonction dominante. Mais `functionOf`
+range en « D » **tout accord fondé sur le 7e degré, quelle que soit sa qualité** —
+et il manquait la seconde moitié de la condition : que la note TIENNE la place de
+la sensible dans cet accord. Trois pièces payaient pour trois fondamentales : la
+basse mi du Em7 de `m01-s26` (ii d'un ii–V–I en ré, dans une pièce dont la
+tonalité globale est fa), la fondamentale du Mi majeur V/vi de `m01-s35`, celle
+du si mineur de `m03-s05`.
+**Correctif** : la sensible est la tierce majeure d'une dominante (V, V7), ou la
+fondamentale d'un accord de sensible (`dim`, `dim7`, `m7b5`).
+
+Second défaut au même endroit : la sensible RÉÉNONCÉE. Le saut en avant cherchait
+bien sa cible par-delà les répétitions, mais chaque répétition rouvrait le
+procès — `m03-s18` récoltait trois erreurs pour un seul sol♯ tenu sous trois
+voicings de mi. Elle se juge maintenant sur son DÉPART, qu'elle résolve ou non.
+**9,6 → 1.**
+
+### F-4 — `vl.doubled-leading-tone` n'avait pas reçu le garde F-66
+La règle comptait les hauteurs sur le 7e degré, sans se demander si elles en
+jouaient le rôle. Dans l'apesanteur de `m03-s11`, le si du tapis E♭+ et celui de
+l'arabesque appartiennent à un agrégat par tons entiers : aucune dominante, donc
+aucune sensible, donc rien à doubler. Le commentaire du code nommait déjà ce cas
+pour la non-résolution — il n'avait simplement pas été appliqué ici.
+**Correctif** : même garde `actsAsLeadingTone` dans les deux règles. `m03-s11`
+passe de 71 à 80. **3 → 0.**
+
+*La fixture de `vl.doubled-leading-tone` a dû être complétée : elle posait un
+G–B sans quinte, une verticalité qui ne se chiffre pas, donc invisible au garde.
+Une fixture doit poser le cas EN ENTIER — la quinte du V y est maintenant.*
+
+### F-5 — `harmony.loop-coherence` s'appliquait à des grilles qui ne bouclent pas
+Le `when` de la règle est explicite : « sur toute grille bouclée … une
+progression qui ne boucle pas n'a pas de couture à cacher ». Le `detect` mesurait
+la distance du dernier accord au premier sur TOUTE progression d'au moins trois
+accords. Une période classique qui finit sur sa parfaite ne repasse jamais par
+son premier accord ; on lui reprochait l'écart entre son do final et son sol
+initial.
+**Correctif** : la règle ne s'applique que si la consigne déclare une boucle. Le
+test porte sur le NOM de la clé (`/loop/i` : `loopTours`, `maxLoopChords`,
+`loopReturnChord`, `loopBarsLength`…) plutôt que sur une liste fermée, qui
+rouillerait au premier ajout de contenu. **5 → 0.**
+
 ## Reste à faire
 
-**39 solutions** encore rouges (44 n'atteignent pas les deux clauses). Les
-blocages sont désormais concentrés : quatre règles pèsent l'essentiel.
+**31 solutions** du lot A encore rouges, **13** au lot B. Les blocages `vl.*`
+restants sont peu nombreux et **le diagnostic n'est plus le moteur** : le sondage
+de la passe précédente sur `m01-s40` s'est confirmé pièce par pièce.
+
+| Occurrences | Règle | À instruire |
+|---|---|---|
+| 4 sol. | `vl.parallel-perfects` | **les quintes sont RÉELLES** (diagnostic B). `m01-s32` : quintes parallèles franches soprano/alto (A4/D4 → D5/G4). `m01-s35`, `m01-s40` : douzièmes parallèles alto/basse. `m01-s40` cumule quintes parallèles ET octave directe sur sa parfaite finale. Ce sont des exercices d'HARMONIE dont les `authorNotes` vérifient le chiffrage et la basse, jamais la conduite — au contraire de M3, dont les `authorNotes` parlent SATB. Trancher : corriger le contenu M1, ou acter que ces solutions sont des voicings de clavier et non des chorals. |
+| 4 sol. | `vl.direct-perfect` | même famille. Les sopranos concernés arrivent par SAUT, donc l'exception « soprano par degré » — celle que `m03-s02` revendique — ne les couvre pas. |
+| 7 occ. | `vl.spacing` | concentrées sur deux textures larges revendiquées : le tapis+arabesque de `m03-s11` et `m03-s04`. Le `when` de la règle s'exclut lui-même des « textures orchestrales larges » sans que le code l'implémente — mais le faire proprement demande un critère, pas une exception ; à instruire avec les profils. |
+
+Le gros du rouge restant n'est plus harmonique : **16 des 31** sont les mélodies
+de M2 (`melody.*`, `rhythm.prosody`, contraintes de motif), un chantier distinct.
+
+**Aucun seuil de `scoring.ts` n'a été touché dans cette passe non plus**, et
+aucun poids de profil.
 
 | Occurrences | Règle | À instruire |
 |---|---|---|
