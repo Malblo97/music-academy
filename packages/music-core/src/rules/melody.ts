@@ -346,6 +346,13 @@ export const MELODY_RULES: Rule[] = [
       // La note qu'on garde est la dernière du CHANT, pas la dernière basse.
       // Sur une grille, c'est la CADENCE qui conclut, et `requiredCadence` la juge.
       if (!judgesMelody(ctx)) return [];
+      // Le `when` de cette règle dit : « une question laissée ouverte échappe à
+      // la règle — MAIS DIS-LE DANS TA CONSIGNE. » Quand la consigne le dit,
+      // c'est `mustEndOnDegrees` qui le dit, et c'est son checker qui juge la
+      // finale. La règle n'a alors plus à imposer sa liste générique par-dessus :
+      // `m02-e28` admet [2,5] (néo-noir, « ambiguous-dark »), sa contrainte
+      // passait, et la règle lui reprochait quand même sa finale sur 2̂.
+      if (ctx.spec.constraints?.mustEndOnDegrees !== undefined) return [];
       const notes = judgedLine(ctx);
       const last = notes[notes.length - 1];
       if (!last) return [];

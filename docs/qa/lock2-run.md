@@ -23,7 +23,8 @@ manque de CONTENU, pas de moteur — voir « Reste à faire ».
 | Passe 3 — C-1 à C-3 (`melody.out-of-key`) | 15/27 | 10/28 | 18/31 | **43 à la note, 38 pleinement verts** |
 | Passe 4 — D-1 à D-3 (`melody.climax`) | 17/27 | 10/28 | 20/31 | **47 à la note, 42 pleinement verts** |
 | Passe 5 — E-1 (`melody.leap-recovery`) | 17/27 | 11/28 | 20/31 | **48 à la note, 42 pleinement verts** |
-| Passe 6 — F-0 à F-5 (périmètre, puis `harmony.*`/`vl.*`) | 19/26 | 11/27 | 19/20 | **42 pleinement verts sur 73 — et 13 pièces sorties du périmètre** |
+| Passe 6 — F-0 à F-5 (périmètre, puis `harmony.*`/`vl.*`) | 15/26 | 9/27 | 18/20 | **42 pleinement verts sur 73 — et 13 pièces sorties du périmètre** |
+| Passe 7 — G-1 à G-5 (M2 : phrase, prosodie, motifs) | 15/26 | 13/27 | 18/20 | **46 pleinement verts sur 73** |
 
 À la passe 6, les dénominateurs changent : le verrou ne compte plus que le
 **lot A**, les pièces dont l'effectif se lit (voir F-0). Le total vert ne bouge
@@ -477,9 +478,97 @@ test porte sur le NOM de la clé (`/loop/i` : `loopTours`, `maxLoopChords`,
 `loopReturnChord`, `loopBarsLength`…) plutôt que sur une liste fermée, qui
 rouillerait au premier ajout de contenu. **5 → 0.**
 
+## Passe 7 — M2, le chantier mélodique
+
+Le profil de M2 n'est pas celui de M1/M3 : le coût y est dominé par les
+CHECKERS DE CONTRAINTES, pas par les règles — et le verrou pose deux clauses,
+si bien qu'une contrainte en échec suffit à barrer une pièce quelle que soit sa
+note. Quatre correctifs, tous adossés à une source du cursus.
+
+### G-1 — la période a le droit d'être ÉTENDUE
+`m02-e11-stretch-and-cut` déclare `phraseBarPlan: [4,6]` ET
+`phraseStructure: "period"` dans le même bloc de contraintes, et son prompt dit
+« une période... déséquilibrée ». L'analyseur rendait « indéterminée » : sa
+tolérance de symétrie `PERIOD_BALANCE = 0.25` refusait 4+6. Le moteur
+contredisait la spec qu'il vérifiait.
+
+`m02-l06-phrase` §1 donne les deux bornes, chiffrées : « l'extension retarde la
+cadence attendue : la phrase de 4 mesures en dure **5 ou 6** » (×1.5) ; « la
+compression fait l'inverse : la phrase attendue sur 4 mesures conclut en **3** »
+(×0.75). **Correctif** : `CONSEQUENT_MIN = 0.75`, `CONSEQUENT_MAX = 1.5`, deux
+procédés nommés à la place d'une tolérance anonyme.
+
+### G-2 — la phrase-période se cherche dans une SUITE de phrases
+`detectStructure` exigeait `phrases.length === 3`, c'est-à-dire qu'une pièce ne
+contienne qu'une seule articulation. `m02-s06` en aligne trois — son titre le
+dit (« three-sentences »), ses `authorNotes` aussi (« chaque segment :
+dire-redire-précipiter-conclure ✓ ») — l'analyseur y lisait cinq phrases et
+rendait « indéterminée », sur l'exercice canonique de la phrase-période.
+**Correctif** : balayage des fenêtres de trois phrases consécutives.
+
+*La période, elle, reste une lecture de la pièce entière.* Le balayage lui a
+été retiré après essai : son gabarit est trop lâche, et deux mesures voisines
+qui ne finissent pas sur la même note en fabriquaient une. Les fixtures
+négatives `period-negative-antecedent-concludes` et
+`sentence-negative-different-heads` l'ont dit immédiatement — elles ont fait
+leur travail.
+
+### G-3 — `rhythm.prosody` punissait l'anticipation que sa `pedagogy` recommande
+Cinq pièces, corrélation **toujours négative** (−0.33 à −0.65) : un signe de
+défaut systématique, pas de cinq mélodies mal déclamées. La preuve est
+`m02-e18-anacrusis-power`, à −0.65 — l'exercice DE l'anacrouse, dont les
+`authorNotes` déclarent « 4 occurrences, chacune précédée d'une anacrouse d'UNE
+croche (politique constante ✓) ».
+
+`metricWeight` est lu au tick d'ATTAQUE. Or chaque cible de cette pièce est liée
+par-dessus la barre : elle commence une croche avant l'appui et sonne à travers
+lui. Comptée « hors temps », donc. C'est exactement ce que l'`alternative` de la
+règle appelle par son nom : « l'anticipation : jouer la note longue une croche
+AVANT l'appui — elle fuit le temps fort tout en le désignant ».
+**Correctif** : `articulatedWeight(note, meter)` — le poids de l'appui qu'une
+note ARTICULE, son attaque ou l'appui qu'elle anticipe. Seul l'appui
+immédiatement suivant compte : une blanche attaquée au temps 2 traverse le
+temps 3 sans l'articuler, et lui offrir ce poids surévaluerait toute valeur
+longue. **5 pièces → 0**, et la fixture `prosody-inverted-swing` (le jazz
+déclame à l'envers) reste vérifiée.
+
+### G-4 — `minMotifOccurrences` posait une question existentielle à un classement
+La contrainte demande « la pièce énonce-t-elle une cellule au moins N fois ? ».
+Elle le demandait au seul `bestMotif`, choisi par `couverture ×
+distinctivité` — un classement qui ne parle pas de compte. Sur `m02-s18`, il
+retenait une version à 5 notes énoncée 2 fois plutôt que la cellule à 4 notes
+énoncée 3 fois ; la 5e note est le retour vers l'anacrouse suivante, c'est-à-dire
+la COUTURE entre deux énoncés, pas la cellule.
+**Correctif** : la question se pose à `report.motifs`. La contrainte garde ses
+dents — `m02-e03` reste « aucun motif détecté » et `m02-e25` reste à 3 énoncés
+pour 8 exigés, tous deux pour des raisons de contenu (ci-dessous).
+
+### G-5 — `melody.ending-weak` contredisait la consigne
+Son `when` dit : « une question laissée ouverte échappe à la règle — **mais
+dis-le dans ta consigne** ». Quand la consigne le dit, elle le dit par
+`mustEndOnDegrees`, et c'est son checker qui juge la finale. La règle imposait
+par-dessus sa liste générique (tonique ou dominante) : `m02-e28`, néo-noir
+« ambiguous-dark », admet `[2,5]`, sa contrainte PASSAIT, et la règle lui
+reprochait quand même sa finale sur 2̂. Même contradiction sur `m02-e03` et
+`m02-e16`, dont les finales sur la tierce sont explicitement admises.
+**Correctif** : la règle se tait dès que `mustEndOnDegrees` est déclarée. **5
+occurrences → 1** (`m02-e25`, la seule où la consigne ne dit rien).
+
+### G-0 — ce qui N'A PAS été touché, et pourquoi
+`contourShape` reste en échec sur trois pièces (`m02-e22`, `e27`, `e28`), toutes
+lues « wave » là où l'on attend plateau, arche et chute. Une réduction de la
+ligne à ses rebroussements significatifs a été écrite, essayée, puis
+**retirée** : elle ne changeait aucune des trois (3 → 3) et cassait une fixture.
+Et surtout, la fixture `plateau-divergence-s22` documente déjà le cas comme un
+ÉCART CONNU, délibérément laissé visible : « `m02-e22` contraint plateau et les
+`authorNotes` écrivent “plateau (ambitus 7) ✓” — mais le seuil du tutoriel
+(≤ 4 dt) ne peut pas l'accepter […] à trancher : élargir le seuil ou requalifier
+la contrainte ». C'est un diagnostic C, qui appelle une décision au registre
+AVANT tout patch — pas un correctif de moteur.
+
 ## Reste à faire
 
-**31 solutions** du lot A encore rouges, **13** au lot B. Les blocages `vl.*`
+**27 solutions** du lot A encore rouges, **13** au lot B. Les blocages `vl.*`
 restants sont peu nombreux et **le diagnostic n'est plus le moteur** : le sondage
 de la passe précédente sur `m01-s40` s'est confirmé pièce par pièce.
 
@@ -489,10 +578,19 @@ de la passe précédente sur `m01-s40` s'est confirmé pièce par pièce.
 | 4 sol. | `vl.direct-perfect` | même famille. Les sopranos concernés arrivent par SAUT, donc l'exception « soprano par degré » — celle que `m03-s02` revendique — ne les couvre pas. |
 | 7 occ. | `vl.spacing` | concentrées sur deux textures larges revendiquées : le tapis+arabesque de `m03-s11` et `m03-s04`. Le `when` de la règle s'exclut lui-même des « textures orchestrales larges » sans que le code l'implémente — mais le faire proprement demande un critère, pas une exception ; à instruire avec les profils. |
 
-Le gros du rouge restant n'est plus harmonique. Aux deux clauses du verrou :
-m01 **15/26**, m02 **9/27**, m03 **18/20**. Les **18 rouges de M2** (`melody.*`,
-`rhythm.prosody`, contraintes de motif) sont un chantier distinct de celui-ci,
-et M3 — le crash-test harmonique — est à deux pièces de la fin.
+Aux deux clauses du verrou, après la passe 7 : m01 **15/26**, m02 **13/27**,
+m03 **18/20** — soit **46/73**. M3, le crash-test harmonique, est à deux pièces
+de la fin.
+
+Le rouge de M2 est maintenant à dominante de CONTENU. Quatre pièces ne peuvent
+pas passer sans une décision éditoriale, et aucune n'est un défaut de moteur :
+
+| Pièce | Diagnostic |
+|---|---|
+| `m02-s03` | 7 mesures pour 8, et surtout la solution répond à une AUTRE consigne : elle aligne les quatre archétypes (appel, pas, soupir, signal) énoncés une fois chacun, quand les contraintes demandent UN motif ≥ 3 fois. La leçon `m02-l01` porte sur les archétypes, la contrainte sur le développement — l'une des deux doit céder. |
+| `m02-s25` | 4 mesures écrites pour 16 demandées, avec 8 énoncés attendus : très probablement une boucle à répéter quatre fois, que la solution ne dit pas. |
+| `m02-e22` / `m02-e28` | l'écart `plateau` documenté ci-dessus (G-0). |
+| `m02-e07` | 83 sans une seule issue ni une seule contrainte en échec : correctness et contraintes au maximum, **craft à 18**. Le seul poste est une métrique POSITIVE, à instruire à part — une solution de référence devrait bien y scorer. |
 
 **Aucun seuil de `scoring.ts` n'a été touché dans cette passe non plus**, et
 aucun poids de profil.

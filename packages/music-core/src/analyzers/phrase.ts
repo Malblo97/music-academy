@@ -29,8 +29,18 @@ const MIN_REST = TICKS.q!;
 const LONG_NOTE_FACTOR = 2;
 /** L'élision se paie d'un élan : au moins trois intervalles montants avant la cible. */
 const MIN_ELISION_ASCENT = 3;
-/** Tolérance de symétrie entre antécédent et conséquent (période). */
-const PERIOD_BALANCE = 0.25;
+/**
+ * Les bornes du conséquent, rapportées à l'antécédent. Elles ne sont pas une
+ * tolérance mais les DEUX PROCÉDÉS que `m02-l06-phrase` §1 nomme et chiffre :
+ * « l'extension retarde la cadence attendue : la phrase de 4 mesures en dure 5
+ * ou 6 » (soit ×1.5) et « la compression fait l'inverse : la phrase attendue
+ * sur 4 mesures conclut en 3 » (soit ×0.75). Une symétrie unique à ±25 %
+ * refusait le nom de « période » à `m02-e11-stretch-and-cut`, dont la consigne
+ * déclare pourtant `phraseBarPlan: [4,6]` ET `phraseStructure: "period"` dans
+ * le même bloc de contraintes — le moteur contredisait la spec qu'il vérifiait.
+ */
+const CONSEQUENT_MAX = 1.5;
+const CONSEQUENT_MIN = 0.75;
 /** Le « 2 » du 1+1+2 : la continuation vaut au moins 1.75 énoncé. */
 const SENTENCE_CONTINUATION = 1.75;
 
@@ -121,31 +131,51 @@ function sameHead(a: readonly number[], b: readonly number[]): boolean {
   return a.length > 0 && a.length === b.length && a.every((v, i) => v === b[i]);
 }
 
+/** PHRASE-PÉRIODE 1+1+2 : dire, redire, puis la continuation qui vaut les deux. */
+function isSentence(line: readonly Note[], a: Phrase, b: Phrase, c: Phrase): boolean {
+  const spanA = a.to - a.from;
+  const spanB = b.to - b.from;
+  const twinned = Math.abs(spanA - spanB) / Math.max(spanA, spanB) <= 0.125;
+  const continuation = c.to - c.from >= SENTENCE_CONTINUATION * spanA;
+  // Les deux énoncés doivent commencer PAREIL — c'est le « redire ».
+  return twinned && continuation && sameHead(head(line, a, 2), head(line, b, 2));
+}
+
+/**
+ * La PHRASE-PÉRIODE se cherche dans une suite de trois phrases consécutives, pas
+ * dans le compte total. Exiger `phrases.length === 3` revenait à supposer qu'une
+ * pièce n'en contient qu'une : `m02-s06` en aligne trois (« trois phrases » dit
+ * son titre, « dire-redire-précipiter-conclure ✓ » ses `authorNotes`),
+ * l'analyseur y lisait cinq phrases et rendait « indéterminée » — sur
+ * l'exercice canonique de la phrase-période.
+ *
+ * La PÉRIODE, elle, reste une lecture de la pièce ENTIÈRE (deux phrases,
+ * l'antécédent suspendu par rapport à la conclusion réelle). Son gabarit est
+ * trop lâche pour être cherché par fenêtres : deux mesures voisines qui ne
+ * finissent pas sur la même note en feraient une, et les fixtures négatives
+ * `period-negative-antecedent-concludes` et `sentence-negative-different-heads`
+ * l'ont dit tout de suite. Seul le gabarit serré de la phrase-période (jumelles
+ * à 12,5 % près, continuation ≥ 1.75, mêmes intervalles de tête) supporte le
+ * balayage.
+ */
 function detectStructure(line: readonly Note[], phrases: readonly Phrase[]): 'period' | 'sentence' | null {
   const last = line[line.length - 1];
   if (!last) return null;
 
-  // PÉRIODE : deux phrases d'égale portée, l'antécédent SUSPENDU (il ne se pose
-  // pas sur la note finale), le conséquent CONCLUSIF (il s'y pose).
-  if (phrases.length === 2) {
-    const [a, b] = phrases as [Phrase, Phrase];
-    const spanA = a.to - a.from;
-    const spanB = b.to - b.from;
-    const balanced = Math.abs(spanA - spanB) / Math.max(spanA, spanB) <= PERIOD_BALANCE;
-    const endA = [...line].reverse().find(n => n.start < a.to);
-    if (balanced && endA && pc(endA.pitch) !== pc(last.pitch)) return 'period';
+  for (let i = 0; i + 2 < phrases.length; i++) {
+    if (isSentence(line, phrases[i]!, phrases[i + 1]!, phrases[i + 2]!)) return 'sentence';
   }
 
-  // PHRASE-PÉRIODE (sentence) 1+1+2 : dire, redire, puis la continuation qui
-  // vaut les deux — et les deux énoncés doivent commencer PAREIL.
-  if (phrases.length === 3) {
-    const [a, b, c] = phrases as [Phrase, Phrase, Phrase];
-    const spanA = a.to - a.from;
-    const spanB = b.to - b.from;
-    const spanC = c.to - c.from;
-    const twinned = Math.abs(spanA - spanB) / Math.max(spanA, spanB) <= 0.125;
-    const continuation = spanC >= SENTENCE_CONTINUATION * spanA;
-    if (twinned && continuation && sameHead(head(line, a, 2), head(line, b, 2))) return 'sentence';
+  // PÉRIODE : deux phrases, l'antécédent SUSPENDU (il ne se pose pas sur la note
+  // finale), le conséquent CONCLUSIF (il s'y pose) — et un conséquent qui a le
+  // droit d'être étendu ou comprimé (voir CONSEQUENT_MIN/MAX).
+  if (phrases.length === 2) {
+    const [a, b] = phrases as [Phrase, Phrase];
+    const ratio = (b.to - b.from) / (a.to - a.from);
+    const endA = [...line].reverse().find(n => n.start < a.to);
+    if (ratio >= CONSEQUENT_MIN && ratio <= CONSEQUENT_MAX && endA && pc(endA.pitch) !== pc(last.pitch)) {
+      return 'period';
+    }
   }
   return null;
 }

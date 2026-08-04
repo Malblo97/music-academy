@@ -324,15 +324,23 @@ export const MELODY_CHECKERS: Record<string, Checker> = {
 
   minMotifOccurrences: (_k, value, ctx) => {
     const min = asNumber(value);
-    const best = ctx.analysis.motifs?.bestMotif;
+    const report = ctx.analysis.motifs;
     if (min === null) return ok('rien à mesurer');
-    if (!best) return fail('aucun motif détecté');
-    // **F-13** : sous `requireFragmentation`, le compte porte sur les
-    // occurrences COMPLÈTES — les fragments ne gonflent pas le total.
-    const complete = best.occurrences.length;
+    if (!report || report.motifs.length === 0) return fail('aucun motif détecté');
+    // La contrainte pose une question EXISTENTIELLE — « la pièce énonce-t-elle
+    // une cellule au moins N fois ? » — et la lire sur le seul `bestMotif`
+    // faisait dépendre la réponse d'un classement (`couverture ×
+    // distinctivité`) qui ne parle pas de compte. Sur `m02-s18`, le classement
+    // retenait une version à 5 notes énoncée 2 fois plutôt que la cellule à 4
+    // notes énoncée 3 fois : la 5e note est le retour vers l'anacrouse
+    // suivante — la couture entre deux énoncés, pas la cellule.
+    // **F-13** : le compte porte sur les occurrences COMPLÈTES ; les fragments
+    // ne gonflent pas le total (ils vivent dans `report.fragments`).
+    const most = report.motifs.reduce((m, x) => (x.occurrences.length > m.occurrences.length ? x : m));
+    const complete = most.occurrences.length;
     return complete >= min
-      ? ok(`${complete} énoncés complets ≥ ${min}`)
-      : fail(`${complete} énoncés complets, minimum ${min}`);
+      ? ok(`${complete} énoncés complets d'une cellule de ${most.length} notes ≥ ${min}`)
+      : fail(`${complete} énoncés complets au mieux, minimum ${min}`);
   },
 
   requireMotifVariation: (_k, value, ctx) => {

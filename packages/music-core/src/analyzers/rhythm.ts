@@ -97,11 +97,41 @@ function syncopationWeight(tick: number, meter: Meter): number {
   return inBeat === beat / 2 ? 0.5 : 1;
 }
 
+/**
+ * Le poids de l'appui qu'une note ARTICULE — son attaque, ou l'appui qu'elle
+ * ANTICIPE.
+ *
+ * Lire `metricWeight` au seul tick d'attaque compte pour « hors temps » la note
+ * qui commence juste avant un appui et sonne à travers lui. C'est précisément
+ * l'anticipation, que la `pedagogy` de `rhythm.prosody` déclare légitime :
+ * « jouer la note longue une croche AVANT l'appui — elle fuit le temps fort
+ * tout en le désignant ». Le détecteur punissait donc ce que la règle
+ * recommande : `m02-s18-anacrusis-power`, dont chaque cible est liée par-dessus
+ * la barre, rendait −0.65 quand ses `authorNotes` déclarent « quatre anacrouses
+ * d'une croche, politique constante ✓ ».
+ *
+ * Seul l'appui IMMÉDIATEMENT suivant est pris : une blanche attaquée au temps 2
+ * traverse le temps 3 sans l'articuler — son accent est à son attaque, et lui
+ * offrir le poids du temps 3 surévaluerait toute valeur longue.
+ */
+export function articulatedWeight(note: Note, meter: Meter): number {
+  const own = metricWeight(note.start, meter);
+  const beat = beatTicks(meter);
+  const inBeat = ((note.start % beat) + beat) % beat;
+  if (inBeat === 0) return own; // attaquée SUR un appui : rien à anticiper
+  const nextBeat = note.start + (beat - inBeat);
+  if (note.start + note.duration <= nextBeat) return own; // elle n'y arrive pas
+  return Math.max(own, metricWeight(nextBeat, meter));
+}
+
 export function prosodyCorrelation(notes: readonly Note[], meter: Meter, opts: ProsodyOpts = {}): number {
   const line = attacks(notes);
   if (line.length < 2) return 0;
   const emphasis = line.map(n => n.duration * (n.velocity ?? DEFAULT_VELOCITY));
-  const weights = line.map(n => (opts.inverted ? -metricWeight(n.start, meter) : metricWeight(n.start, meter)));
+  const weights = line.map(n => {
+    const w = articulatedWeight(n, meter);
+    return opts.inverted ? -w : w;
+  });
   return pearson(emphasis, weights);
 }
 
