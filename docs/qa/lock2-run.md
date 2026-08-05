@@ -30,6 +30,7 @@ le corpus y compris les verts, `--by-cause` pour le classement des blocages).
 | Passe 9 — I-1 à I-6 (M1 requalifié en écriture de clavier) | 24/27 | 21/28 | 27/31 | **72 pleinement verts sur 86** |
 | Passe 10 — J-0 à J-4 (le dossier M3, et les sous-parties enfin résolues) | 24/27 | 20/28 | 28/31 | **72 pleinement verts sur 86** |
 | Passe 11 — K-0 à K-2 (le climax est un fait de tension) | 24/27 | 20/28 | 29/31 | **73 pleinement verts sur 86** |
+| Passe 12 — L-0 à L-3 (courbe de tension : résultat NÉGATIF, rien livré) | 24/27 | 20/28 | 29/31 | **73 pleinement verts sur 86** |
 
 À la passe 8, les dénominateurs redeviennent ceux du corpus entier : le lot B
 n'est plus hors périmètre (H-1). À la passe 10, **72/86**, 14 rouges — et le
@@ -1321,5 +1322,117 @@ moteurs (K-0 innocente la densité, désigne dissonance et surprise), le lissage
 sur cinq demi-mesures qui écrase les sommets brefs, et le fait qu'une sixte
 augmentée — l'accord le plus chargé d'une pièce fonctionnelle — n'y produise
 aucune pointe.
+
+**Le verrou n'est pas vert, le tag `v0.2-engine-core` n'est pas posé.**
+
+---
+
+## Passe 12 — la courbe de tension, instruite : résultat NÉGATIF
+
+**73 → 73.** Aucune ligne de moteur livrée. Ce que la passe livre, c'est un banc
+d'essai (`scripts/tension-calibration.ts`), une vérité terrain, des chiffres —
+et la démonstration que la repondération, qui semblait la réponse évidente, ne
+vaut pas son prix.
+
+### L-1 — une vérité terrain existait déjà dans le corpus
+
+Onze solutions de M1–M3 **chiffrent leur sommet** dans leurs `authorNotes` :
+« climax F5 à 62,5 % », « Sommet m11 (69 %) », « sommet à 56 % ». Comme le reste
+du corpus, ces chiffres sont ANTÉRIEURS au moteur — c'est ce qui en fait une
+référence et non une cible commode. Le banc les rassemble et mesure, pour chaque
+réglage, combien de sommets la courbe retrouve et à quelle distance.
+
+`m02-s27-whistle-test` en est écarté, et le cas mérite d'être dit plutôt que tu :
+ses `authorNotes` annoncent « arche aplatie, sommet à 50-60 % », mais sa note la
+plus aiguë tombe à 9 % puis à 34 %, et rien — ni hauteur ni tension — ne culmine
+au milieu. L'étiquette décrit une intention, pas un événement mesurable.
+
+**État livré : 6/11 dans la cible, 11,0 points d'erreur moyenne.** Le défaut
+annoncé en fin de passe 11 est donc réel et maintenant chiffré.
+
+### L-2 — ce que les chiffres disent des quatre moteurs
+
+| | dans la cible | erreur |
+|---|---|---|
+| hauteur seule | 6/11 | **7,7** |
+| densité seule | 0/11 | 37,1 |
+| dissonance seule | 4/11 | 22,7 |
+| surprise seule | 2/11 | 24,7 |
+| sans densité | 7/11 | 9,2 |
+| sans surprise | 7/11 | 10,2 |
+| sans hauteur | 0/11 | 23,9 |
+| **les quatre (livré)** | 6/11 | 11,0 |
+
+Trois faits, tous mesurés :
+
+1. **La hauteur porte tout le signal.** Seule, elle fait déjà mieux que les
+   quatre réunies. La retirer effondre tout.
+2. **La densité travaille CONTRE le sommet.** Seule, elle ne trouve rien. Le
+   geste classique de l'arrivée est de TENIR : au moment où la hauteur culmine,
+   les attaques se raréfient. La densité est un moteur de la MONTÉE, pas un
+   localisateur du sommet.
+3. **Le lissage n'est pas en cause.** Testé de 1 à 9 demi-mesures, 5 — la valeur
+   d'origine — reste le meilleur. L'hypothèse de la passe 11 (« le lissage écrase
+   les sommets brefs ») est écartée.
+
+### L-0 — correction d'une affirmation de la passe 11
+
+La passe 11 (K-0) écrit : « le terme de DENSITÉ n'y est pour rien — mesuré, pas
+supposé ». C'était mesuré sur **une seule pièce** (`m02-s21`), où c'est vrai, et
+généralisé à tort. Sur les onze, la densité est le pire des quatre termes : la
+retirer fait passer de 6/11 à 7/11 et l'erreur de 11,0 à 9,2. **Un test sur
+n = 1 n'infirmait rien** ; l'entrée K-0 est corrigée par celle-ci.
+
+### L-3 — le meilleur réglage trouvé, et pourquoi il n'est PAS livré
+
+Une grille sur les quatre poids donne au mieux **8/11, erreur 8,2** :
+`pitch 4 · density 0.5 · dissonance 1 · surprise 0.25` — soit la direction
+musicalement argumentable (hauteur doublée, densité et surprise réduites de
+moitié, dissonance inchangée). Elle a été posée, mesurée, puis **retirée**.
+
+Le compte complet, verrou en main :
+
+| | avant | après repondération | après recalibrage de `flatTension` |
+|---|---|---|---|
+| m01 | 24/27 | 24/27 | 24/27 |
+| m02 | 20/28 | **17/28** | 19/28 |
+| m03 | 29/31 | 30/31 | 30/31 |
+| **total** | **73** | 71 | **73** |
+
+La chute de M2 n'était pas musicale : `tensionSpread` change d'UNITÉ avec les
+poids (médiane 1,05 → 2,27), et le seuil `FLAT_TENSION_MAX_SPREAD = 0.65`,
+calibré en passe 8 sur l'ancienne courbe, refusait soudain les deux pièces qu'il
+avait été taillé pour accepter. Le recalibrer à 1,30 récupère l'essentiel.
+
+Reste le bilan honnête : **73 avant, 73 après**, pour
+- quatre poids changés,
+- une constante de calibrage doublée,
+- la fixture `regimes-are-not-comparable` cassée (le témoin F-23),
+- et un classement de platitude DÉGRADÉ au passage — `m02-e24`, l'une des deux
+  pièces déclarées plates, glisse de la 3ᵉ à la 6ᵉ place du corpus.
+
+Deux boutons tournés et une fixture perdue pour zéro solution gagnée : le
+changement ne paie pas son prix. Il n'est pas livré. La pondération reste
+`2 · 1 · 1 · 0,5` et le seuil reste `0.65`.
+
+### Ce que la passe conclut vraiment
+
+Le problème n'est pas le réglage, c'est l'INSTRUMENT. `tensionCurve` sert
+aujourd'hui trois maîtres qui ne demandent pas la même chose :
+
+- `archFit` compare une SILHOUETTE à un gabarit — les quatre moteurs y ont leur
+  place, et c'est pour cette tâche que la pondération actuelle a été réglée ;
+- `flatTension` mesure une AMPLITUDE ;
+- depuis la n°36, `climaxWindow` et `melody.climax` lui demandent de LOCALISER
+  un point — où la hauteur domine si nettement que les trois autres termes ne
+  font qu'ajouter du bruit.
+
+Calibrer une seule courbe pour les trois revient à échanger l'un contre l'autre,
+et c'est exactement ce qu'on observe : la repondération gagne M3 et perd M2.
+La piste à instruire n'est donc pas un quatrième réglage mais une mesure DÉDIÉE
+à la localisation — une saillance de climax, dérivée de la même matière mais
+pondérée pour sa tâche, laissant `archFit` et `flatTension` sur la courbe qu'ils
+ont toujours lue. C'est un travail de conception, pas de calibrage, et il sort du
+périmètre de cette passe.
 
 **Le verrou n'est pas vert, le tag `v0.2-engine-core` n'est pas posé.**
