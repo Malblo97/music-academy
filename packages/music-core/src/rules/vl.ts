@@ -17,6 +17,8 @@ function analyse(ctx: RuleCtx, ruleId: string): Issue[] {
   if (ctx.analysis.cadences) context.cadences = ctx.analysis.cadences;
   // F-66 : sans le chiffrage, la sensible se juge hors contexte fonctionnel.
   if (ctx.analysis.chords) context.chords = ctx.analysis.chords;
+  // Décision n°35 : la consigne déclare-t-elle un tapis surmonté d'une ligne ?
+  if (ctx.spec.texture === 'stratified') context.stratified = true;
 
   return voiceLeadingIssues(voices, ctx.analysis.key, context)
     .filter(i => i.ruleId === ruleId || (ruleId === 'vl.parallel-perfects' && i.ruleId === 'vl.mozart-fifths'))

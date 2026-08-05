@@ -28,9 +28,12 @@ le corpus y compris les verts, `--by-cause` pour le classement des blocages).
 | Passe 7 — G-1 à G-5 (M2 : phrase, prosodie, motifs) | 15/26 | 13/27 | 18/20 | **46 pleinement verts sur 73** |
 | Passe 8 — H-1 à H-12 (le lot B rentre, les tensions se chiffrent) | 20/27 | 21/28 | 27/31 | **68 pleinement verts sur 86** |
 | Passe 9 — I-1 à I-6 (M1 requalifié en écriture de clavier) | 24/27 | 21/28 | 27/31 | **72 pleinement verts sur 86** |
+| Passe 10 — J-0 à J-4 (le dossier M3, et les sous-parties enfin résolues) | 24/27 | 20/28 | 28/31 | **72 pleinement verts sur 86** |
 
 À la passe 8, les dénominateurs redeviennent ceux du corpus entier : le lot B
-n'est plus hors périmètre (H-1). À la passe 9, **72/86**, 14 rouges.
+n'est plus hors périmètre (H-1). À la passe 10, **72/86**, 14 rouges — et le
+total stagne pour une raison qu'il faut lire : trois solutions gagnées, trois
+perdues parce que le verrou s'est mis à leur demander quelque chose (J-4).
 
 À la passe 6, les dénominateurs changent : le verrou ne compte plus que le
 **lot A**, les pièces dont l'effectif se lit (voir F-0). Le total vert ne bouge
@@ -1044,5 +1047,175 @@ la décision n°31 a établi que les `authorNotes` de M3 parlent SATB. Les
 arabesque » revendiquées, dont seule une partie est couverte par le test de
 stratification de la passe 8 (le tapis réattaque au premier temps de chaque
 mesure). C'est le prochain dossier instructible.
+
+**Le verrou n'est pas vert, le tag `v0.2-engine-core` n'est pas posé.**
+
+---
+
+## Passe 10 — le dossier M3, instruit
+
+**72 → 72 pleinement verts sur 86.** m01 24/27, m02 20/28, m03 28/31.
+
+Le total ne bouge pas, et c'est le fait le plus important de la passe : trois
+solutions ont été gagnées, **trois autres ont été perdues parce que le verrou
+s'est mis à leur demander quelque chose**. Le détail est en J-4.
+
+Le dossier a d'abord été RÉOUVERT, parce que son classement était faux.
+
+### J-0 — deux des trois pièces du dossier n'étaient pas des tapis
+
+Le journal de la passe 8 rangeait `m03-e04` et `m03-e11` sous « les deux
+textures larges revendiquées : le tapis+arabesque de m03-s11 et m03-s04 ». La
+formule venait de la passe 6 et n'avait jamais été revérifiée. Elle est fausse
+pour `m03-s04` : `minVoices: 4, maxVoices: 4`, douze rondes à quatre voix, et
+des `authorNotes` qui parlent SATB de bout en bout (« chaque voix conjointe ou
+commune », « tierce doublée », « 7e préparée au ténor », « soprano D5→E♭5 »).
+C'est un choral strict. Son vrai blocage est ailleurs — voir J-3.
+
+Le corpus ne porte que **deux** tapis, et il les nomme par la même formule
+éditoriale, mot pour mot : « **tapis TENU (liaisons par note, F-21)** ».
+
+### J-1 — `texture: "stratified"` : l'arabesque s'exempte par le haut (diagnostic A)
+
+*`m03-e11`, 4 occurrences de `vl.spacing`.*
+
+`vl.spacing` laisse déjà la basse respirer — sa `pedagogy` le dit : « la basse,
+elle, a le droit de s'éloigner : c'est le sol, pas un étage ». Quand la consigne
+déclare un TAPIS surmonté d'une LIGNE, l'exemption est symétrique par le haut :
+l'arabesque n'est pas un étage non plus, c'est le toit. Et le `when` de la règle
+s'excluait déjà lui-même de ce cas (« les textures orchestrales larges et les
+voicings de piano ouverts ont leurs propres lois, m07-l03 ») sans que le code
+l'ait jamais implémenté.
+
+L'exemption porte sur **un seul écart**, celui du haut. Ce qui reste jugé, c'est
+l'écartement DANS le tapis : sur `m03-s11`, ré♭3-fa3-la3 tient dans une tierce
+majeure, et si la nappe se déchirait la règle le dirait.
+
+Contrairement à `keyboard` (n°34), `stratified` **n'éteint aucune règle** : le
+tapis est de la vraie polyphonie, et M3 est le module où la conduite s'enseigne.
+Deux exercices déclarés : `m03-e11` et `m03-e13`.
+
+**Le test de stratification par tranche de la passe 8 est SUPPRIMÉ.** Il
+cherchait le témoin dans la notation — toutes les voix tenues sauf l'aiguë — et
+n'attrapait qu'une occurrence sur cinq, parce que le tapis réattaque au premier
+temps de chaque mesure. Une déclaration lisible dans la spec vaut mieux qu'une
+heuristique qui devine à moitié.
+
+### J-2 — la septième n'est une question que là où il existe des dominantes (diagnostic A)
+
+*`m03-e11`, 5 occurrences masquées par le plafond d'affichage jusqu'à J-1.*
+
+Les augmentés du tapis se chiffrent légitimement en septièmes — ré♭-fa-la-do♭
+EST un D♭7♯5 — et `harmony.unresolved-seventh` leur reprochait de ne pas
+résoudre. Dans une pièce dont la consigne écrit « collection STRICTE tons
+entiers […] de l'altitude sans gravité, **aucun demi-ton nulle part** », il n'y a
+ni sensible, ni quinte descendante, ni cible : la tension « posée puis
+abandonnée » n'a nulle part où aller, par construction.
+
+Même porte de sortie que `melody.out-of-key`, mêmes gardes : collection TENUE
+(`STRICT_COVERAGE`), et `chromatic` exclue — elle contient les douze notes, sa
+couverture vaut toujours 1, et l'accepter éteindrait la règle sur exactement la
+musique qu'elle doit juger.
+
+**Mais `detectCollection` lit la pièce ENTIÈRE**, et `m03-e11` traverse trois
+états de gravité : do majeur fonctionnel (mes. 1–4), la passerelle (mes. 5), les
+tons entiers (mes. 6–13), le retour (mes. 14–15). Sa couverture globale n'est
+jamais « strictement par tons » — la porte ne s'ouvrait pas. Or la consigne DIT
+où le système change : `requireCollection: { collection: "whole-tone",
+barWindow: [6,13] }`, et `amphibiousBridge: { bar: 5, collections: [...] }` pour
+la mesure charnière, dont le sujet est précisément la dominante qui se dissout
+au lieu de résoudre. Les deux plages déclarées sont désormais lues.
+
+`harmony.overchromatic` reçoit la même garde, et pour une raison qui lui est
+propre : son `alternative` PROMET ce comportement à l'élève — « déclare une
+palette non fonctionnelle et le moteur cessera de compter les écarts à une
+tonalité que tu as quittée ». Elle ne la tenait pas.
+
+`m03-e11` : 77 → 87.
+
+### J-3 — la modulation DÉCLARÉE n'était lue par personne (diagnostic A)
+
+*`m03-e04`, ses deux contraintes bloquantes d'un coup.*
+
+L'exercice s'intitule « do majeur → mi♭ majeur » et déclare son arrivée
+(`modulation: { to: { tonic: 3, mode: "major" } }`). Le moteur ne lisait que le
+départ, et le facturait deux fois :
+
+- le checker `key` comptait **18 notes « hors collection » sur 48** — c'est-à-dire
+  la seconde moitié de la pièce. Ce n'est pas une pièce à 38 % d'erreurs, c'est
+  une pièce qui va quelque part ;
+- `requiredCadence: "perfect"` ne trouvait **aucune** cadence : il cherchait un
+  sol→do dans une pièce qui finit si♭→mi♭.
+
+**Correctif** : `arrivalKeyOf(spec)` lit les deux vocabulaires du corpus —
+`modulation.to` en M3, `targetKey` en M1. Le checker `key` accepte une note qui
+appartient à l'une OU l'autre des deux maisons ; `runAnalyzers` repasse la
+détection de cadences dans la tonalité d'arrivée et fusionne, jamais sur une
+pièce qui ne module pas. `m03-e04` : 86 → vert.
+
+### J-4 — les `submissionParts` n'étaient jamais résolus : cinq solutions jugées SANS AUCUNE contrainte
+
+*Découvert en instruisant `m03-e18`, qui semblait n'avoir aucune contrainte.*
+
+Il en a. Elles sont dans `submissionParts[]`, un bloc par variante, et chaque
+bloc porte TOUT ce qui compte : `constraints`, `styleProfile`, `rubric`,
+`given`. Le parent ne porte qu'un prompt d'introduction. `specOf` s'arrêtait au
+parent.
+
+Cinq solutions du périmètre étaient donc évaluées **sans une seule contrainte,
+sans profil, avec une rubric par défaut** — `m02-e30 [elena]`, `[yours]`, et les
+trois palettes de `m03-e18`. Deux d'entre elles passaient le verrou. Vertes et
+creuses : exactement ce que la décision n°29(2) refusait, et le verrou ne s'en
+apercevait pas parce qu'il ne demandait rien.
+
+**Correctif** : `specForSolution(s)` résout la sous-partie et fusionne son bloc
+par-dessus le parent. Une solution qui déclare une sous-partie inconnue lève —
+comme une solution orpheline.
+
+**Conséquence, et c'est le chiffre honnête de la passe** : trois des cinq
+deviennent ROUGES (`m02-e30 [elena]`, `m03-e18 [fonctionnel-etendu]`,
+`m03-e18 [non-fonctionnel]`). Le total passe de 74 à 71 avant le point suivant.
+**Le verrou a reculé parce qu'il est devenu plus dur, pas parce que le moteur
+s'est dégradé.**
+
+Et la décision n°11 s'applique enfin, elle aussi : la solution d'une sous-partie
+OUVERTE (`userBrief: true`) est un GABARIT, « démonstrative, non standard de
+correction ». Elle doit tenir les contraintes lâches de sa sous-partie — et
+`m02-e30 [yours]` les tient toutes — mais on ne lui demande pas la note d'une
+solution de référence. Le verrou l'exempte du seuil, jamais des contraintes.
+
+**Aucun seuil de `scoring.ts` n'a été touché** dans cette passe non plus.
+276 fixtures vertes.
+
+---
+
+## Après la passe 10 — les 14 rouges
+
+| Dossier | Pièces |
+|---|---|
+| **2 — mesures à requalifier** (silhouette, syncope) | `m02-e19`, `m02-e22`, `m02-e27`, `m02-e28` |
+| **3 — écarts de contenu** (diagnostic B) | `m01-e42`, `m01-e45`, `m02-e03`, `m02-e16`, `m02-e25`, `m03-e18 [non-fonctionnel]` |
+| **5 — divers** | `m01-e18`, `m02-e30 [elena]`, `m03-e17 [pandiatonique]`, `m03-e18 [fonctionnel-etendu]` |
+
+Le dossier 4 (M3) est clos : `m03-e04` et `m03-e11` sont verts, et les deux
+pièces M3 qui restent ne sont plus dedans — elles viennent d'entrer par J-4.
+
+**Ce que J-4 a fait remonter, et qui n'est pas instruit** :
+
+- `m03-e18 [non-fonctionnel]` — `maxVoices: 9 voix, maximum 8`. Diagnostic B :
+  la grappe de la mes. 11 fait neuf sons, et les `authorNotes` en comptent
+  « 7 sons serrés **sur le socle** » — l'auteur n'a pas compté les deux notes du
+  socle. La spec et la solution ne peuvent pas être vraies ensemble.
+- `m03-e18 [fonctionnel-etendu]` — `climaxWindow: climax à 56 %, fenêtre 60–78 %`,
+  là où les `authorNotes` annoncent « Sommet m11–12 (69–75 %) ». Les deux ont
+  raison sur des grandeurs différentes : le sommet de HAUTEUR est le ré5 des
+  mes. 9–10 (56 %), le sommet de TENSION est le Ger⁶ de la mes. 11, que
+  l'auteur associe explicitement à son archFit. **Question ouverte : sur une
+  texture harmonique, `climaxWindow` mesure-t-il la hauteur ou la tension ?**
+  Le corpus semble dire la tension ; `climaxPosition` mesure la hauteur. À
+  trancher avant de toucher quoi que ce soit — c'est une définition, pas un
+  seuil.
+- `m02-e30 [elena]` — `phraseStructure: « indéterminée », attendue « sentence »`
+  et une note hors `noteRange`. Non instruit.
 
 **Le verrou n'est pas vert, le tag `v0.2-engine-core` n'est pas posé.**

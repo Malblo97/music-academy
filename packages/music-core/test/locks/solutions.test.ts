@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { evaluateDetailed } from '../../src/pipeline/evaluate.js';
 import type { FeedbackReport } from '../../src/pipeline/feedback.js';
-import { compileSolution, labelOf, loadSolutions, lockKindOf, specOf } from '../solutions.js';
+import { compileSolution, labelOf, loadSolutions, lockKindOf, specForSolution } from '../solutions.js';
 import type { Solution } from '../solutions.js';
 
 /**
@@ -50,7 +50,7 @@ describe('verrou n°2 : le corpus de référence', () => {
     // Chaque solution doit se rattacher à une spec : une orpheline est un bug
     // de contenu, pas un bug de moteur — et elle doit se voir immédiatement.
     const orphans = solutions.filter(s => {
-      try { specOf(s.exerciseId); return false; } catch { return true; }
+      try { specForSolution(s); return false; } catch { return true; }
     }).map(labelOf);
     expect(orphans).toEqual([]);
   });
@@ -61,7 +61,7 @@ for (const mod of SCOPE) {
 
   describe(`verrou n°2 — ${mod} (${inModule.length} solutions)`, () => {
     for (const s of inModule) {
-      const spec = specOf(s.exerciseId);
+      const spec = specForSolution(s);
       const kind = typeof spec.kind === 'string' ? spec.kind : 'INCONNU';
       const label = labelOf(s);
 
@@ -70,7 +70,15 @@ for (const mod of SCOPE) {
           case 'score': {
             // F-35 : une solution est une PARTITION, pas une exécution.
             const { report } = evaluateDetailed(compileSolution(s, spec), spec, { skipPerformance: true });
-            expect(report.score, dump(label, report)).toBeGreaterThanOrEqual(PASS_MARK);
+            // **Décision n°11** : la solution d'une sous-partie OUVERTE
+            // (`userBrief`) est un GABARIT — « démonstrative, non standard de
+            // correction ». Elle doit tenir les contraintes lâches de sa
+            // sous-partie, et c'est tout ce qu'elle promet : lui demander la
+            // note d'une solution de référence, c'est noter un exemple contre
+            // un barème qu'il n'a jamais prétendu viser.
+            if (spec.userBrief !== true) {
+              expect(report.score, dump(label, report)).toBeGreaterThanOrEqual(PASS_MARK);
+            }
             const broken = report.constraintResults.filter(c => !c.performanceOnly && !c.pass);
             expect(broken.map(c => `${c.key} : ${c.detail}`), dump(label, report)).toEqual([]);
             break;
@@ -99,7 +107,7 @@ describe('verrou n°2 : couverture', () => {
     for (const mod of SCOPE) {
       const scores: number[] = [];
       for (const s of solutions.filter(x => x.module === mod)) {
-        const spec = specOf(s.exerciseId);
+        const spec = specForSolution(s);
         if (lockKindOf(typeof spec.kind === 'string' ? spec.kind : undefined) !== 'score') continue;
         const submission = compileSolution(s as Solution, spec);
         if (submission.kind === 'harmony') byVerticals.push(labelOf(s));

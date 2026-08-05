@@ -2,6 +2,10 @@ import type { Issue } from '../types.js';
 import type { Rule, RuleCtx } from './types.js';
 import { ruleIssue } from './types.js';
 import { functionOf } from '../analyzers/cadence.js';
+import { STRICT_COVERAGE } from '../analyzers/collection.js';
+import type { CollectionFamily } from '../analyzers/collection.js';
+import { barTicks } from '../analyzers/rhythm.js';
+import { meterOfSpec } from '../meter.js';
 
 /** Part maximale d'accords chromatiques non expliqués. */
 const CHROMATIC_TOLERANCE = 0.25;
@@ -37,6 +41,72 @@ function tagged(ctx: RuleCtx, tick: number): boolean {
  */
 function declaresLoop(spec: RuleCtx['spec']): boolean {
   return Object.keys(spec.constraints ?? {}).some(k => /loop/i.test(k));
+}
+
+/** Les collections qui constituent une grammaire de rechange assumée. */
+const ALTERNATIVE_COLLECTIONS = new Set<CollectionFamily>(['whole-tone', 'octatonic', 'pentatonic']);
+
+/**
+ * **Une septième n'est une QUESTION que là où il existe des dominantes.**
+ *
+ * La pièce vit-elle dans une collection non fonctionnelle, assumée et tenue ?
+ * Alors il n'y a ni sensible, ni quinte descendante, ni cible : la « tension
+ * posée puis abandonnée » que la règle décrit n'a nulle part où aller, par
+ * construction. `m03-s11` en est le cas d'école — sa consigne écrit « collection
+ * STRICTE tons entiers […] de l'altitude sans gravité, aucun demi-ton nulle
+ * part », et ses accords augmentés se chiffrent légitimement en septièmes
+ * (ré♭-fa-la-do♭ EST un Db7♯5). Le moteur lui reprochait cinq fois de ne pas
+ * résoudre ce que sa gamme lui interdit de résoudre.
+ *
+ * Même porte de sortie que `melody.out-of-key`, mêmes gardes : la collection
+ * doit être TENUE (`STRICT_COVERAGE`), et `chromatic` en est exclue — elle
+ * contient les douze notes, sa couverture vaut toujours 1, et l'accepter
+ * éteindrait la règle sur exactement la musique qu'elle doit juger.
+ */
+function nonFunctionalCollection(ctx: RuleCtx): boolean {
+  const collection = ctx.analysis.collection;
+  return collection !== null && collection !== undefined
+    && ALTERNATIVE_COLLECTIONS.has(collection.family)
+    && collection.coverage >= STRICT_COVERAGE;
+}
+
+/**
+ * **Les plages que la consigne déclare non fonctionnelles**, en ticks.
+ *
+ * `detectCollection` lit la pièce ENTIÈRE, et c'est le bon grain pour une pièce
+ * d'un seul tenant. `m03-e11` n'en est pas une : elle traverse trois états de
+ * gravité — do majeur fonctionnel (mes. 1–4), la passerelle (mes. 5), les tons
+ * entiers stricts (mes. 6–13), le retour (mes. 14–15). Sa couverture globale
+ * n'est donc jamais « strictement par tons », et la porte de sortie ci-dessus
+ * ne s'ouvrait pas — alors que la consigne DIT où le système change :
+ * `requireCollection: { collection: "whole-tone", barWindow: [6, 13] }`.
+ *
+ * `amphibiousBridge` y ajoute sa mesure : la consigne y déclare un accord qui
+ * appartient à DEUX collections à la fois (« ses quatre pitch-classes
+ * appartiennent DÉJÀ à la collection par tons »). Un accord que la consigne
+ * déclare amphibie ne peut pas être tenu aux obligations d'une seule de ses
+ * deux lectures — et c'est le sujet même de l'exercice : la dominante qui se
+ * dissout au lieu de résoudre.
+ */
+function declaredNonFunctionalRanges(ctx: RuleCtx): { from: number; to: number }[] {
+  const c = (ctx.spec.constraints ?? {}) as Record<string, unknown>;
+  const bar = barTicks(meterOfSpec(ctx.spec));
+  const ranges: { from: number; to: number }[] = [];
+
+  const required = c.requireCollection as { collection?: unknown; barWindow?: unknown } | undefined;
+  if (required && typeof required.collection === 'string'
+    && ALTERNATIVE_COLLECTIONS.has(required.collection as CollectionFamily)
+    && Array.isArray(required.barWindow) && required.barWindow.length === 2) {
+    const [first, last] = required.barWindow as [number, number];
+    ranges.push({ from: (first - 1) * bar, to: last * bar });
+  }
+
+  const bridge = c.amphibiousBridge as { bar?: unknown; collections?: unknown } | undefined;
+  if (bridge && typeof bridge.bar === 'number' && Array.isArray(bridge.collections)
+    && bridge.collections.some(x => typeof x === 'string' && ALTERNATIVE_COLLECTIONS.has(x as CollectionFamily))) {
+    ranges.push({ from: (bridge.bar - 1) * bar, to: bridge.bar * bar });
+  }
+  return ranges;
 }
 
 export const HARMONY_RULES: Rule[] = [
@@ -82,6 +152,8 @@ export const HARMONY_RULES: Rule[] = [
     appliesTo: ['harmony', 'voices', 'parts', 'midi'],
     lessonRef: 'm01-l13',
     detect: (ctx: RuleCtx): Issue[] => {
+      if (nonFunctionalCollection(ctx)) return [];
+      const outsideGravity = declaredNonFunctionalRanges(ctx);
       const chords = ctx.analysis.chords ?? [];
       const self = { id: 'harmony.unresolved-seventh', severity: 'warning' as const, lessonRef: 'm01-l13' };
       const issues: Issue[] = [];
@@ -89,6 +161,7 @@ export const HARMONY_RULES: Rule[] = [
         const chord = chords[i]!;
         if (!TENSION_SEVENTHS.has(chord.chord.form)) continue;
         if (tagged(ctx, chord.from)) continue;
+        if (outsideGravity.some(r => chord.from >= r.from && chord.from < r.to)) continue;
 
         // La CIBLE, c'est le prochain accord qui change de fondamentale. Un G7
         // qui se reverse en G7, un D7sus4 qui devient D7 : l'harmonie n'a pas
@@ -166,11 +239,18 @@ export const HARMONY_RULES: Rule[] = [
     detect: (ctx: RuleCtx): Issue[] => {
       const chords = ctx.analysis.chords ?? [];
       if (chords.length === 0) return [];
+      if (nonFunctionalCollection(ctx)) return [];
       const key = ctx.analysis.key;
       const diatonic = new Set([0, 2, 4, 5, 7, 9, 11].map(d => pc(d + key.tonic)));
       // Silencieuse dès que chaque chromatisme est expliqué : un accord tagué
-      // (napolitain, aug6, subV…) a déjà rendu ses comptes.
-      const strangers = chords.filter(c => !diatonic.has(pc(c.chord.root)) && !tagged(ctx, c.from));
+      // (napolitain, aug6, subV…) a déjà rendu ses comptes — ou que la consigne
+      // a DÉCLARÉ où l'on quitte le système. C'est mot pour mot l'`alternative`
+      // que cette règle propose à l'élève (« déclare une palette non
+      // fonctionnelle et le moteur cessera de compter les écarts à une tonalité
+      // que tu as quittée ») ; elle ne la tenait pas.
+      const outsideGravity = declaredNonFunctionalRanges(ctx);
+      const strangers = chords.filter(c => !diatonic.has(pc(c.chord.root)) && !tagged(ctx, c.from)
+        && !outsideGravity.some(r => c.from >= r.from && c.from < r.to));
       const ratio = strangers.length / chords.length;
       if (ratio <= CHROMATIC_TOLERANCE) return [];
       return [ruleIssue({ id: 'harmony.overchromatic', severity: 'suggestion', lessonRef: 'm01-l21' },

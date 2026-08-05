@@ -11,7 +11,7 @@
  *   pnpm -F @ma/music-core exec tsx scripts/lock2.ts --by-cause → par blocage
  */
 import { evaluateDetailed } from '../src/pipeline/evaluate.js';
-import { compileSolution, labelOf, loadSolutions, lockKindOf, specOf } from '../test/solutions.js';
+import { compileSolution, labelOf, loadSolutions, lockKindOf, specForSolution } from '../test/solutions.js';
 
 const SCOPE = ['m01', 'm02', 'm03'];
 const PASS_MARK = 85;
@@ -28,7 +28,7 @@ interface Row {
 
 const rows: Row[] = [];
 for (const s of loadSolutions(SCOPE)) {
-  const spec = specOf(s.exerciseId);
+  const spec = specForSolution(s);
   const kind = typeof spec.kind === 'string' ? spec.kind : 'INCONNU';
   if (lockKindOf(kind) !== 'score') continue;
   const submission = compileSolution(s, spec);
@@ -44,7 +44,8 @@ for (const s of loadSolutions(SCOPE)) {
     craft: report.subscores.craft,
     issues: report.issues.map(i => `${i.ruleId}@${i.atTick ?? '—'}`),
     broken: broken.map(c => `${c.key} : ${c.detail}`),
-    green: report.score >= PASS_MARK && broken.length === 0,
+    // Décision n°11 : un gabarit de sous-partie ouverte ne vise pas la note.
+    green: (report.score >= PASS_MARK || spec.userBrief === true) && broken.length === 0,
   });
 }
 

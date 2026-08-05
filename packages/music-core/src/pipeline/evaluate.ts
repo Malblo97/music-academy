@@ -180,6 +180,26 @@ export function declaredKeyOf(spec: ExerciseSpec): { tonic: number; mode: Mode }
 }
 
 /**
+ * **La tonalité d'ARRIVÉE, quand la consigne déclare une modulation.**
+ *
+ * Une pièce qui module a deux maisons, et la consigne dit laquelle est la
+ * seconde — sous deux noms selon le module : `constraints.modulation.to` en M3,
+ * `constraints.targetKey` en M1. Ne lire que la première coûtait deux fois sur
+ * `m03-e04` (« do majeur → mi♭ majeur », c'est le titre même de l'exercice) :
+ * le checker `key` y comptait 18 notes « hors collection » sur 48 — la seconde
+ * moitié de la pièce — et `requiredCadence` ne trouvait aucune parfaite, parce
+ * qu'il cherchait un sol-do dans une pièce qui finit si♭-mi♭.
+ */
+export function arrivalKeyOf(spec: ExerciseSpec): { tonic: number; mode: Mode } | null {
+  const c = (spec.constraints ?? {}) as Record<string, unknown>;
+  const modulation = c.modulation as { to?: unknown } | undefined;
+  const raw = (modulation?.to ?? c.targetKey) as { tonic?: unknown; mode?: unknown } | undefined;
+  if (!raw || typeof raw.tonic !== 'number') return null;
+  const mode = typeof raw.mode === 'string' ? raw.mode as Mode : 'major';
+  return { tonic: ((raw.tonic % 12) + 12) % 12, mode };
+}
+
+/**
  * **Les frontières de segment**, en ticks — ce que F-5 appelle « la fin d'un
  * segment ».
  *
@@ -245,9 +265,22 @@ export function runAnalyzers(submission: Submission, spec: ExerciseSpec, window:
   // échouait sur toutes les mélodies du corpus. Le repli lit la conclusion dans
   // la ligne : sensible ou sus-tonique menant à la tonique, longue, sur un
   // appui. Il était écrit dans `cadence.ts` et n'était appelé par personne.
+  const segmentEnds = segmentEndsOf(spec, meter, total);
   const cadences = chords.length === 0 && line.length >= 2
     ? detectCadences([], key, { melodyOnly: line, meter })
-    : detectCadences(chords, key, { segmentEnds: segmentEndsOf(spec, meter, total) });
+    : detectCadences(chords, key, { segmentEnds });
+  // Une pièce qui MODULE ponctue aussi dans sa tonalité d'arrivée : sa cadence
+  // finale ne se lit pas depuis le point de départ. On repasse donc la
+  // détection dans la seconde maison, quand la consigne en déclare une, et on
+  // fusionne — jamais sur une pièce qui ne module pas.
+  const arrival = arrivalKeyOf(spec);
+  if (arrival && chords.length > 0) {
+    const seen = new Set(cadences.map(c => `${c.at}/${c.kind}`));
+    for (const c of detectCadences(chords, { ...key, ...arrival }, { segmentEnds })) {
+      if (!seen.has(`${c.at}/${c.kind}`)) cadences.push(c);
+    }
+    cadences.sort((a, b) => a.at - b.at);
+  }
 
   // 7. Le reste. Les analyses MÉLODIQUES — motif, contour, phrase — lisent la
   //    LIGNE, pas la texture : sur un choral, le contour de toutes les voix

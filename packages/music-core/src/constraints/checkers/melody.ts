@@ -4,6 +4,7 @@ import { allJudged, asNumber, asNumbers, asRange, asStrings, degreeOf, fail, lin
 import { climaxPosition, contour } from '../../analyzers/contour.js';
 import { metricWeight } from '../../analyzers/rhythm.js';
 import { barCount, meterOfSpec } from '../../meter.js';
+import { arrivalKeyOf } from '../../pipeline/evaluate.js';
 import { barTicks } from '../../analyzers/rhythm.js';
 import { scalePcs } from '../../analyzers/key.js';
 import { tensionSpread } from '../../analyzers/tension.js';
@@ -352,7 +353,14 @@ export const MELODY_CHECKERS: Record<string, Checker> = {
     if (notes.length === 0) return ok('aucune note à mesurer');
 
     const scale = scalePcs(declared.tonic, declared.mode ?? 'major');
-    const strays = notes.filter(n => !scale.has(pc(n.pitch)));
+    // Une pièce qui MODULE a deux maisons, et la consigne dit laquelle est la
+    // seconde. `m03-e04` s'intitule « do majeur → mi♭ majeur » et déclare son
+    // arrivée ; comptée contre le seul do majeur, sa seconde moitié ressortait
+    // en 18 notes fautives sur 48. Ce n'est pas une pièce à 38 % d'erreurs,
+    // c'est une pièce qui va quelque part.
+    const arrival = arrivalKeyOf(ctx.spec);
+    const arrivalScale = arrival ? scalePcs(arrival.tonic, arrival.mode) : null;
+    const strays = notes.filter(n => !scale.has(pc(n.pitch)) && !(arrivalScale?.has(pc(n.pitch)) ?? false));
     const ratio = strays.length / notes.length;
     const estimated = ctx.analysis.estimatedKey;
     const heard = estimated ? ` (lecture indépendante : ${estimated.tonic}/${estimated.mode}, confiance ${estimated.confidence.toFixed(2)})` : '';

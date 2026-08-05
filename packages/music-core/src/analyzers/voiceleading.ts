@@ -25,6 +25,13 @@ export interface VoiceLeadingCtx {
    * module toutes les deux mesures.
    */
   chords?: readonly TimedChord[];
+  /**
+   * **Le tapis et l'arabesque** (décision n°35). La consigne déclare une
+   * texture en deux strates : une nappe tenue, et une ligne au-dessus d'elle.
+   * `vl.spacing` exempte alors l'écart du HAUT comme il exempte déjà celui du
+   * bas — voir `spacingAndDoublingIssues`.
+   */
+  stratified?: boolean;
 }
 
 /** Écart maximal entre deux voix supérieures adjacentes (la basse est libre). */
@@ -368,40 +375,31 @@ function seventhIssues(slices: readonly Slice[], voices: readonly (readonly Note
   return issues;
 }
 
-/**
- * **Tapis et arabesque** — la texture que le `when` de `vl.spacing` s'exclut
- * lui-même sans que le code l'ait jamais implémenté : « les textures
- * orchestrales larges et les voicings de piano ouverts ont leurs propres lois ».
- *
- * Le témoin est dans la notation, pas dans une exception à déclarer : quand
- * TOUTES les voix sauf la plus aiguë TIENNENT depuis avant et que seule la voix
- * du dessus réattaque, on n'a pas un accord à quatre voix qui se déchire, on a
- * deux strates — une nappe tenue et une ligne au-dessus. La faute que la règle
- * enseigne est un accident local (« l'accord ne suit pas, la mélodie se
- * retrouve toute seule au-dessus du vide ») ; ici, rien n'était censé suivre.
- *
- * `m03-s11` (« l'apesanteur ») l'écrit noir sur blanc, liaisons comprises :
- * `[Db3~+F3~+A3~+B4]` — « le balancement des deux augmentés en tapis TENUS
- * (liaisons par note, F-21), l'arabesque au-dessus ».
- */
-function isStratified(slice: Slice): boolean {
-  const voices = slice.pitches
-    .map((p, i) => ({ p, held: !slice.attacks[i] }))
-    .filter((v): v is { p: number; held: boolean } => v.p !== null)
-    .sort((a, b) => a.p - b.p);
-  if (voices.length < 3) return false;
-  const top = voices[voices.length - 1]!;
-  return !top.held && voices.slice(0, -1).every(v => v.held);
-}
-
 function spacingAndDoublingIssues(slices: readonly Slice[], key: KeyEstimate, ctx: VoiceLeadingCtx): Issue[] {
   const issues: Issue[] = [];
   for (const slice of slices) {
     const present = slice.pitches.filter((p): p is number => p !== null).sort((a, b) => a - b);
+    /**
+     * **Tapis et arabesque** — la texture que le `when` de `vl.spacing` s'exclut
+     * lui-même : « les textures orchestrales larges et les voicings de piano
+     * ouverts ont leurs propres lois (m07-l03) ».
+     *
+     * La règle laisse déjà la basse respirer : « la basse, elle, a le droit de
+     * s'éloigner — c'est le sol, pas un étage ». Quand la consigne déclare un
+     * TAPIS surmonté d'une LIGNE (décision n°35), l'exemption est symétrique
+     * par le haut : l'arabesque n'est pas un étage non plus, c'est le toit. La
+     * faute que la règle enseigne reste un accident local — « l'accord ne suit
+     * pas, la mélodie se retrouve toute seule au-dessus du vide » — et ici,
+     * rien n'était censé suivre. Ce qui reste jugé, c'est l'écartement DANS le
+     * tapis : sur `m03-s11`, ré♭3-fa3-la3 tient dans une tierce majeure, et si
+     * la nappe se déchirait la règle le dirait.
+     */
+    const topGap = ctx.stratified === true ? present.length - 2 : -1;
     // Espacement : entre voix SUPÉRIEURES adjacentes seulement (la basse respire).
     for (let i = 1; i < present.length - 1; i++) {
+      if (i === topGap) continue;
       const gap = present[i + 1]! - present[i]!;
-      if (gap > MAX_UPPER_SPACING && !isStratified(slice)) {
+      if (gap > MAX_UPPER_SPACING) {
         issues.push({
           ruleId: 'vl.spacing',
           severity: 'warning',

@@ -111,6 +111,32 @@ export function specOf(exerciseId: string | undefined): ExerciseSpec {
   return spec;
 }
 
+/**
+ * **La spec de LA SOUS-PARTIE**, quand la solution en est une (décision n°11).
+ *
+ * Deux exercices du périmètre découpent leur consigne en `submissionParts[]` —
+ * `m02-e30` (elena / yours) et `m03-e18` (le capstone à trois palettes) — et y
+ * rangent TOUT ce qui compte : `constraints`, `styleProfile`, `rubric`, `given`.
+ * Le parent, lui, ne porte qu'un prompt d'introduction.
+ *
+ * `specOf` s'arrêtait au parent. Les cinq solutions concernées étaient donc
+ * évaluées **sans une seule contrainte** — verrou vert et creux, exactement ce
+ * que la décision n°29(2) refusait : `m03-e18 [modal]` et `[non-fonctionnel]`
+ * passaient parce qu'on ne leur demandait rien. On résout donc la sous-partie
+ * et on fusionne son bloc par-dessus le parent.
+ */
+export function specForSolution(s: Solution): ExerciseSpec {
+  const parent = specOf(s.exerciseId);
+  const partId = s.submissionPartId ?? s.partId ?? s.variantId;
+  const parts = parent.submissionParts;
+  if (!partId || !Array.isArray(parts)) return parent;
+  const part = (parts as Record<string, unknown>[]).find(p => p.id === partId);
+  if (!part) {
+    throw new Error(`${labelOf(s)} : aucune sous-partie « ${partId} » dans la spec — solution orpheline`);
+  }
+  return { ...parent, ...part, id: parent.id } as ExerciseSpec;
+}
+
 // ---------------------------------------------------------------------------
 // Le verrou POLYMORPHE (F-48)
 // ---------------------------------------------------------------------------

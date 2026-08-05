@@ -1,5 +1,5 @@
 { "id": "m03-e11-weightless", "lessonId": "m03-l11-tons-entiers",
-  "title": "L'apesanteur", "kind": "HARMONY_PROGRESSION",
+  "title": "L'apesanteur", "kind": "HARMONY_PROGRESSION", "texture": "stratified",
   "difficulty": 7, "xpReward": 130, "skills": { "HARMONY": 1.0 },
   "spec": { "prompt": "15 mesures en trois états de gravité. LE SOL (mes. 1–4) : do majeur fonctionnel, cadence parfaite — l'auditeur doit avoir un monde à perdre. LA PASSERELLE (mes. 5) : l'accord AMPHIBIE — V7♯5 par line cliché (la 5̂ qui monte) : ses quatre pitch-classes appartiennent DÉJÀ à la collection par tons. L'APESANTEUR (mes. 6–13) : collection STRICTE tons entiers — le balancement des deux accords augmentés en tapis TENUS (liaisons par note, F-21), l'arabesque au-dessus : de l'altitude sans gravité, aucun demi-ton nulle part. LA SORTIE (mes. 14–15) : un accord encore ⊂ tons entiers (la sortie est elle-même un mini passage secret), puis les PREMIERS DEMI-TONS — l'événement que l'analyseur guette — et la cadence du retour.",
     "given": { "key": { "tonic": 0, "mode": "major" } },

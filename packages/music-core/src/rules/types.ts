@@ -69,8 +69,15 @@ export interface ExerciseSpec {
    * soprano, ses notes intérieures ne sont pas des lignes, et les familles
    * `vl.*`/`cp.*` n'ont rien à y suivre. Elles sont alors ÉTEINTES et NOMMÉES
    * dans `silencedRules` — jamais tues en silence.
+   *
+   * `stratified` (décision n°35) : un TAPIS tenu surmonté d'une LIGNE — la
+   * formule éditoriale du corpus est « tapis TENU (liaisons par note, F-21) ».
+   * Contrairement à `keyboard`, la conduite y est bien jugée : le tapis est de
+   * la vraie polyphonie. Seul `vl.spacing` change, et d'un cran : il exempte
+   * l'écart du HAUT — entre la nappe et la ligne — comme il exempte déjà celui
+   * du bas.
    */
-  texture?: 'choral' | 'keyboard';
+  texture?: 'choral' | 'keyboard' | 'stratified';
   lessonId?: string;
   constraints?: Record<string, unknown>;
   styleProfile?: StyleProfileRef;
