@@ -15,6 +15,45 @@ function chords(ctx: RuleCtx) {
 }
 
 /**
+ * **Une triade NUE n'a rien par-dessus.** La forme ne suffit plus à le dire
+ * depuis que les tensions se chiffrent (décision n°33) : un `Gadd9` est un
+ * `maj` de sol qui porte une neuvième — enrichi, pas nu. Sans ce test, m01-s32
+ * comptait trois triades nues (ses deux `Gadd9` plus le sol final) là où sa
+ * consigne en veut une ou deux, et où ses `authorNotes` en revendiquent UNE :
+ * « la triade nue = le G final ».
+ */
+function isPlainTriad(c: { chord: { form: string; tensions: number[] } }): boolean {
+  return ['maj', 'min', 'dim', 'aug'].includes(c.chord.form) && c.chord.tensions.length === 0;
+}
+
+/**
+ * **Les doublures de FAMILLE** : combien d'accords de la grille fournie ont été
+ * remplacés par un autre degré qui tient la même fonction (I→vi, IV→ii, V→vii°).
+ *
+ * On ne peut le compter que là où la consigne FOURNIT la grille de départ
+ * (`given.chords`) : sans référence, « remplacé » n'a pas de sens. On compare
+ * position par position — la substitution ne réordonne rien, elle échange.
+ */
+function familySubstitutions(ctx: RuleCtx): number {
+  const given = ctx.spec.given?.chords;
+  if (!Array.isArray(given)) return 0;
+  const list = chords(ctx);
+  const key = ctx.analysis.key;
+  let count = 0;
+  for (let i = 0; i < Math.min(given.length, list.length); i++) {
+    const origin = (given[i] ?? {}) as { root?: unknown };
+    if (typeof origin.root !== 'number') continue;
+    const written = list[i]!.chord;
+    if (pc(written.root) === pc(origin.root)) continue; // l'accord d'origine, gardé
+    // La fonction doit SURVIVRE : c'est ce qui sépare la doublure de famille
+    // d'un simple accord faux. `functionOf` classe par degré, jamais par forme.
+    const before = functionOf({ root: pc(origin.root), form: 'maj', bass: pc(origin.root), inversion: 0, pcs: [], tensions: [] }, key);
+    if (before === functionOf(written, key)) count++;
+  }
+  return count;
+}
+
+/**
  * Les degrés en chiffres romains, tels que les specs modales les écrivent :
  * `modal:♭VII-I`, `modal:IV-i`, `modal:bII-i`. La casse ne porte que la
  * qualité (majeur/mineur), pas le degré — `IV` et `iv` sont le même degré.
@@ -69,9 +108,24 @@ export const HARMONY_CHECKERS: Record<string, Checker> = {
     }
 
     const hit = found.find(c => c.kind === wanted);
-    return hit
-      ? ok(`cadence « ${wanted} » à la mesure ${Math.floor(hit.at / 1920) + 1}`)
-      : fail(`aucune cadence « ${wanted} » ; trouvé : ${found.map(c => c.kind).join(', ')}`);
+    if (hit) return ok(`cadence « ${wanted} » à la mesure ${Math.floor(hit.at / 1920) + 1}`);
+
+    // **La parfaite et l'imparfaite ne diffèrent que par le SOPRANO** (V→I aux
+    // deux, états fondamentaux aux deux) — et quand la mélodie est FOURNIE, ce
+    // soprano n'appartient pas à l'élève. m02-e15 donne une mélodie « souveraine »
+    // qui finit sur 3̂ et demande une cadence parfaite dans la même consigne :
+    // la seule façon de l'obtenir serait de réécrire la mélodie donnée, ce que
+    // l'exercice interdit. F-41 dit exactement cela — on ne reproche pas à
+    // l'élève ce qu'il n'a pas écrit. L'imparfaite est donc reçue, et le
+    // rapport le DIT plutôt que de le taire.
+    const givenMelody = typeof ctx.spec.given?.notation === 'string';
+    if (wanted === 'perfect' && givenMelody) {
+      const authentic = found.find(c => c.kind === 'imperfect');
+      if (authentic) {
+        return ok(`cadence authentique V→I à la mesure ${Math.floor(authentic.at / 1920) + 1} ; le soprano ne se pose pas sur 1̂, mais la mélodie est fournie (F-41)`);
+      }
+    }
+    return fail(`aucune cadence « ${wanted} » ; trouvé : ${found.map(c => c.kind).join(', ')}`);
   },
 
   /** **F-14** : plusieurs cadences peuvent conclure légitimement. */
@@ -161,7 +215,7 @@ export const HARMONY_CHECKERS: Record<string, Checker> = {
     const range = asRange(value);
     const list = chords(ctx);
     if (!range) return ok('rien à mesurer');
-    const plain = list.filter(c => c.chord.form === 'maj' || c.chord.form === 'min' || c.chord.form === 'dim' || c.chord.form === 'aug');
+    const plain = list.filter(isPlainTriad);
     return plain.length >= range[0] && plain.length <= range[1]
       ? ok(`${plain.length} triades nues, dans ${range[0]}–${range[1]}`)
       : fail(`${plain.length} triades nues, attendu ${range[0]}–${range[1]}`);
@@ -171,7 +225,7 @@ export const HARMONY_CHECKERS: Record<string, Checker> = {
     const min = asNumber(value);
     const list = chords(ctx);
     if (min === null) return ok('rien à mesurer');
-    const enriched = list.filter(c => !['maj', 'min', 'dim', 'aug'].includes(c.chord.form));
+    const enriched = list.filter(c => !isPlainTriad(c));
     return enriched.length >= min
       ? ok(`${enriched.length} accords enrichis ≥ ${min}`)
       : fail(`${enriched.length} accords enrichis, minimum ${min}`);
@@ -182,13 +236,29 @@ export const HARMONY_CHECKERS: Record<string, Checker> = {
     const list = chords(ctx);
     if (!degrees) return ok('rien à mesurer');
     const semitones = degrees.map(d => [0, 0, 2, 4, 5, 7, 9, 11][d] ?? 0);
-    const guilty = list.filter(c =>
-      semitones.includes(pc(c.chord.root - ctx.analysis.key.tonic)) &&
-      !['maj', 'min', 'dim', 'aug'].includes(c.chord.form));
+    // `allowedOnV` nomme les ornements que la consigne EXCEPTE malgré
+    // l'interdiction. m01-e31 interdit d'enrichir le V et autorise dans la
+    // même phrase le `sus4resolving` — « laisse le V NET (sus4→3 autorisé) ».
+    // Le checker ne lisait que la première moitié de la consigne et refusait
+    // la solution pour avoir suivi la seconde.
+    const allowedOnV = new Set(asStrings(ctx.spec.constraints?.allowedOnV) ?? []);
+    const guilty = list.filter((c, i) => {
+      if (!semitones.includes(pc(c.chord.root - ctx.analysis.key.tonic))) return false;
+      if (['maj', 'min', 'dim', 'aug'].includes(c.chord.form) && c.chord.tensions.length === 0) return false;
+      // Le sus4 qui RÉSOUT : le même degré, juste après, porte sa tierce.
+      if (allowedOnV.has('sus4resolving') && c.chord.form === 'sus4') {
+        const next = list[i + 1];
+        if (next && pc(next.chord.root) === pc(c.chord.root)
+          && ['maj', 'min', '7', 'maj7', 'm7'].includes(next.chord.form)) return false;
+      }
+      return true;
+    });
     return guilty.length === 0
       ? ok(`les degrés ${degrees.join('/')} restent nus`)
       : fail(`accord enrichi sur un degré qui doit rester nu, au tick ${guilty[0]!.from}`);
   },
+
+  allowedOnV: () => ok('exceptions lues par `forbidEnrichmentOnDegrees`'),
 
   maxBorrowedChords: (_k, value, ctx) => {
     const max = asNumber(value);
@@ -217,10 +287,19 @@ export const HARMONY_CHECKERS: Record<string, Checker> = {
   minSubstitutions: (_k, value, ctx) => {
     const min = asNumber(value);
     if (min === null) return ok('rien à mesurer');
+    // **Substituer, c'est remplacer un accord en gardant sa fonction.** La
+    // lecture d'origine ne comptait que les tags `subV` — la substitution
+    // TRITONIQUE, un seul des deux idiomes que le cursus appelle ainsi.
+    // m01-e28 (« Même récit, autre lumière ») demande l'autre : la doublure de
+    // FAMILLE, « vi pour I, ii pour IV… le récit T-S-D-T doit rester intact ».
+    // Sa solution en fait deux, ses `authorNotes` les nomment, et le checker
+    // rendait zéro parce qu'il regardait ailleurs.
     const subs = (ctx.analysis.idioms ?? []).filter(t => t.family === 'subV' && ctx.window.judges(t.from));
-    return subs.length >= min
-      ? ok(`${subs.length} substitution(s) ≥ ${min}`)
-      : fail(`${subs.length} substitution(s) détectée(s), minimum ${min}`);
+    const family = familySubstitutions(ctx);
+    const total = subs.length + family;
+    return total >= min
+      ? ok(`${total} substitution(s) ≥ ${min}${family > 0 ? ` (dont ${family} de famille)` : ''}`)
+      : fail(`${total} substitution(s) détectée(s), minimum ${min}`);
   },
 
   commonToneThread: (_k, value, ctx) => {

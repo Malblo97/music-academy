@@ -10,7 +10,7 @@ export const RHYTHM_RULES: Rule[] = [
     id: 'rhythm.syncopation-target',
     severity: 'suggestion',
     weight: 1,
-    appliesTo: ['mono', 'voices', 'parts', 'midi'],
+    appliesTo: ['mono', 'harmony', 'voices', 'parts', 'midi'],
     lessonRef: 'm01-l09',
     detect: (ctx: RuleCtx): Issue[] => {
       const profile = ctx.analysis.rhythm;
@@ -44,7 +44,7 @@ export const RHYTHM_RULES: Rule[] = [
     id: 'rhythm.asymmetry',
     severity: 'info',
     weight: 1,
-    appliesTo: ['mono', 'voices', 'parts', 'midi'],
+    appliesTo: ['mono', 'harmony', 'voices', 'parts', 'midi'],
     lessonRef: 'm01-l09',
     detect: (ctx: RuleCtx): Issue[] => {
       const profile = ctx.analysis.rhythm;
@@ -65,7 +65,7 @@ export const RHYTHM_RULES: Rule[] = [
     id: 'rhythm.prosody',
     severity: 'suggestion',
     weight: 1,
-    appliesTo: ['mono', 'voices', 'parts', 'midi'],
+    appliesTo: ['mono', 'harmony', 'voices', 'parts', 'midi'],
     lessonRef: 'm02-l09',
     detect: (ctx: RuleCtx): Issue[] => {
       const profile = ctx.analysis.rhythm;

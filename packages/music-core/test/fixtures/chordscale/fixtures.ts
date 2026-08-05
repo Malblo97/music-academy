@@ -14,7 +14,7 @@ function cmaj7(notes: readonly Note[], bars = 1): Vertical[] {
     from: 0,
     to: 1920 * bars,
     notes,
-    chord: { root: 0, form: 'maj7', bass: 0, inversion: 0, pcs: [0, 4, 7, 11] },
+    chord: { root: 0, form: 'maj7', bass: 0, inversion: 0, pcs: [0, 4, 7, 11], tensions: [] },
   }];
 }
 

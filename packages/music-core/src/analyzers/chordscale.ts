@@ -84,6 +84,12 @@ export function chordScaleCheck(
     const prev = line[i - 1];
     const next = line[i + 1];
 
+    // Une TENSION de l'accord n'est pas une étrangère à sa gamme : c'est
+    // l'accord lui-même. Le ♭9 d'un G7♭9 a déjà été lu au chiffrage
+    // (décision n°33) — le reprocher ici, ce serait compter deux fois la même
+    // note, une fois comme couleur et une fois comme faute.
+    if (chord.tensions.includes(degree)) continue;
+
     if (!cs.intervals.includes(degree)) {
       if (isConductedChromatic(prev, note, next)) continue;
       issues.push({

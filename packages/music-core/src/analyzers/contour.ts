@@ -69,6 +69,14 @@ function peaksOf(line: readonly Note[]): Peak[] {
 function silhouetteOf(shape: string, ambitus: number, peaks: readonly Peak[]): Silhouette | null {
   // Le plateau d'abord : il se reconnaît à ce qu'il NE fait pas (l05 §1) — sans
   // quoi ses micro-mouvements seraient lus « vague ».
+  //
+  // **ÉCART CONNU, non corrigé ici** (cf. `docs/qa/lock2-run.md`) : le seuil
+  // porte sur l'AMBITUS BRUT, ce qui refuse le nom de plateau à `m02-s22` dont
+  // les `authorNotes` écrivent « plateau (ambitus 7) ✓ ». Une lecture sur le
+  // contour RÉDUIT (moyenne par quart de pièce, seuil inchangé à 4) rend bien
+  // « plateau » sur cette pièce — mais elle relit aussi `silhouette-wave` en
+  // « arche » et ne débloque aucune solution de plus. Le désaccord reste donc
+  // visible ici plutôt que noyé, et appelle une décision éditoriale.
   if (ambitus <= PLATEAU_AMBITUS) return 'plateau';
 
   const directions = shape.replace(/R/g, '');
@@ -103,14 +111,34 @@ export function contour(notes: readonly Note[]): ContourResult {
 
 /**
  * La position du climax dans la pièce, en fraction de la durée totale — la
- * valeur que `climaxWindow` compare à son intervalle (ex. [0.6, 0.85]). En cas
- * d'ex æquo, le PREMIER sommet absolu (celui qui accomplit la montée).
+ * valeur que `climaxWindow` compare à son intervalle (ex. [0.6, 0.85]).
+ *
+ * **L'ex æquo se départage par le POIDS, puis par la place.** La lecture
+ * d'origine prenait le premier sommet absolu rencontré, « celui qui accomplit
+ * la montée » — juste tant que le sommet n'est atteint qu'une fois. Le corpus
+ * dit le contraire dès qu'il se répète :
+ *
+ *  - `m03-s17` (octatonique) touche son mi♭5 deux fois — une croche de passage
+ *    dans un arpège montant à 38 %, puis la ronde du cluster à sept sons de la
+ *    mesure 7, à 60 %. Le climax de cette pièce est la masse tenue, pas la note
+ *    traversée ; la fenêtre de la consigne ([0,6 – 0,8]) le dit aussi ;
+ *  - `m03-s14` (« le rouleau ») roule TROIS FOIS le même dessin — la consigne le
+ *    déclare (`sameTopLineAcrossSegments`). Son ré5 revient à l'identique, et
+ *    prendre le premier revenait à placer le sommet d'une pièce de douze
+ *    mesures à sa deuxième.
+ *
+ * À durée égale, c'est donc le DERNIER énoncé du sommet qui compte : ce qui
+ * précède n'était qu'une visite, la dernière est celle après quoi rien ne monte
+ * plus.
  */
 export function climaxPosition(notes: readonly Note[]): number | null {
   const line = melodyLine(notes);
   if (line.length === 0) return null;
   const total = line.reduce((m, n) => Math.max(m, n.start + n.duration), 0);
   if (total === 0) return null;
-  const highest = line.reduce((best, n) => (n.pitch > best.pitch ? n : best));
-  return highest.start / total;
+  const peak = line.reduce((m, n) => Math.max(m, n.pitch), -Infinity);
+  const summits = line.filter(n => n.pitch === peak);
+  const chosen = summits.reduce((best, n) =>
+    (n.duration > best.duration || (n.duration === best.duration && n.start > best.start)) ? n : best);
+  return chosen.start / total;
 }

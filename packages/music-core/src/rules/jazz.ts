@@ -12,7 +12,7 @@ export const JAZZ_RULES: Rule[] = [
     id: 'jazz.chord-scale',
     severity: 'warning',
     weight: 1,
-    appliesTo: ['mono', 'voices', 'parts', 'midi'],
+    appliesTo: ['mono', 'harmony', 'voices', 'parts', 'midi'],
     lessonRef: 'm08-l06',
     detect: (ctx: RuleCtx): Issue[] => {
       const verticals = ctx.analysis.verticals;
@@ -32,7 +32,7 @@ export const JAZZ_RULES: Rule[] = [
     id: 'jazz.voicing',
     severity: 'suggestion',
     weight: 1,
-    appliesTo: ['voices', 'parts', 'midi'],
+    appliesTo: ['harmony', 'voices', 'parts', 'midi'],
     lessonRef: 'm08-l02',
     detect: (ctx: RuleCtx): Issue[] => {
       const verticals = ctx.analysis.verticals ?? [];

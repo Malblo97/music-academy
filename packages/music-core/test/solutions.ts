@@ -255,22 +255,22 @@ export function voiceTextureOf(notes: readonly Note[], spec: ExerciseSpec): Voic
 }
 
 /**
- * **Ce que le moteur ne sait pas encore REPRÉSENTER** — pas une solution fausse.
+ * **Ce que le moteur SAIT en dire** — décision n°32.
  *
- * Aucun `Submission['kind']` ne décrit une texture à densité variable :
- * `voices` suppose un effectif, `mono` une ligne, `layers` un empilement de
- * sound design. Compiler ces pièces en `mono` les ferait passer sans qu'aucune
- * règle d'harmonie ne leur soit posée — vert et creux, exactement ce que la
- * décision n°29(2) refusait. On échoue donc BRUYAMMENT, en attendant qu'une
- * forme de soumission adaptée existe. Le lot est nommé au registre (n°31) et
- * détaillé dans `docs/qa/lock2-run.md`.
+ * Une texture à densité variable n'a pas d'effectif : `voices` en inventerait
+ * un et ferait naître des lignes fausses (la basse d'une attaque à trois notes
+ * atterrit au rang 3, celle des attaques à quatre au rang 4). `mono` la ferait
+ * passer sans qu'aucune règle d'harmonie ne lui soit posée — vert et creux, ce
+ * que la décision n°29(2) refusait. Le premier temps de la décision échouait
+ * donc bruyamment, faute de troisième forme.
+ *
+ * `{kind:'harmony'}` EST cette troisième forme : elle dit exactement ce qu'on
+ * sait lire. Les verticalités se chiffrent, donc `harmony.*`, `jazz.*` et
+ * `orch.low-interval-limit` s'appliquent ; la ligne supérieure se lit, donc
+ * `melody.*` et `rhythm.*` aussi. Les lignes intérieures, non — `vl.*` et
+ * `cp.*` restent muettes, et le craft n'en tire aucun point (cf. `craft.ts`,
+ * composante `clean-voice-leading`).
  */
-export class UnrepresentableTexture extends Error {
-  constructor(readonly label: string, readonly reason: string) {
-    super(`${label} : texture à densité variable, hors périmètre des familles vl.*/harmony.* — ${reason}. Aucune forme de soumission ne la représente (décision n°31) ; voir docs/qa/lock2-run.md.`);
-    this.name = 'UnrepresentableTexture';
-  }
-}
 
 /**
  * Défait un empilement vertical en VOIX, par registre : la plus aiguë de chaque
@@ -373,9 +373,10 @@ export function compileSolution(s: Solution, spec: ExerciseSpec): Submission {
       const voices = unstackVoices(notes);
       if (voices.length >= 2) return { kind: 'voices', voices };
     } else if (harmonic) {
-      // Une pièce HARMONIQUE dont on ne sait pas lire l'effectif ne doit pas
-      // retomber en `mono` : elle serait notée sans une seule règle d'harmonie.
-      throw new UnrepresentableTexture(labelOf(s), texture.reason);
+      // Une pièce HARMONIQUE dont on ne sait pas lire l'effectif ne retombe pas
+      // en `mono` : elle serait notée sans une seule règle d'harmonie. Elle se
+      // lit en verticalités — les accords sans les lignes (décision n°32).
+      return { kind: 'harmony', notes };
     }
   }
   return { kind: 'mono', notes };

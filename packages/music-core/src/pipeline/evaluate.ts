@@ -78,7 +78,8 @@ export function validateSubmission(submission: Submission, spec: ExerciseSpec): 
 
   switch (submission.kind) {
     case 'mono':
-      if (!notesOk(submission.notes)) throw new Error(`${where} : soumission « mono » sans Note[] valide`);
+    case 'harmony':
+      if (!notesOk(submission.notes)) throw new Error(`${where} : soumission « ${submission.kind} » sans Note[] valide`);
       return;
     case 'voices':
       if (!Array.isArray(submission.voices) || !submission.voices.every(notesOk)) {
@@ -128,7 +129,8 @@ export function meterOf(spec: ExerciseSpec, fallback: Meter = [4, 4]): Meter {
 /** Les notes d'une soumission, toutes voix/parties confondues. */
 export function notesOf(submission: Submission): Note[] {
   switch (submission.kind) {
-    case 'mono': return [...submission.notes];
+    case 'mono':
+    case 'harmony': return [...submission.notes];
     case 'voices': return submission.voices.flat();
     case 'parts':
     case 'midi': return submission.parts.flatMap(p => [...p.notes]);

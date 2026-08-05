@@ -4,7 +4,11 @@ import { allJudged, asNumber, asNumbers, asRange, asStrings, degreeOf, fail, lin
 import { climaxPosition, contour } from '../../analyzers/contour.js';
 import { metricWeight } from '../../analyzers/rhythm.js';
 import { barCount, meterOfSpec } from '../../meter.js';
+import { barTicks } from '../../analyzers/rhythm.js';
 import { scalePcs } from '../../analyzers/key.js';
+import { tensionSpread } from '../../analyzers/tension.js';
+import type { KeyEstimate } from '../../analyzers/key.js';
+import type { RuleCtx } from '../../rules/types.js';
 
 /** Le seuil d'ambiguïté de `estimateKey` — F-11 s'évalue sur les profils BRUTS. */
 const AMBIGUITY_THRESHOLD = 0.08;
@@ -16,6 +20,33 @@ const AMBIGUITY_THRESHOLD = 0.08;
  * parfaitement tonale.
  */
 const OUT_OF_KEY_TOLERANCE = 0.12;
+
+/**
+ * **Le seuil de `flatTension`, calibré sur le corpus.**
+ *
+ * `tensionSpread` est une grandeur nouvelle (l'ancienne lecture portait sur une
+ * courbe normalisée, cf. le checker) : elle appelle son propre seuil, et ce
+ * seuil vient des chiffres, pas d'une intuition. Sur les 86 solutions de
+ * M1–M3, les deux seules pièces dont la spec déclare `flatTension` — m02-e26
+ * « weightless » et m02-e24 « open-question » — sortent 2e et 3e plus plates du
+ * corpus entier, à 0,53 et 0,59 ; la médiane est à ≈ 1,05, et seule la pédale
+ * de G7 de m01-s34 (un accord tenu deux mesures) descend plus bas, à 0,24.
+ * 0,65 ne retient donc que les 5 % les plus immobiles — c'est une barre haute,
+ * pas une porte ouverte.
+ */
+const FLAT_TENSION_MAX_SPREAD = 0.65;
+
+/**
+ * Les toniques RIVALES d'une pièce dont la consigne revendique l'ambiguïté
+ * (`requireAmbiguousKey`, F-11). Hors de ce cas, la liste est vide : une pièce
+ * qui prétend être en fa se juge en fa, et nulle part ailleurs.
+ */
+function rivalKeys(ctx: RuleCtx): KeyEstimate[] {
+  if (ctx.spec.constraints?.requireAmbiguousKey !== true) return [];
+  const estimated = ctx.analysis.estimatedKey;
+  if (!estimated?.ambiguous) return [];
+  return estimated.alternates;
+}
 
 
 /**
@@ -88,7 +119,16 @@ export const MELODY_CHECKERS: Record<string, Checker> = {
     const min = asNumber(value);
     const notes = allJudged(ctx);
     if (min === null || notes.length === 0) return ok('rien à mesurer');
-    const total = notes.reduce((m, n) => Math.max(m, n.start + n.duration), 0);
+    // **Le silence FINAL fait partie de la pièce.** S'arrêter à la fin de la
+    // dernière note, c'est mesurer le silence en excluant celui qui compte le
+    // plus. Sur m02-s26 (« weightless », dont le sujet EST l'espace), la
+    // dernière mesure est `C5:h r:h` : le demi-silence terminal disparaissait
+    // du dénominateur et le ratio tombait de 0,31 — le chiffre des
+    // `authorNotes` — à 0,27, sous le seuil de sa propre consigne. On mesure
+    // donc sur la mesure COMPLÈTE où la pièce s'achève.
+    const bar = barTicks(meterOfSpec(ctx.spec));
+    const lastEnd = notes.reduce((m, n) => Math.max(m, n.start + n.duration), 0);
+    const total = Math.ceil(lastEnd / bar) * bar;
     const sounding = notes.reduce((s, n) => s + n.duration, 0);
     const ratio = total > 0 ? Math.max(0, 1 - sounding / total) : 0;
     return ratio >= min ? ok(`silence ${ratio.toFixed(2)} ≥ ${min}`) : fail(`silence ${ratio.toFixed(2)}, minimum ${min}`);
@@ -129,9 +169,23 @@ export const MELODY_CHECKERS: Record<string, Checker> = {
     const notes = line(ctx);
     const last = notes[notes.length - 1];
     if (!degrees || !last) return ok('rien à mesurer');
-    return degrees.some(d => matchesDegree(ctx, last.pitch, d))
-      ? ok(`finale sur un degré admis (${degrees.join('/')})`)
-      : fail(`la finale tombe sur le degré ${degreeOf(ctx, last.pitch)} (demi-tons), admis : ${degrees.join(', ')}`);
+    if (degrees.some(d => matchesDegree(ctx, last.pitch, d))) {
+      return ok(`finale sur un degré admis (${degrees.join('/')})`);
+    }
+    // **F-11 : quand le moteur dit qu'il ne tranche pas, il ne tranche pas.**
+    // m02-e24 exige `requireAmbiguousKey` — l'exercice, c'est justement que la
+    // tonalité reste indécise — puis demande une finale sur 2̂ ou 5̂. Les
+    // `authorNotes` le disent : « fin E = 2̂ (dorien) ou 5̂ (éolien) — juste dans
+    // les deux mondes ». Élire une tonique parmi des rivales à égalité, puis
+    // reprocher un degré calculé depuis elle, c'est facturer à l'élève une
+    // décision que le moteur vient d'avouer ne pas savoir prendre.
+    for (const rival of rivalKeys(ctx)) {
+      const shifted = { ...ctx, analysis: { ...ctx.analysis, key: rival } };
+      if (degrees.some(d => matchesDegree(shifted, last.pitch, d))) {
+        return ok(`finale sur un degré admis (${degrees.join('/')}) dans l'une des toniques rivales — tonalité ambiguë assumée (F-11)`);
+      }
+    }
+    return fail(`la finale tombe sur le degré ${degreeOf(ctx, last.pitch)} (demi-tons), admis : ${degrees.join(', ')}`);
   },
 
   mustExposeDegrees: (_k, value, ctx) => {
@@ -188,10 +242,38 @@ export const MELODY_CHECKERS: Record<string, Checker> = {
 
   ascendingPhrasePeaks: (_k, value, ctx) => {
     if (value !== true) return ok('non exigé');
-    const peaks = contour(line(ctx)).peaks;
-    if (peaks.length < 2) return ok('moins de deux sommets : rien à comparer');
-    const rising = peaks.every((p, i) => i === 0 || p.pitch >= peaks[i - 1]!.pitch);
-    return rising ? ok(`${peaks.length} sommets croissants`) : fail('les sommets de phrase ne croissent pas : un sommet redescend');
+    const notes = line(ctx);
+    // **Le sommet DE CHAQUE PHRASE**, pas chaque sommet local. La clé s'appelle
+    // `ascendingPhrasePeaks` et le checker lisait `contour().peaks`, c'est-à-dire
+    // tous les maxima locaux de la ligne — une dizaine par pièce, qui montent et
+    // redescendent par construction à l'intérieur d'une même phrase. m02-s10
+    // (« l'échelle des sommets ») annonce les siens en toutes lettres :
+    // « Sommets B♭4 < D5 < F5 ✓ ». Trois phrases, trois sommets, qui montent.
+    //
+    // Quelle phrase ? Celle que la CONSIGNE découpe quand elle le fait :
+    // m02-e10 écrit `segmentBars: 4` et son prompt ne laisse aucun doute —
+    // « 12 mesures = 3 phrases de 4 mesures […] L'analyseur compare les trois
+    // sommets ». La détection automatique y voit six unités, parce qu'elle
+    // coupe aussi aux blanches cadentielles internes ; ce n'est pas faux, c'est
+    // une autre granularité — et entre les deux, la consigne tranche.
+    const segmentBars = asNumber(ctx.spec.constraints?.segmentBars);
+    const spans: { from: number; to: number }[] = [];
+    if (segmentBars !== null && segmentBars > 0) {
+      const step = segmentBars * barTicks(meterOfSpec(ctx.spec));
+      const end = notes.reduce((m, n) => Math.max(m, n.start + n.duration), 0);
+      for (let t = 0; t < end; t += step) spans.push({ from: t, to: t + step });
+    } else {
+      spans.push(...(ctx.analysis.phrases?.phrases ?? []));
+    }
+    const tops = spans
+      .map(p => notes.filter(n => n.start >= p.from && n.start < p.to))
+      .filter(inPhrase => inPhrase.length > 0)
+      .map(inPhrase => Math.max(...inPhrase.map(n => n.pitch)));
+    if (tops.length < 2) return ok('moins de deux phrases : rien à comparer');
+    const falling = tops.findIndex((p, i) => i > 0 && p < tops[i - 1]!);
+    return falling < 0
+      ? ok(`${tops.length} sommets de phrase croissants (${tops.join(' < ')})`)
+      : fail(`les sommets de phrase ne croissent pas : la phrase ${falling + 1} redescend (${tops.join(', ')})`);
   },
 
   climaxWindow: (_k, value, ctx) => {
@@ -307,11 +389,14 @@ export const MELODY_CHECKERS: Record<string, Checker> = {
     if (value !== true) return ok('non exigé');
     const curve = ctx.analysis.tension;
     if (!curve || curve.length < 4) return ok('courbe indisponible');
-    const mean = curve.reduce((s, v) => s + v, 0) / curve.length;
-    const spread = Math.sqrt(curve.reduce((s, v) => s + (v - mean) ** 2, 0) / curve.length);
-    return spread <= 0.25
-      ? ok(`courbe plate (écart-type ${spread.toFixed(2)})`)
-      : fail(`la courbe bouge trop (écart-type ${spread.toFixed(2)}) pour une tension déclarée plate`);
+    // La platitude se mesure sur l'AMPLITUDE, que `tensionCurve` normalise —
+    // cf. `tensionSpread`. L'ancienne lecture interrogeait la courbe déjà
+    // ramenée sur [0, 1], où toute pièce non constante occupe l'étendue
+    // entière : la question ne pouvait pas recevoir « oui ».
+    const spread = tensionSpread(allJudged(ctx), { meter: meterOfSpec(ctx.spec) });
+    return spread <= FLAT_TENSION_MAX_SPREAD
+      ? ok(`courbe plate (amplitude ${spread.toFixed(2)} ≤ ${FLAT_TENSION_MAX_SPREAD})`)
+      : fail(`la courbe bouge trop (amplitude ${spread.toFixed(2)}, maximum ${FLAT_TENSION_MAX_SPREAD}) pour une tension déclarée plate`);
   },
 
   mustUseMotif: (_k, value, ctx) => {
@@ -355,7 +440,13 @@ export const MELODY_CHECKERS: Record<string, Checker> = {
     const wanted = asStrings(value);
     const report = ctx.analysis.motifs;
     if (!wanted || !report) return ok('rien à mesurer');
-    const found = new Set(report.motifs.flatMap(m => m.occurrences.map(o => o.sub ?? o.kind)));
+    // Le vocabulaire des specs est celui des LEÇONS (« transposed »), celui de
+    // l'analyseur descend d'un cran (`kind: 'transposed', sub: 'real'`). Ne
+    // retenir que le `sub` faisait disparaître le nom que la consigne emploie :
+    // m02-s04 porte bien sa transposition réelle (+5, annoncée par ses
+    // `authorNotes`), et le checker répondait « variation manquante :
+    // transposed ». Les deux niveaux comptent.
+    const found = new Set(report.motifs.flatMap(m => m.occurrences.flatMap(o => (o.sub ? [o.kind, o.sub] : [o.kind]))));
     const missing = wanted.filter(w => !found.has(w as never));
     return missing.length === 0
       ? ok(`variations présentes : ${wanted.join(', ')}`)

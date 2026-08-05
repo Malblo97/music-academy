@@ -1,4 +1,4 @@
-import type { Note } from '../../types.js';
+import type { Mode, Note } from '../../types.js';
 import type { RuleCtx } from '../../rules/types.js';
 
 /**
@@ -59,24 +59,40 @@ export function degreeOf(ctx: RuleCtx, pitch: number): number {
 
 /**
  * Les degrés des specs sont écrits en chiffres de SOLFÈGE (1̂ = 1, 5̂ = 5), pas
- * en demi-tons. La conversion se fait ici, une fois pour toutes.
+ * en demi-tons — et le degré n'a de valeur que DANS SON MODE.
+ *
+ * La table ne connaissait que deux échelles, majeure et mineure, tous les modes
+ * exotiques étant rabattus sur l'une des deux. Elle se trompait donc exactement
+ * sur la note qui fait le mode : le 6̂ du dorien, le 4̂ du lydien, le 7̂ du
+ * mixolydien. Sur `m01-e13`, dont la leçon EST cette note (« remplace les B par
+ * B♭ — tout bascule en éolien », et les `authorNotes` : « Expositions du B
+ * (6̂ majeure) »), le moteur cherchait un si♭ et refusait la solution parce
+ * qu'elle avait raison.
  */
-const DEGREE_SEMITONES: Record<number, number> = { 1: 0, 2: 2, 3: 4, 4: 5, 5: 7, 6: 9, 7: 11 };
+const MODE_SEMITONES: Record<Mode, readonly number[]> = {
+  major: [0, 2, 4, 5, 7, 9, 11],
+  minor: [0, 2, 3, 5, 7, 8, 10],
+  dorian: [0, 2, 3, 5, 7, 9, 10],
+  phrygian: [0, 1, 3, 5, 7, 8, 10],
+  lydian: [0, 2, 4, 6, 7, 9, 11],
+  mixolydian: [0, 2, 4, 5, 7, 9, 10],
+  locrian: [0, 1, 3, 5, 6, 8, 10],
+};
 
-export function degreeToSemitone(degree: number, minor: boolean): number {
-  const base = DEGREE_SEMITONES[((degree - 1) % 7 + 7) % 7 + 1] ?? 0;
-  if (!minor) return base;
-  if (degree === 3) return 3;
-  if (degree === 6) return 8;
-  return base;
+export function degreeToSemitone(degree: number, mode: Mode): number {
+  const index = ((degree - 1) % 7 + 7) % 7;
+  return MODE_SEMITONES[mode][index] ?? 0;
 }
 
 export function matchesDegree(ctx: RuleCtx, pitch: number, degree: number): boolean {
-  const minor = ctx.analysis.key.mode !== 'major' && ctx.analysis.key.mode !== 'lydian' && ctx.analysis.key.mode !== 'mixolydian';
-  const semitone = degreeToSemitone(degree, minor);
+  const mode = ctx.analysis.key.mode;
+  const semitone = degreeToSemitone(degree, mode);
   const actual = degreeOf(ctx, pitch);
-  // La sensible haussée d'un mode mineur reste « le 7e degré ».
-  return actual === semitone || (degree === 7 && minor && actual === 11);
+  // La sensible HAUSSÉE reste « le 7e degré » partout où le mode donne une
+  // septième mineure : c'est le mineur harmonique, et c'est aussi le dorien ou
+  // le mixolydien d'une cadence empruntée.
+  const flatSeventh = MODE_SEMITONES[mode][6] === 10;
+  return actual === semitone || (degree === 7 && flatSeventh && actual === 11);
 }
 
 export function asNumber(value: unknown): number | null {

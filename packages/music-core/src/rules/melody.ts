@@ -148,7 +148,7 @@ export const MELODY_RULES: Rule[] = [
     id: 'melody.no-motif',
     severity: 'warning',
     weight: 1,
-    appliesTo: ['mono', 'voices', 'parts', 'midi'],
+    appliesTo: ['mono', 'harmony', 'voices', 'parts', 'midi'],
     lessonRef: 'm02-l03',
     detect: (ctx: RuleCtx): Issue[] => {
       const report = ctx.analysis.motifs;
@@ -170,7 +170,7 @@ export const MELODY_RULES: Rule[] = [
     id: 'melody.monotony',
     severity: 'suggestion',
     weight: 1,
-    appliesTo: ['mono', 'voices', 'parts', 'midi'],
+    appliesTo: ['mono', 'harmony', 'voices', 'parts', 'midi'],
     lessonRef: 'm02-l07',
     detect: (ctx: RuleCtx): Issue[] => {
       const report = ctx.analysis.motifs;
@@ -193,7 +193,7 @@ export const MELODY_RULES: Rule[] = [
     id: 'melody.climax',
     severity: 'warning',
     weight: 1,
-    appliesTo: ['mono', 'voices', 'parts', 'midi'],
+    appliesTo: ['mono', 'harmony', 'voices', 'parts', 'midi'],
     lessonRef: 'm02-l06',
     detect: (ctx: RuleCtx): Issue[] => {
       const contour = ctx.analysis.contour;
@@ -239,7 +239,7 @@ export const MELODY_RULES: Rule[] = [
     id: 'melody.leap-recovery',
     severity: 'suggestion',
     weight: 1,
-    appliesTo: ['mono', 'voices', 'parts', 'midi'],
+    appliesTo: ['mono', 'harmony', 'voices', 'parts', 'midi'],
     lessonRef: 'm01-l07',
     detect: (ctx: RuleCtx): Issue[] => {
       // Un saut se juge DANS une ligne. Entre le soprano d'un temps et la
@@ -272,7 +272,7 @@ export const MELODY_RULES: Rule[] = [
     id: 'melody.out-of-key',
     severity: 'warning',
     weight: 1,
-    appliesTo: ['mono', 'voices', 'parts', 'midi'],
+    appliesTo: ['mono', 'harmony', 'voices', 'parts', 'midi'],
     lessonRef: 'm01-l22',
     detect: (ctx: RuleCtx): Issue[] => {
       const collection = ctx.analysis.collection;
@@ -340,7 +340,7 @@ export const MELODY_RULES: Rule[] = [
     id: 'melody.ending-weak',
     severity: 'warning',
     weight: 1,
-    appliesTo: ['mono', 'voices', 'parts', 'midi'],
+    appliesTo: ['mono', 'harmony', 'voices', 'parts', 'midi'],
     lessonRef: 'm01-l16',
     detect: (ctx: RuleCtx): Issue[] => {
       // La note qu'on garde est la dernière du CHANT, pas la dernière basse.
@@ -377,7 +377,7 @@ export const MELODY_RULES: Rule[] = [
     id: 'melody.phrase-breathing',
     severity: 'suggestion',
     weight: 1,
-    appliesTo: ['mono', 'voices', 'parts', 'midi'],
+    appliesTo: ['mono', 'harmony', 'voices', 'parts', 'midi'],
     lessonRef: 'm02-l06',
     detect: (ctx: RuleCtx): Issue[] => {
       const phrases = ctx.analysis.phrases;
@@ -400,7 +400,7 @@ export const MELODY_RULES: Rule[] = [
     id: 'melody.tension-placement',
     severity: 'suggestion',
     weight: 1,
-    appliesTo: ['mono', 'voices', 'parts', 'midi'],
+    appliesTo: ['mono', 'harmony', 'voices', 'parts', 'midi'],
     lessonRef: 'm02-l10',
     detect: (ctx: RuleCtx): Issue[] => {
       const curve = ctx.analysis.tension;

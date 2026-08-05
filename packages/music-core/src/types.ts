@@ -47,6 +47,15 @@ export interface LayerStack { layers: Layer[]; bus?: { glue?: string }; space?: 
 export type Submission =
   | { kind: 'mono'; notes: Note[] }
   | { kind: 'voices'; voices: Note[][] }                                       // M4
+  /**
+   * **La texture HARMONIQUE à densité variable** (décision n°32). Une suite de
+   * verticalités dont on lit les accords sans pouvoir en tracer les lignes :
+   * l'effectif change — un cluster à huit, une attaque seule, une pédale qui
+   * s'épaissit. `voices` supposerait un effectif qui n'existe pas et ferait
+   * naître des lignes fausses ; `mono` tairait toute l'harmonie. Ce kind dit
+   * exactement ce qu'on sait : les accords, oui ; la conduite, non.
+   */
+  | { kind: 'harmony'; notes: Note[] }                                         // M3
   | { kind: 'parts'; parts: Part[] }                                           // M7+
   | { kind: 'layers'; stack: LayerStack; }                                     // M6
   | { kind: 'annotations'; annotations: unknown }                              // M11

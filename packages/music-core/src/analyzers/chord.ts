@@ -20,7 +20,39 @@ export interface ChordResult {
   bass: number; // pitch-class réellement à la basse (hors pédale exclue)
   inversion: number; // 0 = fondamentale à la basse, 1/2/3 = renversements
   pcs: number[]; // pitch-classes de la verticalité jugée (pédale exclue)
+  /**
+   * Les TENSIONS ajoutées, en demi-tons depuis la fondamentale : 1 (♭9),
+   * 2 (9), 5 (11), 6 (♯11), 8 (♭13), 9 (13). Vide sur un accord nu.
+   * L'identité de l'accord reste sa FORME — un Cadd9 est un `maj` de do qui
+   * porte une neuvième, pas une quinzième forme à inventer.
+   */
+  tensions: number[];
 }
+
+/**
+ * **Les tensions que la table des 14 formes ne nomme pas** (décision n°33).
+ *
+ * Le tutoriel fixe 14 formes et un « match exact » : aucune pitch-class
+ * étrangère. Le CONTENU, lui, enseigne les tensions — `m01-l17` enrichissements,
+ * `m01-l18` tensions (« au moins 3 voicings distincts : V7 → V9 → V13 → V7♭9 »),
+ * tout M3 impressionniste. Sur ce corpus, un `Cadd9` ne se chiffrait pas du
+ * tout : ni accord, ni cadence, ni enrichissement compté. Le moteur ne disait
+ * pas « c'est faux », il ne disait RIEN.
+ *
+ * Une tension n'est pas une forme de plus, c'est une couleur POSÉE SUR une
+ * forme : G13 reste un G7. On garde donc la table intacte et on autorise les
+ * degrés ci-dessous par-dessus, en les nommant. La tierce (3/4) et la septième
+ * (10/11) n'y sont pas : elles changent l'accord, elles ne le colorent pas.
+ */
+const TENSION_DEGREES = new Set([1, 2, 5, 6, 8, 9]);
+
+/**
+ * **Le garde-fou F-3.** Au plus deux tensions : au-delà, on ne lit plus un
+ * accord coloré mais un agrégat, et le chiffrer serait inventer une
+ * fondamentale. Les clusters de M3 restent non chiffrés — c'est correct, ce
+ * sont des clusters.
+ */
+const MAX_TENSIONS = 2;
 
 function pc(pitch: number): number {
   return ((pitch % 12) + 12) % 12;
@@ -58,33 +90,50 @@ export function detectChord(
     .reduce((min, n) => (n.pitch < min.pitch ? n : min));
   const bass = pc(lowestNote.pitch);
 
-  // 3. Essaie chaque forme × 12 fondamentales — match exact des pcs requises.
-  interface Candidate { root: number; formName: string; richness: number; rootPosition: boolean }
+  // 3. Essaie chaque forme × 12 fondamentales — match exact des pcs requises,
+  //    les tensions nommées mises à part.
+  interface Candidate { root: number; formName: string; richness: number; rootPosition: boolean; tensions: number[] }
   const candidates: Candidate[] = [];
   for (const form of CHORD_FORMS) {
     for (let root = 0; root < 12; root++) {
       const formPcs = form.intervals.map(iv => pc(root + iv));
       const formPcSet = new Set(formPcs);
-      // Aucune pc étrangère à la forme.
-      if (![...pcs].every(p => formPcSet.has(p))) continue;
-      // Toutes les pcs requises (la 5e omise seulement si fifthOptional) présentes.
+      // Les pcs étrangères à la forme : elles ne sont admises que si ce sont
+      // des TENSIONS de cette fondamentale, et pas plus de deux.
+      const strangers = [...pcs].filter(p => !formPcSet.has(p));
+      const tensions = strangers.map(p => pc(p - root));
+      if (tensions.length > MAX_TENSIONS) continue;
+      if (!tensions.every(t => TENSION_DEGREES.has(t))) continue;
+
+      // Toutes les pcs requises présentes. La quinte s'omet dans deux cas : sur
+      // les formes qui le déclarent (F-3, `fifthOptional`), et sur toute forme
+      // qu'une tension colore — c'est la neuvième qui prend sa place, et c'est
+      // le voicing d'add9 le plus courant qui soit (`[C3+C4+E4+D5]`, m01-s34).
+      // Un simple dyade reste rejeté : {ré, fa} ne porte aucune tension, donc
+      // sa quinte n'est pas remplacée, elle MANQUE (fixture `incomplete-rejected`).
       const fifthPc = pc(root + 7);
-      const required = form.fifthOptional ? formPcs.filter(p => p !== fifthPc) : formPcs;
+      const fifthMayGo = form.fifthOptional === true || tensions.length > 0;
+      const required = fifthMayGo ? formPcs.filter(p => p !== fifthPc) : formPcs;
       if (!required.every(p => pcs.has(p))) continue;
 
-      candidates.push({ root, formName: form.name, richness: form.intervals.length, rootPosition: bass === pc(root) });
+      candidates.push({ root, formName: form.name, richness: form.intervals.length, rootPosition: bass === pc(root), tensions: tensions.sort((a, b) => a - b) });
     }
   }
   if (candidates.length === 0) return null;
 
-  // 4. Départage : forme la plus riche compatible, puis basse = fondamentale > renversement.
-  candidates.sort((a, b) => b.richness - a.richness || Number(b.rootPosition) - Number(a.rootPosition));
+  // 4. Départage : d'abord l'accord qui s'explique SANS tension — une lecture
+  //    qui n'invoque aucune couleur ajoutée est toujours la plus sûre. Puis la
+  //    forme la plus riche, puis basse = fondamentale > renversement.
+  candidates.sort((a, b) =>
+    a.tensions.length - b.tensions.length
+    || b.richness - a.richness
+    || Number(b.rootPosition) - Number(a.rootPosition));
   const winner = candidates[0]!;
 
   const form = CHORD_FORMS.find(f => f.name === winner.formName)!;
   const inversion = form.intervals.findIndex(iv => pc(winner.root + iv) === bass);
 
-  return { root: winner.root, form: winner.formName, bass, inversion: Math.max(0, inversion), pcs: [...pcs].sort((a, b) => a - b) };
+  return { root: winner.root, form: winner.formName, bass, inversion: Math.max(0, inversion), pcs: [...pcs].sort((a, b) => a - b), tensions: winner.tensions };
 }
 
 // ---------------------------------------------------------------------------

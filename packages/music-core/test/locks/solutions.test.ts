@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { evaluateDetailed } from '../../src/pipeline/evaluate.js';
 import type { FeedbackReport } from '../../src/pipeline/feedback.js';
-import { UnrepresentableTexture, compileSolution, labelOf, loadSolutions, lockKindOf, specOf } from '../solutions.js';
+import { compileSolution, labelOf, loadSolutions, lockKindOf, specOf } from '../solutions.js';
 import type { Solution } from '../solutions.js';
 
 /**
@@ -92,18 +92,18 @@ for (const mod of SCOPE) {
 describe('verrou n°2 : couverture', () => {
   it('rapporte la note de chaque module', () => {
     const rows: string[] = [];
-    const outOfScope: string[] = [];
+    // Les textures à densité variable sont ÉVALUÉES (décision n°32) mais sans
+    // les familles `vl.*`/`cp.*` : la couverture doit le dire, sinon le verrou
+    // laisse croire que la conduite y a été regardée.
+    const byVerticals: string[] = [];
     for (const mod of SCOPE) {
       const scores: number[] = [];
       for (const s of solutions.filter(x => x.module === mod)) {
         const spec = specOf(s.exerciseId);
         if (lockKindOf(typeof spec.kind === 'string' ? spec.kind : undefined) !== 'score') continue;
-        try {
-          scores.push(evaluateDetailed(compileSolution(s as Solution, spec), spec, { skipPerformance: true }).report.score);
-        } catch (e) {
-          if (e instanceof UnrepresentableTexture) { outOfScope.push(`${labelOf(s)} — ${e.reason}`); continue; }
-          scores.push(-1);
-        }
+        const submission = compileSolution(s as Solution, spec);
+        if (submission.kind === 'harmony') byVerticals.push(labelOf(s));
+        scores.push(evaluateDetailed(submission, spec, { skipPerformance: true }).report.score);
       }
       const green = scores.filter(x => x >= PASS_MARK).length;
       const min = scores.length ? Math.min(...scores) : 0;
@@ -111,10 +111,8 @@ describe('verrou n°2 : couverture', () => {
       rows.push(`${mod} : ${green}/${scores.length} verts · moyenne ${mean} · minimum ${min}`);
     }
     for (const r of rows) console.warn(`verrou n°2 — ${r}`);
-    // Le LOT B, nommé à chaque exécution : un trou qu'on voit est un trou qu'on
-    // rebouche. Le taire ferait passer le verrou pour complet (décision n°31).
-    console.warn(`verrou n°2 — lot B (densité variable, hors familles vl.*/harmony.*) : ${outOfScope.length} pièces`);
-    for (const o of outOfScope) console.warn(`  · ${o}`);
+    console.warn(`verrou n°2 — lues en verticalités, sans conduite de voix : ${byVerticals.length} pièces`);
+    for (const o of byVerticals) console.warn(`  · ${o}`);
     expect(rows.length).toBe(SCOPE.length);
   });
 });

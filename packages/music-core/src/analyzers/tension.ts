@@ -200,6 +200,32 @@ function surpriseOf(w: Window, previous: Window | undefined): number {
  * `tensionCurve(notes | parts, opts)` → un point 0–1 par demi-mesure.
  */
 export function tensionCurve(input: readonly Note[] | readonly Part[], opts: TensionOpts = {}): number[] {
+  return minMax(shapedTension(input, opts));
+}
+
+/**
+ * **L'AMPLITUDE de la tension** — ce que `tensionCurve` jette en sortant.
+ *
+ * `minMax` ramène toute courbe non constante sur [0, 1] pile : une pièce qui
+ * ne bouge presque pas et une pièce qui construit une arche entière en
+ * ressortent avec la même étendue. C'est ce qu'on veut pour comparer des
+ * FORMES (l'archFit compare des silhouettes), et c'est exactement ce qu'il ne
+ * faut pas pour répondre à « cette courbe est-elle plate ? ». Le checker
+ * `flatTension` posait la question à la courbe normalisée et n'a jamais pu
+ * obtenir « oui » : les deux seules specs du corpus qui la déclarent
+ * (m02-e24, m02-e26) échouaient toutes les deux, celle de m02-s26 pendant que
+ * son `archFit` la créditait de 0,87 en régime PLATITUDE — le moteur se
+ * contredisait d'un fichier à l'autre.
+ *
+ * L'écart-type rendu ici porte sur la somme pondérée de termes déjà réduits en
+ * z-scores : il est sans unité et comparable d'une pièce à l'autre.
+ */
+export function tensionSpread(input: readonly Note[] | readonly Part[], opts: TensionOpts = {}): number {
+  const shaped = shapedTension(input, opts);
+  return shaped.length < 2 ? 0 : std(shaped);
+}
+
+function shapedTension(input: readonly Note[] | readonly Part[], opts: TensionOpts = {}): number[] {
   const meter = opts.meter ?? ([4, 4] as Meter);
   const normalize = opts.normalize ?? true;
   const weights = { ...DEFAULT_WEIGHTS, ...opts.weights };
@@ -231,7 +257,7 @@ export function tensionCurve(input: readonly Note[] | readonly Part[], opts: Ten
   });
 
   const summed = windows.map((_, i) => terms.reduce((s, t) => s + t[i]!, 0));
-  return minMax(smoothCurve(summed, opts.smoothing ?? DEFAULT_SMOOTHING));
+  return smoothCurve(summed, opts.smoothing ?? DEFAULT_SMOOTHING);
 }
 
 export interface ArchFitResult {

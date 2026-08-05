@@ -44,7 +44,7 @@ export const HARMONY_RULES: Rule[] = [
     id: 'harmony.loop-coherence',
     severity: 'warning',
     weight: 1,
-    appliesTo: ['voices', 'parts', 'midi'],
+    appliesTo: ['harmony', 'voices', 'parts', 'midi'],
     lessonRef: 'm09-l02',
     detect: (ctx: RuleCtx): Issue[] => {
       // Une couture n'existe que sur une grille qui BOUCLE — c'est ce que dit
@@ -79,7 +79,7 @@ export const HARMONY_RULES: Rule[] = [
     id: 'harmony.unresolved-seventh',
     severity: 'warning',
     weight: 1,
-    appliesTo: ['voices', 'parts', 'midi'],
+    appliesTo: ['harmony', 'voices', 'parts', 'midi'],
     lessonRef: 'm01-l13',
     detect: (ctx: RuleCtx): Issue[] => {
       const chords = ctx.analysis.chords ?? [];
@@ -131,7 +131,7 @@ export const HARMONY_RULES: Rule[] = [
     id: 'harmony.retrogression',
     severity: 'suggestion',
     weight: 1,
-    appliesTo: ['voices', 'parts', 'midi'],
+    appliesTo: ['harmony', 'voices', 'parts', 'midi'],
     lessonRef: 'm01-l15',
     detect: (ctx: RuleCtx): Issue[] => {
       const chords = ctx.analysis.chords ?? [];
@@ -161,7 +161,7 @@ export const HARMONY_RULES: Rule[] = [
     id: 'harmony.overchromatic',
     severity: 'suggestion',
     weight: 1,
-    appliesTo: ['voices', 'parts', 'midi'],
+    appliesTo: ['harmony', 'voices', 'parts', 'midi'],
     lessonRef: 'm01-l21',
     detect: (ctx: RuleCtx): Issue[] => {
       const chords = ctx.analysis.chords ?? [];
@@ -189,7 +189,7 @@ export const HARMONY_RULES: Rule[] = [
     id: 'harmony.tritone-sub-resolution',
     severity: 'warning',
     weight: 1,
-    appliesTo: ['voices', 'parts', 'midi'],
+    appliesTo: ['harmony', 'voices', 'parts', 'midi'],
     lessonRef: 'm01-l20',
     detect: (ctx: RuleCtx): Issue[] => {
       const idioms = (ctx.analysis.idioms ?? []).filter(t => t.family === 'subV');

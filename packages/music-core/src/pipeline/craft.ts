@@ -114,6 +114,31 @@ const STEP_BAND: Record<string, [number, number]> = {
   romantic: [0.50, 0.85],
 };
 
+/**
+ * **La consigne fixe-t-elle elle-même le profil d'intervalles ?**
+ *
+ * `step-leap-balance` récompense une ligne « dans la norme du style ». Encore
+ * faut-il que la norme vienne du style. Trois cas où elle vient d'ailleurs, et
+ * où la composante notait l'élève sur le contraire de ce qu'on lui demandait :
+ *
+ *  - `minPerfectIntervalRatio` (m02-e26, « weightless ») : la consigne EXIGE au
+ *    moins la moitié d'intervalles justes. Une quarte est un saut. La pièce,
+ *    conforme à 67 %, était notée 0,00 pour « pas assez de degrés conjoints » ;
+ *  - `minConjunctRatio`/`maxConjunctRatio` (m02-e16) : le checker MESURE déjà le
+ *    ratio, avec le seuil de la consigne. Le craft le rejugeait par-dessus avec
+ *    une fourchette différente — deux verdicts pour un fait ;
+ *  - `givenCellAsMotif` (m02-e05, m02-e07) : la cellule est FOURNIE. Ses sauts
+ *    ne sont pas ceux de l'élève, et F-41 dit qu'on ne reproche pas à l'élève
+ *    ce qu'il n'a pas écrit.
+ */
+function pinsIntervalProfile(spec: ExerciseSpec): boolean {
+  const c = (spec.constraints ?? {}) as Record<string, unknown>;
+  return c.minPerfectIntervalRatio !== undefined
+    || c.minConjunctRatio !== undefined
+    || c.maxConjunctRatio !== undefined
+    || c.givenCellAsMotif === true;
+}
+
 function melodyCraft(analysis: AnalysisBundle, spec: ExerciseSpec): CraftResult {
   const mood = targetMoodOf(spec);
   const line = topLine(analysis.notes);
@@ -152,15 +177,18 @@ function melodyCraft(analysis: AnalysisBundle, spec: ExerciseSpec): CraftResult 
     ));
   }
 
-  // 3. Conjoint/disjoint dans la norme du style.
-  const steps = conjunctRatio(line);
-  const band = STEP_BAND[mood] ?? STEP_BAND.default!;
-  components.push(comp(
-    'step-leap-balance',
-    'la ligne alterne degrés et sauts dans la norme du style',
-    inBand(steps, band),
-    `${Math.round(steps * 100)} % de degrés conjoints (norme ${Math.round(band[0] * 100)}–${Math.round(band[1] * 100)} %)`,
-  ));
+  // 3. Conjoint/disjoint dans la norme du style — quand c'est bien le STYLE
+  //    qui fixe la norme, et pas la consigne.
+  if (!pinsIntervalProfile(spec)) {
+    const steps = conjunctRatio(line);
+    const band = STEP_BAND[mood] ?? STEP_BAND.default!;
+    components.push(comp(
+      'step-leap-balance',
+      'la ligne alterne degrés et sauts dans la norme du style',
+      inBand(steps, band),
+      `${Math.round(steps * 100)} % de degrés conjoints (norme ${Math.round(band[0] * 100)}–${Math.round(band[1] * 100)} %)`,
+    ));
+  }
 
   // 4. La prosodie : les valeurs longues tombent-elles sur les appuis ?
   if (analysis.rhythm) {
@@ -180,6 +208,63 @@ function melodyCraft(analysis: AnalysisBundle, spec: ExerciseSpec): CraftResult 
 // HARMONY_PROGRESSION / HARMONIZE_MELODY
 // ---------------------------------------------------------------------------
 
+/**
+ * **`vl.smoothness` — la métrique que le corpus nomme et que rien ne mesurait.**
+ *
+ * Treize specs la citent (`craftMultipliersOverride: {"vl.smoothness": 1.8}`,
+ * `smoothnessMaxPerVoice`, listes de `checkers`) et elle n'existait nulle part
+ * dans le moteur. Sur `m01-e26` et `m01-e36`, la consigne va jusqu'à écrire
+ * « Objectif mesuré : le voice leading des guide tones — mouvement minimal,
+ * notes communes tenues », et les `authorNotes` de `m01-s36` donnent le chiffre
+ * attendu : « smoothness ≈ 0.5 dt/voix/transition (hors basse) ✓ ».
+ *
+ * Hors basse, précisément : dans un voicing de guide tones, la basse SAUTE par
+ * quintes — c'est sa fonction, et c'est même la consigne. Ce qui doit glisser,
+ * ce sont les voix qui portent la tierce et la septième.
+ */
+function caresAboutSmoothness(spec: ExerciseSpec): boolean {
+  const c = (spec.constraints ?? {}) as Record<string, unknown>;
+  const overrides = (spec.craftMultipliersOverride ?? {}) as Record<string, unknown>;
+  return c.guideToneVoicing === true
+    || c.smoothnessMaxPerVoice !== undefined
+    || overrides['vl.smoothness'] !== undefined;
+}
+
+/**
+ * Le déplacement moyen, en demi-tons, d'une voix supérieure d'un accord au
+ * suivant. La basse est exclue : elle ne conduit pas, elle fonde.
+ */
+function upperVoiceSmoothness(voices: readonly (readonly Note[])[]): number | null {
+  if (voices.length < 2) return null;
+  // La basse = la voix dont la hauteur moyenne est la plus grave.
+  const ranked = [...voices]
+    .filter(v => v.length >= 2)
+    .sort((a, b) => avg(a.map(n => n.pitch)) - avg(b.map(n => n.pitch)));
+  const upper = ranked.slice(1);
+  if (upper.length === 0) return null;
+  const steps: number[] = [];
+  for (const voice of upper) {
+    const line = [...voice].sort((a, b) => a.start - b.start);
+    for (let i = 1; i < line.length; i++) steps.push(Math.abs(line[i]!.pitch - line[i - 1]!.pitch));
+  }
+  return steps.length === 0 ? null : avg(steps);
+}
+
+/**
+ * La consigne CLOUE-t-elle la basse ? Un voicing de guide tones met la
+ * fondamentale seule à gauche ; une basse obstinée, un lamento, une pédale sont
+ * écrits d'avance. Récompenser une « basse chantante » là où la consigne
+ * interdit qu'elle chante, ce serait noter l'exercice qu'on aurait aimé donner
+ * — la même faute que `caresAboutIdioms` évite dans l'autre sens.
+ */
+function bassIsPinned(spec: ExerciseSpec): boolean {
+  const c = (spec.constraints ?? {}) as Record<string, unknown>;
+  return c.guideToneVoicing === true
+    || c.groundBass !== undefined
+    || c.lamentBass !== undefined
+    || c.staticBassBars !== undefined;
+}
+
 /** La consigne parle-t-elle d'idiomes, d'enrichissement, de chromatisme ? */
 function caresAboutIdioms(spec: ExerciseSpec): boolean {
   const c = (spec.constraints ?? {}) as Record<string, unknown>;
@@ -191,19 +276,26 @@ function caresAboutIdioms(spec: ExerciseSpec): boolean {
     || c.innerChromaticLine !== undefined;
 }
 
-function harmonyCraft(analysis: AnalysisBundle, spec: ExerciseSpec, issueIds: readonly string[]): CraftResult {
+function harmonyCraft(analysis: AnalysisBundle, spec: ExerciseSpec, issueIds: readonly string[], tracksVoices: boolean): CraftResult {
   const components: CraftComponent[] = [];
   const chords = analysis.chords ?? [];
 
   // 1. La conduite propre — bonus ZÉRO-PARALLÈLE : c'est tout ou presque rien,
   //    parce qu'une seule quinte parallèle s'entend, et qu'on l'entend.
-  const parallels = issueIds.filter(id => id === 'vl.parallel-perfects' || id === 'vl.direct-perfect').length;
-  components.push(comp(
-    'clean-voice-leading',
-    'la conduite est propre de bout en bout',
-    parallels === 0 ? 1 : clamp01(1 - parallels / Math.max(4, chords.length)),
-    parallels === 0 ? 'aucun parallélisme de quinte ou d\'octave' : `${parallels} parallélisme(s)`,
-  ));
+  //
+  //    Sur une texture à densité variable (décision n°32), aucune ligne n'est
+  //    tracée : les familles `vl.*` ne tournent pas. Un « zéro parallélisme »
+  //    y serait un point gratuit — récompenser une propreté qu'on n'a pas
+  //    regardée. On ne mesure pas, donc on ne note pas.
+  if (tracksVoices) {
+    const parallels = issueIds.filter(id => id === 'vl.parallel-perfects' || id === 'vl.direct-perfect').length;
+    components.push(comp(
+      'clean-voice-leading',
+      'la conduite est propre de bout en bout',
+      parallels === 0 ? 1 : clamp01(1 - parallels / Math.max(4, chords.length)),
+      parallels === 0 ? 'aucun parallélisme de quinte ou d\'octave' : `${parallels} parallélisme(s)`,
+    ));
+  }
 
   // 2. La variété des POSITIONS. On compte les positions DISTINCTES employées,
   //    pas une part d'accords renversés : un laboratoire de cadences écrit en
@@ -232,11 +324,24 @@ function harmonyCraft(analysis: AnalysisBundle, spec: ExerciseSpec, issueIds: re
     ));
   }
 
-  // 4. La BASSE CHANTANTE (F-26 réutilisé) : le contour de la voix grave. La
+  // 4. Le MOUVEMENT MINIMAL, quand la consigne en fait l'objet de l'exercice.
+  if (caresAboutSmoothness(spec)) {
+    const moved = analysis.voices ? upperVoiceSmoothness(analysis.voices) : null;
+    if (moved !== null) {
+      components.push(comp(
+        'voice-smoothness',
+        'les voix supérieures glissent au lieu de sauter',
+        inBand(moved, [0, 1.5], 2.5),
+        `${moved.toFixed(2)} demi-ton(s) par voix et par transition, basse exclue`,
+      ));
+    }
+  }
+
+  // 5. La BASSE CHANTANTE (F-26 réutilisé) : le contour de la voix grave. La
   //    fourchette est large — une basse de choral saute par quartes et quintes
   //    aux cadences, c'est sa fonction, pas un défaut de ligne.
   const bass = bassLine(analysis.notes);
-  if (bass.length >= 2) {
+  if (!bassIsPinned(spec) && bass.length >= 2) {
     const steps = conjunctRatio(bass);
     components.push(comp(
       'singing-bass',
@@ -401,7 +506,7 @@ export function computeCraft(
     case 'HARMONY_PROGRESSION':
     case 'CHORD_PROGRESSION':
     case 'HARMONIZE_MELODY':
-      return harmonyCraft(analysis, spec, opts.issueIds ?? []);
+      return harmonyCraft(analysis, spec, opts.issueIds ?? [], opts.submission?.kind !== 'harmony');
     case 'COUNTERPOINT':
       return counterpointCraft(analysis);
     case 'LAYERING':

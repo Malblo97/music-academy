@@ -158,7 +158,7 @@ export const ORCH_RULES: Rule[] = [
     id: 'orch.low-interval-limit',
     severity: 'warning',
     weight: 1,
-    appliesTo: ['voices', 'parts', 'midi'],
+    appliesTo: ['harmony', 'voices', 'parts', 'midi'],
     lessonRef: 'm07-l03',
     detect: (ctx: RuleCtx): Issue[] => {
       const verticals = ctx.analysis.verticals ?? [];

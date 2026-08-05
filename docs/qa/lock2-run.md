@@ -8,8 +8,9 @@ diagnostiqué d'abord — et aucun seuil n'y est baissé pour faire passer une p
 Le Guide annonce 87 (M2 : 29) ; le corpus extrait en compte 28. L'écart est un
 manque de CONTENU, pas de moteur — voir « Reste à faire ».
 
-**Outil** : `pnpm analyze <solution.json> --spec` pour une pièce,
-`pnpm analyze --spec` pour le tableau de bord complet.
+**Outils** : `pnpm analyze <solution.json>` pour une pièce ;
+`pnpm -F @ma/music-core lock2` pour le tableau de bord des 86 (`--all` pour tout
+le corpus y compris les verts, `--by-cause` pour le classement des blocages).
 
 ---
 
@@ -25,6 +26,10 @@ manque de CONTENU, pas de moteur — voir « Reste à faire ».
 | Passe 5 — E-1 (`melody.leap-recovery`) | 17/27 | 11/28 | 20/31 | **48 à la note, 42 pleinement verts** |
 | Passe 6 — F-0 à F-5 (périmètre, puis `harmony.*`/`vl.*`) | 15/26 | 9/27 | 18/20 | **42 pleinement verts sur 73 — et 13 pièces sorties du périmètre** |
 | Passe 7 — G-1 à G-5 (M2 : phrase, prosodie, motifs) | 15/26 | 13/27 | 18/20 | **46 pleinement verts sur 73** |
+| Passe 8 — H-1 à H-12 (le lot B rentre, les tensions se chiffrent) | 20/27 | 21/28 | 27/31 | **68 pleinement verts sur 86** |
+
+À la passe 8, les dénominateurs redeviennent ceux du corpus entier : le lot B
+n'est plus hors périmètre (H-1). **68/86**, 18 rouges.
 
 À la passe 6, les dénominateurs changent : le verrou ne compte plus que le
 **lot A**, les pièces dont l'effectif se lit (voir F-0). Le total vert ne bouge
@@ -566,51 +571,312 @@ Et surtout, la fixture `plateau-divergence-s22` documente déjà le cas comme un
 la contrainte ». C'est un diagnostic C, qui appelle une décision au registre
 AVANT tout patch — pas un correctif de moteur.
 
-## Reste à faire
 
-**27 solutions** du lot A encore rouges, **13** au lot B. Les blocages `vl.*`
-restants sont peu nombreux et **le diagnostic n'est plus le moteur** : le sondage
-de la passe précédente sur `m01-s40` s'est confirmé pièce par pièce.
+---
 
-| Occurrences | Règle | À instruire |
-|---|---|---|
-| 4 sol. | `vl.parallel-perfects` | **les quintes sont RÉELLES** (diagnostic B). `m01-s32` : quintes parallèles franches soprano/alto (A4/D4 → D5/G4). `m01-s35`, `m01-s40` : douzièmes parallèles alto/basse. `m01-s40` cumule quintes parallèles ET octave directe sur sa parfaite finale. Ce sont des exercices d'HARMONIE dont les `authorNotes` vérifient le chiffrage et la basse, jamais la conduite — au contraire de M3, dont les `authorNotes` parlent SATB. Trancher : corriger le contenu M1, ou acter que ces solutions sont des voicings de clavier et non des chorals. |
-| 4 sol. | `vl.direct-perfect` | même famille. Les sopranos concernés arrivent par SAUT, donc l'exception « soprano par degré » — celle que `m03-s02` revendique — ne les couvre pas. |
-| 7 occ. | `vl.spacing` | concentrées sur deux textures larges revendiquées : le tapis+arabesque de `m03-s11` et `m03-s04`. Le `when` de la règle s'exclut lui-même des « textures orchestrales larges » sans que le code l'implémente — mais le faire proprement demande un critère, pas une exception ; à instruire avec les profils. |
+## Passe 8 — le lot B rentre, les tensions se chiffrent
 
-Aux deux clauses du verrou, après la passe 7 : m01 **15/26**, m02 **13/27**,
-m03 **18/20** — soit **46/73**. M3, le crash-test harmonique, est à deux pièces
-de la fin.
+**46 → 68 pleinement verts, sur le corpus entier de 86** (le dénominateur
+redevient 86 : le lot B n'est plus hors périmètre). m01 20/27, m02 21/28,
+m03 27/31.
 
-Le rouge de M2 est maintenant à dominante de CONTENU. Quatre pièces ne peuvent
-pas passer sans une décision éditoriale, et aucune n'est un défaut de moteur :
+Deux verrous structurels tombent dans cette passe, et ils expliquent à eux seuls
+la moitié des remontées : le corpus avait deux choses que le moteur ne savait pas
+REPRÉSENTER — une texture sans effectif, et un accord coloré.
 
-| Pièce | Diagnostic |
+### H-1 — le lot B : `{kind:'harmony'}`, la troisième forme (diagnostic A)
+
+*11 pièces qui ne compilaient même pas.*
+
+La décision n°31 avait raison de refuser `voices` (qui invente un effectif) et
+`mono` (qui tait toute l'harmonie) sur les textures à densité variable, et elle
+échouait bruyamment faute d'une troisième forme. Cette forme existe maintenant :
+`{kind:'harmony'}` dit exactement ce qu'on sait lire d'une telle pièce — les
+verticalités se chiffrent (`harmony.*`, `jazz.*`, `orch.low-interval-limit`
+s'appliquent), la ligne supérieure se lit (`melody.*`, `rhythm.*` aussi), les
+lignes intérieures n'existent pas (`vl.*` et `cp.*` restent muettes).
+
+**Le craft ne prend aucun point gratuit** : la composante `clean-voice-leading`
+est RETIRÉE de la moyenne sur ces pièces au lieu d'y valoir 1 — on ne récompense
+pas une propreté qu'on n'a pas regardée. 8 des 11 sont passées d'emblée ; le
+tableau de bord du verrou continue de les nommer une par une à chaque exécution,
+sous « lues en verticalités, sans conduite de voix ».
+
+*Registre : décision n°32.*
+
+### H-2 — les tensions : 169 verticalités polyphoniques illisibles sur 593 (diagnostic C)
+
+*Bloquait m01-e31, e32, e34 ; faussait `minEnrichedChords`,
+`requirePlainTriadCount`, `requiredCadence` et le craft de toute la famille
+harmonique.*
+
+Le tutoriel fixe 14 formes et un « match exact » : aucune pitch-class étrangère.
+Le CONTENU, lui, enseigne les tensions — `m01-l17` enrichissements, `m01-l18`
+« au moins 3 voicings distincts : V7 → V9 → V13 → V7♭9 », tout M3
+impressionniste. Sur `m01-s34`, l'exercice DE LA TENSION, le moteur ne chiffrait
+aucun de ses cinq accords : ni cadence, ni enrichissement compté, rien. Il ne
+disait pas « c'est faux », il ne disait RIEN.
+
+**Correctif** : une tension n'est pas une quinzième forme, c'est une couleur
+POSÉE SUR une forme — G13 reste un G7. La table reste intacte ; `detectChord`
+accepte par-dessus au plus **deux** degrés parmi {♭9, 9, 11, ♯11, ♭13, 13} et les
+NOMME dans `ChordResult.tensions`. La quinte peut s'omettre dès qu'une tension la
+remplace (`[C3+C4+E4+D5]` = do add9), mais un dyade nu reste rejeté : {ré, fa} ne
+porte aucune tension, sa quinte ne lui est pas substituée, elle MANQUE — la
+fixture `incomplete-rejected` (F-3) tient. À lecture égale, l'accord qui
+s'explique SANS tension gagne toujours.
+
+Verticalités polyphoniques non chiffrées : **169 → 43** (les 43 restantes sont
+des clusters de M3, et c'est correct : ce sont des clusters).
+
+*Registre : décision n°33.*
+
+### H-3 — la tension chiffrée redevenait une faute au chord-scale (diagnostic A)
+
+*4 régressions immédiates de H-2, sur m03-e16 et m03-e18.*
+
+`chordScaleCheck` raisonne sur la seule FORME de l'accord : le ♭9 d'un G7♭9, lu
+comme tension au chiffrage, ressortait « hors gamme mixolydienne ». La même note
+comptée deux fois, une fois comme couleur et une fois comme faute.
+**Correctif** : une tension déclarée de l'accord est un son de l'accord.
+
+### H-4 — `vl.smoothness` : la métrique que 13 specs nomment et que rien ne mesurait (diagnostic A)
+
+*Débloquait m01-e26 et m01-e36 (84 tous les deux, aucune contrainte en échec).*
+
+Treize specs la citent (`craftMultipliersOverride: {"vl.smoothness": 1.8}`,
+`smoothnessMaxPerVoice`, listes de `checkers`) et elle n'existait nulle part.
+`m01-e26` va jusqu'à écrire « Objectif mesuré : le voice leading des guide tones
+— mouvement minimal », et les `authorNotes` de `m01-s36` donnent le chiffre
+attendu : « smoothness ≈ 0.5 dt/voix/transition (hors basse) ✓ ».
+
+**Correctif** : composante de craft `voice-smoothness` — déplacement moyen des
+voix SUPÉRIEURES (la basse fonde, elle ne conduit pas), active seulement là où la
+consigne en fait l'objet de l'exercice. Mesuré : 1,00 dt sur m01-s36, 1,31 sur
+m01-s26, 0,89 sur m01-s42 — conforme aux `authorNotes`.
+
+Dans le même geste, `singing-bass` ne s'applique plus là où la consigne CLOUE la
+basse (`guideToneVoicing`, basse obstinée, lamento) : récompenser une basse
+chantante quand l'exercice impose « fondamentale seule à gauche », c'est noter
+l'exercice qu'on aurait aimé donner — la faute que `caresAboutIdioms` évitait
+déjà dans l'autre sens.
+
+### H-5 — les DEGRÉS ignoraient le mode (diagnostic A)
+
+*3 solutions, et chaque fois sur la note qui FAIT le mode.*
+
+`degreeToSemitone` ne connaissait que deux échelles, majeure et mineure, les cinq
+modes exotiques étant rabattus sur l'une des deux. Elle se trompait donc
+exactement sur le 6̂ du dorien, le 4̂ du lydien, le 7̂ du mixolydien. Sur
+`m01-e13`, dont la leçon EST cette note — « remplace les B par B♭, tout bascule
+en éolien », et les `authorNotes` : « Expositions du B (6̂ majeure) » — le moteur
+cherchait un si♭ et refusait la solution parce qu'elle avait raison.
+
+**Correctif** : table des sept modes. `m01-e13`, `m02-e26` (4̂ lydien),
+`m02-e27` (7̂ mixolydien).
+
+### H-6 — `minRestRatio` jetait le silence final (diagnostic A)
+
+*m02-e26 « weightless », dont le sujet EST l'espace.*
+
+Le dénominateur s'arrêtait à la fin de la dernière note. Sur `C5:h r:h`, le
+demi-silence terminal disparaissait et le ratio tombait de 0,31 — le chiffre des
+`authorNotes` — à 0,27, sous le seuil de sa propre consigne.
+**Correctif** : on mesure sur la mesure COMPLÈTE où la pièce s'achève. 0,3125.
+
+### H-7 — `flatTension` interrogeait une courbe déjà normalisée (diagnostic A)
+
+*Les DEUX seules specs du corpus qui la déclarent échouaient.*
+
+`tensionCurve` termine par un `minMax` : toute courbe non constante occupe
+exactement [0, 1]. Demander l'écart-type de cette courbe-là, c'est poser une
+question à laquelle « oui » est impossible — et pendant ce temps, `archFit`
+créditait `m02-s26` de 0,87 en régime PLATITUDE. Le moteur se contredisait d'un
+fichier à l'autre.
+
+**Correctif** : `tensionSpread()` expose l'amplitude AVANT normalisation (somme
+pondérée de z-scores : sans unité, comparable d'une pièce à l'autre). Le seuil
+0,65 est **calibré sur le corpus, pas choisi** : sur les 86 solutions, les deux
+pièces qui déclarent `flatTension` sortent 2ᵉ et 3ᵉ plus plates à 0,53 et 0,59,
+la médiane est à ≈ 1,05, et seule la pédale de G7 de m01-s34 descend plus bas
+(0,24). 0,65 ne retient que les 5 % les plus immobiles — une barre haute.
+
+### H-8 — la consigne fixait le profil d'intervalles, le craft notait le contraire (diagnostic A)
+
+*m02-e05, e07, e26 : `step-leap-balance` à 0,00 sur des pièces conformes.*
+
+Trois cas où la « norme du style » ne vient pas du style :
+`minPerfectIntervalRatio` (m02-e26 EXIGE ≥ 50 % d'intervalles justes — une quarte
+est un saut ; la pièce, conforme à 67 %, était notée zéro pour manque de degrés
+conjoints) ; `minConjunctRatio` (le checker mesure déjà le ratio, avec le seuil
+de la consigne — deux verdicts pour un fait) ; `givenCellAsMotif` (la cellule est
+FOURNIE, ses sauts ne sont pas ceux de l'élève, F-41).
+**Correctif** : la composante se retire dans ces trois cas.
+
+### H-9 — `ascendingPhrasePeaks` comparait tous les maxima locaux (diagnostic A)
+
+*m02-e10, m02-e21.*
+
+La clé s'appelle « sommets de PHRASE » et le checker lisait `contour().peaks` —
+tous les maxima locaux de la ligne, une dizaine par pièce, qui montent et
+redescendent par construction à l'intérieur d'une même phrase. `m02-s10`
+(« l'échelle des sommets ») annonce les siens en toutes lettres : « Sommets
+B♭4 < D5 < F5 ✓ ». Trois phrases, trois sommets.
+
+**Correctif** : le sommet de chaque phrase, découpée par `segmentBars` quand la
+consigne la déclare (m02-e10 écrit `segmentBars: 4` et son prompt ne laisse aucun
+doute : « 12 mesures = 3 phrases de 4 mesures […] L'analyseur compare les trois
+sommets »), par la détection automatique sinon.
+
+### H-10 — le climax ex æquo était pris au premier passage (diagnostic A)
+
+*m03-e14, m03-e17 [octatonique], et le confort de m01-e18.*
+
+« Le premier sommet absolu, celui qui accomplit la montée » est juste tant que le
+sommet n'est atteint qu'une fois. `m03-s17` touche son mi♭5 deux fois : une
+croche de passage dans un arpège à 38 %, puis la RONDE du cluster à sept sons à
+60 % — le climax de cette pièce est la masse tenue, et la fenêtre de la consigne
+([0,6 – 0,8]) le dit aussi. `m03-s14` roule trois fois le même dessin (la
+consigne le déclare, `sameTopLineAcrossSegments`) : prendre le premier plaçait le
+sommet d'une pièce de douze mesures à sa deuxième.
+
+**Correctif** : à hauteur égale, le sommet le plus LONG ; à durée égale, le
+DERNIER. La fixture `climax-hero-s21` (62,5 %) est inchangée.
+
+### H-11 — quatre checkers lisaient à côté de leur consigne (diagnostic A)
+
+- **`forbidEnrichmentOnDegrees`** ne lisait que la première moitié de la consigne
+  de `m01-e31` : « laisse le V NET **(sus4→3 autorisé)** ». `allowedOnV` n'était
+  implémenté nulle part. Le sus4 qui résout sur sa tierce est maintenant excepté.
+- **`requirePlainTriadCount`** / **`minEnrichedChords`** comptaient par forme
+  seule : depuis H-2, un `Gadd9` est un `maj` QUI PORTE une neuvième — enrichi,
+  pas nu. `m01-s32` comptait trois triades nues là où ses `authorNotes` en
+  revendiquent une (« la triade nue = le G final »).
+- **`minSubstitutions`** ne comptait que les tags `subV` — la substitution
+  tritonique, un seul des deux idiomes que le cursus appelle ainsi. `m01-e28`
+  (« Même récit, autre lumière ») demande l'autre : la doublure de FAMILLE, vi
+  pour I, ii pour IV. Ajouté : comparaison position par position à
+  `given.chords`, en exigeant que la FONCTION survive.
+- **`requiredVariationTypes`** ne retenait que le `sub` de l'occurrence, jamais
+  son `kind` : `m02-s04` porte bien sa transposition réelle (+5, annoncée par ses
+  `authorNotes`, classée `kind:'transposed', sub:'real'`) et le checker répondait
+  « variation manquante : transposed ».
+
+### H-12 — deux contraintes d'une même spec se contredisaient (diagnostic A)
+
+- **`requiredCadence: "perfect"` sur mélodie FOURNIE** (m02-e15) : parfaite et
+  imparfaite ne diffèrent que par le soprano, et quand la mélodie est donnée ce
+  soprano n'appartient pas à l'élève. `m02-e15` donne une mélodie « souveraine »
+  qui finit sur 3̂ et demande une parfaite dans la même consigne ; ses
+  `authorNotes` le signalent elles-mêmes (« soprano sur 3̂ imposé par la mélodie
+  souveraine — à contrôler »). L'authentique est reçue, et le rapport le DIT.
+- **`mustEndOnDegrees` sous `requireAmbiguousKey`** (m02-e24) : l'exercice EST
+  que la tonalité reste indécise, et le checker élisait quand même une tonique
+  pour en déduire un degré. Les `authorNotes` : « fin E = 2̂ (dorien) ou 5̂
+  (éolien) — juste dans les deux mondes ». Les toniques rivales sont désormais
+  admises, mais seulement là où la consigne revendique l'ambiguïté.
+
+### H-0 — ce qui a été essayé puis RETIRÉ
+
+La silhouette lue sur le contour RÉDUIT (moyenne pondérée par quart de pièce,
+seuil de plateau inchangé à 4 demi-tons) a été écrite, mesurée, puis retirée.
+Elle rend bien « plateau » sur `m02-s22` — le cas que la fixture
+`plateau-divergence-s22` documente comme écart connu — mais elle relit aussi
+`silhouette-wave` (un extrait réel de m02-s19) en « arche », casse deux fixtures,
+et **ne débloque aucune solution** : 68 avant, 68 après. Le constat est versé au
+dossier de la décision éditoriale à venir ; le code garde la lecture normative et
+le désaccord reste visible.
+
+**Aucun seuil de `scoring.ts` n'a été touché** dans cette passe, ni aucun poids
+de profil. `SEVERITY_PENALTY`, `MAX_ISSUES_SHOWN`, `IMPROVED_VERSION_MAX_CHANGE`,
+`AMBIGUOUS_KEY_CONF` sont celles du tutoriel.
+
+---
+
+## Reste à faire — les 18 rouges, triés par ce qu'ils exigent
+
+Aucun des 18 n'est un défaut de moteur qu'on saurait corriger sans trancher
+d'abord une question qui n'appartient pas au code. Ils se rangent en trois
+dossiers.
+
+### Dossier 1 — la doctrine `vl.*` sur les réalisations de M1 (6 pièces)
+
+`m01-e32`, `m01-e38`, `m01-e40`, `m03-e18 [fonctionnel-etendu]`, et par ricochet
+`m01-e34`, `m03-e11`.
+
+**Les quintes sont RÉELLES** — vérifié pièce par pièce, pas par sondage.
+`m01-s38` porte des douzièmes parallèles franches entre soprano et basse sur
+Gm7→A7 (tout le voicing monte d'un ton) ; `m01-s40` cumule une octave directe
+finale et des quintes parallèles. Ce ne sont pas des artefacts de
+`unstackVoices`.
+
+Ce qui a été instruit cette passe, et qui ferme une partie du dossier : la
+substitution tritonique GLISSE, son geste entier est le demi-ton descendant de
+tout le voicing sur la cible (« c'est le glissement qui fait le couloir »). Les
+quintes que ce glissement produit sont maintenant créditées en `info` sous le tag
+`subV`, exactement comme le planing et les quintes de Mozart — condition serrée :
+le tag couvre l'accord de départ ET les deux voix descendent d'un demi-ton
+exactement. Sur `m01-s38`, la quinte du Ab7→G est excusée, celle du Gm7→A7 (ton
+entier, hors tag) est conservée.
+
+**Ce qui reste est une question éditoriale, pas un patch.** Trois faits, tous
+vérifiés :
+
+1. **M1 n'enseigne nulle part les quintes parallèles.** `vl.parallel-perfects`
+   cite `lessonRef: 'm01-l12'` ; m01-l12 porte sur les renversements et la
+   disposition et ne dit pas un mot des parallèles. Les seules leçons du corpus
+   qui les enseignent sont `m03-l01`, `m03-l03`, `m03-l14` et `m09-l02`.
+2. **Les prompts et les `authorNotes` de M1 ne parlent jamais de conduite** :
+   ils vérifient le chiffrage, le mouvement de basse, les tags. Ceux de M3
+   parlent SATB (c'est le constat qui fonde la décision n°31).
+3. **Aucun critère structurel ne sépare les deux groupes.** Mesuré : l'écart
+   moyen basse→voix supérieure ne discrimine pas (m03-e08 [dorien] est vert à
+   19,8 dt avec 2 parallélismes, m01-e40 est rouge à 13,8) ; `minVoices === 4`
+   fermé non plus (m03-e09/e11/e13/e14 déclarent un maximum ouvert et sont bien
+   des chorals).
+
+Il faut donc **choisir**, et le choix n'est pas au code : soit les réalisations
+de clavier de M1 sont requalifiées (une clé de spec, un profil, ou une révision
+des solutions), soit les six voicings sont corrigés en contenu. Tant que ce n'est
+pas tranché, poser une exception serait la tailler pour le cas, pas pour la
+règle.
+
+### Dossier 2 — la silhouette et la syncope, deux mesures à requalifier (5 pièces)
+
+- **`contourShape`** — `m02-e22` (plateau), `m02-e27` (arch), `m02-e28`
+  (descent), toutes lues « wave ». La lecture actuelle classe sur la suite des
+  directions NOTE À NOTE : `arch` exige la chaîne exacte `UD`, c'est-à-dire une
+  montée puis une descente strictement monotones, ce qu'aucune mélodie réelle ne
+  fait. Les trois `authorNotes` disent le contraire de l'analyseur, chacune sur
+  sa propre contrainte. La piste mesurée est en H-0 ; elle demande une décision,
+  parce qu'elle rouvre le seuil de plateau du tutoriel et deux fixtures.
+- **`syncopationTarget`** — `m02-e19` (0,44 mesuré, 0,15–0,40 demandé) et
+  `m02-e27` (0,04 mesuré, 0,10–0,35 demandé), l'un au-dessus, l'autre en
+  dessous. `offBeatRatio` compte toute attaque hors temps ; dans une pièce en
+  croches courantes, la moitié des attaques le sont par construction — c'est du
+  mouvement, pas de la syncope. Les `authorNotes` de `m02-s19` comptent autre
+  chose : « syncopes douces (`q.` hors temps) ≈ 0.3 ». Il faut fixer la
+  définition (attaque hors temps ? note qui SONNE à travers un appui qu'elle n'a
+  pas articulé ?) avant de recalibrer quoi que ce soit, et les deux pièces
+  bougent en sens opposé — ce n'est pas un seuil, c'est la grandeur.
+
+### Dossier 3 — six écarts de CONTENU, chacun vérifié (diagnostic B)
+
+| Pièce | Écart |
 |---|---|
-| `m02-s03` | 7 mesures pour 8, et surtout la solution répond à une AUTRE consigne : elle aligne les quatre archétypes (appel, pas, soupir, signal) énoncés une fois chacun, quand les contraintes demandent UN motif ≥ 3 fois. La leçon `m02-l01` porte sur les archétypes, la contrainte sur le développement — l'une des deux doit céder. |
-| `m02-s25` | 4 mesures écrites pour 16 demandées, avec 8 énoncés attendus : très probablement une boucle à répéter quatre fois, que la solution ne dit pas. |
-| `m02-e22` / `m02-e28` | l'écart `plateau` documenté ci-dessus (G-0). |
-| `m02-e07` | 83 sans une seule issue ni une seule contrainte en échec : correctness et contraintes au maximum, **craft à 18**. Le seul poste est une métrique POSITIVE, à instruire à part — une solution de référence devrait bien y scorer. |
+| `m01-e42` | 7 mesures écrites pour 8 demandées. |
+| `m01-e45` | `minVoices: 4` : les accords du premier volet n'ont que 3 notes, et la mélodie sonne seule entre eux. Les `authorNotes` (« Δvoix = +1 ») confirment un volet à 3 voix — la spec et la solution ne peuvent pas être vraies ensemble. |
+| `m02-e03` | 7 mesures pour 8, et la solution répond à une AUTRE consigne : elle aligne les quatre archétypes énoncés une fois chacun quand les contraintes demandent UN motif ≥ 3 fois. La leçon `m02-l01` porte sur les archétypes, la contrainte sur le développement — l'une des deux doit céder. |
+| `m02-e25` | 4 mesures écrites pour 16 demandées, avec 8 énoncés attendus : très probablement une boucle à répéter quatre fois, que la solution ne dit pas. |
+| `m02-e16` | conjoint 0,55 pour 0,60 exigé — cinq centièmes, sur une mélodie de guide tones qui saute par construction. À trancher : le seuil ou la pièce. |
+| `m02-e27` | saut de 9 demi-tons pour `maxLeap: 7` (en plus de sa silhouette et de sa syncope). |
 
-**Aucun seuil de `scoring.ts` n'a été touché dans cette passe non plus**, et
-aucun poids de profil.
+### Et deux pièces à un cheveu, pour mémoire
 
-| Occurrences | Règle | À instruire |
-|---|---|---|
-| 17 sol. | `vl.parallel-perfects` | vérifié par sondage sur m01-s40 : les quintes parallèles composées y sont RÉELLES entre basse et voix interne. Reste à trancher si l'écriture de clavier des solutions justifie une exception, ou si les solutions sont à corriger (diagnostic B). |
-| 13 sol. | `harmony.unresolved-seventh` | les septièmes de M3 (couleur, pas tension) — probablement une affaire de profil. |
-| 12 sol. | `vl.leading-tone-resolution` | résiduel après A-4, A-5 et B-5, à instruire pièce par pièce. |
+`m01-e34` (89) et `m03-e17 [pandiatonique]` (88) passent la note et ne butent que
+sur une contrainte : la première sur la définition classique de la cadence
+parfaite appliquée à un voicing jazz — son accord final est un do add9, et aucun
+voicing de ce langage ne pose la tonique nue au sommet ; la seconde sur une
+fenêtre de climax que son sommet manque de trente points.
 
-Contraintes encore en échec, toutes à faible occurrence : `minMotifOccurrences`
-(4), `contourShape` (3), `climaxWindow` (3), `lengthBars` (3), `minEnrichedChords`
-(2), `phraseStructure` (2), `ascendingPhrasePeaks` (2), `syncopationTarget` (2),
-`flatTension` (2), plus neuf clés à une occurrence.
-
-**Trois `lengthBars` sont des manques de contenu, pas de moteur** (diagnostic B) :
-m01-s42 mesure 7 mesures pour 8 demandées, m02-s03 en mesure 6,75 pour 8, et
-m02-s25 en mesure 4 pour 16 — cette dernière étant vraisemblablement une boucle
-à répéter quatre fois, ce que la solution ne dit pas.
-
-**Aucun seuil de `scoring.ts` n'a été touché.** Les constantes de calibrage
-(`SEVERITY_PENALTY`, `MAX_ISSUES_SHOWN`, `IMPROVED_VERSION_MAX_CHANGE`,
-`AMBIGUOUS_KEY_CONF`) sont celles du tutoriel, intactes.
+**Le verrou n'est pas vert, le tag `v0.2-engine-core` n'est pas posé.**

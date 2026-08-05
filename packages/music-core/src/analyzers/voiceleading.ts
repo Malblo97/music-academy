@@ -46,18 +46,21 @@ interface Slice {
   at: number;
   /** Hauteur sonnant dans chaque voix (null = la voix se tait). */
   pitches: (number | null)[];
+  /** Vrai pour les voix qui ATTAQUENT ici — les autres tiennent depuis avant. */
+  attacks: boolean[];
 }
 
 /** Découpe les voix en verticalités : une par attaque, toutes voix confondues. */
 function slicesOf(voices: readonly (readonly Note[])[]): Slice[] {
   const onsets = [...new Set(voices.flatMap(v => v.map(n => n.start)))].sort((a, b) => a - b);
-  return onsets.map(at => ({
-    at,
-    pitches: voices.map(voice => {
-      const sounding = voice.find(n => n.start <= at && n.start + n.duration > at);
-      return sounding ? sounding.pitch : null;
-    }),
-  }));
+  return onsets.map(at => {
+    const sounding = voices.map(voice => voice.find(n => n.start <= at && n.start + n.duration > at));
+    return {
+      at,
+      pitches: sounding.map(n => (n ? n.pitch : null)),
+      attacks: sounding.map(n => n !== undefined && n.start === at),
+    };
+  });
 }
 
 /** Index des voix extrêmes (la plus grave, la plus aiguë) sur une verticalité. */
@@ -137,6 +140,29 @@ function parallelIssues(
               atTick: b.at,
               message: `${label} parallèles créditées : le planing EST le procédé (tag posé)`,
               lessonRef: 'm03-l14',
+            });
+            continue;
+          }
+          // **La substitution tritonique glisse.** Son geste entier est le
+          // demi-ton descendant de tout le voicing vers la cible — « c'est le
+          // glissement qui fait le couloir », dit la pédagogie de
+          // `harmony.tritone-sub-resolution`, et la consigne de m01-e38 le
+          // vérifie « sans pitié ». Reprocher les quintes que ce glissement
+          // produit, c'est reprocher l'idiome que l'exercice enseigne — la
+          // même doctrine que F-15 pour la sixte augmentée, et que le planing
+          // trois lignes plus haut. Condition serrée : le tag doit couvrir
+          // l'accord de DÉPART et les deux voix descendre d'exactement un
+          // demi-ton. Une quinte parallèle ailleurs dans la pièce reste une
+          // erreur — sur m01-s38, celle du Gm7→A7 (ton entier, hors tag) est
+          // conservée.
+          const slidingSubV = tagsAt(ctx, a.at).some(t => t.family === 'subV') && d1 === -1 && d2 === -1;
+          if (slidingSubV) {
+            issues.push({
+              ruleId: 'vl.parallel-perfects',
+              severity: 'info',
+              atTick: b.at,
+              message: `${label} parallèles portées par la substitution tritonique : le voicing entier glisse d'un demi-ton sur sa cible — c'est le geste, pas une faute`,
+              lessonRef: 'm01-l20',
             });
             continue;
           }
@@ -342,6 +368,32 @@ function seventhIssues(slices: readonly Slice[], voices: readonly (readonly Note
   return issues;
 }
 
+/**
+ * **Tapis et arabesque** — la texture que le `when` de `vl.spacing` s'exclut
+ * lui-même sans que le code l'ait jamais implémenté : « les textures
+ * orchestrales larges et les voicings de piano ouverts ont leurs propres lois ».
+ *
+ * Le témoin est dans la notation, pas dans une exception à déclarer : quand
+ * TOUTES les voix sauf la plus aiguë TIENNENT depuis avant et que seule la voix
+ * du dessus réattaque, on n'a pas un accord à quatre voix qui se déchire, on a
+ * deux strates — une nappe tenue et une ligne au-dessus. La faute que la règle
+ * enseigne est un accident local (« l'accord ne suit pas, la mélodie se
+ * retrouve toute seule au-dessus du vide ») ; ici, rien n'était censé suivre.
+ *
+ * `m03-s11` (« l'apesanteur ») l'écrit noir sur blanc, liaisons comprises :
+ * `[Db3~+F3~+A3~+B4]` — « le balancement des deux augmentés en tapis TENUS
+ * (liaisons par note, F-21), l'arabesque au-dessus ».
+ */
+function isStratified(slice: Slice): boolean {
+  const voices = slice.pitches
+    .map((p, i) => ({ p, held: !slice.attacks[i] }))
+    .filter((v): v is { p: number; held: boolean } => v.p !== null)
+    .sort((a, b) => a.p - b.p);
+  if (voices.length < 3) return false;
+  const top = voices[voices.length - 1]!;
+  return !top.held && voices.slice(0, -1).every(v => v.held);
+}
+
 function spacingAndDoublingIssues(slices: readonly Slice[], key: KeyEstimate, ctx: VoiceLeadingCtx): Issue[] {
   const issues: Issue[] = [];
   for (const slice of slices) {
@@ -349,7 +401,7 @@ function spacingAndDoublingIssues(slices: readonly Slice[], key: KeyEstimate, ct
     // Espacement : entre voix SUPÉRIEURES adjacentes seulement (la basse respire).
     for (let i = 1; i < present.length - 1; i++) {
       const gap = present[i + 1]! - present[i]!;
-      if (gap > MAX_UPPER_SPACING) {
+      if (gap > MAX_UPPER_SPACING && !isStratified(slice)) {
         issues.push({
           ruleId: 'vl.spacing',
           severity: 'warning',
