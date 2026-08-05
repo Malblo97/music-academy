@@ -57,6 +57,9 @@ const FLATNESS_VARIANCE = 0.015;
 /** Lissage par défaut de la courbe : cinq demi-mesures. */
 const DEFAULT_SMOOTHING = 5;
 
+/** Part du sommet en deçà de laquelle on est sorti du plateau du climax. */
+const CLIMAX_PLATEAU = 0.9;
+
 /** Le gabarit fait 16 points ; la courbe y est rééchantillonnée. */
 const TEMPLATE_POINTS = 16;
 
@@ -301,6 +304,56 @@ export function archFit(curve: readonly number[], moodId: string): ArchFitResult
  *    sans relief n'a pas de sommet à placer. C'est le même seuil de variance
  *    que celui qui fait basculer `archFit` en régime de platitude.
  */
+/**
+ * **OÙ LA PIÈCE CULMINE** — la position du sommet de la courbe de tension, en
+ * fraction de la durée totale. C'est cette valeur que lisent `climaxWindow` et
+ * `melody.climax` (décision n°36).
+ *
+ * Le climax n'est pas la note la plus aiguë. Sur une mélodie seule les deux
+ * coïncident presque toujours — `tensionCurve` pèse la hauteur — mais dès qu'il
+ * y a une texture, elles divorcent, et c'est la tension qui a raison :
+ * `m03-s18 [fonctionnel-etendu]` place son ré5 aux mesures 9–10 et son VRAI
+ * sommet à la sixte augmentée de la mesure 11, que ses `authorNotes` désignent
+ * comme « l'avant-climax » et associent à son archFit. Le moteur se
+ * contredisait d'ailleurs déjà tout seul : `expectedClimaxWindow` DÉRIVE sa
+ * fenêtre du pic du gabarit de TENSION, et `melody.climax` y comparait un pic
+ * de HAUTEUR.
+ *
+ * La résolution est celle de la courbe — une demi-mesure. En cas d'ex æquo
+ * après lissage, le DERNIER sommet, même raison qu'en `climaxPosition` : ce qui
+ * précède n'était qu'une visite.
+ */
+export function tensionClimaxPosition(curve: readonly number[]): number | null {
+  const range = tensionClimaxRange(curve);
+  return range === null ? null : (range[0] + range[1]) / 2;
+}
+
+/**
+ * **Le climax est une RÉGION, pas un point.** La courbe a la résolution d'une
+ * demi-mesure et ses sommets sont des plateaux : sur `m03-s18 [modal]`, la
+ * tension tient son maximum des mesures 9 à 11 — l'auteur écrit « Sommet m11 »,
+ * l'argmax brut tombe sur la 10ᵉ, et les deux désignent le même plateau.
+ * Réduire cela à un index puis le comparer à une borne dure fabrique des échecs
+ * qui ne disent rien de la musique : on prétendrait une précision que la mesure
+ * n'a pas.
+ *
+ * La région rendue est la plus longue plage CONTIGUË où la courbe se tient à au
+ * moins `CLIMAX_PLATEAU` de son sommet, celle qui contient l'argmax. Bornes en
+ * fraction de la durée totale.
+ */
+export function tensionClimaxRange(curve: readonly number[]): [number, number] | null {
+  if (curve.length < 2) return null;
+  const peak = Math.max(...curve);
+  const floor = peak - (peak - Math.min(...curve)) * (1 - CLIMAX_PLATEAU);
+  let argmax = 0;
+  for (let i = 0; i < curve.length; i++) if (curve[i]! > curve[argmax]!) argmax = i;
+  let from = argmax;
+  let to = argmax;
+  while (from > 0 && curve[from - 1]! >= floor) from--;
+  while (to < curve.length - 1 && curve[to + 1]! >= floor) to++;
+  return [from / curve.length, (to + 1) / curve.length];
+}
+
 export function expectedClimaxWindow(moodId: string, tolerance = 0.2): [number, number] | null {
   if (!(moodId in MOOD_TEMPLATES)) return null;
   const template = moodTemplate(moodId);

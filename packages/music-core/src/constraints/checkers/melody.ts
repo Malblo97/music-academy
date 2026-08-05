@@ -1,13 +1,13 @@
 import { TICKS } from '../../types.js';
 import type { Checker } from './types.js';
 import { allJudged, asNumber, asNumbers, asRange, asStrings, degreeOf, fail, line, matchesDegree, ok, pc } from './types.js';
-import { climaxPosition, contour } from '../../analyzers/contour.js';
+import { contour } from '../../analyzers/contour.js';
 import { metricWeight } from '../../analyzers/rhythm.js';
 import { barCount, meterOfSpec } from '../../meter.js';
 import { arrivalKeyOf } from '../../pipeline/evaluate.js';
 import { barTicks } from '../../analyzers/rhythm.js';
 import { scalePcs } from '../../analyzers/key.js';
-import { tensionSpread } from '../../analyzers/tension.js';
+import { tensionClimaxRange, tensionSpread } from '../../analyzers/tension.js';
 import type { KeyEstimate } from '../../analyzers/key.js';
 import type { RuleCtx } from '../../rules/types.js';
 
@@ -279,13 +279,18 @@ export const MELODY_CHECKERS: Record<string, Checker> = {
 
   climaxWindow: (_k, value, ctx) => {
     const range = asRange(value);
-    const notes = line(ctx);
-    if (!range || notes.length === 0) return ok('rien à mesurer');
-    const position = climaxPosition(notes);
-    if (position === null) return ok('aucun climax mesurable');
-    return position >= range[0] && position <= range[1]
-      ? ok(`climax à ${Math.round(position * 100)} %, dans la fenêtre`)
-      : fail(`climax à ${Math.round(position * 100)} %, fenêtre ${Math.round(range[0] * 100)}–${Math.round(range[1] * 100)} %`);
+    if (!range) return ok('rien à mesurer');
+    // Le climax est un fait de TENSION, pas de hauteur (décision n°36), et il
+    // occupe une RÉGION : la courbe a la résolution d'une demi-mesure et ses
+    // sommets sont des plateaux. La contrainte est tenue si le plateau du
+    // climax RENCONTRE la fenêtre demandée — exiger qu'un index tombe dans
+    // l'intervalle prétendrait une précision que la mesure n'a pas.
+    const plateau = tensionClimaxRange(ctx.analysis.tension ?? []);
+    if (plateau === null) return ok('aucun climax mesurable');
+    const pct = (x: number) => Math.round(x * 100);
+    return plateau[0] <= range[1] && plateau[1] >= range[0]
+      ? ok(`climax entre ${pct(plateau[0])} et ${pct(plateau[1])} %, rencontre la fenêtre ${pct(range[0])}–${pct(range[1])} %`)
+      : fail(`climax entre ${pct(plateau[0])} et ${pct(plateau[1])} %, hors de la fenêtre ${pct(range[0])}–${pct(range[1])} %`);
   },
 
   climaxMinDuration: (_k, value, ctx) => {

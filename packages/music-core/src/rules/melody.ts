@@ -3,7 +3,7 @@ import type { Rule, RuleCtx } from './types.js';
 import { judgedLine, judgedNotes, ruleIssue } from './types.js';
 import { scalePcs } from '../analyzers/key.js';
 import { STRICT_COVERAGE } from '../analyzers/collection.js';
-import { expectedClimaxWindow } from '../analyzers/tension.js';
+import { expectedClimaxWindow, tensionClimaxRange } from '../analyzers/tension.js';
 import type { CollectionFamily } from '../analyzers/collection.js';
 
 /** Les collections qui constituent une grammaire de rechange assumée. */
@@ -215,15 +215,17 @@ export const MELODY_RULES: Rule[] = [
       const self = { id: 'melody.climax', severity: 'warning' as const, lessonRef: 'm02-l06' };
       if (globals.length > 1) {
         issues.push(ruleIssue(self, globals[1]!.at,
-          `le sommet est atteint ${globals.length} fois : un climax qui revient n'est plus un climax`));
+          `la note la plus aiguë est atteinte ${globals.length} fois : un sommet qui revient n'est plus un sommet`));
       }
-      const top = globals[0];
-      if (top) {
-        const position = top.at / total;
-        if (position < lo || position > hi) {
-          issues.push(ruleIssue(self, top.at,
-            `sommet à ${Math.round(position * 100)} % de la pièce — la fenêtre attendue est ${Math.round(lo * 100)}–${Math.round(hi * 100)} %`));
-        }
+      // **Décision n°36** : OÙ la pièce culmine est un fait de TENSION, pas de
+      // hauteur — et cette règle comparait un pic de hauteur à une fenêtre que
+      // `climaxExpectation` dérive, elle, du gabarit de TENSION. Les deux
+      // lectures cohabitaient sous le même identifiant, avec deux chiffres
+      // différents pour une seule affirmation.
+      const plateau = tensionClimaxRange(ctx.analysis.tension ?? []);
+      if (plateau && !(plateau[0] <= hi && plateau[1] >= lo)) {
+        issues.push(ruleIssue(self, Math.round(plateau[0] * total),
+          `la tension culmine entre ${Math.round(plateau[0] * 100)} et ${Math.round(plateau[1] * 100)} % de la pièce — la fenêtre attendue est ${Math.round(lo * 100)}–${Math.round(hi * 100)} %`));
       }
       return issues;
     },
