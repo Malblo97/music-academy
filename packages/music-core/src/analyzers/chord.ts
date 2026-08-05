@@ -107,12 +107,16 @@ export function detectChord(
 
       // Toutes les pcs requises présentes. La quinte s'omet dans deux cas : sur
       // les formes qui le déclarent (F-3, `fifthOptional`), et sur toute forme
-      // qu'une tension colore — c'est la neuvième qui prend sa place, et c'est
-      // le voicing d'add9 le plus courant qui soit (`[C3+C4+E4+D5]`, m01-s34).
-      // Un simple dyade reste rejeté : {ré, fa} ne porte aucune tension, donc
-      // sa quinte n'est pas remplacée, elle MANQUE (fixture `incomplete-rejected`).
+      // qu'une NEUVIÈME colore — c'est elle, et elle seule, qui prend la place
+      // de la quinte dans le voicing d'add9 le plus courant qui soit
+      // (`[C3+C4+E4+D5]`, m01-s34). Une onzième ou une treizième ne remplacent
+      // rien : les admettre laissait `{mi, si, ré}` — un accord sans tierce —
+      // se faire lire « si mineur avec onzième, quinte absente », c'est-à-dire
+      // inventer une fondamentale pour ne pas avoir à dire « je ne sais pas ».
+      // Un simple dyade reste rejeté de la même façon : {ré, fa} ne porte aucune
+      // tension, sa quinte MANQUE (fixture `incomplete-rejected`).
       const fifthPc = pc(root + 7);
-      const fifthMayGo = form.fifthOptional === true || tensions.length > 0;
+      const fifthMayGo = form.fifthOptional === true || tensions.some(t => t === 1 || t === 2);
       const required = fifthMayGo ? formPcs.filter(p => p !== fifthPc) : formPcs;
       if (!required.every(p => pcs.has(p))) continue;
 
@@ -122,10 +126,27 @@ export function detectChord(
   if (candidates.length === 0) return null;
 
   // 4. Départage : d'abord l'accord qui s'explique SANS tension — une lecture
-  //    qui n'invoque aucune couleur ajoutée est toujours la plus sûre. Puis la
-  //    forme la plus riche, puis basse = fondamentale > renversement.
+  //    qui n'invoque aucune couleur ajoutée est toujours la plus sûre. Puis
+  //    **la BASSE, qui nomme l'accord**, et seulement ensuite la richesse.
+  //
+  //    L'ordre richesse-puis-basse était juste tant que la richesse ne
+  //    s'ACHETAIT pas : depuis que les tensions existent, une forme plus riche
+  //    peut toujours se fabriquer en relisant un son de l'accord comme une
+  //    couleur d'un autre. `[G3+B3+D4+A4]` — un sol add9, basse sol, que les
+  //    `authorNotes` de m01-s32 nomment « Gadd9 » — ressortait ainsi en
+  //    « si mineur septième avec treizième bémol », un si mineur dont le si
+  //    n'est pas à la basse. Une verticalité dont la basse est un sol et qui
+  //    épelle sol-si-ré-la est un accord de SOL.
+  //
+  //    La basse ne prend le pas QUE sur les lectures à tension : là où aucune
+  //    couleur n'est invoquée, l'ordre du tutoriel (richesse d'abord) est
+  //    conservé tel quel. Élargir le départage à tous les cas rendait
+  //    systématiquement l'état fondamental et aplatissait `inversion-variety`
+  //    sur tout le corpus — m03-s17 y perdait neuf points sans qu'une seule
+  //    note ait changé.
   candidates.sort((a, b) =>
     a.tensions.length - b.tensions.length
+    || (a.tensions.length > 0 ? Number(b.rootPosition) - Number(a.rootPosition) : 0)
     || b.richness - a.richness
     || Number(b.rootPosition) - Number(a.rootPosition));
   const winner = candidates[0]!;

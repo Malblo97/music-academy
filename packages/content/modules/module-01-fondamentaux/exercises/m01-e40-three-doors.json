@@ -1,5 +1,5 @@
 { "id": "m01-e40-three-doors", "lessonId": "m01-l21-emprunts",
-  "title": "Les trois portes", "kind": "HARMONY_PROGRESSION",
+  "title": "Les trois portes", "kind": "HARMONY_PROGRESSION", "texture": "keyboard",
   "difficulty": 7, "xpReward": 130, "skills": { "HARMONY": 1.0 },
   "spec": { "prompt": "La synthèse du bloc : 12 mesures en do majeur qui empruntent LES TROIS PORTES, une fois chacune — une dominante secondaire (tirer), une substitution tritonique OU une basse chromatique (glisser), un emprunt modal (voiler). Chaque note chromatique doit savoir pourquoi elle est là : l'analyseur tente d'expliquer chacune (V/x ? subV ? borrowed ?) et pénalise les inexpliquées. Conclus par une parfaite — le voyage mérite un retour ; attention, la substitution ne peut pas remplacer la dominante FINALE.",
     "given": { "key": { "tonic": 0, "mode": "major" } },

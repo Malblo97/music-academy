@@ -36,6 +36,7 @@ function pair(ctx: RuleCtx): { cf: readonly { pitch: number; start: number; dura
 export const CP_RULES: Rule[] = [
   {
     id: 'cp.species-contract',
+    needsIndependentVoices: true,
     severity: 'error',
     weight: 1,
     appliesTo: ['voices'],
@@ -58,6 +59,7 @@ export const CP_RULES: Rule[] = [
   },
   {
     id: 'cp.suspension',
+    needsIndependentVoices: true,
     severity: 'warning',
     weight: 1,
     appliesTo: ['voices', 'parts'],
@@ -82,6 +84,7 @@ export const CP_RULES: Rule[] = [
   },
   {
     id: 'cp.cambiata',
+    needsIndependentVoices: true,
     severity: 'info',
     weight: 1,
     appliesTo: ['voices'],
@@ -106,6 +109,7 @@ export const CP_RULES: Rule[] = [
   },
   {
     id: 'cp.imitation',
+    needsIndependentVoices: true,
     severity: 'warning',
     weight: 1,
     appliesTo: ['voices', 'parts'],
@@ -132,6 +136,7 @@ export const CP_RULES: Rule[] = [
   },
   {
     id: 'cp.canon-strette',
+    needsIndependentVoices: true,
     severity: 'info',
     weight: 1,
     appliesTo: ['voices', 'parts'],

@@ -1,5 +1,5 @@
 { "id": "m01-e45-gear-change-done-right", "lessonId": "m01-l24-modulation-2",
-  "title": "Le gear change qui a le droit", "kind": "HARMONY_PROGRESSION",
+  "title": "Le gear change qui a le droit", "kind": "HARMONY_PROGRESSION", "texture": "keyboard",
   "difficulty": 6, "xpReward": 110, "skills": { "HARMONY": 0.7, "ORCHESTRATION": 0.3 },
   "spec": { "prompt": "Un thème de 4 mesures en fa majeur (grille + mélodie simple, à toi), puis SA REPRISE UN TON PLUS HAUT (sol majeur) — couture par le V7 du nouveau monde (D7) plaquée à la frontière. Condition « tout grandit » vérifiable : la reprise ajoute au moins une voix ET monte d'un cran dynamique (velocities). Si seule la tonalité monte, le craft te le dira.",
     "given": { "key": { "tonic": 5, "mode": "major" } },

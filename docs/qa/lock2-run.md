@@ -27,9 +27,10 @@ le corpus y compris les verts, `--by-cause` pour le classement des blocages).
 | Passe 6 — F-0 à F-5 (périmètre, puis `harmony.*`/`vl.*`) | 15/26 | 9/27 | 18/20 | **42 pleinement verts sur 73 — et 13 pièces sorties du périmètre** |
 | Passe 7 — G-1 à G-5 (M2 : phrase, prosodie, motifs) | 15/26 | 13/27 | 18/20 | **46 pleinement verts sur 73** |
 | Passe 8 — H-1 à H-12 (le lot B rentre, les tensions se chiffrent) | 20/27 | 21/28 | 27/31 | **68 pleinement verts sur 86** |
+| Passe 9 — I-1 à I-6 (M1 requalifié en écriture de clavier) | 24/27 | 21/28 | 27/31 | **72 pleinement verts sur 86** |
 
 À la passe 8, les dénominateurs redeviennent ceux du corpus entier : le lot B
-n'est plus hors périmètre (H-1). **68/86**, 18 rouges.
+n'est plus hors périmètre (H-1). À la passe 9, **72/86**, 14 rouges.
 
 À la passe 6, les dénominateurs changent : le verrou ne compte plus que le
 **lot A**, les pièces dont l'effectif se lit (voir F-0). Le total vert ne bouge
@@ -878,5 +879,170 @@ sur une contrainte : la première sur la définition classique de la cadence
 parfaite appliquée à un voicing jazz — son accord final est un do add9, et aucun
 voicing de ce langage ne pose la tonique nue au sommet ; la seconde sur une
 fenêtre de climax que son sommet manque de trente points.
+
+**Le verrou n'est pas vert, le tag `v0.2-engine-core` n'est pas posé.**
+
+---
+
+## Passe 9 — les réalisations de M1 sont requalifiées
+
+**68 → 72 pleinement verts sur 86.** m01 24/27, m02 21/28, m03 27/31.
+
+Le dossier 1 de la passe 8 est tranché : **arbitrage utilisateur, les solutions
+de M1 sont des voicings de clavier.** Cette passe applique la décision, et rien
+d'autre — le dossier 2 (silhouette, syncope) et le dossier 3 (écarts de contenu)
+restent ouverts tels quels.
+
+### I-1 — `ExerciseSpec.texture` : `choral` (défaut) ou `keyboard`
+
+`kind` dit ce qu'on produit, `texture` dit comment c'est disposé. La déclaration
+vit dans le CONTENU, une clé par exercice, à côté de `kind` — pas dans une
+heuristique du moteur : elle doit être auditable fichier par fichier.
+
+Côté moteur, chaque règle déclare désormais si elle SUIT une ligne d'un accord
+au suivant (`Rule.needsIndependentVoices`) : les quatre `vl.*` et les cinq
+`cp.*`, personne d'autre. Sur une texture de clavier, elles sont **éteintes et
+NOMMÉES** dans `silencedRules` — le même canal que les règles qu'un profil
+neutralise. Le rapport dit « en écriture de clavier, la main droite est un bloc :
+la conduite des voix ne s'y juge pas ». Rien n'est tu en silence.
+
+Le défaut est `choral` : aucune spec non déclarée ne change de comportement.
+M3 n'est pas touché — la décision n°31 a établi que ses `authorNotes` parlent
+SATB.
+
+### I-2 — les neuf exercices requalifiés, et leur témoin
+
+Le critère n'est pas « la pièce est-elle rouge » mais « la consigne demande-t-elle
+quoi que ce soit de la CONDUITE ». Quand elle en demande, `choral`. En cas de
+doute, `choral` — le défaut garde la règle active.
+
+| Requalifié `keyboard` | Ce que la consigne dit |
+|---|---|
+| `m01-e26` | « fondamentale seule à gauche, tierce+septième (+1 note libre max) à droite » — une disposition à deux mains, littéralement |
+| `m01-e28` | remplacement d'accords par leur doublure de famille, plan T-S-D-T |
+| `m01-e31` | enrichissement d'accords, « UNE couleur par accord » |
+| `m01-e32` | enrichissement, « D plus net que T/S » |
+| `m01-e34` | « Lois du voicing l18 §3 : grave vide, guide tones, tensions à l'aigu » |
+| `m01-e36` | « voicings guide-tones (l13 §5) » |
+| `m01-e38` | substitution tritonique, « la basse du substitut descend d'un demi-ton » |
+| `m01-e40` | les trois portes, « chaque note chromatique doit savoir pourquoi elle est là » |
+| `m01-e45` | « grille + mélodie simple » |
+
+Laissés `choral`, et pourquoi — ce sont eux qui prouvent que le critère mord :
+
+| Resté `choral` | Ce que la consigne demande de la conduite |
+|---|---|
+| `m01-e23` | « que la basse devienne une LIGNE majoritairement conjointe » |
+| `m01-e24` | « la basse DESCEND en ligne diatonique de G3 à G2 » |
+| `m01-e27` | « les renversements POUR LA BASSE » |
+| `m01-e30` | « parfaite complète (les 4 conditions) » — les quatre conditions sont SATB |
+| `m01-e35` | « chaque sensible LOCALE monte d'un demi-ton » |
+| `m01-e39` | « la ligne interne 6̂→♭6̂→5̂ doit être audible dans UNE VOIX SUIVIE » |
+| `m01-e42` | « la voix interne A→G♯→G→F♯ […] TOUTES les autres voix tiennent » |
+| `m01-e44` | établir/pivoter/confirmer — mais rien ne dit un layout de clavier |
+| `m01-e46` | « une note commune dans UNE VOIX qui la tient » |
+
+### I-3 — ce que la requalification coûte, en chiffres
+
+C'est le contrôle qui dit si l'on a calibré ou taillé sur mesure. Mesuré, pièce
+par pièce, en réévaluant chacune des neuf sous les deux textures :
+
+| | conduite retirée | score choral → clavier |
+|---|---|---|
+| `m01-e26` | **0** | 93 → 90 |
+| `m01-e28` | **0** | 90 → 85 |
+| `m01-e31` | **0** | 96 → 94 |
+| `m01-e32` | 1 | 88 → 91 |
+| `m01-e34` | **0** | 89 → 91 |
+| `m01-e36` | **0** | 93 → 90 |
+| `m01-e38` | 3 | 84 → 93 |
+| `m01-e40` | 5 | 76 → 92 |
+| `m01-e45` | **0** | 79 → 79 |
+
+**Six des neuf pièces n'avaient aucun jugement de conduite à perdre** : sur
+elles, l'étiquette ne change rien à ce qui est contrôlé. Neuf jugements
+disparaissent en tout, tous concentrés sur les trois pièces du dossier 1.
+
+Et la requalification n'est pas un laissez-passer : **quatre scores BAISSENT**
+(e26, e28, e31, e36), parce que le craft perd sa composante `clean-voice-leading`
+au lieu de l'encaisser à 1 — on ne récompense pas une propreté qu'on a cessé de
+regarder. Même doctrine qu'en H-1 pour le lot B.
+
+### I-4 — la cadence parfaite sur un voicing de clavier
+
+`m01-e34` butait sur `requiredCadence: "perfect"` avec un do add9 final. La
+parfaite et l'imparfaite ne diffèrent que par le soprano ; sur une écriture de
+clavier, le sommet de la main droite est une tension ou un guide tone, jamais la
+tonique nue — c'est la loi de voicing que l'exercice ÉNONCE lui-même (« grave
+vide, guide tones, tensions à l'aigu »). L'authentique est reçue, et le rapport
+le dit, exactement comme pour la mélodie fournie de H-12.
+
+### I-5 — deux défauts que la requalification a fait remonter
+
+Ils étaient masqués par les `vl.*` ; une fois celles-ci éteintes, le craft est
+devenu le seul poste de coût de `m01-e32`, et deux erreurs sont apparues — toutes
+deux introduites par mon propre correctif H-2.
+
+**(a) Le départage des candidats préférait la RICHESSE à la basse.**
+`[G3+B3+D4+A4]` — un sol add9, basse sol, que les `authorNotes` de `m01-s32`
+nomment « Gadd9 » — ressortait en « si mineur septième avec treizième bémol »,
+un si mineur dont le si n'est pas à la basse. L'ordre richesse-puis-basse était
+juste tant que la richesse ne s'ACHETAIT pas ; depuis les tensions, une forme
+plus riche se fabrique toujours en relisant un son de l'accord comme la couleur
+d'un autre. **Correctif** : la basse départage — mais UNIQUEMENT entre lectures
+à tension. Élargi à tous les cas, le départage rendait systématiquement l'état
+fondamental et aplatissait `inversion-variety` sur tout le corpus (m03-s17 y
+perdait neuf points sans qu'une note ait changé).
+
+**(b) N'importe quelle tension autorisait l'omission de la quinte.**
+`{mi, si, ré}` — un accord sans tierce — se faisait lire « si mineur avec
+onzième, quinte absente » : inventer une fondamentale pour ne pas avoir à dire
+« je ne sais pas ». **Correctif** : seule une NEUVIÈME remplace la quinte, parce
+que c'est elle qui le fait dans le voicing d'add9. Le corpus est indifférent au
+score (72 dans les deux cas) ; on garde la lecture qui refuse d'inventer, suivant
+la doctrine du moteur — `null` plutôt qu'un repli.
+
+### I-6 — `caresAboutIdioms` réclamait des idiomes à des grilles diatoniques
+
+*`m01-e28` et `m01-e32`, notés 0,00 sur `idioms-used`.*
+
+La fonction est censée écarter exactement ce cas — son commentaire le dit :
+« une progression diatonique n'a aucun idiome à exploiter ; lui en réclamer,
+c'est noter l'exercice qu'on aurait aimé donner ». Deux clés l'y faisaient
+pourtant entrer par un mauvais proxy : `minEnrichedChords` (enrichir, c'est
+ajouter une couleur à un degré DIATONIQUE — un Gadd9, un Cmaj7 ; ce n'est pas un
+geste chromatique nommé, et l'enrichissement a déjà son propre checker) et
+`minSubstitutions` (depuis H-11 il compte AUSSI les doublures de famille, qui ne
+taguent aucun idiome ; son unique porteur du corpus, `m01-e28`, ne substitue que
+par famille — la clé garantissait un zéro).
+
+**Essayé puis retiré dans la même passe** : exclure aussi `singing-bass` sur les
+textures de clavier, au motif que « fondamentale seule à gauche » cloue la basse.
+Le corpus a répondu non — `m01-s32`, `s34` et `s40` y PERDAIENT des points, parce
+que leurs mains gauches marchent réellement par degrés. La consigne contraint le
+registre, pas le mouvement : une basse de clavier qui chante mérite son crédit.
+
+**Aucun seuil de `scoring.ts` n'a été touché** dans cette passe non plus.
+270 fixtures vertes, dont les 35 d'accord et les 14 de conduite.
+
+---
+
+## Après la passe 9 — les 14 rouges
+
+Les dossiers 2 et 3 de la passe 8 sont inchangés ; le dossier 1 est clos.
+
+| Dossier | Pièces |
+|---|---|
+| **2 — mesures à requalifier** (silhouette, syncope) | `m02-e19`, `m02-e22`, `m02-e27`, `m02-e28` |
+| **3 — écarts de contenu** (diagnostic B) | `m01-e42`, `m01-e45`, `m02-e03`, `m02-e16`, `m02-e25` |
+| **4 — M3, resté choral** | `m03-e04`, `m03-e11`, `m03-e18 [fonctionnel-etendu]` |
+| **5 — divers** | `m01-e18` (climax + leap-recovery), `m03-e17 [pandiatonique]` (fenêtre de climax) |
+
+Le dossier 4 est le pendant du dossier 1, côté M3 : mêmes familles `vl.*`, mais
+la décision n°31 a établi que les `authorNotes` de M3 parlent SATB. Les
+`vl.spacing` de `m03-e04` et `m03-e11` sont les deux textures « tapis +
+arabesque » revendiquées, dont seule une partie est couverte par le test de
+stratification de la passe 8 (le tapis réattaque au premier temps de chaque
+mesure). C'est le prochain dossier instructible.
 
 **Le verrou n'est pas vert, le tag `v0.2-engine-core` n'est pas posé.**

@@ -259,19 +259,40 @@ function upperVoiceSmoothness(voices: readonly (readonly Note[])[]): number | nu
  */
 function bassIsPinned(spec: ExerciseSpec): boolean {
   const c = (spec.constraints ?? {}) as Record<string, unknown>;
+  // La texture de clavier N'EST PAS un motif d'exclusion ici, et c'est le
+  // corpus qui l'a dit : retirer la composante à `m01-s32`, `s34` et `s40` leur
+  // faisait PERDRE des points, parce que leurs mains gauches marchent
+  // réellement par degrés. « Fondamentale seule à gauche » contraint le
+  // registre, pas le mouvement — une basse de clavier qui chante mérite d'être
+  // créditée comme une autre. Seules les consignes qui ÉCRIVENT la basse
+  // d'avance la mettent hors jeu.
   return c.guideToneVoicing === true
     || c.groundBass !== undefined
     || c.lamentBass !== undefined
     || c.staticBassBars !== undefined;
 }
 
-/** La consigne parle-t-elle d'idiomes, d'enrichissement, de chromatisme ? */
+/**
+ * La consigne parle-t-elle d'IDIOMES — de ces gestes chromatiques nommés que le
+ * tagueur sait reconnaître (napolitain, sixte augmentée, substitution, emprunt) ?
+ *
+ * `minEnrichedChords` n'en est pas un, et l'y compter était une erreur de
+ * proxy : enrichir, c'est ajouter une couleur à un degré DIATONIQUE — un
+ * Gadd9, un Cmaj7. La grille de `m01-e32` est diatonique de bout en bout,
+ * exactement le cas que cette fonction est censée écarter (« une progression
+ * diatonique n'a aucun idiome à exploiter ; lui en réclamer, c'est noter
+ * l'exercice qu'on aurait aimé donner ») — et elle l'y faisait entrer, pour la
+ * noter 0. L'enrichissement a déjà son checker ; le craft n'a pas à le juger
+ * une seconde fois sous un autre nom.
+ */
 function caresAboutIdioms(spec: ExerciseSpec): boolean {
   const c = (spec.constraints ?? {}) as Record<string, unknown>;
+  // `minSubstitutions` a suivi le même chemin : depuis qu'il compte AUSSI les
+  // doublures de famille (I→vi, IV→ii — voir le checker), il ne promet plus
+  // qu'un idiome sera tagué. Son unique porteur dans le corpus, `m01-e28`, ne
+  // substitue que par famille : la clé garantissait un zéro.
   return c.requireIdiom !== undefined
-    || c.minEnrichedChords !== undefined
     || c.requiredIdioms !== undefined
-    || c.minSubstitutions !== undefined
     || c.borrowedChords !== undefined
     || c.innerChromaticLine !== undefined;
 }
@@ -506,7 +527,11 @@ export function computeCraft(
     case 'HARMONY_PROGRESSION':
     case 'CHORD_PROGRESSION':
     case 'HARMONIZE_MELODY':
-      return harmonyCraft(analysis, spec, opts.issueIds ?? [], opts.submission?.kind !== 'harmony');
+      // La conduite ne se récompense que là où elle a été JUGÉE : ni sur une
+      // texture à densité variable (n°32), ni sur une réalisation de clavier
+      // (n°34) — dans les deux cas les familles `vl.*` sont muettes.
+      return harmonyCraft(analysis, spec, opts.issueIds ?? [],
+        opts.submission?.kind !== 'harmony' && spec.texture !== 'keyboard');
     case 'COUNTERPOINT':
       return counterpointCraft(analysis);
     case 'LAYERING':

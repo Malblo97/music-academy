@@ -111,18 +111,27 @@ export const HARMONY_CHECKERS: Record<string, Checker> = {
     if (hit) return ok(`cadence « ${wanted} » à la mesure ${Math.floor(hit.at / 1920) + 1}`);
 
     // **La parfaite et l'imparfaite ne diffèrent que par le SOPRANO** (V→I aux
-    // deux, états fondamentaux aux deux) — et quand la mélodie est FOURNIE, ce
-    // soprano n'appartient pas à l'élève. m02-e15 donne une mélodie « souveraine »
-    // qui finit sur 3̂ et demande une cadence parfaite dans la même consigne :
-    // la seule façon de l'obtenir serait de réécrire la mélodie donnée, ce que
-    // l'exercice interdit. F-41 dit exactement cela — on ne reproche pas à
-    // l'élève ce qu'il n'a pas écrit. L'imparfaite est donc reçue, et le
-    // rapport le DIT plutôt que de le taire.
+    // deux, états fondamentaux aux deux). Deux écritures où ce soprano n'est
+    // pas une décision de l'élève, et où exiger 1̂ au sommet reviendrait à lui
+    // demander de désobéir à sa propre consigne :
+    //
+    //  - la mélodie est FOURNIE (m02-e15 la déclare « souveraine », la fait
+    //    finir sur 3̂, puis demande une parfaite — F-41 : on ne reproche pas à
+    //    l'élève ce qu'il n'a pas écrit) ;
+    //  - l'écriture est de CLAVIER (décision n°34) : le sommet de la main
+    //    droite est une tension ou un guide tone, jamais la tonique nue. C'est
+    //    la loi de voicing que m01-e34 énonce lui-même — « grave vide, guide
+    //    tones, tensions à l'aigu » — et son accord final est un do add9.
+    //
+    // Dans les deux cas l'authentique est reçue, et le rapport le DIT plutôt
+    // que de le taire.
     const givenMelody = typeof ctx.spec.given?.notation === 'string';
-    if (wanted === 'perfect' && givenMelody) {
+    const keyboard = ctx.spec.texture === 'keyboard';
+    if (wanted === 'perfect' && (givenMelody || keyboard)) {
       const authentic = found.find(c => c.kind === 'imperfect');
       if (authentic) {
-        return ok(`cadence authentique V→I à la mesure ${Math.floor(authentic.at / 1920) + 1} ; le soprano ne se pose pas sur 1̂, mais la mélodie est fournie (F-41)`);
+        const why = givenMelody ? 'la mélodie est fournie (F-41)' : 'l\'écriture est de clavier (n°34)';
+        return ok(`cadence authentique V→I à la mesure ${Math.floor(authentic.at / 1920) + 1} ; le soprano ne se pose pas sur 1̂, mais ${why}`);
       }
     }
     return fail(`aucune cadence « ${wanted} » ; trouvé : ${found.map(c => c.kind).join(', ')}`);

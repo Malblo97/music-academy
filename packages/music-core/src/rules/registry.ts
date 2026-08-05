@@ -74,9 +74,19 @@ export function runRules(ctx: RuleCtx, opts: { only?: readonly string[] } = {}):
   const silenced: string[] = [];
   const weights: Record<string, number> = {};
 
+  // **Décision n°34** : sur une réalisation de clavier, il n'y a pas de voix à
+  // suivre. Les familles qui en tracent sont éteintes — et LISTÉES, au même
+  // titre que celles qu'un profil neutralise : « en écriture de clavier, la
+  // main droite est un bloc — la conduite des voix ne s'y juge pas ».
+  const keyboard = ctx.spec.texture === 'keyboard';
+
   for (const r of REGISTRY.values()) {
     if (opts.only && !opts.only.includes(r.id)) continue;
     if (!r.appliesTo.includes(kind)) continue;
+    if (keyboard && r.needsIndependentVoices === true) {
+      silenced.push(r.id);
+      continue;
+    }
     if (isSilenced(r.id, r.weight, profile)) {
       silenced.push(r.id);
       continue;

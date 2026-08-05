@@ -1,5 +1,5 @@
 { "id": "m01-e32-enrich-period", "lessonId": "m01-l17-enrichissements",
-  "title": "Éclaire ta période", "kind": "HARMONY_PROGRESSION",
+  "title": "Éclaire ta période", "kind": "HARMONY_PROGRESSION", "texture": "keyboard",
   "difficulty": 5, "xpReward": 90, "skills": { "HARMONY": 0.8, "MELODY": 0.2 },
   "spec": { "prompt": "Reprends la grille de ta période (e29) — ou la grille fournie — et applique la méthode l17 §4 : niveau d'enrichissement cohérent, D plus net que T/S, et garde UNE triade nue comme événement (place-la en conscience : c'est elle qu'on entendra).",
     "given": { "key": { "tonic": 7, "mode": "major" },

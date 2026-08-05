@@ -27,6 +27,7 @@ function analyse(ctx: RuleCtx, ruleId: string): Issue[] {
 export const VL_RULES: Rule[] = [
   {
     id: 'vl.parallel-perfects',
+    needsIndependentVoices: true,
     severity: 'error',
     weight: 1,
     appliesTo: ['voices', 'parts', 'midi'],
@@ -45,6 +46,7 @@ export const VL_RULES: Rule[] = [
   },
   {
     id: 'vl.leading-tone-resolution',
+    needsIndependentVoices: true,
     severity: 'error',
     weight: 1,
     appliesTo: ['voices', 'parts', 'midi'],
@@ -60,6 +62,7 @@ export const VL_RULES: Rule[] = [
   },
   {
     id: 'vl.spacing',
+    needsIndependentVoices: true,
     severity: 'warning',
     weight: 1,
     appliesTo: ['voices', 'parts', 'midi'],
@@ -75,6 +78,7 @@ export const VL_RULES: Rule[] = [
   },
   {
     id: 'vl.doubled-leading-tone',
+    needsIndependentVoices: true,
     severity: 'error',
     weight: 1,
     appliesTo: ['voices', 'parts', 'midi'],

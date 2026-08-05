@@ -1,5 +1,5 @@
 { "id": "m01-e28-family-substitution", "lessonId": "m01-l15-fonctions",
-  "title": "Même récit, autre lumière", "kind": "HARMONY_PROGRESSION",
+  "title": "Même récit, autre lumière", "kind": "HARMONY_PROGRESSION", "texture": "keyboard",
   "difficulty": 4, "xpReward": 70, "skills": { "HARMONY": 1.0 },
   "spec": { "prompt": "Voici I–IV–V7–I en la majeur. Produis une variante où AU MOINS DEUX accords sont remplacés par leur doublure de famille (vi pour I, ii pour IV…) — le récit T-S-D-T doit rester intact, seule la lumière change. Compare les deux à l'oreille avant de soumettre.",
     "given": { "key": { "tonic": 9, "mode": "major" },

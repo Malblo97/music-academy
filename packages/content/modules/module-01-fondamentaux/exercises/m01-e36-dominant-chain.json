@@ -1,5 +1,5 @@
 { "id": "m01-e36-dominant-chain", "lessonId": "m01-l19-dominantes-secondaires",
-  "title": "Le toboggan des quintes", "kind": "HARMONY_PROGRESSION",
+  "title": "Le toboggan des quintes", "kind": "HARMONY_PROGRESSION", "texture": "keyboard",
   "difficulty": 6, "xpReward": 100, "skills": { "HARMONY": 1.0 },
   "spec": { "prompt": "Écris la chaîne E7 → A7 → D7 → G7 → C (une mesure par accord), voicings guide-tones (l13 §5) : à chaque maillon, la septième de l'un descend vers la tierce du suivant. Si tes guide tones zigzaguent au lieu de descendre en escalier chromatique, recommence — c'est TOUT l'exercice.",
     "given": { "key": { "tonic": 0, "mode": "major" } },

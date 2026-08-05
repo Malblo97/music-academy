@@ -58,6 +58,19 @@ export interface StyleProfileRef {
 export interface ExerciseSpec {
   id: string;
   kind?: string;
+  /**
+   * **L'ÉCRITURE attendue** — `kind` dit ce qu'on produit, `texture` dit
+   * comment c'est disposé (décision n°34).
+   *
+   * `choral` (le défaut, appliqué partout où rien n'est déclaré) : des voix
+   * indépendantes, que la conduite juge. `keyboard` : une réalisation au
+   * clavier — fondamentale à la main gauche, bloc de guide tones et de tensions
+   * à la main droite. Un bloc n'a pas de voix : son sommet n'est pas un
+   * soprano, ses notes intérieures ne sont pas des lignes, et les familles
+   * `vl.*`/`cp.*` n'ont rien à y suivre. Elles sont alors ÉTEINTES et NOMMÉES
+   * dans `silencedRules` — jamais tues en silence.
+   */
+  texture?: 'choral' | 'keyboard';
   lessonId?: string;
   constraints?: Record<string, unknown>;
   styleProfile?: StyleProfileRef;
@@ -109,6 +122,18 @@ export interface Rule {
   /** Poids par défaut, re-pondérable par profil jusqu'à 0. */
   weight: number;
   appliesTo: readonly SubmissionKind[];
+  /**
+   * **La règle SUIT-ELLE une ligne d'un accord au suivant ?**
+   *
+   * `appliesTo` dit de quelle FORME de soumission la règle sait parler ;
+   * ceci dit de quelle ÉCRITURE. Les familles `vl.*` et `cp.*` jugent des voix
+   * indépendantes — le soprano de cet accord contre le soprano du suivant. Sur
+   * une réalisation de clavier, ces voix n'existent pas : la main droite est un
+   * bloc dont le sommet change de fonction à chaque position, la main gauche
+   * est une fondamentale. Leur appliquer la conduite, c'est juger des lignes
+   * que personne n'a écrites (décision n°34, `ExerciseSpec.texture`).
+   */
+  needsIndependentVoices?: boolean;
   detect(ctx: RuleCtx): Issue[];
   pedagogy: Pedagogy;
   lessonRef: string;
