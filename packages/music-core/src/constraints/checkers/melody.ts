@@ -7,7 +7,7 @@ import { barCount, meterOfSpec } from '../../meter.js';
 import { arrivalKeyOf } from '../../pipeline/evaluate.js';
 import { barTicks } from '../../analyzers/rhythm.js';
 import { scalePcs } from '../../analyzers/key.js';
-import { tensionClimaxRange, tensionSpread } from '../../analyzers/tension.js';
+import { climaxPlateau, tensionSpread } from '../../analyzers/tension.js';
 import type { KeyEstimate } from '../../analyzers/key.js';
 import type { RuleCtx } from '../../rules/types.js';
 
@@ -285,7 +285,10 @@ export const MELODY_CHECKERS: Record<string, Checker> = {
     // sommets sont des plateaux. La contrainte est tenue si le plateau du
     // climax RENCONTRE la fenêtre demandée — exiger qu'un index tombe dans
     // l'intervalle prétendrait une précision que la mesure n'a pas.
-    const plateau = tensionClimaxRange(ctx.analysis.tension ?? []);
+    //
+    // La courbe lue est `climax`, la saillance dédiée à la localisation, et non
+    // `tension` : décision n°38, après mesure du cumul de mandats.
+    const plateau = climaxPlateau(ctx.analysis.climax ?? []);
     if (plateau === null) return ok('aucun climax mesurable');
     const pct = (x: number) => Math.round(x * 100);
     return plateau[0] <= range[1] && plateau[1] >= range[0]

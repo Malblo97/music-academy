@@ -1,6 +1,6 @@
 import { expect } from 'vitest';
 import { parseNotation } from '../../../src/notation/parse.js';
-import { archFit, resample, tensionCurve } from '../../../src/analyzers/tension.js';
+import { archFit, climaxPlateau, climaxSalience, resample, tensionCurve } from '../../../src/analyzers/tension.js';
 import { detectCollection } from '../../../src/analyzers/collection.js';
 import { MOOD_ALIASES, MOOD_TEMPLATES, moodTemplate } from '../../../src/data/moods.js';
 
@@ -148,9 +148,68 @@ export const fixtures: Fixture[] = [
     },
   },
   {
+    name: 'salience-locates-the-declared-summit',
+    run: () => {
+      // LE FAIT QUE LA MESURE EXISTE POUR PRODUIRE. `m02-s21` chiffre son
+      // sommet dans ses propres `authorNotes` — « climax F5 tenu à 62,5 % » —
+      // et ce chiffre est ANTÉRIEUR au moteur. Le plateau de saillance doit le
+      // contenir. La courbe de TENSION, elle, répondait 38–63 % : elle
+      // rencontrait la cible par le bord, avec une région deux fois trop large.
+      const notes = parseNotation(S21);
+      const plateau = climaxPlateau(climaxSalience(notes));
+      expect(plateau).not.toBeNull();
+      expect(plateau![0]).toBeLessThanOrEqual(0.625);
+      expect(plateau![1]).toBeGreaterThanOrEqual(0.625);
+    },
+  },
+  {
+    name: 'salience-is-not-the-tension-curve',
+    run: () => {
+      // LES DEUX COURBES SONT DISTINCTES, ET C'EST LE POINT (décision n°38).
+      // Même longueur, mêmes fenêtres, même normalisation — mais deux termes
+      // contre quatre, parce qu'elles ne répondent pas à la même question.
+      // Si un jour ce test devient vrai à l'égalité, c'est que quelqu'un a
+      // rebranché la localisation sur la tension : le finding serait perdu.
+      const notes = parseNotation(S21);
+      const salience = climaxSalience(notes);
+      const tension = tensionCurve(notes);
+      expect(salience).toHaveLength(tension.length);
+      expect(salience).not.toEqual(tension);
+    },
+  },
+  {
+    name: 'holding-is-density-turned-round',
+    run: () => {
+      // LE TERME DE TENUE, ISOLÉ. Deux mesures de même registre : la première
+      // martèle huit croches, la seconde TIENT une ronde. La densité de la
+      // passe 12 aurait fait monter la première ; la tenue fait monter la
+      // seconde — et c'est la seconde qui est une arrivée.
+      const battu = climaxSalience(parseNotation('C4:e C4:e C4:e C4:e C4:e C4:e C4:e C4:e | C4:w'));
+      expect(battu[battu.length - 1]!).toBeGreaterThan(battu[0]!);
+    },
+  },
+  {
+    name: 'salience-ignores-the-truncated-tail',
+    run: () => {
+      // LA DERNIÈRE FENÊTRE EST PRESQUE TOUJOURS TRONQUÉE — `windowsOf` coupe à
+      // la demi-mesure, pas à la dernière note. Créditer cette fenêtre de sa
+      // largeur NOMINALE y plaçait une tenue pleine, donc le climax, sur un
+      // reste de queue : c'est ce qui arrivait à `m02-s29`, dont le sommet
+      // partait sur la toute dernière croche. Ici, une pièce dont l'arche
+      // culmine au milieu ne doit pas voir son climax filer à la fin à cause
+      // d'un débord de 1/8 de mesure.
+      const notes = parseNotation('C4:q D4:q E4:q F4:q | G4:h A5:h | G4:q F4:q E4:q D4:q | C4:q');
+      const plateau = climaxPlateau(climaxSalience(notes));
+      expect(plateau).not.toBeNull();
+      expect(plateau![0]).toBeLessThan(0.9);
+    },
+  },
+  {
     name: 'empty-curve',
     run: () => {
       expect(tensionCurve([])).toEqual([]);
+      expect(climaxSalience([])).toEqual([]);
+      expect(climaxPlateau([])).toBeNull();
       expect(archFit([], 'default').fit).toBe(0);
     },
   },

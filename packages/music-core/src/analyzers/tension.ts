@@ -42,6 +42,23 @@ const DEFAULT_WEIGHTS: Record<TensionTerm, number> = {
   surprise: 0.5,
 };
 
+/**
+ * Les deux termes de la SAILLANCE DE CLIMAX — la mesure dédiée à la
+ * localisation (décision n°38). Voir `climaxSalience`.
+ */
+export type SalienceTerm = 'pitch' | 'holding';
+
+/**
+ * Deux pour la hauteur, un pour la tenue. Le rapport est le seul réglage de la
+ * mesure, et il est plat : de 0,3 à 0,6 de tenue pour une hauteur, le banc rend
+ * 9/11 sans bouger. Ce n'est pas un poids ajusté au corpus, c'est un ordre de
+ * grandeur — la hauteur décide, la tenue arbitre les ex æquo.
+ */
+const SALIENCE_WEIGHTS: Record<SalienceTerm, number> = {
+  pitch: 2,
+  holding: 1,
+};
+
 /** Intervalles « durs » comptés dans la dissonance : seconde mineure, triton, septième majeure. */
 const HARD_INTERVALS = new Set([1, 6, 11]);
 
@@ -188,6 +205,29 @@ function dissonanceOf(w: Window, collection: ReadonlySet<number>): number {
   return outside + hard;
 }
 
+/**
+ * **La TENUE d'une fenêtre** : la durée moyenne des notes qui y sont ATTAQUÉES.
+ *
+ * C'est le terme de densité RETOURNÉ, dans l'unité que la musique lui donne. Le
+ * banc de la passe 12 a mesuré que la densité travaille CONTRE le sommet : au
+ * moment où la hauteur culmine, les attaques se raréfient. Compter les attaques
+ * fait donc baisser la courbe précisément là où l'arrivée se produit. Mesurer
+ * ce que ces attaques DURENT dit la même chose à l'endroit.
+ *
+ * Sans attaque, c'est une tenue qui TRAVERSE la fenêtre, et ce qui la mesure
+ * est le temps que la fenêtre passe SONNÉE — pas sa largeur nominale. La
+ * nuance n'est pas théorique : la dernière fenêtre d'une pièce est presque
+ * toujours tronquée (`windowsOf` la coupe à la demi-mesure, pas à la dernière
+ * note), et sa largeur nominale y créditait une tenue pleine à ce qui n'était
+ * qu'un reste. Sur `m02-s29`, cela suffisait à placer le climax sur la
+ * toute dernière croche. Une fenêtre entièrement silencieuse rend 0, ce qui est
+ * la seule lecture juste : un silence ne tient rien.
+ */
+function holdingOf(w: Window): number {
+  if (w.attacks.length > 0) return mean(w.attacks.map(n => n.duration));
+  return Math.max(0, ...w.sounding.map(n => Math.min(n.start + n.duration, w.to) - Math.max(n.start, w.from)));
+}
+
 /** Surprise : ce que la fenêtre apporte que la précédente n'annonçait pas. */
 function surpriseOf(w: Window, previous: Window | undefined): number {
   if (!previous) return 0;
@@ -287,6 +327,86 @@ export function archFit(curve: readonly number[], moodId: string): ArchFitResult
 }
 
 /**
+ * **OÙ LA PIÈCE CULMINE — la mesure DÉDIÉE à la localisation** (décision n°38).
+ * Un point 0–1 par demi-mesure, comme `tensionCurve`, et lue par les seuls
+ * consommateurs qui posent la question « OÙ ? » : `climaxWindow`,
+ * `melody.climax`, `melody.tension-placement`.
+ *
+ * Le climax n'est pas la note la plus aiguë. Sur une mélodie seule les deux
+ * coïncident presque toujours, mais dès qu'il y a une texture, elles divorcent,
+ * et c'est la tension qui a raison : `m03-s18 [fonctionnel-etendu]` place son
+ * ré5 aux mesures 9–10 et son VRAI sommet à la sixte augmentée de la mesure 11.
+ * C'était la décision n°36, et elle tient. Ce qu'elle avait de trop court, la
+ * passe 12 l'a chiffré : la courbe de tension, à qui l'on demandait DEPUIS
+ * cette décision de localiser un point, ne retrouvait que 6 des 11 sommets que
+ * le corpus chiffre lui-même, à 11 points de distance moyenne.
+ *
+ * La cause n'était pas un réglage mais un CUMUL DE MANDATS. `archFit` compare
+ * une silhouette à un gabarit, `flatTension` mesure une amplitude, la
+ * localisation cherche un point : les quatre moteurs de la tension servent bien
+ * les deux premiers et brouillent le troisième. Chaque repondération de la
+ * courbe gagnait sur l'un en perdant sur l'autre — d'où une mesure séparée,
+ * dérivée de la même matière (mêmes fenêtres, même z-score F-23) mais pondérée
+ * pour sa seule tâche, qui laisse `archFit` et `flatTension` sur la courbe
+ * qu'ils ont toujours lue.
+ *
+ * DEUX termes, tous deux mesurés sur le banc (`scripts/tension-calibration.ts`) :
+ *  - **la hauteur tenue** — elle porte tout le signal ; seule, elle fait déjà
+ *    mieux que les quatre moteurs réunis (6/11 à 7,7 contre 6/11 à 11,0) ;
+ *  - **la tenue** — la densité retournée dans son unité musicale (`holdingOf`),
+ *    parce que l'arrivée se TIENT.
+ *
+ * Dissonance et surprise en sont ABSENTES, mesurées et écartées : ajoutées à
+ * ces deux-là, elles ne gagnent rien (dissonance 0,25 → 9/11 mais l'erreur
+ * remonte) ou dégradent. Elles restent dans `tensionCurve`, où elles ont leur
+ * place.
+ *
+ * **Résultat sur le banc : 9/11, 4,7 points d'erreur moyenne** — contre 6/11 et
+ * 11,0 pour la courbe de tension sur la même question.
+ */
+export function climaxSalience(input: readonly Note[] | readonly Part[], opts: TensionOpts = {}): number[] {
+  const meter = opts.meter ?? ([4, 4] as Meter);
+  const notes = flatten(input);
+  if (notes.length === 0) return [];
+  const windows = windowsOf(notes, meter);
+  if (windows.length === 0) return [];
+
+  const weights = SALIENCE_WEIGHTS;
+  const pitch = zScore(windows.map(weightedPitch)).map(v => v * weights.pitch);
+  const holding = zScore(windows.map(holdingOf)).map(v => v * weights.holding);
+  const summed = windows.map((_, i) => pitch[i]! + holding[i]!);
+  return minMax(smoothCurve(summed, opts.smoothing ?? DEFAULT_SMOOTHING));
+}
+
+/**
+ * **Le climax est une RÉGION, pas un point.** La courbe a la résolution d'une
+ * demi-mesure et ses sommets sont des plateaux : sur `m03-s18 [modal]`, la
+ * saillance tient son maximum des mesures 9 à 11 — l'auteur écrit « Sommet
+ * m11 », l'argmax brut tombe sur la 10ᵉ, et les deux désignent le même plateau.
+ * Réduire cela à un index puis le comparer à une borne dure fabrique des échecs
+ * qui ne disent rien de la musique : on prétendrait une précision que la mesure
+ * n'a pas.
+ *
+ * La région rendue est la plus longue plage CONTIGUË où la courbe se tient à au
+ * moins `CLIMAX_PLATEAU` de son sommet, celle qui contient l'argmax. Bornes en
+ * fraction de la durée totale. La fonction est agnostique de la courbe qu'on
+ * lui donne ; depuis la décision n°38, ses appelants lui donnent tous
+ * `climaxSalience`.
+ */
+export function climaxPlateau(curve: readonly number[]): [number, number] | null {
+  if (curve.length < 2) return null;
+  const peak = Math.max(...curve);
+  const floor = peak - (peak - Math.min(...curve)) * (1 - CLIMAX_PLATEAU);
+  let argmax = 0;
+  for (let i = 0; i < curve.length; i++) if (curve[i]! > curve[argmax]!) argmax = i;
+  let from = argmax;
+  let to = argmax;
+  while (from > 0 && curve[from - 1]! >= floor) from--;
+  while (to < curve.length - 1 && curve[to + 1]! >= floor) to++;
+  return [from / curve.length, (to + 1) / curve.length];
+}
+
+/**
  * **La fenêtre de climax PROMISE par une ambiance**, dérivée de son propre
  * gabarit — ou `null` quand l'ambiance ne promet aucune arche.
  *
@@ -304,56 +424,6 @@ export function archFit(curve: readonly number[], moodId: string): ArchFitResult
  *    sans relief n'a pas de sommet à placer. C'est le même seuil de variance
  *    que celui qui fait basculer `archFit` en régime de platitude.
  */
-/**
- * **OÙ LA PIÈCE CULMINE** — la position du sommet de la courbe de tension, en
- * fraction de la durée totale. C'est cette valeur que lisent `climaxWindow` et
- * `melody.climax` (décision n°36).
- *
- * Le climax n'est pas la note la plus aiguë. Sur une mélodie seule les deux
- * coïncident presque toujours — `tensionCurve` pèse la hauteur — mais dès qu'il
- * y a une texture, elles divorcent, et c'est la tension qui a raison :
- * `m03-s18 [fonctionnel-etendu]` place son ré5 aux mesures 9–10 et son VRAI
- * sommet à la sixte augmentée de la mesure 11, que ses `authorNotes` désignent
- * comme « l'avant-climax » et associent à son archFit. Le moteur se
- * contredisait d'ailleurs déjà tout seul : `expectedClimaxWindow` DÉRIVE sa
- * fenêtre du pic du gabarit de TENSION, et `melody.climax` y comparait un pic
- * de HAUTEUR.
- *
- * La résolution est celle de la courbe — une demi-mesure. En cas d'ex æquo
- * après lissage, le DERNIER sommet, même raison qu'en `climaxPosition` : ce qui
- * précède n'était qu'une visite.
- */
-export function tensionClimaxPosition(curve: readonly number[]): number | null {
-  const range = tensionClimaxRange(curve);
-  return range === null ? null : (range[0] + range[1]) / 2;
-}
-
-/**
- * **Le climax est une RÉGION, pas un point.** La courbe a la résolution d'une
- * demi-mesure et ses sommets sont des plateaux : sur `m03-s18 [modal]`, la
- * tension tient son maximum des mesures 9 à 11 — l'auteur écrit « Sommet m11 »,
- * l'argmax brut tombe sur la 10ᵉ, et les deux désignent le même plateau.
- * Réduire cela à un index puis le comparer à une borne dure fabrique des échecs
- * qui ne disent rien de la musique : on prétendrait une précision que la mesure
- * n'a pas.
- *
- * La région rendue est la plus longue plage CONTIGUË où la courbe se tient à au
- * moins `CLIMAX_PLATEAU` de son sommet, celle qui contient l'argmax. Bornes en
- * fraction de la durée totale.
- */
-export function tensionClimaxRange(curve: readonly number[]): [number, number] | null {
-  if (curve.length < 2) return null;
-  const peak = Math.max(...curve);
-  const floor = peak - (peak - Math.min(...curve)) * (1 - CLIMAX_PLATEAU);
-  let argmax = 0;
-  for (let i = 0; i < curve.length; i++) if (curve[i]! > curve[argmax]!) argmax = i;
-  let from = argmax;
-  let to = argmax;
-  while (from > 0 && curve[from - 1]! >= floor) from--;
-  while (to < curve.length - 1 && curve[to + 1]! >= floor) to++;
-  return [from / curve.length, (to + 1) / curve.length];
-}
-
 export function expectedClimaxWindow(moodId: string, tolerance = 0.2): [number, number] | null {
   if (!(moodId in MOOD_TEMPLATES)) return null;
   const template = moodTemplate(moodId);

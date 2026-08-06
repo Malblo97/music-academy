@@ -44,8 +44,14 @@ export interface AnalysisBundle {
   phrases?: PhraseAnalysis;
   rhythm?: RhythmProfile;
   collection?: CollectionResult | null;
-  /** Courbe de tension, un point par demi-mesure. */
+  /** Courbe de tension, un point par demi-mesure. Silhouette et amplitude. */
   tension?: readonly number[];
+  /**
+   * Saillance de climax, un point par demi-mesure — la mesure DÉDIÉE à la
+   * localisation (décision n°38). Répond à « OÙ ça culmine ? », et à rien
+   * d'autre : la forme et l'amplitude se lisent sur `tension`.
+   */
+  climax?: readonly number[];
 }
 
 export interface StyleProfileRef {

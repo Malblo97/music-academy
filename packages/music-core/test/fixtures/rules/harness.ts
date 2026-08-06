@@ -10,7 +10,7 @@ import { findMotifs } from '../../../src/analyzers/motifs.js';
 import { contour } from '../../../src/analyzers/contour.js';
 import { phraseAnalysis } from '../../../src/analyzers/phrase.js';
 import { rhythmProfile } from '../../../src/analyzers/rhythm.js';
-import { tensionCurve } from '../../../src/analyzers/tension.js';
+import { climaxSalience, tensionCurve } from '../../../src/analyzers/tension.js';
 import { markGivenTicks } from '../../../src/constraints/window.js';
 import type { AnalysisBundle, ExerciseSpec, RuleCtx, StyleProfileRef } from '../../../src/rules/types.js';
 import type { Meter, Note, Part, Submission } from '../../../src/types.js';
@@ -102,6 +102,9 @@ export function buildCtx(input: CaseInput): RuleCtx {
     phrases: phraseAnalysis(notes, METER),
     rhythm: rhythmProfile(notes, METER),
     tension: tensionCurve(notes),
+    // Le banc doit monter le MÊME bundle que `runAnalyzers` : depuis la
+    // décision n°38, la localisation du climax se lit sur sa courbe dédiée.
+    climax: climaxSalience(notes),
   };
   analysis.estimatedKey = estimated;
   if (voices) analysis.voices = voices;

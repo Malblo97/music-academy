@@ -477,6 +477,15 @@ for (const s of loadSolutions(['m01','m02','m03'])) {
 
 ✅ **SEMAINES 5–6 FINIES QUAND** : verrou n°2 vert sur **87/87** (M1 27, M2 29, M3 31) ; le snapshot du rapport m03-e02 figé ; `lock2-run.md` raconte chaque rouge ; tag `v0.2-engine-core`.
 
+> **Fait (passe 13, décision n°38) — la mesure dédiée à la localisation.**
+> `climaxSalience` : hauteur tenue + tenue, deux termes, mêmes fenêtres et même
+> z-score F-23 que la courbe de tension, qui n'est pas touchée. Sur les onze
+> sommets que le corpus chiffre lui-même : **9/11, 4,7 points d'erreur** (contre
+> 6/11 et 11,0 pour la courbe de tension sur la même question).
+> **Le verrou, lui, reste à 73/86** : une contrainte réparée (`m02-s30 [elena]`),
+> trois issues fausses supprimées, une pièce qui régresse de 87 à 85 — aucune
+> bascule. Gains, coût et points ouverts : `docs/qa/lock2-run.md` § passe 13.
+
 ---
 
 # SEMAINES 7–8 — WORKER, MIDI, GÉNÉRATEUR (verrou n°5)

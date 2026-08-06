@@ -331,7 +331,17 @@ export const fixtures: Fixture[] = [
       // « triste » promet (47–87 %), HORS de celle de l'épique, qui culmine
       // beaucoup plus tard (67–100 %). Une même ligne, deux verdicts, parce que
       // les deux ambiances ne promettent pas la même chose.
-      const line: CaseInput = { notation: 'C4:q D4:q E4:q F4:q | G4:q A4:q B4:q C5:q | E5:h C5:h | G4:q E4:q C4:h' };
+      //
+      // La ligne fait HUIT mesures, et pas quatre comme à l'origine : la mesure
+      // de localisation lisse sur cinq demi-mesures (± une mesure), ce qui sur
+      // quatre mesures étale le plateau sur la moitié de la pièce et ne
+      // distingue plus 50 % de 67 %. Ce que la fixture affirme — la fenêtre
+      // vient du GABARIT — reste intact ; c'est la pièce d'essai qui était trop
+      // courte pour que la question se pose. Sur huit mesures, le plateau tombe
+      // à 44–63 % et les deux verdicts se séparent nettement.
+      const line: CaseInput = { notation:
+        'C4:q D4:q E4:q F4:q | G4:q A4:q B4:q C5:q | D5:q C5:q B4:q A4:q | B4:q C5:q D5:q E5:q | ' +
+        'G5:h E5:h | C5:q B4:q A4:q G4:q | F4:q E4:q D4:q C4:q | C4:w' };
       expect(fires('melody.climax', { ...line, styleProfile: { id: 'classical-common', targetMood: 'sad' } }),
         'le sommet est dans la fenêtre du gabarit triste').toBe(false);
       expect(fires('melody.climax', { ...line, styleProfile: { id: 'epic-film', targetMood: 'epic' } }),

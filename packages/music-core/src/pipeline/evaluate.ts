@@ -14,7 +14,7 @@ import { findMotifs } from '../analyzers/motifs.js';
 import { contour } from '../analyzers/contour.js';
 import { phraseAnalysis } from '../analyzers/phrase.js';
 import { rhythmProfile, barTicks } from '../analyzers/rhythm.js';
-import { tensionCurve } from '../analyzers/tension.js';
+import { climaxSalience, tensionCurve } from '../analyzers/tension.js';
 import { markGivenTicks } from '../constraints/window.js';
 import { checkConstraints } from '../constraints/checkers/index.js';
 import type { ConstraintReport } from '../constraints/checkers/index.js';
@@ -301,6 +301,10 @@ export function runAnalyzers(submission: Submission, spec: ExerciseSpec, window:
     phrases: phraseAnalysis(line, meter),
     rhythm: rhythmProfile(line, meter, inverted ? { inverted: true } : {}),
     tension: tensionCurve(notes),
+    // Deux courbes, deux questions. La tension dit la FORME et l'AMPLITUDE ;
+    // la saillance dit OÙ. Elles partagent leurs fenêtres et leur z-score, pas
+    // leurs termes — décision n°38.
+    climax: climaxSalience(notes),
   };
 
   if (submission.kind === 'voices') analysis.voices = submission.voices;

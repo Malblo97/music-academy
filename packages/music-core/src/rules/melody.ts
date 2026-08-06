@@ -3,7 +3,7 @@ import type { Rule, RuleCtx } from './types.js';
 import { judgedLine, judgedNotes, ruleIssue } from './types.js';
 import { scalePcs } from '../analyzers/key.js';
 import { STRICT_COVERAGE } from '../analyzers/collection.js';
-import { expectedClimaxWindow, tensionClimaxRange } from '../analyzers/tension.js';
+import { climaxPlateau, expectedClimaxWindow } from '../analyzers/tension.js';
 import type { CollectionFamily } from '../analyzers/collection.js';
 
 /** Les collections qui constituent une grammaire de rechange assumée. */
@@ -222,7 +222,9 @@ export const MELODY_RULES: Rule[] = [
       // `climaxExpectation` dérive, elle, du gabarit de TENSION. Les deux
       // lectures cohabitaient sous le même identifiant, avec deux chiffres
       // différents pour une seule affirmation.
-      const plateau = tensionClimaxRange(ctx.analysis.tension ?? []);
+      // **Décision n°38** : et la courbe qui répond est la saillance dédiée,
+      // pas la courbe de tension, qui servait trois maîtres à la fois.
+      const plateau = climaxPlateau(ctx.analysis.climax ?? []);
       if (plateau && !(plateau[0] <= hi && plateau[1] >= lo)) {
         issues.push(ruleIssue(self, Math.round(plateau[0] * total),
           `la tension culmine entre ${Math.round(plateau[0] * 100)} et ${Math.round(plateau[1] * 100)} % de la pièce — la fenêtre attendue est ${Math.round(lo * 100)}–${Math.round(hi * 100)} %`));
@@ -405,7 +407,12 @@ export const MELODY_RULES: Rule[] = [
     appliesTo: ['mono', 'harmony', 'voices', 'parts', 'midi'],
     lessonRef: 'm02-l10',
     detect: (ctx: RuleCtx): Issue[] => {
-      const curve = ctx.analysis.tension;
+      // « Où la tension culmine » est la MÊME affirmation que celle de
+      // `melody.climax` : les deux règles doivent la lire sur la même courbe,
+      // sous peine de sortir deux chiffres pour un seul fait dans un seul
+      // rapport — exactement la contradiction que la décision n°36 avait
+      // corrigée entre hauteur et tension. C'est donc la saillance (n°38).
+      const curve = ctx.analysis.climax;
       if (!curve || curve.length < 4) return [];
       // Même périmètre que `melody.climax` : sa `when` dit « dès qu'une AMBIANCE
       // EST VISÉE ». Sans arche promise, il n'y a rien à placer.

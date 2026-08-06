@@ -31,6 +31,7 @@ le corpus y compris les verts, `--by-cause` pour le classement des blocages).
 | Passe 10 — J-0 à J-4 (le dossier M3, et les sous-parties enfin résolues) | 24/27 | 20/28 | 28/31 | **72 pleinement verts sur 86** |
 | Passe 11 — K-0 à K-2 (le climax est un fait de tension) | 24/27 | 20/28 | 29/31 | **73 pleinement verts sur 86** |
 | Passe 12 — L-0 à L-3 (courbe de tension : résultat NÉGATIF, rien livré) | 24/27 | 20/28 | 29/31 | **73 pleinement verts sur 86** |
+| Passe 13 — M-1 à M-4 (la mesure dédiée à la localisation) | 24/27 | 20/28 | 29/31 | **73 pleinement verts sur 86** |
 
 À la passe 8, les dénominateurs redeviennent ceux du corpus entier : le lot B
 n'est plus hors périmètre (H-1). À la passe 10, **72/86**, 14 rouges — et le
@@ -1436,3 +1437,119 @@ ont toujours lue. C'est un travail de conception, pas de calibrage, et il sort d
 périmètre de cette passe.
 
 **Le verrou n'est pas vert, le tag `v0.2-engine-core` n'est pas posé.**
+
+---
+
+## Passe 13 — la mesure dédiée à la localisation
+
+**73 → 73.** Le compte du verrou ne bouge pas. Ce qui bouge, c'est l'instrument :
+la question « où ça culmine ? » a maintenant une mesure à elle, et sur la vérité
+terrain de la passe 12 elle passe de **6/11 à 9/11**, l'erreur moyenne de **11,0
+à 4,7 points**. C'est la piste que la passe 12 avait identifiée sans l'ouvrir, et
+elle tient ce qu'elle promettait — mais pas au tableau du verrou, et la suite le
+dit sans arrondir.
+
+### M-1 — ce que la mesure est
+
+`climaxSalience` (`analyzers/tension.ts`), un point par demi-mesure comme la
+courbe de tension, **mêmes fenêtres, même z-score F-23, deux termes au lieu de
+quatre** :
+
+| terme | ce qu'il dit | pourquoi lui |
+|---|---|---|
+| hauteur tenue (poids 2) | la hauteur moyenne de la fenêtre, pondérée par la durée sonnée | la passe 12 l'a mesuré : seule, elle bat les quatre moteurs réunis (6/11 à 7,7 contre 6/11 à 11,0) |
+| tenue (poids 1) | la durée moyenne des notes ATTAQUÉES dans la fenêtre | c'est le terme de densité **retourné**. La passe 12 avait trouvé que la densité travaille CONTRE le sommet — l'arrivée se TIENT, les attaques s'y raréfient. Compter les attaques faisait baisser la courbe là où l'événement se produit ; mesurer ce que ces attaques durent dit la même chose à l'endroit |
+
+Dissonance et surprise en sont absentes, **mesurées et écartées** : ajoutées à ces
+deux-là, elles ne gagnent rien (0,25 de dissonance → 9/11 mais l'erreur remonte)
+ou dégradent (0,5 → 8/11). Elles restent dans `tensionCurve`, où elles servent.
+
+Le rapport 2:1 n'est pas un poids ajusté au corpus : de 0,3 à 0,6 de tenue pour
+une hauteur, le banc rend 9/11 sans bouger, et **six définitions différentes de
+la « tenue » atteignent toutes 9/11** dans cette bande (durée par attaque, durée
+par voix, durée par polyphonie, densité négative…). C'est le TERME qui compte,
+pas sa formule — un résultat plus solide qu'un réglage qui tomberait juste.
+
+`tensionCurve` n'est pas touchée. `archFit`, `flatTension`,
+`tensionHarmonyCoupling` lisent exactement ce qu'ils lisaient : c'est la
+différence de fond avec la passe 12, où toute amélioration de la localisation se
+payait sur l'une des deux autres lectures.
+
+### M-2 — un artefact trouvé en route : la fenêtre de queue
+
+Première version passée au banc : 9/11, et une régression au verrou sur
+`m02-s29`, dont le climax partait sur la **toute dernière croche**. Diagnostic :
+`windowsOf` coupe à la demi-mesure, pas à la dernière note, donc la dernière
+fenêtre d'une pièce est presque toujours TRONQUÉE — et la tenue y était créditée
+de la largeur NOMINALE de la fenêtre. Un reste de queue comptait pour une tenue
+pleine. Comme une pièce finit presque toujours sur une note longue, le biais
+était systématique et pointait vers la fin à chaque fois.
+
+Correctif : sans attaque, la tenue vaut le temps que la fenêtre passe **sonnée**,
+pas sa largeur. Effet de bord réparé au passage : une fenêtre entièrement
+silencieuse rendait la tenue MAXIMALE, elle rend maintenant 0 — un silence ne
+tient rien. Fixture `salience-ignores-the-truncated-tail`.
+
+### M-3 — le compte exact au verrou, gains et coût
+
+Total inchangé, mais quatre pièces bougent et une régresse. Le détail, parce que
+c'est lui qui vaut décision :
+
+| | avant | après |
+|---|---|---|
+| `m02-s30 [elena]` — contrainte `climaxWindow` | **ROUGE** (43–50 %, fenêtre 55–75 %) | **VERTE**, et l'issue `melody.climax` disparaît (79 → 83) |
+| `m02-s21`, `m03-s14`, `m03-s18 [fonct.-étendu]` | une issue `melody.tension-placement` chacune | disparues — le placement mesuré était faux (89 → 90, 98 → 99, 81 → 82) |
+| `m03-s18 [fonct.-étendu]` — `climaxWindow` | rouge, climax mesuré 31–41 % (fenêtre 60–78 %) | **toujours rouge**, mais 50–59 % : l'écart est divisé par deux |
+| `m02-s29` | 87 | **85**, une issue `melody.climax` en plus |
+
+Aucune de ces pièces ne bascule au vert (elles sont rouges pour d'autres motifs —
+`noteRange`, `phraseStructure`, `maxVoices`), aucune ne bascule au rouge. D'où
+73 → 73.
+
+**Le coût est `m02-s29`, et il est réel.** La pièce est une ballade jazz dont le
+registre culmine à la PREMIÈRE mesure (si♭4, réatteint mesure 6) alors que sa
+pointe déclarée est harmonique : « les pics sur les tensions (la♭ = 9 de sol♭7) »,
+mesure 6, ≈ 65 %. La courbe de tension trouvait 59–71 % — juste ; la saillance
+trouve 12–18 % — faux. C'est le contre-exemple exact de « la hauteur porte tout ».
+Réintroduire la dissonance a été essayé à quatre poids : **elle ne récupère pas
+ce cas**, à aucun (12–18 % partout), et coûte au banc dès 0,5. La pièce reste
+verte, mais à 85 pile — la marge est nulle et c'est consigné comme tel.
+
+Question ouverte que ce cas soulève, plus large que la mesure : `jazz_ballad`
+promet une arche à une pièce qui n'en déclare aucune (`contourShape` absent), et
+`melody.climax` y tirait déjà une issue avant cette passe. C'est l'inférence
+ambiance → arche qui est à instruire, pas la localisation.
+
+### M-4 — ce qui a bougé autour
+
+- `melody.tension-placement` lit désormais la même courbe que `melody.climax`.
+  Les deux affirment « la tension culmine à X % » : les laisser sur deux courbes
+  différentes aurait remis DEUX chiffres pour un seul fait dans un même rapport
+  — la contradiction que la décision n°36 avait corrigée entre hauteur et
+  tension, refaite un cran plus loin.
+- `tensionClimaxRange` → `climaxPlateau` (elle n'extrait pas un plateau *de
+  tension*, elle extrait un plateau) ; `tensionClimaxPosition`, jamais appelée
+  nulle part, supprimée.
+- La fixture `melody.climax — la fenêtre vient du GABARIT` passe de 4 à 8
+  mesures. Sa pièce d'essai était trop courte : lissée sur ± une mesure, une
+  ligne de 4 mesures étale son plateau sur la moitié de la pièce et ne distingue
+  plus 50 % de 67 %. Ce que la fixture affirme est inchangé et les deux verdicts
+  se séparent maintenant nettement (plateau 44–63 %).
+- Quatre fixtures neuves dans `test/fixtures/tension/`, dont
+  `salience-is-not-the-tension-curve` : si un jour ce test devient vrai à
+  l'égalité, c'est que quelqu'un a rebranché la localisation sur la tension.
+- Le banc `scripts/tension-calibration.ts` mesure désormais **les deux courbes
+  côte à côte** sur la même vérité terrain : c'est la comparaison qui est la
+  preuve, pas le chiffre isolé.
+- Suite complète : **29 échecs avant, 29 après, les mêmes** (les rouges connus du
+  round-trip strict, décision n°18). `tsc` et `eslint` verts.
+
+### Ce que la passe conclut
+
+L'instrument est réparé, le verrou ne bouge pas. Les deux affirmations sont
+vraies en même temps et il faut les tenir ensemble : la localisation du climax
+n'était plus, depuis la passe 11, un point de blocage du verrou n°2 — elle ne
+bloquait qu'une seule contrainte (`m02-s30 [elena]`), maintenant réparée. Les 13
+rouges restants tiennent à autre chose, et c'est là qu'il faut aller.
+
+**Le verrou n'est pas vert (73/86), le tag `v0.2-engine-core` n'est pas posé.**
